@@ -9,13 +9,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Pretendard", "Noto Sans KR", Arial, Helvetica, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
 }
 
 body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "Noto Sans KR", Arial, Helvetica, sans-serif;
+  font-family: "Pretendard", var(--font-noto-sans-kr), "Noto Sans KR", Arial, Helvetica, sans-serif;
 }

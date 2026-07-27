@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 4refund
 
-## Getting Started
+Next.js 16 App Router 기반 애플리케이션이다. 구현을 시작하기 전에 폴더 구조, 주석, 품질 게이트를 저장소 규칙으로 고정한다.
 
-First, run the development server:
+## 시작하기
 
 ```bash
+nvm use
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+로컬 주소는 기본값인 `http://localhost:3000`이다.
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+## 필수 검사
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run check
+```
 
-## Learn More
+이 명령은 포맷, ESLint, TypeScript, 폴더 구조, 주석, 검사 스크립트 테스트, 프로덕션 빌드를 순서대로 실행한다. GitHub Actions도 같은 명령을 사용한다.
 
-To learn more about Next.js, take a look at the following resources:
+## 엔지니어링 문서
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [엔지니어링 규칙 안내](docs/engineering/README.md)
+- [폴더 구조와 의존성 방향](docs/engineering/architecture.md)
+- [코드와 주석 컨벤션](docs/engineering/code-conventions.md)
+- [로컬 검사와 CI 운영](docs/engineering/quality-gates.md)
+- [기여 절차](CONTRIBUTING.md)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+프레임워크 동작은 인터넷의 임의 예제가 아니라 설치된 `next@16.2.11`의 `node_modules/next/dist/docs/`를 우선 기준으로 삼는다.

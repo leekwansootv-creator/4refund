@@ -2,11 +2,23 @@
   "name": "4refund",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.15.0 <23",
+    "npm": ">=10.9.0 <11"
+  },
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "next typegen && tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "check:comments": "node scripts/check-comments.mjs",
+    "test": "node --test scripts/check-architecture.test.mjs scripts/check-comments.test.mjs",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:architecture && npm run check:comments && npm run test && npm run build"
   },
   "dependencies": {
     "next": "16.2.11",
@@ -20,6 +32,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-jsdoc": "63.3.0",
+    "prettier": "3.9.6",
+    "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

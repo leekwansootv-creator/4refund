@@ -1,0 +1,24 @@
+---
+description: 4refund의 폴더 구조, 주석, 품질 게이트를 항상 적용한다.
+alwaysApply: true
+---
+
+# 4refund 필수 규칙
+
+- 작업 전에 `docs/engineering/README.md`와 작업에 해당하는 세부 문서를 읽는다.
+- Next.js API와 파일 규칙은 설치된 `node_modules/next/dist/docs/`의 관련 가이드를 먼저 확인한다.
+- `src/app`은 라우트와 Next.js 특수 파일만 보유한다.
+- 기능 구현은 `src/features/<feature>`, 비즈니스 의미가 없는 공용 코드는 `src/shared`에 둔다.
+- 같은 의미, 동작, 접근성, 변경 이유를 가진 컴포넌트는 소유 feature 또는 `shared/components`로 공통화한다.
+- 단순히 모양이 같다는 이유로 공통화하거나 boolean prop으로 여러 feature를 한 컴포넌트에 합치지 않는다.
+- 의존성은 `app -> features -> shared` 방향만 허용한다.
+- 다른 feature는 해당 feature의 `index.ts` 공개 진입점으로만 참조한다.
+- 내보내는 함수와 클래스에는 역할과 경계를 설명하는 TSDoc을 작성한다.
+- 비자명한 주석은 무엇보다 왜 그런 제약과 선택이 필요한지를 설명한다.
+- 작업 완료 전 `npm run check`를 통과시킨다.
+
+세부 규칙은 아래 문서를 단일 기준으로 삼는다.
+
+- `docs/engineering/architecture.md`
+- `docs/engineering/code-conventions.md`
+- `docs/engineering/quality-gates.md`

@@ -5,6 +5,11 @@
  */
 export const LANDING_CONTENT = {
   brandName: "4대보험경정청구센터",
+  brandNameParts: {
+    base: "4대보험",
+    emphasis: "경정청구센터",
+  },
+  navigationCallToActionLabel: "무료 진단 신청",
   navigation: [
     { label: "센터 소개", href: "#about" },
     { label: "주요 서비스", href: "#services" },
@@ -12,7 +17,12 @@ export const LANDING_CONTENT = {
     { label: "환급 절차", href: "#process" },
   ],
   hero: {
-    heading: "대표님! 더 낸 4대보험료(세금) 환급받을 권리를 절대 놓치지 마세요!",
+    heading: {
+      firstLine: "대표님! 더 낸 4대보험료(세금)",
+      highlightedText: "환급받을 권리",
+      secondLineSuffix: "를",
+      thirdLine: "절대 놓치지 마세요!",
+    },
     descriptions: [
       "시간이 지나면 국고로 귀속되어 돌려받을 수 없습니다.",
       "복잡하고 까다로운 경정청구, 전문 노무사가 직접 개입하여 단 1원까지 확실하게 찾아드립니다.",
@@ -27,14 +37,15 @@ export const LANDING_CONTENT = {
     description: "4대보험 전문가들이 고객의 권리를 지키고 최상의 결과와 위해 함께합니다.",
     membersHeading: "센터 구성원",
     members: [
-      "이관수 노무사",
-      "김민한 노무사",
-      "박설영 노무사",
-      "김상재 노무사",
-      "이정계 행정사",
-      "외 다수",
+      { name: "이관수", role: "노무사" },
+      { name: "김민한", role: "노무사" },
+      { name: "박설영", role: "노무사" },
+      { name: "김상재", role: "노무사" },
+      { name: "이정계", role: "행정사" },
+      { name: "외 다수", role: null },
     ],
-    directorHeading: "센터장 이관수",
+    directorHeading: "센터장 소개",
+    directorName: "이관수",
     directorCredentials: [
       "성균관대 법학박사",
       "제15회 공인노무사 최연소합격(20년차)",

@@ -1,0 +1,11 @@
+.heroOverlay {
+  background-image:
+    linear-gradient(90deg, rgb(0 0 0 / 20%) 0%, rgb(102 102 102 / 20%) 100%),
+    linear-gradient(90deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 40%) 100%);
+}
+
+.centerOverlay {
+  background-image:
+    linear-gradient(-90deg, rgb(243 247 254 / 0%) 37.578%, #f3f7fe 65.668%),
+    linear-gradient(180deg, rgb(243 247 254 / 0%) 25%, #f3f7fe 47.596%);
+}

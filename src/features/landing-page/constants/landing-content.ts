@@ -107,24 +107,40 @@ export const LANDING_CONTENT = {
     ],
   },
   expertStrengths: {
+    eyebrow: "복잡한 4대보험 환급,",
     heading: "전문가는 다릅니다!",
+    description:
+      "단순 대행이 아닌, 법률적 리스크를 원천\n차단하고 가장 안전한 방식으로 최대의 혜택을\n돌려드리는 것이 저희의 사명입니다.",
     items: [
       {
         id: "remote-consultation",
+        step: "01",
+        iconKey: "globe",
+        assetKey: "remoteConsultation",
+        layout: "image-left",
         title: "비대면 전국 상담",
         description:
-          "전국 어디서나 지역 제한 없이 간편하게 비대면으로 상담 및 서류 접수가 가능합니다.",
+          "전국 어디서나 지역 제한 없이\n간편하게 비대면으로 상담 및\n서류 접수가 가능합니다.",
       },
       {
         id: "success-fee",
+        step: "02",
+        iconKey: "percent",
+        assetKey: "successFee",
+        layout: "image-right",
         title: "성공 보수형 수수료",
         description:
-          "환급 성공 시에만 수수료가 발생하며, 사전 착수금이나 진행 비용은 전혀 없습니다.",
+          "환급 성공 시에만 수수료가 발생하며,\n사전 착수금이나 진행 비용은\n전혀 없습니다.",
       },
       {
         id: "security",
+        step: "03",
+        iconKey: "lock",
+        assetKey: "security",
+        layout: "image-left",
         title: "100% 정보 보안",
-        description: "제출해주신 모든 기업 정보와 개인정보는 암호화되어 철저하게 보안 관리됩니다.",
+        description:
+          "제출해주신 모든 기업 정보와\n개인정보는 암호화되어 철저하게\n보안 관리됩니다.",
       },
     ],
   },

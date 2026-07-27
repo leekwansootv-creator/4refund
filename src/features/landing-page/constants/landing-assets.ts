@@ -8,6 +8,9 @@ export const LANDING_ASSETS = {
     chat: "/assets/landing/icons/chat.svg",
     email: "/assets/landing/icons/email.svg",
     more: "/assets/landing/icons/more.svg",
+    globe: "/assets/landing/icons/globe.svg",
+    percent: "/assets/landing/icons/percent.svg",
+    lock: "/assets/landing/icons/lock.svg",
   },
   images: {
     hero: "/assets/landing/images/hero-refund-desk.png",
@@ -25,6 +28,12 @@ export const LANDING_ASSETS = {
       construction: "/assets/landing/images/refund-case-construction.png",
       service: "/assets/landing/images/refund-case-service.png",
       records: "/assets/landing/images/refund-case-records.png",
+    },
+    expertStrengths: {
+      introduction: "/assets/landing/images/expert-introduction.png",
+      remoteConsultation: "/assets/landing/images/expert-remote-consultation.png",
+      successFee: "/assets/landing/images/expert-success-fee.png",
+      security: "/assets/landing/images/expert-security.png",
     },
   },
 } as const;

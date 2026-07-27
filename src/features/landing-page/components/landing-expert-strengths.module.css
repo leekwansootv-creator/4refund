@@ -1,0 +1,42 @@
+.root {
+  font-family: var(--font-noto-sans-kr), "Noto Sans KR", sans-serif;
+}
+
+.introductionArtwork {
+  position: absolute;
+  top: 0;
+  left: -22.29%;
+  width: 205.12%;
+  max-width: none;
+  height: 100%;
+  filter: drop-shadow(4px 4px 30px rgb(126 161 255 / 30%));
+}
+
+.remoteConsultationArtwork {
+  position: absolute;
+  top: -17.54%;
+  left: -5.5%;
+  width: 112.51%;
+  max-width: none;
+  height: 131.58%;
+  filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
+}
+
+.successFeeArtwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  filter: drop-shadow(4px 4px 30px rgb(126 161 255 / 30%));
+}
+
+.securityArtwork {
+  position: absolute;
+  top: -6.26%;
+  left: -2.64%;
+  width: 121.65%;
+  max-width: none;
+  height: 116.15%;
+  filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
+}

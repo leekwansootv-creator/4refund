@@ -11,6 +11,8 @@ export const LANDING_ASSETS = {
     globe: "/assets/landing/icons/globe.svg",
     percent: "/assets/landing/icons/percent.svg",
     lock: "/assets/landing/icons/lock.svg",
+    arrowUpRight: "/assets/landing/icons/arrow-up-right.svg",
+    location: "/assets/landing/icons/location.svg",
   },
   images: {
     hero: "/assets/landing/images/hero-refund-desk.png",
@@ -34,6 +36,13 @@ export const LANDING_ASSETS = {
       remoteConsultation: "/assets/landing/images/expert-remote-consultation.png",
       successFee: "/assets/landing/images/expert-success-fee.png",
       security: "/assets/landing/images/expert-security.png",
+    },
+    refundProcess: {
+      background: "/assets/landing/images/process-background.png",
+      consultation: "/assets/landing/images/process-consultation.png",
+      analysis: "/assets/landing/images/process-analysis.png",
+      documents: "/assets/landing/images/process-documents.png",
+      refundComplete: "/assets/landing/images/process-refund-complete.png",
     },
   },
 } as const;

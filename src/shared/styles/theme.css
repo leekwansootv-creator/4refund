@@ -1,0 +1,6 @@
+:root {
+  --color-brand-primary: #0074ca;
+  --color-brand-navy: #10294c;
+  --content-max-width: 1280px;
+  --content-inline-padding: clamp(20px, 2.35vw, 45px);
+}

@@ -61,26 +61,49 @@ export const LANDING_CONTENT = {
     description: "사업주님의 소중한 권리, 전문 노무사의 체계적인 분석을 통해 돌려드립니다.",
     items: [
       {
+        assetKey: "hiddenPremium",
         title: "숨은 보험료 진단",
         description:
-          "인지하지 못했던 과오납 4대보험료를 법률적 근거에 기반하여 정확하게 진단합니다.",
+          "인지하지 못했던 과오납 4대보험료를\n법률적 근거에 기반하여 정확하게 진단합니다.",
       },
-      { title: "노무사 직접 검토" },
-      { title: "최대 환급 보장" },
-      { title: "철저한 사후관리" },
+      { assetKey: "laborAttorneyReview", title: "노무사 직접 검토" },
+      { assetKey: "maximumRefund", title: "최대 환급 보장" },
+      { assetKey: "aftercare", title: "철저한 사후관리" },
     ],
   },
   refundCases: {
-    heading: "환급 사례",
+    heading: "기업의 4대보험 환급을 함께합니다.",
+    description:
+      "국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다.",
     items: [
-      { industry: "제조업", company: "(주)삼**", amount: "₩127,663,492" },
-      { industry: "건설업", company: "(주)케**", amount: "₩75,410,246" },
-      { industry: "서비스업", company: "하**", amount: "₩62,768,010" },
-      { industry: "제조업", company: "(주)태**", amount: "₩329,644,006" },
-      { industry: "제조업", company: "**제약", amount: "₩85,925,244" },
-      { industry: "서비스업", company: "코***", amount: "₩135,418,733" },
-      { industry: "도소매업", company: "(주)민**", amount: "₩45,285,402" },
-      { industry: "아웃소싱업", company: "(주)우*", amount: "₩363,490,402" },
+      {
+        assetKey: "office",
+        industry: "제조업",
+        company: "(주)삼**",
+        amount: "₩127,663,492",
+      },
+      {
+        assetKey: "construction",
+        industry: "건설업",
+        company: "(주)케**",
+        amount: "₩75,410,246",
+      },
+      { assetKey: "service", industry: "서비스업", company: "하**", amount: "₩62,768,010" },
+      { assetKey: "records", industry: "제조업", company: "(주)태**", amount: "₩329,644,006" },
+      { assetKey: "office", industry: "제조업", company: "**제약", amount: "₩85,925,244" },
+      {
+        assetKey: "construction",
+        industry: "서비스업",
+        company: "코***",
+        amount: "₩135,418,733",
+      },
+      { assetKey: "service", industry: "도소매업", company: "(주)민**", amount: "₩45,285,402" },
+      {
+        assetKey: "records",
+        industry: "아웃소싱업",
+        company: "(주)우*",
+        amount: "₩363,490,402",
+      },
     ],
   },
   expertStrengths: {

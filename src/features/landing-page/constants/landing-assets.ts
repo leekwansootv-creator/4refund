@@ -1,5 +1,5 @@
 /**
- * Figma 원본에서 추출한 랜딩 페이지 상단 영역의 정적 에셋 경로다.
+ * Figma 원본에서 추출한 랜딩 페이지 정적 에셋 경로다.
  */
 export const LANDING_ASSETS = {
   icons: {
@@ -14,5 +14,17 @@ export const LANDING_ASSETS = {
     centerBackground: "/assets/landing/images/center-introduction-background.png",
     centerMemberPlaceholder: "/assets/landing/images/center-member-placeholder.svg",
     centerDirector: "/assets/landing/images/center-director.png",
+    benefits: {
+      hiddenPremium: "/assets/landing/images/benefit-hidden-premium.png",
+      laborAttorneyReview: "/assets/landing/images/benefit-labor-attorney-review.png",
+      maximumRefund: "/assets/landing/images/benefit-maximum-refund.png",
+      aftercare: "/assets/landing/images/benefit-aftercare.png",
+    },
+    refundCases: {
+      office: "/assets/landing/images/refund-case-office.png",
+      construction: "/assets/landing/images/refund-case-construction.png",
+      service: "/assets/landing/images/refund-case-service.png",
+      records: "/assets/landing/images/refund-case-records.png",
+    },
   },
 } as const;

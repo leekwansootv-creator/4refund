@@ -37,6 +37,7 @@ export function ExpertStrengthsSection() {
           className={`${responsiveStyles.expertIntroductionInner} mx-auto flex w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
         >
           <div
+            data-landing-reveal="left"
             className={`${responsiveStyles.expertIntroductionCopy} ${motionStyles.revealFromLeft} flex h-[513px] w-[766px] shrink-0 flex-col items-start gap-20`}
           >
             <div className="flex flex-col items-start gap-6">
@@ -85,6 +86,7 @@ export function ExpertStrengthsSection() {
 
           <figure
             aria-hidden="true"
+            data-landing-reveal="right"
             className={`${responsiveStyles.expertIntroductionFigure} ${motionStyles.revealFromRight} relative h-[501px] w-[424px] shrink-0 overflow-hidden`}
           >
             <Image
@@ -115,6 +117,7 @@ export function ExpertStrengthsSection() {
                 className={`${responsiveStyles.strengthArticle} mx-auto flex h-[456px] w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
               >
                 <div
+                  data-landing-reveal={isImageLeft ? "right" : "left"}
                   className={`${responsiveStyles.strengthCopy} ${
                     isImageLeft ? motionStyles.revealFromRight : motionStyles.revealFromLeft
                   } flex h-[345px] w-[506px] shrink-0 flex-col gap-12 ${

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import responsiveStyles from "./landing-responsive.module.css";
+import { SiteHeaderNavigation } from "./site-header-navigation";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTACT } from "../constants/landing-contact";
 import { LANDING_CONTENT } from "../constants/landing-content";
@@ -10,10 +11,7 @@ import { LANDING_CONTENT } from "../constants/landing-content";
  */
 export function SiteHeader() {
   return (
-    <header
-      id="top"
-      className={`${responsiveStyles.header} h-[77px] border border-black/10 bg-white`}
-    >
+    <header className={`${responsiveStyles.header} h-[77px] border border-black/10 bg-white`}>
       <div
         className={`${responsiveStyles.headerInner} relative flex h-full w-full items-center justify-between pl-8`}
       >
@@ -31,23 +29,7 @@ export function SiteHeader() {
             </span>
           </span>
         </a>
-        <nav
-          aria-label="주요 메뉴"
-          className={`${responsiveStyles.headerNav} absolute top-1/2 left-1/2 w-[434px] -translate-x-1/2 -translate-y-1/2`}
-        >
-          <ul className={`${responsiveStyles.headerNavList} flex items-center justify-between`}>
-            {LANDING_CONTENT.navigation.map((item) => (
-              <li key={item.href}>
-                <a
-                  className={`${responsiveStyles.headerNavLink} rounded-sm text-base leading-none font-medium text-[#475569] hover:text-[var(--color-brand-green)] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
-                  href={item.href}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <SiteHeaderNavigation />
         <div className={`${responsiveStyles.headerActions} flex h-full w-[261px] items-stretch`}>
           <a
             className={`${responsiveStyles.headerAction} flex w-[116px] flex-col items-center justify-center bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}

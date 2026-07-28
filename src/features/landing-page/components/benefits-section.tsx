@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import motionStyles from "./landing-motion.module.css";
 import responsiveStyles from "./landing-responsive.module.css";
@@ -9,24 +9,74 @@ import styles from "./landing-services-cases.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTENT } from "../constants/landing-content";
 
+const BENEFIT_AUTOPLAY_INTERVAL_MS = 4000;
+
 /**
- * 센터의 네 가지 서비스 혜택을 마우스, 키보드, 터치로 선택할 수 있게 제공한다.
+ * 센터의 네 가지 서비스 혜택을 자동 순환하고 마우스, 키보드, 터치 선택을 제공한다.
  */
 export function BenefitsSection() {
   const { benefits, brandName } = LANDING_CONTENT;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
-  const activeIndex = focusedIndex ?? hoveredIndex ?? selectedIndex;
+  const [autoplayVersion, setAutoplayVersion] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const remainingDelayRef = useRef(BENEFIT_AUTOPLAY_INTERVAL_MS);
+  const deadlineRef = useRef(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const activeIndex = hoveredIndex ?? focusedIndex ?? selectedIndex;
+  const isAutoplayPaused = prefersReducedMotion || hoveredIndex !== null || focusedIndex !== null;
+
+  useEffect(() => {
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateReducedMotion = () => setPrefersReducedMotion(reducedMotionQuery.matches);
+
+    updateReducedMotion();
+    reducedMotionQuery.addEventListener("change", updateReducedMotion);
+
+    return () => reducedMotionQuery.removeEventListener("change", updateReducedMotion);
+  }, []);
+
+  useEffect(() => {
+    if (isAutoplayPaused) {
+      return;
+    }
+
+    const delay = Math.max(remainingDelayRef.current, 0);
+    deadlineRef.current = performance.now() + delay;
+    const timeoutId = setTimeout(() => {
+      timeoutRef.current = null;
+      deadlineRef.current = 0;
+      remainingDelayRef.current = BENEFIT_AUTOPLAY_INTERVAL_MS;
+      setSelectedIndex((currentIndex) => (currentIndex + 1) % benefits.items.length);
+    }, delay);
+    timeoutRef.current = timeoutId;
+
+    return () => {
+      if (timeoutRef.current === timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutRef.current = null;
+        remainingDelayRef.current = Math.max(deadlineRef.current - performance.now(), 0);
+        deadlineRef.current = 0;
+      }
+    };
+  }, [autoplayVersion, benefits.items.length, isAutoplayPaused, selectedIndex]);
+
+  const selectBenefit = (index: number) => {
+    remainingDelayRef.current = BENEFIT_AUTOPLAY_INTERVAL_MS;
+    setSelectedIndex(index);
+    setAutoplayVersion((currentVersion) => currentVersion + 1);
+  };
 
   return (
     <section
       id="services"
       aria-labelledby="benefits-heading"
-      className={`${responsiveStyles.benefitsSection} ${motionStyles.timeline} ${motionStyles.revealUp} h-[791px] py-[140px]`}
+      className={`${responsiveStyles.benefitsSection} ${motionStyles.timeline} h-[791px] py-[140px]`}
     >
       <div
-        className={`${responsiveStyles.benefitsContainer} mx-auto flex h-[511px] w-full max-w-[var(--content-max-width)] flex-col items-center gap-16 px-[var(--content-inline-padding)]`}
+        data-landing-reveal="up"
+        className={`${responsiveStyles.benefitsContainer} ${motionStyles.revealUp} mx-auto flex h-[511px] w-full max-w-[var(--content-max-width)] flex-col items-center gap-16 px-[var(--content-inline-padding)]`}
       >
         <div
           className={`${responsiveStyles.benefitsHeadingGroup} flex h-[141px] w-[532px] flex-col items-center gap-2 text-center`}
@@ -58,8 +108,16 @@ export function BenefitsSection() {
               <li
                 key={benefit.title}
                 className={`${responsiveStyles.benefitItem} flex min-w-0 flex-col items-center text-center`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onPointerEnter={(event) => {
+                  if (event.pointerType === "mouse") {
+                    setHoveredIndex(index);
+                  }
+                }}
+                onPointerLeave={(event) => {
+                  if (event.pointerType === "mouse") {
+                    setHoveredIndex(null);
+                  }
+                }}
               >
                 <h3 className="w-full">
                   <button
@@ -70,7 +128,7 @@ export function BenefitsSection() {
                     className={responsiveStyles.benefitButton}
                     onFocus={() => setFocusedIndex(index)}
                     onBlur={() => setFocusedIndex(null)}
-                    onClick={() => setSelectedIndex(index)}
+                    onClick={() => selectBenefit(index)}
                   >
                     <span
                       className={`${responsiveStyles.benefitImage} ${

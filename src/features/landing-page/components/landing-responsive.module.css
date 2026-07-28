@@ -1,3 +1,9 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
 .headerBrand,
 .headerNav,
 .headerActions {
@@ -11,6 +17,14 @@
 
 .headerAction {
   white-space: nowrap;
+}
+
+.headerNavLink {
+  transition: color 150ms ease-out;
+}
+
+.headerNavLinkCurrent {
+  color: var(--color-brand-green);
 }
 
 .benefitButton {

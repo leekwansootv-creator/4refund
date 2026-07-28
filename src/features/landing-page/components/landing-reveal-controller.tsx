@@ -63,7 +63,7 @@ export function LandingRevealController() {
     document.documentElement.setAttribute(MOTION_READY_ATTRIBUTE, "true");
     reducedMotionQuery.addEventListener("change", handleReducedMotionChange);
 
-    const hashTarget = document.querySelector<HTMLElement>(window.location.hash);
+    const hashTarget = document.getElementById(window.location.hash.slice(1));
 
     for (const target of targets) {
       if (hashTarget?.contains(target)) {

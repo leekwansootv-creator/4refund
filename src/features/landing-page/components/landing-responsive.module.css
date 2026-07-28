@@ -492,46 +492,81 @@
 @media (max-width: 768px) {
   .headerInner {
     grid-template-areas:
-      "brand"
-      "nav"
-      "actions";
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-    padding-block: 14px;
+      "brand actions"
+      "nav nav";
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 64px 48px;
+    gap: 0;
+    padding: 0 var(--content-inline-padding);
   }
 
   .headerBrand {
     justify-self: start;
+    overflow: hidden;
+  }
+
+  .headerBrand > img {
+    flex: none;
   }
 
   .headerBrandText {
-    font-size: 18px;
+    overflow: hidden;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .headerNav {
+    height: 48px;
+    padding-top: 0;
   }
 
   .headerNavList {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    height: 100%;
   }
 
   .headerNavLink {
     display: flex;
+    height: 48px;
     min-height: 44px;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
     text-align: center;
   }
 
   .headerActions {
-    width: 100%;
-    height: 56px;
+    align-self: center;
+    width: auto;
+    height: 44px;
   }
 
   .headerAction {
-    min-width: 0;
-    flex: 1 1 50%;
-    padding-inline: 10px;
-    font-size: 13px;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    flex: none;
+    gap: 0;
+    padding: 0;
+  }
+
+  .headerActionIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .headerActionLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .hero {
@@ -885,16 +920,6 @@
 }
 
 @media (max-width: 420px) {
-  .headerAction {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .headerActionIcon {
-    width: 22px;
-    height: 22px;
-  }
-
   .hero {
     min-height: 700px;
   }

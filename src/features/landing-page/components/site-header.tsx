@@ -41,7 +41,9 @@ export function SiteHeader() {
             >
               <Image src={LANDING_ASSETS.icons.phone} alt="" width={29} height={25} />
             </span>
-            <span>{LANDING_CONTACT.phoneDisplay}</span>
+            <span className={responsiveStyles.headerActionLabel}>
+              {LANDING_CONTACT.phoneDisplay}
+            </span>
           </a>
           <a
             className={`${responsiveStyles.headerAction} flex w-[145px] flex-col items-center justify-center border-l border-white/15 bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
@@ -53,7 +55,9 @@ export function SiteHeader() {
             >
               <Image src={LANDING_ASSETS.icons.chat} alt="" width={29} height={25} />
             </span>
-            <span>{LANDING_CONTENT.navigationCallToActionLabel}</span>
+            <span className={responsiveStyles.headerActionLabel}>
+              {LANDING_CONTENT.navigationCallToActionLabel}
+            </span>
           </a>
         </div>
       </div>

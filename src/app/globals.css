@@ -19,3 +19,8 @@ body {
   color: var(--foreground);
   font-family: "Pretendard", var(--font-noto-sans-kr), "Noto Sans KR", Arial, Helvetica, sans-serif;
 }
+
+:where(a, button):focus-visible {
+  outline: 3px solid var(--color-brand-primary);
+  outline-offset: 4px;
+}

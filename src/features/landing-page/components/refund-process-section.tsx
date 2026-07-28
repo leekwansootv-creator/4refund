@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import responsiveStyles from "./landing-responsive.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTENT } from "../constants/landing-content";
 
@@ -20,7 +21,7 @@ export function RefundProcessSection() {
     <section
       id="process"
       aria-labelledby="refund-process-heading"
-      className="relative flex h-[856.284px] items-start justify-center overflow-hidden px-[var(--content-inline-padding)] py-[140px] text-white"
+      className={`${responsiveStyles.processSection} relative flex h-[856.284px] items-start justify-center overflow-hidden px-[var(--content-inline-padding)] py-[140px] text-white`}
     >
       <Image
         aria-hidden="true"
@@ -36,20 +37,33 @@ export function RefundProcessSection() {
         className="pointer-events-none absolute inset-0 bg-[rgba(19,21,31,0.7)]"
       />
 
-      <div className="relative flex w-full max-w-[var(--content-max-width)] flex-col items-center gap-16">
-        <div className="flex w-[532px] flex-col items-center gap-2 text-center leading-[1.3] whitespace-nowrap">
-          <h2 id="refund-process-heading" className="text-[42px] font-bold">
+      <div
+        className={`${responsiveStyles.processContent} relative flex w-full max-w-[var(--content-max-width)] flex-col items-center gap-16`}
+      >
+        <div
+          className={`${responsiveStyles.processHeading} flex w-[532px] flex-col items-center gap-2 text-center leading-[1.3] whitespace-nowrap`}
+        >
+          <h2
+            id="refund-process-heading"
+            className={`${responsiveStyles.processHeadingTitle} text-[42px] font-bold`}
+          >
             {refundProcess.heading}
           </h2>
-          <p className="text-lg font-medium text-[#eaeaea]">{refundProcess.description}</p>
+          <p
+            className={`${responsiveStyles.processDescription} text-lg font-medium text-[#eaeaea]`}
+          >
+            {refundProcess.description}
+          </p>
         </div>
 
         <div className="flex w-full flex-col items-center gap-2">
-          <ol className="grid h-[353.455px] w-full grid-cols-4 gap-2">
+          <ol
+            className={`${responsiveStyles.processGrid} grid h-[353.455px] w-full grid-cols-4 gap-2`}
+          >
             {refundProcess.steps.map((step) => (
               <li
                 key={step.id}
-                className="relative flex min-w-0 flex-col items-center justify-center gap-[8.219px] rounded-[13.151px] bg-[rgba(31,32,42,0.8)] p-[26.302px]"
+                className={`${responsiveStyles.processCard} relative flex min-w-0 flex-col items-center justify-center gap-[8.219px] rounded-[13.151px] bg-[rgba(31,32,42,0.8)] p-[26.302px]`}
               >
                 <span className="absolute top-[16.07px] left-[16.07px] flex size-[36.986px] items-center justify-center rounded-full bg-[#191922] text-[19.726px] leading-[1.3] font-bold">
                   {step.number}
@@ -76,7 +90,9 @@ export function RefundProcessSection() {
                     unoptimized
                     className={processArtworkClasses[step.assetKey]}
                   />
-                  <p className="w-full text-center text-[20.086px] leading-[1.2] font-bold whitespace-nowrap">
+                  <p
+                    className={`${responsiveStyles.processStepDescription} w-full text-center text-[20.086px] leading-[1.2] font-bold whitespace-nowrap`}
+                  >
                     {step.descriptionParts.map((part) => (
                       <span
                         key={part.text}
@@ -93,17 +109,23 @@ export function RefundProcessSection() {
             ))}
           </ol>
 
-          <div className="flex h-[64.829px] w-full items-center justify-center gap-[8.184px] rounded-[13.095px] p-3.5 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div
+            className={`${responsiveStyles.aftercare} flex h-[64.829px] w-full items-center justify-center gap-[8.184px] rounded-[13.095px] p-3.5 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]`}
+          >
             <span
               aria-hidden="true"
               className="flex size-[36.829px] shrink-0 items-center justify-center rounded-full bg-[#191922] text-[19.642px] leading-[1.3] font-bold"
             >
               +
             </span>
-            <h3 className="text-xl leading-[1.2] font-bold whitespace-nowrap text-[#89c6ff]">
+            <h3
+              className={`${responsiveStyles.aftercareHeading} text-xl leading-[1.2] font-bold whitespace-nowrap text-[#89c6ff]`}
+            >
               {refundProcess.aftercareHeading}
             </h3>
-            <p className="text-xl leading-[1.2] font-medium whitespace-nowrap">
+            <p
+              className={`${responsiveStyles.aftercareDescription} text-xl leading-[1.2] font-medium whitespace-nowrap`}
+            >
               {refundProcess.aftercareDescription}
             </p>
           </div>

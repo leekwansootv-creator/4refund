@@ -51,6 +51,7 @@ export function BenefitsSection() {
         >
           {benefits.items.map((benefit, index) => {
             const isActive = index === activeIndex;
+            const hasDescription = "description" in benefit;
             const buttonId = `benefit-button-${index}`;
             const panelId = `benefit-panel-${index}`;
 
@@ -73,34 +74,38 @@ export function BenefitsSection() {
                     onClick={() => setSelectedIndex(index)}
                   >
                     <span
-                      className={
+                      className={`${responsiveStyles.benefitImage} ${
                         isActive
                           ? responsiveStyles.benefitImageActive
                           : responsiveStyles.benefitImageInactive
-                      }
+                      }`}
                     >
                       <Image
                         src={LANDING_ASSETS.images.benefits[benefit.assetKey]}
                         alt=""
                         fill
                         unoptimized
-                        sizes={isActive ? "199px" : "120px"}
+                        sizes={isActive ? "199px" : "133px"}
                         className="object-contain"
                       />
                     </span>
 
                     <span
                       className={`${responsiveStyles.benefitTitle} ${
-                        isActive ? "text-[#141719]" : "text-[#878787]"
+                        isActive
+                          ? responsiveStyles.benefitTitleActive
+                          : responsiveStyles.benefitTitleInactive
                       }`}
                     >
                       {benefit.title}
-                      {isActive ? (
-                        <span
-                          aria-hidden="true"
-                          className="mb-0.5 size-2 rounded-full bg-[#006dd2]"
-                        />
-                      ) : null}
+                      <span
+                        aria-hidden="true"
+                        className={`${responsiveStyles.benefitDot} ${
+                          isActive
+                            ? responsiveStyles.benefitDotActive
+                            : responsiveStyles.benefitDotInactive
+                        } mb-0.5 size-2 rounded-full bg-[#006dd2]`}
+                      />
                     </span>
                   </button>
                 </h3>
@@ -109,10 +114,14 @@ export function BenefitsSection() {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  className={responsiveStyles.benefitPanel}
-                  hidden={!isActive}
+                  aria-hidden={!isActive || !hasDescription}
+                  className={`${responsiveStyles.benefitPanel} ${
+                    isActive && hasDescription
+                      ? responsiveStyles.benefitPanelActive
+                      : responsiveStyles.benefitPanelInactive
+                  }`}
                 >
-                  {"description" in benefit ? (
+                  {hasDescription ? (
                     <p
                       className={`${responsiveStyles.benefitPanelText} w-[374px] text-xl leading-[1.6] font-medium whitespace-pre-line text-[#141719]`}
                     >

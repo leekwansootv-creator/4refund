@@ -41,22 +41,138 @@
   line-height: 1;
   font-weight: 700;
   white-space: nowrap;
+  transition: color 300ms ease-out;
+}
+
+.benefitTitleActive {
+  color: #141719;
+}
+
+.benefitTitleInactive {
+  color: #878787;
+}
+
+.benefitImage {
+  position: relative;
+  transition:
+    width 300ms ease-out,
+    height 300ms ease-out;
 }
 
 .benefitImageActive {
-  position: relative;
   width: 199px;
   height: 150px;
 }
 
 .benefitImageInactive {
-  position: relative;
-  width: 120px;
+  width: 133px;
   height: 100px;
 }
 
+.benefitDot {
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.benefitDotActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.benefitDotInactive {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
 .benefitPanel {
+  display: grid;
+  min-height: 0;
+  transition:
+    grid-template-rows 300ms ease-out,
+    margin-top 300ms ease-out,
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.benefitPanelActive {
+  grid-template-rows: 1fr;
   margin-top: 24px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.benefitPanelInactive {
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.benefitPanelText {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within)) .benefitImageActive {
+    width: 133px;
+    height: 100px;
+  }
+
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within)) .benefitTitleActive {
+    color: #878787;
+  }
+
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within)) .benefitDotActive {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within)) .benefitPanelActive {
+    grid-template-rows: 0fr;
+    margin-top: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within))
+    .benefitItem:is(:hover, :focus-within)
+    .benefitImage {
+    width: 199px;
+    height: 150px;
+  }
+
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within))
+    .benefitItem:is(:hover, :focus-within)
+    .benefitTitle {
+    color: #141719;
+  }
+
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within))
+    .benefitItem:is(:hover, :focus-within)
+    .benefitDot {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .benefitsList:has(.benefitItem:is(:hover, :focus-within))
+    .benefitItem:is(:hover, :focus-within)
+    .benefitPanel {
+    grid-template-rows: 1fr;
+    margin-top: 24px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefitTitle,
+  .benefitImage,
+  .benefitDot,
+  .benefitPanel {
+    transition: none;
+  }
 }
 
 @media (max-width: 1280px) {

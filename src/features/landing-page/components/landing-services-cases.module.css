@@ -6,6 +6,7 @@
 
 .refundCasesViewport {
   scrollbar-width: none;
+  touch-action: pan-x pinch-zoom;
 }
 
 .refundCasesViewport::-webkit-scrollbar {

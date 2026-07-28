@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import motionStyles from "./landing-motion.module.css";
 import responsiveStyles from "./landing-responsive.module.css";
 import styles from "./landing-services-cases.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
@@ -22,7 +23,7 @@ export function BenefitsSection() {
     <section
       id="services"
       aria-labelledby="benefits-heading"
-      className={`${responsiveStyles.benefitsSection} h-[791px] py-[140px]`}
+      className={`${responsiveStyles.benefitsSection} ${motionStyles.timeline} ${motionStyles.revealUp} h-[791px] py-[140px]`}
     >
       <div
         className={`${responsiveStyles.benefitsContainer} mx-auto flex h-[511px] w-full max-w-[var(--content-max-width)] flex-col items-center gap-16 px-[var(--content-inline-padding)]`}
@@ -72,34 +73,38 @@ export function BenefitsSection() {
                     onClick={() => setSelectedIndex(index)}
                   >
                     <span
-                      className={
+                      className={`${responsiveStyles.benefitImage} ${
                         isActive
                           ? responsiveStyles.benefitImageActive
                           : responsiveStyles.benefitImageInactive
-                      }
+                      }`}
                     >
                       <Image
                         src={LANDING_ASSETS.images.benefits[benefit.assetKey]}
                         alt=""
                         fill
                         unoptimized
-                        sizes={isActive ? "199px" : "120px"}
+                        sizes={isActive ? "199px" : "133px"}
                         className="object-contain"
                       />
                     </span>
 
                     <span
                       className={`${responsiveStyles.benefitTitle} ${
-                        isActive ? "text-[#141719]" : "text-[#878787]"
+                        isActive
+                          ? responsiveStyles.benefitTitleActive
+                          : responsiveStyles.benefitTitleInactive
                       }`}
                     >
                       {benefit.title}
-                      {isActive ? (
-                        <span
-                          aria-hidden="true"
-                          className="mb-0.5 size-2 rounded-full bg-[#006dd2]"
-                        />
-                      ) : null}
+                      <span
+                        aria-hidden="true"
+                        className={`${responsiveStyles.benefitDot} ${
+                          isActive
+                            ? responsiveStyles.benefitDotActive
+                            : responsiveStyles.benefitDotInactive
+                        } mb-0.5 size-2 rounded-full bg-[#006dd2]`}
+                      />
                     </span>
                   </button>
                 </h3>
@@ -108,16 +113,18 @@ export function BenefitsSection() {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  className={responsiveStyles.benefitPanel}
-                  hidden={!isActive}
+                  aria-hidden={!isActive}
+                  className={`${responsiveStyles.benefitPanel} ${
+                    isActive
+                      ? responsiveStyles.benefitPanelActive
+                      : responsiveStyles.benefitPanelInactive
+                  }`}
                 >
-                  {"description" in benefit ? (
-                    <p
-                      className={`${responsiveStyles.benefitPanelText} w-[374px] text-xl leading-[1.6] font-medium whitespace-pre-line text-[#141719]`}
-                    >
-                      {benefit.description}
-                    </p>
-                  ) : null}
+                  <p
+                    className={`${responsiveStyles.benefitPanelText} w-[374px] text-xl leading-[1.6] font-medium whitespace-pre-line text-[#141719]`}
+                  >
+                    {benefit.description}
+                  </p>
                 </div>
               </li>
             );

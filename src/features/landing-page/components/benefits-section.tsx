@@ -51,7 +51,6 @@ export function BenefitsSection() {
         >
           {benefits.items.map((benefit, index) => {
             const isActive = index === activeIndex;
-            const hasDescription = "description" in benefit;
             const buttonId = `benefit-button-${index}`;
             const panelId = `benefit-panel-${index}`;
 
@@ -114,20 +113,18 @@ export function BenefitsSection() {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  aria-hidden={!isActive || !hasDescription}
+                  aria-hidden={!isActive}
                   className={`${responsiveStyles.benefitPanel} ${
-                    isActive && hasDescription
+                    isActive
                       ? responsiveStyles.benefitPanelActive
                       : responsiveStyles.benefitPanelInactive
                   }`}
                 >
-                  {hasDescription ? (
-                    <p
-                      className={`${responsiveStyles.benefitPanelText} w-[374px] text-xl leading-[1.6] font-medium whitespace-pre-line text-[#141719]`}
-                    >
-                      {benefit.description}
-                    </p>
-                  ) : null}
+                  <p
+                    className={`${responsiveStyles.benefitPanelText} w-[374px] text-xl leading-[1.6] font-medium whitespace-pre-line text-[#141719]`}
+                  >
+                    {benefit.description}
+                  </p>
                 </div>
               </li>
             );

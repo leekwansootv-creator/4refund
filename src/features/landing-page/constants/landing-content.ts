@@ -64,11 +64,26 @@ export const LANDING_CONTENT = {
         assetKey: "hiddenPremium",
         title: "숨은 보험료 진단",
         description:
-          "인지하지 못했던 과오납 4대보험료를\n법률적 근거에 기반하여 정확하게 진단합니다.",
+          "인지하지 못했던 과오납 4대보험료를 법률적 근거에 기반하여 정확하게 진단합니다.",
       },
-      { assetKey: "laborAttorneyReview", title: "노무사 직접 검토" },
-      { assetKey: "maximumRefund", title: "최대 환급 보장" },
-      { assetKey: "aftercare", title: "철저한 사후관리" },
+      {
+        assetKey: "laborAttorneyReview",
+        title: "노무사 직접 검토",
+        description:
+          "영업 사원이 아닌, 자격을 갖춘 전문 노무사가 직접 서류를 검토하고 청구를 진행합니다.",
+      },
+      {
+        assetKey: "maximumRefund",
+        title: "최대 환급 보장",
+        description:
+          "놓치기 쉬운 세부 항목까지 면밀히 분석하여 법이 허용하는 최대치의 환급을 이끌어냅니다.",
+      },
+      {
+        assetKey: "aftercare",
+        title: "철저한 사후관리",
+        description:
+          "일회성 환급에 그치지 않고, 향후 발생할 수 있는 노무 리스크 예방 및 절세 컨설팅을 제공합니다.",
+      },
     ],
   },
   refundCases: {

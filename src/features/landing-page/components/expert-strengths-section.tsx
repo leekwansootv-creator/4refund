@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import styles from "./landing-expert-strengths.module.css";
+import responsiveStyles from "./landing-responsive.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTENT } from "../constants/landing-content";
 
@@ -28,26 +29,34 @@ export function ExpertStrengthsSection() {
       aria-labelledby="expert-strengths-heading"
       className={`${styles.root} bg-white`}
     >
-      <div className="flex h-[801px] items-start bg-[#f3f7fe] pt-[140px] pb-[148px]">
-        <div className="mx-auto flex w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]">
-          <div className="flex h-[513px] w-[766px] shrink-0 flex-col items-start gap-20">
+      <div
+        className={`${responsiveStyles.expertIntroduction} flex h-[801px] items-start bg-[#f3f7fe] pt-[140px] pb-[148px]`}
+      >
+        <div
+          className={`${responsiveStyles.expertIntroductionInner} mx-auto flex w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
+        >
+          <div
+            className={`${responsiveStyles.expertIntroductionCopy} flex h-[513px] w-[766px] shrink-0 flex-col items-start gap-20`}
+          >
             <div className="flex flex-col items-start gap-6">
-              <p className="text-[32px] leading-none font-medium text-[#486db2]">
+              <p
+                className={`${responsiveStyles.expertEyebrow} text-[32px] leading-none font-medium text-[#486db2]`}
+              >
                 {expertStrengths.eyebrow}
               </p>
               <h2
                 id="expert-strengths-heading"
-                className="text-[96px] leading-none font-extrabold whitespace-nowrap text-[var(--color-brand-navy)]"
+                className={`${responsiveStyles.expertHeading} text-[96px] leading-none font-extrabold whitespace-nowrap text-[var(--color-brand-navy)]`}
               >
                 {expertStrengths.heading}
               </h2>
             </div>
 
-            <ul className="flex items-start gap-3">
+            <ul className={`${responsiveStyles.expertPills} flex items-start gap-3`}>
               {expertStrengths.items.map((strength) => (
                 <li
                   key={strength.id}
-                  className="flex items-center gap-[13px] rounded-[30px] bg-white px-4 py-3"
+                  className={`${responsiveStyles.expertPill} flex items-center gap-[13px] rounded-[30px] bg-white px-4 py-3`}
                 >
                   <Image
                     src={LANDING_ASSETS.icons[strength.iconKey]}
@@ -57,21 +66,25 @@ export function ExpertStrengthsSection() {
                     unoptimized
                     className="size-6"
                   />
-                  <span className="text-xl leading-none font-medium whitespace-nowrap text-[#101010]">
+                  <span
+                    className={`${responsiveStyles.expertPillText} text-xl leading-none font-medium whitespace-nowrap text-[#101010]`}
+                  >
                     {strength.title}
                   </span>
                 </li>
               ))}
             </ul>
 
-            <p className="w-[609px] text-[32px] leading-[1.6] font-normal whitespace-pre-line text-[#1b264e]">
+            <p
+              className={`${responsiveStyles.expertDescription} w-[609px] text-[32px] leading-[1.6] font-normal whitespace-pre-line text-[#1b264e]`}
+            >
               {expertStrengths.description}
             </p>
           </div>
 
           <figure
             aria-hidden="true"
-            className="relative h-[501px] w-[424px] shrink-0 overflow-hidden"
+            className={`${responsiveStyles.expertIntroductionFigure} relative h-[501px] w-[424px] shrink-0 overflow-hidden`}
           >
             <Image
               src={LANDING_ASSETS.images.expertStrengths.introduction}
@@ -92,24 +105,26 @@ export function ExpertStrengthsSection() {
           return (
             <li
               key={strength.id}
-              className={`flex h-[736px] items-center ${isImageLeft ? "bg-white" : "bg-[#f3f7fe]"}`}
+              className={`${responsiveStyles.strengthRow} flex h-[736px] items-center ${
+                isImageLeft ? "bg-white" : "bg-[#f3f7fe]"
+              }`}
             >
               <article
                 aria-labelledby={`strength-${strength.id}`}
-                className="mx-auto flex h-[456px] w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]"
+                className={`${responsiveStyles.strengthArticle} mx-auto flex h-[456px] w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
               >
                 <div
-                  className={`flex h-[345px] w-[506px] shrink-0 flex-col gap-12 ${
+                  className={`${responsiveStyles.strengthCopy} flex h-[345px] w-[506px] shrink-0 flex-col gap-12 ${
                     isImageLeft ? "order-2 items-end text-right" : "order-1 items-start text-left"
                   }`}
                 >
                   <h3
                     id={`strength-${strength.id}`}
-                    className="flex flex-col gap-12 text-5xl leading-none font-extrabold whitespace-nowrap text-[var(--color-brand-navy)]"
+                    className={`${responsiveStyles.strengthTitle} flex flex-col gap-12 text-5xl leading-none font-extrabold whitespace-nowrap text-[var(--color-brand-navy)]`}
                   >
                     <span
                       aria-hidden="true"
-                      className={`flex items-center gap-6 text-5xl leading-none font-medium text-[#75a7f3] ${
+                      className={`${responsiveStyles.strengthStep} flex items-center gap-6 text-5xl leading-none font-medium text-[#75a7f3] ${
                         isImageLeft ? "justify-end" : "justify-start"
                       }`}
                     >
@@ -121,7 +136,7 @@ export function ExpertStrengthsSection() {
                   </h3>
 
                   <p
-                    className={`text-[32px] leading-[1.6] font-medium whitespace-pre-line text-[#878787] ${
+                    className={`${responsiveStyles.strengthDescription} text-[32px] leading-[1.6] font-medium whitespace-pre-line text-[#878787] ${
                       strength.id === "remote-consultation" ? "w-[406px]" : "w-full"
                     }`}
                   >
@@ -131,7 +146,7 @@ export function ExpertStrengthsSection() {
 
                 <figure
                   aria-hidden="true"
-                  className={`relative h-[456px] shrink-0 overflow-hidden ${
+                  className={`${responsiveStyles.strengthFigure} relative h-[456px] shrink-0 overflow-hidden ${
                     isImageLeft ? "order-1" : "order-2"
                   } ${strengthImageFrameClasses[strength.assetKey]}`}
                 >

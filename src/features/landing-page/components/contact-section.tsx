@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import responsiveStyles from "./landing-responsive.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTACT } from "../constants/landing-contact";
 import { LANDING_CONTENT } from "../constants/landing-content";
@@ -14,12 +15,17 @@ export function ContactSection() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="flex h-[300px] items-center bg-[#111118] py-12 text-white"
+      className={`${responsiveStyles.contactSection} flex h-[300px] items-center bg-[#111118] py-12 text-white`}
     >
-      <div className="mx-auto flex w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]">
+      <div
+        className={`${responsiveStyles.contactInner} mx-auto flex w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
+      >
         <div className="flex min-w-0 flex-1 flex-col items-start gap-4">
           <p className="w-full text-xs leading-normal font-bold">{contact.notice}</p>
-          <h2 id="contact-heading" className="w-full text-[32px] leading-normal font-extrabold">
+          <h2
+            id="contact-heading"
+            className={`${responsiveStyles.contactHeading} w-full text-[32px] leading-normal font-extrabold`}
+          >
             {contact.heading}
           </h2>
           <div className="w-full text-[15px] leading-[1.6] font-medium text-[#94a3b8]">
@@ -29,9 +35,11 @@ export function ContactSection() {
           </div>
         </div>
 
-        <div className="flex w-[526px] shrink-0 flex-col items-end justify-center gap-3">
+        <div
+          className={`${responsiveStyles.contactActions} flex w-[526px] shrink-0 flex-col items-end justify-center gap-3`}
+        >
           <a
-            className="flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]"
+            className={`${responsiveStyles.contactCard} flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]`}
             href={LANDING_CONTACT.phoneHref}
           >
             <span
@@ -48,12 +56,14 @@ export function ContactSection() {
             </span>
             <span className="ml-4 flex min-w-0 flex-1 flex-col items-start gap-1 leading-normal">
               <span className="text-[13px] font-bold text-[#c0c0c0]">{contact.phoneLabel}</span>
-              <strong className="text-xl font-extrabold">{LANDING_CONTACT.phoneDisplay}</strong>
+              <strong className={`${responsiveStyles.contactValue} text-xl font-extrabold`}>
+                {LANDING_CONTACT.phoneDisplay}
+              </strong>
             </span>
           </a>
 
           <a
-            className="flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]"
+            className={`${responsiveStyles.contactCard} flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]`}
             href={LANDING_CONTACT.emailHref}
           >
             <span
@@ -70,7 +80,9 @@ export function ContactSection() {
             </span>
             <span className="ml-4 flex min-w-0 flex-1 flex-col items-start gap-1 leading-normal">
               <span className="text-[13px] font-bold text-[#c0c0c0]">{contact.emailLabel}</span>
-              <strong className="text-xl font-extrabold">{LANDING_CONTACT.emailDisplay}</strong>
+              <strong className={`${responsiveStyles.contactValue} text-xl font-extrabold`}>
+                {LANDING_CONTACT.emailDisplay}
+              </strong>
             </span>
             <Image
               aria-hidden="true"

@@ -1,0 +1,792 @@
+.headerBrand,
+.headerNav,
+.headerActions {
+  min-width: 0;
+}
+
+.headerBrand,
+.footerBrand {
+  min-height: 44px;
+}
+
+.headerAction {
+  white-space: nowrap;
+}
+
+.benefitButton {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  color: inherit;
+}
+
+.benefitButton:focus-visible {
+  outline: 3px solid var(--color-brand-primary);
+  outline-offset: 6px;
+}
+
+.benefitTitle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.benefitImageActive {
+  position: relative;
+  width: 199px;
+  height: 150px;
+}
+
+.benefitImageInactive {
+  position: relative;
+  width: 120px;
+  height: 100px;
+}
+
+.benefitPanel {
+  margin-top: 24px;
+}
+
+@media (max-width: 1280px) {
+  .header {
+    height: auto;
+    min-height: 77px;
+  }
+
+  .headerInner {
+    display: grid;
+    grid-template-areas:
+      "brand actions"
+      "nav nav";
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px 24px;
+    padding: 12px var(--content-inline-padding);
+  }
+
+  .headerBrand {
+    grid-area: brand;
+  }
+
+  .headerNav {
+    position: static;
+    top: auto;
+    left: auto;
+    grid-area: nav;
+    width: 100%;
+    padding-top: 12px;
+    translate: none !important;
+    transform: none;
+    border-top: 1px solid rgb(15 23 42 / 8%);
+  }
+
+  .headerNavList {
+    justify-content: center;
+    gap: clamp(24px, 6vw, 64px);
+  }
+
+  .headerActions {
+    grid-area: actions;
+    width: auto;
+    height: 60px;
+  }
+
+  .headerAction {
+    width: auto;
+    min-width: 150px;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .headerActionIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 720px;
+    padding-block: 80px;
+  }
+
+  .heroHeading {
+    font-size: clamp(46px, 5.1vw, 58px);
+  }
+
+  .heroActions,
+  .heroDetails {
+    flex-wrap: wrap;
+  }
+
+  .centerSection {
+    height: auto;
+  }
+
+  .centerInner {
+    height: auto;
+    padding-block: 88px;
+  }
+
+  .centerHeading {
+    font-size: 52px;
+  }
+
+  .centerCard {
+    width: calc(100% - (2 * var(--content-inline-padding)));
+  }
+
+  .memberContainer {
+    padding: 36px;
+  }
+
+  .memberList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px 24px;
+    padding-inline: 0;
+  }
+
+  .memberItem {
+    width: 100%;
+  }
+
+  .benefitsSection,
+  .refundCasesSection {
+    height: auto;
+    padding-block: 112px;
+  }
+
+  .benefitsContainer {
+    height: auto;
+  }
+
+  .benefitsList {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 72px;
+  }
+
+  .benefitItem {
+    min-height: 306px;
+  }
+
+  .refundCaseCard {
+    width: min(72vw, 646px);
+  }
+
+  .expertIntroduction {
+    height: auto;
+    padding-block: 112px;
+  }
+
+  .expertIntroductionInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 64px;
+  }
+
+  .expertIntroductionCopy {
+    width: 100%;
+    height: auto;
+  }
+
+  .expertHeading {
+    font-size: clamp(64px, 7.5vw, 86px);
+    white-space: normal;
+  }
+
+  .expertPills {
+    flex-wrap: wrap;
+  }
+
+  .expertDescription {
+    width: 100%;
+  }
+
+  .expertIntroductionFigure {
+    align-self: center;
+  }
+
+  .strengthRow {
+    height: auto;
+    padding-block: 112px;
+  }
+
+  .strengthArticle {
+    height: auto;
+    gap: 56px;
+  }
+
+  .strengthCopy {
+    width: min(44%, 506px);
+    height: auto;
+  }
+
+  .strengthFigure {
+    max-width: 50%;
+  }
+
+  .processSection {
+    height: auto;
+    min-height: 856px;
+    padding-block: 112px;
+  }
+
+  .processHeading {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .processGrid {
+    height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .processCard {
+    min-height: 353px;
+  }
+
+  .aftercare {
+    height: auto;
+    min-height: 65px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1023px) {
+  .centerDirector {
+    display: grid;
+    height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    padding: 40px 32px 48px;
+  }
+
+  .directorFigure {
+    width: min(100%, 515px);
+    margin-inline: auto;
+  }
+
+  .directorDetails {
+    width: 100%;
+    padding: 0;
+  }
+
+  .credentialList {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .strengthArticle {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .strengthCopy {
+    order: 1;
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .strengthStep {
+    justify-content: flex-start;
+  }
+
+  .strengthFigure {
+    order: 2;
+    width: min(100%, 662px);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 662 / 456;
+    align-self: center;
+  }
+
+  .contactSection {
+    height: auto;
+    padding-block: 72px;
+  }
+
+  .contactInner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .contactActions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .footer {
+    height: auto;
+  }
+
+  .footerInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .footerContact {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footerAddress,
+  .footerBusiness {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footerAddressRow,
+  .footerBusinessRow {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerInner {
+    grid-template-areas:
+      "brand"
+      "nav"
+      "actions";
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  .headerBrand {
+    justify-self: start;
+  }
+
+  .headerBrandText {
+    font-size: 18px;
+  }
+
+  .headerNavList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 20px;
+  }
+
+  .headerNavLink {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .headerActions {
+    width: 100%;
+    height: 56px;
+  }
+
+  .headerAction {
+    min-width: 0;
+    flex: 1 1 50%;
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 680px;
+    padding-block: 72px;
+  }
+
+  .heroHeading {
+    font-size: clamp(34px, 9.6vw, 42px);
+    letter-spacing: -0.7px;
+  }
+
+  .heroDescriptions {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .heroContactGroup,
+  .heroActions {
+    width: 100%;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .heroCta {
+    width: 100%;
+    height: auto;
+    min-height: 56px;
+    padding: 14px 18px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .heroDetails {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .heroEmailDetail {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .heroInlineEmail {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .centerInner {
+    gap: 48px;
+    padding-block: 72px;
+  }
+
+  .centerHeading {
+    font-size: 40px;
+  }
+
+  .centerDescription {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .centerCard {
+    border-radius: 16px;
+  }
+
+  .memberContainer {
+    padding: 28px 20px;
+  }
+
+  .memberList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 16px;
+  }
+
+  .memberVisual {
+    width: 112px;
+    height: 112px;
+  }
+
+  .memberName {
+    font-size: 17px;
+  }
+
+  .centerDirector {
+    padding: 32px 20px 40px;
+  }
+
+  .directorFigure {
+    height: 280px;
+  }
+
+  .directorHeading {
+    left: 0;
+  }
+
+  .directorName {
+    font-size: 30px;
+  }
+
+  .credentialList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .credentialItem {
+    align-items: flex-start;
+  }
+
+  .credentialText {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .benefitsSection,
+  .refundCasesSection {
+    padding-block: 80px;
+  }
+
+  .benefitsHeadingGroup {
+    width: 100%;
+    height: auto;
+  }
+
+  .benefitsHeading {
+    font-size: 34px;
+  }
+
+  .benefitsDescription {
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: normal;
+  }
+
+  .benefitsList {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 52px;
+  }
+
+  .benefitItem {
+    min-height: 0;
+  }
+
+  .benefitTitle {
+    font-size: clamp(28px, 8.5vw, 34px);
+    white-space: normal;
+  }
+
+  .benefitPanel {
+    width: 100%;
+  }
+
+  .benefitPanelText {
+    width: 100%;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .refundCasesHeading {
+    font-size: 36px;
+  }
+
+  .refundCasesDescription {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .refundCasesTrack {
+    padding-inline: var(--content-inline-padding);
+  }
+
+  .refundCaseCard {
+    width: calc(100vw - (2 * var(--content-inline-padding)));
+    min-width: 0;
+  }
+
+  .refundCaseTitle {
+    font-size: 28px;
+  }
+
+  .refundCapsule {
+    max-width: calc(100% - 32px);
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .refundAmount {
+    font-size: 23px;
+  }
+
+  .expertIntroduction {
+    padding-block: 80px;
+  }
+
+  .expertIntroductionInner {
+    gap: 48px;
+  }
+
+  .expertIntroductionCopy {
+    gap: 52px;
+  }
+
+  .expertEyebrow {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .expertHeading {
+    font-size: 44px;
+  }
+
+  .expertPills {
+    gap: 10px;
+  }
+
+  .expertPill {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .expertPillText {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .expertDescription {
+    font-size: 22px;
+    line-height: 1.55;
+    white-space: normal;
+  }
+
+  .expertIntroductionFigure {
+    width: min(100%, 424px);
+    height: auto;
+    aspect-ratio: 424 / 501;
+  }
+
+  .strengthRow {
+    padding-block: 80px;
+  }
+
+  .strengthArticle {
+    gap: 40px;
+  }
+
+  .strengthCopy {
+    gap: 32px;
+  }
+
+  .strengthTitle {
+    gap: 28px;
+    font-size: 38px;
+    white-space: normal;
+  }
+
+  .strengthStep {
+    gap: 16px;
+    font-size: 34px;
+  }
+
+  .strengthDescription {
+    width: 100%;
+    font-size: 22px;
+    line-height: 1.55;
+    white-space: normal;
+  }
+
+  .processSection {
+    min-height: 0;
+    padding-block: 80px;
+  }
+
+  .processContent {
+    gap: 48px;
+  }
+
+  .processHeadingTitle {
+    font-size: 34px;
+    line-height: 1.25;
+  }
+
+  .processDescription {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .processGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .processCard {
+    min-height: 330px;
+  }
+
+  .processStepDescription,
+  .aftercareHeading,
+  .aftercareDescription {
+    font-size: 17px;
+    white-space: normal;
+  }
+
+  .aftercare {
+    padding: 16px;
+    text-align: center;
+  }
+
+  .contactSection {
+    padding-block: 64px;
+  }
+
+  .contactHeading {
+    font-size: 28px;
+  }
+
+  .contactCard {
+    height: auto;
+    min-height: 96px;
+    padding: 20px;
+  }
+
+  .contactValue {
+    overflow-wrap: anywhere;
+    font-size: 18px;
+  }
+
+  .footerInner {
+    gap: 36px;
+  }
+
+  .footerBrandText {
+    font-size: 18px;
+  }
+
+  .footerNotice,
+  .footerAddressText,
+  .footerBusiness {
+    overflow-wrap: anywhere;
+  }
+
+  .footerAddressRow {
+    min-height: 44px;
+    align-items: flex-start;
+  }
+
+  .footerBusinessRow {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .headerAction {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .headerActionIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .hero {
+    min-height: 700px;
+  }
+
+  .heroHeading {
+    font-size: 34px;
+  }
+
+  .heroDetails {
+    font-size: 13px;
+  }
+
+  .memberVisual {
+    width: 104px;
+    height: 104px;
+  }
+
+  .refundCaseCard {
+    height: 360px;
+  }
+
+  .contactCard {
+    padding: 18px 16px;
+  }
+}

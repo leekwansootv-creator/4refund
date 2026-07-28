@@ -3,6 +3,7 @@ import { CenterIntroductionSection } from "./center-introduction-section";
 import { ContactSection } from "./contact-section";
 import { ExpertStrengthsSection } from "./expert-strengths-section";
 import { HeroSection } from "./hero-section";
+import { LandingRevealController } from "./landing-reveal-controller";
 import { RefundCasesSection } from "./refund-cases-section";
 import { RefundProcessSection } from "./refund-process-section";
 import { SiteFooter } from "./site-footer";
@@ -14,6 +15,8 @@ import { SiteHeader } from "./site-header";
 export function LandingPage() {
   return (
     <>
+      <div id="top" aria-hidden="true" />
+      <LandingRevealController />
       <SiteHeader />
       <main>
         <HeroSection />

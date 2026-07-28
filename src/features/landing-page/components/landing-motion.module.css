@@ -7,34 +7,43 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  :global(html[data-landing-motion-ready="true"]) .revealUp,
+  :global(html[data-landing-motion-ready="true"]) .revealFromLeft,
+  :global(html[data-landing-motion-ready="true"]) .revealFromRight {
+    opacity: 0;
+    transition:
+      opacity 700ms ease-out,
+      transform 700ms ease-out;
+    will-change: opacity, transform;
+  }
+
+  :global(html[data-landing-motion-ready="true"]) .revealUp {
+    transform: translateY(200px);
+  }
+
+  :global(html[data-landing-motion-ready="true"]) .revealFromLeft {
+    transform: translateX(-200px);
+  }
+
+  :global(html[data-landing-motion-ready="true"]) .revealFromRight {
+    transform: translateX(200px);
+  }
+
+  :global(html[data-landing-motion-ready="true"]) .revealUp[data-landing-revealed="true"],
+  :global(html[data-landing-motion-ready="true"]) .revealFromLeft[data-landing-revealed="true"],
+  :global(html[data-landing-motion-ready="true"]) .revealFromRight[data-landing-revealed="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  :global(html[data-landing-motion-ready="true"])
+    [data-landing-reveal-instant="true"][data-landing-revealed="true"] {
+    transition: none;
+  }
+
   .refundCasesTrack {
     animation: landing-refund-cases var(--landing-motion-duration) linear infinite both;
     will-change: transform;
-  }
-
-  @supports (animation-timeline: view()) {
-    .revealUp,
-    .revealFromLeft,
-    .revealFromRight {
-      animation-duration: 1s;
-      animation-fill-mode: both;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-out;
-      animation-timeline: view();
-      animation-range: entry 0% cover 30%;
-    }
-
-    .revealUp {
-      animation-name: landing-scroll-reveal-up;
-    }
-
-    .revealFromLeft {
-      animation-name: landing-scroll-reveal-from-left;
-    }
-
-    .revealFromRight {
-      animation-name: landing-scroll-reveal-from-right;
-    }
   }
 
   .strengthFigure {
@@ -91,18 +100,6 @@
   }
 }
 
-@keyframes landing-scroll-reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(200px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes landing-refund-cases {
   0% {
     transform: translateX(0);
@@ -110,30 +107,6 @@
 
   100% {
     transform: translateX(-2679px);
-  }
-}
-
-@keyframes landing-scroll-reveal-from-left {
-  from {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes landing-scroll-reveal-from-right {
-  from {
-    opacity: 0;
-    transform: translateX(200px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 

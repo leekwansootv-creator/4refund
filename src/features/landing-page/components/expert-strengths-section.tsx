@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import styles from "./landing-expert-strengths.module.css";
+import motionStyles from "./landing-motion.module.css";
 import responsiveStyles from "./landing-responsive.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTENT } from "../constants/landing-content";
@@ -27,7 +28,7 @@ export function ExpertStrengthsSection() {
     <section
       id="strengths"
       aria-labelledby="expert-strengths-heading"
-      className={`${styles.root} bg-white`}
+      className={`${styles.root} ${motionStyles.timeline} ${motionStyles.horizontalClip} bg-white`}
     >
       <div
         className={`${responsiveStyles.expertIntroduction} flex h-[801px] items-start bg-[#f3f7fe] pt-[140px] pb-[148px]`}
@@ -36,7 +37,7 @@ export function ExpertStrengthsSection() {
           className={`${responsiveStyles.expertIntroductionInner} mx-auto flex w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
         >
           <div
-            className={`${responsiveStyles.expertIntroductionCopy} flex h-[513px] w-[766px] shrink-0 flex-col items-start gap-20`}
+            className={`${responsiveStyles.expertIntroductionCopy} ${motionStyles.revealFromLeft} flex h-[513px] w-[766px] shrink-0 flex-col items-start gap-20`}
           >
             <div className="flex flex-col items-start gap-6">
               <p
@@ -84,7 +85,7 @@ export function ExpertStrengthsSection() {
 
           <figure
             aria-hidden="true"
-            className={`${responsiveStyles.expertIntroductionFigure} relative h-[501px] w-[424px] shrink-0 overflow-hidden`}
+            className={`${responsiveStyles.expertIntroductionFigure} ${motionStyles.revealFromRight} relative h-[501px] w-[424px] shrink-0 overflow-hidden`}
           >
             <Image
               src={LANDING_ASSETS.images.expertStrengths.introduction}
@@ -114,7 +115,9 @@ export function ExpertStrengthsSection() {
                 className={`${responsiveStyles.strengthArticle} mx-auto flex h-[456px] w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
               >
                 <div
-                  className={`${responsiveStyles.strengthCopy} flex h-[345px] w-[506px] shrink-0 flex-col gap-12 ${
+                  className={`${responsiveStyles.strengthCopy} ${
+                    isImageLeft ? motionStyles.revealFromRight : motionStyles.revealFromLeft
+                  } flex h-[345px] w-[506px] shrink-0 flex-col gap-12 ${
                     isImageLeft ? "order-2 items-end text-right" : "order-1 items-start text-left"
                   }`}
                 >
@@ -146,7 +149,7 @@ export function ExpertStrengthsSection() {
 
                 <figure
                   aria-hidden="true"
-                  className={`${responsiveStyles.strengthFigure} relative h-[456px] shrink-0 overflow-hidden ${
+                  className={`${responsiveStyles.strengthFigure} ${motionStyles.strengthFigure} relative h-[456px] shrink-0 overflow-hidden ${
                     isImageLeft ? "order-1" : "order-2"
                   } ${strengthImageFrameClasses[strength.assetKey]}`}
                 >

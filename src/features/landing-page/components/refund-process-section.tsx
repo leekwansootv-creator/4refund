@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import motionStyles from "./landing-motion.module.css";
 import responsiveStyles from "./landing-responsive.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTENT } from "../constants/landing-content";
@@ -11,6 +12,13 @@ const processArtworkClasses = {
   refundComplete: "h-[131.27px] w-[130.105px]",
 } as const;
 
+const processMotionClasses = [
+  motionStyles.processStepOne,
+  motionStyles.processStepTwo,
+  motionStyles.processStepThree,
+  motionStyles.processStepFour,
+] as const;
+
 /**
  * 문의부터 환급 완료와 사후관리까지의 절차를 순서 있는 목록으로 제공한다.
  */
@@ -21,7 +29,7 @@ export function RefundProcessSection() {
     <section
       id="process"
       aria-labelledby="refund-process-heading"
-      className={`${responsiveStyles.processSection} relative flex h-[856.284px] items-start justify-center overflow-hidden px-[var(--content-inline-padding)] py-[140px] text-white`}
+      className={`${responsiveStyles.processSection} ${motionStyles.timeline} relative flex h-[856.284px] items-start justify-center overflow-hidden px-[var(--content-inline-padding)] py-[140px] text-white`}
     >
       <Image
         aria-hidden="true"
@@ -60,10 +68,10 @@ export function RefundProcessSection() {
           <ol
             className={`${responsiveStyles.processGrid} grid h-[353.455px] w-full grid-cols-4 gap-2`}
           >
-            {refundProcess.steps.map((step) => (
+            {refundProcess.steps.map((step, index) => (
               <li
                 key={step.id}
-                className={`${responsiveStyles.processCard} relative flex min-w-0 flex-col items-center justify-center gap-[8.219px] rounded-[13.151px] bg-[rgba(31,32,42,0.8)] p-[26.302px]`}
+                className={`${responsiveStyles.processCard} ${processMotionClasses[index]} relative flex min-w-0 flex-col items-center justify-center gap-[8.219px] rounded-[13.151px] bg-[rgba(31,32,42,0.8)] p-[26.302px]`}
               >
                 <span className="absolute top-[16.07px] left-[16.07px] flex size-[36.986px] items-center justify-center rounded-full bg-[#191922] text-[19.726px] leading-[1.3] font-bold">
                   {step.number}

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import motionStyles from "./landing-motion.module.css";
 import responsiveStyles from "./landing-responsive.module.css";
 import styles from "./landing-services-cases.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
@@ -22,7 +23,7 @@ export function BenefitsSection() {
     <section
       id="services"
       aria-labelledby="benefits-heading"
-      className={`${responsiveStyles.benefitsSection} h-[791px] py-[140px]`}
+      className={`${responsiveStyles.benefitsSection} ${motionStyles.timeline} ${motionStyles.revealUp} h-[791px] py-[140px]`}
     >
       <div
         className={`${responsiveStyles.benefitsContainer} mx-auto flex h-[511px] w-full max-w-[var(--content-max-width)] flex-col items-center gap-16 px-[var(--content-inline-padding)]`}

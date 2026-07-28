@@ -1,0 +1,406 @@
+.timeline {
+  --landing-motion-duration: 28.020507s;
+}
+
+.horizontalClip {
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .revealUp {
+    animation: landing-reveal-up var(--landing-motion-duration) infinite both;
+    will-change: opacity, transform;
+  }
+
+  .refundCasesTrack {
+    animation: landing-refund-cases var(--landing-motion-duration) linear infinite both;
+    will-change: transform;
+  }
+
+  .revealFromLeft {
+    animation: landing-reveal-from-left var(--landing-motion-duration) infinite both;
+    will-change: opacity, transform;
+  }
+
+  .revealFromRight {
+    animation: landing-reveal-from-right var(--landing-motion-duration) infinite both;
+    will-change: opacity, transform;
+  }
+
+  .strengthFigure {
+    animation: landing-strength-figure var(--landing-motion-duration) infinite both;
+    will-change: transform;
+  }
+
+  .processStepOne {
+    animation: landing-process-step-one var(--landing-motion-duration) infinite both;
+    will-change: transform;
+  }
+
+  .processStepTwo {
+    animation: landing-process-step-two var(--landing-motion-duration) infinite both;
+    will-change: transform;
+  }
+
+  .processStepThree {
+    animation: landing-process-step-three var(--landing-motion-duration) infinite both;
+    will-change: transform;
+  }
+
+  .processStepFour {
+    animation: landing-process-step-four var(--landing-motion-duration) infinite both;
+    will-change: transform;
+  }
+
+  .refundCasesViewport:hover .refundCasesTrack,
+  .refundCasesViewport:focus-within .refundCasesTrack,
+  .refundCasesViewport:active .refundCasesTrack {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealUp,
+  .refundCasesTrack,
+  .revealFromLeft,
+  .revealFromRight,
+  .strengthFigure,
+  .processStepOne,
+  .processStepTwo,
+  .processStepThree,
+  .processStepFour {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .refundCasesTrack {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes landing-reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+    animation-timing-function: ease-out;
+  }
+
+  2.5%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes landing-refund-cases {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-2679px);
+  }
+}
+
+@keyframes landing-reveal-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+    animation-timing-function: ease-out;
+  }
+
+  2.5%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes landing-reveal-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+    animation-timing-function: ease-out;
+  }
+
+  2.5%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes landing-strength-figure {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  5.34% {
+    transform: translateY(-20px);
+    animation-timing-function: ease-in-out;
+  }
+
+  10.69% {
+    transform: translateY(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  16.03% {
+    transform: translateY(-20px);
+    animation-timing-function: ease-in-out;
+  }
+
+  21.37% {
+    transform: translateY(0);
+    animation-timing-function: ease-in-out;
+  }
+
+  26.72%,
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes landing-process-step-one {
+  0% {
+    transform: scale(1);
+    animation-timing-function: ease-in-out;
+  }
+
+  1.07%,
+  4.64% {
+    transform: scale(1.08);
+  }
+
+  4.64% {
+    animation-timing-function: ease-in-out;
+  }
+
+  5.71%,
+  28.55% {
+    transform: scale(1);
+  }
+
+  28.55% {
+    animation-timing-function: ease-in-out;
+  }
+
+  29.62%,
+  33.19% {
+    transform: scale(1.08);
+  }
+
+  33.19% {
+    animation-timing-function: ease-in-out;
+  }
+
+  34.26%,
+  57.1% {
+    transform: scale(1);
+  }
+
+  57.1% {
+    animation-timing-function: ease-in-out;
+  }
+
+  58.17%,
+  61.74% {
+    transform: scale(1.08);
+  }
+
+  61.74% {
+    animation-timing-function: ease-in-out;
+  }
+
+  62.81%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes landing-process-step-two {
+  0%,
+  7.14% {
+    transform: scale(1);
+  }
+
+  7.14% {
+    animation-timing-function: ease-in-out;
+  }
+
+  8.21%,
+  11.78% {
+    transform: scale(1.08);
+  }
+
+  11.78% {
+    animation-timing-function: ease-in-out;
+  }
+
+  12.85%,
+  35.69% {
+    transform: scale(1);
+  }
+
+  35.69% {
+    animation-timing-function: ease-in-out;
+  }
+
+  36.76%,
+  40.33% {
+    transform: scale(1.08);
+  }
+
+  40.33% {
+    animation-timing-function: ease-in-out;
+  }
+
+  41.4%,
+  64.24% {
+    transform: scale(1);
+  }
+
+  64.24% {
+    animation-timing-function: ease-in-out;
+  }
+
+  65.31%,
+  68.88% {
+    transform: scale(1.08);
+  }
+
+  68.88% {
+    animation-timing-function: ease-in-out;
+  }
+
+  69.95%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes landing-process-step-three {
+  0%,
+  14.28% {
+    transform: scale(1);
+  }
+
+  14.28% {
+    animation-timing-function: ease-in-out;
+  }
+
+  15.35%,
+  18.91% {
+    transform: scale(1.08);
+  }
+
+  18.91% {
+    animation-timing-function: ease-in-out;
+  }
+
+  19.99%,
+  42.83% {
+    transform: scale(1);
+  }
+
+  42.83% {
+    animation-timing-function: ease-in-out;
+  }
+
+  43.9%,
+  47.47% {
+    transform: scale(1.08);
+  }
+
+  47.47% {
+    animation-timing-function: ease-in-out;
+  }
+
+  48.54%,
+  71.38% {
+    transform: scale(1);
+  }
+
+  71.38% {
+    animation-timing-function: ease-in-out;
+  }
+
+  72.45%,
+  76.02% {
+    transform: scale(1.08);
+  }
+
+  76.02% {
+    animation-timing-function: ease-in-out;
+  }
+
+  77.09%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes landing-process-step-four {
+  0%,
+  21.41% {
+    transform: scale(1);
+  }
+
+  21.41% {
+    animation-timing-function: ease-in-out;
+  }
+
+  22.48%,
+  26.05% {
+    transform: scale(1.08);
+  }
+
+  26.05% {
+    animation-timing-function: ease-in-out;
+  }
+
+  27.12%,
+  49.96% {
+    transform: scale(1);
+  }
+
+  49.96% {
+    animation-timing-function: ease-in-out;
+  }
+
+  51.03%,
+  54.6% {
+    transform: scale(1.08);
+  }
+
+  54.6% {
+    animation-timing-function: ease-in-out;
+  }
+
+  55.67%,
+  78.51% {
+    transform: scale(1);
+  }
+
+  78.51% {
+    animation-timing-function: ease-in-out;
+  }
+
+  79.58%,
+  83.15% {
+    transform: scale(1.08);
+  }
+
+  83.15% {
+    animation-timing-function: ease-in-out;
+  }
+
+  84.22%,
+  100% {
+    transform: scale(1);
+  }
+}

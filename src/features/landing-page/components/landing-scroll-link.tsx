@@ -3,7 +3,9 @@
 import type { ComponentPropsWithoutRef, MouseEvent } from "react";
 
 const SCROLL_DURATION_MS = 600;
-const ACCELERATION_PORTION = 0.7;
+const SCROLL_EASING_START_X = 0.3;
+const SCROLL_EASING_END_X = 0.25;
+const CUBIC_BEZIER_SEARCH_ITERATIONS = 16;
 
 let activeScrollFrameId: number | null = null;
 
@@ -12,25 +14,38 @@ type LandingScrollLinkProps = Omit<ComponentPropsWithoutRef<"a">, "href" | "onCl
 };
 
 /**
- * 전체 시간의 70% 동안 속도를 높이고 마지막 30% 동안 빠르게 줄인다.
+ * 느리게 출발하되 150ms에 약 32%, 300ms에 약 77%를 이동한다.
  *
- * 가속과 감속 경계에서 속도가 끊기지 않도록 cosine과 sine 구간을 연결한다.
+ * 시작과 끝의 속도를 0으로 유지하면서 Figma 프로토타입처럼 초반 이동량을 높인다.
  */
 function getAsymmetricScrollProgress(elapsedPortion: number) {
   const progress = Math.min(Math.max(elapsedPortion, 0), 1);
 
-  if (progress <= ACCELERATION_PORTION) {
-    const accelerationProgress = progress / ACCELERATION_PORTION;
-
-    return ACCELERATION_PORTION * (1 - Math.cos((Math.PI / 2) * accelerationProgress));
+  if (progress === 0 || progress === 1) {
+    return progress;
   }
 
-  const decelerationProgress = (progress - ACCELERATION_PORTION) / (1 - ACCELERATION_PORTION);
+  let lowerParameter = 0;
+  let upperParameter = 1;
 
-  return (
-    ACCELERATION_PORTION +
-    (1 - ACCELERATION_PORTION) * Math.sin((Math.PI / 2) * decelerationProgress)
-  );
+  for (let iteration = 0; iteration < CUBIC_BEZIER_SEARCH_ITERATIONS; iteration += 1) {
+    const parameter = (lowerParameter + upperParameter) / 2;
+    const inverseParameter = 1 - parameter;
+    const timeCoordinate =
+      3 * inverseParameter ** 2 * parameter * SCROLL_EASING_START_X +
+      3 * inverseParameter * parameter ** 2 * SCROLL_EASING_END_X +
+      parameter ** 3;
+
+    if (timeCoordinate < progress) {
+      lowerParameter = parameter;
+    } else {
+      upperParameter = parameter;
+    }
+  }
+
+  const parameter = (lowerParameter + upperParameter) / 2;
+
+  return 3 * (1 - parameter) * parameter ** 2 + parameter ** 3;
 }
 
 function getTargetScrollTop(target: HTMLElement) {

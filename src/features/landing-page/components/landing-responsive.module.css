@@ -35,6 +35,28 @@
     opacity 100ms ease-out;
 }
 
+.contactCard {
+  transition:
+    background-color 200ms ease-out,
+    border-color 200ms ease-out,
+    box-shadow 200ms ease-out;
+}
+
+.contactArrow {
+  /* Keep the hover offset independent from the icon's mirrored transform. */
+  transition: translate 200ms ease-out;
+}
+
+.contactCard:focus-visible {
+  border-color: #66667a;
+  background-color: #24242e;
+  box-shadow: 0 2px 6px rgb(102 115 153 / 25%);
+}
+
+.contactCard:focus-visible .contactArrow {
+  translate: 2px -2px;
+}
+
 .headerAction {
   white-space: nowrap;
 }
@@ -145,6 +167,16 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .contactCard:hover {
+    border-color: #66667a;
+    background-color: #24242e;
+    box-shadow: 0 2px 6px rgb(102 115 153 / 25%);
+  }
+
+  .contactCard:hover .contactArrow {
+    translate: 2px -2px;
+  }
+
   .benefitsList:has(.benefitItem:is(:hover, :focus-within)) .benefitImageActive {
     width: 133px;
     height: 100px;
@@ -198,6 +230,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .interactiveControl,
+  .contactArrow,
   .benefitTitle,
   .benefitImage,
   .benefitDot,

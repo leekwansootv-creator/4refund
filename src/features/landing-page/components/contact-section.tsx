@@ -90,7 +90,7 @@ export function ContactSection() {
               alt=""
               width={30}
               height={30}
-              className="size-[30px] -scale-x-100"
+              className={`${responsiveStyles.contactArrow} size-[30px] -scale-x-100`}
             />
           </a>
         </div>

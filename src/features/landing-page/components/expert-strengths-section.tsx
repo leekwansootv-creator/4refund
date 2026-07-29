@@ -116,11 +116,12 @@ export function ExpertStrengthsSection() {
             >
               <article
                 aria-labelledby={`strength-${strength.id}`}
-                className={`${responsiveStyles.strengthArticle} mx-auto flex h-[456px] w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
+                data-landing-reveal="group"
+                data-landing-reveal-repeat="true"
+                data-landing-reveal-followup="true"
+                className={`${responsiveStyles.strengthArticle} ${motionStyles.revealGroup} mx-auto flex h-[456px] w-full max-w-[var(--content-max-width)] items-center justify-between px-[var(--content-inline-padding)]`}
               >
                 <div
-                  data-landing-reveal={isImageLeft ? "right" : "left"}
-                  data-landing-reveal-repeat="true"
                   className={`${responsiveStyles.strengthCopy} ${
                     isImageLeft ? motionStyles.revealFromRight : motionStyles.revealFromLeft
                   } flex h-[345px] w-[506px] shrink-0 flex-col gap-12 ${
@@ -155,18 +156,26 @@ export function ExpertStrengthsSection() {
 
                 <figure
                   aria-hidden="true"
-                  className={`${responsiveStyles.strengthFigure} ${motionStyles.strengthFigure} relative h-[456px] shrink-0 overflow-hidden ${
+                  data-landing-reveal-followup-source="true"
+                  className={`${responsiveStyles.strengthFigure} ${
+                    isImageLeft ? motionStyles.revealFromLeft : motionStyles.revealFromRight
+                  } relative h-[456px] shrink-0 ${
                     isImageLeft ? "order-1" : "order-2"
                   } ${strengthImageFrameClasses[strength.assetKey]}`}
                 >
-                  <Image
-                    src={LANDING_ASSETS.images.expertStrengths[strength.assetKey]}
-                    alt=""
-                    width={1152}
-                    height={strength.assetKey === "successFee" ? 998 : 928}
-                    unoptimized
-                    className={strengthImageClasses[strength.assetKey]}
-                  />
+                  <div
+                    data-landing-reveal-followup-target="true"
+                    className={`${motionStyles.strengthFigure} relative size-full overflow-hidden`}
+                  >
+                    <Image
+                      src={LANDING_ASSETS.images.expertStrengths[strength.assetKey]}
+                      alt=""
+                      width={1152}
+                      height={strength.assetKey === "successFee" ? 998 : 928}
+                      unoptimized
+                      className={strengthImageClasses[strength.assetKey]}
+                    />
+                  </div>
                 </figure>
               </article>
             </li>

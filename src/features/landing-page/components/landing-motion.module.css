@@ -56,12 +56,31 @@
     transition: none;
   }
 
+  :global(html[data-landing-motion-ready="true"])
+    .revealGroup[data-landing-revealed="true"]
+    .revealFromLeft,
+  :global(html[data-landing-motion-ready="true"])
+    .revealGroup[data-landing-revealed="true"]
+    .revealFromRight {
+    opacity: 1;
+    transform: none;
+  }
+
+  :global(html[data-landing-motion-ready="true"])
+    .revealGroup[data-landing-reveal-instant="true"][data-landing-revealed="true"]
+    .revealFromLeft,
+  :global(html[data-landing-motion-ready="true"])
+    .revealGroup[data-landing-reveal-instant="true"][data-landing-revealed="true"]
+    .revealFromRight {
+    transition: none;
+  }
+
   .refundCasesTrack {
     animation: landing-refund-cases var(--landing-refund-cases-duration) linear infinite both;
     will-change: transform;
   }
 
-  .strengthFigure {
+  .strengthFigure[data-landing-reveal-followup-active="true"] {
     animation: landing-strength-figure var(--landing-motion-duration) infinite both;
     will-change: transform;
   }

@@ -17,8 +17,9 @@ npm run check
 | 3    | `npm run typecheck`          | route type 생성 또는 TypeScript 오류                    |
 | 4    | `npm run check:architecture` | 폴더, 이름, 의존성, 실행 환경 경계 위반                 |
 | 5    | `npm run check:comments`     | 추적되지 않는 TODO/FIXME/XXX                            |
-| 6    | `npm test`                   | 프로젝트 검사 도구의 회귀 테스트 실패                   |
+| 6    | `npm test`                   | 검사 도구와 UI 단위·컴포넌트 회귀 테스트 실패           |
 | 7    | `npm run build`              | Next.js 프로덕션 빌드 실패                              |
+| 8    | `npm run test:e2e:run`       | 브라우저 사용자 흐름 또는 자동 접근성 검사 실패         |
 
 검사 순서를 건너뛰기 위해 `next.config.ts`에서 TypeScript 또는 ESLint 오류를 무시하지 않는다.
 
@@ -32,16 +33,19 @@ npm run typecheck
 npm run check:architecture
 npm run check:comments
 npm test
+npm run test:unit
+npm run test:e2e
 npm run build
 ```
 
 ## 테스트 기준
 
-현재 애플리케이션은 초기 스캐폴드라 도메인·컴포넌트 테스트 도구를 미리 추가하지 않는다. 실제 기능이 생길 때 다음 기준으로 도입하고 `npm run check`에 연결한다.
+테스트는 다음 도구와 책임으로 구분하고 모두 `npm run check`에 연결한다.
 
-- 순수 함수와 동기 컴포넌트: unit/component test
-- feature의 여러 모듈이 연결되는 흐름: integration test
-- async Server Component와 핵심 사용자 흐름: Playwright E2E
+- `node:test`: 아키텍처와 주석 검사 도구 자체의 회귀 테스트
+- Vitest와 Testing Library: 순수 함수, 동기 컴포넌트, 상태 전이 회귀 테스트
+- Playwright: 프로덕션 빌드에서 핵심 사용자 흐름과 브라우저 렌더링 검증
+- `@axe-core/playwright`: 실제 페이지의 WCAG A/AA 자동 접근성 검사
 - 버그 수정: 실패를 재현하는 회귀 테스트를 먼저 또는 같은 변경에서 추가
 
 도구 선택 시 설치된 Next.js의 `node_modules/next/dist/docs/01-app/02-guides/testing/`을 먼저 확인한다.
@@ -52,6 +56,7 @@ npm run build
 
 - `.nvmrc`와 같은 Node.js 사용
 - `npm ci`로 lockfile과 동일한 의존성 설치
+- Chromium과 시스템 의존성을 Playwright CLI로 설치
 - npm과 `.next/cache` 재사용
 - 최소 `contents: read` 권한만 부여
 - 같은 ref의 이전 실행을 취소

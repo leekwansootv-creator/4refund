@@ -4,6 +4,18 @@
   z-index: 50;
 }
 
+.header::after {
+  /* Keep the divider outside the header box so it does not consume interior height. */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: rgb(0 0 0 / 50%);
+  content: "";
+  pointer-events: none;
+}
+
 .headerBrand,
 .headerNav,
 .headerActions {
@@ -15,12 +27,38 @@
   min-height: 44px;
 }
 
-.headerAction {
-  white-space: nowrap;
+.interactiveControl {
+  transition:
+    background-color 100ms ease-out,
+    border-color 100ms ease-out,
+    color 100ms ease-out,
+    opacity 100ms ease-out;
 }
 
-.headerNavLink {
-  transition: color 150ms ease-out;
+.contactCard {
+  transition:
+    background-color 200ms ease-out,
+    border-color 200ms ease-out,
+    box-shadow 200ms ease-out;
+}
+
+.contactArrow {
+  /* Keep the hover offset independent from the icon's mirrored transform. */
+  transition: translate 200ms ease-out;
+}
+
+.contactCard:focus-visible {
+  border-color: #66667a;
+  background-color: #24242e;
+  box-shadow: 0 2px 6px rgb(102 115 153 / 25%);
+}
+
+.contactCard:focus-visible .contactArrow {
+  translate: 2px -2px;
+}
+
+.headerAction {
+  white-space: nowrap;
 }
 
 .headerNavLinkCurrent {
@@ -129,6 +167,16 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .contactCard:hover {
+    border-color: #66667a;
+    background-color: #24242e;
+    box-shadow: 0 2px 6px rgb(102 115 153 / 25%);
+  }
+
+  .contactCard:hover .contactArrow {
+    translate: 2px -2px;
+  }
+
   .benefitsList:has(.benefitItem:is(:hover, :focus-within)) .benefitImageActive {
     width: 133px;
     height: 100px;
@@ -181,6 +229,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .interactiveControl,
+  .contactArrow,
   .benefitTitle,
   .benefitImage,
   .benefitDot,
@@ -738,6 +788,8 @@
   }
 
   .refundCasesTrack {
+    --refund-cases-inline-padding: var(--content-inline-padding);
+
     padding-inline: var(--content-inline-padding);
   }
 

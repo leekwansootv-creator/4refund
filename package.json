@@ -17,8 +17,12 @@
     "format:check": "prettier --check .",
     "check:architecture": "node scripts/check-architecture.mjs",
     "check:comments": "node scripts/check-comments.mjs",
-    "test": "node --test scripts/check-architecture.test.mjs scripts/check-comments.test.mjs",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:architecture && npm run check:comments && npm run test && npm run build"
+    "test:checks": "node --test scripts/check-architecture.test.mjs scripts/check-comments.test.mjs",
+    "test:unit": "vitest run",
+    "test": "npm run test:checks && npm run test:unit",
+    "test:e2e:run": "playwright test",
+    "test:e2e": "npm run build && npm run test:e2e:run",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:architecture && npm run check:comments && npm run test && npm run build && npm run test:e2e:run"
   },
   "dependencies": {
     "next": "16.2.11",
@@ -26,17 +30,25 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.0",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "7.0.0",
+    "@testing-library/react": "16.3.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "6.0.4",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsdoc": "63.3.0",
+    "jsdom": "29.1.1",
     "prettier": "3.9.6",
     "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "4.1.10"
   }
 }

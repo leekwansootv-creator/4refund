@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { LandingScrollLink } from "./landing-scroll-link";
 import responsiveStyles from "./landing-responsive.module.css";
 import { LANDING_CONTENT } from "../constants/landing-content";
 
@@ -64,15 +65,15 @@ export function SiteHeaderNavigation() {
 
           return (
             <li key={item.href}>
-              <a
+              <LandingScrollLink
                 aria-current={isCurrent ? "location" : undefined}
-                className={`${responsiveStyles.headerNavLink} ${
+                className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerNavLink} ${
                   isCurrent ? responsiveStyles.headerNavLinkCurrent : ""
                 } rounded-sm text-base leading-none font-medium text-[#475569] hover:text-[var(--color-brand-green)] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
                 href={item.href}
               >
                 {item.label}
-              </a>
+              </LandingScrollLink>
             </li>
           );
         })}

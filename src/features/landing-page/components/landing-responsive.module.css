@@ -71,7 +71,7 @@
   line-height: 1;
   font-weight: 700;
   white-space: nowrap;
-  transition: color 100ms ease-out;
+  transition: color 300ms ease-out;
 }
 
 .benefitTitleActive {
@@ -85,8 +85,8 @@
 .benefitImage {
   position: relative;
   transition:
-    width 100ms ease-out,
-    height 100ms ease-out;
+    width 300ms ease-out,
+    height 300ms ease-out;
 }
 
 .benefitImageActive {
@@ -101,8 +101,8 @@
 
 .benefitDot {
   transition:
-    opacity 100ms ease-out,
-    transform 100ms ease-out;
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
 }
 
 .benefitDotActive {
@@ -119,10 +119,10 @@
   display: grid;
   min-height: 0;
   transition:
-    grid-template-rows 100ms ease-out,
-    margin-top 100ms ease-out,
-    opacity 100ms ease-out,
-    transform 100ms ease-out;
+    grid-template-rows 300ms ease-out,
+    margin-top 300ms ease-out,
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
 }
 
 .benefitPanelActive {

@@ -1,9 +1,14 @@
 .timeline {
   --landing-motion-duration: 28.020507s;
+  --landing-refund-cases-duration: 56.041014s;
 }
 
 .horizontalClip {
   overflow-x: clip;
+}
+
+.refundCasesTrack {
+  --refund-cases-inline-padding: 24px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -52,7 +57,7 @@
   }
 
   .refundCasesTrack {
-    animation: landing-refund-cases var(--landing-motion-duration) linear infinite both;
+    animation: landing-refund-cases var(--landing-refund-cases-duration) linear infinite both;
     will-change: transform;
   }
 
@@ -129,7 +134,7 @@
   }
 
   100% {
-    transform: translateX(-2679px);
+    transform: translateX(calc(-50% + var(--refund-cases-inline-padding) - 12px));
   }
 }
 

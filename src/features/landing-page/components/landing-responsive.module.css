@@ -755,6 +755,8 @@
   }
 
   .refundCasesTrack {
+    --refund-cases-inline-padding: var(--content-inline-padding);
+
     padding-inline: var(--content-inline-padding);
   }
 

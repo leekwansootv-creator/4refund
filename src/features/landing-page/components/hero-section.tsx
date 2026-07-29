@@ -74,25 +74,25 @@ export function HeroSection() {
               <span>{hero.emailCtaLabel}</span>
             </a>
           </div>
-          <dl
+          <div
             className={`${responsiveStyles.heroDetails} flex items-center gap-4 text-sm leading-[1.3] text-[#f6f6f6]`}
           >
             <div className="flex items-center gap-1">
               <span aria-hidden="true" className="size-[5px] rounded-full bg-white" />
-              <div className="flex items-center gap-[9px]">
+              <dl className="flex items-center gap-[9px]">
                 <dt>{hero.consultationLabel}</dt>
-                <span aria-hidden="true" className="h-3 w-px bg-white/70" />
-                <dd>{LANDING_CONTACT.consultationHours}</dd>
-              </div>
+                <dd className="border-l border-white/70 pl-[9px]">
+                  {LANDING_CONTACT.consultationHours}
+                </dd>
+              </dl>
             </div>
             <div
               className={`${responsiveStyles.heroEmailDetail} flex items-center gap-1 border-l border-white/70 pl-4`}
             >
               <span aria-hidden="true" className="size-[5px] rounded-full bg-white" />
-              <div className="flex items-center gap-[9px]">
+              <dl className="flex items-center gap-[9px]">
                 <dt>{hero.emailLabel}</dt>
-                <span aria-hidden="true" className="h-3 w-px bg-white/70" />
-                <dd>
+                <dd className="border-l border-white/70 pl-[9px]">
                   <a
                     className={`${responsiveStyles.interactiveControl} ${responsiveStyles.heroInlineEmail} rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     href={LANDING_CONTACT.emailHref}
@@ -100,9 +100,9 @@ export function HeroSection() {
                     {LANDING_CONTACT.emailDisplay}
                   </a>
                 </dd>
-              </div>
+              </dl>
             </div>
-          </dl>
+          </div>
         </div>
       </div>
     </section>

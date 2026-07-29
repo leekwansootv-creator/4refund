@@ -134,7 +134,7 @@ export function ExpertStrengthsSection() {
                   >
                     <span
                       aria-hidden="true"
-                      className={`${responsiveStyles.strengthStep} flex items-center gap-6 text-5xl leading-none font-medium text-[#75a7f3] ${
+                      className={`${responsiveStyles.strengthStep} flex items-center gap-6 text-5xl leading-none font-medium text-[#5f8fd6] ${
                         isImageLeft ? "justify-end" : "justify-start"
                       }`}
                     >

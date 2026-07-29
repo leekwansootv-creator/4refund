@@ -3,9 +3,13 @@
 import type { ComponentPropsWithoutRef, MouseEvent } from "react";
 
 const SCROLL_DURATION_MS = 600;
-const SCROLL_EASING_START_X = 0.3;
-const SCROLL_EASING_END_X = 0.25;
-const CUBIC_BEZIER_SEARCH_ITERATIONS = 16;
+const SCROLL_EASING_CHECKPOINTS = [
+  { time: 0, progress: 0, velocity: 0 },
+  { time: 0.25, progress: 0.315, velocity: 1.46 },
+  { time: 0.5, progress: 0.75, velocity: 0.98 },
+  { time: 0.75, progress: 0.92, velocity: 0.44 },
+  { time: 1, progress: 1, velocity: 0 },
+] as const;
 
 let activeScrollFrameId: number | null = null;
 
@@ -14,9 +18,9 @@ type LandingScrollLinkProps = Omit<ComponentPropsWithoutRef<"a">, "href" | "onCl
 };
 
 /**
- * 느리게 출발하되 150ms에 약 32%, 300ms에 약 77%를 이동한다.
+ * 느리게 출발하되 150ms에 약 32%, 300ms에 75%를 이동한다.
  *
- * 시작과 끝의 속도를 0으로 유지하면서 Figma 프로토타입처럼 초반 이동량을 높인다.
+ * 마지막 150ms에 8%의 이동량을 남겨 속도가 급격히 떨어지지 않도록 한다.
  */
 function getAsymmetricScrollProgress(elapsedPortion: number) {
   const progress = Math.min(Math.max(elapsedPortion, 0), 1);
@@ -25,27 +29,25 @@ function getAsymmetricScrollProgress(elapsedPortion: number) {
     return progress;
   }
 
-  let lowerParameter = 0;
-  let upperParameter = 1;
+  const endIndex = SCROLL_EASING_CHECKPOINTS.findIndex((checkpoint) => progress <= checkpoint.time);
+  const start = SCROLL_EASING_CHECKPOINTS[endIndex - 1];
+  const end = SCROLL_EASING_CHECKPOINTS[endIndex];
 
-  for (let iteration = 0; iteration < CUBIC_BEZIER_SEARCH_ITERATIONS; iteration += 1) {
-    const parameter = (lowerParameter + upperParameter) / 2;
-    const inverseParameter = 1 - parameter;
-    const timeCoordinate =
-      3 * inverseParameter ** 2 * parameter * SCROLL_EASING_START_X +
-      3 * inverseParameter * parameter ** 2 * SCROLL_EASING_END_X +
-      parameter ** 3;
-
-    if (timeCoordinate < progress) {
-      lowerParameter = parameter;
-    } else {
-      upperParameter = parameter;
-    }
+  if (!start || !end) {
+    return progress;
   }
 
-  const parameter = (lowerParameter + upperParameter) / 2;
+  const segmentDuration = end.time - start.time;
+  const segmentProgress = (progress - start.time) / segmentDuration;
+  const squaredProgress = segmentProgress ** 2;
+  const cubedProgress = squaredProgress * segmentProgress;
 
-  return 3 * (1 - parameter) * parameter ** 2 + parameter ** 3;
+  return (
+    (2 * cubedProgress - 3 * squaredProgress + 1) * start.progress +
+    (cubedProgress - 2 * squaredProgress + segmentProgress) * segmentDuration * start.velocity +
+    (-2 * cubedProgress + 3 * squaredProgress) * end.progress +
+    (cubedProgress - squaredProgress) * segmentDuration * end.velocity
+  );
 }
 
 function getTargetScrollTop(target: HTMLElement) {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { LandingScrollLink } from "./landing-scroll-link";
 import responsiveStyles from "./landing-responsive.module.css";
 import { SiteHeaderNavigation } from "./site-header-navigation";
 import { LANDING_ASSETS } from "../constants/landing-assets";
@@ -15,7 +16,7 @@ export function SiteHeader() {
       <div
         className={`${responsiveStyles.headerInner} relative flex h-full w-full items-center justify-between pl-8`}
       >
-        <a
+        <LandingScrollLink
           className={`${responsiveStyles.headerBrand} flex items-center gap-3 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
           href="#top"
         >
@@ -28,7 +29,7 @@ export function SiteHeader() {
               {LANDING_CONTENT.brandNameParts.emphasis}
             </span>
           </span>
-        </a>
+        </LandingScrollLink>
         <SiteHeaderNavigation />
         <div className={`${responsiveStyles.headerActions} flex h-full w-[261px] items-stretch`}>
           <a
@@ -45,7 +46,7 @@ export function SiteHeader() {
               {LANDING_CONTACT.phoneDisplay}
             </span>
           </a>
-          <a
+          <LandingScrollLink
             className={`${responsiveStyles.headerAction} flex w-[145px] flex-col items-center justify-center border-l border-white/15 bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
             href="#contact"
           >
@@ -58,7 +59,7 @@ export function SiteHeader() {
             <span className={responsiveStyles.headerActionLabel}>
               {LANDING_CONTENT.navigationCallToActionLabel}
             </span>
-          </a>
+          </LandingScrollLink>
         </div>
       </div>
     </header>

@@ -3,9 +3,9 @@
 import type { ComponentPropsWithoutRef, MouseEvent } from "react";
 
 const SCROLL_DURATION_MS = 600;
-const SCROLL_EASING_CONTROL_3 = 1.1038624338624337;
-const SCROLL_EASING_CONTROL_4 = 0.7485502645502642;
-const SCROLL_EASING_CONTROL_5 = 0.7283068783068787;
+const SCROLL_EASING_CONTROL_3 = 0.737724867724868;
+const SCROLL_EASING_CONTROL_4 = 0.5474074074074066;
+const SCROLL_EASING_CONTROL_5 = 0.6601587301587305;
 
 let activeScrollFrameId: number | null = null;
 
@@ -14,9 +14,9 @@ type LandingScrollLinkProps = Omit<ComponentPropsWithoutRef<"a">, "href" | "onCl
 };
 
 /**
- * 150ms에 약 32%, 300ms에 75%, 450ms에 92%를 이동한다.
+ * 150ms에 22%, 300ms에 60%, 450ms에 88%를 이동한다.
  *
- * 양 끝의 제어점 세 개를 겹친 8차 Bézier로 종료 속도와 가속도를 모두 0으로 만든다.
+ * 초반 이동량을 줄이고 후반 감속 구간을 늘리면서 종료 속도와 가속도를 모두 0으로 만든다.
  */
 function getAsymmetricScrollProgress(elapsedPortion: number) {
   const progress = Math.min(Math.max(elapsedPortion, 0), 1);

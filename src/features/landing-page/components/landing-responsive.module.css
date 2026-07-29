@@ -4,6 +4,18 @@
   z-index: 50;
 }
 
+.header::after {
+  /* Keep the divider outside the header box so it does not consume interior height. */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: rgb(0 0 0 / 50%);
+  content: "";
+  pointer-events: none;
+}
+
 .headerBrand,
 .headerNav,
 .headerActions {

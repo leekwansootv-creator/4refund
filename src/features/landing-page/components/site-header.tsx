@@ -11,7 +11,7 @@ import { LANDING_CONTENT } from "../constants/landing-content";
  */
 export function SiteHeader() {
   return (
-    <header className={`${responsiveStyles.header} h-[77px] border border-black/10 bg-white`}>
+    <header className={`${responsiveStyles.header} h-[77px] bg-white`}>
       <div
         className={`${responsiveStyles.headerInner} relative flex h-full w-full items-center justify-between pl-8`}
       >

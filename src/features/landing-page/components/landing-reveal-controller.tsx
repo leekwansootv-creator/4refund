@@ -5,11 +5,12 @@ import { useEffect } from "react";
 const REVEAL_SELECTOR = "[data-landing-reveal]";
 const REVEALED_ATTRIBUTE = "data-landing-revealed";
 const INSTANT_REVEAL_ATTRIBUTE = "data-landing-reveal-instant";
+const REPEAT_REVEAL_ATTRIBUTE = "data-landing-reveal-repeat";
 const MOTION_READY_ATTRIBUTE = "data-landing-motion-ready";
 const REVEAL_THRESHOLD = 0.25;
 
 /**
- * 아래 방향 스크롤로 대상의 25%가 보일 때 진입 모션을 페이지당 한 번만 시작한다.
+ * 대상의 25%가 보일 때 진입 모션을 시작하고 반복 대상은 화면 이탈 후 재준비한다.
  */
 export function LandingRevealController() {
   useEffect(() => {
@@ -37,15 +38,26 @@ export function LandingRevealController() {
         previousObservedScrollY = currentScrollY;
 
         for (const entry of entries) {
-          if (entry.isIntersecting && entry.intersectionRatio >= REVEAL_THRESHOLD) {
-            const target = entry.target as HTMLElement;
+          const target = entry.target as HTMLElement;
+          const shouldRepeat = target.hasAttribute(REPEAT_REVEAL_ATTRIBUTE);
 
-            if (!isScrollingDown) {
+          if (entry.isIntersecting && entry.intersectionRatio >= REVEAL_THRESHOLD) {
+            if (!isScrollingDown && !shouldRepeat) {
               target.setAttribute(INSTANT_REVEAL_ATTRIBUTE, "true");
             }
 
+            if (shouldRepeat) {
+              target.removeAttribute(INSTANT_REVEAL_ATTRIBUTE);
+            }
+
             target.setAttribute(REVEALED_ATTRIBUTE, "true");
-            observer.unobserve(target);
+
+            if (!shouldRepeat) {
+              observer.unobserve(target);
+            }
+          } else if (!entry.isIntersecting && shouldRepeat) {
+            target.removeAttribute(INSTANT_REVEAL_ATTRIBUTE);
+            target.removeAttribute(REVEALED_ATTRIBUTE);
           }
         }
       },
@@ -69,7 +81,10 @@ export function LandingRevealController() {
       if (hashTarget?.contains(target)) {
         target.setAttribute(INSTANT_REVEAL_ATTRIBUTE, "true");
         target.setAttribute(REVEALED_ATTRIBUTE, "true");
-        continue;
+
+        if (!target.hasAttribute(REPEAT_REVEAL_ATTRIBUTE)) {
+          continue;
+        }
       }
 
       observer.observe(target);

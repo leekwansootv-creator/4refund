@@ -125,7 +125,7 @@ export function BenefitsSection() {
                     type="button"
                     aria-expanded={isActive}
                     aria-controls={panelId}
-                    className={responsiveStyles.benefitButton}
+                    className={`${responsiveStyles.interactiveControl} ${responsiveStyles.benefitButton}`}
                     onFocus={() => setFocusedIndex(index)}
                     onBlur={() => setFocusedIndex(null)}
                     onClick={() => selectBenefit(index)}

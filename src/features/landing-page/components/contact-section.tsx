@@ -39,7 +39,7 @@ export function ContactSection() {
           className={`${responsiveStyles.contactActions} flex w-[526px] shrink-0 flex-col items-end justify-center gap-3`}
         >
           <a
-            className={`${responsiveStyles.contactCard} flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]`}
+            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.contactCard} flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]`}
             href={LANDING_CONTACT.phoneHref}
           >
             <span
@@ -63,7 +63,7 @@ export function ContactSection() {
           </a>
 
           <a
-            className={`${responsiveStyles.contactCard} flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]`}
+            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.contactCard} flex h-24 w-full items-center rounded-2xl border border-[#3e3e4a] bg-[#181820] p-6 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#89c6ff]`}
             href={LANDING_CONTACT.emailHref}
           >
             <span

@@ -54,7 +54,7 @@ export function HeroSection() {
         <div className={`${responsiveStyles.heroContactGroup} flex flex-col items-start gap-2`}>
           <div className={`${responsiveStyles.heroActions} flex items-start gap-2.5`}>
             <a
-              className={`${responsiveStyles.heroCta} flex h-14 items-center justify-center gap-2 rounded-lg bg-[var(--color-brand-primary)] px-8 text-xl leading-5 font-bold whitespace-nowrap hover:bg-[#0059b8] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-white`}
+              className={`${responsiveStyles.interactiveControl} ${responsiveStyles.heroCta} flex h-14 items-center justify-center gap-2 rounded-lg bg-[var(--color-brand-primary)] px-8 text-xl leading-5 font-bold whitespace-nowrap hover:bg-[#0059b8] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-white`}
               href={LANDING_CONTACT.phoneHref}
             >
               <span aria-hidden="true" className="flex size-8 items-center justify-center">
@@ -65,7 +65,7 @@ export function HeroSection() {
               </span>
             </a>
             <a
-              className={`${responsiveStyles.heroCta} flex h-14 items-center justify-center gap-2 rounded-lg bg-white px-8 text-xl leading-5 font-bold whitespace-nowrap text-[var(--color-brand-primary)] hover:bg-[#e4f4ff] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-white`}
+              className={`${responsiveStyles.interactiveControl} ${responsiveStyles.heroCta} flex h-14 items-center justify-center gap-2 rounded-lg bg-white px-8 text-xl leading-5 font-bold whitespace-nowrap text-[var(--color-brand-primary)] hover:bg-[#e4f4ff] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-white`}
               href={LANDING_CONTACT.emailHref}
             >
               <span aria-hidden="true" className="flex size-7 items-center justify-center">
@@ -94,7 +94,7 @@ export function HeroSection() {
                 <span aria-hidden="true" className="h-3 w-px bg-white/70" />
                 <dd>
                   <a
-                    className={`${responsiveStyles.heroInlineEmail} rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                    className={`${responsiveStyles.interactiveControl} ${responsiveStyles.heroInlineEmail} rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                     href={LANDING_CONTACT.emailHref}
                   >
                     {LANDING_CONTACT.emailDisplay}

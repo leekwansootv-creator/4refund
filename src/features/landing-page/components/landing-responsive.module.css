@@ -27,12 +27,16 @@
   min-height: 44px;
 }
 
-.headerAction {
-  white-space: nowrap;
+.interactiveControl {
+  transition:
+    background-color 100ms ease-out,
+    border-color 100ms ease-out,
+    color 100ms ease-out,
+    opacity 100ms ease-out;
 }
 
-.headerNavLink {
-  transition: color 150ms ease-out;
+.headerAction {
+  white-space: nowrap;
 }
 
 .headerNavLinkCurrent {
@@ -67,7 +71,7 @@
   line-height: 1;
   font-weight: 700;
   white-space: nowrap;
-  transition: color 300ms ease-out;
+  transition: color 100ms ease-out;
 }
 
 .benefitTitleActive {
@@ -81,8 +85,8 @@
 .benefitImage {
   position: relative;
   transition:
-    width 300ms ease-out,
-    height 300ms ease-out;
+    width 100ms ease-out,
+    height 100ms ease-out;
 }
 
 .benefitImageActive {
@@ -97,8 +101,8 @@
 
 .benefitDot {
   transition:
-    opacity 300ms ease-out,
-    transform 300ms ease-out;
+    opacity 100ms ease-out,
+    transform 100ms ease-out;
 }
 
 .benefitDotActive {
@@ -115,10 +119,10 @@
   display: grid;
   min-height: 0;
   transition:
-    grid-template-rows 300ms ease-out,
-    margin-top 300ms ease-out,
-    opacity 300ms ease-out,
-    transform 300ms ease-out;
+    grid-template-rows 100ms ease-out,
+    margin-top 100ms ease-out,
+    opacity 100ms ease-out,
+    transform 100ms ease-out;
 }
 
 .benefitPanelActive {
@@ -193,6 +197,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .interactiveControl,
   .benefitTitle,
   .benefitImage,
   .benefitDot,

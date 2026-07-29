@@ -18,7 +18,7 @@ export function SiteFooter() {
       >
         <div className="flex flex-col items-start gap-5">
           <a
-            className={`${responsiveStyles.footerBrand} flex items-center gap-2 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
+            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.footerBrand} flex items-center gap-2 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
             href="#top"
           >
             <Image
@@ -51,7 +51,7 @@ export function SiteFooter() {
             className={`${responsiveStyles.footerAddress} flex flex-col items-end justify-center gap-2 not-italic`}
           >
             <a
-              className={`${responsiveStyles.footerAddressRow} flex items-center justify-end gap-3 rounded-sm text-sm leading-normal font-medium text-[#9ea7af] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
+              className={`${responsiveStyles.interactiveControl} ${responsiveStyles.footerAddressRow} flex items-center justify-end gap-3 rounded-sm text-sm leading-normal font-medium text-[#9ea7af] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
               href={LANDING_CONTACT.emailHref}
             >
               <span>{LANDING_CONTACT.emailDisplay}</span>
@@ -65,7 +65,7 @@ export function SiteFooter() {
               />
             </a>
             <a
-              className={`${responsiveStyles.footerAddressRow} flex items-center justify-end gap-3 rounded-sm text-sm leading-normal font-medium text-[#9ea7af] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
+              className={`${responsiveStyles.interactiveControl} ${responsiveStyles.footerAddressRow} flex items-center justify-end gap-3 rounded-sm text-sm leading-normal font-medium text-[#9ea7af] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
               href={LANDING_CONTACT.phoneHref}
             >
               <span>{LANDING_CONTACT.phoneDisplay}</span>

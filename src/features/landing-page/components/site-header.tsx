@@ -17,7 +17,7 @@ export function SiteHeader() {
         className={`${responsiveStyles.headerInner} relative flex h-full w-full items-center justify-between pl-8`}
       >
         <LandingScrollLink
-          className={`${responsiveStyles.headerBrand} flex items-center gap-3 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
+          className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerBrand} flex items-center gap-3 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
           href="#top"
         >
           <Image aria-hidden="true" src={LANDING_ASSETS.icons.logo} alt="" width={40} height={40} />
@@ -33,7 +33,7 @@ export function SiteHeader() {
         <SiteHeaderNavigation />
         <div className={`${responsiveStyles.headerActions} flex h-full w-[261px] items-stretch`}>
           <a
-            className={`${responsiveStyles.headerAction} flex w-[116px] flex-col items-center justify-center bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
+            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerAction} flex w-[116px] flex-col items-center justify-center bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
             href={LANDING_CONTACT.phoneHref}
           >
             <span
@@ -47,7 +47,7 @@ export function SiteHeader() {
             </span>
           </a>
           <LandingScrollLink
-            className={`${responsiveStyles.headerAction} flex w-[145px] flex-col items-center justify-center border-l border-white/15 bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
+            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerAction} flex w-[145px] flex-col items-center justify-center border-l border-white/15 bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
             href="#contact"
           >
             <span

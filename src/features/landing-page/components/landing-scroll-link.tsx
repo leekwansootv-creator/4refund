@@ -3,9 +3,10 @@
 import type { ComponentPropsWithoutRef, MouseEvent } from "react";
 
 const SCROLL_DURATION_MS = 600;
-const SCROLL_EASING_CONTROL_3 = 0.737724867724868;
-const SCROLL_EASING_CONTROL_4 = 0.5474074074074066;
-const SCROLL_EASING_CONTROL_5 = 0.6601587301587305;
+const SPRING_MASS = 1;
+const SPRING_STIFFNESS = 80;
+const SPRING_DAMPING = 20;
+const SPRING_INITIAL_VELOCITY = 0;
 
 let activeScrollFrameId: number | null = null;
 
@@ -14,22 +15,39 @@ type LandingScrollLinkProps = Omit<ComponentPropsWithoutRef<"a">, "href" | "onCl
 };
 
 /**
- * 150ms에 22%, 300ms에 60%, 450ms에 88%를 이동한다.
+ * Figma의 Spring 설정을 WebKit SpringSolver와 같은 시간 함수로 계산한다.
  *
- * 초반 이동량을 줄이고 후반 감속 구간을 늘리면서 종료 속도와 가속도를 모두 0으로 만든다.
+ * 현재 설정은 150ms에 약 39%, 300ms에 약 75%, 450ms에 약 91%를 이동하며,
+ * Figma와 동일하게 600ms가 끝나는 시점에는 목표 위치를 확정한다.
  */
-function getAsymmetricScrollProgress(elapsedPortion: number) {
+function getSpringScrollProgress(elapsedPortion: number) {
   const progress = Math.min(Math.max(elapsedPortion, 0), 1);
-  const inverseProgress = 1 - progress;
 
-  return (
-    56 * inverseProgress ** 5 * progress ** 3 * SCROLL_EASING_CONTROL_3 +
-    70 * inverseProgress ** 4 * progress ** 4 * SCROLL_EASING_CONTROL_4 +
-    56 * inverseProgress ** 3 * progress ** 5 * SCROLL_EASING_CONTROL_5 +
-    28 * inverseProgress ** 2 * progress ** 6 +
-    8 * inverseProgress * progress ** 7 +
-    progress ** 8
-  );
+  if (progress === 0 || progress === 1) {
+    return progress;
+  }
+
+  const elapsedSeconds = (SCROLL_DURATION_MS / 1000) * progress;
+  const naturalFrequency = Math.sqrt(SPRING_STIFFNESS / SPRING_MASS);
+  const dampingRatio = SPRING_DAMPING / (2 * Math.sqrt(SPRING_STIFFNESS * SPRING_MASS));
+
+  if (dampingRatio < 1) {
+    const dampedFrequency = naturalFrequency * Math.sqrt(1 - dampingRatio ** 2);
+    const velocityCoefficient =
+      (dampingRatio * naturalFrequency - SPRING_INITIAL_VELOCITY) / dampedFrequency;
+    const displacement =
+      Math.exp(-elapsedSeconds * dampingRatio * naturalFrequency) *
+      (Math.cos(dampedFrequency * elapsedSeconds) +
+        velocityCoefficient * Math.sin(dampedFrequency * elapsedSeconds));
+
+    return 1 - displacement;
+  }
+
+  const displacement =
+    (1 + (naturalFrequency - SPRING_INITIAL_VELOCITY) * elapsedSeconds) *
+    Math.exp(-naturalFrequency * elapsedSeconds);
+
+  return 1 - displacement;
 }
 
 function getTargetScrollTop(target: HTMLElement) {
@@ -59,7 +77,7 @@ function animateScrollTo(targetScrollTop: number) {
     }
 
     window.scrollTo({
-      top: startScrollTop + scrollDistance * getAsymmetricScrollProgress(elapsedPortion),
+      top: startScrollTop + scrollDistance * getSpringScrollProgress(elapsedPortion),
       behavior: "auto",
     });
     activeScrollFrameId = window.requestAnimationFrame(updateScroll);

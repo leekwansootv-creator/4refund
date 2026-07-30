@@ -12,6 +12,17 @@ npm run dev
 
 로컬 주소는 기본값인 `http://localhost:3000`이다.
 
+## 정적 배포 확인
+
+프로덕션은 GitHub Pages용 정적 export로 빌드한다. 로컬에서 동일한 결과물을 확인하려면 아래 명령을 실행한다.
+
+```bash
+npm run build
+npm run start
+```
+
+`npm run build`는 `out/`을 생성하고 `npm run start`는 해당 디렉터리를 `http://127.0.0.1:3000`에서 제공한다.
+
 ## 필수 검사
 
 ```bash

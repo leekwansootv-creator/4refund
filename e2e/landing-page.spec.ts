@@ -1,5 +1,20 @@
 import { expect, test } from "@playwright/test";
 
+test("브라우저 탭은 센터 로고 SVG를 파비콘으로 사용한다", async ({ page, request }) => {
+  await page.goto("/");
+
+  const iconHref = await page.locator("link[rel='icon']").getAttribute("href");
+
+  expect(iconHref).not.toBeNull();
+
+  const iconUrl = new URL(iconHref ?? "", page.url());
+  const iconResponse = await request.get(iconUrl.toString());
+
+  expect(iconUrl.pathname).toMatch(/\/assets\/landing\/icons\/logo\.svg$/u);
+  expect(iconResponse.ok()).toBe(true);
+  expect(iconResponse.headers()["content-type"]).toContain("image/svg+xml");
+});
+
 test("데스크톱 헤더 연락 버튼은 같은 폭과 좌우 여백을 유지한다", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");

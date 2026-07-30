@@ -58,7 +58,7 @@ npm run build
 - `npm ci`로 lockfile과 동일한 의존성 설치
 - Chromium과 시스템 의존성을 Playwright CLI로 설치
 - npm과 `.next/cache` 재사용
-- 최소 `contents: read` 권한만 부여
+- 검증 job에는 최소 `contents: read` 권한만 부여
 - 같은 ref의 이전 실행을 취소
 - `npm run check`를 유일한 검증 명령으로 사용
 
@@ -66,15 +66,16 @@ npm run build
 
 ## 배포
 
-현재는 호스팅 대상, 환경 구분, secret 소유권이 정해지지 않았으므로 CD는 만들지 않는다. 배포 워크플로를 추가할 때 다음 조건을 먼저 문서화한다.
+프로덕션은 GitHub Pages에 Next.js 정적 export 결과물인 `out/`을 배포한다. 서버 런타임이 없으므로 Server Action, 동적 Route Handler, cookie·header 기반 응답, ISR, 기본 `next/image` loader처럼 요청 시점의 Next.js 서버가 필요한 기능은 사용할 수 없다. 이런 기능이 필요해지면 구현 전에 호스팅 대상을 다시 결정한다.
 
-- 배포 대상과 런타임
-- preview, staging, production 승격 조건
-- 환경 변수와 secret 주입 책임
-- migration 순서와 rollback
-- 배포 후 health check와 관찰 지표
+- pull request에서는 `Quality / verify`까지만 실행하고 preview 환경은 만들지 않는다.
+- `main` push의 `Quality / verify`가 성공해야 같은 commit SHA를 다시 정적 export하고 `github-pages` 환경에 배포한다.
+- Pages의 기본 URL과 custom domain 차이는 `actions/configure-pages`가 제공하는 `PAGES_BASE_PATH`로 빌드에 주입한다.
+- 배포에는 별도 secret이나 migration이 없다. workflow의 배포 job에만 `pages: write`와 `id-token: write` 권한을 부여한다.
+- rollback은 문제 commit을 `main`에서 revert하여 이전 정적 결과물을 다시 배포하는 방식으로 수행한다.
+- 배포 후 GitHub Actions의 `deploy-pages` 결과와 배포 URL의 HTTP 응답, 주요 이미지·링크를 확인한다.
 
-CD는 `Quality / verify` 성공 뒤에만 실행하고, 같은 commit SHA의 빌드 산출물을 승격해야 한다.
+저장소 관리자는 Pages의 Source를 `GitHub Actions`로 설정하고 `github-pages` 환경은 `main`만 배포할 수 있도록 보호한다. custom domain과 HTTPS는 Pages 설정 및 DNS에서 별도로 활성화한다.
 
 ## 의존성 보안
 

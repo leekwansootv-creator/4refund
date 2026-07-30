@@ -34,7 +34,7 @@ export const LANDING_CONTENT = {
   },
   centerIntroduction: {
     heading: "센터 소개",
-    description: "4대보험 전문가들이 고객의 권리를 지키고 최상의 결과와 위해 함께합니다.",
+    description: "4대보험 전문가들이 고객의 권리를 지키고 최상의 결과를 위해 함께합니다.",
     membersHeading: "센터 구성원",
     members: [
       { name: "이관수", role: "노무사" },

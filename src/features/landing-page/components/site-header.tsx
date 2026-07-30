@@ -31,9 +31,9 @@ export function SiteHeader() {
           </span>
         </LandingScrollLink>
         <SiteHeaderNavigation />
-        <div className={`${responsiveStyles.headerActions} flex h-full w-[261px] items-stretch`}>
+        <div className={`${responsiveStyles.headerActions} flex h-full w-[290px] items-stretch`}>
           <a
-            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerAction} flex w-[116px] flex-col items-center justify-center bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
+            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerAction} flex w-[145px] flex-col items-center justify-center bg-[var(--color-brand-primary)] px-5 py-2.5 text-sm leading-5 font-bold text-white hover:bg-[#0059b8] focus-visible:z-10 focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white`}
             href={LANDING_CONTACT.phoneHref}
           >
             <span

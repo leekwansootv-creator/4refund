@@ -1,5 +1,35 @@
 import { expect, test } from "@playwright/test";
 
+test("데스크톱 헤더 연락 버튼은 같은 폭과 좌우 여백을 유지한다", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const phoneAction = page.locator("header a[href^='tel:']");
+  const contactAction = page.locator("header a[href='#contact']");
+  const [phoneBox, contactBox] = await Promise.all([
+    phoneAction.boundingBox(),
+    contactAction.boundingBox(),
+  ]);
+  const phoneLabelGaps = await phoneAction
+    .locator("span")
+    .last()
+    .evaluate((label) => {
+      const actionRect = label.closest("a")?.getBoundingClientRect();
+      const labelRect = label.getBoundingClientRect();
+
+      return {
+        left: actionRect ? labelRect.left - actionRect.left : 0,
+        right: actionRect ? actionRect.right - labelRect.right : 0,
+      };
+    });
+
+  expect(phoneBox).not.toBeNull();
+  expect(contactBox).not.toBeNull();
+  expect(phoneBox?.width).toBe(contactBox?.width);
+  expect(phoneLabelGaps.left).toBeGreaterThanOrEqual(18);
+  expect(phoneLabelGaps.right).toBeGreaterThanOrEqual(18);
+});
+
 test("헤더 메뉴는 목적지까지 600ms 동안 중간 위치를 거쳐 이동한다", async ({ page }) => {
   await page.goto("/");
 

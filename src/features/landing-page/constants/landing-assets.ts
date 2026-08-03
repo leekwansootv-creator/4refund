@@ -15,6 +15,7 @@ export const LANDING_ASSETS = {
     phone: toLandingAssetPath("/assets/landing/icons/phone.svg"),
     chat: toLandingAssetPath("/assets/landing/icons/chat.svg"),
     email: toLandingAssetPath("/assets/landing/icons/email.svg"),
+    fax: toLandingAssetPath("/assets/landing/icons/fax.svg"),
     more: toLandingAssetPath("/assets/landing/icons/more.svg"),
     globe: toLandingAssetPath("/assets/landing/icons/globe.svg"),
     percent: toLandingAssetPath("/assets/landing/icons/percent.svg"),

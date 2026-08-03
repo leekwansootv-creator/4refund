@@ -26,6 +26,22 @@ test("푸터는 Figma의 회색 워드마크를 고유 비율로 표시한다", 
     .toEqual([136, 40]);
 });
 
+test("푸터는 상담 번호와 구분한 회사 전화 및 팩스 정보를 표시한다", async ({ page }) => {
+  await page.goto("/");
+
+  const footer = page.locator("footer");
+  const companyPhone = footer.getByRole("link", { name: "회사 대표전화 02-3463-5119" });
+  const companyFax = footer.getByText("02-3462-5119", { exact: true });
+  const faxIcon = footer.locator("img[src$='/assets/landing/icons/fax.svg']");
+
+  await expect(page.locator("header a[href='tel:01022250555']")).toBeVisible();
+  await expect(companyPhone).toHaveAttribute("href", "tel:0234635119");
+  await expect(companyPhone).toContainText("02-3463-5119");
+  await expect(companyFax).toContainText("02-3462-5119");
+  await expect(faxIcon).toBeVisible();
+  await expect(footer.locator("a[href='tel:01022250555']")).toHaveCount(0);
+});
+
 test("센터 구성원은 이름별 프로필 사진을 여섯 칸 구조에 표시한다", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");

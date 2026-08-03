@@ -60,10 +60,11 @@ export function SiteFooter() {
               />
             </a>
             <a
+              aria-label={`회사 대표전화 ${LANDING_CONTACT.companyPhoneDisplay}`}
               className={`${responsiveStyles.interactiveControl} ${responsiveStyles.footerAddressRow} flex items-center justify-end gap-3 rounded-sm text-sm leading-normal font-medium text-[#6a6f73] focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
-              href={LANDING_CONTACT.phoneHref}
+              href={LANDING_CONTACT.companyPhoneHref}
             >
-              <span>{LANDING_CONTACT.phoneDisplay}</span>
+              <span>{LANDING_CONTACT.companyPhoneDisplay}</span>
               <Image
                 aria-hidden="true"
                 src={LANDING_ASSETS.icons.phone}
@@ -73,6 +74,20 @@ export function SiteFooter() {
                 className="size-[13px] opacity-[0.38] brightness-0"
               />
             </a>
+            <p
+              className={`${responsiveStyles.footerAddressRow} flex items-center justify-end gap-3 text-sm leading-normal font-medium text-[#6a6f73]`}
+            >
+              <span className="sr-only">팩스: </span>
+              <span>{LANDING_CONTACT.companyFaxDisplay}</span>
+              <Image
+                aria-hidden="true"
+                src={LANDING_ASSETS.icons.fax}
+                alt=""
+                width={15}
+                height={15}
+                className="size-[15px] opacity-[0.38] brightness-0"
+              />
+            </p>
             <p
               className={`${responsiveStyles.footerAddressRow} flex items-start justify-end gap-3 font-[family-name:var(--font-noto-sans-kr)] text-sm leading-normal font-medium tracking-[0.28px] text-[#6a6f73]`}
             >

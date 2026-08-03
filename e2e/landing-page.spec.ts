@@ -26,6 +26,69 @@ test("푸터는 Figma의 회색 워드마크를 고유 비율로 표시한다", 
     .toEqual([136, 40]);
 });
 
+test("센터 구성원은 이름별 프로필 사진을 여섯 칸 구조에 표시한다", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const memberList = page.locator("#about ul").first();
+  const profileImages = memberList.locator("img[src*='/assets/landing/images/']");
+  const expectedImageNames = [
+    "center-director.png",
+    "center-member-kim-min-han.jpg",
+    "center-member-park-seol-young.jpg",
+    "center-member-kim-sang-jae.jpg",
+    "center-member-lee-jeong-gye.png",
+  ];
+
+  await expect(memberList.locator("li")).toHaveCount(6);
+  await expect(profileImages).toHaveCount(5);
+
+  for (const imageName of expectedImageNames) {
+    const profileImage = memberList.locator(`img[src$='/${imageName}']`);
+
+    await expect(profileImage).toBeVisible();
+    await expect
+      .poll(() =>
+        profileImage.evaluate((image) => {
+          const element = image as HTMLImageElement;
+          const slot = element.parentElement;
+          const slotRect = slot?.getBoundingClientRect();
+          const transform = getComputedStyle(element).transform;
+          const transformValues = transform.startsWith("matrix(")
+            ? transform
+                .slice(7, -1)
+                .split(",")
+                .map((value) => Number(value.trim()))
+            : [];
+
+          return {
+            complete: element.complete,
+            isCropped: transform !== "none",
+            isRepositioned: (transformValues[4] ?? 0) !== 0 || (transformValues[5] ?? 0) !== 0,
+            isRound: slot ? getComputedStyle(slot).borderRadius !== "0px" : false,
+            naturalWidth: element.naturalWidth,
+            objectFit: getComputedStyle(element).objectFit,
+            slotHeight: Math.round(slotRect?.height ?? 0),
+            slotWidth: Math.round(slotRect?.width ?? 0),
+          };
+        }),
+      )
+      .toEqual({
+        complete: true,
+        isCropped: true,
+        isRepositioned: true,
+        isRound: true,
+        naturalWidth: expect.any(Number),
+        objectFit: "cover",
+        slotHeight: 139,
+        slotWidth: 139,
+      });
+    expect(
+      await profileImage.evaluate((image) => (image as HTMLImageElement).naturalWidth),
+    ).toBeGreaterThan(0);
+  }
+});
+
 test("브라우저 탭은 헤더 심볼 SVG를 파비콘으로 사용한다", async ({ page, request }) => {
   await page.goto("/");
 

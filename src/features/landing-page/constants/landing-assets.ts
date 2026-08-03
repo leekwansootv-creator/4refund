@@ -27,9 +27,13 @@ export const LANDING_ASSETS = {
     centerBackground: toLandingAssetPath(
       "/assets/landing/images/center-introduction-background.png",
     ),
-    centerMemberPlaceholder: toLandingAssetPath(
-      "/assets/landing/images/center-member-placeholder.svg",
-    ),
+    centerMembers: {
+      leeKwanSoo: toLandingAssetPath("/assets/landing/images/center-director.png"),
+      kimMinHan: toLandingAssetPath("/assets/landing/images/center-member-kim-min-han.jpg"),
+      parkSeolYoung: toLandingAssetPath("/assets/landing/images/center-member-park-seol-young.jpg"),
+      kimSangJae: toLandingAssetPath("/assets/landing/images/center-member-kim-sang-jae.jpg"),
+      leeJeongGye: toLandingAssetPath("/assets/landing/images/center-member-lee-jeong-gye.png"),
+    },
     centerDirector: toLandingAssetPath("/assets/landing/images/center-director.png"),
     benefits: {
       hiddenPremium: toLandingAssetPath("/assets/landing/images/benefit-hidden-premium.png"),

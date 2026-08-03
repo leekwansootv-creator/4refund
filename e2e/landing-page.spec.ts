@@ -26,7 +26,7 @@ test("푸터는 Figma의 회색 워드마크를 고유 비율로 표시한다", 
     .toEqual([136, 40]);
 });
 
-test("브라우저 탭은 센터 로고 SVG를 파비콘으로 사용한다", async ({ page, request }) => {
+test("브라우저 탭은 헤더 심볼 SVG를 파비콘으로 사용한다", async ({ page, request }) => {
   await page.goto("/");
 
   const iconHref = await page.locator("link[rel='icon']").getAttribute("href");
@@ -36,7 +36,7 @@ test("브라우저 탭은 센터 로고 SVG를 파비콘으로 사용한다", as
   const iconUrl = new URL(iconHref ?? "", page.url());
   const iconResponse = await request.get(iconUrl.toString());
 
-  expect(iconUrl.pathname).toMatch(/\/assets\/landing\/icons\/logo\.svg$/u);
+  expect(iconUrl.pathname).toMatch(/\/assets\/landing\/icons\/favicon\.svg$/u);
   expect(iconResponse.ok()).toBe(true);
   expect(iconResponse.headers()["content-type"]).toContain("image/svg+xml");
 });

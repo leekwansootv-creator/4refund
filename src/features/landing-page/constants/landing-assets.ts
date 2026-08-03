@@ -9,9 +9,9 @@ function toLandingAssetPath(path: `/assets/landing/${string}`) {
  */
 export const LANDING_ASSETS = {
   icons: {
+    favicon: toLandingAssetPath("/assets/landing/icons/favicon.svg"),
     footerLogo: toLandingAssetPath("/assets/landing/icons/footer-logo.svg"),
     headerLogo: toLandingAssetPath("/assets/landing/icons/header-logo.svg"),
-    logo: toLandingAssetPath("/assets/landing/icons/logo.svg"),
     phone: toLandingAssetPath("/assets/landing/icons/phone.svg"),
     chat: toLandingAssetPath("/assets/landing/icons/chat.svg"),
     email: toLandingAssetPath("/assets/landing/icons/email.svg"),

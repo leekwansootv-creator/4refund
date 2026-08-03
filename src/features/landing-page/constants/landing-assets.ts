@@ -9,6 +9,7 @@ function toLandingAssetPath(path: `/assets/landing/${string}`) {
  */
 export const LANDING_ASSETS = {
   icons: {
+    headerLogo: toLandingAssetPath("/assets/landing/icons/header-logo.svg"),
     logo: toLandingAssetPath("/assets/landing/icons/logo.svg"),
     phone: toLandingAssetPath("/assets/landing/icons/phone.svg"),
     chat: toLandingAssetPath("/assets/landing/icons/chat.svg"),

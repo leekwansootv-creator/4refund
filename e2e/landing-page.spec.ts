@@ -1,5 +1,19 @@
 import { expect, test } from "@playwright/test";
 
+test("헤더는 Figma의 컬러 워드마크를 고유 비율로 표시한다", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const logo = page.getByRole("img", { name: "포리펀 4REFUND" });
+  const logoSrc = await logo.getAttribute("src");
+
+  await expect(logo).toBeVisible();
+  expect(logoSrc).toMatch(/\/assets\/landing\/icons\/header-logo\.svg$/u);
+  await expect
+    .poll(async () => logo.evaluate((image) => [image.clientWidth, image.clientHeight]))
+    .toEqual([136, 40]);
+});
+
 test("브라우저 탭은 센터 로고 SVG를 파비콘으로 사용한다", async ({ page, request }) => {
   await page.goto("/");
 

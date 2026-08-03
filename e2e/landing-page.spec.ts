@@ -14,6 +14,18 @@ test("헤더는 Figma의 컬러 워드마크를 고유 비율로 표시한다", 
     .toEqual([136, 40]);
 });
 
+test("푸터는 Figma의 회색 워드마크를 고유 비율로 표시한다", async ({ page }) => {
+  await page.goto("/");
+
+  const logo = page.locator("footer img[src$='/assets/landing/icons/footer-logo.svg']");
+
+  await logo.scrollIntoViewIfNeeded();
+  await expect(logo).toBeVisible();
+  await expect
+    .poll(async () => logo.evaluate((image) => [image.clientWidth, image.clientHeight]))
+    .toEqual([136, 40]);
+});
+
 test("브라우저 탭은 센터 로고 SVG를 파비콘으로 사용한다", async ({ page, request }) => {
   await page.goto("/");
 

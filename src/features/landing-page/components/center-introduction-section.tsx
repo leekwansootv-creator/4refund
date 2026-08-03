@@ -5,6 +5,34 @@ import styles from "./landing-upper-sections.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTENT } from "../constants/landing-content";
 
+const memberImageCropStyles = {
+  leeKwanSoo: {
+    objectPosition: "55% 20%",
+    transform: "translate(2%, 5%) scale(1.5)",
+    transformOrigin: "55% 0%",
+  },
+  kimMinHan: {
+    objectPosition: "50% 0%",
+    transform: "translate(-1%, -3%) scale(1.4)",
+    transformOrigin: "50% 0%",
+  },
+  parkSeolYoung: {
+    objectPosition: "50% 0%",
+    transform: "translate(1%, -3%) scale(1.4)",
+    transformOrigin: "50% 0%",
+  },
+  kimSangJae: {
+    objectPosition: "50% 20%",
+    transform: "translate(-2%, -3%) scale(1.55)",
+    transformOrigin: "50% 0%",
+  },
+  leeJeongGye: {
+    objectPosition: "50% 50%",
+    transform: "translate(0%, 2%) scale(1.02)",
+    transformOrigin: "50% 50%",
+  },
+} as const;
+
 /**
  * 센터 구성원과 센터장의 경력 정보를 목록 구조로 제공한다.
  */
@@ -61,7 +89,7 @@ export function CenterIntroductionSection() {
                     key={member.name}
                     className={`${responsiveStyles.memberItem} flex w-[139px] flex-col items-center gap-4 text-center`}
                   >
-                    {member.role === null ? (
+                    {member.assetKey === null ? (
                       <div
                         className={`${responsiveStyles.memberVisual} flex size-[139px] items-center justify-center rounded-full border border-[#d8dee6] bg-[#f2f6fb]`}
                       >
@@ -77,14 +105,19 @@ export function CenterIntroductionSection() {
                         </span>
                       </div>
                     ) : (
-                      <Image
-                        aria-hidden="true"
-                        src={LANDING_ASSETS.images.centerMemberPlaceholder}
-                        alt=""
-                        width={139}
-                        height={139}
-                        className={responsiveStyles.memberVisual}
-                      />
+                      <div
+                        className={`${responsiveStyles.memberVisual} relative size-[139px] overflow-hidden rounded-full border border-[#d8dee6] bg-[#f2f6fb]`}
+                      >
+                        <Image
+                          aria-hidden="true"
+                          src={LANDING_ASSETS.images.centerMembers[member.assetKey]}
+                          alt=""
+                          fill
+                          sizes="139px"
+                          className="object-cover"
+                          style={memberImageCropStyles[member.assetKey]}
+                        />
+                      </div>
                     )}
                     <p
                       className={`${responsiveStyles.memberName} w-full text-xl leading-[1.2] text-[#101010]`}

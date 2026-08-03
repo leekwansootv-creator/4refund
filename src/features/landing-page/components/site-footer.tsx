@@ -18,22 +18,17 @@ export function SiteFooter() {
       >
         <div className="flex flex-col items-start gap-5">
           <a
-            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.footerBrand} flex items-center gap-2 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
+            aria-label="페이지 상단으로 이동"
+            className={`${responsiveStyles.interactiveControl} ${responsiveStyles.footerBrand} flex items-center rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
             href="#top"
           >
             <Image
               aria-hidden="true"
-              src={LANDING_ASSETS.icons.logo}
+              src={LANDING_ASSETS.icons.footerLogo}
               alt=""
-              width={40}
+              width={136}
               height={40}
-              className="opacity-50 grayscale"
             />
-            <span
-              className={`${responsiveStyles.footerBrandText} text-xl leading-none font-black tracking-[-0.5px] text-[#7b7c7e]`}
-            >
-              {LANDING_CONTENT.brandName}
-            </span>
           </a>
           <p
             className={`${responsiveStyles.footerNotice} font-[family-name:var(--font-noto-sans-kr)] text-xs leading-4 font-normal text-[#101010]`}

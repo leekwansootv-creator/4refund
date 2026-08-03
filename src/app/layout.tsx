@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "전문 노무사가 4대보험 과오납 환급 가능성을 진단하고 경정청구 절차를 지원합니다.",
   icons: {
     icon: {
-      url: LANDING_ASSETS.icons.logo,
+      url: LANDING_ASSETS.icons.favicon,
       type: "image/svg+xml",
       sizes: "any",
     },

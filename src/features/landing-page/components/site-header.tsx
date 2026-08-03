@@ -17,18 +17,15 @@ export function SiteHeader() {
         className={`${responsiveStyles.headerInner} relative flex h-full w-full items-center justify-between pl-8`}
       >
         <LandingScrollLink
-          className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerBrand} flex items-center gap-3 rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
+          className={`${responsiveStyles.interactiveControl} ${responsiveStyles.headerBrand} flex items-center rounded-sm focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand-primary)]`}
           href="#top"
         >
-          <Image aria-hidden="true" src={LANDING_ASSETS.icons.logo} alt="" width={40} height={40} />
-          <span
-            className={`${responsiveStyles.headerBrandText} text-xl leading-none font-black tracking-[-0.5px] text-[#0f172a]`}
-          >
-            {LANDING_CONTENT.brandNameParts.base}
-            <span className="text-[var(--color-brand-green)]">
-              {LANDING_CONTENT.brandNameParts.emphasis}
-            </span>
-          </span>
+          <Image
+            src={LANDING_ASSETS.icons.headerLogo}
+            alt="포리펀 4REFUND"
+            width={136}
+            height={40}
+          />
         </LandingScrollLink>
         <SiteHeaderNavigation />
         <div className={`${responsiveStyles.headerActions} flex h-full w-[290px] items-stretch`}>

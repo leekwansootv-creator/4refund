@@ -105,6 +105,17 @@ test("센터 구성원은 이름별 프로필 사진을 여섯 칸 구조에 표
   }
 });
 
+test("센터장 소개는 이관수 센터장의 소속을 정확히 표시한다", async ({ page }) => {
+  await page.goto("/");
+
+  const aboutSection = page.locator("#about");
+
+  await expect(
+    aboutSection.getByText("서경대 공공정책센터 연구교수", { exact: true }),
+  ).toBeVisible();
+  await expect(aboutSection.getByText("서경대 연구교수", { exact: true })).toHaveCount(0);
+});
+
 test("브라우저 탭은 헤더 심볼 SVG를 파비콘으로 사용한다", async ({ page, request }) => {
   await page.goto("/");
 

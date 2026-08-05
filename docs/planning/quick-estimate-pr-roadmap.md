@@ -667,8 +667,8 @@ stateDiagram-v2
 | 계획 ID | 상태      | 실제 PR                                                        | merge 확인 | 비고                                 |
 | ------- | --------- | -------------------------------------------------------------- | ---------- | ------------------------------------ |
 | PR 1    | 병합됨    | [#22](https://github.com/leekwansootv-creator/4refund/pull/22) | 확인       | 기획·기술 기준선 반영                |
-| PR 2    | 리뷰 대기 | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 미확인     | Apps Script 전송 채택, Draft PR 출하 |
-| PR 3    | 계획      | 미생성                                                         | 미확인     | 금액·입력 정책 승인 필요             |
+| PR 2    | 병합됨    | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 확인       | Apps Script 전송 방식 검증 반영      |
+| PR 3    | 리뷰 대기 | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 미확인     | 금액 계산 엔진 Draft PR 출하         |
 | PR 4    | 계획      | 미생성                                                         | 미확인     | PR 2 merge와 개인정보 정책 승인 필요 |
 | PR 5    | 계획      | 미생성                                                         | 미확인     | PR 4 응답 계약 필요                  |
 | PR 6    | 대기      | 미생성                                                         | 미확인     | 최종 desktop·mobile 디자인 필요      |

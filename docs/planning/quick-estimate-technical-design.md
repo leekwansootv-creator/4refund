@@ -542,7 +542,7 @@ integrations/google-apps-script/quick-estimate/
 
 1. 완료: 현재 기획, benchmark, 기술 설계와 [PR 로드맵](quick-estimate-pr-roadmap.md)을 문서 기준선으로 확정한다.
 2. 완료: `QD-010` 승인 계정의 테스트용 Sheet와 가짜 데이터로 [Apps Script 전송 방식](quick-estimate-apps-script-spike.md)을 검증하고 제출 중계 후보로 채택한다.
-3. 사업 담당자가 업종·기준액·난수 정책과 사원 수 범위를 승인한 뒤 계산 core와 단위 테스트를 구현한다.
+3. 완료: 승인된 업종·기준액·난수 정책과 사원 수 범위로 계산 core와 단위 테스트를 구현한다.
 4. 개인정보 처리 근거·보유 기간, 마케팅 계약, `QD-010` 승인 계정의 Sheet 접근자와 운영 상태를 승인한 뒤 저장 처리를 구현한다.
 5. 확정된 endpoint 계약을 기준으로 브라우저 제출 schema, transport와 상태 전이를 구현한다.
 6. 디자인과 사용자 문구 확정 후 컴포넌트와 접근성 상태를 구현한다.

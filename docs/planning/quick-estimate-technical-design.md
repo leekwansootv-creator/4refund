@@ -2,7 +2,7 @@
 
 ## 문서 목적
 
-이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 디자인이 확정되기 전에 결정할 수 있는 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의한다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따른다.
+이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 디자인이 확정되기 전에 결정할 수 있는 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의한다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다.
 
 현재 단계에서는 문서만 작성한다. React 컴포넌트, 스타일, Apps Script, Google Sheet는 생성하지 않는다. 개인정보 처리의 법적 근거와 문구, 마케팅 채널, 사원 수 최대값은 담당자 승인 전까지 미확정 상태로 둔다.
 
@@ -445,7 +445,7 @@ CAPTCHA를 채택하면 검증용 secret은 Apps Script의 비공개 설정에�
 
 ## 향후 코드 구조
 
-각 구현 단계의 진입 조건이 충족된 뒤 해당 단계에 필요한 폴더만 만든다. `components`는 디자인 확정 후 생성하지만 계산, schema와 transport 코드는 각 정책 승인 후 먼저 만들 수 있다.
+각 [PR 로드맵](quick-estimate-pr-roadmap.md)의 진입 조건이 충족된 뒤 해당 단계에 필요한 폴더만 만든다. `components`는 디자인 확정 후 생성하지만 계산, schema와 transport 코드는 각 정책 승인 후 먼저 만들 수 있다.
 
 ```text
 src/features/quick-estimate/
@@ -521,7 +521,7 @@ integrations/google-apps-script/quick-estimate/
 
 ## 구현 순서
 
-1. 현재 기획, benchmark와 기술 설계를 문서 기준선으로 확정한다.
+1. 현재 기획, benchmark, 기술 설계와 [PR 로드맵](quick-estimate-pr-roadmap.md)을 문서 기준선으로 확정한다.
 2. `QD-010` 승인 계정의 테스트용 Sheet와 가짜 데이터로 Apps Script 전송 방식 기술 검증을 수행한다.
 3. 기술 검증 결과에 따라 제출 중계 방식을 채택하거나 대안을 문서에 반영한다.
 4. 사업 담당자가 업종·기준액·난수 정책과 사원 수 범위를 승인한 뒤 계산 core와 단위 테스트를 구현한다.

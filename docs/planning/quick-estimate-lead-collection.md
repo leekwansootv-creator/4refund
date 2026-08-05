@@ -10,6 +10,7 @@
 
 ## 관련 문서
 
+- [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)
 - [간단 견적 리드 수집 기술 설계](quick-estimate-technical-design.md)
 - [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)
 - [랜딩 페이지 구현 기획](landing-page-implementation.md)
@@ -361,7 +362,7 @@ src/features/quick-estimate/
 
 ## 단계별 구현 착수 조건
 
-전체 작업을 디자인 완료까지 한꺼번에 보류하지 않는다. 아래 단계별 조건에 따라 디자인과 독립적인 검증과 계산·저장 계약을 먼저 진행하고, 각 단계에 필요한 승인만 진입 조건으로 사용한다.
+전체 작업을 디자인 완료까지 한꺼번에 보류하지 않는다. [PR 로드맵](quick-estimate-pr-roadmap.md)에 따라 디자인과 독립적인 검증과 계산·저장 계약을 먼저 진행하고, 각 단계에 필요한 승인만 진입 조건으로 사용한다.
 
 ### 디자인 전에 가능한 작업
 

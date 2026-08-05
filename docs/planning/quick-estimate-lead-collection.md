@@ -13,6 +13,7 @@
 - [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)
 - [간단 견적 리드 수집 기술 설계](quick-estimate-technical-design.md)
 - [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)
+- [간단 견적 Apps Script 전송 검증](quick-estimate-apps-script-spike.md)
 - [랜딩 페이지 구현 기획](landing-page-implementation.md)
 - [폴더 구조와 의존성](../engineering/architecture.md)
 - [코드 컨벤션](../engineering/code-conventions.md)
@@ -262,7 +263,7 @@ Google Apps Script Web App은 `doPost(e)`로 HTTP POST 요청을 받을 수 있�
 
 Apps Script도 실행 코드와 배포 권한, 할당량이 있는 외부 런타임이다. 따라서 “백엔드가 전혀 없음”이 아니라 “직접 운영하는 상시 백엔드와 데이터베이스가 없음”으로 정의한다.
 
-정적 사이트에서 외부 Apps Script Web App으로 요청할 때의 redirect와 교차 출처 응답 처리 방식은 구현 전에 실제 배포 URL로 기술 검증한다. 브라우저가 저장 성공 응답을 신뢰성 있게 확인할 수 없다면 접수 완료로 표시해서는 안 되며, Google Forms 또는 다른 관리형 서버리스 제출 계층을 대안으로 다시 비교한다.
+[실제 전송 검증](quick-estimate-apps-script-spike.md)에서 form encoded 요청은 redirect 이후에도 성공·검증 실패·저장 실패 JSON body를 읽을 수 있음을 확인했다. `application/json`은 preflight가 실패하므로 사용하지 않으며, timeout이나 네트워크 오류처럼 저장 여부를 확정할 수 없는 경우에는 접수 완료로 표시하지 않는다.
 
 ### 연동 원칙
 

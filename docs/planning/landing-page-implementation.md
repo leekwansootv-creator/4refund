@@ -13,6 +13,7 @@
 - [간단 견적 리드 수집 기술 설계](quick-estimate-technical-design.md)
 - [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)
 - [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)
+- [간단 견적 Apps Script 전송 검증](quick-estimate-apps-script-spike.md)
 
 간단 견적과 개인정보 제출은 현재 랜딩 구현 범위에 포함하지 않는다. 디자인 전 기술 작업과 디자인 후 화면 작업은 위 후속 PR 로드맵에 따라 별도 feature에서 진행하며, 최종 공개 PR 전까지 현재 랜딩에 진입점을 연결하지 않는다.
 

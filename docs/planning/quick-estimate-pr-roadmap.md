@@ -165,6 +165,8 @@ npm run check
 
 현재 정적 배포 환경의 브라우저가 Google Apps Script Web App에 요청하고, 저장 성공과 검증 실패 및 서버 실패를 서로 구분해 읽을 수 있는지 증명한다. 이 PR의 결과로 Apps Script 채택 여부를 확정한다.
 
+실행 결과와 채택 근거는 [간단 견적 Apps Script 전송 검증](quick-estimate-apps-script-spike.md)에 기록한다.
+
 ### 포함 변경
 
 - 테스트용 Web App 요청·응답 검증

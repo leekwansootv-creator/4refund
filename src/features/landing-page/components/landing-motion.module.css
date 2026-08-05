@@ -106,8 +106,13 @@
     will-change: transform;
   }
 
+  .refundCasesViewport:focus-visible .refundCasesTrack {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .refundCasesViewport:hover .refundCasesTrack,
-  .refundCasesViewport:focus-within .refundCasesTrack,
   .refundCasesViewport:active .refundCasesTrack {
     animation-play-state: paused;
   }
@@ -127,12 +132,6 @@
     animation: none;
     opacity: 1;
     transform: none;
-  }
-}
-
-@media (hover: none) and (pointer: coarse) {
-  .refundCasesTrack {
-    animation-play-state: paused;
   }
 }
 

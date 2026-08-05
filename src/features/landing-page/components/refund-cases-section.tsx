@@ -49,7 +49,7 @@ function RefundCaseCard({ refundCase }: { refundCase: RefundCase }) {
 }
 
 /**
- * 업종별 익명 환급 사례를 해당 목록 안에서만 가로로 탐색할 수 있게 제공한다.
+ * 업종별 익명 환급 사례를 자동 순환하며 터치 환경의 세로 페이지 스크롤을 보장한다.
  */
 export function RefundCasesSection() {
   const { refundCases } = LANDING_CONTENT;

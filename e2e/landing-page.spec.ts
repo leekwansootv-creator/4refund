@@ -204,6 +204,66 @@ test("서비스 선택은 자동 순환하며 사용자 호버 인덱스부터 �
   await expect(buttons.nth(0)).toHaveAttribute("aria-expanded", "true", { timeout: 2200 });
 });
 
+test.describe("모바일 환급 사례", () => {
+  test.use({ hasTouch: true, isMobile: true, viewport: { width: 390, height: 844 } });
+
+  test("자동 이동하며 목록 위에서 시작한 세로 터치 스크롤을 방해하지 않는다", async ({ page }) => {
+    await page.goto("/");
+
+    const viewport = page.getByRole("region", { name: "환급 사례 자동 이동 목록" });
+    const track = viewport.locator(":scope > div");
+
+    await viewport.evaluate((element) => element.scrollIntoView({ block: "center" }));
+    await expect(viewport).toBeVisible();
+    await expect
+      .poll(() =>
+        viewport.evaluate((element) => {
+          const style = getComputedStyle(element);
+
+          return {
+            overflowX: style.overflowX,
+            touchAction: style.touchAction,
+          };
+        }),
+      )
+      .toEqual({ overflowX: "hidden", touchAction: "pan-y pinch-zoom" });
+    await expect
+      .poll(() => track.evaluate((element) => getComputedStyle(element).animationPlayState))
+      .toBe("running");
+
+    const initialTransform = await track.evaluate((element) => getComputedStyle(element).transform);
+
+    await expect
+      .poll(() => track.evaluate((element) => getComputedStyle(element).transform))
+      .not.toBe(initialTransform);
+
+    const touchStart = await viewport.evaluate((element) => {
+      const bounds = element.getBoundingClientRect();
+
+      return {
+        x: Math.round(bounds.left + bounds.width / 2),
+        y: Math.round(bounds.top + bounds.height / 2),
+      };
+    });
+    const initialPageScroll = await page.evaluate(() => window.scrollY);
+    const initialListScroll = await viewport.evaluate((element) => element.scrollLeft);
+    const session = await page.context().newCDPSession(page);
+
+    await session.send("Input.dispatchTouchEvent", {
+      touchPoints: [touchStart],
+      type: "touchStart",
+    });
+    await session.send("Input.dispatchTouchEvent", {
+      touchPoints: [{ x: touchStart.x, y: touchStart.y - 120 }],
+      type: "touchMove",
+    });
+    await session.send("Input.dispatchTouchEvent", { touchPoints: [], type: "touchEnd" });
+
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(initialPageScroll);
+    await expect(viewport).toHaveJSProperty("scrollLeft", initialListScroll);
+  });
+});
+
 test("전문가 강점은 화면에서 사라진 뒤 다시 진입하면 양옆 진입 모션을 재생한다", async ({
   page,
 }) => {

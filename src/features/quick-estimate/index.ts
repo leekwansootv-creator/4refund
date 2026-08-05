@@ -5,6 +5,8 @@ export {
 } from "./constants/estimate-rule-set";
 export type { EstimateIndustryCode, EstimateIndustryRule } from "./constants/estimate-rule-set";
 export { calculateEstimate } from "./lib/calculate-estimate";
+export { generateRandomUpliftBps } from "./lib/generate-random-uplift";
+export type { RandomUpliftSource } from "./lib/generate-random-uplift";
 export type {
   EstimateCalculationInput,
   EstimateInvalidReason,

@@ -178,8 +178,9 @@ type EstimateRuleSet = {
 4. 참고 기준액과 사원 수로 benchmark 표시금액을 계산하고 1만 원 단위 반올림한다.
 5. 4refund 기준액과 사원 수에 난수를 적용하고 1만 원 단위 올림한다.
 6. 후보 금액과 `benchmark 표시금액 + 10,000원` 중 큰 값을 최종 예상금액으로 사용한다.
-7. 최종 금액, 난수, 규칙·benchmark version을 결과로 반환한다.
-8. 대응 업종이 없으면 `unsupported`를 반환하고 금액을 만들지 않는다.
+7. 최종 금액이 100억 원을 넘으면 상한값으로 자르지 않고 `amount_limit_exceeded`로 거절한다.
+8. 최종 금액, 난수, 규칙·benchmark version을 결과로 반환한다.
+9. 대응 업종이 없으면 `unsupported`를 반환하고 금액을 만들지 않는다.
 
 ### 결과 계약
 
@@ -196,8 +197,17 @@ type EstimateResult =
       benchmarkVersion: string;
     }
   | {
-      status: "invalid" | "unsupported";
-      reason: string;
+      status: "invalid";
+      reason:
+        | "employee_count_not_integer"
+        | "employee_count_out_of_range"
+        | "random_uplift_not_integer"
+        | "random_uplift_out_of_range"
+        | "amount_limit_exceeded";
+    }
+  | {
+      status: "unsupported";
+      reason: "unsupported_industry";
     };
 ```
 

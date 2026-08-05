@@ -6,11 +6,17 @@
 
 .refundCasesViewport {
   scrollbar-width: none;
-  touch-action: pan-x pinch-zoom;
+  touch-action: pan-y pinch-zoom;
 }
 
 .refundCasesViewport::-webkit-scrollbar {
   display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .refundCasesViewport {
+    overflow-x: hidden;
+  }
 }
 
 .refundCapsule {

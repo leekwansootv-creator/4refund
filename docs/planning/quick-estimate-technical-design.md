@@ -4,7 +4,7 @@
 
 이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 디자인이 확정되기 전에 결정할 수 있는 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의한다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다. Apps Script 전송 방식의 실제 관측 결과는 [전송 검증 문서](quick-estimate-apps-script-spike.md)를 기준으로 삼는다.
 
-현재 저장소에는 React 컴포넌트, 스타일, Apps Script 운영 source와 브라우저 client를 구현하지 않는다. 기술 검증용 Apps Script와 비공개 Google Sheet는 인가 계정에 생성했으며 공개 테스트 배포는 검증 후 보관 처리했다. 개인정보 처리의 법적 근거와 문구, 마케팅 채널, 사원 수 최대값은 구체 계약이 확정될 때까지 미확정 상태로 둔다.
+현재 저장소에는 React 컴포넌트, 스타일, Apps Script 운영 source와 브라우저 client를 구현하지 않는다. 기술 검증용 Apps Script와 비공개 Google Sheet는 인가 계정에 생성했으며 공개 테스트 배포는 검증 후 보관 처리했다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리의 법적 근거와 문구, 마케팅 채널은 구체 계약이 확정될 때까지 미확정 상태로 둔다.
 
 ## 설계 결정
 
@@ -135,6 +135,7 @@ type EstimateRuleSet = {
   benchmarkVersion: string;
   currency: "KRW";
   displayUnit: number;
+  maxDisplayAmount: number;
   randomUpliftBps: {
     min: number;
     max: number;
@@ -159,6 +160,8 @@ type EstimateRuleSet = {
 - `version`은 배포된 규칙 집합마다 고유하다.
 - `benchmarkVersion`은 기준액을 확인한 출처 snapshot을 식별한다.
 - `displayUnit`은 0보다 큰 정수다.
+- `employeeCount`는 1명부터 6,000명까지의 정수다.
+- `maxDisplayAmount`는 100억 원이며 초과 결과를 상한값으로 잘라 반환하지 않는다.
 - 난수 범위는 100bp부터 300bp이며 항상 양수다.
 - 업종마다 참고 1인당 기준액과 4refund 1인당 기준액이 하나씩 존재한다.
 - 4refund 기준액은 참고 기준액의 105%를 1,000원 단위로 올림한 값이다.
@@ -175,8 +178,9 @@ type EstimateRuleSet = {
 4. 참고 기준액과 사원 수로 benchmark 표시금액을 계산하고 1만 원 단위 반올림한다.
 5. 4refund 기준액과 사원 수에 난수를 적용하고 1만 원 단위 올림한다.
 6. 후보 금액과 `benchmark 표시금액 + 10,000원` 중 큰 값을 최종 예상금액으로 사용한다.
-7. 최종 금액, 난수, 규칙·benchmark version을 결과로 반환한다.
-8. 대응 업종이 없으면 `unsupported`를 반환하고 금액을 만들지 않는다.
+7. 최종 금액이 100억 원을 넘으면 상한값으로 자르지 않고 `amount_limit_exceeded`로 거절한다.
+8. 최종 금액, 난수, 규칙·benchmark version을 결과로 반환한다.
+9. 대응 업종이 없으면 `unsupported`를 반환하고 금액을 만들지 않는다.
 
 ### 결과 계약
 
@@ -193,8 +197,17 @@ type EstimateResult =
       benchmarkVersion: string;
     }
   | {
-      status: "invalid" | "unsupported";
-      reason: string;
+      status: "invalid";
+      reason:
+        | "employee_count_not_integer"
+        | "employee_count_out_of_range"
+        | "random_uplift_not_integer"
+        | "random_uplift_out_of_range"
+        | "amount_limit_exceeded";
+    }
+  | {
+      status: "unsupported";
+      reason: "unsupported_industry";
     };
 ```
 
@@ -529,7 +542,7 @@ integrations/google-apps-script/quick-estimate/
 
 1. 완료: 현재 기획, benchmark, 기술 설계와 [PR 로드맵](quick-estimate-pr-roadmap.md)을 문서 기준선으로 확정한다.
 2. 완료: `QD-010` 승인 계정의 테스트용 Sheet와 가짜 데이터로 [Apps Script 전송 방식](quick-estimate-apps-script-spike.md)을 검증하고 제출 중계 후보로 채택한다.
-3. 사업 담당자가 업종·기준액·난수 정책과 사원 수 범위를 승인한 뒤 계산 core와 단위 테스트를 구현한다.
+3. 완료: 승인된 업종·기준액·난수 정책과 사원 수 범위로 계산 core와 단위 테스트를 구현한다.
 4. 개인정보 처리 근거·보유 기간, 마케팅 계약, `QD-010` 승인 계정의 Sheet 접근자와 운영 상태를 승인한 뒤 저장 처리를 구현한다.
 5. 확정된 endpoint 계약을 기준으로 브라우저 제출 schema, transport와 상태 전이를 구현한다.
 6. 디자인과 사용자 문구 확정 후 컴포넌트와 접근성 상태를 구현한다.
@@ -552,7 +565,6 @@ integrations/google-apps-script/quick-estimate/
 
 | 항목                                  | 결정 주체              | 구현 영향                        |
 | ------------------------------------- | ---------------------- | -------------------------------- |
-| 사원 수 최대값과 표시금액 상한        | 사업 담당자            | 입력 검증과 비정상 고액 방지     |
 | benchmark 갱신 주기                   | 사업·운영 담당자       | 외부 기준보다 높다는 보장 범위   |
 | 결과를 연락처 제출 전후 언제 공개할지 | 제품·디자인            | 화면 흐름과 전환 측정            |
 | 개인정보 처리 법적 근거와 보유 기간   | 개인정보 담당자        | 필수 확인, Sheet 컬럼, 파기 절차 |

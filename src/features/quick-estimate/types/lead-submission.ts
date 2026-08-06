@@ -96,3 +96,21 @@ export type QuickEstimateLeadValidationResult =
       ok: false;
       issues: QuickEstimateLeadValidationIssue[];
     };
+
+/** 응답 body를 신뢰할 수 있을 때만 성공 또는 공개 실패로 확정한 전송 결과입니다. */
+export type QuickEstimateSubmissionTransportResult =
+  | Extract<QuickEstimateSubmissionResponse, { ok: true }>
+  | {
+      ok: false;
+      kind: "validation";
+      code: QuickEstimateSubmissionValidationErrorCode;
+    }
+  | {
+      ok: false;
+      kind: "server";
+      code: QuickEstimateSubmissionServerErrorCode;
+    }
+  | {
+      ok: false;
+      kind: "timeout" | "network" | "unreadable_response";
+    };

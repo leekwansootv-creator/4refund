@@ -9,6 +9,8 @@ export {
   PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
 } from "./constants/lead-submission-contract";
+export { DEFAULT_SUBMISSION_TIMEOUT_MS, submitEstimateLead } from "./api/submit-estimate-lead";
+export type { EstimateLeadFetch, SubmitEstimateLeadOptions } from "./api/submit-estimate-lead";
 export { calculateEstimate } from "./lib/calculate-estimate";
 export { generateRandomUpliftBps } from "./lib/generate-random-uplift";
 export type { RandomUpliftSource } from "./lib/generate-random-uplift";
@@ -26,5 +28,6 @@ export type {
   QuickEstimateSubmissionPayload,
   QuickEstimateSubmissionResponse,
   QuickEstimateSubmissionServerErrorCode,
+  QuickEstimateSubmissionTransportResult,
   QuickEstimateSubmissionValidationErrorCode,
 } from "./types/lead-submission";

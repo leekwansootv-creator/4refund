@@ -401,8 +401,8 @@ docs/planning/
 - 업종, 사원 수, 견적 금액, 난수, 규칙 version을 포함한 request schema
 - 개인정보 동의와 마케팅 선택 동의의 별도 필드
 - `idle → submitting → succeeded | failed` 상태 전이
-- 제출 시작 시 `lead_id` 생성과 재시도 시 동일 ID 유지
-- timeout, 네트워크 실패, 검증 실패, 서버 실패의 구분
+- 제출 시작 시 `request_id` 생성과 재시도 시 동일 ID 유지
+- timeout, 네트워크 실패, 검증 실패, 서버 실패와 판독 불가 응답의 구분
 - 성공 응답을 확인한 경우에만 접수 완료 상태 전환
 - 외부 endpoint를 호출하는 얇은 client adapter
 - transport와 상태 전이 단위 테스트
@@ -436,7 +436,7 @@ src/features/quick-estimate/
 - 필수 개인정보 동의 누락
 - 마케팅 미동의 요청 허용
 - 제출 중 중복 실행 차단
-- 실패 후 같은 `lead_id`, 계산 금액과 난수를 유지한 재시도
+- 실패 후 같은 `request_id`, 계산 금액과 난수를 유지한 재시도
 - 성공, 검증 실패, timeout, 불투명 응답의 상태 전이
 
 ### 완료 조건
@@ -559,7 +559,7 @@ stateDiagram-v2
     Estimated --> Submitting: 연락처·필수 동의 검증 통과
     Submitting --> Succeeded: 저장 성공 응답 확인
     Submitting --> Failed: 검증·전송·저장 실패
-    Failed --> Submitting: 같은 lead_id와 견적으로 재시도
+    Failed --> Submitting: 같은 request_id와 견적으로 재시도
     Estimated --> Input: 계산 조건 변경
 ```
 

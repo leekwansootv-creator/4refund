@@ -108,6 +108,8 @@ idle
 | `succeeded`  | Apps Script가 저장 성공을 확인했다.                                    |
 | `failed`     | 검증, 네트워크 또는 저장 오류가 발생했다. 입력과 계산 결과를 보존한다. |
 
+브라우저 검증 실패는 수정 가능한 초안과 오류 목록을 보존한다. 전송을 시작한 뒤의 실패는 최초 `requestId`, 계산 금액과 난수가 포함된 payload 전체를 보존하며, 재시도는 새 식별자를 만들지 않고 같은 payload만 다시 전송한다. 진행 중에는 추가 제출과 초기화를 모두 차단한다.
+
 디자인은 두 상태를 한 화면, 모달, 여러 단계 중 어떤 방식으로 보여 줄지 결정한다. 기술 구현은 UI 단계 번호에 의존하지 않는다.
 
 ## 예상 견적 엔진
@@ -288,11 +290,21 @@ type EstimateResult =
 | `INVALID_INPUT`       | 입력 계약 위반                  | 해당 입력을 수정하도록 안내            |
 | `INVALID_CONSENT`     | 필수 확인 누락 또는 계약 불일치 | 동의 항목을 다시 확인하도록 안내       |
 | `UNSUPPORTED_RULE`    | 지원하지 않는 견적 규칙 버전    | 결과를 유지하고 상담 대체 경로 안내    |
-| `RATE_LIMITED`        | 과도한 반복 제출                | 잠시 후 재시도 안내                    |
 | `STORAGE_UNAVAILABLE` | Google Sheets 저장 실패         | 접수되지 않았음을 명시하고 재시도 안내 |
 | `INTERNAL_ERROR`      | 공개할 수 없는 내부 오류        | 일반 오류 문구와 대체 연락처 제공      |
 
 Apps Script `ContentService`에서는 도메인 실패도 HTTP `200`으로 반환될 수 있으므로 브라우저는 status만으로 성공 처리하지 않는다. form encoded 요청의 redirect 이후 JSON body를 읽고 `ok`와 결과 코드를 함께 판정한다. `application/json`은 preflight가 실패하므로 사용하지 않으며, body를 읽을 수 없는 전송 방식은 성공 응답 계약을 만족하지 못한 것으로 판단한다.
+
+### 브라우저 전송 판정
+
+- endpoint URL은 호출자가 주입하며 소스 코드에 운영 URL을 하드코딩하지 않는다.
+- `URLSearchParams`의 `payload` field에 JSON을 담고 credential 없이 redirect를 따라간다.
+- 기본 timeout은 Apps Script cold start를 고려한 15초이며 호출자가 명시적으로 조정할 수 있다.
+- `INVALID_INPUT`, `INVALID_CONSENT`, `UNSUPPORTED_RULE`은 검증 실패로 분류한다.
+- `STORAGE_UNAVAILABLE`, `INTERNAL_ERROR`은 서버 실패로 분류한다.
+- timeout, fetch 예외와 판독 불가 응답은 저장 여부를 확정하지 않으며 성공으로 표시하지 않는다.
+- 응답의 필드 집합, `leadId` UUID와 `duplicate`를 확인한 경우에만 성공으로 전환한다.
+- 자동 재시도는 하지 않는다. 사용자가 재시도하면 최초 payload를 그대로 사용한다.
 
 ## 정규화와 검증
 
@@ -468,25 +480,28 @@ CAPTCHA를 채택하면 검증용 secret은 Apps Script의 비공개 설정에�
 - 마케팅 철회 요청이 오면 `marketing_agreed` 원본을 덮어쓰기보다 철회 상태를 기록할 별도 정책을 마련한다. 철회 요구가 실제로 발생하기 전까지 임의 컬럼을 추가하지 않는다.
 - 보유 기간 만료 데이터의 추출·파기 책임자와 실행 주기를 공개 전에 정한다.
 
-## 향후 코드 구조
+## 코드 구조
 
-각 [PR 로드맵](quick-estimate-pr-roadmap.md)의 진입 조건이 충족된 뒤 해당 단계에 필요한 폴더만 만든다. `components`는 디자인 확정 후 생성하지만 계산, schema와 transport 코드는 각 정책 승인 후 먼저 만들 수 있다.
+각 [PR 로드맵](quick-estimate-pr-roadmap.md)의 진입 조건이 충족된 뒤 해당 단계에 필요한 폴더만 만든다. 현재 계산, schema, transport와 상태 코드만 존재하며 `components`는 디자인 확정 후 생성한다.
 
 ```text
 src/features/quick-estimate/
-├── components/                   # 디자인 확정 후 생성
+├── api/
+│   └── submit-estimate-lead.ts       # form encoded 전송과 응답 판정
 ├── constants/
-│   ├── estimate-rule-set.ts      # 승인된 업종·기준액·난수 정책
-│   └── consent-versions.ts       # 승인된 고지·동의 버전
+│   ├── estimate-rule-set.ts          # 승인된 업종·기준액·난수 정책
+│   └── lead-submission-contract.ts   # 고지·동의와 payload 크기 계약
 ├── lib/
-│   ├── calculate-estimate.ts     # 난수를 인자로 받는 순수 견적 계산
-│   └── generate-random-uplift.ts # 브라우저 보안 난수 생성 경계
+│   ├── calculate-estimate.ts         # 난수를 인자로 받는 순수 견적 계산
+│   ├── generate-random-uplift.ts     # 브라우저 보안 난수 생성 경계
+│   ├── generate-submission-request-id.ts # 제출 UUID 생성 경계
+│   └── submission-state.ts           # 제출 상태와 멱등 재시도 전이
 ├── schemas/
-│   ├── estimate-input.ts         # 견적 입력 검증
-│   └── lead-submission.ts        # 제출 계약 검증
+│   └── lead-submission.ts            # 연락처·동의·견적 제출 검증
 ├── types/
-│   └── quick-estimate.ts         # feature 전용 계약
-└── index.ts                      # 랜딩 페이지 공개 진입점
+│   ├── estimate.ts                   # 계산 결과 계약
+│   └── lead-submission.ts            # wire·응답·전송 결과 계약
+└── index.ts                          # feature 공개 진입점
 ```
 
 Apps Script를 저장소에서 관리하기로 결정하면 다음 후보 구조를 사용하되, 실제 폴더를 만들기 전에 `docs/engineering/architecture.md`와 자동 검사 범위를 함께 갱신한다.
@@ -519,6 +534,9 @@ integrations/google-apps-script/quick-estimate/
 - 연락처 필수값과 최대 길이를 검증한다.
 - 마케팅 미동의를 정상 요청으로 허용한다.
 - 미동의 상태의 마케팅 채널을 거부한다.
+- 진행 중 중복 제출과 초기화를 차단한다.
+- 실패 재시도에서 같은 `request_id`, 계산 금액과 난수를 유지한다.
+- timeout, network와 판독 불가 응답을 성공으로 표시하지 않는다.
 - 알 수 없는 동의 버전과 견적 규칙 버전을 거부한다.
 - 알 수 없는 benchmark version과 허용 범위 밖의 난수를 거부한다.
 - 요청 예상금액이 서버 재계산값과 다르면 거부한다.
@@ -549,8 +567,8 @@ integrations/google-apps-script/quick-estimate/
 1. 완료: 현재 기획, benchmark, 기술 설계와 [PR 로드맵](quick-estimate-pr-roadmap.md)을 문서 기준선으로 확정한다.
 2. 완료: `QD-010` 승인 계정의 테스트용 Sheet와 가짜 데이터로 [Apps Script 전송 방식](quick-estimate-apps-script-spike.md)을 검증하고 제출 중계 후보로 채택한다.
 3. 완료: 승인된 업종·기준액·난수 정책과 사원 수 범위로 계산 core와 단위 테스트를 구현한다.
-4. 진행 중: 승인된 개인정보·마케팅 계약과 `QD-010` 계정의 접근·운영 범위로 저장 처리를 구현한다.
-5. 확정된 endpoint 계약을 기준으로 브라우저 제출 schema, transport와 상태 전이를 구현한다.
+4. 완료: 승인된 개인정보·마케팅 계약과 `QD-010` 계정의 접근·운영 범위로 저장 처리를 구현한다.
+5. 완료: 확정된 endpoint 계약을 기준으로 브라우저 제출 schema, transport와 상태 전이를 구현한다.
 6. 디자인과 사용자 문구 확정 후 컴포넌트와 접근성 상태를 구현한다.
 7. 계산, 동의, 제출과 저장을 연결하고 정적 배포 환경에서 전체 흐름을 검증한다.
 8. 스팸 방지, 운영 권한, benchmark 갱신과 출시 QA를 마친다.

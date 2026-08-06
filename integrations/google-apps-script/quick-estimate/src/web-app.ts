@@ -16,7 +16,6 @@ export type QuickEstimateWebResponse =
         | "INVALID_INPUT"
         | "INVALID_CONSENT"
         | "UNSUPPORTED_RULE"
-        | "RATE_LIMITED"
         | "STORAGE_UNAVAILABLE"
         | "INTERNAL_ERROR";
     };

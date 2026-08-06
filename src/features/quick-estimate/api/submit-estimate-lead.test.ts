@@ -6,7 +6,7 @@ import type {
   QuickEstimateLeadDraft,
   QuickEstimateSubmissionPayload,
 } from "../types/lead-submission";
-import { submitEstimateLead } from "./submit-estimate-lead";
+import { submitEstimateLead, type EstimateLeadFetch } from "./submit-estimate-lead";
 
 const ENDPOINT = "https://script.google.com/macros/s/test-deployment/exec";
 const REQUEST_ID = "0fca3874-40bc-4ea9-a7ad-742a062736ea";
@@ -56,7 +56,7 @@ afterEach(() => {
 
 describe("submitEstimateLead", () => {
   it("form encoded 요청과 redirect·credential 계약을 적용하고 성공 body를 반환한다", async () => {
-    const fetcher = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) =>
+    const fetcher = vi.fn<EstimateLeadFetch>(async () =>
       jsonResponse({ ok: true, leadId: LEAD_ID, duplicate: false }),
     );
     const payload = createPayload();

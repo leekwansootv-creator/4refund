@@ -229,7 +229,7 @@ type EstimateResult =
     "amount": 0,
     "currency": "KRW",
     "randomUpliftBps": 200,
-    "ruleVersion": "estimate-v1",
+    "ruleVersion": "estimate-rule-2026-08-05",
     "benchmarkVersion": "incruit-2026-08-05"
   },
   "lead": {

@@ -369,7 +369,7 @@ docs/planning/
 - 필수 동의 누락 거절
 - 마케팅 미동의 정상 저장과 동의 시 version·시각 저장
 - 변조된 금액, 업종, 인원, 난수, version 거절
-- 같은 `lead_id` 재전송 시 중복 행 방지
+- 같은 `request_id` 재전송 시 중복 행 방지
 - formula-like 입력이 수식으로 실행되지 않음
 - 잠금 충돌, quota, Sheet 쓰기 실패 응답
 

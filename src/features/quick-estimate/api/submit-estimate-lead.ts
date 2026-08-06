@@ -122,7 +122,9 @@ export async function submitEstimateLead(
     try {
       body = await response.json();
     } catch {
-      return { ok: false, kind: "unreadable_response" };
+      return didTimeout
+        ? { ok: false, kind: "timeout" }
+        : { ok: false, kind: "unreadable_response" };
     }
 
     const result = parseSubmissionResponse(body);

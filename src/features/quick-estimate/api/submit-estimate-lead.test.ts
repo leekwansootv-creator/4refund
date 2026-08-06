@@ -140,4 +140,32 @@ describe("submitEstimateLead", () => {
 
     await expect(submission).resolves.toEqual({ ok: false, kind: "timeout" });
   });
+
+  it("응답 body를 읽는 중 제한 시간을 넘겨도 timeout으로 반환한다", async () => {
+    vi.useFakeTimers();
+    const response = new Response(null, { status: 200 });
+    const fetcher = vi.fn<EstimateLeadFetch>(async (...args) => {
+      const signal = args[1]?.signal;
+
+      vi.spyOn(response, "json").mockImplementation(
+        () =>
+          new Promise<never>((_resolve, reject) => {
+            signal?.addEventListener("abort", () => {
+              reject(new DOMException("aborted", "AbortError"));
+            });
+          }),
+      );
+
+      return response;
+    });
+    const submission = submitEstimateLead(createPayload(), {
+      endpoint: ENDPOINT,
+      fetcher,
+      timeoutMs: 100,
+    });
+
+    await vi.advanceTimersByTimeAsync(100);
+
+    await expect(submission).resolves.toEqual({ ok: false, kind: "timeout" });
+  });
 });

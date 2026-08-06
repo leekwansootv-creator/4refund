@@ -12,6 +12,7 @@ export {
 export { calculateEstimate } from "./lib/calculate-estimate";
 export { generateRandomUpliftBps } from "./lib/generate-random-uplift";
 export type { RandomUpliftSource } from "./lib/generate-random-uplift";
+export { createQuickEstimateSubmissionPayload } from "./schemas/lead-submission";
 export type {
   EstimateCalculationInput,
   EstimateInvalidReason,
@@ -20,6 +21,8 @@ export type {
 export type {
   MarketingChannel,
   QuickEstimateLeadDraft,
+  QuickEstimateLeadValidationIssue,
+  QuickEstimateLeadValidationResult,
   QuickEstimateSubmissionPayload,
   QuickEstimateSubmissionResponse,
   QuickEstimateSubmissionServerErrorCode,

@@ -57,14 +57,10 @@ export type QuickEstimateSubmissionPayload = {
 
 /** Apps Script가 입력·동의·계산 규칙 검증 실패에 사용하는 공개 코드입니다. */
 export type QuickEstimateSubmissionValidationErrorCode =
-  | "INVALID_INPUT"
-  | "INVALID_CONSENT"
-  | "UNSUPPORTED_RULE";
+  "INVALID_INPUT" | "INVALID_CONSENT" | "UNSUPPORTED_RULE";
 
 /** Apps Script가 저장 또는 내부 처리 실패에 사용하는 공개 코드입니다. */
-export type QuickEstimateSubmissionServerErrorCode =
-  | "STORAGE_UNAVAILABLE"
-  | "INTERNAL_ERROR";
+export type QuickEstimateSubmissionServerErrorCode = "STORAGE_UNAVAILABLE" | "INTERNAL_ERROR";
 
 /** 브라우저가 판독할 수 있는 Apps Script 상담 제출 응답입니다. */
 export type QuickEstimateSubmissionResponse =
@@ -75,7 +71,28 @@ export type QuickEstimateSubmissionResponse =
     }
   | {
       ok: false;
-      code:
-        | QuickEstimateSubmissionValidationErrorCode
-        | QuickEstimateSubmissionServerErrorCode;
+      code: QuickEstimateSubmissionValidationErrorCode | QuickEstimateSubmissionServerErrorCode;
+    };
+
+/** UI가 입력 항목별 안내를 선택할 수 있는 브라우저 제출 검증 코드입니다. */
+export type QuickEstimateLeadValidationIssue =
+  | "invalid_request_id"
+  | "invalid_estimate"
+  | "invalid_company_name"
+  | "invalid_contact_name"
+  | "invalid_email"
+  | "invalid_phone"
+  | "privacy_consent_required"
+  | "invalid_marketing_consent"
+  | "payload_too_large";
+
+/** 제출 초안 정규화와 wire payload 생성 결과입니다. */
+export type QuickEstimateLeadValidationResult =
+  | {
+      ok: true;
+      payload: QuickEstimateSubmissionPayload;
+    }
+  | {
+      ok: false;
+      issues: QuickEstimateLeadValidationIssue[];
     };

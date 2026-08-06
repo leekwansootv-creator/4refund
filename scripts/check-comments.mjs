@@ -31,10 +31,10 @@ function walkSourceFiles(directory) {
 export function checkComments(
   projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), ".."),
 ) {
-  const sourceRoot = join(projectRoot, "src");
+  const sourceRoots = [join(projectRoot, "src"), join(projectRoot, "integrations")];
   const errors = [];
 
-  for (const file of walkSourceFiles(sourceRoot)) {
+  for (const file of sourceRoots.flatMap((sourceRoot) => walkSourceFiles(sourceRoot))) {
     const source = readFileSync(file, "utf8");
     const displayPath = relative(projectRoot, file).split(sep).join("/");
 

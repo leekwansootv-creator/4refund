@@ -1,4 +1,4 @@
-import { MARKETING_CONSENT_VERSION, PRIVACY_NOTICE_VERSION } from "./submission-contract";
+import { MARKETING_CONSENT_VERSION, PRIVACY_NOTICE_VERSION } from "@/features/quick-estimate";
 import {
   LEAD_SHEET_COLUMN_DESCRIPTIONS,
   LEAD_SHEET_HEADERS,

@@ -14,6 +14,16 @@ export type { EstimateLeadFetch, SubmitEstimateLeadOptions } from "./api/submit-
 export { calculateEstimate } from "./lib/calculate-estimate";
 export { generateRandomUpliftBps } from "./lib/generate-random-uplift";
 export type { RandomUpliftSource } from "./lib/generate-random-uplift";
+export { generateSubmissionRequestId } from "./lib/generate-submission-request-id";
+export type { SubmissionRequestIdSource } from "./lib/generate-submission-request-id";
+export {
+  completeQuickEstimateSubmission,
+  createInitialSubmissionState,
+  resetQuickEstimateSubmission,
+  retryQuickEstimateSubmission,
+  startQuickEstimateSubmission,
+} from "./lib/submission-state";
+export type { QuickEstimateSubmissionState } from "./lib/submission-state";
 export { createQuickEstimateSubmissionPayload } from "./schemas/lead-submission";
 export type {
   EstimateCalculationInput,

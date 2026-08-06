@@ -44,6 +44,10 @@ const SHARED_DIRECTORIES = new Set([
   "types",
 ]);
 
+const INTEGRATION_PROVIDERS = new Set(["google-apps-script"]);
+const INTEGRATION_DIRECTORIES = new Set(["src"]);
+const INTEGRATION_ROOT_FILES = new Set(["Code.gs", "README.md", "appsscript.json"]);
+
 /**
  * 운영체제와 무관하게 진단 경로를 슬래시 표기로 통일한다.
  */
@@ -344,6 +348,87 @@ function checkRuntimeBoundaries(sourceRoot, errors) {
 }
 
 /**
+ * 별도 배포 integration의 provider, app 구조와 제품 feature 공개 경계를 검사한다.
+ */
+function checkIntegrationDirectory(projectRoot, sourceRoot, errors) {
+  const integrationsRoot = join(projectRoot, "integrations");
+
+  if (!existsSync(integrationsRoot)) {
+    return;
+  }
+
+  for (const providerEntry of readdirSync(integrationsRoot, { withFileTypes: true })) {
+    const providerPath = join(integrationsRoot, providerEntry.name);
+
+    if (!providerEntry.isDirectory() || !INTEGRATION_PROVIDERS.has(providerEntry.name)) {
+      errors.push(
+        `integrations/${providerEntry.name}: 허용된 integration provider는 google-apps-script뿐입니다.`,
+      );
+      continue;
+    }
+
+    for (const appEntry of readdirSync(providerPath, { withFileTypes: true })) {
+      const appPath = join(providerPath, appEntry.name);
+      const displayRoot = `integrations/${providerEntry.name}/${appEntry.name}`;
+
+      if (!appEntry.isDirectory() || !KEBAB_CASE_PATTERN.test(appEntry.name)) {
+        errors.push(`${displayRoot}: integration 이름은 kebab-case 폴더여야 합니다.`);
+        continue;
+      }
+
+      for (const entry of readdirSync(appPath, { withFileTypes: true })) {
+        if (entry.isDirectory() && !INTEGRATION_DIRECTORIES.has(entry.name)) {
+          errors.push(`${displayRoot}/${entry.name}: 허용되지 않은 integration 하위 폴더입니다.`);
+        }
+
+        if (entry.isFile() && !INTEGRATION_ROOT_FILES.has(entry.name)) {
+          errors.push(`${displayRoot}/${entry.name}: 허용되지 않은 integration 루트 파일입니다.`);
+        }
+      }
+
+      checkSourceFileNames(join(appPath, "src"), projectRoot, errors);
+
+      for (const sourceFile of walkFiles(join(appPath, "src")).filter((file) =>
+        SOURCE_FILE_PATTERN.test(file),
+      )) {
+        const source = readFileSync(sourceFile, "utf8");
+        const displayPath = toPosixPath(relative(projectRoot, sourceFile));
+
+        for (const specifier of collectImportSpecifiers(source, sourceFile)) {
+          const targetPath = resolveLocalImport(specifier, sourceFile, sourceRoot);
+
+          if (!targetPath) {
+            continue;
+          }
+
+          const targetRelativePath = relative(sourceRoot, targetPath);
+
+          if (targetRelativePath.startsWith("..") || targetRelativePath === "") {
+            continue;
+          }
+
+          const targetClassification = classifySourcePath(targetRelativePath);
+
+          if (targetClassification.layer === "app") {
+            errors.push(`${displayPath}: integration은 app을 import할 수 없습니다.`);
+          }
+
+          if (targetClassification.layer === "feature") {
+            const publicSpecifier = `@/features/${targetClassification.feature}`;
+
+            if (specifier !== publicSpecifier) {
+              errors.push(
+                `${displayPath}: integration은 feature 공개 진입점 "${publicSpecifier}"로만 import하세요.`,
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
  * 저장소의 폴더 구조와 의존성 방향을 검사하고 진단 목록을 반환한다.
  */
 export function checkArchitecture(
@@ -362,6 +447,7 @@ export function checkArchitecture(
   checkSharedDirectory(sourceRoot, errors);
   checkImportBoundaries(sourceRoot, errors);
   checkRuntimeBoundaries(sourceRoot, errors);
+  checkIntegrationDirectory(projectRoot, sourceRoot, errors);
 
   return errors;
 }

@@ -31,6 +31,13 @@ src/
     ├── server/                    # 범용 서버 인프라
     ├── styles/                    # 전역 스타일 자원
     └── types/                     # 비즈니스 의미가 없는 공용 타입
+integrations/
+└── google-apps-script/            # Apps Script로 별도 배포하는 외부 실행 경계
+    └── <integration-name>/
+        ├── src/                   # 테스트 가능한 TypeScript 원본
+        ├── Code.gs                # 원본에서 생성한 배포 artifact
+        ├── appsscript.json        # Apps Script manifest
+        └── README.md              # 설정, 배포, 운영 절차
 ```
 
 아직 필요하지 않은 디렉터리는 미리 만들지 않는다.
@@ -61,6 +68,15 @@ src/
 - app이나 feature를 import하지 않는다.
 - 범용 서버 클라이언트는 모듈 로드 시 초기화하지 않고 getter 내부에서 지연 초기화한다.
 
+### `integrations/google-apps-script`
+
+- Google Apps Script에 독립적으로 배포하는 코드와 manifest를 소유한다.
+- 각 integration은 `kebab-case` 이름의 폴더 하나로 격리한다.
+- 테스트 가능한 원본은 `src/`에 두고 `Code.gs`는 build script가 생성한다.
+- 계산·schema 등 제품 규칙은 소유 feature의 공개 `index.ts`로만 참조한다.
+- Sheet ID, Script ID, 배포 URL과 계정 자격 증명을 저장소에 기록하지 않는다.
+- 테스트는 integration 원본 옆에 `*.test.ts`로 두고 실제 개인정보 fixture를 사용하지 않는다.
+
 ### 컴포넌트 공통화
 
 - 한 feature 안에서 재사용하면 해당 feature의 `components`가 소유한다.
@@ -76,6 +92,8 @@ flowchart LR
     app["src/app"] --> features["src/features"]
     app --> shared["src/shared"]
     features --> shared
+    integrations["integrations"] --> features
+    integrations --> shared
 ```
 
 역방향 참조는 허용하지 않는다.
@@ -84,6 +102,7 @@ flowchart LR
 - `feature -> app` 금지
 - feature 간 내부 경로 직접 참조 금지
 - 다른 feature는 `@/features/<feature>`만 import
+- integration도 feature 내부 경로 대신 `@/features/<feature>` 공개 진입점만 import
 - 레이어를 넘을 때 `../../` 대신 `@/` 절대 경로 사용
 
 ## 파일 배치 결정표
@@ -99,6 +118,7 @@ flowchart LR
 | 브라우저 상태나 이벤트가 필요한가                       | feature/shared의 Client Component 또는 hook |
 | 비밀값, DB, 서버 SDK를 사용하는가                       | feature/shared의 `server`                   |
 | 외부 시스템이 호출하는 API인가                          | `app/**/route.ts` + feature 처리 로직       |
+| Apps Script로 별도 배포하는 저장·전송 경계인가          | `integrations/google-apps-script/<name>`    |
 
 판단이 어려우면 우선 feature 내부에 둔다. shared 승격은 실제 공통 변경 이유가 확인된 뒤 수행한다.
 

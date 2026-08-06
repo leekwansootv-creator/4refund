@@ -111,6 +111,14 @@
 - 외부 라이브러리의 대형 barrel import는 bundle과 개발 성능 영향을 확인하고 직접 import 또는 Next.js 최적화 설정을 사용한다.
 - 순환 의존성이 생기면 지연 import로 숨기지 않고 책임과 의존 방향을 다시 나눈다.
 
+### 외부 integration 원본과 artifact
+
+- Apps Script 원본은 TypeScript로 작성하고 외부 API 호출과 순수 검증·저장 orchestration을 분리한다.
+- 배포용 `Code.gs`를 직접 수정하지 않고 build script로 재생성한다.
+- 생성 artifact가 원본과 일치하는지 mutation 없는 검사 명령으로 확인한다.
+- Apps Script 전역 service는 어댑터 경계에서만 참조하고 단위 테스트에는 명시적인 port를 주입한다.
+- 공개 `doPost` 응답은 내부 stack, Sheet ID, 입력 원문을 포함하지 않는다.
+
 ## 입력, mutation, 오류
 
 - 브라우저와 외부 시스템에서 들어오는 값은 경계에서 검증한다.

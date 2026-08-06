@@ -17,9 +17,10 @@ npm run check
 | 3    | `npm run typecheck`          | route type 생성 또는 TypeScript 오류                    |
 | 4    | `npm run check:architecture` | 폴더, 이름, 의존성, 실행 환경 경계 위반                 |
 | 5    | `npm run check:comments`     | 추적되지 않는 TODO/FIXME/XXX                            |
-| 6    | `npm test`                   | 검사 도구와 UI 단위·컴포넌트 회귀 테스트 실패           |
-| 7    | `npm run build`              | Next.js 프로덕션 빌드 실패                              |
-| 8    | `npm run test:e2e:run`       | 브라우저 사용자 흐름 또는 자동 접근성 검사 실패         |
+| 6    | `npm run check:apps-script`  | Apps Script 원본과 배포 artifact가 다름                 |
+| 7    | `npm test`                   | 검사 도구와 UI 단위·컴포넌트 회귀 테스트 실패           |
+| 8    | `npm run build`              | Next.js 프로덕션 빌드 실패                              |
+| 9    | `npm run test:e2e:run`       | 브라우저 사용자 흐름 또는 자동 접근성 검사 실패         |
 
 검사 순서를 건너뛰기 위해 `next.config.ts`에서 TypeScript 또는 ESLint 오류를 무시하지 않는다.
 
@@ -32,6 +33,8 @@ npm run lint
 npm run typecheck
 npm run check:architecture
 npm run check:comments
+npm run build:apps-script
+npm run check:apps-script
 npm test
 npm run test:unit
 npm run test:e2e
@@ -42,7 +45,7 @@ npm run build
 
 테스트는 다음 도구와 책임으로 구분하고 모두 `npm run check`에 연결한다.
 
-- `node:test`: 아키텍처와 주석 검사 도구 자체의 회귀 테스트
+- `node:test`: 아키텍처·주석 검사와 Apps Script bundle 생성 도구의 회귀 테스트
 - Vitest와 Testing Library: 순수 함수, 동기 컴포넌트, 상태 전이 회귀 테스트
 - Playwright: 프로덕션 빌드에서 핵심 사용자 흐름과 브라우저 렌더링 검증
 - `@axe-core/playwright`: 실제 페이지의 WCAG A/AA 자동 접근성 검사

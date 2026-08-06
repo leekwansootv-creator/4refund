@@ -35,8 +35,34 @@ test("합의된 app, feature, shared 구조를 허용한다", () => {
     writeFixture(root, "src/features/refund-request/index.ts", "");
     writeFixture(root, "src/features/refund-request/components/refund-form.tsx", "");
     writeFixture(root, "src/shared/lib/currency.ts", "");
+    writeFixture(
+      root,
+      "integrations/google-apps-script/quick-estimate/src/web-app.ts",
+      'import { calculateEstimate } from "@/features/refund-request";',
+    );
+    writeFixture(root, "integrations/google-apps-script/quick-estimate/Code.gs", "");
+    writeFixture(root, "integrations/google-apps-script/quick-estimate/appsscript.json", "{}");
+    writeFixture(root, "integrations/google-apps-script/quick-estimate/README.md", "");
 
     assert.deepEqual(checkArchitecture(root), []);
+  });
+});
+
+test("integration의 미승인 구조와 feature 내부 경로 참조를 거부한다", () => {
+  withFixture((root) => {
+    writeFixture(root, "src/features/refund-request/index.ts", "");
+    writeFixture(root, "src/features/refund-request/lib/calculate.ts", "");
+    writeFixture(
+      root,
+      "integrations/google-apps-script/quick-estimate/src/web-app.ts",
+      'import { calculate } from "@/features/refund-request/lib/calculate";',
+    );
+    writeFixture(root, "integrations/google-apps-script/quick-estimate/secrets.json", "{}");
+
+    const errors = checkArchitecture(root);
+
+    assert.ok(errors.some((error) => error.includes("feature 공개 진입점")));
+    assert.ok(errors.some((error) => error.includes("허용되지 않은 integration 루트 파일")));
   });
 });
 

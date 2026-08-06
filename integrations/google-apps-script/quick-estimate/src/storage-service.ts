@@ -1,4 +1,4 @@
-import type { QuickEstimateSubmission } from "./submission-contract";
+import type { QuickEstimateSubmissionPayload } from "@/features/quick-estimate";
 import { LEAD_SHEET_HEADERS, type LeadSheetRow } from "./sheet-schema";
 
 const FORMULA_PREFIX_PATTERN = /^[=+\-@]/u;
@@ -36,7 +36,7 @@ export function escapeSpreadsheetCellText(value: string): string {
 
 /** 검증된 제출값과 서버 소유 값을 고정된 24개 Sheet 컬럼으로 변환합니다. */
 export function buildLeadSheetRow(
-  submission: QuickEstimateSubmission,
+  submission: QuickEstimateSubmissionPayload,
   leadId: string,
   submittedAt: string,
 ): LeadSheetRow {
@@ -78,7 +78,7 @@ export function buildLeadSheetRow(
 
 /** request_id 조회와 쓰기를 같은 잠금에서 실행해 제출 한 건을 한 행으로 저장합니다. */
 export function storeLeadSubmission(
-  submission: QuickEstimateSubmission,
+  submission: QuickEstimateSubmissionPayload,
   dependencies: StoreLeadDependencies,
 ): StoreLeadResult {
   try {

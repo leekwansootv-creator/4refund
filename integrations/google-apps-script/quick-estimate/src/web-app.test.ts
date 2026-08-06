@@ -1,7 +1,10 @@
-import { calculateEstimate } from "@/features/quick-estimate";
+import {
+  MARKETING_CONSENT_VERSION,
+  PRIVACY_NOTICE_VERSION,
+  calculateEstimate,
+} from "@/features/quick-estimate";
 import { describe, expect, it, vi } from "vitest";
 
-import { MARKETING_CONSENT_VERSION, PRIVACY_NOTICE_VERSION } from "./submission-contract";
 import { handleQuickEstimatePost } from "./web-app";
 
 const OCCURRED_AT = "2026-08-06T01:02:03.456Z";

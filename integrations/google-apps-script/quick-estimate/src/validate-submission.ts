@@ -1,18 +1,14 @@
 import {
   ESTIMATE_BENCHMARK_VERSION,
   ESTIMATE_RULE_VERSION,
-  calculateEstimate,
-} from "@/features/quick-estimate";
-
-import {
   MARKETING_CONSENT_VERSION,
   PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
+  calculateEstimate,
   type MarketingChannel,
-  type QuickEstimateSubmission,
-  type SubmissionValidationErrorCode,
-  type SubmissionValidationResult,
-} from "./submission-contract";
+  type QuickEstimateSubmissionPayload,
+  type QuickEstimateSubmissionValidationErrorCode,
+} from "@/features/quick-estimate";
 
 const ROOT_KEYS = ["requestId", "estimate", "lead", "privacy", "marketing", "sourcePath"];
 const ESTIMATE_KEYS = [
@@ -35,7 +31,17 @@ const MARKETING_CHANNELS = new Set<MarketingChannel>(["EMAIL", "SMS"]);
 
 type UnknownRecord = Record<string, unknown>;
 
-function failure(code: SubmissionValidationErrorCode): SubmissionValidationResult {
+type SubmissionValidationResult =
+  | {
+      ok: true;
+      submission: QuickEstimateSubmissionPayload;
+    }
+  | {
+      ok: false;
+      code: QuickEstimateSubmissionValidationErrorCode;
+    };
+
+function failure(code: QuickEstimateSubmissionValidationErrorCode): SubmissionValidationResult {
   return { ok: false, code };
 }
 
@@ -211,7 +217,7 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
     return failure("INVALID_INPUT");
   }
 
-  const submission: QuickEstimateSubmission = {
+  const submission: QuickEstimateSubmissionPayload = {
     requestId: input.requestId as string,
     estimate: {
       industryCode: calculated.industryCode,

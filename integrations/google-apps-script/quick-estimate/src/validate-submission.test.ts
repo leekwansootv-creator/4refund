@@ -1,15 +1,13 @@
 import {
   ESTIMATE_BENCHMARK_VERSION,
   ESTIMATE_RULE_VERSION,
+  MARKETING_CONSENT_VERSION,
+  PRIVACY_NOTICE_VERSION,
+  SUBMISSION_PAYLOAD_MAX_BYTES,
   calculateEstimate,
 } from "@/features/quick-estimate";
 import { describe, expect, it } from "vitest";
 
-import {
-  MARKETING_CONSENT_VERSION,
-  PRIVACY_NOTICE_VERSION,
-  SUBMISSION_PAYLOAD_MAX_BYTES,
-} from "./submission-contract";
 import { parseAndValidateSubmissionPayload } from "./validate-submission";
 
 function createValidPayload(): Record<string, unknown> {

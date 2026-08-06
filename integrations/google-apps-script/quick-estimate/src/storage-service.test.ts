@@ -1,15 +1,13 @@
 import {
   ESTIMATE_BENCHMARK_VERSION,
   ESTIMATE_RULE_VERSION,
+  MARKETING_CONSENT_VERSION,
+  PRIVACY_NOTICE_VERSION,
   type EstimateIndustryCode,
+  type QuickEstimateSubmissionPayload,
 } from "@/features/quick-estimate";
 import { describe, expect, it, vi } from "vitest";
 
-import {
-  MARKETING_CONSENT_VERSION,
-  PRIVACY_NOTICE_VERSION,
-  type QuickEstimateSubmission,
-} from "./submission-contract";
 import { LEAD_SHEET_HEADERS, type LeadSheetRow } from "./sheet-schema";
 import {
   buildLeadSheetRow,
@@ -29,7 +27,7 @@ function createSubmission(
     marketingAgreed?: boolean;
     marketingChannels?: ("EMAIL" | "SMS")[];
   } = {},
-): QuickEstimateSubmission {
+): QuickEstimateSubmissionPayload {
   return {
     requestId: "0fca3874-40bc-4ea9-a7ad-742a062736ea",
     estimate: {

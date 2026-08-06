@@ -26,10 +26,164 @@ var QuickEstimateWebApp = (() => {
     setupQuickEstimateStorage: () => setupQuickEstimateStorage
   });
 
-  // integrations/google-apps-script/quick-estimate/src/submission-contract.ts
+  // src/features/quick-estimate/constants/estimate-rule-set.ts
+  var ESTIMATE_RULE_VERSION = "estimate-rule-2026-08-05";
+  var ESTIMATE_BENCHMARK_VERSION = "incruit-2026-08-05";
+  var ESTIMATE_RULE_SET = {
+    version: ESTIMATE_RULE_VERSION,
+    benchmarkVersion: ESTIMATE_BENCHMARK_VERSION,
+    currency: "KRW",
+    displayUnit: 1e4,
+    maxDisplayAmount: 1e10,
+    randomUpliftBps: {
+      min: 100,
+      max: 300
+    },
+    employeeCount: {
+      min: 1,
+      max: 6e3
+    },
+    industries: [
+      {
+        code: "software_it",
+        label: "IT·소프트웨어",
+        benchmarkRatePerEmployee: 118030,
+        baseRatePerEmployee: 124e3
+      },
+      {
+        code: "construction_engineering",
+        label: "건설·엔지니어링",
+        benchmarkRatePerEmployee: 1518670,
+        baseRatePerEmployee: 1595e3
+      },
+      {
+        code: "education_research",
+        label: "교육·연구기관",
+        benchmarkRatePerEmployee: 82640,
+        baseRatePerEmployee: 87e3
+      },
+      {
+        code: "finance_insurance",
+        label: "금융·보험업",
+        benchmarkRatePerEmployee: 358800,
+        baseRatePerEmployee: 377e3
+      },
+      {
+        code: "hospitality_other",
+        label: "숙박·음식·기타 사업",
+        benchmarkRatePerEmployee: 39760,
+        baseRatePerEmployee: 42e3
+      },
+      {
+        code: "transport_logistics",
+        label: "운송·물류",
+        benchmarkRatePerEmployee: 67190,
+        baseRatePerEmployee: 71e3
+      },
+      {
+        code: "agriculture_fisheries",
+        label: "농림·수산업",
+        benchmarkRatePerEmployee: 137810,
+        baseRatePerEmployee: 145e3
+      },
+      {
+        code: "real_estate_leasing",
+        label: "부동산·임대",
+        benchmarkRatePerEmployee: 317190,
+        baseRatePerEmployee: 334e3
+      },
+      {
+        code: "professional_services",
+        label: "전문·사업지원 서비스",
+        benchmarkRatePerEmployee: 171700,
+        baseRatePerEmployee: 181e3
+      },
+      {
+        code: "energy_utilities",
+        label: "전기·가스·에너지",
+        benchmarkRatePerEmployee: 121190,
+        baseRatePerEmployee: 128e3
+      },
+      {
+        code: "wholesale_retail",
+        label: "도소매·유통",
+        benchmarkRatePerEmployee: 78960,
+        baseRatePerEmployee: 83e3
+      },
+      {
+        code: "health_socialcare",
+        label: "의료·사회복지",
+        benchmarkRatePerEmployee: 631040,
+        baseRatePerEmployee: 663e3
+      },
+      {
+        code: "industrial_manufacturing",
+        label: "제조·자동차·반도체",
+        benchmarkRatePerEmployee: 101430,
+        baseRatePerEmployee: 107e3
+      },
+      {
+        code: "publishing_media",
+        label: "출판·미디어",
+        benchmarkRatePerEmployee: 80790,
+        baseRatePerEmployee: 85e3
+      }
+    ]
+  };
+
+  // src/features/quick-estimate/constants/lead-submission-contract.ts
   var PRIVACY_NOTICE_VERSION = "privacy-2026-08-06-v1";
   var MARKETING_CONSENT_VERSION = "marketing-2026-08-06-v1";
   var SUBMISSION_PAYLOAD_MAX_BYTES = 16 * 1024;
+
+  // src/features/quick-estimate/lib/calculate-estimate.ts
+  function roundToNearestUnit(amount, unit) {
+    return Math.round(amount / unit) * unit;
+  }
+  function roundUpToUnit(amount, unit) {
+    return Math.ceil(amount / unit) * unit;
+  }
+  function calculateEstimate(input) {
+    const industry = ESTIMATE_RULE_SET.industries.find(({ code }) => code === input.industryCode);
+    if (industry === void 0) {
+      return { status: "unsupported", reason: "unsupported_industry" };
+    }
+    if (!Number.isInteger(input.employeeCount)) {
+      return { status: "invalid", reason: "employee_count_not_integer" };
+    }
+    if (input.employeeCount < ESTIMATE_RULE_SET.employeeCount.min || input.employeeCount > ESTIMATE_RULE_SET.employeeCount.max) {
+      return { status: "invalid", reason: "employee_count_out_of_range" };
+    }
+    if (!Number.isInteger(input.randomUpliftBps)) {
+      return { status: "invalid", reason: "random_uplift_not_integer" };
+    }
+    if (input.randomUpliftBps < ESTIMATE_RULE_SET.randomUpliftBps.min || input.randomUpliftBps > ESTIMATE_RULE_SET.randomUpliftBps.max) {
+      return { status: "invalid", reason: "random_uplift_out_of_range" };
+    }
+    const benchmarkAmount = roundToNearestUnit(
+      industry.benchmarkRatePerEmployee * input.employeeCount,
+      ESTIMATE_RULE_SET.displayUnit
+    );
+    const upliftedAmount = industry.baseRatePerEmployee * input.employeeCount * (1e4 + input.randomUpliftBps) / 1e4;
+    const candidateAmount = roundUpToUnit(upliftedAmount, ESTIMATE_RULE_SET.displayUnit);
+    const amount = Math.max(candidateAmount, benchmarkAmount + ESTIMATE_RULE_SET.displayUnit);
+    if (amount > ESTIMATE_RULE_SET.maxDisplayAmount) {
+      return { status: "invalid", reason: "amount_limit_exceeded" };
+    }
+    return {
+      status: "calculated",
+      industryCode: industry.code,
+      employeeCount: input.employeeCount,
+      amount,
+      currency: ESTIMATE_RULE_SET.currency,
+      randomUpliftBps: input.randomUpliftBps,
+      ruleVersion: ESTIMATE_RULE_SET.version,
+      benchmarkVersion: ESTIMATE_RULE_SET.benchmarkVersion
+    };
+  }
+
+  // src/features/quick-estimate/lib/generate-random-uplift.ts
+  var UINT32_RANGE = 2 ** 32;
 
   // integrations/google-apps-script/quick-estimate/src/sheet-schema.ts
   var LEAD_SHEET_HEADERS = [
@@ -263,160 +417,6 @@ var QuickEstimateWebApp = (() => {
       };
     }
   }
-
-  // src/features/quick-estimate/constants/estimate-rule-set.ts
-  var ESTIMATE_RULE_VERSION = "estimate-rule-2026-08-05";
-  var ESTIMATE_BENCHMARK_VERSION = "incruit-2026-08-05";
-  var ESTIMATE_RULE_SET = {
-    version: ESTIMATE_RULE_VERSION,
-    benchmarkVersion: ESTIMATE_BENCHMARK_VERSION,
-    currency: "KRW",
-    displayUnit: 1e4,
-    maxDisplayAmount: 1e10,
-    randomUpliftBps: {
-      min: 100,
-      max: 300
-    },
-    employeeCount: {
-      min: 1,
-      max: 6e3
-    },
-    industries: [
-      {
-        code: "software_it",
-        label: "IT·소프트웨어",
-        benchmarkRatePerEmployee: 118030,
-        baseRatePerEmployee: 124e3
-      },
-      {
-        code: "construction_engineering",
-        label: "건설·엔지니어링",
-        benchmarkRatePerEmployee: 1518670,
-        baseRatePerEmployee: 1595e3
-      },
-      {
-        code: "education_research",
-        label: "교육·연구기관",
-        benchmarkRatePerEmployee: 82640,
-        baseRatePerEmployee: 87e3
-      },
-      {
-        code: "finance_insurance",
-        label: "금융·보험업",
-        benchmarkRatePerEmployee: 358800,
-        baseRatePerEmployee: 377e3
-      },
-      {
-        code: "hospitality_other",
-        label: "숙박·음식·기타 사업",
-        benchmarkRatePerEmployee: 39760,
-        baseRatePerEmployee: 42e3
-      },
-      {
-        code: "transport_logistics",
-        label: "운송·물류",
-        benchmarkRatePerEmployee: 67190,
-        baseRatePerEmployee: 71e3
-      },
-      {
-        code: "agriculture_fisheries",
-        label: "농림·수산업",
-        benchmarkRatePerEmployee: 137810,
-        baseRatePerEmployee: 145e3
-      },
-      {
-        code: "real_estate_leasing",
-        label: "부동산·임대",
-        benchmarkRatePerEmployee: 317190,
-        baseRatePerEmployee: 334e3
-      },
-      {
-        code: "professional_services",
-        label: "전문·사업지원 서비스",
-        benchmarkRatePerEmployee: 171700,
-        baseRatePerEmployee: 181e3
-      },
-      {
-        code: "energy_utilities",
-        label: "전기·가스·에너지",
-        benchmarkRatePerEmployee: 121190,
-        baseRatePerEmployee: 128e3
-      },
-      {
-        code: "wholesale_retail",
-        label: "도소매·유통",
-        benchmarkRatePerEmployee: 78960,
-        baseRatePerEmployee: 83e3
-      },
-      {
-        code: "health_socialcare",
-        label: "의료·사회복지",
-        benchmarkRatePerEmployee: 631040,
-        baseRatePerEmployee: 663e3
-      },
-      {
-        code: "industrial_manufacturing",
-        label: "제조·자동차·반도체",
-        benchmarkRatePerEmployee: 101430,
-        baseRatePerEmployee: 107e3
-      },
-      {
-        code: "publishing_media",
-        label: "출판·미디어",
-        benchmarkRatePerEmployee: 80790,
-        baseRatePerEmployee: 85e3
-      }
-    ]
-  };
-
-  // src/features/quick-estimate/lib/calculate-estimate.ts
-  function roundToNearestUnit(amount, unit) {
-    return Math.round(amount / unit) * unit;
-  }
-  function roundUpToUnit(amount, unit) {
-    return Math.ceil(amount / unit) * unit;
-  }
-  function calculateEstimate(input) {
-    const industry = ESTIMATE_RULE_SET.industries.find(({ code }) => code === input.industryCode);
-    if (industry === void 0) {
-      return { status: "unsupported", reason: "unsupported_industry" };
-    }
-    if (!Number.isInteger(input.employeeCount)) {
-      return { status: "invalid", reason: "employee_count_not_integer" };
-    }
-    if (input.employeeCount < ESTIMATE_RULE_SET.employeeCount.min || input.employeeCount > ESTIMATE_RULE_SET.employeeCount.max) {
-      return { status: "invalid", reason: "employee_count_out_of_range" };
-    }
-    if (!Number.isInteger(input.randomUpliftBps)) {
-      return { status: "invalid", reason: "random_uplift_not_integer" };
-    }
-    if (input.randomUpliftBps < ESTIMATE_RULE_SET.randomUpliftBps.min || input.randomUpliftBps > ESTIMATE_RULE_SET.randomUpliftBps.max) {
-      return { status: "invalid", reason: "random_uplift_out_of_range" };
-    }
-    const benchmarkAmount = roundToNearestUnit(
-      industry.benchmarkRatePerEmployee * input.employeeCount,
-      ESTIMATE_RULE_SET.displayUnit
-    );
-    const upliftedAmount = industry.baseRatePerEmployee * input.employeeCount * (1e4 + input.randomUpliftBps) / 1e4;
-    const candidateAmount = roundUpToUnit(upliftedAmount, ESTIMATE_RULE_SET.displayUnit);
-    const amount = Math.max(candidateAmount, benchmarkAmount + ESTIMATE_RULE_SET.displayUnit);
-    if (amount > ESTIMATE_RULE_SET.maxDisplayAmount) {
-      return { status: "invalid", reason: "amount_limit_exceeded" };
-    }
-    return {
-      status: "calculated",
-      industryCode: industry.code,
-      employeeCount: input.employeeCount,
-      amount,
-      currency: ESTIMATE_RULE_SET.currency,
-      randomUpliftBps: input.randomUpliftBps,
-      ruleVersion: ESTIMATE_RULE_SET.version,
-      benchmarkVersion: ESTIMATE_RULE_SET.benchmarkVersion
-    };
-  }
-
-  // src/features/quick-estimate/lib/generate-random-uplift.ts
-  var UINT32_RANGE = 2 ** 32;
 
   // integrations/google-apps-script/quick-estimate/src/validate-submission.ts
   var ROOT_KEYS = ["requestId", "estimate", "lead", "privacy", "marketing", "sourcePath"];

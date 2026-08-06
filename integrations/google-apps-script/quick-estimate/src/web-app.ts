@@ -1,30 +1,17 @@
-import type { QuickEstimateSubmission } from "./submission-contract";
+import type {
+  QuickEstimateSubmissionPayload,
+  QuickEstimateSubmissionResponse,
+} from "@/features/quick-estimate";
 import { createRuntimeLeadSheetStorage } from "./apps-script-storage";
 import { storeLeadSubmission, type StoreLeadResult } from "./storage-service";
 import { parseAndValidateSubmissionPayload } from "./validate-submission";
 
 /** 브라우저가 JSON body로 판정하는 Apps Script 제출 응답입니다. */
-export type QuickEstimateWebResponse =
-  | {
-      ok: true;
-      leadId: string;
-      duplicate: boolean;
-    }
-  | {
-      ok: false;
-      code:
-        | "INVALID_INPUT"
-        | "INVALID_CONSENT"
-        | "UNSUPPORTED_RULE"
-        | "STORAGE_UNAVAILABLE"
-        | "INTERNAL_ERROR";
-    };
-
-type QuickEstimateFailureCode = Extract<QuickEstimateWebResponse, { ok: false }>["code"];
+type QuickEstimateFailureCode = Extract<QuickEstimateSubmissionResponse, { ok: false }>["code"];
 
 /** 순수 요청 처리기에 주입하는 저장 함수와 개인정보 비포함 실패 logger입니다. */
 export type QuickEstimatePostDependencies = {
-  storeSubmission: (submission: QuickEstimateSubmission) => StoreLeadResult;
+  storeSubmission: (submission: QuickEstimateSubmissionPayload) => StoreLeadResult;
   logFailure: (event: {
     code: QuickEstimateFailureCode;
     occurredAt: string;
@@ -48,7 +35,7 @@ function logFailureSafely(
 export function handleQuickEstimatePost(
   payload: unknown,
   dependencies: QuickEstimatePostDependencies,
-): QuickEstimateWebResponse {
+): QuickEstimateSubmissionResponse {
   const validation = parseAndValidateSubmissionPayload(payload);
 
   if (!validation.ok) {
@@ -73,7 +60,9 @@ export function handleQuickEstimatePost(
   return result;
 }
 
-function createJsonOutput(response: QuickEstimateWebResponse): GoogleAppsScript.Content.TextOutput {
+function createJsonOutput(
+  response: QuickEstimateSubmissionResponse,
+): GoogleAppsScript.Content.TextOutput {
   return ContentService.createTextOutput(JSON.stringify(response)).setMimeType(
     ContentService.MimeType.JSON,
   );
@@ -97,7 +86,7 @@ export function doPost(
 
     return createJsonOutput(response);
   } catch {
-    const response: QuickEstimateWebResponse = { ok: false, code: "INTERNAL_ERROR" };
+    const response: QuickEstimateSubmissionResponse = { ok: false, code: "INTERNAL_ERROR" };
 
     console.error(
       JSON.stringify({

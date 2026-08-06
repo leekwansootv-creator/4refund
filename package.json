@@ -17,12 +17,14 @@
     "format:check": "prettier --check .",
     "check:architecture": "node scripts/check-architecture.mjs",
     "check:comments": "node scripts/check-comments.mjs",
-    "test:checks": "node --test scripts/check-architecture.test.mjs scripts/check-comments.test.mjs",
+    "build:apps-script": "node scripts/build-quick-estimate-apps-script.mjs",
+    "check:apps-script": "node scripts/build-quick-estimate-apps-script.mjs --check",
+    "test:checks": "node --test scripts/check-architecture.test.mjs scripts/check-comments.test.mjs scripts/build-quick-estimate-apps-script.test.mjs",
     "test:unit": "vitest run",
     "test": "npm run test:checks && npm run test:unit",
     "test:e2e:run": "playwright test",
     "test:e2e": "npm run build && npm run test:e2e:run",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:architecture && npm run check:comments && npm run test && npm run build && npm run test:e2e:run"
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:architecture && npm run check:comments && npm run check:apps-script && npm run test && npm run build && npm run test:e2e:run"
   },
   "dependencies": {
     "next": "16.2.11",
@@ -41,6 +43,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "6.0.4",
+    "esbuild": "0.28.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
     "eslint-config-prettier": "10.1.8",

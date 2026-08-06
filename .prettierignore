@@ -4,3 +4,4 @@ coverage
 public
 package-lock.json
 next-env.d.ts
+integrations/google-apps-script/quick-estimate/Code.gs

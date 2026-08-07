@@ -4,7 +4,7 @@
 
 이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의하며, 전달된 화면은 [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md)에서 이 계약과 대조한다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다. Apps Script 전송 방식의 실제 관측 결과는 [전송 검증 문서](quick-estimate-apps-script-spike.md)를 기준으로 삼는다.
 
-현재 저장소에는 계산 core, Apps Script 저장 처리, 브라우저 제출 schema·transport와 상태 전이가 구현되어 있고 React 화면과 스타일은 아직 없다. 기술 검증용 Apps Script와 비공개 Google Sheet는 인가 계정에 생성했으며 공개 테스트 배포는 검증 후 보관 처리했다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리는 동의를 근거로 접수일로부터 1년간 보유하며, 마케팅은 이메일·문자 선택 동의로 분리하는 계약을 승인했다.
+현재 통합 브랜치에는 계산 core, Apps Script 저장·rate limit 처리, 브라우저 제출 계약, 단계형 UI와 루트 랜딩 조합이 구현되어 있다. 2026-08-07에 Apps Script version 3과 비공개 운영 Sheet로 실제 저장 E2E를 완료했으며, PR 8은 `integration/quick-estimate`에만 병합한다. 운영 공개는 별도 PR 9에서만 수행한다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리는 동의를 근거로 접수일로부터 1년간 보유하며, 마케팅은 이메일·문자 선택 동의로 분리하는 계약을 승인했다.
 
 ## 설계 결정
 
@@ -24,6 +24,7 @@
 | `QD-012` | 마케팅은 이메일·문자 채널의 선택 동의로 분리하고 동의일로부터 1년 또는 철회 시까지 보유한다.              | 채택 | 상담 필수 처리와 광고성 정보 전송의 선택권 및 철회 상태를 분리한다.                                             |
 | `QD-013` | 운영 Sheet는 이관수 계정만 접근하고 일 100건, 분당 10건 이하의 초기 제출량을 기준으로 운영한다.           | 채택 | 초기 규모에서 선형 중복 조회와 단일 잠금이 감당할 수 있는 명시적 검증 기준을 둔다.                              |
 | `QD-014` | 별도 route 없이 루트 랜딩의 기존 hero를 간단 견적 hero로 교체하고 같은 페이지에서 단계형 모달을 연다.     | 채택 | `sourcePath: "/"` 계약을 유지하고, 완성된 UI·저장 흐름과 hero 교체를 출시 PR에서 함께 공개한다.                 |
+| `QD-015` | 허니팟·3초 제출 시간과 분·일·연락처별 rate limit으로 공개 endpoint 남용을 제한한다.                       | 채택 | CAPTCHA 비밀값 없이 초기 운영량을 보호하고 제한 초과를 `RATE_LIMITED`로 명확히 구분한다.                        |
 
 ## 시스템 경계
 
@@ -58,6 +59,7 @@ flowchart LR
 ### Apps Script가 소유하는 책임
 
 - 요청 크기, 형식, 필수값, 허용값 검증
+- 허니팟·제출 시간과 분·일·연락처별 제출 제한
 - 문자열 정규화와 Sheet 수식 삽입 방지
 - 중복 요청 확인
 - 서버 기준 접수 시각과 리드 식별자 생성
@@ -251,6 +253,10 @@ type EstimateResult =
     "channels": [],
     "consentVersion": "marketing-2026-08-06-v1"
   },
+  "antiSpam": {
+    "honeypot": "",
+    "elapsedMs": 5000
+  },
   "sourcePath": "/"
 }
 ```
@@ -261,6 +267,8 @@ type EstimateResult =
 - `privacy.basis`는 `CONSENT`, `noticeVersion`은 `privacy-2026-08-06-v1`, `agreed`는 `true`여야 한다.
 - `marketing.agreed`가 `false`이면 `channels`는 빈 배열이어야 한다.
 - `marketing.agreed`가 `true`이면 `EMAIL`, `SMS` 중 하나 이상의 채널이 있어야 한다. 전화번호는 상담 연락에만 사용하고 마케팅 전화 채널로 사용하지 않는다.
+- `antiSpam.honeypot`은 비어 있어야 하고 `elapsedMs`는 dialog를 연 뒤 제출까지 3초 이상, 2시간 이하여야 한다.
+- `antiSpam` 값은 남용 판정에만 사용하며 Google Sheet에는 저장하지 않는다.
 - 클라이언트가 보낸 접수 시각은 저장하지 않는다.
 - wire body는 `application/x-www-form-urlencoded;charset=UTF-8`이며 위 JSON 전체를 `payload` form field의 문자열로 전달한다.
 - Apps Script는 `e.parameter.payload`를 JSON parse한 뒤 schema를 검증한다. flat form field를 운영 계약으로 사용하지 않는다.
@@ -291,6 +299,7 @@ type EstimateResult =
 | `INVALID_INPUT`       | 입력 계약 위반                  | 해당 입력을 수정하도록 안내            |
 | `INVALID_CONSENT`     | 필수 확인 누락 또는 계약 불일치 | 동의 항목을 다시 확인하도록 안내       |
 | `UNSUPPORTED_RULE`    | 지원하지 않는 견적 규칙 버전    | 결과를 유지하고 상담 대체 경로 안내    |
+| `RATE_LIMITED`        | 승인된 제출 제한 초과           | 결과를 유지하고 잠시 후 재시도 안내    |
 | `STORAGE_UNAVAILABLE` | Google Sheets 저장 실패         | 접수되지 않았음을 명시하고 재시도 안내 |
 | `INTERNAL_ERROR`      | 공개할 수 없는 내부 오류        | 일반 오류 문구와 대체 연락처 제공      |
 
@@ -302,7 +311,7 @@ Apps Script `ContentService`에서는 도메인 실패도 HTTP `200`으로 반�
 - `URLSearchParams`의 `payload` field에 JSON을 담고 credential 없이 redirect를 따라간다.
 - 기본 timeout은 Apps Script cold start를 고려한 15초이며 호출자가 명시적으로 조정할 수 있다.
 - `INVALID_INPUT`, `INVALID_CONSENT`, `UNSUPPORTED_RULE`은 검증 실패로 분류한다.
-- `STORAGE_UNAVAILABLE`, `INTERNAL_ERROR`은 서버 실패로 분류한다.
+- `RATE_LIMITED`, `STORAGE_UNAVAILABLE`, `INTERNAL_ERROR`은 서버 실패로 분류한다.
 - timeout, fetch 예외와 판독 불가 응답은 저장 여부를 확정하지 않으며 성공으로 표시하지 않는다.
 - 응답의 필드 집합, `leadId` UUID와 `duplicate`를 확인한 경우에만 성공으로 전환한다.
 - 자동 재시도는 하지 않는다. 사용자가 재시도하면 최초 payload를 그대로 사용한다.
@@ -321,6 +330,8 @@ Apps Script `ContentService`에서는 도메인 실패도 HTTP `200`으로 반�
 | 전화번호    | 입력 형식          | 구분자 제거, 허용 길이, Sheet 텍스트 저장       |
 | 동의 버전   | 현재 화면 상수     | 허용된 버전인지 확인                            |
 | 마케팅 채널 | 선택값             | 동의 여부와 채널 조합 검증                      |
+| 허니팟      | 숨김 필드, 빈 값   | 빈 문자열인지 재검증                            |
+| 제출 시간   | 3초–2시간          | 정수와 같은 시간 범위를 재검증                  |
 | source path | 현재 경로          | 허용 경로 목록 또는 길이 제한                   |
 
 이메일 주소의 local-part는 대소문자가 의미를 가질 수 있으므로 전체를 무조건 소문자로 바꾸지 않는다. 비교용 정규화가 필요하면 원본 저장값과 분리한다.
@@ -394,12 +405,14 @@ sequenceDiagram
 
     Browser->>Script: POST submission
     Script->>Script: 크기·형식·허용값 검증
+    Script->>Script: 허니팟·제출 시간 검증
     Script->>Script: 문자열 정규화·수식 삽입 방지
     Script->>Sheet: request_id 중복 확인
     alt 기존 요청
         Sheet-->>Script: 기존 lead_id
         Script-->>Browser: 성공 + duplicate=true
     else 신규 요청
+        Script->>Script: 분·일·연락처별 rate limit 확인
         Script->>Script: lead_id·서버 시각 생성
         Script->>Sheet: 잠금 범위에서 한 행 추가
         Sheet-->>Script: 저장 완료
@@ -411,14 +424,15 @@ sequenceDiagram
 
 1. POST body 존재 여부와 최대 크기를 확인한다.
 2. JSON 파싱 실패를 `INVALID_INPUT`으로 처리한다.
-3. 예상 견적, 연락처, 개인정보, 마케팅 계약을 각각 검증한다.
+3. 예상 견적, 연락처, 개인정보, 마케팅, 허니팟과 제출 시간 계약을 각각 검증한다.
 4. 허용되지 않은 필드를 저장하지 않는다.
 5. 문자열을 trim하고 제어문자와 Sheet 수식 시작 문자를 처리한다.
 6. 동시 요청 잠금을 획득한다.
 7. `request_id`가 이미 있으면 기존 성공 결과를 반환한다.
-8. 서버 시각, `lead_id`, 초기 상태를 추가해 한 행을 저장한다.
-9. 잠금을 해제하고 최소한의 성공 응답을 반환한다.
-10. 실패 로그에는 `request_id`, 오류 코드, 실행 시각만 남기고 연락처 원문을 기록하지 않는다.
+8. 신규 요청의 분당 전체, 일일 전체, 동일 연락처 시간당 제한을 확인한다.
+9. 서버 시각, `lead_id`, 초기 상태를 추가해 한 행을 저장한다.
+10. 잠금을 해제하고 최소한의 성공 응답을 반환한다.
+11. 실패 로그에는 `request_id`, 오류 코드, 실행 시각만 남기고 연락처 원문을 기록하지 않는다.
 
 동시성 잠금과 중복 조회 방식은 예상 제출량으로 성능을 검증한다. 선형 조회가 운영량을 감당하지 못하면 Apps Script 최적화보다 관리형 데이터 저장소 전환을 우선 검토한다.
 
@@ -458,37 +472,43 @@ Google Apps Script가 저장 성공과 실패를 정적 사이트의 브라우�
 
 ## 보안과 개인정보
 
-| 위험               | 통제                                                               |
-| ------------------ | ------------------------------------------------------------------ |
-| 공개 endpoint 스팸 | 허니팟·제출 시간·CAPTCHA 후보 비교, 요청 크기 제한, 반복 제출 정책 |
-| 브라우저 검증 우회 | Apps Script에서 schema와 허용값 재검증                             |
-| Sheet 수식 삽입    | 위험 시작 문자를 일반 문자열로 escape하고 컬럼을 텍스트로 취급     |
-| 중복 행            | `request_id` 멱등성, 동시성 잠금, 제출 버튼 중복 실행 방지         |
-| 개인정보 로그 노출 | 연락처 원문 로깅 금지, 오류 코드 중심 로그                         |
-| Sheet 공유 노출    | 공개 링크 금지, 최소 담당자 권한, 다중 인증, 퇴사자 권한 회수      |
-| 규칙 조작          | 업종·인원·난수·version으로 Apps Script가 예상금액 재계산           |
-| 동의 증빙 부족     | 고지·동의 버전과 서버 접수 시각 저장                               |
-| 데이터 장기 보관   | 승인된 보유 기간과 정기 파기 절차                                  |
+| 위험                | 통제                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------- |
+| 공개 endpoint 스팸  | 빈 허니팟, 3초–2시간 제출 시간, 전체 10건/분·100건/일·동일 연락처 3건/시간 제한             |
+| 브라우저 검증 우회  | Apps Script에서 schema, 허니팟, 제출 시간과 허용값 재검증                                   |
+| 제한 key의 PII 노출 | 정규화 이메일+전화번호의 SHA-256만 cache key에 사용하고 원문을 Cache·Properties에 저장 금지 |
+| Sheet 수식 삽입     | 위험 시작 문자를 일반 문자열로 escape하고 컬럼을 텍스트로 취급                              |
+| 중복 행             | `request_id` 멱등성, 동시성 잠금, 제출 버튼 중복 실행 방지                                  |
+| 개인정보 로그 노출  | 연락처 원문 로깅 금지, 오류 코드 중심 로그                                                  |
+| Sheet 공유 노출     | 공개 링크 금지, 소유 계정 한 명, 다중 인증, 담당자 변경 시 권한 재승인                      |
+| 규칙 조작           | 업종·인원·난수·version으로 Apps Script가 예상금액 재계산                                    |
+| 동의 증빙 부족      | 고지·동의 버전과 서버 접수 시각 저장                                                        |
+| 데이터 장기 보관    | 승인된 보유 기간과 정기 파기 절차                                                           |
 
-CAPTCHA를 채택하면 검증용 secret은 Apps Script의 비공개 설정에서만 읽는다. 사이트의 공개 환경 변수나 저장소에 넣지 않는다.
+현재 CAPTCHA와 별도 검증 secret은 사용하지 않는다. 같은 `request_id`의 6시간 이내 재시도는 제한을 다시 차감하지 않으며, 제한 카운터 오류는 임의 허용하지 않고 `INTERNAL_ERROR`로 종료한다.
 
 ## 관측과 운영
 
-- Apps Script 실행 성공·실패 횟수를 정기적으로 확인한다.
-- `STORAGE_UNAVAILABLE`과 할당량 오류를 구분해 기록한다.
+- 장애 대응 담당자 이관수가 영업일마다 Apps Script 실행과 마지막 정상 접수를 확인하고, 인지한 장애 대응을 1영업일 안에 시작한다.
+- `RATE_LIMITED`, `STORAGE_UNAVAILABLE`과 Google 할당량 오류를 구분해 기록한다.
 - 신규 리드가 예상 기간 동안 한 건도 들어오지 않으면 제출 경로 장애 여부를 확인한다.
 - 운영 담당자는 `lead_status`만 수정하고 원본 제출 컬럼은 수정하지 않는다.
 - 마케팅 철회 요청이 오면 `marketing_agreed` 원본을 덮어쓰기보다 철회 상태를 기록할 별도 정책을 마련한다. 철회 요구가 실제로 발생하기 전까지 임의 컬럼을 추가하지 않는다.
-- 보유 기간 만료 데이터의 추출·파기 책임자와 실행 주기를 공개 전에 정한다.
+- 보유 기간 만료 대상은 이관수가 매월 확인하고 승인된 파기 절차로 처리한다.
+- 배포, 점검, 중단과 복구 절차는 [간단 견적 운영 runbook](../operations/quick-estimate-runbook.md)을 따른다.
 
 ## 코드 구조
 
-각 [PR 로드맵](quick-estimate-pr-roadmap.md)의 진입 조건이 충족된 뒤 해당 단계에 필요한 폴더만 만든다. 현재 계산, schema, transport와 상태 코드만 존재하며 `components`는 디자인 확정 후 생성한다.
+각 [PR 로드맵](quick-estimate-pr-roadmap.md)의 진입 조건이 충족된 뒤 해당 단계에 필요한 폴더만 만든다. 현재 브라우저 계산·제출·UI는 feature가 소유하고, Apps Script 배포 artifact는 같은 계산·계약 원본에서 생성한다.
 
 ```text
 src/features/quick-estimate/
 ├── api/
 │   └── submit-estimate-lead.ts       # form encoded 전송과 응답 판정
+├── components/
+│   ├── quick-estimate-flow.client.tsx # 계산·연락처·동의·제출 흐름 조합
+│   ├── quick-estimate-dialog.tsx      # 접근 가능한 단계형 dialog
+│   └── quick-estimate-hero-action.tsx # 랜딩 CTA와 endpoint 가용성 경계
 ├── constants/
 │   ├── estimate-rule-set.ts          # 승인된 업종·기준액·난수 정책
 │   └── lead-submission-contract.ts   # 고지·동의와 payload 크기 계약
@@ -505,13 +525,18 @@ src/features/quick-estimate/
 └── index.ts                          # feature 공개 진입점
 ```
 
-Apps Script를 저장소에서 관리하기로 결정하면 다음 후보 구조를 사용하되, 실제 폴더를 만들기 전에 `docs/engineering/architecture.md`와 자동 검사 범위를 함께 갱신한다.
+Apps Script source와 생성 artifact는 다음 구조로 관리한다.
 
 ```text
 integrations/google-apps-script/quick-estimate/
 ├── appsscript.json
-├── Code.gs
-└── README.md
+├── Code.gs                            # build가 생성하는 배포 artifact
+├── README.md
+└── src/
+    ├── entrypoint.ts                 # Apps Script global 함수 경계
+    ├── storage-service.ts            # 멱등 저장 orchestration
+    ├── submission-rate-limit.ts      # quota와 연락처별 제출 제한
+    └── validate-submission.ts        # 서버 payload 재검증
 ```
 
 브라우저와 Apps Script가 같은 규칙 계약을 공유해야 할 때 파일 복사로 동기화하지 않는다. 저장소의 규칙 원본에서 배포 artifact를 생성하거나 두 구현의 규칙 일치 테스트를 추가한다.
@@ -541,6 +566,8 @@ integrations/google-apps-script/quick-estimate/
 - 알 수 없는 동의 버전과 견적 규칙 버전을 거부한다.
 - 알 수 없는 benchmark version과 허용 범위 밖의 난수를 거부한다.
 - 요청 예상금액이 서버 재계산값과 다르면 거부한다.
+- 허니팟 값과 3초 미만·2시간 초과 제출 시간을 거부한다.
+- 제한 초과 응답을 성공이나 저장 실패로 오인하지 않는다.
 - IP 주소와 User-Agent 같은 허용되지 않은 필드를 저장하지 않는다.
 - 수식 시작 문자열을 일반 텍스트로 저장한다.
 
@@ -549,6 +576,8 @@ integrations/google-apps-script/quick-estimate/
 - 유효한 요청이 한 행으로 저장된다.
 - 같은 `request_id` 재시도가 새 행을 만들지 않는다.
 - 동시 중복 요청도 한 행만 만든다.
+- 분당 10건, 일일 100건과 같은 연락처 시간당 3건의 경계를 검증한다.
+- 제한 key와 로그에 이메일·전화번호 원문이 없는지 검증한다.
 - 저장 실패가 `STORAGE_UNAVAILABLE`로 전달된다.
 - 로그에 이메일과 전화번호 원문이 없다.
 - 성공·검증 실패·저장 실패 응답을 실제 정적 origin에서 읽을 수 있다.
@@ -563,6 +592,14 @@ integrations/google-apps-script/quick-estimate/
 - keyboard와 모바일 환경에서 전체 흐름을 완료한다.
 - 자동 접근성 검사와 실제 focus 이동을 검증한다.
 
+### 2026-08-07 운영 검증 결과
+
+- Apps Script Web App version 3에서 데스크톱 마케팅 미동의, 모바일 마케팅 동의와 keyboard·200% 확대·reduced motion·axe 검증 3건이 통과했다.
+- 운영 Sheet의 최신 두 테스트 행에서 24개 컬럼, 견적 금액·난수·규칙 version, 개인정보·마케팅 동의와 `NEW` 상태가 화면 계약과 일치했다.
+- 첫 검증에서 전화번호를 숫자로 해석해 선행 `0`이 사라지는 문제를 확인했고, 13번 컬럼을 일반 텍스트 형식으로 지정한 version 3에서 `010` 형식 보존을 재확인했다.
+- 최신 `doPost` 실행은 완료 상태이며, 성공 실행 기록에 연락처 원문을 추가로 기록하지 않는다.
+- 테스트 행은 [운영 runbook](../operations/quick-estimate-runbook.md)에 따라 임의 삭제하지 않는다.
+
 ## 구현 순서
 
 1. 완료: 현재 기획, benchmark, 기술 설계와 [PR 로드맵](quick-estimate-pr-roadmap.md)을 문서 기준선으로 확정한다.
@@ -570,12 +607,12 @@ integrations/google-apps-script/quick-estimate/
 3. 완료: 승인된 업종·기준액·난수 정책과 사원 수 범위로 계산 core와 단위 테스트를 구현한다.
 4. 완료: 승인된 개인정보·마케팅 계약과 `QD-010` 계정의 접근·운영 범위로 저장 처리를 구현한다.
 5. 완료: 확정된 endpoint 계약을 기준으로 브라우저 제출 schema, transport와 상태 전이를 구현한다.
-6. [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md)의 계약 보정과 반응형 규칙을 승인한 뒤 컴포넌트와 접근성 상태를 구현한다.
-7. 계산, 동의, 제출과 저장을 연결하고 정적 배포 환경에서 전체 흐름을 검증한다.
-8. 스팸 방지, 운영 권한, benchmark 갱신과 출시 QA를 마친다.
-9. `npm run check`를 통과한 뒤 기존 hero와 독립 환급 사례 section을 새 hero 조합으로 교체해 공개한다.
+6. 완료: 승인된 디자인 계약과 파생 반응형 규칙으로 컴포넌트와 접근성 상태를 구현한다.
+7. 완료: 계산, 동의와 제출을 연결하고 실패·재시도 상태를 검증한다.
+8. 완료: 스팸 방지, 운영 권한, benchmark 갱신, 랜딩 조합과 출시 QA를 마친다.
+9. PR 8의 실제 저장 E2E와 공개 승인이 끝난 뒤 `integration/quick-estimate`를 `main`에 병합해 운영 공개한다.
 
-5단계까지는 완료했다. 6단계는 전달된 데스크톱 Figma의 수집 항목·보유 기간 차이와 파생 mobile 규칙을 문서에서 승인한 뒤 시작하며, 아직 필요하지 않은 화면 폴더를 미리 만들지 않는다.
+PR 8의 코드, 운영 정책, 실제 저장 E2E와 Sheet 대조는 완료했다. 이 PR을 `integration/quick-estimate`에 병합한 뒤에도 사용자의 최종 공개 승인 전에는 `main` 대상 release PR을 만들지 않는다.
 
 ## 롤백과 복구
 
@@ -591,5 +628,4 @@ integrations/google-apps-script/quick-estimate/
 | 항목                  | 결정 주체        | 구현 영향                      |
 | --------------------- | ---------------- | ------------------------------ |
 | benchmark 갱신 주기   | 사업·운영 담당자 | 외부 기준보다 높다는 보장 범위 |
-| 스팸 방지 방식        | 운영·개발        | 사용자 마찰과 비밀값 관리      |
 | 승인 계정의 복구 절차 | 운영 담당자      | 운영 연속성                    |

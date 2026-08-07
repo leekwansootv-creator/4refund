@@ -1,22 +1,24 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
+import motionStyles from "./landing-motion.module.css";
 import styles from "./quick-estimate-hero.module.css";
 import { RefundCasesTrack } from "./refund-cases-track";
 import { LANDING_CONTENT } from "../constants/landing-content";
 import { QUICK_ESTIMATE_HERO_ASSETS } from "../constants/quick-estimate-hero-assets";
 
 /**
- * 최종 공개 단계에서 기존 hero를 대체할 간단 견적 소개와 환급 사례를 조합합니다.
- *
- * 이 컴포넌트는 PR 6에서 `LandingPage`에 연결하지 않으며, 실제 dialog trigger는
- * 후속 흐름 연동 컴포넌트를 `action` slot으로 전달받습니다.
+ * 기존 hero를 대체할 간단 견적 소개와 환급 사례를 조합합니다.
+ * 실제 dialog trigger는 quick-estimate feature가 `action` slot으로 전달합니다.
  */
 export function QuickEstimateHeroSection({ action }: { action: ReactNode }) {
   const { refundCases } = LANDING_CONTENT;
 
   return (
-    <section aria-labelledby="quick-estimate-hero-heading" className={styles.hero}>
+    <section
+      aria-labelledby="quick-estimate-hero-heading"
+      className={`${styles.hero} ${motionStyles.timeline}`}
+    >
       <div className="mx-auto flex w-full max-w-[var(--content-max-width)] flex-col items-center gap-3 px-[var(--content-inline-padding)] text-center leading-[1.2] text-black">
         <h1
           id="quick-estimate-hero-heading"

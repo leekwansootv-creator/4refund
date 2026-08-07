@@ -38,6 +38,7 @@ function createDependencies(
 ) {
   const requestIds = [...REQUEST_IDS];
   const upliftValues = [...randomValues];
+  let currentTime = 0;
   const submitLead = vi.fn<SubmitLead>(async () => {
     const result = results.shift();
 
@@ -50,6 +51,10 @@ function createDependencies(
 
   return {
     dependencies: {
+      now() {
+        currentTime += 5_000;
+        return currentTime;
+      },
       randomUpliftSource: {
         getRandomValues(values: Uint32Array) {
           values[0] = upliftValues.shift() ?? 0;
@@ -136,6 +141,17 @@ function lookup() {
 }
 
 describe("QuickEstimateFlow", () => {
+  it("Apps Script endpoint가 없으면 CTA를 비활성화하고 dialog를 열지 않는다", () => {
+    render(<QuickEstimateFlow endpoint="" consultHref="#contact" />);
+
+    const action = screen.getByRole("button", { name: "환급액 조회하기" });
+
+    expect(action).toBeDisabled();
+    expect(action).toHaveAccessibleDescription("간단 견적 접수 환경을 준비하고 있습니다.");
+    fireEvent.click(action);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
   it("계산부터 마케팅 미동의 상담 접수까지 화면 금액과 같은 payload로 완료한다", async () => {
     const { submitLead } = renderFlow();
     moveToEstimate();
@@ -157,10 +173,28 @@ describe("QuickEstimateFlow", () => {
       lead: { phone: "01012345678" },
       privacy: { agreed: true },
       marketing: { agreed: false, channels: [] },
+      antiSpam: { honeypot: "", elapsedMs: 5_000 },
       sourcePath: "/",
     });
     expect(screen.getByText(`${payload.estimate.amount.toLocaleString("ko-KR")}원`)).toBeVisible();
     expect(screen.getByRole("region", { name: "간단 견적 조회 결과" })).toHaveFocus();
+  });
+
+  it("숨은 honeypot에 값이 있으면 제출 요청을 만들지 않는다", () => {
+    const { submitLead } = renderFlow();
+    const honeypot = document.querySelector<HTMLInputElement>('input[name="company-website"]');
+
+    if (honeypot === null) {
+      throw new Error("honeypot 입력을 찾지 못했습니다.");
+    }
+
+    fireEvent.change(honeypot, { target: { value: "https://spam.example" } });
+    moveToEstimate();
+    fillEstimate();
+    lookup();
+
+    expect(submitLead).not.toHaveBeenCalled();
+    expect(screen.getByText(/입력 정보를 확인하지 못했습니다/)).toBeInTheDocument();
   });
 
   it("빠른 중복 click 중 한 요청만 전송하고 응답 전 닫기와 초기화를 막는다", async () => {
@@ -224,6 +258,16 @@ describe("QuickEstimateFlow", () => {
     });
     expect(submitLead).toHaveBeenCalledTimes(2);
     expect(getSubmittedPayload(submitLead, 1)).toBe(firstPayload);
+  });
+
+  it("rate limit 응답을 재시도 가능한 제한 안내로 표시한다", async () => {
+    renderFlow([{ ok: false, kind: "server", code: "RATE_LIMITED" }]);
+    moveToEstimate();
+    fillEstimate();
+    lookup();
+
+    expect(await screen.findByText(/신청이 많아 잠시 접수를 제한/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "접수 다시 시도" })).toBeEnabled();
   });
 
   it("연락처 수정 재제출은 기존 계산을 유지하고 새 request_id를 사용한다", async () => {

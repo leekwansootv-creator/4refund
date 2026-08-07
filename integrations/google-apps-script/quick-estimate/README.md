@@ -11,8 +11,10 @@
 - spreadsheet formula injection 방어
 - 서버 기준 UTC ISO 시각과 초기 상태 `NEW`
 - 개인정보 원문을 제외한 실패 로그
+- honeypot·제출 소요 시간 재검증
+- 분·일·연락처 해시 기반 제출 제한과 `RATE_LIMITED` 응답
 
-React 화면, 브라우저 transport client, 운영 랜딩 공개, 스팸 방지와 운영 origin E2E는 이 integration의 현재 범위가 아니다.
+React 화면과 브라우저 transport는 `src/features/quick-estimate`가 소유한다. 계정·배포·실저장 E2E와 장애 대응은 [운영 runbook](../../../docs/operations/quick-estimate-runbook.md)을 따른다.
 
 ## 파일 책임
 
@@ -85,6 +87,9 @@ fake 데이터로만 아래를 확인한다.
 - 파기 사유 확인 후 내부 처리 상한: 영업일 5일
 - 마케팅 철회 상태 반영 상한: 영업일 3일
 - 파기 로그: 개인정보 없이 `lead_id`, 파기일, 파기 사유만 별도 기록
+- 자동 제출 방지: 빈 honeypot, 제출까지 3초 이상·2시간 이하
+- 제출 제한: 전체 10건/분·100건/일, 같은 이메일+전화 해시 3건/시간
+- 점검: 영업일마다 1회, 장애 대응 담당자 이관수, 인지 후 1영업일 안에 대응 시작
 
 Google Sheets의 행 삭제는 version history에서 복구될 수 있으므로 영구 파기로 단정하지 않는다. 공개 전 승인 계정에서 보유 대상 분리, 새 파일 교체와 기존 파일 영구 삭제 절차를 실제로 검증해야 한다. 이 검증이 끝나기 전에는 운영 공개 승인을 완료한 것으로 처리하지 않는다.
 

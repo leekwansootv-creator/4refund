@@ -30,6 +30,7 @@ function createDraft(): QuickEstimateLeadDraft {
       agreed: false,
       channels: [],
     },
+    antiSpam: { honeypot: "", elapsedMs: 5_000 },
   };
 }
 
@@ -55,6 +56,7 @@ describe("createQuickEstimateSubmissionPayload", () => {
           channels: [],
           consentVersion: "marketing-2026-08-06-v1",
         },
+        antiSpam: { honeypot: "", elapsedMs: 5_000 },
         sourcePath: "/",
       }),
     });
@@ -82,6 +84,20 @@ describe("createQuickEstimateSubmissionPayload", () => {
     expect(createQuickEstimateSubmissionPayload(draft, REQUEST_ID)).toEqual({
       ok: false,
       issues: ["privacy_consent_required"],
+    });
+  });
+
+  it.each([
+    { honeypot: "bot", elapsedMs: 5_000 },
+    { honeypot: "", elapsedMs: 2_999 },
+    { honeypot: "", elapsedMs: 7_200_001 },
+  ])("자동 제출 징후 %o를 거절한다", (antiSpam) => {
+    const draft = createDraft();
+    draft.antiSpam = antiSpam;
+
+    expect(createQuickEstimateSubmissionPayload(draft, REQUEST_ID)).toEqual({
+      ok: false,
+      issues: ["suspicious_submission"],
     });
   });
 

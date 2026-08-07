@@ -1,5 +1,30 @@
 import { expect, test } from "@playwright/test";
 
+const hasQuickEstimateEndpoint = Boolean(process.env.NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL);
+
+test("루트 첫 section은 간단 견적 hero와 한 벌의 환급 사례를 조합한다", async ({ page }) => {
+  await page.goto("/");
+
+  const main = page.locator("main");
+  const firstSection = main.locator(":scope > section").first();
+  const action = firstSection.getByRole("button", { name: "환급액 조회하기" });
+
+  await expect(
+    firstSection.getByRole("heading", {
+      level: 1,
+      name: "기업의 4대보험 환급을 함께합니다.",
+    }),
+  ).toBeVisible();
+  await expect(main.getByRole("region", { name: "환급 사례 자동 이동 목록" })).toHaveCount(1);
+  await expect(action).toBeVisible();
+
+  if (hasQuickEstimateEndpoint) {
+    await expect(action).toBeEnabled();
+  } else {
+    await expect(action).toBeDisabled();
+  }
+});
+
 test("헤더는 Figma의 컬러 워드마크를 고유 비율로 표시한다", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
@@ -165,7 +190,7 @@ test("헤더 메뉴는 목적지까지 600ms 동안 중간 위치를 거쳐 이�
   await page.goto("/");
 
   const services = page.locator("#services");
-  const header = page.locator("header");
+  const header = page.getByRole("banner");
   const targetScrollTop = await services.evaluate(
     (target, headerHeight) =>
       target.getBoundingClientRect().top + window.scrollY - Number(headerHeight) - 1,

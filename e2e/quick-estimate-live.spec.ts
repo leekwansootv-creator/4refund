@@ -1,0 +1,84 @@
+import AxeBuilder from "@axe-core/playwright";
+import { expect, test, type Page } from "@playwright/test";
+
+const runLiveE2e = process.env.QUICK_ESTIMATE_LIVE_E2E === "1";
+
+async function openQuickEstimate(page: Page) {
+  await page.goto("/");
+  await page.getByRole("button", { name: "환급액 조회하기" }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+}
+
+async function fillContact(page: Page, suffix: string) {
+  const phoneSuffix = `${Date.now()}${suffix === "opt-in" ? "1" : "0"}`.slice(-8);
+
+  await page.getByLabel("회사명").fill(`4refund E2E 삭제대상 ${suffix}`);
+  await page.getByLabel("담당자 이름").fill("테스트 담당자");
+  await page.getByLabel("이메일").fill(`quick-estimate-${suffix}-${Date.now()}@example.test`);
+  await page.getByLabel("전화번호").fill(`010${phoneSuffix}`);
+  await page.getByRole("button", { name: "다음" }).click();
+}
+
+async function fillEstimate(page: Page, marketingAgreed: boolean) {
+  await page.getByLabel("업종").selectOption("software_it");
+  await page.getByLabel("직원 수").fill("25");
+  await page.getByLabel("개인정보 처리 동의 (필수)").check();
+
+  if (marketingAgreed) {
+    await page.getByLabel("마케팅 활용 동의 (선택)").check();
+  }
+}
+
+test.describe("간단 견적 실제 저장 E2E", () => {
+  test.skip(!runLiveE2e, "승인된 Apps Script 배포와 테스트 Sheet가 필요합니다.");
+
+  test("데스크톱에서 마케팅 미동의 접수를 저장한다", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await openQuickEstimate(page);
+    await fillContact(page, "opt-out");
+    await fillEstimate(page, false);
+    await page.waitForTimeout(3_100);
+    await page.getByRole("button", { name: "조회하기", exact: true }).click();
+
+    await expect(page.getByText("상담 신청이 접수되었습니다.")).toBeVisible({
+      timeout: 20_000,
+    });
+    await expect(page.getByRole("region", { name: "간단 견적 조회 결과" })).toBeFocused();
+  });
+
+  test("모바일에서 마케팅 동의 접수를 저장한다", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await openQuickEstimate(page);
+    await fillContact(page, "opt-in");
+    await fillEstimate(page, true);
+    await page.waitForTimeout(3_100);
+    await page.getByRole("button", { name: "조회하기", exact: true }).click();
+
+    await expect(page.getByText("상담 신청이 접수되었습니다.")).toBeVisible({
+      timeout: 20_000,
+    });
+    await expect(page.getByText("예상 환급액", { exact: true })).toBeVisible();
+  });
+
+  test("키보드와 200% 확대에서도 입력 dialog에 자동 접근성 위반이 없다", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await openQuickEstimate(page);
+    await page.evaluate(() => {
+      document.documentElement.style.zoom = "2";
+    });
+
+    await expect(page.getByLabel("회사명")).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(page.getByLabel("담당자 이름")).toBeFocused();
+
+    const results = await new AxeBuilder({ page })
+      .include("dialog")
+      .withTags(["wcag2a", "wcag2aa"])
+      .analyze();
+
+    expect(results.violations).toEqual([]);
+    expect(
+      await page.locator("html").evaluate((element) => element.scrollWidth <= element.clientWidth),
+    ).toBe(true);
+  });
+});

@@ -33,6 +33,7 @@ type CalculatedEstimate = Extract<EstimateResult, { status: "calculated" }>;
 type SubmissionFailure = Exclude<QuickEstimateSubmissionTransportResult, { ok: true }>;
 
 type QuickEstimateFlowDependencies = {
+  now?: () => number;
   randomUpliftSource?: RandomUpliftSource;
   requestIdSource?: SubmissionRequestIdSource;
   submitLead?: typeof submitEstimateLead;
@@ -68,6 +69,10 @@ function getSubmissionFailureMessage(failure: SubmissionFailure): string {
     case "unreadable_response":
       return "접수 응답을 확인하지 못했습니다. 같은 내용으로 다시 시도해 주세요.";
     case "server":
+      if (failure.code === "RATE_LIMITED") {
+        return "신청이 많아 잠시 접수를 제한하고 있습니다. 잠시 후 다시 시도해 주세요.";
+      }
+
       return failure.code === "STORAGE_UNAVAILABLE"
         ? "상담 신청을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요."
         : "일시적인 오류로 상담 신청을 저장하지 못했습니다. 다시 시도해 주세요.";
@@ -106,10 +111,12 @@ export function QuickEstimateFlow({
   timeoutMs,
   dependencies = {},
 }: QuickEstimateFlowProps) {
+  const isAvailable = endpoint.length > 0;
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<QuickEstimateFlowStep>("contact");
   const [contactValues, setContactValues] =
     useState<QuickEstimateContactValues>(EMPTY_CONTACT_VALUES);
+  const [honeypotValue, setHoneypotValue] = useState("");
   const [estimateValues, setEstimateValues] =
     useState<QuickEstimateFormValues>(EMPTY_ESTIMATE_VALUES);
   const [estimateResult, setEstimateResult] = useState<EstimateResult | null>(null);
@@ -118,6 +125,7 @@ export function QuickEstimateFlow({
   );
   const submissionStateRef = useRef(submissionState);
   const submissionInFlightRef = useRef(false);
+  const formOpenedAtRef = useRef(0);
 
   function updateSubmissionState(nextState: QuickEstimateSubmissionState) {
     submissionStateRef.current = nextState;
@@ -125,11 +133,19 @@ export function QuickEstimateFlow({
   }
 
   function handleOpen() {
+    if (!isAvailable) {
+      return;
+    }
+
+    const now = dependencies.now ?? Date.now;
+
     setStep("contact");
     setContactValues(EMPTY_CONTACT_VALUES);
+    setHoneypotValue("");
     setEstimateValues(EMPTY_ESTIMATE_VALUES);
     setEstimateResult(null);
     updateSubmissionState(createInitialSubmissionState());
+    formOpenedAtRef.current = now();
     setOpen(true);
   }
 
@@ -181,6 +197,7 @@ export function QuickEstimateFlow({
       return;
     }
 
+    const now = dependencies.now ?? Date.now;
     const nextSubmissionState = startQuickEstimateSubmission(
       createInitialSubmissionState(),
       {
@@ -190,6 +207,10 @@ export function QuickEstimateFlow({
         marketing: {
           agreed: estimateValues.marketingAgreed,
           channels: estimateValues.marketingAgreed ? ["EMAIL", "SMS"] : [],
+        },
+        antiSpam: {
+          honeypot: honeypotValue,
+          elapsedMs: Math.max(0, Math.floor(now() - formOpenedAtRef.current)),
         },
       },
       dependencies.requestIdSource,
@@ -302,7 +323,16 @@ export function QuickEstimateFlow({
 
   return (
     <>
-      <QuickEstimateHeroAction onClick={handleOpen} />
+      <QuickEstimateHeroAction
+        aria-describedby={!isAvailable ? "quick-estimate-unavailable" : undefined}
+        disabled={!isAvailable}
+        onClick={handleOpen}
+      />
+      {!isAvailable ? (
+        <span id="quick-estimate-unavailable" className="sr-only">
+          간단 견적 접수 환경을 준비하고 있습니다.
+        </span>
+      ) : null}
       <QuickEstimateDialog
         open={open}
         title={getDialogTitle(step)}
@@ -314,7 +344,9 @@ export function QuickEstimateFlow({
         {step === "contact" ? (
           <QuickEstimateContactStep
             values={contactValues}
+            honeypotValue={honeypotValue}
             onChange={handleContactChange}
+            onHoneypotChange={setHoneypotValue}
             onNext={handleContactNext}
           />
         ) : null}

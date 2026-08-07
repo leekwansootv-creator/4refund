@@ -3,6 +3,11 @@ import type {
   QuickEstimateSubmissionResponse,
 } from "@/features/quick-estimate";
 import { createRuntimeLeadSheetStorage } from "./apps-script-storage";
+import {
+  createRuntimeSubmissionRateLimitPort,
+  enforceSubmissionRateLimit,
+  type SubmissionRateLimitResult,
+} from "./submission-rate-limit";
 import { storeLeadSubmission, type StoreLeadResult } from "./storage-service";
 import { parseAndValidateSubmissionPayload } from "./validate-submission";
 
@@ -11,6 +16,7 @@ type QuickEstimateFailureCode = Extract<QuickEstimateSubmissionResponse, { ok: f
 
 /** 순수 요청 처리기에 주입하는 저장 함수와 개인정보 비포함 실패 logger입니다. */
 export type QuickEstimatePostDependencies = {
+  enforceRateLimit: (submission: QuickEstimateSubmissionPayload) => SubmissionRateLimitResult;
   storeSubmission: (submission: QuickEstimateSubmissionPayload) => StoreLeadResult;
   logFailure: (event: {
     code: QuickEstimateFailureCode;
@@ -47,6 +53,18 @@ export function handleQuickEstimatePost(
     return validation;
   }
 
+  const rateLimit = dependencies.enforceRateLimit(validation.submission);
+
+  if (!rateLimit.ok) {
+    logFailureSafely(dependencies, {
+      code: rateLimit.code,
+      occurredAt: dependencies.now().toISOString(),
+      requestId: validation.submission.requestId,
+    });
+
+    return rateLimit;
+  }
+
   const result = dependencies.storeSubmission(validation.submission);
 
   if (!result.ok) {
@@ -74,6 +92,11 @@ export function doPost(
 ): GoogleAppsScript.Content.TextOutput {
   try {
     const response = handleQuickEstimatePost(event?.parameter.payload, {
+      enforceRateLimit: (submission) =>
+        enforceSubmissionRateLimit(submission, {
+          port: createRuntimeSubmissionRateLimitPort(),
+          now: () => new Date(),
+        }),
       storeSubmission: (submission) =>
         storeLeadSubmission(submission, {
           storage: createRuntimeLeadSheetStorage(),

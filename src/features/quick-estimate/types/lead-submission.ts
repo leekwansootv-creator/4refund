@@ -8,6 +8,12 @@ import type { EstimateResult } from "./estimate";
 /** 선택 마케팅 활용에 동의할 수 있는 연락 채널입니다. */
 export type MarketingChannel = "EMAIL" | "SMS";
 
+/** Sheet에 저장하지 않고 자동 제출 판정에만 사용하는 브라우저 metadata입니다. */
+export type QuickEstimateAntiSpam = {
+  honeypot: string;
+  elapsedMs: number;
+};
+
 /** 연락처와 동의 입력을 견적 결과와 결합한 브라우저 제출 초안입니다. */
 export type QuickEstimateLeadDraft = {
   estimate: EstimateResult;
@@ -22,6 +28,7 @@ export type QuickEstimateLeadDraft = {
     agreed: boolean;
     channels: readonly MarketingChannel[];
   };
+  antiSpam: QuickEstimateAntiSpam;
 };
 
 /** 브라우저와 Apps Script가 공유하는 간단 견적 상담 wire payload입니다. */
@@ -52,6 +59,7 @@ export type QuickEstimateSubmissionPayload = {
     channels: MarketingChannel[];
     consentVersion: typeof MARKETING_CONSENT_VERSION;
   };
+  antiSpam: QuickEstimateAntiSpam;
   sourcePath: "/";
 };
 
@@ -84,6 +92,7 @@ export type QuickEstimateLeadValidationIssue =
   | "invalid_phone"
   | "privacy_consent_required"
   | "invalid_marketing_consent"
+  | "suspicious_submission"
   | "payload_too_large";
 
 /** 제출 초안 정규화와 wire payload 생성 결과입니다. */

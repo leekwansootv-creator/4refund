@@ -10,8 +10,10 @@ type ContactField = keyof QuickEstimateContactValues;
 
 type QuickEstimateContactStepProps = {
   values: QuickEstimateContactValues;
+  honeypotValue?: string;
   showErrors?: boolean;
   onChange: (field: ContactField, value: string) => void;
+  onHoneypotChange?: (value: string) => void;
   onNext: () => void;
 };
 
@@ -53,8 +55,10 @@ function getContactError(field: ContactField, value: string): string | undefined
  */
 export function QuickEstimateContactStep({
   values,
+  honeypotValue = "",
   showErrors = false,
   onChange,
+  onHoneypotChange,
   onNext,
 }: QuickEstimateContactStepProps) {
   const errors = {
@@ -75,6 +79,18 @@ export function QuickEstimateContactStep({
 
   return (
     <form className={styles.form} noValidate onSubmit={handleSubmit}>
+      <div className={styles.botTrap} aria-hidden="true">
+        <label htmlFor="quick-estimate-company-website">회사 웹사이트</label>
+        <input
+          id="quick-estimate-company-website"
+          name="company-website"
+          type="text"
+          autoComplete="off"
+          tabIndex={-1}
+          value={honeypotValue}
+          onChange={(event) => onHoneypotChange?.(event.currentTarget.value)}
+        />
+      </div>
       <QuickEstimateField
         id="quick-estimate-company-name"
         label="회사명"

@@ -38,6 +38,7 @@ function createDependencies(
 ) {
   const requestIds = [...REQUEST_IDS];
   const upliftValues = [...randomValues];
+  let currentTime = 0;
   const submitLead = vi.fn<SubmitLead>(async () => {
     const result = results.shift();
 
@@ -50,6 +51,10 @@ function createDependencies(
 
   return {
     dependencies: {
+      now() {
+        currentTime += 5_000;
+        return currentTime;
+      },
       randomUpliftSource: {
         getRandomValues(values: Uint32Array) {
           values[0] = upliftValues.shift() ?? 0;
@@ -157,10 +162,28 @@ describe("QuickEstimateFlow", () => {
       lead: { phone: "01012345678" },
       privacy: { agreed: true },
       marketing: { agreed: false, channels: [] },
+      antiSpam: { honeypot: "", elapsedMs: 5_000 },
       sourcePath: "/",
     });
     expect(screen.getByText(`${payload.estimate.amount.toLocaleString("ko-KR")}원`)).toBeVisible();
     expect(screen.getByRole("region", { name: "간단 견적 조회 결과" })).toHaveFocus();
+  });
+
+  it("숨은 honeypot에 값이 있으면 제출 요청을 만들지 않는다", () => {
+    const { submitLead } = renderFlow();
+    const honeypot = document.querySelector<HTMLInputElement>('input[name="company-website"]');
+
+    if (honeypot === null) {
+      throw new Error("honeypot 입력을 찾지 못했습니다.");
+    }
+
+    fireEvent.change(honeypot, { target: { value: "https://spam.example" } });
+    moveToEstimate();
+    fillEstimate();
+    lookup();
+
+    expect(submitLead).not.toHaveBeenCalled();
+    expect(screen.getByText(/입력 정보를 확인하지 못했습니다/)).toBeInTheDocument();
   });
 
   it("빠른 중복 click 중 한 요청만 전송하고 응답 전 닫기와 초기화를 막는다", async () => {

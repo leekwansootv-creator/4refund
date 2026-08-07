@@ -33,6 +33,7 @@ function createPayload(): QuickEstimateSubmissionPayload {
     },
     privacyAgreed: true,
     marketing: { agreed: false, channels: [] },
+    antiSpam: { honeypot: "", elapsedMs: 5_000 },
   };
   const result = createQuickEstimateSubmissionPayload(draft, REQUEST_ID);
 

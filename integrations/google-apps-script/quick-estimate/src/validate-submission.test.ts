@@ -48,6 +48,10 @@ function createValidPayload(): Record<string, unknown> {
       channels: [],
       consentVersion: MARKETING_CONSENT_VERSION,
     },
+    antiSpam: {
+      honeypot: "",
+      elapsedMs: 5_000,
+    },
     sourcePath: "/",
   };
 }
@@ -85,6 +89,18 @@ describe("parseAndValidateSubmissionPayload", () => {
 
     expect(validate(rootPayload)).toEqual({ ok: false, code: "INVALID_INPUT" });
     expect(validate(nestedPayload)).toEqual({ ok: false, code: "INVALID_INPUT" });
+  });
+
+  it.each([
+    { honeypot: "https://spam.example", elapsedMs: 5_000 },
+    { honeypot: "", elapsedMs: 2_999 },
+    { honeypot: "", elapsedMs: 7_200_001 },
+    { honeypot: "", elapsedMs: 5_000.5 },
+  ])("자동 제출 징후 %o를 거절한다", (antiSpam) => {
+    const payload = createValidPayload();
+    payload.antiSpam = antiSpam;
+
+    expect(validate(payload)).toEqual({ ok: false, code: "INVALID_INPUT" });
   });
 
   it("변조된 금액과 계산 입력을 거절한다", () => {

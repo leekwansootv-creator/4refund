@@ -47,6 +47,7 @@ function createPayload(): string {
       channels: [],
       consentVersion: MARKETING_CONSENT_VERSION,
     },
+    antiSpam: { honeypot: "", elapsedMs: 5_000 },
     sourcePath: "/",
   });
 }

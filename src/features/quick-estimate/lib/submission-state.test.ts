@@ -35,6 +35,7 @@ function createDraft(): QuickEstimateLeadDraft {
     },
     privacyAgreed: true,
     marketing: { agreed: false, channels: [] },
+    antiSpam: { honeypot: "", elapsedMs: 5_000 },
   };
 }
 

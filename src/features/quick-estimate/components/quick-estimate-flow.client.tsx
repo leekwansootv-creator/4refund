@@ -33,6 +33,7 @@ type CalculatedEstimate = Extract<EstimateResult, { status: "calculated" }>;
 type SubmissionFailure = Exclude<QuickEstimateSubmissionTransportResult, { ok: true }>;
 
 type QuickEstimateFlowDependencies = {
+  now?: () => number;
   randomUpliftSource?: RandomUpliftSource;
   requestIdSource?: SubmissionRequestIdSource;
   submitLead?: typeof submitEstimateLead;
@@ -110,6 +111,7 @@ export function QuickEstimateFlow({
   const [step, setStep] = useState<QuickEstimateFlowStep>("contact");
   const [contactValues, setContactValues] =
     useState<QuickEstimateContactValues>(EMPTY_CONTACT_VALUES);
+  const [honeypotValue, setHoneypotValue] = useState("");
   const [estimateValues, setEstimateValues] =
     useState<QuickEstimateFormValues>(EMPTY_ESTIMATE_VALUES);
   const [estimateResult, setEstimateResult] = useState<EstimateResult | null>(null);
@@ -118,6 +120,7 @@ export function QuickEstimateFlow({
   );
   const submissionStateRef = useRef(submissionState);
   const submissionInFlightRef = useRef(false);
+  const formOpenedAtRef = useRef(0);
 
   function updateSubmissionState(nextState: QuickEstimateSubmissionState) {
     submissionStateRef.current = nextState;
@@ -125,11 +128,15 @@ export function QuickEstimateFlow({
   }
 
   function handleOpen() {
+    const now = dependencies.now ?? Date.now;
+
     setStep("contact");
     setContactValues(EMPTY_CONTACT_VALUES);
+    setHoneypotValue("");
     setEstimateValues(EMPTY_ESTIMATE_VALUES);
     setEstimateResult(null);
     updateSubmissionState(createInitialSubmissionState());
+    formOpenedAtRef.current = now();
     setOpen(true);
   }
 
@@ -181,6 +188,7 @@ export function QuickEstimateFlow({
       return;
     }
 
+    const now = dependencies.now ?? Date.now;
     const nextSubmissionState = startQuickEstimateSubmission(
       createInitialSubmissionState(),
       {
@@ -190,6 +198,10 @@ export function QuickEstimateFlow({
         marketing: {
           agreed: estimateValues.marketingAgreed,
           channels: estimateValues.marketingAgreed ? ["EMAIL", "SMS"] : [],
+        },
+        antiSpam: {
+          honeypot: honeypotValue,
+          elapsedMs: Math.max(0, Math.floor(now() - formOpenedAtRef.current)),
         },
       },
       dependencies.requestIdSource,
@@ -314,7 +326,9 @@ export function QuickEstimateFlow({
         {step === "contact" ? (
           <QuickEstimateContactStep
             values={contactValues}
+            honeypotValue={honeypotValue}
             onChange={handleContactChange}
+            onHoneypotChange={setHoneypotValue}
             onNext={handleContactNext}
           />
         ) : null}

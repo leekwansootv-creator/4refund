@@ -11,11 +11,12 @@
 - [랜딩 페이지 PR 로드맵](landing-page-pr-roadmap.md)
 - [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)
 - [간단 견적 리드 수집 기술 설계](quick-estimate-technical-design.md)
+- [간단 견적 UI 디자인 해석 및 구현 기획](quick-estimate-ui-design-plan.md)
 - [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)
 - [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)
 - [간단 견적 Apps Script 전송 검증](quick-estimate-apps-script-spike.md)
 
-간단 견적과 개인정보 제출은 현재 랜딩 구현 범위에 포함하지 않는다. 디자인 전 기술 작업과 디자인 후 화면 작업은 위 후속 PR 로드맵에 따라 별도 feature에서 진행하며, 최종 공개 PR 전까지 현재 랜딩에 진입점을 연결하지 않는다.
+간단 견적과 개인정보 제출은 현재 구현된 랜딩 범위에는 아직 포함되지 않는다. 최종 디자인은 별도 route를 만들지 않고 루트 `/`의 기존 `HeroSection`을 간단 견적 hero로 교체하며, 기존 환급 사례 track을 새 hero 하단으로 이동한다. 미완성 기능 노출을 막기 위해 실제 `LandingPage` section 교체는 전체 저장 흐름과 출시 QA가 끝나는 최종 공개 PR에서 수행한다.
 
 ## 가장 중요한 구현 원칙
 
@@ -30,12 +31,13 @@ Figma의 [컴포넌트 모음 `37:512`](https://www.figma.com/design/ijPZL5Wxrjv
 
 ## 디자인 기준과 우선순위
 
-| 우선순위 | Figma 기준                                                                                                                                                           | 사용 목적                                 | 사용하지 않는 방식                       |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------- |
-| 1        | [전체 페이지 `27:373`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=27-373&m=dev)   | 섹션 순서, 문구, 레이아웃, 최종 시각 기준 | 생성된 React 코드를 그대로 복사하지 않음 |
-| 2        | [컴포넌트 모음 `37:512`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=37-512&m=dev) | hover, active, 크기 차이 확인             | 공통 컴포넌트 목록으로 해석하지 않음     |
-| 3        | [아이콘 모음 `37:511`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=37-511&m=dev)   | SVG 원본과 의미 확인                      | 아이콘 패키지로 대체하지 않음            |
-| 4        | [이미지 모음 `124:119`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=124-119&m=dev) | 래스터 이미지 원본, crop, variant 확인    | placeholder 또는 임의 생성 이미지 미사용 |
+| 우선순위 | Figma 기준                                                                                                                                                              | 사용 목적                                        | 사용하지 않는 방식                       |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ---------------------------------------- |
+| 1        | [교체 랜딩 `290:387`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=290-387&m=dev)      | 새 hero와 환급 사례 위치의 최종 시각·구조 기준   | 별도 견적 route로 분리하지 않음          |
+| 2        | [기존 전체 페이지 `27:373`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=27-373&m=dev) | 새 hero 아래 기존 section의 콘텐츠·레이아웃 기준 | 생성된 React 코드를 그대로 복사하지 않음 |
+| 3        | [컴포넌트 모음 `37:512`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=37-512&m=dev)    | hover, active, 크기 차이 확인                    | 공통 컴포넌트 목록으로 해석하지 않음     |
+| 4        | [아이콘 모음 `37:511`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=37-511&m=dev)      | SVG 원본과 의미 확인                             | 아이콘 패키지로 대체하지 않음            |
+| 5        | [이미지 모음 `124:119`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=124-119&m=dev)    | 래스터 이미지 원본, crop, variant 확인           | placeholder 또는 임의 생성 이미지 미사용 |
 
 모든 세부 디자인 정보는 `mcp__figma`의 `get_design_context`, `get_metadata`, `get_screenshot`, `get_variable_defs`, `get_motion_context` 결과를 기준으로 한다. MCP가 반환한 localhost 에셋은 원본 획득 경로로 사용하고, 배포 코드가 localhost 서버에 의존하지 않도록 구현 단계에서 파일을 내려받아 저장소에 포함한다.
 
@@ -332,6 +334,8 @@ public/
 | `RefundProcessSection`      | 4단계 절차와 사후관리            | Server Component |
 | `ContactSection`            | 전화·이메일 전환 CTA             | Server Component |
 | `SiteFooter`                | 고지·연락처·사업자 정보          | Server Component |
+
+표는 현재 구현 기준이다. 간단 견적 공개 PR에서는 `HeroSection`을 `QuickEstimateHeroSection`으로 대체하고, `RefundCasesSection`의 데이터·track 책임을 `RefundCasesTrack`으로 분리해 새 hero 안에서 한 번만 조합한다. dialog와 제출 상태만 `quick-estimate` feature의 Client Component가 소유한다.
 
 `"use client"`는 상태가 필요한 `BenefitsSection`, 헤더 메뉴만 소유하는 `SiteHeaderNavigation`, DOM을 렌더링하지 않는 `LandingRevealController`에 한정한다. 정적 section과 연락 링크는 Server Component에 유지한다.
 

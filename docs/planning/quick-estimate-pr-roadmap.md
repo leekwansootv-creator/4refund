@@ -2,7 +2,7 @@
 
 ## 문서 목적
 
-이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md), [기술 설계](quick-estimate-technical-design.md), [기준액 벤치마크](quick-estimate-benchmark.md)를 실제 변경으로 옮길 때 사용할 PR 단위 실행 계획이다.
+이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md), [기술 설계](quick-estimate-technical-design.md), [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md), [기준액 벤치마크](quick-estimate-benchmark.md)를 실제 변경으로 옮길 때 사용할 PR 단위 실행 계획이다.
 
 여기서 `PR 1`부터 `PR 8`은 작업 순서를 나타내는 계획용 식별자다. 실제 GitHub PR 번호나 생성 여부를 뜻하지 않는다. 한 PR이 merge된 뒤 `main`을 최신 상태로 갱신하고 다음 PR을 시작하며, 별도 합의 없이 병렬 PR이나 stacked PR로 진행하지 않는다.
 
@@ -40,7 +40,7 @@ flowchart LR
 | PR 3 | 금액 계산 규칙 구현          | 업종별 기준액, 1%–3% 난수, 계산 함수와 단위 테스트     | 아니요      | 금액 정책과 입력 범위 승인        |
 | PR 4 | 서버리스 저장 경계 구현      | Apps Script 검증·중복 방지·Sheet 저장과 운영 문서      | 아니요      | PR 2, PR 3, 개인정보 정책 승인    |
 | PR 5 | 브라우저 제출 계약 구현      | 제출 schema, transport client, 제출 상태와 단위 테스트 | 아니요      | PR 4 배포 계약 확정               |
-| PR 6 | 디자인을 semantic UI로 번역  | 입력·결과·연락처·동의 화면과 반응형 기반               | 예          | 최종 디자인과 사용자 문구 승인    |
+| PR 6 | 디자인을 semantic UI로 번역  | 교체 hero·사례 track·입력·결과·동의의 비공개 화면 기반 | 예          | 최종 디자인과 사용자 문구 승인    |
 | PR 7 | 사용자 흐름 완성             | 계산·동의·저장 연동, 로딩·성공·실패·재시도             | 예          | PR 6                              |
 | PR 8 | 공개 가능 상태 검증          | 스팸 방지, 접근성, E2E, 운영 점검, 랜딩 공개 연결      | 예          | PR 7, 운영 계정과 공개 승인       |
 
@@ -458,15 +458,15 @@ src/features/quick-estimate/
 
 ### 진입 조건
 
-- 데스크톱과 모바일 디자인이 확정되었다.
-- 랜딩 내 배치 위치와 진입 CTA가 확정되었다.
-- 결과를 연락처 제출 전후 언제 공개할지 확정되었다.
-- 결과 안내, 개인정보 수집·이용, 마케팅 활용 문구가 승인되었다.
+- 데스크톱 Figma와 [파생 mobile 반응형 규칙](quick-estimate-ui-design-plan.md#반응형-기준)이 승인되었다.
+- `290:387`의 메인 hero 교체안과 별도 route를 만들지 않는 구조가 승인되었다.
+- 연락처 → 견적·동의 → 결과의 단계형 modal 흐름이 승인되었다.
+- Figma의 `직함`, 누락 이메일과 3년 보유 문구를 [승인 계약에 맞게 보정](quick-estimate-ui-design-plan.md#figma와-승인-계약의-정합성)했다.
 - 디자인 node와 에셋 원본에 접근할 수 있다.
 
 ### 목적
 
-확정된 디자인을 semantic HTML과 feature 전용 컴포넌트로 번역한다. 이 PR에서는 시각 구조와 모든 상태를 구현하되 운영 endpoint와 랜딩 공개 연결은 하지 않는다.
+확정된 디자인을 semantic HTML과 책임별 컴포넌트로 번역한다. 이 PR에서는 새 hero, 사례 track과 모달의 시각 구조·상태를 구현하되 운영 endpoint와 `LandingPage` section 교체는 하지 않는다.
 
 ### 포함 변경
 
@@ -474,6 +474,9 @@ src/features/quick-estimate/
 - 참고용 예상값 결과 UI
 - 회사명, 담당자 이름, 이메일, 전화번호 입력 UI
 - 개인정보 필수 동의와 마케팅 선택 동의 UI
+- 루트 랜딩 교체용 간단 견적 hero component
+- 기존 환급 사례 데이터와 자동 순환 동작을 재사용하는 hero 내부 track component
+- 봉투·결과지·동전 합성 이미지와 reduced motion 대응
 - 기본, 입력 오류, 계산 완료, 제출 중, 성공, 실패 상태의 시각 표현
 - desktop·mobile 반응형 레이아웃
 - label, description, error 연결과 focus-visible
@@ -483,6 +486,11 @@ src/features/quick-estimate/
 ### 예상 변경 영역
 
 ```text
+src/features/landing-page/
+└── components/
+    ├── quick-estimate-hero-section.tsx
+    └── refund-cases-track.tsx
+
 src/features/quick-estimate/
 ├── components/
 ├── constants/
@@ -493,18 +501,19 @@ public/assets/quick-estimate/
 └── 디자인에서 실제 사용하는 에셋
 ```
 
-실제 component 이름과 폴더는 디자인의 정보 구조를 확인한 뒤 정한다. 화면이 비슷해 보인다는 이유만으로 기존 `landing-page` 내부 컴포넌트나 `shared`로 합치지 않는다.
+랜딩 전용 hero layout과 사례 track은 `landing-page`가, dialog·form·flow는 `quick-estimate`가 소유한다. 화면이 비슷해 보인다는 이유만으로 `shared`로 합치지 않는다.
 
 ### 공개 차단 원칙
 
 - 이 PR만 merge된 상태에서 운영 사용자가 미완성 제출 흐름에 진입할 수 없어야 한다.
-- 공개 차단 방식은 디자인과 현재 배포 구조를 확인해 PR 설명에 기록한다.
+- 새 component를 현재 `LandingPage` section 순서에 조합하지 않아 기존 hero를 유지한다.
 - 다음 PR을 위해 임의의 가짜 성공 응답이나 운영 endpoint 대체 코드를 넣지 않는다.
 
 ### 제외 변경
 
 - 운영 Apps Script 호출
 - 실제 Sheet 저장
+- 기존 `HeroSection` 교체와 독립 `RefundCasesSection` 제거
 - analytics·광고 script
 - 디자인에 없는 단계, 모달, tooltip 발명
 - 전역 form component 추출
@@ -536,7 +545,7 @@ public/assets/quick-estimate/
 
 ### 목적
 
-PR 3의 계산 엔진, PR 5의 제출 계약과 PR 6의 UI를 연결해 사용자가 입력부터 저장 결과 확인까지 한 흐름으로 완료하게 한다. 아직 최종 공개는 하지 않는다.
+PR 3의 계산 엔진, PR 5의 제출 계약과 PR 6의 UI를 연결해 입력부터 저장 결과 확인까지 한 흐름으로 완료하게 한다. 아직 새 hero를 현재 `LandingPage`에 조합하지 않아 운영 공개는 하지 않는다.
 
 ### 포함 변경
 
@@ -549,6 +558,7 @@ PR 3의 계산 엔진, PR 5의 제출 계약과 PR 6의 UI를 연결해 사용�
 - 실패 시 입력과 계산 결과를 유지한 재시도
 - 오류 종류별 사용자 안내와 focus 이동
 - 흐름 단위 component/integration 테스트
+- `sourcePath: "/"` 기존 wire 계약 유지
 
 ### 상태 흐름
 
@@ -566,6 +576,7 @@ stateDiagram-v2
 ### 제외 변경
 
 - 운영 공개 전환
+- 기존 `LandingPage` section 교체
 - 실제 사업 지표 분석
 - 관리자 조회 UI
 - 실패 시 새로운 난수 자동 생성
@@ -610,7 +621,7 @@ stateDiagram-v2
 
 ### 목적
 
-보안, 스팸, 접근성, 반응형, 실제 저장과 운영 절차를 최종 검증하고 기존 랜딩에서 간단 견적 진입점을 공개한다.
+보안, 스팸, 접근성, 반응형, 실제 저장과 운영 절차를 최종 검증하고 기존 랜딩의 hero와 사례 section을 새 구조로 원자적으로 교체한다.
 
 ### 포함 변경
 
@@ -621,7 +632,8 @@ stateDiagram-v2
 - 실제 배포 환경의 전체 E2E
 - benchmark refresh 결과와 규칙 version 갱신 여부 기록
 - Sheet 열 보호, 최소 권한, 백업·파기·접근자 점검
-- 기존 랜딩 페이지의 최종 진입 CTA 연결
+- 기존 `HeroSection`을 새 간단 견적 hero로 교체
+- 독립 `RefundCasesSection`을 제거하고 사례 track을 새 hero 하단에 조합
 - 공개 중단과 롤백 절차 확인
 - 필요한 운영 체크리스트와 모니터링 기준
 
@@ -640,7 +652,7 @@ stateDiagram-v2
 
 ### 롤백
 
-- 장애 시 랜딩 진입점만 비활성화해 기존 정적 랜딩을 유지한다.
+- 장애 시 이전 `HeroSection`과 독립 `RefundCasesSection` 조합으로 코드 롤백해 정적 랜딩을 복구한다.
 - Apps Script 배포를 중단하거나 접근 권한을 회수해 신규 제출을 막는다.
 - 프런트엔드 코드 롤백이 이미 저장된 Sheet 행을 삭제하지 않는다.
 - 데이터 오류는 대상 행, 사유, 승인자를 남긴 파기 절차로 처리한다.
@@ -666,15 +678,15 @@ stateDiagram-v2
 
 ## 완료 추적
 
-| 계획 ID | 상태    | 실제 PR                                                        | merge 확인 | 비고                            |
-| ------- | ------- | -------------------------------------------------------------- | ---------- | ------------------------------- |
-| PR 1    | 병합됨  | [#22](https://github.com/leekwansootv-creator/4refund/pull/22) | 확인       | 기획·기술 기준선 반영           |
-| PR 2    | 병합됨  | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 확인       | Apps Script 전송 방식 검증 반영 |
-| PR 3    | 병합됨  | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영             |
-| PR 4    | 작업 중 | 미생성                                                         | 미확인     | 개인정보·마케팅·운영 계약 승인  |
-| PR 5    | 계획    | 미생성                                                         | 미확인     | PR 4 응답 계약 필요             |
-| PR 6    | 대기    | 미생성                                                         | 미확인     | 최종 desktop·mobile 디자인 필요 |
-| PR 7    | 대기    | 미생성                                                         | 미확인     | PR 6 필요                       |
-| PR 8    | 대기    | 미생성                                                         | 미확인     | 운영·법무 공개 승인 필요        |
+| 계획 ID | 상태      | 실제 PR                                                        | merge 확인 | 비고                            |
+| ------- | --------- | -------------------------------------------------------------- | ---------- | ------------------------------- |
+| PR 1    | 병합됨    | [#22](https://github.com/leekwansootv-creator/4refund/pull/22) | 확인       | 기획·기술 기준선 반영           |
+| PR 2    | 병합됨    | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 확인       | Apps Script 전송 방식 검증 반영 |
+| PR 3    | 병합됨    | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영             |
+| PR 4    | 병합됨    | [#25](https://github.com/leekwansootv-creator/4refund/pull/25) | 확인       | Apps Script 저장 처리 반영      |
+| PR 5    | 병합됨    | [#26](https://github.com/leekwansootv-creator/4refund/pull/26) | 확인       | 브라우저 제출 계약 반영         |
+| PR 6    | 진입 준비 | 미생성                                                         | 미확인     | Figma 정합성과 반응형 규칙 검토 |
+| PR 7    | 대기      | 미생성                                                         | 미확인     | PR 6 필요                       |
+| PR 8    | 대기      | 미생성                                                         | 미확인     | 운영·법무 공개 승인 필요        |
 
 상태는 실제 작업을 시작하거나 GitHub 상태를 확인했을 때만 갱신한다. 사용자가 PR 단위 작업 시작을 승인한 뒤에는 책임 범위가 끝날 때마다 commit하고, 사용자 수동 조치가 필요하지 않으면 PR 전체 검증 후 push와 Draft PR 생성까지 수행한다. 수동 조치가 필요하면 필요한 계정·화면·절차·완료 증빙을 안내하고 해당 입력을 기다린다.

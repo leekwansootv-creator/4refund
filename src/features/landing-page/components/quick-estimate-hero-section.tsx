@@ -35,6 +35,7 @@ export function QuickEstimateHeroSection({ action }: { action: ReactNode }) {
             src={QUICK_ESTIMATE_ASSETS.envelope.back}
             alt=""
             fill
+            loading="eager"
             sizes="442px"
             className={styles.envelopeLayer}
           />

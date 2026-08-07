@@ -4,7 +4,7 @@
 
 이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의하며, 전달된 화면은 [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md)에서 이 계약과 대조한다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다. Apps Script 전송 방식의 실제 관측 결과는 [전송 검증 문서](quick-estimate-apps-script-spike.md)를 기준으로 삼는다.
 
-현재 통합 브랜치에는 계산 core, Apps Script 저장·rate limit 처리, 브라우저 제출 계약, 단계형 UI와 루트 랜딩 조합이 구현되어 있다. PR 8에서는 새 Apps Script version의 실제 저장 E2E를 마친 뒤 `integration/quick-estimate`에 병합하며, 운영 공개는 별도 PR 9에서만 수행한다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리는 동의를 근거로 접수일로부터 1년간 보유하며, 마케팅은 이메일·문자 선택 동의로 분리하는 계약을 승인했다.
+현재 통합 브랜치에는 계산 core, Apps Script 저장·rate limit 처리, 브라우저 제출 계약, 단계형 UI와 루트 랜딩 조합이 구현되어 있다. 2026-08-07에 Apps Script version 3과 비공개 운영 Sheet로 실제 저장 E2E를 완료했으며, PR 8은 `integration/quick-estimate`에만 병합한다. 운영 공개는 별도 PR 9에서만 수행한다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리는 동의를 근거로 접수일로부터 1년간 보유하며, 마케팅은 이메일·문자 선택 동의로 분리하는 계약을 승인했다.
 
 ## 설계 결정
 
@@ -592,6 +592,14 @@ integrations/google-apps-script/quick-estimate/
 - keyboard와 모바일 환경에서 전체 흐름을 완료한다.
 - 자동 접근성 검사와 실제 focus 이동을 검증한다.
 
+### 2026-08-07 운영 검증 결과
+
+- Apps Script Web App version 3에서 데스크톱 마케팅 미동의, 모바일 마케팅 동의와 keyboard·200% 확대·reduced motion·axe 검증 3건이 통과했다.
+- 운영 Sheet의 최신 두 테스트 행에서 24개 컬럼, 견적 금액·난수·규칙 version, 개인정보·마케팅 동의와 `NEW` 상태가 화면 계약과 일치했다.
+- 첫 검증에서 전화번호를 숫자로 해석해 선행 `0`이 사라지는 문제를 확인했고, 13번 컬럼을 일반 텍스트 형식으로 지정한 version 3에서 `010` 형식 보존을 재확인했다.
+- 최신 `doPost` 실행은 완료 상태이며, 성공 실행 기록에 연락처 원문을 추가로 기록하지 않는다.
+- 테스트 행은 [운영 runbook](../operations/quick-estimate-runbook.md)에 따라 임의 삭제하지 않는다.
+
 ## 구현 순서
 
 1. 완료: 현재 기획, benchmark, 기술 설계와 [PR 로드맵](quick-estimate-pr-roadmap.md)을 문서 기준선으로 확정한다.
@@ -601,10 +609,10 @@ integrations/google-apps-script/quick-estimate/
 5. 완료: 확정된 endpoint 계약을 기준으로 브라우저 제출 schema, transport와 상태 전이를 구현한다.
 6. 완료: 승인된 디자인 계약과 파생 반응형 규칙으로 컴포넌트와 접근성 상태를 구현한다.
 7. 완료: 계산, 동의와 제출을 연결하고 실패·재시도 상태를 검증한다.
-8. 진행 중: 스팸 방지, 운영 권한, benchmark 갱신, 랜딩 조합과 출시 QA를 마친다.
+8. 완료: 스팸 방지, 운영 권한, benchmark 갱신, 랜딩 조합과 출시 QA를 마친다.
 9. PR 8의 실제 저장 E2E와 공개 승인이 끝난 뒤 `integration/quick-estimate`를 `main`에 병합해 운영 공개한다.
 
-PR 8의 코드와 운영 정책은 구현됐으며 새 Apps Script version의 실제 저장 E2E와 Sheet 대조가 남았다. 이 검증 전에는 `main` 대상 release PR을 만들지 않는다.
+PR 8의 코드, 운영 정책, 실제 저장 E2E와 Sheet 대조는 완료했다. 이 PR을 `integration/quick-estimate`에 병합한 뒤에도 사용자의 최종 공개 승인 전에는 `main` 대상 release PR을 만들지 않는다.
 
 ## 롤백과 복구
 

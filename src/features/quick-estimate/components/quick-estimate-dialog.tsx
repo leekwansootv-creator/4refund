@@ -12,6 +12,7 @@ type QuickEstimateDialogProps = {
   open: boolean;
   title: string;
   titleVariant?: "contact" | "estimate";
+  closeDisabled?: boolean;
   onClose: () => void;
 };
 
@@ -23,6 +24,7 @@ export function QuickEstimateDialog({
   open,
   title,
   titleVariant = "estimate",
+  closeDisabled = false,
   onClose,
 }: QuickEstimateDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -59,7 +61,7 @@ export function QuickEstimateDialog({
   }, [open]);
 
   function handleBackdropClick(event: MouseEvent<HTMLDialogElement>) {
-    if (event.target === event.currentTarget) {
+    if (!closeDisabled && event.target === event.currentTarget) {
       onClose();
     }
   }
@@ -71,7 +73,10 @@ export function QuickEstimateDialog({
       className={styles.dialog}
       onCancel={(event) => {
         event.preventDefault();
-        onClose();
+
+        if (!closeDisabled) {
+          onClose();
+        }
       }}
       onClick={handleBackdropClick}
     >
@@ -89,6 +94,7 @@ export function QuickEstimateDialog({
           <button
             type="button"
             aria-label="간단 견적 닫기"
+            disabled={closeDisabled}
             className={styles.closeButton}
             onClick={onClose}
           >

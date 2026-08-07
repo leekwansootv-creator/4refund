@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 import styles from "./quick-estimate-dialog.module.css";
 import type { QuickEstimateResultFeedback } from "../types/quick-estimate-ui";
 
@@ -15,6 +19,14 @@ function formatWon(amount: number): string {
 }
 
 function SubmissionFeedback({ feedback }: { feedback: QuickEstimateResultFeedback }) {
+  const failureRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (feedback.status === "failed") {
+      failureRef.current?.focus();
+    }
+  }, [feedback.status]);
+
   switch (feedback.status) {
     case "idle":
       return <div aria-live="polite" className={styles.feedback} />;
@@ -33,11 +45,13 @@ function SubmissionFeedback({ feedback }: { feedback: QuickEstimateResultFeedbac
     case "failed":
       return (
         <div
+          ref={failureRef}
           aria-live="polite"
           className={`${styles.feedback} ${styles.feedbackError}`}
           tabIndex={-1}
         >
-          <p>상담 신청을 저장하지 못했습니다. 입력 내용은 유지됩니다.</p>
+          <p>{feedback.message}</p>
+          <p>입력 내용과 예상 환급액은 유지됩니다.</p>
           <button type="button" className="mt-2 underline" onClick={feedback.onRetry}>
             접수 다시 시도
           </button>

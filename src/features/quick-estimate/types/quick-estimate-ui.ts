@@ -21,4 +21,4 @@ export type QuickEstimateResultFeedback =
   | { status: "idle" }
   | { status: "submitting" }
   | { status: "succeeded" }
-  | { status: "failed"; onRetry: () => void };
+  | { status: "failed"; message: string; onRetry: () => void };

@@ -156,9 +156,14 @@ describe("QuickEstimateResultStep", () => {
 
   it("실패 상태에서 입력 유지 안내와 재시도 action을 제공한다", () => {
     const onRetry = vi.fn();
-    renderResult({ status: "failed", onRetry });
+    renderResult({
+      status: "failed",
+      message: "네트워크 연결을 확인한 뒤 다시 시도해 주세요.",
+      onRetry,
+    });
 
-    expect(screen.getByText(/입력 내용은 유지됩니다/)).toBeInTheDocument();
+    expect(screen.getByText(/네트워크 연결/).parentElement).toHaveFocus();
+    expect(screen.getByText(/입력 내용과 예상 환급액은 유지됩니다/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "접수 다시 시도" }));
     expect(onRetry).toHaveBeenCalledOnce();
   });

@@ -52,9 +52,14 @@ function SubmissionFeedback({ feedback }: { feedback: QuickEstimateResultFeedbac
         >
           <p>{feedback.message}</p>
           <p>입력 내용과 예상 환급액은 유지됩니다.</p>
-          <button type="button" className="mt-2 underline" onClick={feedback.onRetry}>
-            접수 다시 시도
-          </button>
+          <div className="mt-2 flex gap-4">
+            <button type="button" className="underline" onClick={feedback.onEditContact}>
+              연락처 수정
+            </button>
+            <button type="button" className="underline" onClick={feedback.onRetry}>
+              접수 다시 시도
+            </button>
+          </div>
         </div>
       );
   }
@@ -74,7 +79,13 @@ export function QuickEstimateResultStep({
   const submitting = feedback.status === "submitting";
 
   return (
-    <div className="flex flex-col gap-6">
+    <div
+      role="region"
+      aria-label="간단 견적 조회 결과"
+      className="flex flex-col gap-6"
+      data-dialog-initial-focus
+      tabIndex={-1}
+    >
       <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 text-sm">
         <dt className="font-bold text-[#666]">업종</dt>
         <dd className="min-w-0 text-[#212121]">{industryLabel}</dd>

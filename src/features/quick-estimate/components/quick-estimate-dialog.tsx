@@ -13,6 +13,7 @@ type QuickEstimateDialogProps = {
   title: string;
   titleVariant?: "contact" | "estimate";
   closeDisabled?: boolean;
+  initialFocusKey?: string;
   onClose: () => void;
 };
 
@@ -25,6 +26,7 @@ export function QuickEstimateDialog({
   title,
   titleVariant = "estimate",
   closeDisabled = false,
+  initialFocusKey,
   onClose,
 }: QuickEstimateDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -47,7 +49,6 @@ export function QuickEstimateDialog({
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    dialog.querySelector<HTMLElement>("[data-dialog-initial-focus]")?.focus();
 
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -59,6 +60,12 @@ export function QuickEstimateDialog({
       returnFocusRef.current?.focus();
     };
   }, [open]);
+
+  useEffect(() => {
+    if (open) {
+      dialogRef.current?.querySelector<HTMLElement>("[data-dialog-initial-focus]")?.focus();
+    }
+  }, [initialFocusKey, open]);
 
   function handleBackdropClick(event: MouseEvent<HTMLDialogElement>) {
     if (!closeDisabled && event.target === event.currentTarget) {

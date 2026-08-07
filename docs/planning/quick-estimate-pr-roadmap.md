@@ -2,7 +2,7 @@
 
 ## 문서 목적
 
-이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md), [기술 설계](quick-estimate-technical-design.md), [기준액 벤치마크](quick-estimate-benchmark.md)를 실제 변경으로 옮길 때 사용할 PR 단위 실행 계획이다.
+이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md), [기술 설계](quick-estimate-technical-design.md), [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md), [기준액 벤치마크](quick-estimate-benchmark.md)를 실제 변경으로 옮길 때 사용할 PR 단위 실행 계획이다.
 
 여기서 `PR 1`부터 `PR 8`은 작업 순서를 나타내는 계획용 식별자다. 실제 GitHub PR 번호나 생성 여부를 뜻하지 않는다. 한 PR이 merge된 뒤 `main`을 최신 상태로 갱신하고 다음 PR을 시작하며, 별도 합의 없이 병렬 PR이나 stacked PR로 진행하지 않는다.
 
@@ -458,10 +458,10 @@ src/features/quick-estimate/
 
 ### 진입 조건
 
-- 데스크톱과 모바일 디자인이 확정되었다.
-- 랜딩 내 배치 위치와 진입 CTA가 확정되었다.
-- 결과를 연락처 제출 전후 언제 공개할지 확정되었다.
-- 결과 안내, 개인정보 수집·이용, 마케팅 활용 문구가 승인되었다.
+- 데스크톱 Figma와 [파생 mobile 반응형 규칙](quick-estimate-ui-design-plan.md#반응형-기준)이 승인되었다.
+- 메인 랜딩 hero의 CTA 위치와 `/quick-estimate` route가 승인되었다.
+- 연락처 → 견적·동의 → 결과의 단계형 modal 흐름이 승인되었다.
+- Figma의 `직함`, 누락 이메일과 3년 보유 문구를 [승인 계약에 맞게 보정](quick-estimate-ui-design-plan.md#figma와-승인-계약의-정합성)했다.
 - 디자인 node와 에셋 원본에 접근할 수 있다.
 
 ### 목적
@@ -474,6 +474,9 @@ src/features/quick-estimate/
 - 참고용 예상값 결과 UI
 - 회사명, 담당자 이름, 이메일, 전화번호 입력 UI
 - 개인정보 필수 동의와 마케팅 선택 동의 UI
+- `/quick-estimate` route와 `noindex` metadata
+- 기존 사이트 header·연락 CTA·footer 조합
+- 봉투·결과지·동전 합성 이미지와 reduced motion 대응
 - 기본, 입력 오류, 계산 완료, 제출 중, 성공, 실패 상태의 시각 표현
 - desktop·mobile 반응형 레이아웃
 - label, description, error 연결과 focus-visible
@@ -505,6 +508,7 @@ public/assets/quick-estimate/
 
 - 운영 Apps Script 호출
 - 실제 Sheet 저장
+- 메인 랜딩 CTA 연결과 검색 index 허용
 - analytics·광고 script
 - 디자인에 없는 단계, 모달, tooltip 발명
 - 전역 form component 추출
@@ -666,15 +670,15 @@ stateDiagram-v2
 
 ## 완료 추적
 
-| 계획 ID | 상태    | 실제 PR                                                        | merge 확인 | 비고                            |
-| ------- | ------- | -------------------------------------------------------------- | ---------- | ------------------------------- |
-| PR 1    | 병합됨  | [#22](https://github.com/leekwansootv-creator/4refund/pull/22) | 확인       | 기획·기술 기준선 반영           |
-| PR 2    | 병합됨  | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 확인       | Apps Script 전송 방식 검증 반영 |
-| PR 3    | 병합됨  | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영             |
-| PR 4    | 작업 중 | 미생성                                                         | 미확인     | 개인정보·마케팅·운영 계약 승인  |
-| PR 5    | 계획    | 미생성                                                         | 미확인     | PR 4 응답 계약 필요             |
-| PR 6    | 대기    | 미생성                                                         | 미확인     | 최종 desktop·mobile 디자인 필요 |
-| PR 7    | 대기    | 미생성                                                         | 미확인     | PR 6 필요                       |
-| PR 8    | 대기    | 미생성                                                         | 미확인     | 운영·법무 공개 승인 필요        |
+| 계획 ID | 상태      | 실제 PR                                                        | merge 확인 | 비고                            |
+| ------- | --------- | -------------------------------------------------------------- | ---------- | ------------------------------- |
+| PR 1    | 병합됨    | [#22](https://github.com/leekwansootv-creator/4refund/pull/22) | 확인       | 기획·기술 기준선 반영           |
+| PR 2    | 병합됨    | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 확인       | Apps Script 전송 방식 검증 반영 |
+| PR 3    | 병합됨    | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영             |
+| PR 4    | 병합됨    | [#25](https://github.com/leekwansootv-creator/4refund/pull/25) | 확인       | Apps Script 저장 처리 반영      |
+| PR 5    | 병합됨    | [#26](https://github.com/leekwansootv-creator/4refund/pull/26) | 확인       | 브라우저 제출 계약 반영         |
+| PR 6    | 진입 준비 | 미생성                                                         | 미확인     | Figma 정합성과 반응형 규칙 검토 |
+| PR 7    | 대기      | 미생성                                                         | 미확인     | PR 6 필요                       |
+| PR 8    | 대기      | 미생성                                                         | 미확인     | 운영·법무 공개 승인 필요        |
 
 상태는 실제 작업을 시작하거나 GitHub 상태를 확인했을 때만 갱신한다. 사용자가 PR 단위 작업 시작을 승인한 뒤에는 책임 범위가 끝날 때마다 commit하고, 사용자 수동 조치가 필요하지 않으면 PR 전체 검증 후 push와 Draft PR 생성까지 수행한다. 수동 조치가 필요하면 필요한 계정·화면·절차·완료 증빙을 안내하고 해당 입력을 기다린다.

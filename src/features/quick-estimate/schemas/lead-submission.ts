@@ -1,6 +1,8 @@
 import { ESTIMATE_BENCHMARK_VERSION, ESTIMATE_RULE_VERSION } from "../constants/estimate-rule-set";
 import {
+  MAX_SUBMISSION_ELAPSED_MS,
   MARKETING_CONSENT_VERSION,
+  MIN_SUBMISSION_ELAPSED_MS,
   PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
 } from "../constants/lead-submission-contract";
@@ -134,6 +136,15 @@ export function createQuickEstimateSubmissionPayload(
   }
 
   if (
+    draft.antiSpam.honeypot !== "" ||
+    !Number.isInteger(draft.antiSpam.elapsedMs) ||
+    draft.antiSpam.elapsedMs < MIN_SUBMISSION_ELAPSED_MS ||
+    draft.antiSpam.elapsedMs > MAX_SUBMISSION_ELAPSED_MS
+  ) {
+    issues.push("suspicious_submission");
+  }
+
+  if (
     issues.length > 0 ||
     draft.estimate.status !== "calculated" ||
     companyName === null ||
@@ -171,6 +182,10 @@ export function createQuickEstimateSubmissionPayload(
       agreed: draft.marketing.agreed,
       channels: marketingChannels,
       consentVersion: MARKETING_CONSENT_VERSION,
+    },
+    antiSpam: {
+      honeypot: "",
+      elapsedMs: draft.antiSpam.elapsedMs,
     },
     sourcePath: "/",
   };

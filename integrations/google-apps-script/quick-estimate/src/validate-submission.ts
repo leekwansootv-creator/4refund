@@ -2,6 +2,8 @@ import {
   ESTIMATE_BENCHMARK_VERSION,
   ESTIMATE_RULE_VERSION,
   MARKETING_CONSENT_VERSION,
+  MAX_SUBMISSION_ELAPSED_MS,
+  MIN_SUBMISSION_ELAPSED_MS,
   PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
   calculateEstimate,
@@ -10,7 +12,15 @@ import {
   type QuickEstimateSubmissionValidationErrorCode,
 } from "@/features/quick-estimate";
 
-const ROOT_KEYS = ["requestId", "estimate", "lead", "privacy", "marketing", "sourcePath"];
+const ROOT_KEYS = [
+  "requestId",
+  "estimate",
+  "lead",
+  "privacy",
+  "marketing",
+  "antiSpam",
+  "sourcePath",
+];
 const ESTIMATE_KEYS = [
   "industryCode",
   "employeeCount",
@@ -23,6 +33,7 @@ const ESTIMATE_KEYS = [
 const LEAD_KEYS = ["companyName", "contactName", "email", "phone"];
 const PRIVACY_KEYS = ["basis", "noticeVersion", "agreed"];
 const MARKETING_KEYS = ["agreed", "channels", "consentVersion"];
+const ANTI_SPAM_KEYS = ["honeypot", "elapsedMs"];
 const CONTROL_CHARACTER_PATTERN = /[\u0000-\u001f\u007f-\u009f]/u;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
 const PHONE_SEPARATOR_PATTERN = /[\s().-]/gu;
@@ -141,7 +152,7 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
     return failure("INVALID_INPUT");
   }
 
-  const { estimate, lead, privacy, marketing } = input;
+  const { estimate, lead, privacy, marketing, antiSpam } = input;
 
   if (
     !isRecord(estimate) ||
@@ -151,7 +162,9 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
     !isRecord(privacy) ||
     !hasExactKeys(privacy, PRIVACY_KEYS) ||
     !isRecord(marketing) ||
-    !hasExactKeys(marketing, MARKETING_KEYS)
+    !hasExactKeys(marketing, MARKETING_KEYS) ||
+    !isRecord(antiSpam) ||
+    !hasExactKeys(antiSpam, ANTI_SPAM_KEYS)
   ) {
     return failure("INVALID_INPUT");
   }
@@ -187,6 +200,15 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
     privacy.agreed !== true
   ) {
     return failure("INVALID_CONSENT");
+  }
+
+  if (
+    antiSpam.honeypot !== "" ||
+    !Number.isInteger(antiSpam.elapsedMs) ||
+    (antiSpam.elapsedMs as number) < MIN_SUBMISSION_ELAPSED_MS ||
+    (antiSpam.elapsedMs as number) > MAX_SUBMISSION_ELAPSED_MS
+  ) {
+    return failure("INVALID_INPUT");
   }
 
   const channels = normalizeMarketingChannels(marketing.channels);
@@ -243,6 +265,10 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
       agreed: marketing.agreed,
       channels,
       consentVersion: MARKETING_CONSENT_VERSION,
+    },
+    antiSpam: {
+      honeypot: "",
+      elapsedMs: antiSpam.elapsedMs as number,
     },
     sourcePath: "/",
   };

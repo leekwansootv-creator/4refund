@@ -13,9 +13,24 @@
   display: none;
 }
 
+.heroRefundCasesViewport {
+  position: absolute;
+  top: 571px;
+  left: 0;
+}
+
 @media (hover: none) and (pointer: coarse) {
   .refundCasesViewport {
     overflow-x: hidden;
+  }
+}
+
+@media (max-width: 1023px) {
+  .heroRefundCasesViewport {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: 48px;
   }
 }
 

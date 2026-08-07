@@ -47,6 +47,7 @@ function createPayload(): string {
       channels: [],
       consentVersion: MARKETING_CONSENT_VERSION,
     },
+    antiSpam: { honeypot: "", elapsedMs: 5_000 },
     sourcePath: "/",
   });
 }
@@ -61,6 +62,7 @@ describe("handleQuickEstimatePost", () => {
     const logFailure = vi.fn();
 
     const result = handleQuickEstimatePost(createPayload(), {
+      enforceRateLimit: () => ({ ok: true }),
       storeSubmission,
       logFailure,
       now: () => new Date(OCCURRED_AT),
@@ -80,6 +82,7 @@ describe("handleQuickEstimatePost", () => {
     const logFailure = vi.fn();
 
     const result = handleQuickEstimatePost("{", {
+      enforceRateLimit: vi.fn(),
       storeSubmission,
       logFailure,
       now: () => new Date(OCCURRED_AT),
@@ -93,10 +96,33 @@ describe("handleQuickEstimatePost", () => {
     });
   });
 
+  it("rate limit 실패 시 Sheet 저장 없이 request_id만 기록한다", () => {
+    const storeSubmission = vi.fn();
+    const logFailure = vi.fn();
+
+    const result = handleQuickEstimatePost(createPayload(), {
+      enforceRateLimit: () => ({ ok: false, code: "RATE_LIMITED" }),
+      storeSubmission,
+      logFailure,
+      now: () => new Date(OCCURRED_AT),
+    });
+
+    expect(result).toEqual({ ok: false, code: "RATE_LIMITED" });
+    expect(storeSubmission).not.toHaveBeenCalled();
+    expect(logFailure).toHaveBeenCalledWith({
+      code: "RATE_LIMITED",
+      occurredAt: OCCURRED_AT,
+      requestId: "0fca3874-40bc-4ea9-a7ad-742a062736ea",
+    });
+    expect(JSON.stringify(logFailure.mock.calls)).not.toContain("test@example.com");
+    expect(JSON.stringify(logFailure.mock.calls)).not.toContain("01000000000");
+  });
+
   it("저장 실패 로그에는 request_id와 코드·시각만 포함한다", () => {
     const logFailure = vi.fn();
 
     const result = handleQuickEstimatePost(createPayload(), {
+      enforceRateLimit: () => ({ ok: true }),
       storeSubmission: () => ({ ok: false, code: "STORAGE_UNAVAILABLE" }),
       logFailure,
       now: () => new Date(OCCURRED_AT),
@@ -114,6 +140,7 @@ describe("handleQuickEstimatePost", () => {
 
   it("logger 장애가 검증 실패 응답을 바꾸지 않는다", () => {
     const result = handleQuickEstimatePost("{", {
+      enforceRateLimit: vi.fn(),
       storeSubmission: vi.fn(),
       logFailure: () => {
         throw new Error("logger_unavailable");

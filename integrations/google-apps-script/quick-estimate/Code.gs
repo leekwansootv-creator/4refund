@@ -135,6 +135,8 @@ var QuickEstimateWebApp = (() => {
   var PRIVACY_NOTICE_VERSION = "privacy-2026-08-06-v1";
   var MARKETING_CONSENT_VERSION = "marketing-2026-08-06-v1";
   var SUBMISSION_PAYLOAD_MAX_BYTES = 16 * 1024;
+  var MIN_SUBMISSION_ELAPSED_MS = 3e3;
+  var MAX_SUBMISSION_ELAPSED_MS = 2 * 60 * 60 * 1e3;
 
   // src/features/quick-estimate/lib/calculate-estimate.ts
   function roundToNearestUnit(amount, unit) {
@@ -245,6 +247,8 @@ var QuickEstimateWebApp = (() => {
   var LEADS_SHEET_NAME = "leads";
   var CODEBOOK_SHEET_NAME = "codebook";
   var LOCK_TIMEOUT_MILLISECONDS = 5e3;
+  var PHONE_COLUMN_NUMBER = 13;
+  var PLAIN_TEXT_NUMBER_FORMAT = "@";
   function createAppsScriptLeadSheetStorage(dependencies) {
     return {
       withLock: (operation) => {
@@ -271,6 +275,7 @@ var QuickEstimateWebApp = (() => {
       appendLeadRow: (row) => {
         const sheet = dependencies.getLeadsSheet();
         const nextRow = Math.max(sheet.getLastRow() + 1, 2);
+        sheet.getRange(nextRow, PHONE_COLUMN_NUMBER, 1, 1).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
         sheet.getRange(nextRow, 1, 1, LEAD_SHEET_HEADERS.length).setValues([Array.from(row)]);
       }
     };
@@ -323,6 +328,7 @@ var QuickEstimateWebApp = (() => {
     leadsSheet.getRange(1, 1, 1, LEAD_SHEET_HEADERS.length).protect().setDescription("Apps Script 관리 header").setWarningOnly(false);
     const statusValidation = SpreadsheetApp.newDataValidation().requireValueInList(Array.from(LEAD_STATUSES), true).setAllowInvalid(false).build();
     leadsSheet.getRange(2, 23, leadsSheet.getMaxRows() - 1, 1).setDataValidation(statusValidation);
+    leadsSheet.getRange(2, PHONE_COLUMN_NUMBER, leadsSheet.getMaxRows() - 1, 1).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
     const codebookSheet = spreadsheet.insertSheet(CODEBOOK_SHEET_NAME);
     const codebookRows = createCodebookRows();
     codebookSheet.getRange(1, 1, codebookRows.length, (_b = (_a = codebookRows[0]) == null ? void 0 : _a.length) != null ? _b : 3).setValues(codebookRows);
@@ -348,6 +354,101 @@ var QuickEstimateWebApp = (() => {
       created: true,
       spreadsheetId: spreadsheet.getId(),
       spreadsheetUrl: spreadsheet.getUrl()
+    };
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/submission-rate-limit.ts
+  var GLOBAL_MINUTE_LIMIT = 10;
+  var GLOBAL_DAILY_LIMIT = 100;
+  var CONTACT_HOURLY_LIMIT = 3;
+  var MINUTE_CACHE_TTL_SECONDS = 120;
+  var CONTACT_CACHE_TTL_SECONDS = 7200;
+  var SEEN_REQUEST_CACHE_TTL_SECONDS = 21600;
+  var DAILY_STATE_PROPERTY = "QUICK_ESTIMATE_DAILY_RATE_LIMIT";
+  var LOCK_TIMEOUT_MILLISECONDS2 = 5e3;
+  function formatUtcMinute(now) {
+    return now.toISOString().slice(0, 16);
+  }
+  function formatUtcHour(now) {
+    return now.toISOString().slice(0, 13);
+  }
+  function formatUtcDate(now) {
+    return now.toISOString().slice(0, 10);
+  }
+  function parseCounter(value) {
+    if (value === null) {
+      return 0;
+    }
+    const count = Number(value);
+    if (!Number.isSafeInteger(count) || count < 0) {
+      throw new Error("invalid_rate_limit_counter");
+    }
+    return count;
+  }
+  function parseDailyCount(value, currentDate) {
+    if (value === null) {
+      return 0;
+    }
+    const parsed = JSON.parse(value);
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed) || typeof parsed.date !== "string" || !Number.isSafeInteger(parsed.count) || parsed.count < 0) {
+      throw new Error("invalid_daily_rate_limit_state");
+    }
+    const state = parsed;
+    return state.date === currentDate ? state.count : 0;
+  }
+  function enforceSubmissionRateLimit(submission, dependencies) {
+    return dependencies.port.withLock(() => {
+      const seenRequestKey = `quick-estimate:seen:${submission.requestId}`;
+      if (dependencies.port.getCache(seenRequestKey) !== null) {
+        return { ok: true };
+      }
+      const now = dependencies.now();
+      const currentDate = formatUtcDate(now);
+      const contactHash = dependencies.port.hashContact(
+        `${submission.lead.email.toLowerCase()}\0${submission.lead.phone}`
+      );
+      const minuteKey = `quick-estimate:minute:${formatUtcMinute(now)}`;
+      const contactKey = `quick-estimate:contact:${formatUtcHour(now)}:${contactHash}`;
+      const minuteCount = parseCounter(dependencies.port.getCache(minuteKey));
+      const contactCount = parseCounter(dependencies.port.getCache(contactKey));
+      const dailyCount = parseDailyCount(dependencies.port.getDailyState(), currentDate);
+      if (minuteCount >= GLOBAL_MINUTE_LIMIT || dailyCount >= GLOBAL_DAILY_LIMIT || contactCount >= CONTACT_HOURLY_LIMIT) {
+        return { ok: false, code: "RATE_LIMITED" };
+      }
+      dependencies.port.putCache(minuteKey, String(minuteCount + 1), MINUTE_CACHE_TTL_SECONDS);
+      dependencies.port.putCache(contactKey, String(contactCount + 1), CONTACT_CACHE_TTL_SECONDS);
+      dependencies.port.setDailyState(
+        JSON.stringify({ date: currentDate, count: dailyCount + 1 })
+      );
+      dependencies.port.putCache(seenRequestKey, "1", SEEN_REQUEST_CACHE_TTL_SECONDS);
+      return { ok: true };
+    });
+  }
+  function bytesToHex(bytes) {
+    return bytes.map((byte) => ((byte + 256) % 256).toString(16).padStart(2, "0")).join("");
+  }
+  function createRuntimeSubmissionRateLimitPort() {
+    const cache = CacheService.getScriptCache();
+    const properties = PropertiesService.getScriptProperties();
+    return {
+      withLock: (operation) => {
+        const lock = LockService.getScriptLock();
+        if (!lock.tryLock(LOCK_TIMEOUT_MILLISECONDS2)) {
+          throw new Error("rate_limit_lock_unavailable");
+        }
+        try {
+          return operation();
+        } finally {
+          lock.releaseLock();
+        }
+      },
+      getCache: (key) => cache.get(key),
+      putCache: (key, value, expirationInSeconds) => cache.put(key, value, expirationInSeconds),
+      getDailyState: () => properties.getProperty(DAILY_STATE_PROPERTY),
+      setDailyState: (value) => properties.setProperty(DAILY_STATE_PROPERTY, value),
+      hashContact: (value) => bytesToHex(
+        Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, value, Utilities.Charset.UTF_8)
+      )
     };
   }
 
@@ -419,7 +520,15 @@ var QuickEstimateWebApp = (() => {
   }
 
   // integrations/google-apps-script/quick-estimate/src/validate-submission.ts
-  var ROOT_KEYS = ["requestId", "estimate", "lead", "privacy", "marketing", "sourcePath"];
+  var ROOT_KEYS = [
+    "requestId",
+    "estimate",
+    "lead",
+    "privacy",
+    "marketing",
+    "antiSpam",
+    "sourcePath"
+  ];
   var ESTIMATE_KEYS = [
     "industryCode",
     "employeeCount",
@@ -432,6 +541,7 @@ var QuickEstimateWebApp = (() => {
   var LEAD_KEYS = ["companyName", "contactName", "email", "phone"];
   var PRIVACY_KEYS = ["basis", "noticeVersion", "agreed"];
   var MARKETING_KEYS = ["agreed", "channels", "consentVersion"];
+  var ANTI_SPAM_KEYS = ["honeypot", "elapsedMs"];
   var CONTROL_CHARACTER_PATTERN = /[\u0000-\u001f\u007f-\u009f]/u;
   var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
   var PHONE_SEPARATOR_PATTERN = /[\s().-]/gu;
@@ -507,8 +617,8 @@ var QuickEstimateWebApp = (() => {
     if (!isRecord(input) || !hasExactKeys(input, ROOT_KEYS)) {
       return failure("INVALID_INPUT");
     }
-    const { estimate, lead, privacy, marketing } = input;
-    if (!isRecord(estimate) || !hasExactKeys(estimate, ESTIMATE_KEYS) || !isRecord(lead) || !hasExactKeys(lead, LEAD_KEYS) || !isRecord(privacy) || !hasExactKeys(privacy, PRIVACY_KEYS) || !isRecord(marketing) || !hasExactKeys(marketing, MARKETING_KEYS)) {
+    const { estimate, lead, privacy, marketing, antiSpam } = input;
+    if (!isRecord(estimate) || !hasExactKeys(estimate, ESTIMATE_KEYS) || !isRecord(lead) || !hasExactKeys(lead, LEAD_KEYS) || !isRecord(privacy) || !hasExactKeys(privacy, PRIVACY_KEYS) || !isRecord(marketing) || !hasExactKeys(marketing, MARKETING_KEYS) || !isRecord(antiSpam) || !hasExactKeys(antiSpam, ANTI_SPAM_KEYS)) {
       return failure("INVALID_INPUT");
     }
     if (estimate.ruleVersion !== ESTIMATE_RULE_VERSION || estimate.benchmarkVersion !== ESTIMATE_BENCHMARK_VERSION) {
@@ -527,6 +637,9 @@ var QuickEstimateWebApp = (() => {
     }
     if (privacy.basis !== "CONSENT" || privacy.noticeVersion !== PRIVACY_NOTICE_VERSION || privacy.agreed !== true) {
       return failure("INVALID_CONSENT");
+    }
+    if (antiSpam.honeypot !== "" || !Number.isInteger(antiSpam.elapsedMs) || antiSpam.elapsedMs < MIN_SUBMISSION_ELAPSED_MS || antiSpam.elapsedMs > MAX_SUBMISSION_ELAPSED_MS) {
+      return failure("INVALID_INPUT");
     }
     const channels = normalizeMarketingChannels(marketing.channels);
     if (typeof marketing.agreed !== "boolean" || marketing.consentVersion !== MARKETING_CONSENT_VERSION || channels === null || marketing.agreed && channels.length === 0 || !marketing.agreed && channels.length > 0) {
@@ -566,6 +679,10 @@ var QuickEstimateWebApp = (() => {
         channels,
         consentVersion: MARKETING_CONSENT_VERSION
       },
+      antiSpam: {
+        honeypot: "",
+        elapsedMs: antiSpam.elapsedMs
+      },
       sourcePath: "/"
     };
     return { ok: true, submission };
@@ -597,6 +714,15 @@ var QuickEstimateWebApp = (() => {
       });
       return validation;
     }
+    const rateLimit = dependencies.enforceRateLimit(validation.submission);
+    if (!rateLimit.ok) {
+      logFailureSafely(dependencies, {
+        code: rateLimit.code,
+        occurredAt: dependencies.now().toISOString(),
+        requestId: validation.submission.requestId
+      });
+      return rateLimit;
+    }
     const result = dependencies.storeSubmission(validation.submission);
     if (!result.ok) {
       logFailureSafely(dependencies, {
@@ -615,6 +741,10 @@ var QuickEstimateWebApp = (() => {
   function doPost(event) {
     try {
       const response = handleQuickEstimatePost(event == null ? void 0 : event.parameter.payload, {
+        enforceRateLimit: (submission) => enforceSubmissionRateLimit(submission, {
+          port: createRuntimeSubmissionRateLimitPort(),
+          now: () => /* @__PURE__ */ new Date()
+        }),
         storeSubmission: (submission) => storeLeadSubmission(submission, {
           storage: createRuntimeLeadSheetStorage(),
           generateLeadId: () => Utilities.getUuid(),

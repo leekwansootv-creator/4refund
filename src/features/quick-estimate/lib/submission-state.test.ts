@@ -35,6 +35,7 @@ function createDraft(): QuickEstimateLeadDraft {
     },
     privacyAgreed: true,
     marketing: { agreed: false, channels: [] },
+    antiSpam: { honeypot: "", elapsedMs: 5_000 },
   };
 }
 
@@ -105,6 +106,7 @@ describe("quick estimate submission state", () => {
 
   it.each([
     { ok: false, kind: "validation", code: "INVALID_INPUT" },
+    { ok: false, kind: "server", code: "RATE_LIMITED" },
     { ok: false, kind: "server", code: "STORAGE_UNAVAILABLE" },
     { ok: false, kind: "timeout" },
     { ok: false, kind: "network" },

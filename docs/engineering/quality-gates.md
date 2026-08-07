@@ -74,7 +74,8 @@ npm run build
 - pull request에서는 `Quality / verify`까지만 실행하고 preview 환경은 만들지 않는다.
 - `main` push의 `Quality / verify`가 성공해야 같은 commit SHA를 다시 정적 export하고 `github-pages` 환경에 배포한다.
 - Pages의 기본 URL과 custom domain 차이는 `actions/configure-pages`가 제공하는 `PAGES_BASE_PATH`로 빌드에 주입한다.
-- 배포에는 별도 secret이나 migration이 없다. workflow의 배포 job에만 `pages: write`와 `id-token: write` 권한을 부여한다.
+- 배포 job은 저장소에 URL을 남기지 않도록 `QUICK_ESTIMATE_APPS_SCRIPT_URL` secret을 `NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL`로 빌드 시 주입한다. 이 값은 브라우저에 포함되는 공개 endpoint이며 인증 secret으로 사용하지 않는다.
+- 배포 job은 endpoint가 없거나 Apps Script Web App URL 형식이 아니면 정적 export 전에 실패한다. DB migration은 없다.
 - rollback은 문제 commit을 `main`에서 revert하여 이전 정적 결과물을 다시 배포하는 방식으로 수행한다.
 - 배포 후 GitHub Actions의 `deploy-pages` 결과와 배포 URL의 HTTP 응답, 주요 이미지·링크를 확인한다.
 

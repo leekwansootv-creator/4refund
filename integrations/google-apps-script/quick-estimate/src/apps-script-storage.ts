@@ -12,6 +12,8 @@ const SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
 const LEADS_SHEET_NAME = "leads";
 const CODEBOOK_SHEET_NAME = "codebook";
 const LOCK_TIMEOUT_MILLISECONDS = 5_000;
+const PHONE_COLUMN_NUMBER = 13;
+const PLAIN_TEXT_NUMBER_FORMAT = "@";
 
 type ScriptLockPort = {
   tryLock: (timeoutInMilliseconds: number) => boolean;
@@ -20,6 +22,7 @@ type ScriptLockPort = {
 
 type SheetRangePort = {
   getDisplayValues: () => string[][];
+  setNumberFormat: (numberFormat: string) => unknown;
   setValues: (values: LeadSheetCell[][]) => unknown;
 };
 
@@ -74,6 +77,7 @@ export function createAppsScriptLeadSheetStorage(
       const sheet = dependencies.getLeadsSheet();
       const nextRow = Math.max(sheet.getLastRow() + 1, 2);
 
+      sheet.getRange(nextRow, PHONE_COLUMN_NUMBER, 1, 1).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
       sheet.getRange(nextRow, 1, 1, LEAD_SHEET_HEADERS.length).setValues([Array.from(row)]);
     },
   };
@@ -145,6 +149,9 @@ function initializeSpreadsheet(spreadsheet: GoogleAppsScript.Spreadsheet.Spreads
     .setAllowInvalid(false)
     .build();
   leadsSheet.getRange(2, 23, leadsSheet.getMaxRows() - 1, 1).setDataValidation(statusValidation);
+  leadsSheet
+    .getRange(2, PHONE_COLUMN_NUMBER, leadsSheet.getMaxRows() - 1, 1)
+    .setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
 
   const codebookSheet = spreadsheet.insertSheet(CODEBOOK_SHEET_NAME);
   const codebookRows = createCodebookRows();

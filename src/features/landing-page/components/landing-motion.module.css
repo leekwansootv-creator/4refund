@@ -81,6 +81,11 @@
     will-change: transform;
   }
 
+  .heroRefundCasesTrack {
+    animation: landing-hero-refund-cases var(--landing-motion-duration) linear infinite both;
+    will-change: transform;
+  }
+
   .strengthFigure[data-landing-reveal-followup-active="true"] {
     animation: landing-strength-figure var(--landing-motion-duration) infinite both;
     will-change: transform;
@@ -109,11 +114,17 @@
   .refundCasesViewport:focus-visible .refundCasesTrack {
     animation-play-state: paused;
   }
+
+  .refundCasesViewport:focus-visible .heroRefundCasesTrack {
+    animation-play-state: paused;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .refundCasesViewport:hover .refundCasesTrack,
-  .refundCasesViewport:active .refundCasesTrack {
+  .refundCasesViewport:active .refundCasesTrack,
+  .refundCasesViewport:hover .heroRefundCasesTrack,
+  .refundCasesViewport:active .heroRefundCasesTrack {
     animation-play-state: paused;
   }
 }
@@ -122,6 +133,7 @@
   .benefitsEntrance,
   .revealUp,
   .refundCasesTrack,
+  .heroRefundCasesTrack,
   .revealFromLeft,
   .revealFromRight,
   .strengthFigure,
@@ -154,6 +166,16 @@
 
   100% {
     transform: translateX(calc(-50% + var(--refund-cases-inline-padding) - 12px));
+  }
+}
+
+@keyframes landing-hero-refund-cases {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1900.805px);
   }
 }
 

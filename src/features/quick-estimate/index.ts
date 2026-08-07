@@ -5,7 +5,9 @@ export {
 } from "./constants/estimate-rule-set";
 export type { EstimateIndustryCode, EstimateIndustryRule } from "./constants/estimate-rule-set";
 export {
+  MAX_SUBMISSION_ELAPSED_MS,
   MARKETING_CONSENT_VERSION,
+  MIN_SUBMISSION_ELAPSED_MS,
   PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
 } from "./constants/lead-submission-contract";
@@ -32,6 +34,7 @@ export type {
 } from "./types/estimate";
 export type {
   MarketingChannel,
+  QuickEstimateAntiSpam,
   QuickEstimateLeadDraft,
   QuickEstimateLeadValidationIssue,
   QuickEstimateLeadValidationResult,

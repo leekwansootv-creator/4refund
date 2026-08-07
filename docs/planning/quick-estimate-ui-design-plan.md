@@ -2,7 +2,7 @@
 
 ## 문서 목적
 
-이 문서는 2026-08-07 전달된 Figma를 기준으로 메인 랜딩의 간단 견적 CTA, 별도 견적 페이지, 단계형 모달, 결과 화면을 현재 계산·제출·Google Sheets 계약에 연결하는 구현 기준을 정의한다.
+이 문서는 2026-08-07 최종 전달된 Figma를 기준으로 루트 랜딩의 기존 hero를 간단 견적 hero로 교체하고, 같은 페이지의 단계형 모달과 결과 화면을 현재 계산·제출·Google Sheets 계약에 연결하는 구현 기준을 정의한다.
 
 이번 문서의 범위는 디자인 해석과 후속 PR 설계까지다. React 컴포넌트, 스타일, 에셋, 라우트와 운영 endpoint는 변경하지 않는다.
 
@@ -18,63 +18,68 @@
 
 ## Figma 기준선
 
-| 구분             | Figma node                                                                                                                                                 | 확인한 내용                                                   |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| 별도 페이지      | [`313:1030`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=313-1030&m=dev) | 헤더, 예상 환급액 hero, 합성 이미지, 조회 CTA, 연락 CTA, 푸터 |
-| 컴포넌트 모음    | [`319:1700`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=319-1700&m=dev) | 조회 CTA, 입력, 버튼, 드롭다운, 동의 checkbox의 상태 variant  |
-| hero 이미지 원본 | [`368:550`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=368-550&m=dev)   | 봉투 뒤·앞·그림자, 결과지, 세 개 동전 레이어                  |
-| 담당자 입력 기본 | [`324:499`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=324-499&m=dev)   | 첫 단계 빈 입력과 비활성 `다음` 버튼                          |
-| 담당자 입력 완료 | [`349:632`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=349-632&m=dev)   | 첫 단계 유효 입력과 활성 `다음` 버튼                          |
-| 견적·동의 입력   | [`333:570`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=333-570&m=dev)   | 두 번째 단계 업종, 직원 수, 두 동의와 `조회하기` 버튼         |
-| 결과             | [`349:580`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=349-580&m=dev)   | 예상 환급액, 한계 안내, 다시 조회하기와 상담하기              |
+| 구분             | Figma node                                                                                                                                                 | 확인한 내용                                                               |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| 메인 랜딩        | [`290:387`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=290-387&m=dev)   | 기존 hero를 대체하는 견적 hero, 조회 CTA, 환급 사례 track, 나머지 section |
+| 폐기된 별도 안   | [`313:1030`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=313-1030&m=dev) | 별도 route 안은 구현 기준에서 제외하고 합성 이미지 참고로만 사용          |
+| 컴포넌트 모음    | [`319:1700`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=319-1700&m=dev) | 조회 CTA, 입력, 버튼, 드롭다운, 동의 checkbox의 상태 variant              |
+| hero 이미지 원본 | [`368:550`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=368-550&m=dev)   | 봉투 뒤·앞·그림자, 결과지, 세 개 동전 레이어                              |
+| 담당자 입력 기본 | [`324:499`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=324-499&m=dev)   | 첫 단계 빈 입력과 비활성 `다음` 버튼                                      |
+| 담당자 입력 완료 | [`349:632`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=349-632&m=dev)   | 첫 단계 유효 입력과 활성 `다음` 버튼                                      |
+| 견적·동의 입력   | [`333:570`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=333-570&m=dev)   | 두 번째 단계 업종, 직원 수, 두 동의와 `조회하기` 버튼                     |
+| 결과             | [`349:580`](https://www.figma.com/design/ijPZL5WxrjvxbHjBp0DoQa/4%EB%8C%80%EB%B3%B4%ED%97%98-%ED%99%98%EA%B8%89%EC%84%BC%ED%84%B0?node-id=349-580&m=dev)   | 예상 환급액, 한계 안내, 다시 조회하기와 상담하기                          |
 
 전달된 마지막 결과 링크는 `333:570`으로 두 번째 입력 화면과 같았다. Figma 파일에서 별도 결과 frame `349:580`을 확인했으므로 결과 상태는 이 node를 기준으로 삼는다.
 
+`290:387`이 현재 페이지 기준선이다. 기존에 검토한 `313:1030` 별도 페이지와 `/quick-estimate` route 계획은 폐기한다.
+
 ## 화면 디자인 해석
 
-### 메인 랜딩 CTA
+### 메인 hero 교체
 
-메인 랜딩의 hero는 현재 전화·이메일 상담을 같은 우선순위의 action row로 제공한다. 간단 견적은 별도 사용자 흐름이므로 기존 두 링크 사이에 세 번째 버튼을 끼워 넣지 않는다.
+루트 `/`의 현재 어두운 배경 hero와 전화·이메일 action row를 제거하고 `290:387`의 흰색 간단 견적 hero로 교체한다. 별도 페이지 이동은 만들지 않는다.
 
-- hero 설명과 기존 상담 action 사이에 Figma와 같은 `환급액 조회하기` CTA를 한 줄 독립 action으로 배치한다.
-- CTA는 링크이며 `/quick-estimate`로 이동한다.
-- 데스크톱에서는 기존 hero 왼쪽 정렬과 56px control 높이를 유지한다.
-- 모바일에서는 기존 상담 CTA와 함께 전폭 세로 적층한다.
-- 미완성 흐름이 공개되지 않도록 실제 메인 랜딩 연결은 출시 PR에서만 추가한다.
+1. 기존 사이트 header
+2. `기업의 4대보험 환급을 함께합니다.` 제목
+3. `국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다.` 설명
+4. 봉투·결과지·동전 합성 이미지와 이미지 안의 `우리 회사 예상 환급액은?` 문구
+5. 같은 hero 안의 `환급액 조회하기` 버튼
+6. hero 하단을 가로로 순환하는 기존 환급 사례
+7. 기존 소개·혜택·전문가·절차·연락·footer section
 
-### 별도 견적 페이지
+데스크톱 Figma에서 새 hero는 흰색 배경, 약 946px 높이, 상하 100px 여백과 1280px 콘텐츠 폭을 사용한다. 제목은 48px bold, 설명은 20px, 합성 이미지 본체는 약 442px, 조회 버튼은 약 295×54px의 파란 pill 형태다. 기존 `--color-brand-primary: #0074ca`, `--color-brand-navy: #10294c`, 콘텐츠 폭 token을 그대로 사용한다.
 
-별도 페이지는 `/quick-estimate` 경로를 사용한다. 화면의 정보 계층은 다음과 같다.
+CTA는 `<button>`이며 같은 페이지 위에 단계형 dialog를 연다. 페이지 navigation과 새 route는 발생하지 않고 제출의 `sourcePath`도 `/`를 유지한다.
 
-1. 기존 사이트와 동일한 header
-2. `내 예상 환급액은?` 제목
-3. 봉투·결과지·동전의 합성 hero 이미지
-4. `환급액 조회하기` pill CTA
-5. 기존 연락 CTA section
-6. 기존 사이트 footer
+### 환급 사례 통합
 
-데스크톱 Figma에서 header는 76px, 본문 상하 여백은 140px, 콘텐츠 최대 폭은 1280px이다. 제목은 64px navy, 합성 이미지는 722px 정사각 영역, 조회 CTA는 약 481×88px의 파란 pill 형태다. 기존 `--color-brand-primary: #0074ca`, `--color-brand-navy: #10294c`, 콘텐츠 폭 token을 그대로 사용한다.
+`290:387`은 환급 사례 card track을 새 hero 하단에 포함하고, 그 다음에 바로 기존 소개 section을 배치한다. 따라서 현재 `LandingPage`에서 독립적으로 렌더링하는 `RefundCasesSection`을 그대로 남기지 않는다.
 
-별도 페이지의 header, 연락 CTA와 footer는 Figma에서 다시 생성한 연락처 값을 복사하지 않고 현재 랜딩의 단일 콘텐츠 원본을 재사용한다. 특히 Figma 연락 card의 `010-2225-0005` 표기는 현재 승인된 상담 번호 `010-2225-0555`와 다르므로 구현값으로 사용하지 않는다.
+- 기존 사례 데이터와 mobile 자동 순환·touch 안전 동작은 보존한다.
+- `RefundCasesSection`에서 track 책임을 분리해 새 hero 내부에서 조합한다.
+- 같은 사례를 hero와 기존 위치에 중복 렌더링하지 않는다.
+- hero 교체와 독립 사례 section 제거는 전체 흐름이 준비된 공개 PR에서 원자적으로 적용한다.
 
 ### hero 이미지와 모션
 
 hero 이미지는 하나의 평면 screenshot으로 합치지 않고 다음 레이어를 의미 기반 에셋으로 저장한다.
 
-| 레이어         | Figma node                 | 구현 원칙                                 |
-| -------------- | -------------------------- | ----------------------------------------- |
-| 봉투 뒤        | `319:1670` 계열            | 장식 이미지, 고정 크기 container          |
-| 결과지         | `319:1673` 계열            | 봉투 안에서 세로 이동, crop 유지          |
-| 봉투 앞 그림자 | `319:1672` 계열            | 결과지 위, 봉투 앞면 아래 순서            |
-| 봉투 앞        | `319:1671` 계열            | 최상단 봉투 레이어                        |
-| 동전           | `319:2267`–`319:2269` 계열 | 같은 source image의 서로 다른 crop과 위치 |
+| 레이어         | Figma node            | 구현 원칙                                 |
+| -------------- | --------------------- | ----------------------------------------- |
+| 봉투 뒤        | `319:1670` 계열       | 장식 이미지, 고정 크기 container          |
+| 결과지         | `371:1722`            | 봉투 안에서 세로 이동, crop 유지          |
+| 봉투 앞 그림자 | `319:1672` 계열       | 결과지 위, 봉투 앞면 아래 순서            |
+| 봉투 앞        | `319:1671` 계열       | 최상단 봉투 레이어                        |
+| 동전           | `371:1727`–`371:1729` | 같은 source image의 서로 다른 crop과 위치 |
+| 사례 track     | `371:1730`            | card 묶음을 가로로 무한 순환              |
 
-확인된 Figma motion은 6초 반복 timeline이다.
+`290:387`에서 확인한 Figma motion은 약 28.021초 반복 timeline이다.
 
-- 결과지는 `translateY(50px)`에서 원위치로 올라온 뒤 나머지 주기 동안 정지한다.
-- 세 동전은 `-15px ↔ 15px` 범위를 `ease-in-out`으로 반복한다.
+- 결과지는 시작 후 약 3초 동안 `translateY(50px)`에서 원위치로 올라온 뒤 나머지 주기 동안 정지한다.
+- 위·아래 동전은 `-15px ↔ 15px`, 왼쪽 동전은 약 `-9.2px ↔ 9.2px` 범위를 초반에 반복한 뒤 정지한다.
+- 환급 사례 track은 `translateX(0)`에서 약 `-1900.8px`까지 28.021초 동안 선형 이동하고 반복한다.
 - 별도 `motion/react` 의존성을 추가하지 않고 CSS keyframes로 구현한다.
-- `prefers-reduced-motion: reduce`에서는 결과지와 동전을 최종 정적 위치에 둔다.
+- `prefers-reduced-motion: reduce`에서는 결과지와 동전을 최종 정적 위치에 두고 사례 track 자동 이동을 중지한다.
 
 ### 단계형 모달
 
@@ -86,8 +91,8 @@ Figma는 첫 단계 radius를 24px, 두 번째와 결과 단계를 16px로 표�
 
 ```mermaid
 stateDiagram-v2
-    [*] --> EstimatePage: 메인 CTA
-    EstimatePage --> ContactStep: 환급액 조회하기
+    [*] --> LandingHero: 루트 랜딩 진입
+    LandingHero --> ContactStep: 환급액 조회하기
     ContactStep --> EstimateStep: 연락처 유효
     EstimateStep --> Submitting: 견적 입력 유효 + 개인정보 필수 동의
     Submitting --> Result: 계산 완료
@@ -95,9 +100,9 @@ stateDiagram-v2
     ResultWithSubmitError --> Submitting: 같은 request_id로 재시도
     Result --> EstimateStep: 다시 조회하기
     Result --> ContactSection: 상담하기
-    ContactStep --> EstimatePage: 닫기
-    EstimateStep --> EstimatePage: 닫기
-    Result --> EstimatePage: 닫기
+    ContactStep --> LandingHero: 닫기
+    EstimateStep --> LandingHero: 닫기
+    Result --> LandingHero: 닫기
 ```
 
 ### 1단계: 상담 연락처
@@ -160,7 +165,7 @@ Figma는 시각 기준이지만 수집 항목, 보유 기간과 동의 계약은
 | 결과 안내 `3년 예상치`                    | 현재 계산 규칙과 benchmark에 3년 기간 근거가 없음            | `참고용 예상값`으로 교정하고 3년 표현은 별도 금액 정책 승인 전 사용하지 않음 |
 | 마케팅 checkbox 하나                      | wire 계약은 `EMAIL`, `SMS` 채널 증빙 필요                    | 문구에 이메일·문자를 모두 명시하고 동의 시 두 채널, 미동의 시 빈 배열 저장   |
 | 마케팅 선택 동의                          | 일부 화면에서 모든 내용을 채워야 활성화되는 것으로 해석 가능 | 선택 동의는 항상 button 활성 조건에서 제외                                   |
-| `sourcePath: "/"`                         | 실제 제출 route는 `/quick-estimate`                          | 전체 흐름 연동 PR에서 route 계약과 Apps Script 허용값을 함께 변경            |
+| `sourcePath: "/"`                         | 최종 화면도 루트 `/`에서 동작                                | 기존 wire·Apps Script 계약을 변경하지 않고 그대로 유지                       |
 | 결과 링크가 입력 화면과 동일              | 결과 frame을 식별할 수 없음                                  | 실제 결과 node `349:580`을 기준으로 사용                                     |
 | 연락 card `010-2225-0005`                 | 현재 랜딩 상담 번호는 `010-2225-0555`                        | 랜딩 연락처 상수와 기존 site shell 재사용                                    |
 
@@ -183,34 +188,23 @@ Figma에 없는 제출 중, 저장 실패, 재시도, mobile overflow 상태는 
 
 ### 라우트
 
-```text
-src/app/
-└── quick-estimate/
-    └── page.tsx
-```
-
-`page.tsx`는 사이트 shell과 `quick-estimate` feature를 조합하는 얇은 Server Component로 유지한다. PR 6에서는 route metadata를 `noindex`로 두고 메인 랜딩 CTA를 연결하지 않는다. 전체 저장 흐름과 출시 QA가 완료된 PR에서 CTA 연결과 index 허용을 함께 반영한다.
+신규 route를 추가하지 않는다. `src/app/page.tsx`와 루트 `/`를 유지하고, 최종 공개 PR에서 `LandingPage`의 section 조합만 교체한다. 별도 metadata, redirect, navigation과 `noindex` 정책도 추가하지 않는다.
 
 ### 예상 파일 구조
 
 ```text
 src/
-├── app/
-│   └── quick-estimate/
-│       └── page.tsx                         # route와 feature 조합
 ├── features/
 │   ├── landing-page/
 │   │   ├── components/
-│   │   │   ├── hero-section.tsx            # 출시 PR에서 견적 CTA 연결
-│   │   │   ├── site-header.tsx             # 별도 route navigation 대응
-│   │   │   ├── contact-section.tsx         # 사이트 공통 연락 CTA
-│   │   │   └── site-footer.tsx              # 사이트 공통 footer
-│   │   └── index.ts                         # app 조합에 필요한 공개 export
+│   │   │   ├── landing-page.tsx             # 공개 PR에서 hero와 section 순서 교체
+│   │   │   ├── quick-estimate-hero-section.tsx # 새 hero layout과 사례 track 조합
+│   │   │   ├── refund-cases-track.tsx       # 기존 사례 자동 순환 책임 분리
+│   │   │   └── hero-section.tsx             # 공개 전까지 유지할 기존 hero
+│   │   └── index.ts                         # app 조합용 공개 export
 │   └── quick-estimate/
 │       ├── components/
-│       │   ├── quick-estimate-page.tsx      # 정적 페이지 본문
-│       │   ├── quick-estimate-hero.tsx      # 제목, 합성 이미지, dialog trigger
-│       │   ├── quick-estimate-flow.client.tsx # dialog와 브라우저 상태 경계
+│       │   ├── quick-estimate-flow.client.tsx # trigger와 dialog의 브라우저 상태 경계
 │       │   ├── quick-estimate-dialog.tsx    # focus, 닫기와 단계 shell
 │       │   ├── contact-step.tsx             # 회사·담당자·이메일·전화번호
 │       │   ├── estimate-step.tsx            # 업종·직원 수·동의
@@ -243,18 +237,18 @@ public/assets/quick-estimate/
 ```mermaid
 flowchart TD
     HomeRoute["app/page.tsx"] --> LandingPage["features/landing-page"]
-    EstimateRoute["app/quick-estimate/page.tsx"] --> LandingShell["features/landing-page public API"]
-    EstimateRoute --> EstimateFeature["features/quick-estimate public API"]
-    LandingPage -->|"출시 PR의 CTA path만 참조"| EstimateFeature
+    LandingPage --> EstimateHero["landing-page/quick-estimate-hero-section"]
+    EstimateHero --> CaseTrack["landing-page/refund-cases-track"]
+    EstimateHero --> EstimateFeature["features/quick-estimate public API"]
     EstimateFeature --> Shared["shared styles"]
     EstimateFeature --> AppsScript["Apps Script Web App"]
 ```
 
-`quick-estimate` feature가 `landing-page` 내부를 import하지 않는다. header, contact와 footer의 조합은 `app/quick-estimate/page.tsx`가 담당한다.
+새 hero의 랜딩 전용 배치와 사례 track은 `landing-page`가 소유한다. form·dialog·계산·제출 흐름은 `quick-estimate`가 소유하고 public `index.ts`로만 노출한다. `quick-estimate`가 `landing-page` 내부를 import하지 않으며, `landing-page`에서 `quick-estimate` public API로만 의존한다.
 
 ## 상태 관리 경계
 
-- 페이지 shell과 정적 hero는 Server Component로 유지한다.
+- 페이지 shell, hero의 정적 문구·이미지와 사례 track은 가능한 한 Server Component로 유지한다.
 - dialog open, 입력값, 단계, 계산 결과와 제출 상태만 가장 작은 Client Component가 소유한다.
 - 전역 store, Context와 Web Storage를 도입하지 않는다.
 - 화면 단계는 `closed | contact | estimate | result` discriminated union으로 표현한다.
@@ -276,25 +270,25 @@ flowchart TD
 | result surface | `#f2f7ff`               | 결과 card local surface              |
 | backdrop       | `rgba(19, 21, 31, 0.4)` | dialog backdrop                      |
 
-폼은 Noto Sans KR, hero CTA는 현재 Pretendard fallback stack을 사용한다. 새 font 또는 icon package는 추가하지 않는다. Figma의 소수점 생성값은 32px, 16px, 8px처럼 시각 차이가 없는 정수 token으로 정규화한다.
+폼은 Noto Sans KR, hero 설명과 CTA는 현재 Pretendard fallback stack을 사용한다. 새 font 또는 icon package는 추가하지 않는다. Figma의 소수점 생성값은 시각 차이가 없는 정수 token으로 정규화한다.
 
 ### 반응형 기준
 
-별도 mobile Figma node는 전달되지 않았다. 새로운 bottom sheet나 단계는 발명하지 않고 데스크톱 정보 순서를 유지하는 다음 파생 규칙을 사용한다.
+별도 mobile Figma node는 전달되지 않았다. 새로운 bottom sheet나 단계를 발명하지 않고 데스크톱 정보 순서를 유지하는 다음 파생 규칙을 사용한다.
 
-| viewport    | 구현 원칙                                                                          |
-| ----------- | ---------------------------------------------------------------------------------- |
-| 1280px 이상 | 1280px content container, 64px heading, 722px hero illustration                    |
-| 769–1279px  | heading과 illustration을 `clamp()`로 축소하고 겹침 없이 중앙 정렬                  |
-| 768px 이하  | 기존 2단 compact header, 20px page padding, hero 이미지 최대 viewport 폭, CTA 전폭 |
-| dialog      | `width: min(480px, calc(100vw - 40px))`, viewport 높이 안에서 body scroll          |
-| 375px       | 335px usable width에서 label, 이메일, 약관과 금액이 root overflow를 만들지 않음    |
+| viewport    | 구현 원칙                                                                           |
+| ----------- | ----------------------------------------------------------------------------------- |
+| 1280px 이상 | 1280px content container, 48px heading, 약 442px hero illustration, 사례 track 노출 |
+| 769–1279px  | heading과 illustration을 `clamp()`로 축소하고 사례 card가 viewport를 넘겨 순환      |
+| 768px 이하  | 기존 compact header, 20px page padding, hero 이미지 최대 viewport 폭, CTA 전폭      |
+| dialog      | `width: min(480px, calc(100vw - 40px))`, viewport 높이 안에서 body scroll           |
+| 375px       | 335px usable width에서 label, 이메일, 약관과 금액이 root overflow를 만들지 않음     |
 
 mobile 구현은 이 파생 규칙의 screenshot을 PR에 첨부해 승인받는다. 별도 mobile Figma가 전달되면 그 node가 이 규칙보다 우선한다.
 
 ## 접근성 계약
 
-- modal trigger는 `<button>`, 메인 랜딩에서 route 이동은 `<Link>`를 사용한다.
+- hero의 modal trigger는 `<button>`을 사용하며 route 이동 link로 구현하지 않는다.
 - dialog는 접근 가능한 이름, modal semantics, Escape 닫기, focus 진입·순환·복귀와 background scroll 잠금을 제공한다.
 - 닫기 icon에는 `간단 견적 닫기`라는 접근 가능한 이름을 제공한다.
 - 모든 input은 visible label과 연결하고 오류는 `aria-describedby`, invalid 상태는 `aria-invalid`로 연결한다.
@@ -316,7 +310,8 @@ mobile 구현은 이 파생 규칙의 screenshot을 PR에 첨부해 승인받는
 - 두 약관의 펼침·접힘과 keyboard 조작
 - dialog 열기, Escape·닫기, focus 복귀와 background scroll 잠금
 - 결과, 제출 중, 성공, 실패·재시도 상태별 DOM
-- reduced motion에서 결과지와 동전 animation 중지
+- reduced motion에서 결과지·동전·사례 track animation 중지
+- 새 hero 안의 사례가 한 번만 렌더링되고 기존 자동 순환·touch 동작이 보존됨
 
 ### PR 7 전체 흐름 테스트
 
@@ -327,16 +322,16 @@ mobile 구현은 이 파생 규칙의 screenshot을 PR에 첨부해 승인받는
 - timeout·network·판독 불가 후 같은 payload로 재시도
 - 새 조회에서는 새 난수와 request ID를 사용
 - Figma 결과 금액 자리에 실제 계산 결과 표시
-- `sourcePath`가 `/quick-estimate`로 저장됨
+- `sourcePath`가 `/`로 저장됨
 
 ### viewport와 시각 검수
 
-| viewport  | 확인 항목                                                         |
-| --------- | ----------------------------------------------------------------- |
-| 1440×1024 | dialog card 크기, backdrop, field 간격, 결과 영역과 action 정렬   |
-| 1920×1080 | 페이지 1280px container, hero 합성 이미지 위치, 연락 CTA와 footer |
-| 768×1024  | compact header, hero 축소, dialog overflow와 keyboard focus       |
-| 375×812   | 전폭 CTA, modal 335px 폭, 긴 약관·이메일·금액 overflow            |
+| viewport  | 확인 항목                                                        |
+| --------- | ---------------------------------------------------------------- |
+| 1440×1024 | 새 hero와 사례 track, dialog card, backdrop, 결과 action 정렬    |
+| 1920×1080 | 1280px container, 946px hero, 합성 이미지와 사례 track 위치      |
+| 768×1024  | compact header, hero·사례 축소, dialog overflow와 keyboard focus |
+| 375×812   | 제목 줄바꿈, 전폭 CTA, modal 335px, 긴 약관·금액 root overflow   |
 
 Figma MCP screenshot과 구현 screenshot을 상태별로 비교한다. 테스트 fixture에는 `example.com`과 명백한 가짜 연락처만 사용하고 실제 개인정보를 넣지 않는다.
 
@@ -353,31 +348,30 @@ npm run check
 
 - Figma node와 상태 해석
 - 승인 계약과 디자인 차이
-- route, component, 상태·접근성·반응형 설계
+- 메인 hero 교체, component, 상태·접근성·반응형 설계
 - PR 6–8의 구체적인 구현 경계
 
-### PR 6: 화면과 route 기반
+### PR 6: 비공개 화면 기반
 
-- `/quick-estimate` route와 noindex metadata
-- 사이트 header·연락 CTA·footer 조합
+- 루트에 아직 조합하지 않는 새 hero·사례 track component
 - 합성 hero 이미지와 CSS motion
 - 단계형 dialog의 모든 시각·접근성 상태
 - component·interaction test와 desktop·mobile screenshot
-- 운영 endpoint와 메인 랜딩 CTA는 제외
+- 운영 endpoint와 `LandingPage` section 교체는 제외
 
 ### PR 7: 계산·동의·저장 전체 흐름
 
 - 현재 계산 core와 단계형 UI 연결
-- `sourcePath: "/quick-estimate"` 계약 변경
+- `sourcePath: "/"` 기존 계약 유지
 - Apps Script endpoint 설정과 제출 상태 연결
 - 저장 실패와 같은 payload 재시도
 - 결과와 접수 상태를 분리한 integration/E2E
-- 메인 랜딩 CTA와 검색 index 허용은 제외
+- `LandingPage` section 교체와 운영 공개는 제외
 
 ### PR 8: 출시 QA와 공개
 
-- 메인 hero의 간단 견적 CTA와 `/quick-estimate` navigation 연결
-- route의 noindex 제거
+- 기존 `HeroSection`을 새 간단 견적 hero로 교체
+- 독립 `RefundCasesSection`을 제거하고 사례 track을 새 hero 안에서 조합
 - 스팸 방지, 운영 권한, benchmark 갱신과 실제 origin E2E
 - 접근성·반응형·시각 회귀와 rollback 검증
 
@@ -388,6 +382,8 @@ npm run check
 - [ ] 계산 근거가 없는 `3년 예상치` 대신 `참고용 예상값` 안내 사용
 - [ ] 마케팅 단일 checkbox가 이메일·문자 두 채널 선택 동의를 뜻한다는 문구
 - [ ] 별도 mobile Figma 없이 이 문서의 파생 반응형 규칙으로 PR 6 진행
+- [ ] 별도 route를 만들지 않고 루트 hero 버튼이 같은 페이지의 dialog를 연다는 구조
+- [ ] 환급 사례를 새 hero 안에서 한 번만 렌더링하는 section 조합
 - [ ] 결과의 `상담하기`가 같은 페이지 `#contact`로 이동
 - [ ] 첫 단계와 후속 단계 dialog radius를 16px로 통일
 

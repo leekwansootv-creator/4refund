@@ -11,11 +11,12 @@
 - [랜딩 페이지 PR 로드맵](landing-page-pr-roadmap.md)
 - [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)
 - [간단 견적 리드 수집 기술 설계](quick-estimate-technical-design.md)
+- [간단 견적 UI 디자인 해석 및 구현 기획](quick-estimate-ui-design-plan.md)
 - [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)
 - [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)
 - [간단 견적 Apps Script 전송 검증](quick-estimate-apps-script-spike.md)
 
-간단 견적과 개인정보 제출은 현재 랜딩 구현 범위에 포함하지 않는다. 디자인 전 기술 작업과 디자인 후 화면 작업은 위 후속 PR 로드맵에 따라 별도 feature에서 진행하며, 최종 공개 PR 전까지 현재 랜딩에 진입점을 연결하지 않는다.
+간단 견적과 개인정보 제출은 현재 랜딩 구현 범위에 포함하지 않는다. 전달된 디자인은 별도 `quick-estimate` feature와 `/quick-estimate` route로 구현하며, 메인 hero의 견적 CTA는 전체 저장 흐름과 출시 QA가 끝나는 최종 공개 PR 전까지 연결하지 않는다.
 
 ## 가장 중요한 구현 원칙
 

@@ -38,7 +38,7 @@ test.describe("간단 견적 실제 저장 E2E", () => {
     await fillContact(page, "opt-out");
     await fillEstimate(page, false);
     await page.waitForTimeout(3_100);
-    await page.getByRole("button", { name: "조회하기" }).click();
+    await page.getByRole("button", { name: "조회하기", exact: true }).click();
 
     await expect(page.getByText("상담 신청이 접수되었습니다.")).toBeVisible({
       timeout: 20_000,
@@ -52,12 +52,12 @@ test.describe("간단 견적 실제 저장 E2E", () => {
     await fillContact(page, "opt-in");
     await fillEstimate(page, true);
     await page.waitForTimeout(3_100);
-    await page.getByRole("button", { name: "조회하기" }).click();
+    await page.getByRole("button", { name: "조회하기", exact: true }).click();
 
     await expect(page.getByText("상담 신청이 접수되었습니다.")).toBeVisible({
       timeout: 20_000,
     });
-    await expect(page.getByText("예상 환급액")).toBeVisible();
+    await expect(page.getByText("예상 환급액", { exact: true })).toBeVisible();
   });
 
   test("키보드와 200% 확대에서도 입력 dialog에 자동 접근성 위반이 없다", async ({ page }) => {

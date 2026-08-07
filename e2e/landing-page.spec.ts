@@ -1,7 +1,5 @@
 import { expect, test } from "@playwright/test";
 
-const hasQuickEstimateEndpoint = Boolean(process.env.NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL);
-
 test("루트 첫 section은 간단 견적 hero와 한 벌의 환급 사례를 조합한다", async ({ page }) => {
   await page.goto("/");
 
@@ -18,11 +16,13 @@ test("루트 첫 section은 간단 견적 hero와 한 벌의 환급 사례를 �
   await expect(main.getByRole("region", { name: "환급 사례 자동 이동 목록" })).toHaveCount(1);
   await expect(action).toBeVisible();
 
-  if (hasQuickEstimateEndpoint) {
-    await expect(action).toBeEnabled();
-  } else {
-    await expect(action).toBeDisabled();
+  if (await action.isDisabled()) {
+    await expect(firstSection.getByText("간단 견적 접수 환경을 준비하고 있습니다.")).toHaveCount(1);
+    return;
   }
+
+  await action.click();
+  await expect(page.getByRole("dialog", { name: "정보를 입력해 주세요" })).toBeVisible();
 });
 
 test("헤더는 Figma의 컬러 워드마크를 고유 비율로 표시한다", async ({ page }) => {

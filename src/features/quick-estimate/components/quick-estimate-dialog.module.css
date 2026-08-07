@@ -46,6 +46,11 @@
   background: #f2f4f6;
 }
 
+.closeButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
 .closeButton:focus-visible,
 .primaryButton:focus-visible,
 .disclosureButton:focus-visible {

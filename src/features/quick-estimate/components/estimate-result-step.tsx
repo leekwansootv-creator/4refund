@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 import styles from "./quick-estimate-dialog.module.css";
 import type { QuickEstimateResultFeedback } from "../types/quick-estimate-ui";
 
@@ -15,6 +19,14 @@ function formatWon(amount: number): string {
 }
 
 function SubmissionFeedback({ feedback }: { feedback: QuickEstimateResultFeedback }) {
+  const failureRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (feedback.status === "failed") {
+      failureRef.current?.focus();
+    }
+  }, [feedback.status]);
+
   switch (feedback.status) {
     case "idle":
       return <div aria-live="polite" className={styles.feedback} />;
@@ -33,14 +45,21 @@ function SubmissionFeedback({ feedback }: { feedback: QuickEstimateResultFeedbac
     case "failed":
       return (
         <div
+          ref={failureRef}
           aria-live="polite"
           className={`${styles.feedback} ${styles.feedbackError}`}
           tabIndex={-1}
         >
-          <p>상담 신청을 저장하지 못했습니다. 입력 내용은 유지됩니다.</p>
-          <button type="button" className="mt-2 underline" onClick={feedback.onRetry}>
-            접수 다시 시도
-          </button>
+          <p>{feedback.message}</p>
+          <p>입력 내용과 예상 환급액은 유지됩니다.</p>
+          <div className="mt-2 flex gap-4">
+            <button type="button" className="underline" onClick={feedback.onEditContact}>
+              연락처 수정
+            </button>
+            <button type="button" className="underline" onClick={feedback.onRetry}>
+              접수 다시 시도
+            </button>
+          </div>
         </div>
       );
   }
@@ -60,7 +79,13 @@ export function QuickEstimateResultStep({
   const submitting = feedback.status === "submitting";
 
   return (
-    <div className="flex flex-col gap-6">
+    <div
+      role="region"
+      aria-label="간단 견적 조회 결과"
+      className="flex flex-col gap-6"
+      data-dialog-initial-focus
+      tabIndex={-1}
+    >
       <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 text-sm">
         <dt className="font-bold text-[#666]">업종</dt>
         <dd className="min-w-0 text-[#212121]">{industryLabel}</dd>

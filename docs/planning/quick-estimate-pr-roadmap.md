@@ -685,7 +685,7 @@ stateDiagram-v2
 | PR 3    | 병합됨    | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영             |
 | PR 4    | 병합됨    | [#25](https://github.com/leekwansootv-creator/4refund/pull/25) | 확인       | Apps Script 저장 처리 반영      |
 | PR 5    | 병합됨    | [#26](https://github.com/leekwansootv-creator/4refund/pull/26) | 확인       | 브라우저 제출 계약 반영         |
-| PR 6    | 진입 준비 | 미생성                                                         | 미확인     | Figma 정합성과 반응형 규칙 검토 |
+| PR 6    | 검토 중   | [#28](https://github.com/leekwansootv-creator/4refund/pull/28) | 미확인     | 화면 기반·검수 이미지 반영      |
 | PR 7    | 대기      | 미생성                                                         | 미확인     | PR 6 필요                       |
 | PR 8    | 대기      | 미생성                                                         | 미확인     | 운영·법무 공개 승인 필요        |
 

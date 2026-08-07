@@ -1,0 +1,267 @@
+.hero {
+  position: relative;
+  height: 891px;
+  overflow: hidden;
+  background: #fff;
+  padding-block: 100px;
+}
+
+.illustrationStage {
+  position: absolute;
+  top: 226px;
+  left: 50%;
+  display: flex;
+  width: min(783.901px, 100%);
+  justify-content: center;
+  transform: translateX(-50%);
+}
+
+.illustration {
+  position: relative;
+  width: min(80vw, 442.169px);
+  aspect-ratio: 1;
+  flex: none;
+}
+
+.envelopeLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.paper {
+  position: absolute;
+  top: 13.43%;
+  left: 16.06%;
+  z-index: 1;
+  width: 67.74%;
+  height: 71.87%;
+  overflow: hidden;
+}
+
+.paperImage {
+  position: absolute;
+  top: -19.04%;
+  left: -24.71%;
+  width: 148.84%;
+  max-width: none;
+  height: 140.27%;
+}
+
+.frontShadow {
+  z-index: 2;
+}
+
+.front {
+  z-index: 3;
+}
+
+.estimatePrompt {
+  position: absolute;
+  top: 49.98%;
+  left: 21.74%;
+  z-index: 4;
+  color: var(--color-brand-navy);
+  font-family: var(--font-noto-sans-kr), "Noto Sans KR", sans-serif;
+  font-size: clamp(16px, 4.35vw, 24px);
+  line-height: 1.3;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 0 10px #fff;
+}
+
+.actionSlot {
+  position: absolute;
+  top: 60.16%;
+  left: 16.76%;
+  z-index: 5;
+  width: 66.6%;
+  height: 12.19%;
+}
+
+.coin {
+  position: absolute;
+  z-index: 6;
+  overflow: hidden;
+}
+
+.coinImage {
+  position: absolute;
+  max-width: none;
+}
+
+.coinTop {
+  top: 13.43%;
+  left: 89.06%;
+  width: 17.7%;
+  height: 23.72%;
+}
+
+.coinTop .coinImage {
+  top: -14.77%;
+  left: -570.56%;
+  width: 779.7%;
+  height: 387.88%;
+}
+
+.coinLeft {
+  top: 38.78%;
+  left: -12.19%;
+  width: 18.26%;
+  height: 26.11%;
+  overflow: visible;
+}
+
+.coinLeftCrop {
+  position: absolute;
+  top: 4.2%;
+  left: 20.95%;
+  width: 58.09%;
+  height: 91.59%;
+  overflow: hidden;
+  transform: rotate(-20.35deg);
+}
+
+.coinLeft .coinImage {
+  top: -250.75%;
+  left: -971.19%;
+  width: 1301.69%;
+  height: 384.96%;
+}
+
+.coinBottom {
+  top: 66.2%;
+  left: 83.38%;
+  width: 25.16%;
+  height: 22.52%;
+  overflow: visible;
+}
+
+.coinBottomCrop {
+  position: absolute;
+  top: 13.73%;
+  left: 8.68%;
+  width: 82.63%;
+  height: 72.53%;
+  overflow: hidden;
+  transform: rotate(-20.25deg);
+}
+
+.coinBottom .coinImage {
+  top: -195.96%;
+  left: -427.78%;
+  width: 609.52%;
+  height: 517.17%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .paper {
+    animation: quick-estimate-paper 28.020507s infinite both;
+    will-change: transform;
+  }
+
+  .coinTop,
+  .coinBottom {
+    animation: quick-estimate-coin 28.020507s infinite both;
+    will-change: transform;
+  }
+
+  .coinLeft {
+    animation: quick-estimate-coin-left 28.020507s infinite both;
+    will-change: transform;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    display: flex;
+    height: auto;
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 72px;
+  }
+
+  .illustrationStage {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: 40px;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-block: 64px;
+  }
+
+  .illustration {
+    width: min(82vw, 442.169px);
+  }
+
+  .estimatePrompt {
+    font-size: clamp(15px, 4.7vw, 20px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper,
+  .coinTop,
+  .coinLeft,
+  .coinBottom {
+    animation: none;
+    transform: none;
+  }
+}
+
+@keyframes quick-estimate-paper {
+  0% {
+    transform: translateY(50px);
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.18);
+  }
+
+  10.71%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes quick-estimate-coin {
+  0%,
+  10.71%,
+  21.41% {
+    transform: translateY(-15px);
+    animation-timing-function: ease-in-out;
+  }
+
+  5.35%,
+  16.06% {
+    transform: translateY(15px);
+    animation-timing-function: ease-in-out;
+  }
+
+  21.42%,
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes quick-estimate-coin-left {
+  0%,
+  10.71%,
+  21.41% {
+    transform: translateY(-9.186px);
+    animation-timing-function: ease-in-out;
+  }
+
+  5.35%,
+  16.06% {
+    transform: translateY(9.186px);
+    animation-timing-function: ease-in-out;
+  }
+
+  21.42%,
+  100% {
+    transform: translateY(-9.186px);
+  }
+}

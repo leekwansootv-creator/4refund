@@ -724,16 +724,16 @@ PR 6–8의 완성된 누적 diff를 하나의 release 단위로 검토하고 `m
 
 ## 완료 추적
 
-| 계획 ID | 상태      | 실제 PR                                                        | merge 확인 | 비고                                   |
-| ------- | --------- | -------------------------------------------------------------- | ---------- | -------------------------------------- |
-| PR 1    | 병합됨    | [#22](https://github.com/leekwansootv-creator/4refund/pull/22) | 확인       | 기획·기술 기준선 반영                  |
-| PR 2    | 병합됨    | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 확인       | Apps Script 전송 방식 검증 반영        |
-| PR 3    | 병합됨    | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영                    |
-| PR 4    | 병합됨    | [#25](https://github.com/leekwansootv-creator/4refund/pull/25) | 확인       | Apps Script 저장 처리 반영             |
-| PR 5    | 병합됨    | [#26](https://github.com/leekwansootv-creator/4refund/pull/26) | 확인       | 브라우저 제출 계약 반영                |
-| PR 6    | 병합됨    | [#28](https://github.com/leekwansootv-creator/4refund/pull/28) | 확인       | 통합 branch 대상 화면 기반             |
-| PR 7    | 병합됨    | [#29](https://github.com/leekwansootv-creator/4refund/pull/29) | 확인       | 계산·상담 제출 흐름 연결               |
-| PR 8    | 출하 준비 | 미생성                                                         | 미확인     | 코드·정책·전체 품질·실제 저장 E2E 완료 |
-| PR 9    | 대기      | 미생성                                                         | 미확인     | 완성본만 `main` 공개                   |
+| 계획 ID | 상태    | 실제 PR                                                        | merge 확인 | 비고                                   |
+| ------- | ------- | -------------------------------------------------------------- | ---------- | -------------------------------------- |
+| PR 1    | 병합됨  | [#22](https://github.com/leekwansootv-creator/4refund/pull/22) | 확인       | 기획·기술 기준선 반영                  |
+| PR 2    | 병합됨  | [#23](https://github.com/leekwansootv-creator/4refund/pull/23) | 확인       | Apps Script 전송 방식 검증 반영        |
+| PR 3    | 병합됨  | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영                    |
+| PR 4    | 병합됨  | [#25](https://github.com/leekwansootv-creator/4refund/pull/25) | 확인       | Apps Script 저장 처리 반영             |
+| PR 5    | 병합됨  | [#26](https://github.com/leekwansootv-creator/4refund/pull/26) | 확인       | 브라우저 제출 계약 반영                |
+| PR 6    | 병합됨  | [#28](https://github.com/leekwansootv-creator/4refund/pull/28) | 확인       | 통합 branch 대상 화면 기반             |
+| PR 7    | 병합됨  | [#29](https://github.com/leekwansootv-creator/4refund/pull/29) | 확인       | 계산·상담 제출 흐름 연결               |
+| PR 8    | 검토 중 | [#30](https://github.com/leekwansootv-creator/4refund/pull/30) | 미확인     | 코드·정책·전체 품질·실제 저장 E2E 완료 |
+| PR 9    | 대기    | 미생성                                                         | 미확인     | 완성본만 `main` 공개                   |
 
 상태는 실제 작업을 시작하거나 GitHub 상태를 확인했을 때만 갱신한다. 사용자가 PR 단위 작업 시작을 승인한 뒤에는 책임 범위가 끝날 때마다 commit하고, 사용자 수동 조치가 필요하지 않으면 PR 전체 검증 후 push와 Draft PR 생성까지 수행한다. 수동 조치가 필요하면 필요한 계정·화면·절차·완료 증빙을 안내하고 해당 입력을 기다린다.

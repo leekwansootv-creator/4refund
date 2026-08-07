@@ -365,6 +365,10 @@
     width: min(72vw, 646px);
   }
 
+  .heroRefundCaseCard {
+    width: min(54vw, 458.35px);
+  }
+
   .expertIntroduction {
     height: auto;
     padding-block: 112px;
@@ -791,8 +795,21 @@
     min-width: 0;
   }
 
+  .heroRefundCasesTrack {
+    padding-inline: var(--content-inline-padding);
+  }
+
+  .heroRefundCaseCard {
+    width: calc(100vw - (2 * var(--content-inline-padding)));
+    min-width: 0;
+  }
+
   .refundCaseTitle {
     font-size: 28px;
+  }
+
+  .heroRefundCaseTitle {
+    font-size: 22px;
   }
 
   .refundCapsule {
@@ -803,6 +820,15 @@
 
   .refundAmount {
     font-size: 23px;
+  }
+
+  .heroRefundCapsule {
+    max-width: calc(100% - 24px);
+    flex-wrap: wrap;
+  }
+
+  .heroRefundAmount {
+    font-size: 18px;
   }
 
   .expertIntroduction {

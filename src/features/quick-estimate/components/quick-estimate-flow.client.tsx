@@ -111,6 +111,7 @@ export function QuickEstimateFlow({
   timeoutMs,
   dependencies = {},
 }: QuickEstimateFlowProps) {
+  const isAvailable = endpoint.length > 0;
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<QuickEstimateFlowStep>("contact");
   const [contactValues, setContactValues] =
@@ -132,6 +133,10 @@ export function QuickEstimateFlow({
   }
 
   function handleOpen() {
+    if (!isAvailable) {
+      return;
+    }
+
     const now = dependencies.now ?? Date.now;
 
     setStep("contact");
@@ -318,7 +323,16 @@ export function QuickEstimateFlow({
 
   return (
     <>
-      <QuickEstimateHeroAction onClick={handleOpen} />
+      <QuickEstimateHeroAction
+        aria-describedby={!isAvailable ? "quick-estimate-unavailable" : undefined}
+        disabled={!isAvailable}
+        onClick={handleOpen}
+      />
+      {!isAvailable ? (
+        <span id="quick-estimate-unavailable" className="sr-only">
+          간단 견적 접수 환경을 준비하고 있습니다.
+        </span>
+      ) : null}
       <QuickEstimateDialog
         open={open}
         title={getDialogTitle(step)}

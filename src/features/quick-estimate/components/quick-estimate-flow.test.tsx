@@ -141,6 +141,17 @@ function lookup() {
 }
 
 describe("QuickEstimateFlow", () => {
+  it("Apps Script endpoint가 없으면 CTA를 비활성화하고 dialog를 열지 않는다", () => {
+    render(<QuickEstimateFlow endpoint="" consultHref="#contact" />);
+
+    const action = screen.getByRole("button", { name: "환급액 조회하기" });
+
+    expect(action).toBeDisabled();
+    expect(action).toHaveAccessibleDescription("간단 견적 접수 환경을 준비하고 있습니다.");
+    fireEvent.click(action);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
   it("계산부터 마케팅 미동의 상담 접수까지 화면 금액과 같은 payload로 완료한다", async () => {
     const { submitLead } = renderFlow();
     moveToEstimate();

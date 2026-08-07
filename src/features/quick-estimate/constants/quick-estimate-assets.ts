@@ -17,5 +17,7 @@ export const QUICK_ESTIMATE_ASSETS = {
   coins: toQuickEstimateAssetPath("/assets/quick-estimate/coins.png"),
   icons: {
     arrow: toQuickEstimateAssetPath("/assets/quick-estimate/arrow.svg"),
+    check: toQuickEstimateAssetPath("/assets/quick-estimate/check.svg"),
+    close: toQuickEstimateAssetPath("/assets/quick-estimate/close.svg"),
   },
 } as const;

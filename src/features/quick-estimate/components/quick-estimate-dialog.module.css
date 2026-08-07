@@ -1,0 +1,319 @@
+.dialog {
+  width: min(480px, calc(100vw - 40px));
+  max-height: min(90vh, 760px);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 8%);
+  color: #212121;
+}
+
+.dialog::backdrop {
+  background: rgb(19 21 31 / 40%);
+}
+
+.dialogCard {
+  display: flex;
+  max-height: min(90vh, 760px);
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+}
+
+.dialogBody {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.closeButton {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.closeButton:hover {
+  background: #f2f4f6;
+}
+
+.closeButton:focus-visible,
+.primaryButton:focus-visible,
+.disclosureButton:focus-visible {
+  outline: 3px solid #3d6eed;
+  outline-offset: 3px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control {
+  display: flex;
+  width: 100%;
+  height: 47px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  background: #fff;
+  transition:
+    border-color 100ms ease-out,
+    background-color 100ms ease-out;
+}
+
+.control:hover {
+  border-color: #b3b3b3;
+}
+
+.control:focus-within {
+  border: 2px solid #3d6eed;
+}
+
+.controlInvalid {
+  border: 2px solid #e53333;
+  background: #fff7f7;
+}
+
+.input,
+.select {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #212121;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.input {
+  padding: 12px 16px;
+}
+
+.select {
+  appearance: none;
+  padding: 12px 40px 12px 16px;
+}
+
+.input::placeholder,
+.select:invalid {
+  color: #b3b3b3;
+}
+
+.selectControl {
+  position: relative;
+}
+
+.selectArrow {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #808080;
+  font-size: 10px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.suffix {
+  padding-right: 16px;
+  color: #808080;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.error {
+  color: #e53333;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.primaryButton {
+  display: flex;
+  width: 100%;
+  min-height: 51px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  background: var(--color-brand-primary);
+  color: #fff;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 700;
+  transition: background-color 100ms ease-out;
+}
+
+.primaryButton:hover {
+  background: #0059b8;
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  background: #bfbfbf;
+  opacity: 0.6;
+}
+
+.consent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.consentRow {
+  display: flex;
+  min-height: 24px;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkboxWrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.checkbox:checked {
+  border-color: #3d6eed;
+  background: #3d6eed;
+}
+
+.checkbox:focus-visible {
+  outline: 3px solid #3d6eed;
+  outline-offset: 3px;
+}
+
+.checkIcon {
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox:checked + .checkIcon {
+  opacity: 1;
+}
+
+.consentLabel {
+  color: #666;
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 700;
+}
+
+.disclosureButton {
+  min-height: 24px;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  color: #808080;
+  font-size: 12px;
+  line-height: normal;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.consentDetails {
+  width: 100%;
+  padding: 12px 16px 12px 30px;
+  overflow-wrap: anywhere;
+  border-radius: 8px;
+  background: #f7f7f7;
+  color: #666;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+.resultCard {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-block: 28px;
+  border-radius: 12px;
+  background: #f2f7ff;
+  font-weight: 700;
+}
+
+.feedback {
+  min-height: 20px;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.feedbackError {
+  color: #c62828;
+}
+
+@media (max-width: 520px) {
+  .dialog {
+    width: calc(100vw - 40px);
+    max-height: calc(100dvh - 40px);
+  }
+
+  .dialogCard {
+    max-height: calc(100dvh - 40px);
+    gap: 20px;
+    padding: 24px 20px;
+  }
+
+  .consentRow {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .consentLabel {
+    flex: 1;
+    line-height: 1.45;
+  }
+
+  .consentDetails {
+    padding-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .control,
+  .primaryButton {
+    transition: none;
+  }
+}

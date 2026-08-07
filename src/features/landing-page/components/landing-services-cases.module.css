@@ -13,6 +13,12 @@
   display: none;
 }
 
+.heroRefundCasesViewport {
+  position: absolute;
+  top: 571px;
+  left: 0;
+}
+
 @media (hover: none) and (pointer: coarse) {
   .refundCasesViewport {
     overflow-x: hidden;

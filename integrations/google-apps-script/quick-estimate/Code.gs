@@ -247,6 +247,8 @@ var QuickEstimateWebApp = (() => {
   var LEADS_SHEET_NAME = "leads";
   var CODEBOOK_SHEET_NAME = "codebook";
   var LOCK_TIMEOUT_MILLISECONDS = 5e3;
+  var PHONE_COLUMN_NUMBER = 13;
+  var PLAIN_TEXT_NUMBER_FORMAT = "@";
   function createAppsScriptLeadSheetStorage(dependencies) {
     return {
       withLock: (operation) => {
@@ -273,6 +275,7 @@ var QuickEstimateWebApp = (() => {
       appendLeadRow: (row) => {
         const sheet = dependencies.getLeadsSheet();
         const nextRow = Math.max(sheet.getLastRow() + 1, 2);
+        sheet.getRange(nextRow, PHONE_COLUMN_NUMBER, 1, 1).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
         sheet.getRange(nextRow, 1, 1, LEAD_SHEET_HEADERS.length).setValues([Array.from(row)]);
       }
     };
@@ -325,6 +328,7 @@ var QuickEstimateWebApp = (() => {
     leadsSheet.getRange(1, 1, 1, LEAD_SHEET_HEADERS.length).protect().setDescription("Apps Script 관리 header").setWarningOnly(false);
     const statusValidation = SpreadsheetApp.newDataValidation().requireValueInList(Array.from(LEAD_STATUSES), true).setAllowInvalid(false).build();
     leadsSheet.getRange(2, 23, leadsSheet.getMaxRows() - 1, 1).setDataValidation(statusValidation);
+    leadsSheet.getRange(2, PHONE_COLUMN_NUMBER, leadsSheet.getMaxRows() - 1, 1).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
     const codebookSheet = spreadsheet.insertSheet(CODEBOOK_SHEET_NAME);
     const codebookRows = createCodebookRows();
     codebookSheet.getRange(1, 1, codebookRows.length, (_b = (_a = codebookRows[0]) == null ? void 0 : _a.length) != null ? _b : 3).setValues(codebookRows);

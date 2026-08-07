@@ -68,7 +68,8 @@ export type QuickEstimateSubmissionValidationErrorCode =
   "INVALID_INPUT" | "INVALID_CONSENT" | "UNSUPPORTED_RULE";
 
 /** Apps Script가 저장 또는 내부 처리 실패에 사용하는 공개 코드입니다. */
-export type QuickEstimateSubmissionServerErrorCode = "STORAGE_UNAVAILABLE" | "INTERNAL_ERROR";
+export type QuickEstimateSubmissionServerErrorCode =
+  "RATE_LIMITED" | "STORAGE_UNAVAILABLE" | "INTERNAL_ERROR";
 
 /** 브라우저가 판독할 수 있는 Apps Script 상담 제출 응답입니다. */
 export type QuickEstimateSubmissionResponse =

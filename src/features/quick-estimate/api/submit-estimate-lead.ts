@@ -25,6 +25,7 @@ const VALIDATION_ERROR_CODES = new Set<QuickEstimateSubmissionValidationErrorCod
   "UNSUPPORTED_RULE",
 ]);
 const SERVER_ERROR_CODES = new Set<QuickEstimateSubmissionServerErrorCode>([
+  "RATE_LIMITED",
   "STORAGE_UNAVAILABLE",
   "INTERNAL_ERROR",
 ]);

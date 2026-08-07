@@ -87,6 +87,7 @@ describe("submitEstimateLead", () => {
     ["INVALID_INPUT", "validation"],
     ["INVALID_CONSENT", "validation"],
     ["UNSUPPORTED_RULE", "validation"],
+    ["RATE_LIMITED", "server"],
     ["STORAGE_UNAVAILABLE", "server"],
     ["INTERNAL_ERROR", "server"],
   ] as const)("공개 실패 코드 %s를 %s 실패로 분류한다", async (code, kind) => {
@@ -100,7 +101,7 @@ describe("submitEstimateLead", () => {
   it.each([
     new Response("<html>error</html>", { status: 404 }),
     jsonResponse({ ok: true, leadId: LEAD_ID, duplicate: false }, 500),
-    jsonResponse({ ok: false, code: "RATE_LIMITED" }),
+    jsonResponse({ ok: false, code: "UNKNOWN_ERROR" }),
     jsonResponse({ ok: true, leadId: "invalid", duplicate: false }),
     jsonResponse({ ok: true, leadId: LEAD_ID, duplicate: false, extra: true }),
   ])("읽을 수 없거나 계약에 없는 응답을 성공으로 처리하지 않는다", async (response) => {

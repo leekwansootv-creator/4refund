@@ -249,6 +249,16 @@ describe("QuickEstimateFlow", () => {
     expect(getSubmittedPayload(submitLead, 1)).toBe(firstPayload);
   });
 
+  it("rate limit 응답을 재시도 가능한 제한 안내로 표시한다", async () => {
+    renderFlow([{ ok: false, kind: "server", code: "RATE_LIMITED" }]);
+    moveToEstimate();
+    fillEstimate();
+    lookup();
+
+    expect(await screen.findByText(/신청이 많아 잠시 접수를 제한/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "접수 다시 시도" })).toBeEnabled();
+  });
+
   it("연락처 수정 재제출은 기존 계산을 유지하고 새 request_id를 사용한다", async () => {
     const { submitLead } = renderFlow([
       { ok: false, kind: "server", code: "STORAGE_UNAVAILABLE" },

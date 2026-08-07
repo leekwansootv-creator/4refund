@@ -69,6 +69,10 @@ function getSubmissionFailureMessage(failure: SubmissionFailure): string {
     case "unreadable_response":
       return "접수 응답을 확인하지 못했습니다. 같은 내용으로 다시 시도해 주세요.";
     case "server":
+      if (failure.code === "RATE_LIMITED") {
+        return "신청이 많아 잠시 접수를 제한하고 있습니다. 잠시 후 다시 시도해 주세요.";
+      }
+
       return failure.code === "STORAGE_UNAVAILABLE"
         ? "상담 신청을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요."
         : "일시적인 오류로 상담 신청을 저장하지 못했습니다. 다시 시도해 주세요.";

@@ -4,7 +4,7 @@
 
 이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md), [기술 설계](quick-estimate-technical-design.md), [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md), [기준액 벤치마크](quick-estimate-benchmark.md)를 실제 변경으로 옮길 때 사용할 PR 단위 실행 계획이다.
 
-여기서 `PR 1`부터 `PR 8`은 작업 순서를 나타내는 계획용 식별자다. 실제 GitHub PR 번호나 생성 여부를 뜻하지 않는다. 한 PR이 merge된 뒤 `main`을 최신 상태로 갱신하고 다음 PR을 시작하며, 별도 합의 없이 병렬 PR이나 stacked PR로 진행하지 않는다.
+여기서 `PR 1`부터 `PR 9`는 작업 순서를 나타내는 계획용 식별자다. 실제 GitHub PR 번호나 생성 여부를 뜻하지 않는다. PR 1–5는 당시 계획대로 `main`에 병합됐고 운영 랜딩 진입점은 추가하지 않았다. 화면 구현이 시작되는 PR 6부터 PR 8까지는 `integration/quick-estimate`에 순차 병합하고, 완성된 누적 diff를 검증하는 PR 9만 `main`을 대상으로 한다. 별도 합의 없이 병렬 PR이나 미검증 stacked PR로 진행하지 않는다.
 
 ## 핵심 분할 원칙
 
@@ -15,6 +15,7 @@
 - 기술 검증에는 가짜 데이터만 사용하며 회사명, 담당자 이름, 이메일, 전화번호 등 실제 개인정보를 넣지 않는다.
 - 개인정보 수집·이용과 마케팅 활용 동의는 별도 계약과 별도 검증 대상으로 유지한다.
 - 미완성 기능이 운영 랜딩에 노출되지 않도록 실제 공개 연결은 마지막 PR에서 수행한다.
+- `main` push가 GitHub Pages 배포를 실행하므로 PR 6–8의 base는 `integration/quick-estimate`로 고정한다.
 - 각 PR은 하나의 주된 검토 목적과 독립적인 완료 조건을 가진다.
 - PR 설명과 checklist에는 실제 diff와 실행한 검사만 기록한다.
 - 현재 저장소의 문서 우선 원칙과 `app → features → shared` 의존성 방향을 유지한다.
@@ -30,7 +31,8 @@ flowchart LR
     PR5 --> D{"디자인·법무 문구<br/>확정"}
     D --> PR6["PR 6<br/>견적 화면 구현"]
     PR6 --> PR7["PR 7<br/>전체 흐름 연동"]
-    PR7 --> PR8["PR 8<br/>보안·접근성·출시 QA"]
+    PR7 --> PR8["PR 8<br/>보안·접근성·통합 QA"]
+    PR8 --> PR9["PR 9<br/>완성본 운영 공개"]
 ```
 
 | PR   | 검토 목적                    | 주요 결과물                                            | 디자인 필요 | 선행 조건                         |
@@ -42,7 +44,8 @@ flowchart LR
 | PR 5 | 브라우저 제출 계약 구현      | 제출 schema, transport client, 제출 상태와 단위 테스트 | 아니요      | PR 4 배포 계약 확정               |
 | PR 6 | 디자인을 semantic UI로 번역  | 교체 hero·사례 track·입력·결과·동의의 비공개 화면 기반 | 예          | 최종 디자인과 사용자 문구 승인    |
 | PR 7 | 사용자 흐름 완성             | 계산·동의·저장 연동, 로딩·성공·실패·재시도             | 예          | PR 6                              |
-| PR 8 | 공개 가능 상태 검증          | 스팸 방지, 접근성, E2E, 운영 점검, 랜딩 공개 연결      | 예          | PR 7, 운영 계정과 공개 승인       |
+| PR 8 | 통합 브랜치 출시 상태 완성   | 스팸 방지, 접근성, E2E, 운영 점검, 랜딩 공개용 연결    | 예          | PR 7, 운영 계정과 공개 승인       |
+| PR 9 | 완성된 누적 diff 운영 공개   | `integration/quick-estimate`에서 `main`으로 release PR | 예          | PR 8, 최종 공개 승인              |
 
 PR 1부터 PR 5까지는 화면 디자인과 독립적으로 진행할 수 있다. 다만 PR 2부터는 표에 적힌 정책·계정 승인이 별도로 필요하다. 디자인이 없다는 이유로 기술 검증을 막지 않으며, 승인이 필요한 값을 개발자가 임의로 확정하지도 않는다.
 
@@ -51,6 +54,9 @@ PR 1부터 PR 5까지는 화면 디자인과 독립적으로 진행할 수 있�
 ### Branch와 commit
 
 - branch는 해당 PR의 목적 하나만 표현한다.
+- PR 6–8은 직전 PR이 병합된 `integration/quick-estimate`에서 branch를 만들고 PR base도 해당 통합 branch로 지정한다.
+- PR 6–8을 merge한 뒤에는 `main`이 아니라 `integration/quick-estimate`를 fast-forward한 다음 작업을 시작한다.
+- `main` 대상 PR은 기능·저장·보안·운영 E2E와 공개 승인이 모두 완료된 PR 9 하나만 허용한다.
 - commit은 Conventional Commits 형식과 한국어 제목을 사용한다.
 - 커밋은 PR 작업을 모두 끝낸 뒤 한 번에 만들지 않는다. 하나의 책임 범위가 완결되고 해당 범위의 검증을 통과할 때마다 작업 중간에 작성한다.
 - 한 커밋은 독립적으로 review하고 되돌릴 수 있는 하나의 책임만 가진다. 문서, 계산 core, transport, 저장 처리처럼 변경 이유가 다른 책임을 한 커밋에 섞지 않는다.
@@ -454,6 +460,7 @@ src/features/quick-estimate/
 | 권장 branch | `feat/quick-estimate-ui`                     |
 | 권장 제목   | `간단 견적 입력 및 결과 화면 구현`           |
 | 권장 commit | `feat(estimate): 간단 견적 사용자 화면 구현` |
+| PR base     | `integration/quick-estimate`                 |
 | 선행 PR     | PR 5                                         |
 
 ### 진입 조건
@@ -541,6 +548,7 @@ public/assets/quick-estimate/
 | 권장 branch | `feat/quick-estimate-flow`                        |
 | 권장 제목   | `간단 견적 계산 및 상담 제출 흐름 구현`           |
 | 권장 commit | `feat(estimate): 견적 계산과 상담 제출 흐름 연결` |
+| PR base     | `integration/quick-estimate`                      |
 | 선행 PR     | PR 6                                              |
 
 ### 목적
@@ -600,15 +608,16 @@ stateDiagram-v2
 - 동일 제출 재시도가 중복 행을 만들지 않는다.
 - 운영 공개 전환 없이 staging 또는 검증 환경에서 E2E를 수행할 수 있다.
 
-## PR 8. 보안·접근성·출시 QA 및 랜딩 공개
+## PR 8. 보안·접근성·출시 QA 및 랜딩 연결
 
 ### Metadata
 
 | 항목        | 값                                                |
 | ----------- | ------------------------------------------------- |
 | 권장 branch | `feat/quick-estimate-release`                     |
-| 권장 제목   | `간단 견적 기능 출시 검증 및 공개`                |
-| 권장 commit | `feat(estimate): 간단 견적 공개와 최종 검증 적용` |
+| 권장 제목   | `간단 견적 기능 통합 검증 및 랜딩 연결`           |
+| 권장 commit | `feat(estimate): 간단 견적 랜딩 연결과 검증 적용` |
+| PR base     | `integration/quick-estimate`                      |
 | 선행 PR     | PR 7                                              |
 
 ### 진입 조건
@@ -621,7 +630,7 @@ stateDiagram-v2
 
 ### 목적
 
-보안, 스팸, 접근성, 반응형, 실제 저장과 운영 절차를 최종 검증하고 기존 랜딩의 hero와 사례 section을 새 구조로 원자적으로 교체한다.
+보안, 스팸, 접근성, 반응형, 실제 저장과 운영 절차를 최종 검증하고 기존 랜딩의 hero와 사례 section을 새 구조로 원자적으로 교체한다. 이 변경은 `integration/quick-estimate`에서만 완성하며 PR 8 merge로 GitHub Pages를 배포하지 않는다.
 
 ### 포함 변경
 
@@ -664,6 +673,42 @@ stateDiagram-v2
 - 장애 시 신규 제출을 중단하는 방법과 담당자가 확인된다.
 - 기존 랜딩의 다른 section과 연락 동작에 회귀가 없다.
 
+## PR 9. 완성본 운영 공개
+
+### Metadata
+
+| 항목      | 값                                       |
+| --------- | ---------------------------------------- |
+| PR source | `integration/quick-estimate`             |
+| PR base   | `main`                                   |
+| 권장 제목 | `간단 견적 기능 운영 공개`               |
+| 선행 PR   | PR 8, 전체 운영 E2E와 사용자의 공개 승인 |
+
+### 목적
+
+PR 6–8의 완성된 누적 diff를 하나의 release 단위로 검토하고 `main`에 병합해 GitHub Pages 배포를 시작한다. 이 PR에서는 미완성 기능을 보완하거나 새 범위를 추가하지 않는다. 보완이 필요하면 `integration/quick-estimate`를 대상으로 별도 책임 PR을 먼저 완료한다.
+
+### 진입 조건
+
+- 연락처 입력부터 계산, 동의, Apps Script 저장, 성공·실패·재시도까지 실제 환경 E2E가 통과했다.
+- 개인정보·마케팅 문구, 운영 계정, 스팸 방지, quota, 접근권한, 백업·파기 절차가 모두 승인됐다.
+- 새 hero와 사례 track을 포함한 루트 랜딩의 desktop·mobile·keyboard·200% 확대·reduced motion 검수가 완료됐다.
+- `integration/quick-estimate`가 `main`을 포함하고 PR 6–8 외의 미승인 변경을 포함하지 않는다.
+- 사용자가 운영 공개를 명시적으로 승인했다.
+
+### 필수 검증
+
+- `git diff --check main...integration/quick-estimate`
+- `npm run check`
+- 운영 Apps Script version과 endpoint, Sheet schema 최종 대조
+- release PR의 전체 누적 diff와 rollback 절차 검토
+
+### 완료 조건
+
+- release PR만 `main`을 대상으로 한다.
+- merge 직전 전체 검사가 통과하고 공개 승인 증빙이 있다.
+- merge 후 GitHub Pages 배포 성공과 운영 정상 접수를 확인한다.
+
 ## 단계별 중단 조건
 
 | 시점 | 중단 조건                                               | 다음 조치                                            |
@@ -675,6 +720,7 @@ stateDiagram-v2
 | PR 6 | desktop 또는 mobile 디자인과 동의 문구가 미확정         | 프런트엔드 구현을 시작하지 않고 PR 1–5 산출물만 유지 |
 | PR 7 | 재시도 시 중복 저장 또는 금액 변경 발생                 | 공개 차단을 유지하고 멱등성·상태 계약 수정           |
 | PR 8 | 운영 계정·스팸·접근권한·파기 절차 중 하나라도 미확정    | 랜딩 진입점을 공개하지 않음                          |
+| PR 9 | 전체 흐름·운영 E2E·공개 승인 중 하나라도 미완료         | `main` merge와 GitHub Pages 배포를 보류              |
 
 ## 완료 추적
 
@@ -685,8 +731,9 @@ stateDiagram-v2
 | PR 3    | 병합됨  | [#24](https://github.com/leekwansootv-creator/4refund/pull/24) | 확인       | 금액 계산 엔진 반영             |
 | PR 4    | 병합됨  | [#25](https://github.com/leekwansootv-creator/4refund/pull/25) | 확인       | Apps Script 저장 처리 반영      |
 | PR 5    | 병합됨  | [#26](https://github.com/leekwansootv-creator/4refund/pull/26) | 확인       | 브라우저 제출 계약 반영         |
-| PR 6    | 검토 중 | [#28](https://github.com/leekwansootv-creator/4refund/pull/28) | 미확인     | 화면 기반·검수 이미지 반영      |
+| PR 6    | 검토 중 | [#28](https://github.com/leekwansootv-creator/4refund/pull/28) | 미확인     | 통합 branch 대상 화면 기반      |
 | PR 7    | 대기    | 미생성                                                         | 미확인     | PR 6 필요                       |
 | PR 8    | 대기    | 미생성                                                         | 미확인     | 운영·법무 공개 승인 필요        |
+| PR 9    | 대기    | 미생성                                                         | 미확인     | 완성본만 `main` 공개            |
 
 상태는 실제 작업을 시작하거나 GitHub 상태를 확인했을 때만 갱신한다. 사용자가 PR 단위 작업 시작을 승인한 뒤에는 책임 범위가 끝날 때마다 commit하고, 사용자 수동 조치가 필요하지 않으면 PR 전체 검증 후 push와 Draft PR 생성까지 수행한다. 수동 조치가 필요하면 필요한 계정·화면·절차·완료 증빙을 안내하고 해당 입력을 기다린다.

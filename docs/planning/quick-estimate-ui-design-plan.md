@@ -58,7 +58,7 @@ CTA는 `<button>`이며 같은 페이지 위에 단계형 dialog를 연다. 페�
 - 기존 사례 데이터와 mobile 자동 순환·touch 안전 동작은 보존한다.
 - `RefundCasesSection`에서 track 책임을 분리해 새 hero 내부에서 조합한다.
 - 같은 사례를 hero와 기존 위치에 중복 렌더링하지 않는다.
-- hero 교체와 독립 사례 section 제거는 전체 흐름이 준비된 공개 PR에서 원자적으로 적용한다.
+- hero 교체와 독립 사례 section 제거는 전체 흐름이 준비된 통합 PR에서 원자적으로 적용하고, 완성된 통합 branch만 별도 release PR로 `main`에 공개한다.
 
 ### hero 이미지와 모션
 
@@ -188,7 +188,7 @@ Figma에 없는 제출 중, 저장 실패, 재시도, mobile overflow 상태는 
 
 ### 라우트
 
-신규 route를 추가하지 않는다. `src/app/page.tsx`와 루트 `/`를 유지하고, 최종 공개 PR에서 `LandingPage`의 section 조합만 교체한다. 별도 metadata, redirect, navigation과 `noindex` 정책도 추가하지 않는다.
+신규 route를 추가하지 않는다. `src/app/page.tsx`와 루트 `/`를 유지하고, 통합 QA PR에서 `LandingPage`의 section 조합만 교체한다. 완성된 `integration/quick-estimate`를 `main`으로 병합하는 release PR 전에는 운영 배포하지 않는다. 별도 metadata, redirect, navigation과 `noindex` 정책도 추가하지 않는다.
 
 ### 예상 파일 구조
 
@@ -197,7 +197,7 @@ src/
 ├── features/
 │   ├── landing-page/
 │   │   ├── components/
-│   │   │   ├── landing-page.tsx             # 공개 PR에서 hero와 section 순서 교체
+│   │   │   ├── landing-page.tsx             # 통합 QA PR에서 hero와 section 순서 교체
 │   │   │   ├── quick-estimate-hero-section.tsx # 새 hero layout과 사례 track 조합
 │   │   │   ├── refund-cases-track.tsx       # 기존 사례 자동 순환 책임 분리
 │   │   │   └── hero-section.tsx             # 공개 전까지 유지할 기존 hero
@@ -349,7 +349,7 @@ npm run check
 - Figma node와 상태 해석
 - 승인 계약과 디자인 차이
 - 메인 hero 교체, component, 상태·접근성·반응형 설계
-- PR 6–8의 구체적인 구현 경계
+- PR 6–9의 구체적인 구현·공개 경계
 
 ### PR 6: 비공개 화면 기반
 
@@ -368,12 +368,19 @@ npm run check
 - 결과와 접수 상태를 분리한 integration/E2E
 - `LandingPage` section 교체와 운영 공개는 제외
 
-### PR 8: 출시 QA와 공개
+### PR 8: 통합 QA와 랜딩 연결
 
 - 기존 `HeroSection`을 새 간단 견적 hero로 교체
 - 독립 `RefundCasesSection`을 제거하고 사례 track을 새 hero 안에서 조합
 - 스팸 방지, 운영 권한, benchmark 갱신과 실제 origin E2E
 - 접근성·반응형·시각 회귀와 rollback 검증
+- `integration/quick-estimate` 안에서만 랜딩 조합을 완성하고 `main` 배포는 하지 않음
+
+### PR 9: 완성본 운영 공개
+
+- PR 6–8이 누적된 `integration/quick-estimate`를 `main` 대상으로 검토
+- 전체 흐름·운영 E2E·공개 승인이 모두 완료된 경우에만 merge
+- `main` merge 후 GitHub Pages 배포와 운영 정상 접수 확인
 
 ## 구현 전 승인 확인점
 

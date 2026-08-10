@@ -1,4 +1,8 @@
 import type { QuickEstimateSubmissionPayload } from "@/features/quick-estimate";
+import {
+  buildNewConsultationNotification,
+  type ConsultationNotificationMessage,
+} from "./consultation-notification";
 import { LEAD_SHEET_HEADERS, type LeadSheetRow } from "./sheet-schema";
 
 const FORMULA_PREFIX_PATTERN = /^[=+\-@]/u;
@@ -8,12 +12,23 @@ export type LeadSheetStoragePort = {
   withLock: <Result>(operation: () => Result) => Result;
   findLeadIdByRequestId: (requestId: string) => string | null;
   appendLeadRow: (row: LeadSheetRow) => void;
+  syncConsultationRow: (row: LeadSheetRow) => void;
 };
 
 /** 서버 소유 값과 Sheet 저장 port를 주입하는 리드 저장 의존성입니다. */
 export type StoreLeadDependencies = {
   storage: LeadSheetStoragePort;
   generateLeadId: () => string;
+  logConsultationProjectionFailure: (event: {
+    code: "CONSULTATION_QUEUE_SYNC_FAILED";
+    leadId: string;
+    occurredAt: string;
+  }) => void;
+  sendConsultationNotification: (message: ConsultationNotificationMessage) => void;
+  recordConsultationNotificationFailure: (event: {
+    code: "CONSULTATION_NOTIFICATION_FAILED";
+    occurredAt: string;
+  }) => void;
   now: () => Date;
 };
 
@@ -76,20 +91,68 @@ export function buildLeadSheetRow(
   return row;
 }
 
+function syncConsultationRowSafely(
+  row: LeadSheetRow,
+  leadId: string,
+  submittedAt: string,
+  dependencies: StoreLeadDependencies,
+): void {
+  try {
+    dependencies.storage.syncConsultationRow(row);
+  } catch {
+    try {
+      dependencies.logConsultationProjectionFailure({
+        code: "CONSULTATION_QUEUE_SYNC_FAILED",
+        leadId,
+        occurredAt: submittedAt,
+      });
+    } catch {
+      // 파생 목록과 logger 장애가 원본 leads 저장 성공을 되돌리지 않게 격리합니다.
+    }
+  }
+}
+
+function sendConsultationNotificationSafely(
+  message: ConsultationNotificationMessage,
+  occurredAt: string,
+  dependencies: StoreLeadDependencies,
+): void {
+  try {
+    dependencies.sendConsultationNotification(message);
+  } catch {
+    try {
+      dependencies.recordConsultationNotificationFailure({
+        code: "CONSULTATION_NOTIFICATION_FAILED",
+        occurredAt,
+      });
+    } catch {
+      // 알림과 실패 기록 장애가 이미 완료된 원본 저장 결과를 바꾸지 않게 격리합니다.
+    }
+  }
+}
+
 /** request_id 조회와 쓰기를 같은 잠금에서 실행해 제출 한 건을 한 행으로 저장합니다. */
 export function storeLeadSubmission(
   submission: QuickEstimateSubmissionPayload,
   dependencies: StoreLeadDependencies,
 ): StoreLeadResult {
   try {
-    return dependencies.storage.withLock(() => {
+    const operation = dependencies.storage.withLock<{
+      notification: ConsultationNotificationMessage | null;
+      result: StoreLeadResult;
+      submittedAt: string | null;
+    }>(() => {
       const existingLeadId = dependencies.storage.findLeadIdByRequestId(submission.requestId);
 
       if (existingLeadId !== null) {
         return {
-          ok: true,
-          leadId: existingLeadId,
-          duplicate: true,
+          notification: null,
+          result: {
+            ok: true,
+            leadId: existingLeadId,
+            duplicate: true,
+          },
+          submittedAt: null,
         };
       }
 
@@ -98,13 +161,28 @@ export function storeLeadSubmission(
       const row = buildLeadSheetRow(submission, leadId, submittedAt);
 
       dependencies.storage.appendLeadRow(row);
+      syncConsultationRowSafely(row, leadId, submittedAt, dependencies);
 
       return {
-        ok: true,
-        leadId,
-        duplicate: false,
+        notification: buildNewConsultationNotification(submittedAt),
+        result: {
+          ok: true,
+          leadId,
+          duplicate: false,
+        },
+        submittedAt,
       };
     });
+
+    if (operation.notification !== null && operation.submittedAt !== null) {
+      sendConsultationNotificationSafely(
+        operation.notification,
+        operation.submittedAt,
+        dependencies,
+      );
+    }
+
+    return operation.result;
   } catch {
     return {
       ok: false,

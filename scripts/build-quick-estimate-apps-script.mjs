@@ -40,6 +40,9 @@ export async function buildQuickEstimateAppsScriptBundle() {
         "function onEditQuickEstimateConsultation(e) {",
         "  return QuickEstimateWebApp.onEditQuickEstimateConsultation(e);",
         "}",
+        "function runQuickEstimateOperationsCheck() {",
+        "  return QuickEstimateWebApp.runQuickEstimateOperationsCheck();",
+        "}",
       ].join("\n"),
     },
   });

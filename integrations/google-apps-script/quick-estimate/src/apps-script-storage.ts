@@ -10,6 +10,7 @@ import {
   configureConsultationSheetAutomation,
   ensureConsultationEditTrigger,
 } from "./apps-script-consultation-edit";
+import { createRuntimeConsultationNotifier } from "./apps-script-notification";
 import {
   CONSULTATION_SHEET_NAME,
   LEADS_SHEET_NAME,
@@ -336,6 +337,7 @@ export function setupQuickEstimateStorage(): {
   created: boolean;
   consultationSheetCreated: boolean;
   consultationEditTriggerCreated: boolean;
+  consultationOperationsCheckTriggerCreated: boolean;
   syncedRows: number;
   spreadsheetId: string;
   spreadsheetUrl: string;
@@ -349,6 +351,8 @@ export function setupQuickEstimateStorage(): {
       const consultationSheet = ensureConsultationSheet(existingSpreadsheet);
       const syncResult = syncConsultationRows(existingSpreadsheet, consultationSheet.sheet);
       const consultationEditTriggerCreated = ensureConsultationEditTrigger(existingSpreadsheet);
+      const consultationOperationsCheckTriggerCreated =
+        createRuntimeConsultationNotifier().ensureOperationsCheckTrigger();
 
       SpreadsheetApp.flush();
 
@@ -356,6 +360,7 @@ export function setupQuickEstimateStorage(): {
         created: false,
         consultationSheetCreated: consultationSheet.created,
         consultationEditTriggerCreated,
+        consultationOperationsCheckTriggerCreated,
         syncedRows: syncResult.createdRows,
         spreadsheetId: existingSpreadsheet.getId(),
         spreadsheetUrl: existingSpreadsheet.getUrl(),
@@ -367,11 +372,14 @@ export function setupQuickEstimateStorage(): {
     initializeSpreadsheet(spreadsheet);
     properties.setProperty(SPREADSHEET_ID_PROPERTY, spreadsheet.getId());
     const consultationEditTriggerCreated = ensureConsultationEditTrigger(spreadsheet);
+    const consultationOperationsCheckTriggerCreated =
+      createRuntimeConsultationNotifier().ensureOperationsCheckTrigger();
 
     return {
       created: true,
       consultationSheetCreated: true,
       consultationEditTriggerCreated,
+      consultationOperationsCheckTriggerCreated,
       syncedRows: 0,
       spreadsheetId: spreadsheet.getId(),
       spreadsheetUrl: spreadsheet.getUrl(),

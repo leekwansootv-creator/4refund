@@ -46,7 +46,7 @@ describe("buildConsultationSheetRow", () => {
       Object.fromEntries(CONSULTATION_SHEET_HEADERS.map((header, index) => [header, row[index]])),
     ).toEqual({
       "상담 상태": "신규 신청",
-      "상담 담당자": "",
+      "상담 담당자": "이관수",
       "접수 일시": "2026. 08. 10. 오전 10:18",
       회사명: "테스트 주식회사",
       "고객 담당자": "홍길동",

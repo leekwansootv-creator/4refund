@@ -1,6 +1,6 @@
 import { ESTIMATE_RULE_SET } from "@/features/quick-estimate";
 
-import { LEAD_SHEET_HEADERS, type LeadSheetRow } from "./sheet-schema";
+import { LEAD_SHEET_HEADERS, LEAD_STATUSES, type LeadSheetRow } from "./sheet-schema";
 
 /** 상담 담당자가 보는 한글 상담 목록의 고정 컬럼입니다. */
 export const CONSULTATION_SHEET_HEADERS = [
@@ -25,6 +25,39 @@ export const CONSULTATION_SHEET_HEADERS = [
 /** 상담 목록에서 표시하는 초기 상담 결과입니다. */
 export const INITIAL_CONSULTATION_RESULT = "미입력";
 
+/** 상담 목록의 업무 입력과 내부 동기화에 사용하는 1부터 시작하는 컬럼 번호입니다. */
+export const CONSULTATION_COLUMN_NUMBERS = {
+  status: 1,
+  assignee: 2,
+  firstContactAt: 11,
+  nextContactAt: 12,
+  result: 13,
+  leadId: 16,
+} as const;
+
+/** 원본 상담 상태 코드별 한글 표시값입니다. */
+export const CONSULTATION_STATUS_LABELS = {
+  NEW: "신규 신청",
+  CONTACTING: "연락 중",
+  COMPLETED: "상담 완료",
+  CLOSED: "종결",
+} as const satisfies Record<(typeof LEAD_STATUSES)[number], string>;
+
+/** 상담 상태 dropdown에 표시할 한글 선택값입니다. */
+export const CONSULTATION_STATUS_OPTIONS = Object.values(CONSULTATION_STATUS_LABELS);
+
+/** 자유 입력을 허용하지 않는 상담 결과 한글 선택값입니다. */
+export const CONSULTATION_RESULT_OPTIONS = [
+  INITIAL_CONSULTATION_RESULT,
+  "연결됨",
+  "부재",
+  "다시 연락 요청",
+  "상담 거절",
+  "연락처 오류",
+  "중복 신청",
+  "상담 완료",
+] as const;
+
 /** 상담 목록 한 셀에 저장할 수 있는 값입니다. */
 export type ConsultationSheetCell = string | number;
 
@@ -32,13 +65,6 @@ export type ConsultationSheetCell = string | number;
 export type ConsultationSheetRow = readonly ConsultationSheetCell[];
 
 type LeadSheetHeader = (typeof LEAD_SHEET_HEADERS)[number];
-
-const STATUS_LABELS: Readonly<Record<string, string>> = {
-  NEW: "신규 신청",
-  CONTACTING: "연락 중",
-  COMPLETED: "상담 완료",
-  CLOSED: "종결",
-};
 
 const INDUSTRY_LABELS = new Map<string, string>(
   ESTIMATE_RULE_SET.industries.map((industry) => [industry.code, industry.label]),
@@ -58,7 +84,8 @@ function toDisplayNumber(value: LeadSheetRow[number]): number | string {
   return Number.isFinite(number) ? number : "확인 필요";
 }
 
-function toKoreanDateTime(value: LeadSheetRow[number]): string {
+/** UTC ISO 값을 상담 화면의 한국 날짜·시각 문자열로 변환합니다. */
+export function formatKoreanDateTime(value: LeadSheetRow[number]): string {
   const text = toText(value);
 
   if (text === "") {
@@ -150,9 +177,9 @@ export function buildConsultationSheetRow(row: LeadSheetRow): ConsultationSheetR
   const industryCode = toText(getLeadSheetCell(row, "industry_code"));
   const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
   const consultationRow: ConsultationSheetRow = [
-    STATUS_LABELS[status] ?? "확인 필요",
+    CONSULTATION_STATUS_LABELS[status as keyof typeof CONSULTATION_STATUS_LABELS] ?? "확인 필요",
     "",
-    toKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
+    formatKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
     toText(getLeadSheetCell(row, "company_name")),
     toText(getLeadSheetCell(row, "contact_name")),
     toKoreanPhoneNumber(getLeadSheetCell(row, "phone")),
@@ -160,7 +187,7 @@ export function buildConsultationSheetRow(row: LeadSheetRow): ConsultationSheetR
     INDUSTRY_LABELS.get(industryCode) ?? "확인 필요",
     toDisplayNumber(getLeadSheetCell(row, "employee_count")),
     toDisplayNumber(getLeadSheetCell(row, "estimate_amount_krw")),
-    toKoreanDateTime(getLeadSheetCell(row, "handled_at")),
+    formatKoreanDateTime(getLeadSheetCell(row, "handled_at")),
     "",
     INITIAL_CONSULTATION_RESULT,
     toMarketingAgreement(marketingAgreement),

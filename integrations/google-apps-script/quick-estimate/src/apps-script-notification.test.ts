@@ -1,9 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import {
-  NOTIFICATION_FAILURE_PROPERTY,
-  NOTIFICATION_RECIPIENT_PROPERTY,
-} from "./apps-script-config";
+import { NOTIFICATION_RECIPIENT_PROPERTY } from "./apps-script-config";
 import {
   createAppsScriptConsultationNotifier,
   type AppsScriptNotificationDependencies,

@@ -882,9 +882,7 @@ var QuickEstimateWebApp = (() => {
         dependencies.sendEmail(recipient, message);
       },
       recordFailure: (failure2) => {
-        const current = parseFailureState(
-          dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY)
-        );
+        const current = parseFailureState(dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY));
         const next = accumulateConsultationNotificationFailure(current, failure2);
         dependencies.setProperty(NOTIFICATION_FAILURE_PROPERTY, JSON.stringify(next));
       },

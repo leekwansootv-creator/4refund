@@ -11,15 +11,13 @@ function createDependencies() {
   const clearNotificationFailure = vi.fn(() => {
     failure = null;
   });
-  const recordNotificationFailure = vi.fn(
-    (event: { code: string; occurredAt: string }) => {
-      failure = {
-        count: (failure?.count ?? 0) + 1,
-        lastCode: event.code,
-        lastFailedAt: event.occurredAt,
-      };
-    },
-  );
+  const recordNotificationFailure = vi.fn((event: { code: string; occurredAt: string }) => {
+    failure = {
+      count: (failure?.count ?? 0) + 1,
+      lastCode: event.code,
+      lastFailedAt: event.occurredAt,
+    };
+  });
 
   return {
     dependencies: {

@@ -70,9 +70,7 @@ export function createAppsScriptConsultationNotifier(
       dependencies.sendEmail(recipient, message);
     },
     recordFailure: (failure: { code: string; occurredAt: string }): void => {
-      const current = parseFailureState(
-        dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY),
-      );
+      const current = parseFailureState(dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY));
       const next = accumulateConsultationNotificationFailure(current, failure);
 
       dependencies.setProperty(NOTIFICATION_FAILURE_PROPERTY, JSON.stringify(next));
@@ -81,11 +79,13 @@ export function createAppsScriptConsultationNotifier(
       parseFailureState(dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY)),
     clearFailure: (): void => dependencies.deleteProperty(NOTIFICATION_FAILURE_PROPERTY),
     ensureOperationsCheckTrigger: (): boolean => {
-      const triggerExists = dependencies.getOperationsCheckTriggers().some(
-        (trigger) =>
-          trigger.handlerFunction === OPERATIONS_CHECK_HANDLER_FUNCTION_NAME &&
-          trigger.eventType === "CLOCK",
-      );
+      const triggerExists = dependencies
+        .getOperationsCheckTriggers()
+        .some(
+          (trigger) =>
+            trigger.handlerFunction === OPERATIONS_CHECK_HANDLER_FUNCTION_NAME &&
+            trigger.eventType === "CLOCK",
+        );
 
       if (triggerExists) {
         return false;
@@ -122,10 +122,7 @@ export function createRuntimeConsultationNotifier() {
         handlerFunction: trigger.getHandlerFunction(),
       })),
     createOperationsCheckTrigger: (handlerFunction, intervalMinutes) => {
-      ScriptApp.newTrigger(handlerFunction)
-        .timeBased()
-        .everyMinutes(intervalMinutes)
-        .create();
+      ScriptApp.newTrigger(handlerFunction).timeBased().everyMinutes(intervalMinutes).create();
     },
   });
 }

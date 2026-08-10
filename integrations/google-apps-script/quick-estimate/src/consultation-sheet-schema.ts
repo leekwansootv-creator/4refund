@@ -25,6 +25,9 @@ export const CONSULTATION_SHEET_HEADERS = [
 /** 상담 목록에서 표시하는 초기 상담 결과입니다. */
 export const INITIAL_CONSULTATION_RESULT = "미입력";
 
+/** 승인된 1인 운영에서 신규 상담을 고정 배정하는 담당자 이름입니다. */
+export const DEFAULT_CONSULTATION_ASSIGNEE = "이관수";
+
 /** 상담 목록의 업무 입력과 내부 동기화에 사용하는 1부터 시작하는 컬럼 번호입니다. */
 export const CONSULTATION_COLUMN_NUMBERS = {
   status: 1,
@@ -178,7 +181,7 @@ export function buildConsultationSheetRow(row: LeadSheetRow): ConsultationSheetR
   const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
   const consultationRow: ConsultationSheetRow = [
     CONSULTATION_STATUS_LABELS[status as keyof typeof CONSULTATION_STATUS_LABELS] ?? "확인 필요",
-    "",
+    DEFAULT_CONSULTATION_ASSIGNEE,
     formatKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
     toText(getLeadSheetCell(row, "company_name")),
     toText(getLeadSheetCell(row, "contact_name")),

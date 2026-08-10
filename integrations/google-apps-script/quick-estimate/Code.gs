@@ -24,6 +24,7 @@ var QuickEstimateWebApp = (() => {
   __export(entrypoint_exports, {
     doPost: () => doPost,
     onEditQuickEstimateConsultation: () => onEditQuickEstimateConsultation,
+    runQuickEstimateOperationsCheck: () => runQuickEstimateOperationsCheck,
     setupQuickEstimateStorage: () => setupQuickEstimateStorage,
     syncQuickEstimateConsultationRows: () => syncQuickEstimateConsultationRows
   });
@@ -264,6 +265,7 @@ var QuickEstimateWebApp = (() => {
     "상담 신청 번호"
   ];
   var INITIAL_CONSULTATION_RESULT = "미입력";
+  var DEFAULT_CONSULTATION_ASSIGNEE = "이관수";
   var CONSULTATION_COLUMN_NUMBERS = {
     status: 1,
     assignee: 2,
@@ -372,7 +374,7 @@ var QuickEstimateWebApp = (() => {
     const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
     const consultationRow = [
       (_a = CONSULTATION_STATUS_LABELS[status]) != null ? _a : "확인 필요",
-      "",
+      DEFAULT_CONSULTATION_ASSIGNEE,
       formatKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
       toText(getLeadSheetCell(row, "company_name")),
       toText(getLeadSheetCell(row, "contact_name")),
@@ -636,6 +638,8 @@ var QuickEstimateWebApp = (() => {
 
   // integrations/google-apps-script/quick-estimate/src/apps-script-config.ts
   var SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
+  var NOTIFICATION_RECIPIENT_PROPERTY = "QUICK_ESTIMATE_NOTIFICATION_RECIPIENT";
+  var NOTIFICATION_FAILURE_PROPERTY = "QUICK_ESTIMATE_NOTIFICATION_FAILURE";
   var LEADS_SHEET_NAME = "leads";
   var CONSULTATION_SHEET_NAME = "상담 목록";
   var LOCK_TIMEOUT_MILLISECONDS = 5e3;
@@ -795,6 +799,132 @@ var QuickEstimateWebApp = (() => {
       getScriptLock: () => LockService.getScriptLock(),
       logFailure: (failure2) => console.error(JSON.stringify(failure2)),
       now: () => /* @__PURE__ */ new Date()
+    });
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/consultation-notification.ts
+  var KOREAN_TIME_OFFSET_MILLISECONDS = 9 * 60 * 60 * 1e3;
+  var BUSINESS_START_HOUR = 9;
+  var BUSINESS_END_HOUR = 18;
+  function buildNewConsultationNotification(submittedAt) {
+    return {
+      subject: "[포리펀드] 새 상담 신청이 접수되었습니다",
+      body: [
+        "새 상담 신청이 접수되었습니다.",
+        "",
+        `접수 시각: ${formatKoreanDateTime(submittedAt)}`,
+        "상담 목록에서 확인해 주세요."
+      ].join("\n")
+    };
+  }
+  function buildConsultationOperationsAlert(input) {
+    var _a, _b;
+    const failure2 = input.notificationFailure;
+    return {
+      subject: "[포리펀드] 상담 운영 확인이 필요합니다",
+      body: [
+        "상담 운영 자동 점검에서 확인할 항목이 있습니다.",
+        "",
+        `점검 시각: ${formatKoreanDateTime(input.checkedAt)}`,
+        `상담 목록 복구 건수: ${input.recoveredRows}건`,
+        `알림 실패 누적: ${(_a = failure2 == null ? void 0 : failure2.count) != null ? _a : 0}건`,
+        `마지막 실패 코드: ${(_b = failure2 == null ? void 0 : failure2.lastCode) != null ? _b : "해당 없음"}`,
+        `마지막 실패 시각: ${failure2 ? formatKoreanDateTime(failure2.lastFailedAt) : "해당 없음"}`,
+        "상담 목록과 Apps Script 실행 기록을 확인해 주세요."
+      ].join("\n")
+    };
+  }
+  function isKoreanConsultationBusinessHours(now) {
+    const koreanDate = new Date(now.getTime() + KOREAN_TIME_OFFSET_MILLISECONDS);
+    const day = koreanDate.getUTCDay();
+    const hour = koreanDate.getUTCHours();
+    return day >= 1 && day <= 5 && hour >= BUSINESS_START_HOUR && hour < BUSINESS_END_HOUR;
+  }
+  function accumulateConsultationNotificationFailure(current, failure2) {
+    var _a;
+    return {
+      count: ((_a = current == null ? void 0 : current.count) != null ? _a : 0) + 1,
+      lastCode: failure2.code,
+      lastFailedAt: failure2.occurredAt
+    };
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/apps-script-notification.ts
+  var OPERATIONS_CHECK_HANDLER_FUNCTION_NAME = "runQuickEstimateOperationsCheck";
+  var OPERATIONS_CHECK_INTERVAL_MINUTES = 30;
+  var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
+  function parseFailureState(value) {
+    if (value === null) {
+      return null;
+    }
+    try {
+      const parsed = JSON.parse(value);
+      if (typeof parsed.count !== "number" || !Number.isInteger(parsed.count) || parsed.count <= 0 || typeof parsed.lastCode !== "string" || parsed.lastCode === "" || typeof parsed.lastFailedAt !== "string" || !Number.isFinite(Date.parse(parsed.lastFailedAt))) {
+        return null;
+      }
+      return {
+        count: parsed.count,
+        lastCode: parsed.lastCode,
+        lastFailedAt: parsed.lastFailedAt
+      };
+    } catch {
+      return null;
+    }
+  }
+  function createAppsScriptConsultationNotifier(dependencies) {
+    return {
+      send: (message) => {
+        var _a, _b;
+        const recipient = (_b = (_a = dependencies.getProperty(NOTIFICATION_RECIPIENT_PROPERTY)) == null ? void 0 : _a.trim()) != null ? _b : "";
+        if (!EMAIL_PATTERN.test(recipient)) {
+          throw new Error("notification_recipient_not_configured");
+        }
+        dependencies.sendEmail(recipient, message);
+      },
+      recordFailure: (failure2) => {
+        const current = parseFailureState(
+          dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY)
+        );
+        const next = accumulateConsultationNotificationFailure(current, failure2);
+        dependencies.setProperty(NOTIFICATION_FAILURE_PROPERTY, JSON.stringify(next));
+      },
+      getFailure: () => parseFailureState(dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY)),
+      clearFailure: () => dependencies.deleteProperty(NOTIFICATION_FAILURE_PROPERTY),
+      ensureOperationsCheckTrigger: () => {
+        const triggerExists = dependencies.getOperationsCheckTriggers().some(
+          (trigger) => trigger.handlerFunction === OPERATIONS_CHECK_HANDLER_FUNCTION_NAME && trigger.eventType === "CLOCK"
+        );
+        if (triggerExists) {
+          return false;
+        }
+        dependencies.createOperationsCheckTrigger(
+          OPERATIONS_CHECK_HANDLER_FUNCTION_NAME,
+          OPERATIONS_CHECK_INTERVAL_MINUTES
+        );
+        return true;
+      }
+    };
+  }
+  function createRuntimeConsultationNotifier() {
+    const properties = PropertiesService.getScriptProperties();
+    return createAppsScriptConsultationNotifier({
+      getProperty: (name) => properties.getProperty(name),
+      setProperty: (name, value) => {
+        properties.setProperty(name, value);
+      },
+      deleteProperty: (name) => {
+        properties.deleteProperty(name);
+      },
+      sendEmail: (recipient, message) => {
+        MailApp.sendEmail(recipient, message.subject, message.body, { name: "포리펀드" });
+      },
+      getOperationsCheckTriggers: () => ScriptApp.getProjectTriggers().map((trigger) => ({
+        eventType: String(trigger.getEventType()),
+        handlerFunction: trigger.getHandlerFunction()
+      })),
+      createOperationsCheckTrigger: (handlerFunction, intervalMinutes) => {
+        ScriptApp.newTrigger(handlerFunction).timeBased().everyMinutes(intervalMinutes).create();
+      }
     });
   }
 
@@ -1047,11 +1177,13 @@ var QuickEstimateWebApp = (() => {
         const consultationSheet = ensureConsultationSheet(existingSpreadsheet);
         const syncResult = syncConsultationRows(existingSpreadsheet, consultationSheet.sheet);
         const consultationEditTriggerCreated2 = ensureConsultationEditTrigger(existingSpreadsheet);
+        const consultationOperationsCheckTriggerCreated2 = createRuntimeConsultationNotifier().ensureOperationsCheckTrigger();
         SpreadsheetApp.flush();
         return {
           created: false,
           consultationSheetCreated: consultationSheet.created,
           consultationEditTriggerCreated: consultationEditTriggerCreated2,
+          consultationOperationsCheckTriggerCreated: consultationOperationsCheckTriggerCreated2,
           syncedRows: syncResult.createdRows,
           spreadsheetId: existingSpreadsheet.getId(),
           spreadsheetUrl: existingSpreadsheet.getUrl()
@@ -1061,10 +1193,12 @@ var QuickEstimateWebApp = (() => {
       initializeSpreadsheet(spreadsheet);
       properties.setProperty(SPREADSHEET_ID_PROPERTY, spreadsheet.getId());
       const consultationEditTriggerCreated = ensureConsultationEditTrigger(spreadsheet);
+      const consultationOperationsCheckTriggerCreated = createRuntimeConsultationNotifier().ensureOperationsCheckTrigger();
       return {
         created: true,
         consultationSheetCreated: true,
         consultationEditTriggerCreated,
+        consultationOperationsCheckTriggerCreated,
         syncedRows: 0,
         spreadsheetId: spreadsheet.getId(),
         spreadsheetUrl: spreadsheet.getUrl()
@@ -1078,6 +1212,80 @@ var QuickEstimateWebApp = (() => {
       const result = syncConsultationRows(spreadsheet, consultationSheet.sheet);
       SpreadsheetApp.flush();
       return result;
+    });
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/apps-script-operations.ts
+  function checkQuickEstimateConsultationOperations(dependencies) {
+    var _a, _b, _c, _d, _e;
+    const now = dependencies.now();
+    if (!isKoreanConsultationBusinessHours(now)) {
+      return {
+        alertSent: false,
+        checked: false,
+        notificationFailures: (_b = (_a = dependencies.getNotificationFailure()) == null ? void 0 : _a.count) != null ? _b : 0,
+        recoveredRows: 0
+      };
+    }
+    const checkedAt = now.toISOString();
+    let recoveredRows = 0;
+    try {
+      recoveredRows = dependencies.syncConsultationRows().createdRows;
+    } catch {
+      dependencies.recordNotificationFailure({
+        code: "CONSULTATION_QUEUE_CHECK_FAILED",
+        occurredAt: checkedAt
+      });
+    }
+    const failure2 = dependencies.getNotificationFailure();
+    if (recoveredRows === 0 && failure2 === null) {
+      return {
+        alertSent: false,
+        checked: true,
+        notificationFailures: 0,
+        recoveredRows: 0
+      };
+    }
+    try {
+      dependencies.sendNotification(
+        buildConsultationOperationsAlert({
+          checkedAt,
+          recoveredRows,
+          notificationFailure: failure2
+        })
+      );
+      dependencies.clearNotificationFailure();
+      return {
+        alertSent: true,
+        checked: true,
+        notificationFailures: (_c = failure2 == null ? void 0 : failure2.count) != null ? _c : 0,
+        recoveredRows
+      };
+    } catch {
+      dependencies.recordNotificationFailure({
+        code: "CONSULTATION_OPERATIONS_ALERT_FAILED",
+        occurredAt: checkedAt
+      });
+      return {
+        alertSent: false,
+        checked: true,
+        notificationFailures: (_e = (_d = dependencies.getNotificationFailure()) == null ? void 0 : _d.count) != null ? _e : 0,
+        recoveredRows
+      };
+    }
+  }
+  function runQuickEstimateOperationsCheck() {
+    const notifier = createRuntimeConsultationNotifier();
+    return checkQuickEstimateConsultationOperations({
+      syncConsultationRows: syncQuickEstimateConsultationRows,
+      sendNotification: notifier.send,
+      getNotificationFailure: notifier.getFailure,
+      recordNotificationFailure: (failure2) => {
+        notifier.recordFailure(failure2);
+        console.error(JSON.stringify(failure2));
+      },
+      clearNotificationFailure: notifier.clearFailure,
+      now: () => /* @__PURE__ */ new Date()
     });
   }
 
@@ -1228,15 +1436,32 @@ var QuickEstimateWebApp = (() => {
       }
     }
   }
+  function sendConsultationNotificationSafely(message, occurredAt, dependencies) {
+    try {
+      dependencies.sendConsultationNotification(message);
+    } catch {
+      try {
+        dependencies.recordConsultationNotificationFailure({
+          code: "CONSULTATION_NOTIFICATION_FAILED",
+          occurredAt
+        });
+      } catch {
+      }
+    }
+  }
   function storeLeadSubmission(submission, dependencies) {
     try {
-      return dependencies.storage.withLock(() => {
+      const operation = dependencies.storage.withLock(() => {
         const existingLeadId = dependencies.storage.findLeadIdByRequestId(submission.requestId);
         if (existingLeadId !== null) {
           return {
-            ok: true,
-            leadId: existingLeadId,
-            duplicate: true
+            notification: null,
+            result: {
+              ok: true,
+              leadId: existingLeadId,
+              duplicate: true
+            },
+            submittedAt: null
           };
         }
         const leadId = dependencies.generateLeadId();
@@ -1245,11 +1470,23 @@ var QuickEstimateWebApp = (() => {
         dependencies.storage.appendLeadRow(row);
         syncConsultationRowSafely(row, leadId, submittedAt, dependencies);
         return {
-          ok: true,
-          leadId,
-          duplicate: false
+          notification: buildNewConsultationNotification(submittedAt),
+          result: {
+            ok: true,
+            leadId,
+            duplicate: false
+          },
+          submittedAt
         };
       });
+      if (operation.notification !== null && operation.submittedAt !== null) {
+        sendConsultationNotificationSafely(
+          operation.notification,
+          operation.submittedAt,
+          dependencies
+        );
+      }
+      return operation.result;
     } catch {
       return {
         ok: false,
@@ -1282,7 +1519,7 @@ var QuickEstimateWebApp = (() => {
   var MARKETING_KEYS = ["agreed", "channels", "consentVersion"];
   var ANTI_SPAM_KEYS = ["honeypot", "elapsedMs"];
   var CONTROL_CHARACTER_PATTERN = /[\u0000-\u001f\u007f-\u009f]/u;
-  var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
+  var EMAIL_PATTERN2 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
   var PHONE_SEPARATOR_PATTERN = /[\s().-]/gu;
   var UUID_V4_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu;
   var MARKETING_CHANNELS = /* @__PURE__ */ new Set(["EMAIL", "SMS"]);
@@ -1327,7 +1564,7 @@ var QuickEstimateWebApp = (() => {
   }
   function normalizeEmail(value) {
     const normalized = normalizeRequiredText(value, 254);
-    if (normalized === null || !EMAIL_PATTERN.test(normalized)) {
+    if (normalized === null || !EMAIL_PATTERN2.test(normalized)) {
       return null;
     }
     return normalized;
@@ -1484,12 +1721,20 @@ var QuickEstimateWebApp = (() => {
           port: createRuntimeSubmissionRateLimitPort(),
           now: () => /* @__PURE__ */ new Date()
         }),
-        storeSubmission: (submission) => storeLeadSubmission(submission, {
-          storage: createRuntimeLeadSheetStorage(),
-          generateLeadId: () => Utilities.getUuid(),
-          logConsultationProjectionFailure: (failure2) => console.error(JSON.stringify(failure2)),
-          now: () => /* @__PURE__ */ new Date()
-        }),
+        storeSubmission: (submission) => {
+          const notifier = createRuntimeConsultationNotifier();
+          return storeLeadSubmission(submission, {
+            storage: createRuntimeLeadSheetStorage(),
+            generateLeadId: () => Utilities.getUuid(),
+            logConsultationProjectionFailure: (failure2) => console.error(JSON.stringify(failure2)),
+            sendConsultationNotification: notifier.send,
+            recordConsultationNotificationFailure: (failure2) => {
+              notifier.recordFailure(failure2);
+              console.error(JSON.stringify(failure2));
+            },
+            now: () => /* @__PURE__ */ new Date()
+          });
+        },
         logFailure: (failure2) => console.error(JSON.stringify(failure2)),
         now: () => /* @__PURE__ */ new Date()
       });
@@ -1518,4 +1763,7 @@ function syncQuickEstimateConsultationRows() {
 }
 function onEditQuickEstimateConsultation(e) {
   return QuickEstimateWebApp.onEditQuickEstimateConsultation(e);
+}
+function runQuickEstimateOperationsCheck() {
+  return QuickEstimateWebApp.runQuickEstimateOperationsCheck();
 }

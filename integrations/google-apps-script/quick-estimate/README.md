@@ -2,7 +2,7 @@
 
 ## 범위
 
-이 integration은 정적 랜딩과 분리된 Google Apps Script 실행 경계다. form encoded `payload`를 검증하고 기존 간단 견적 규칙으로 금액을 재계산한 뒤, 승인된 24개 컬럼의 `leads` Sheet에 한 행을 저장한다.
+이 integration은 정적 랜딩과 분리된 Google Apps Script 실행 경계다. form encoded `payload`를 검증하고 기존 간단 견적 규칙으로 금액을 재계산한 뒤, 승인된 24개 컬럼의 `leads` Sheet에 한 행을 저장한다. 저장된 원본은 `lead_id` 기준으로 한글 `상담 목록`에 투영한다.
 
 포함 범위는 다음과 같다.
 
@@ -13,6 +13,7 @@
 - 개인정보 원문을 제외한 실패 로그
 - honeypot·제출 소요 시간 재검증
 - 분·일·연락처 해시 기반 제출 제한과 `RATE_LIMITED` 응답
+- 원본과 분리된 한글 상담 목록 생성과 누락 행 재동기화
 
 React 화면과 브라우저 transport는 `src/features/quick-estimate`가 소유한다. 계정·배포·실저장 E2E와 장애 대응은 [운영 runbook](../../../docs/operations/quick-estimate-runbook.md)을 따른다.
 
@@ -53,10 +54,13 @@ npm run check:apps-script
 4. 저장소의 생성된 `Code.gs` 내용으로 편집기의 스크립트 파일을 교체한다.
 5. 함수 목록에서 `setupQuickEstimateStorage`를 선택해 한 번 실행하고 Sheet 권한을 승인한다.
 6. 반환값의 `created`가 `true`인지 확인하고, 반환된 URL로 Sheet를 연다. 반환된 ID와 URL은 저장소나 PR에 남기지 않는다.
-7. Sheet가 `leads`, `codebook` 두 탭을 가지는지 확인한다.
-8. `leads` 첫 행이 24개 고정 header인지, 23번째 `lead_status` 열에 네 상태의 validation이 설정됐는지 확인한다.
+7. Sheet가 첫 번째 `상담 목록`, `leads`, `codebook` 세 탭을 가지는지 확인한다.
+8. `상담 목록` 첫 행이 16개 한글 header인지, 마지막 `상담 신청 번호` 열이 숨겨졌는지 확인한다.
+9. `leads` 첫 행이 24개 고정 header인지, 23번째 `lead_status` 열에 네 상태의 validation이 설정됐는지 확인한다.
 
-같은 project에서 설정 함수를 다시 실행하면 Script Property에 보관된 기존 Sheet를 반환하며 새 Sheet를 만들지 않는다.
+같은 project에서 설정 함수를 다시 실행하면 Script Property에 보관된 기존 Spreadsheet를 사용한다. `상담 목록`이 없으면 새 탭을 만들고 기존 `leads` 중 빠진 행만 반영하며, 같은 `lead_id`의 행을 중복 생성하지 않는다. 반환값의 `consultationSheetCreated`, `syncedRows`로 생성·반영 건수를 확인할 수 있다.
+
+이후 누락 행만 다시 확인할 때는 `syncQuickEstimateConsultationRows`를 실행한다. 이 함수는 원본 행을 수정하거나 상담 목록의 기존 업무값을 덮어쓰지 않으며 `createdRows`, `existingRows`, `skippedRows` 건수만 반환한다.
 
 ## 테스트 배포
 
@@ -75,13 +79,15 @@ fake 데이터로만 아래를 확인한다.
 - 같은 `requestId` 재전송: 같은 `leadId`, `duplicate: true`, 행 수 유지
 - 변조 금액 또는 필수 동의 누락: 실패 코드 반환, 행 수 유지
 - `=`, `+`, `-`, `@`로 시작하는 fake 회사명: 수식이 아니라 일반 텍스트로 저장
+- 같은 `leadId` 재동기화: 상담 목록 행 수 유지
+- 상담 목록 쓰기 실패: 원본 `leads` 저장 성공 응답 유지
 
 ## 운영 계약
 
 - 예상 제출량: 일 100건, 분당 10건
 - 허용 상태: `NEW`, `CONTACTING`, `COMPLETED`, `CLOSED`
 - 원본 제출 컬럼: 담당자 수정 금지
-- 담당자 수정 컬럼: `lead_status`, `handled_at`
+- 상담 목록 상태 자동화가 배포되기 전까지 담당자 수정 금지
 - 개인정보 보유: 접수일로부터 1년, 철회 또는 목적 달성 시 조기 파기
 - 파기 대상 확인: 월 1회
 - 파기 사유 확인 후 내부 처리 상한: 영업일 5일

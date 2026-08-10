@@ -7,6 +7,16 @@ import {
   type LeadSheetRow,
 } from "./sheet-schema";
 import {
+  configureConsultationSheetAutomation,
+  ensureConsultationEditTrigger,
+} from "./apps-script-consultation-edit";
+import {
+  CONSULTATION_SHEET_NAME,
+  LEADS_SHEET_NAME,
+  LOCK_TIMEOUT_MILLISECONDS,
+  SPREADSHEET_ID_PROPERTY,
+} from "./apps-script-config";
+import {
   syncConsultationSheetRows,
   type ConsultationSheetPort,
   type ConsultationSheetSyncResult,
@@ -14,11 +24,7 @@ import {
 import { CONSULTATION_SHEET_HEADERS } from "./consultation-sheet-schema";
 import type { LeadSheetStoragePort } from "./storage-service";
 
-const SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
-const LEADS_SHEET_NAME = "leads";
 const CODEBOOK_SHEET_NAME = "codebook";
-const CONSULTATION_SHEET_NAME = "상담 목록";
-const LOCK_TIMEOUT_MILLISECONDS = 5_000;
 const PHONE_COLUMN_NUMBER = 13;
 const CONSULTATION_PHONE_COLUMN_NUMBER = 6;
 const CONSULTATION_EMPLOYEE_COLUMN_NUMBER = 9;
@@ -246,6 +252,7 @@ function ensureConsultationSheet(spreadsheet: GoogleAppsScript.Spreadsheet.Sprea
 
   spreadsheet.setActiveSheet(sheet);
   spreadsheet.moveActiveSheet(1);
+  configureConsultationSheetAutomation(sheet);
 
   return { created, sheet };
 }
@@ -328,6 +335,7 @@ function initializeSpreadsheet(spreadsheet: GoogleAppsScript.Spreadsheet.Spreads
 export function setupQuickEstimateStorage(): {
   created: boolean;
   consultationSheetCreated: boolean;
+  consultationEditTriggerCreated: boolean;
   syncedRows: number;
   spreadsheetId: string;
   spreadsheetUrl: string;
@@ -340,12 +348,14 @@ export function setupQuickEstimateStorage(): {
       const existingSpreadsheet = SpreadsheetApp.openById(existingSpreadsheetId);
       const consultationSheet = ensureConsultationSheet(existingSpreadsheet);
       const syncResult = syncConsultationRows(existingSpreadsheet, consultationSheet.sheet);
+      const consultationEditTriggerCreated = ensureConsultationEditTrigger(existingSpreadsheet);
 
       SpreadsheetApp.flush();
 
       return {
         created: false,
         consultationSheetCreated: consultationSheet.created,
+        consultationEditTriggerCreated,
         syncedRows: syncResult.createdRows,
         spreadsheetId: existingSpreadsheet.getId(),
         spreadsheetUrl: existingSpreadsheet.getUrl(),
@@ -356,10 +366,12 @@ export function setupQuickEstimateStorage(): {
 
     initializeSpreadsheet(spreadsheet);
     properties.setProperty(SPREADSHEET_ID_PROPERTY, spreadsheet.getId());
+    const consultationEditTriggerCreated = ensureConsultationEditTrigger(spreadsheet);
 
     return {
       created: true,
       consultationSheetCreated: true,
+      consultationEditTriggerCreated,
       syncedRows: 0,
       spreadsheetId: spreadsheet.getId(),
       spreadsheetUrl: spreadsheet.getUrl(),

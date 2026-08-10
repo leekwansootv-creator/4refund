@@ -23,6 +23,7 @@ var QuickEstimateWebApp = (() => {
   var entrypoint_exports = {};
   __export(entrypoint_exports, {
     doPost: () => doPost,
+    onEditQuickEstimateConsultation: () => onEditQuickEstimateConsultation,
     setupQuickEstimateStorage: () => setupQuickEstimateStorage,
     syncQuickEstimateConsultationRows: () => syncQuickEstimateConsultationRows
   });
@@ -263,12 +264,31 @@ var QuickEstimateWebApp = (() => {
     "상담 신청 번호"
   ];
   var INITIAL_CONSULTATION_RESULT = "미입력";
-  var STATUS_LABELS = {
+  var CONSULTATION_COLUMN_NUMBERS = {
+    status: 1,
+    assignee: 2,
+    firstContactAt: 11,
+    nextContactAt: 12,
+    result: 13,
+    leadId: 16
+  };
+  var CONSULTATION_STATUS_LABELS = {
     NEW: "신규 신청",
     CONTACTING: "연락 중",
     COMPLETED: "상담 완료",
     CLOSED: "종결"
   };
+  var CONSULTATION_STATUS_OPTIONS = Object.values(CONSULTATION_STATUS_LABELS);
+  var CONSULTATION_RESULT_OPTIONS = [
+    INITIAL_CONSULTATION_RESULT,
+    "연결됨",
+    "부재",
+    "다시 연락 요청",
+    "상담 거절",
+    "연락처 오류",
+    "중복 신청",
+    "상담 완료"
+  ];
   var INDUSTRY_LABELS = new Map(
     ESTIMATE_RULE_SET.industries.map((industry) => [industry.code, industry.label])
   );
@@ -283,7 +303,7 @@ var QuickEstimateWebApp = (() => {
     const number = typeof value === "number" ? value : Number(value);
     return Number.isFinite(number) ? number : "확인 필요";
   }
-  function toKoreanDateTime(value) {
+  function formatKoreanDateTime(value) {
     const text = toText(value);
     if (text === "") {
       return "";
@@ -351,9 +371,9 @@ var QuickEstimateWebApp = (() => {
     const industryCode = toText(getLeadSheetCell(row, "industry_code"));
     const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
     const consultationRow = [
-      (_a = STATUS_LABELS[status]) != null ? _a : "확인 필요",
+      (_a = CONSULTATION_STATUS_LABELS[status]) != null ? _a : "확인 필요",
       "",
-      toKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
+      formatKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
       toText(getLeadSheetCell(row, "company_name")),
       toText(getLeadSheetCell(row, "contact_name")),
       toKoreanPhoneNumber(getLeadSheetCell(row, "phone")),
@@ -361,7 +381,7 @@ var QuickEstimateWebApp = (() => {
       (_b = INDUSTRY_LABELS.get(industryCode)) != null ? _b : "확인 필요",
       toDisplayNumber(getLeadSheetCell(row, "employee_count")),
       toDisplayNumber(getLeadSheetCell(row, "estimate_amount_krw")),
-      toKoreanDateTime(getLeadSheetCell(row, "handled_at")),
+      formatKoreanDateTime(getLeadSheetCell(row, "handled_at")),
       "",
       INITIAL_CONSULTATION_RESULT,
       toMarketingAgreement(marketingAgreement),
@@ -372,6 +392,410 @@ var QuickEstimateWebApp = (() => {
       throw new Error("consultation_sheet_schema_mismatch");
     }
     return consultationRow;
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/consultation-status-policy.ts
+  var STATUS_CODES_BY_LABEL = new Map(
+    LEAD_STATUSES.map((status) => [CONSULTATION_STATUS_LABELS[status], status])
+  );
+  var NEW_TO_CLOSED_RESULTS = /* @__PURE__ */ new Set(["연락처 오류", "중복 신청"]);
+  var CONTACTING_TO_CLOSED_RESULTS = /* @__PURE__ */ new Set([
+    "상담 거절",
+    "연락처 오류",
+    "중복 신청"
+  ]);
+  var ASSIGNEE_PATTERN = /^[가-힣A-Za-z][가-힣A-Za-z\s·-]{0,29}$/u;
+  function getStatusCode(value) {
+    var _a;
+    return (_a = STATUS_CODES_BY_LABEL.get(value)) != null ? _a : null;
+  }
+  function isConsultationResult(value) {
+    return CONSULTATION_RESULT_OPTIONS.some((option) => option === value);
+  }
+  function validateConsultationStatusTransition(input) {
+    const previousCode = getStatusCode(input.previousStatus);
+    const nextCode = getStatusCode(input.nextStatus);
+    if (previousCode === null || nextCode === null) {
+      return {
+        ok: false,
+        code: "INVALID_STATUS",
+        message: "상담 상태는 지정된 한글 선택값만 사용할 수 있습니다."
+      };
+    }
+    if (previousCode === nextCode) {
+      return { ok: true, value: nextCode };
+    }
+    if (previousCode === "NEW" && nextCode === "CONTACTING") {
+      return { ok: true, value: nextCode };
+    }
+    if (previousCode === "NEW" && nextCode === "CLOSED") {
+      if (!isConsultationResult(input.result) || !NEW_TO_CLOSED_RESULTS.has(input.result)) {
+        return {
+          ok: false,
+          code: "RESULT_REQUIRED",
+          message: "신규 신청을 종결하려면 연락처 오류 또는 중복 신청을 선택해 주세요."
+        };
+      }
+      return { ok: true, value: nextCode };
+    }
+    if (previousCode === "CONTACTING" && nextCode === "COMPLETED") {
+      if (input.result !== "상담 완료") {
+        return {
+          ok: false,
+          code: "RESULT_REQUIRED",
+          message: "상담을 완료하려면 상담 결과에서 상담 완료를 선택해 주세요."
+        };
+      }
+      return { ok: true, value: nextCode };
+    }
+    if (previousCode === "CONTACTING" && nextCode === "CLOSED") {
+      if (!isConsultationResult(input.result) || !CONTACTING_TO_CLOSED_RESULTS.has(input.result)) {
+        return {
+          ok: false,
+          code: "RESULT_REQUIRED",
+          message: "연락 중 상담을 종결하려면 상담 거절, 연락처 오류 또는 중복 신청을 선택해 주세요."
+        };
+      }
+      return { ok: true, value: nextCode };
+    }
+    if ((previousCode === "COMPLETED" || previousCode === "CLOSED") && nextCode === "CONTACTING") {
+      if (!input.editorIsOwner) {
+        return {
+          ok: false,
+          code: "OWNER_REQUIRED",
+          message: "완료하거나 종결한 상담의 재개는 Sheet 소유자만 할 수 있습니다."
+        };
+      }
+      return { ok: true, value: nextCode };
+    }
+    return {
+      ok: false,
+      code: "INVALID_TRANSITION",
+      message: "현재 상태에서 선택한 상태로 변경할 수 없습니다."
+    };
+  }
+  function validateConsultationResult(value, currentStatus) {
+    if (!isConsultationResult(value)) {
+      return {
+        ok: false,
+        code: "INVALID_RESULT",
+        message: "상담 결과는 지정된 한글 선택값만 사용할 수 있습니다."
+      };
+    }
+    if (currentStatus === CONSULTATION_STATUS_LABELS.COMPLETED && value !== "상담 완료") {
+      return {
+        ok: false,
+        code: "RESULT_REQUIRED",
+        message: "상담 완료 상태에서는 상담 결과도 상담 완료여야 합니다."
+      };
+    }
+    if (currentStatus === CONSULTATION_STATUS_LABELS.CLOSED && !CONTACTING_TO_CLOSED_RESULTS.has(value)) {
+      return {
+        ok: false,
+        code: "RESULT_REQUIRED",
+        message: "종결 상태에서는 종결 사유에 맞는 상담 결과를 선택해 주세요."
+      };
+    }
+    return { ok: true, value };
+  }
+  function validateConsultationAssignee(value) {
+    const normalized = value.trim().replace(/\s+/gu, " ");
+    if (normalized === "") {
+      return { ok: true, value: "" };
+    }
+    if (!ASSIGNEE_PATTERN.test(normalized)) {
+      return {
+        ok: false,
+        code: "INVALID_ASSIGNEE",
+        message: "상담 담당자는 30자 이내의 이름만 입력해 주세요."
+      };
+    }
+    return { ok: true, value: normalized };
+  }
+  function validateNextContactAt(value) {
+    if (value === "" || value === null) {
+      return { ok: true, value: "" };
+    }
+    if (value instanceof Date && Number.isFinite(value.getTime())) {
+      return { ok: true, value };
+    }
+    return {
+      ok: false,
+      code: "INVALID_NEXT_CONTACT_AT",
+      message: "다음 연락 예정일은 올바른 날짜와 시각으로 입력해 주세요."
+    };
+  }
+  function getConsultationStatusCode(value) {
+    return getStatusCode(value);
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/consultation-edit-service.ts
+  var STATUS_INDEX = CONSULTATION_COLUMN_NUMBERS.status - 1;
+  var RESULT_INDEX = CONSULTATION_COLUMN_NUMBERS.result - 1;
+  var LEAD_ID_INDEX = CONSULTATION_COLUMN_NUMBERS.leadId - 1;
+  function rejectAndRestore(input, dependencies, failure2) {
+    dependencies.setEditedValue(input.previousDisplayValue);
+    dependencies.setEditedCellNote(failure2.message);
+    return {
+      handled: true,
+      ok: false,
+      code: failure2.code
+    };
+  }
+  function markLeadSyncPending(dependencies, code, reason) {
+    dependencies.setEditedCellNote(`원본 반영 대기: ${reason}`);
+    return { handled: true, ok: false, code };
+  }
+  function handleStatusEdit(input, dependencies) {
+    var _a, _b;
+    const result = String((_a = input.rowValues[RESULT_INDEX]) != null ? _a : "");
+    const transition = validateConsultationStatusTransition({
+      previousStatus: input.previousDisplayValue,
+      nextStatus: input.currentDisplayValue,
+      result,
+      editorIsOwner: input.editorIsOwner
+    });
+    if (!transition.ok) {
+      return rejectAndRestore(input, dependencies, transition);
+    }
+    const leadId = String((_b = input.rowValues[LEAD_ID_INDEX]) != null ? _b : "").trim();
+    if (leadId === "") {
+      return rejectAndRestore(input, dependencies, {
+        code: "MISSING_LEAD_ID",
+        message: "상담 신청 번호가 없어 상태를 변경할 수 없습니다."
+      });
+    }
+    try {
+      const lead = dependencies.findLeadById(leadId);
+      if (lead === null) {
+        return markLeadSyncPending(
+          dependencies,
+          "LEAD_NOT_FOUND",
+          "일치하는 원본 상담 신청을 찾지 못했습니다."
+        );
+      }
+      const previousStatusCode = getConsultationStatusCode(input.previousDisplayValue);
+      if (lead.statusCode !== previousStatusCode && lead.statusCode !== transition.value) {
+        return markLeadSyncPending(
+          dependencies,
+          "LEAD_STATUS_MISMATCH",
+          "원본 상담 상태가 현재 화면과 다릅니다."
+        );
+      }
+      const shouldSetFirstContact = transition.value === "CONTACTING" && lead.handledAt === "";
+      const handledAt = shouldSetFirstContact ? dependencies.now().toISOString() : lead.handledAt;
+      dependencies.updateLeadStatus(lead.rowNumber, transition.value, handledAt);
+      if (shouldSetFirstContact) {
+        dependencies.setFirstContactAt(formatKoreanDateTime(handledAt));
+      }
+      dependencies.setEditedCellNote(null);
+      return { handled: true, ok: true };
+    } catch {
+      return markLeadSyncPending(
+        dependencies,
+        "LEAD_SYNC_FAILED",
+        "원본 저장 중 오류가 발생했습니다. 소유자에게 알려 주세요."
+      );
+    }
+  }
+  function handleConsultationCellEdit(input, dependencies) {
+    var _a;
+    if (input.columnNumber === CONSULTATION_COLUMN_NUMBERS.status) {
+      return handleStatusEdit(input, dependencies);
+    }
+    if (input.columnNumber === CONSULTATION_COLUMN_NUMBERS.assignee) {
+      const validation = validateConsultationAssignee(input.currentDisplayValue);
+      if (!validation.ok) {
+        return rejectAndRestore(input, dependencies, validation);
+      }
+      dependencies.setEditedValue(validation.value);
+      dependencies.setEditedCellNote(null);
+      return { handled: true, ok: true };
+    }
+    if (input.columnNumber === CONSULTATION_COLUMN_NUMBERS.nextContactAt) {
+      const validation = validateNextContactAt(input.currentValue);
+      if (!validation.ok) {
+        return rejectAndRestore(input, dependencies, validation);
+      }
+      dependencies.setEditedCellNote(null);
+      return { handled: true, ok: true };
+    }
+    if (input.columnNumber === CONSULTATION_COLUMN_NUMBERS.result) {
+      const validation = validateConsultationResult(
+        input.currentDisplayValue,
+        String((_a = input.rowValues[STATUS_INDEX]) != null ? _a : "")
+      );
+      if (!validation.ok) {
+        return rejectAndRestore(input, dependencies, validation);
+      }
+      dependencies.setEditedCellNote(null);
+      return { handled: true, ok: true };
+    }
+    return { handled: false, ok: true };
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/apps-script-config.ts
+  var SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
+  var LEADS_SHEET_NAME = "leads";
+  var CONSULTATION_SHEET_NAME = "상담 목록";
+  var LOCK_TIMEOUT_MILLISECONDS = 5e3;
+
+  // integrations/google-apps-script/quick-estimate/src/apps-script-consultation-edit.ts
+  var EDIT_HANDLER_FUNCTION_NAME = "onEditQuickEstimateConsultation";
+  var LEAD_STATUS_COLUMN_NUMBER = 23;
+  var LEAD_STATUS_COLUMN_COUNT = 2;
+  var KOREAN_SPREADSHEET_LOCALE = "ko_KR";
+  var KOREAN_TIME_ZONE = "Asia/Seoul";
+  var NEXT_CONTACT_AT_NUMBER_FORMAT = "yyyy. mm. dd. am/pm h:mm";
+  function createStatusValidation() {
+    return SpreadsheetApp.newDataValidation().requireValueInList(Array.from(CONSULTATION_STATUS_OPTIONS), true).setAllowInvalid(false).setHelpText("상담 상태는 목록에서 선택해 주세요.").build();
+  }
+  function createAssigneeValidation() {
+    return SpreadsheetApp.newDataValidation().requireFormulaSatisfied(
+      '=OR(B2="",AND(LEN(TRIM(B2))<=30,REGEXMATCH(TRIM(B2),"^[가-힣A-Za-z][가-힣A-Za-z\\s·-]{0,29}$")))'
+    ).setAllowInvalid(false).setHelpText("상담 담당자는 30자 이내의 이름으로 입력해 주세요.").build();
+  }
+  function createNextContactAtValidation() {
+    return SpreadsheetApp.newDataValidation().requireDate().setAllowInvalid(false).setHelpText("다음 연락 예정일은 날짜와 시각으로 입력해 주세요.").build();
+  }
+  function createResultValidation() {
+    return SpreadsheetApp.newDataValidation().requireValueInList(Array.from(CONSULTATION_RESULT_OPTIONS), true).setAllowInvalid(false).setHelpText("상담 결과는 목록에서 선택해 주세요.").build();
+  }
+  function createStatusConditionalFormatRules(range) {
+    return [
+      { label: "신규 신청", background: "#FFF3CD", font: "#664D03" },
+      { label: "연락 중", background: "#DDEBFF", font: "#174EA6" },
+      { label: "상담 완료", background: "#DDF4E4", font: "#146C43" },
+      { label: "종결", background: "#E5E7EB", font: "#374151" }
+    ].map(
+      ({ label, background, font }) => SpreadsheetApp.newConditionalFormatRule().whenTextEqualTo(label).setBackground(background).setFontColor(font).setRanges([range]).build()
+    );
+  }
+  function configureConsultationSheetAutomation(sheet) {
+    const dataRowCount = sheet.getMaxRows() - 1;
+    sheet.getParent().setSpreadsheetLocale(KOREAN_SPREADSHEET_LOCALE);
+    sheet.getParent().setSpreadsheetTimeZone(KOREAN_TIME_ZONE);
+    if (dataRowCount <= 0) {
+      return;
+    }
+    const statusRange = sheet.getRange(2, CONSULTATION_COLUMN_NUMBERS.status, dataRowCount, 1);
+    statusRange.setDataValidation(createStatusValidation());
+    sheet.getRange(2, CONSULTATION_COLUMN_NUMBERS.assignee, dataRowCount, 1).setDataValidation(createAssigneeValidation());
+    sheet.getRange(2, CONSULTATION_COLUMN_NUMBERS.nextContactAt, dataRowCount, 1).setDataValidation(createNextContactAtValidation()).setNumberFormat(NEXT_CONTACT_AT_NUMBER_FORMAT);
+    sheet.getRange(2, CONSULTATION_COLUMN_NUMBERS.result, dataRowCount, 1).setDataValidation(createResultValidation());
+    sheet.setConditionalFormatRules(createStatusConditionalFormatRules(statusRange));
+  }
+  function ensureConsultationEditTrigger(spreadsheet) {
+    const triggerExists = ScriptApp.getUserTriggers(spreadsheet).some(
+      (trigger) => trigger.getHandlerFunction() === EDIT_HANDLER_FUNCTION_NAME && trigger.getEventType() === ScriptApp.EventType.ON_EDIT
+    );
+    if (triggerExists) {
+      return false;
+    }
+    ScriptApp.newTrigger(EDIT_HANDLER_FUNCTION_NAME).forSpreadsheet(spreadsheet).onEdit().create();
+    return true;
+  }
+  function findLeadStatusRecord(spreadsheet, leadId) {
+    var _a, _b;
+    const leadsSheet = spreadsheet.getSheetByName(LEADS_SHEET_NAME);
+    if (leadsSheet === null || leadsSheet.getLastRow() <= 1) {
+      return null;
+    }
+    const leadIds = leadsSheet.getRange(2, 1, leadsSheet.getLastRow() - 1, 1).getDisplayValues();
+    const index = leadIds.findIndex((row) => row[0] === leadId);
+    if (index < 0) {
+      return null;
+    }
+    const rowNumber = index + 2;
+    const values = leadsSheet.getRange(rowNumber, LEAD_STATUS_COLUMN_NUMBER, 1, LEAD_STATUS_COLUMN_COUNT).getDisplayValues()[0];
+    return {
+      rowNumber,
+      statusCode: (_a = values == null ? void 0 : values[0]) != null ? _a : "",
+      handledAt: (_b = values == null ? void 0 : values[1]) != null ? _b : ""
+    };
+  }
+  function logFailureSafely(dependencies, event) {
+    try {
+      dependencies.logFailure(event);
+    } catch {
+    }
+  }
+  function handleAppsScriptConsultationEdit(event, dependencies) {
+    var _a, _b, _c, _d, _e, _f, _g;
+    if (event === void 0) {
+      return;
+    }
+    const range = event.range;
+    const sheet = range.getSheet();
+    const configuredSpreadsheetId = dependencies.getConfiguredSpreadsheetId();
+    if (configuredSpreadsheetId === null || event.source.getId() !== configuredSpreadsheetId || sheet.getName() !== CONSULTATION_SHEET_NAME || range.getRow() <= 1) {
+      return;
+    }
+    if (range.getNumRows() !== 1 || range.getNumColumns() !== 1) {
+      range.setNote("상담 업무값은 한 번에 한 셀씩 수정해 주세요.");
+      return;
+    }
+    const lock = dependencies.getScriptLock();
+    if (!lock.tryLock(LOCK_TIMEOUT_MILLISECONDS)) {
+      range.setNote("다른 작업이 진행 중입니다. 잠시 후 다시 수정해 주세요.");
+      return;
+    }
+    try {
+      const rowNumber = range.getRow();
+      const rowValues = (_a = sheet.getRange(rowNumber, 1, 1, CONSULTATION_COLUMN_NUMBERS.leadId).getDisplayValues()[0]) != null ? _a : [""];
+      const leadId = String((_b = rowValues[CONSULTATION_COLUMN_NUMBERS.leadId - 1]) != null ? _b : "").trim();
+      const ownerEmail = (_d = (_c = event.source.getOwner()) == null ? void 0 : _c.getEmail().toLowerCase()) != null ? _d : "";
+      const editorEmail = (_f = (_e = event.user) == null ? void 0 : _e.getEmail().toLowerCase()) != null ? _f : "";
+      const result = handleConsultationCellEdit(
+        {
+          columnNumber: range.getColumn(),
+          previousDisplayValue: (_g = event.oldValue) != null ? _g : "",
+          currentDisplayValue: range.getDisplayValue(),
+          currentValue: range.getValue(),
+          rowValues,
+          editorIsOwner: editorEmail !== "" && editorEmail === ownerEmail
+        },
+        {
+          findLeadById: (targetLeadId) => findLeadStatusRecord(event.source, targetLeadId),
+          updateLeadStatus: (targetRowNumber, statusCode, handledAt) => {
+            const leadsSheet = event.source.getSheetByName(LEADS_SHEET_NAME);
+            if (leadsSheet === null) {
+              throw new Error("leads_sheet_not_found");
+            }
+            leadsSheet.getRange(targetRowNumber, LEAD_STATUS_COLUMN_NUMBER, 1, LEAD_STATUS_COLUMN_COUNT).setValues([[statusCode, handledAt]]);
+          },
+          setFirstContactAt: (displayValue) => {
+            sheet.getRange(rowNumber, CONSULTATION_COLUMN_NUMBERS.firstContactAt, 1, 1).setValue(displayValue);
+          },
+          setEditedValue: (value) => range.setValue(value),
+          setEditedCellNote: (note) => range.setNote(note),
+          now: dependencies.now
+        }
+      );
+      if (!result.ok && result.code.startsWith("LEAD_")) {
+        logFailureSafely(dependencies, {
+          code: result.code,
+          occurredAt: dependencies.now().toISOString(),
+          ...leadId === "" ? {} : { leadId }
+        });
+      }
+    } catch {
+      range.setNote("상담 상태 처리 중 오류가 발생했습니다. 소유자에게 알려 주세요.");
+      logFailureSafely(dependencies, {
+        code: "CONSULTATION_EDIT_TRIGGER_FAILED",
+        occurredAt: dependencies.now().toISOString()
+      });
+    } finally {
+      lock.releaseLock();
+    }
+  }
+  function onEditQuickEstimateConsultation(event) {
+    handleAppsScriptConsultationEdit(event, {
+      getConfiguredSpreadsheetId: () => PropertiesService.getScriptProperties().getProperty(SPREADSHEET_ID_PROPERTY),
+      getScriptLock: () => LockService.getScriptLock(),
+      logFailure: (failure2) => console.error(JSON.stringify(failure2)),
+      now: () => /* @__PURE__ */ new Date()
+    });
   }
 
   // integrations/google-apps-script/quick-estimate/src/consultation-sheet-projection.ts
@@ -419,11 +843,7 @@ var QuickEstimateWebApp = (() => {
   }
 
   // integrations/google-apps-script/quick-estimate/src/apps-script-storage.ts
-  var SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
-  var LEADS_SHEET_NAME = "leads";
   var CODEBOOK_SHEET_NAME = "codebook";
-  var CONSULTATION_SHEET_NAME = "상담 목록";
-  var LOCK_TIMEOUT_MILLISECONDS = 5e3;
   var PHONE_COLUMN_NUMBER = 13;
   var CONSULTATION_PHONE_COLUMN_NUMBER = 6;
   var CONSULTATION_EMPLOYEE_COLUMN_NUMBER = 9;
@@ -572,6 +992,7 @@ var QuickEstimateWebApp = (() => {
     }
     spreadsheet.setActiveSheet(sheet);
     spreadsheet.moveActiveSheet(1);
+    configureConsultationSheetAutomation(sheet);
     return { created, sheet };
   }
   function getLeadRows(spreadsheet) {
@@ -625,10 +1046,12 @@ var QuickEstimateWebApp = (() => {
         const existingSpreadsheet = SpreadsheetApp.openById(existingSpreadsheetId);
         const consultationSheet = ensureConsultationSheet(existingSpreadsheet);
         const syncResult = syncConsultationRows(existingSpreadsheet, consultationSheet.sheet);
+        const consultationEditTriggerCreated2 = ensureConsultationEditTrigger(existingSpreadsheet);
         SpreadsheetApp.flush();
         return {
           created: false,
           consultationSheetCreated: consultationSheet.created,
+          consultationEditTriggerCreated: consultationEditTriggerCreated2,
           syncedRows: syncResult.createdRows,
           spreadsheetId: existingSpreadsheet.getId(),
           spreadsheetUrl: existingSpreadsheet.getUrl()
@@ -637,9 +1060,11 @@ var QuickEstimateWebApp = (() => {
       const spreadsheet = SpreadsheetApp.create("간단 견적 리드 저장소");
       initializeSpreadsheet(spreadsheet);
       properties.setProperty(SPREADSHEET_ID_PROPERTY, spreadsheet.getId());
+      const consultationEditTriggerCreated = ensureConsultationEditTrigger(spreadsheet);
       return {
         created: true,
         consultationSheetCreated: true,
+        consultationEditTriggerCreated,
         syncedRows: 0,
         spreadsheetId: spreadsheet.getId(),
         spreadsheetUrl: spreadsheet.getUrl()
@@ -1013,7 +1438,7 @@ var QuickEstimateWebApp = (() => {
   }
 
   // integrations/google-apps-script/quick-estimate/src/web-app.ts
-  function logFailureSafely(dependencies, event) {
+  function logFailureSafely2(dependencies, event) {
     try {
       dependencies.logFailure(event);
     } catch {
@@ -1022,7 +1447,7 @@ var QuickEstimateWebApp = (() => {
   function handleQuickEstimatePost(payload, dependencies) {
     const validation = parseAndValidateSubmissionPayload(payload);
     if (!validation.ok) {
-      logFailureSafely(dependencies, {
+      logFailureSafely2(dependencies, {
         code: validation.code,
         occurredAt: dependencies.now().toISOString()
       });
@@ -1030,7 +1455,7 @@ var QuickEstimateWebApp = (() => {
     }
     const rateLimit = dependencies.enforceRateLimit(validation.submission);
     if (!rateLimit.ok) {
-      logFailureSafely(dependencies, {
+      logFailureSafely2(dependencies, {
         code: rateLimit.code,
         occurredAt: dependencies.now().toISOString(),
         requestId: validation.submission.requestId
@@ -1039,7 +1464,7 @@ var QuickEstimateWebApp = (() => {
     }
     const result = dependencies.storeSubmission(validation.submission);
     if (!result.ok) {
-      logFailureSafely(dependencies, {
+      logFailureSafely2(dependencies, {
         code: result.code,
         occurredAt: dependencies.now().toISOString(),
         requestId: validation.submission.requestId
@@ -1090,4 +1515,7 @@ function setupQuickEstimateStorage() {
 }
 function syncQuickEstimateConsultationRows() {
   return QuickEstimateWebApp.syncQuickEstimateConsultationRows();
+}
+function onEditQuickEstimateConsultation(e) {
+  return QuickEstimateWebApp.onEditQuickEstimateConsultation(e);
 }

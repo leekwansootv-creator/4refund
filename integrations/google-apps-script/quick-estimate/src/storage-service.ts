@@ -8,12 +8,18 @@ export type LeadSheetStoragePort = {
   withLock: <Result>(operation: () => Result) => Result;
   findLeadIdByRequestId: (requestId: string) => string | null;
   appendLeadRow: (row: LeadSheetRow) => void;
+  syncConsultationRow: (row: LeadSheetRow) => void;
 };
 
 /** 서버 소유 값과 Sheet 저장 port를 주입하는 리드 저장 의존성입니다. */
 export type StoreLeadDependencies = {
   storage: LeadSheetStoragePort;
   generateLeadId: () => string;
+  logConsultationProjectionFailure: (event: {
+    code: "CONSULTATION_QUEUE_SYNC_FAILED";
+    leadId: string;
+    occurredAt: string;
+  }) => void;
   now: () => Date;
 };
 
@@ -76,6 +82,27 @@ export function buildLeadSheetRow(
   return row;
 }
 
+function syncConsultationRowSafely(
+  row: LeadSheetRow,
+  leadId: string,
+  submittedAt: string,
+  dependencies: StoreLeadDependencies,
+): void {
+  try {
+    dependencies.storage.syncConsultationRow(row);
+  } catch {
+    try {
+      dependencies.logConsultationProjectionFailure({
+        code: "CONSULTATION_QUEUE_SYNC_FAILED",
+        leadId,
+        occurredAt: submittedAt,
+      });
+    } catch {
+      // 파생 목록과 logger 장애가 원본 leads 저장 성공을 되돌리지 않게 격리합니다.
+    }
+  }
+}
+
 /** request_id 조회와 쓰기를 같은 잠금에서 실행해 제출 한 건을 한 행으로 저장합니다. */
 export function storeLeadSubmission(
   submission: QuickEstimateSubmissionPayload,
@@ -98,6 +125,7 @@ export function storeLeadSubmission(
       const row = buildLeadSheetRow(submission, leadId, submittedAt);
 
       dependencies.storage.appendLeadRow(row);
+      syncConsultationRowSafely(row, leadId, submittedAt, dependencies);
 
       return {
         ok: true,

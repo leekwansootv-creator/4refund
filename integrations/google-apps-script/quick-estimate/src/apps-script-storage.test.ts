@@ -24,6 +24,10 @@ function createDependencies(overrides: Partial<AppsScriptLeadSheetDependencies> 
       getLastRow: () => 1,
       getRange,
     }),
+    getConsultationSheet: () => ({
+      getLastRow: () => 1,
+      getRange,
+    }),
     ...overrides,
   };
 
@@ -100,5 +104,27 @@ describe("createAppsScriptLeadSheetStorage", () => {
     expect(setNumberFormat).toHaveBeenCalledWith("@");
     expect(getRange).toHaveBeenCalledWith(5, 1, 1, 24);
     expect(setValues).toHaveBeenCalledWith([row]);
+  });
+
+  it("신규 원본 행을 lead_id 기준 상담 목록 투영에 전달한다", () => {
+    const setValues = vi.fn();
+    const getRange = vi.fn(() => ({
+      getDisplayValues: () => [],
+      setValues,
+    }));
+    const { dependencies } = createDependencies({
+      getConsultationSheet: () => ({
+        getLastRow: () => 1,
+        getRange,
+      }),
+    });
+    const storage = createAppsScriptLeadSheetStorage(dependencies);
+    const row = LEAD_SHEET_HEADERS.map((header) => header) satisfies LeadSheetCell[];
+
+    storage.syncConsultationRow(row);
+
+    expect(getRange).toHaveBeenCalledWith(2, 1, 1, 16);
+    expect(setValues).toHaveBeenCalledOnce();
+    expect(setValues.mock.calls[0]?.[0][0]?.[15]).toBe("lead_id");
   });
 });

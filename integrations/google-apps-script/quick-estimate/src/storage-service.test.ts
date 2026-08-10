@@ -65,7 +65,17 @@ function createStorage(overrides: Partial<LeadSheetStoragePort> = {}): LeadSheet
     withLock: <Result>(operation: () => Result) => operation(),
     findLeadIdByRequestId: () => null,
     appendLeadRow: () => undefined,
+    syncConsultationRow: () => undefined,
     ...overrides,
+  };
+}
+
+function createStoreDependencies(storage: LeadSheetStoragePort) {
+  return {
+    storage,
+    generateLeadId: () => LEAD_ID,
+    logConsultationProjectionFailure: vi.fn(),
+    now: () => new Date(SUBMITTED_AT),
   };
 }
 
@@ -146,16 +156,16 @@ describe("storeLeadSubmission", () => {
         events.push("append");
         rows.push(row);
       },
+      syncConsultationRow: (row) => {
+        events.push("sync");
+        expect(row).toBe(rows[0]);
+      },
     });
 
-    const result = storeLeadSubmission(createSubmission(), {
-      storage,
-      generateLeadId: () => LEAD_ID,
-      now: () => new Date(SUBMITTED_AT),
-    });
+    const result = storeLeadSubmission(createSubmission(), createStoreDependencies(storage));
 
     expect(result).toEqual({ ok: true, leadId: LEAD_ID, duplicate: false });
-    expect(events).toEqual(["lock:start", "find", "append", "lock:end"]);
+    expect(events).toEqual(["lock:start", "find", "append", "sync", "lock:end"]);
     expect(rows).toHaveLength(1);
   });
 
@@ -167,11 +177,36 @@ describe("storeLeadSubmission", () => {
         appendLeadRow,
       }),
       generateLeadId: vi.fn(),
+      logConsultationProjectionFailure: vi.fn(),
       now: vi.fn(),
     });
 
     expect(result).toEqual({ ok: true, leadId: LEAD_ID, duplicate: true });
     expect(appendLeadRow).not.toHaveBeenCalled();
+  });
+
+  it("상담 목록 반영 실패에도 원본 저장 성공을 반환하고 식별 정보만 기록한다", () => {
+    const appendLeadRow = vi.fn();
+    const logConsultationProjectionFailure = vi.fn();
+    const result = storeLeadSubmission(createSubmission(), {
+      storage: createStorage({
+        appendLeadRow,
+        syncConsultationRow: () => {
+          throw new Error("consultation_sheet_unavailable");
+        },
+      }),
+      generateLeadId: () => LEAD_ID,
+      logConsultationProjectionFailure,
+      now: () => new Date(SUBMITTED_AT),
+    });
+
+    expect(appendLeadRow).toHaveBeenCalledOnce();
+    expect(result).toEqual({ ok: true, leadId: LEAD_ID, duplicate: false });
+    expect(logConsultationProjectionFailure).toHaveBeenCalledWith({
+      code: "CONSULTATION_QUEUE_SYNC_FAILED",
+      leadId: LEAD_ID,
+      occurredAt: SUBMITTED_AT,
+    });
   });
 
   it.each(["잠금 충돌", "quota 초과", "Sheet 쓰기 실패"])(
@@ -197,13 +232,10 @@ describe("storeLeadSubmission", () => {
               },
       );
 
-      expect(
-        storeLeadSubmission(createSubmission(), {
-          storage,
-          generateLeadId: () => LEAD_ID,
-          now: () => new Date(SUBMITTED_AT),
-        }),
-      ).toEqual({ ok: false, code: "STORAGE_UNAVAILABLE" });
+      expect(storeLeadSubmission(createSubmission(), createStoreDependencies(storage))).toEqual({
+        ok: false,
+        code: "STORAGE_UNAVAILABLE",
+      });
     },
   );
 });

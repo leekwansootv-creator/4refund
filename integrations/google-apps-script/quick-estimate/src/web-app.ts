@@ -3,6 +3,7 @@ import type {
   QuickEstimateSubmissionResponse,
 } from "@/features/quick-estimate";
 import { createRuntimeLeadSheetStorage } from "./apps-script-storage";
+import { createRuntimeConsultationNotifier } from "./apps-script-notification";
 import {
   createRuntimeSubmissionRateLimitPort,
   enforceSubmissionRateLimit,
@@ -97,13 +98,21 @@ export function doPost(
           port: createRuntimeSubmissionRateLimitPort(),
           now: () => new Date(),
         }),
-      storeSubmission: (submission) =>
-        storeLeadSubmission(submission, {
+      storeSubmission: (submission) => {
+        const notifier = createRuntimeConsultationNotifier();
+
+        return storeLeadSubmission(submission, {
           storage: createRuntimeLeadSheetStorage(),
           generateLeadId: () => Utilities.getUuid(),
           logConsultationProjectionFailure: (failure) => console.error(JSON.stringify(failure)),
+          sendConsultationNotification: notifier.send,
+          recordConsultationNotificationFailure: (failure) => {
+            notifier.recordFailure(failure);
+            console.error(JSON.stringify(failure));
+          },
           now: () => new Date(),
-        }),
+        });
+      },
       logFailure: (failure) => console.error(JSON.stringify(failure)),
       now: () => new Date(),
     });

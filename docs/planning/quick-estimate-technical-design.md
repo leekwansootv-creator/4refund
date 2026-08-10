@@ -2,7 +2,7 @@
 
 ## 문서 목적
 
-이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의하며, 전달된 화면은 [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md)에서 이 계약과 대조한다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다. Apps Script 전송 방식의 실제 관측 결과는 [전송 검증 문서](quick-estimate-apps-script-spike.md)를 기준으로 삼는다.
+이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의하며, 전달된 화면은 [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md)에서 이 계약과 대조한다. 사람용 상담 업무 화면은 [상담 목록 설계](quick-estimate-consultation-queue.md)를 따른다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다. Apps Script 전송 방식의 실제 관측 결과는 [전송 검증 문서](quick-estimate-apps-script-spike.md)를 기준으로 삼는다.
 
 현재 통합 브랜치에는 계산 core, Apps Script 저장·rate limit 처리, 브라우저 제출 계약, 단계형 UI와 루트 랜딩 조합이 구현되어 있다. 2026-08-07에 Apps Script version 3과 비공개 운영 Sheet로 실제 저장 E2E를 완료했으며, PR 8은 `integration/quick-estimate`에만 병합한다. 운영 공개는 별도 PR 9에서만 수행한다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리는 동의를 근거로 접수일로부터 1년간 보유하며, 마케팅은 이메일·문자 선택 동의로 분리하는 계약을 승인했다.
 
@@ -25,6 +25,7 @@
 | `QD-013` | 운영 Sheet는 이관수 계정만 접근하고 일 100건, 분당 10건 이하의 초기 제출량을 기준으로 운영한다.           | 채택 | 초기 규모에서 선형 중복 조회와 단일 잠금이 감당할 수 있는 명시적 검증 기준을 둔다.                              |
 | `QD-014` | 별도 route 없이 루트 랜딩의 기존 hero를 간단 견적 hero로 교체하고 같은 페이지에서 단계형 모달을 연다.     | 채택 | `sourcePath: "/"` 계약을 유지하고, 완성된 UI·저장 흐름과 hero 교체를 출시 PR에서 함께 공개한다.                 |
 | `QD-015` | 허니팟·3초 제출 시간과 분·일·연락처별 rate limit으로 공개 endpoint 남용을 제한한다.                       | 채택 | CAPTCHA 비밀값 없이 초기 운영량을 보호하고 제한 초과를 `RATE_LIMITED`로 명확히 구분한다.                        |
+| `QD-016` | 24개 영문 컬럼의 `leads`는 기술 원본으로 유지하고 상담 담당자는 별도의 한글 `상담 목록`을 사용한다.       | 채택 | 원본·동의 증빙과 사람의 상담 업무를 분리하고 내부 코드 해석과 원본 오수정 위험을 줄인다.                        |
 
 ## 시스템 경계
 
@@ -342,8 +343,8 @@ Apps Script `ContentService`에서는 도메인 실패도 HTTP `200`으로 반�
 
 ```text
 간단 견적 리드 저장소
-├── leads       # 제출 원본과 상담 상태
-└── codebook    # 컬럼 설명, 상태값, 동의 버전 기록
+├── leads       # 현재 구현: 제출 원본과 상담 상태
+└── codebook    # 현재 구현: 컬럼 설명, 상태값, 동의 버전 기록
 ```
 
 - `leads`의 첫 행은 고정 header이며 담당자가 변경하지 못하도록 보호한다.
@@ -352,6 +353,8 @@ Apps Script `ContentService`에서는 도메인 실패도 HTTP `200`으로 반�
 - 모든 시각은 UTC ISO 8601 문자열로 저장하고 Sheet 표시 형식에서 한국 시간으로 보여 줄 수 있다.
 - 초기 운영 접근자는 `QD-010` 소유 계정 한 명으로 제한하고 공개 링크 공유와 별도 export·backup을 금지한다.
 - 일 100건, 분당 10건을 초기 용량 계약으로 사용하며 이 범위를 넘기기 전에 중복 조회와 잠금 시간을 다시 측정한다.
+
+상담 담당자용 목표 구조는 [상담 목록 설계](quick-estimate-consultation-queue.md)에 정의한다. 후속 구현은 기존 두 탭과 24개 header를 바꾸지 않고 한글 `상담 목록` 탭을 추가한다. 구현이 완료되기 전에는 현재 Sheet에 사람용 상담 목록이 존재한다고 가정하지 않는다.
 
 ### leads 컬럼
 
@@ -492,7 +495,7 @@ Google Apps Script가 저장 성공과 실패를 정적 사이트의 브라우�
 - 장애 대응 담당자 이관수가 영업일마다 Apps Script 실행과 마지막 정상 접수를 확인하고, 인지한 장애 대응을 1영업일 안에 시작한다.
 - `RATE_LIMITED`, `STORAGE_UNAVAILABLE`과 Google 할당량 오류를 구분해 기록한다.
 - 신규 리드가 예상 기간 동안 한 건도 들어오지 않으면 제출 경로 장애 여부를 확인한다.
-- 운영 담당자는 `lead_status`만 수정하고 원본 제출 컬럼은 수정하지 않는다.
+- 현재 운영 담당자는 `lead_status`만 수정하고 원본 제출 컬럼은 수정하지 않는다. 한글 상담 목록 구현 후에는 원본을 직접 수정하지 않고 상담 목록을 통해 상태와 최초 연락 시각을 반영한다.
 - 마케팅 철회 요청이 오면 `marketing_agreed` 원본을 덮어쓰기보다 철회 상태를 기록할 별도 정책을 마련한다. 철회 요구가 실제로 발생하기 전까지 임의 컬럼을 추가하지 않는다.
 - 보유 기간 만료 대상은 이관수가 매월 확인하고 승인된 파기 절차로 처리한다.
 - 배포, 점검, 중단과 복구 절차는 [간단 견적 운영 runbook](../operations/quick-estimate-runbook.md)을 따른다.

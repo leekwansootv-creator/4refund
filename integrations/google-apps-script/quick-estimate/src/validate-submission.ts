@@ -1,6 +1,5 @@
 import {
   ESTIMATE_BENCHMARK_VERSION,
-  ESTIMATE_RULE_VERSION,
   MARKETING_CONSENT_VERSION,
   MAX_SUBMISSION_ELAPSED_MS,
   MIN_SUBMISSION_ELAPSED_MS,
@@ -169,10 +168,7 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
     return failure("INVALID_INPUT");
   }
 
-  if (
-    estimate.ruleVersion !== ESTIMATE_RULE_VERSION ||
-    estimate.benchmarkVersion !== ESTIMATE_BENCHMARK_VERSION
-  ) {
+  if (estimate.benchmarkVersion !== ESTIMATE_BENCHMARK_VERSION) {
     return failure("UNSUPPORTED_RULE");
   }
 
@@ -180,6 +176,7 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
     industryCode: typeof estimate.industryCode === "string" ? estimate.industryCode : "",
     employeeCount: typeof estimate.employeeCount === "number" ? estimate.employeeCount : NaN,
     randomUpliftBps: typeof estimate.randomUpliftBps === "number" ? estimate.randomUpliftBps : NaN,
+    ruleVersion: typeof estimate.ruleVersion === "string" ? estimate.ruleVersion : "",
   });
 
   if (calculated.status === "unsupported") {

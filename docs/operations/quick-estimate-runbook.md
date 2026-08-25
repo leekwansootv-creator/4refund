@@ -28,6 +28,7 @@
 - [ ] GitHub Actions secret `QUICK_ESTIMATE_APPS_SCRIPT_URL`에 같은 URL을 등록했다.
 - [ ] Sheet 공유가 제한됨이고 소유 계정 외 접근자가 없다.
 - [ ] `leads` 24개 header와 `codebook`, `lead_status` validation이 유지된다.
+- [ ] 업종 규칙 전환 시 Apps Script가 운영 브라우저 version과 차기 version을 모두 재계산한다.
 - [ ] `onEditQuickEstimateConsultation` 설치형 편집 트리거가 한 개만 존재한다.
 - [ ] Script Property `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`가 승인 계정으로 설정됐다.
 - [ ] `runQuickEstimateOperationsCheck` 시간 기반 트리거가 한 개만 존재한다.
@@ -35,6 +36,27 @@
 - [ ] 아래 실제 저장 E2E와 Sheet 대조가 끝났다.
 
 `NEXT_PUBLIC_` 값은 정적 JavaScript에 포함되므로 인증 비밀이 아니다. 다만 배포 URL을 저장소 이력과 PR에 남기지 않기 위해 로컬 env와 GitHub secret으로만 전달한다. `main` 배포 job은 URL이 없거나 Apps Script Web App 형식이 아니면 빌드를 시작하지 않는다.
+
+### 업종 규칙 v1/v2 선배포
+
+한국표준산업분류 대분류 21개 화면을 공개하기 전에 Apps Script가 기존 v1과 차기 v2를 모두 허용하는 version을 먼저 배포한다. endpoint는 저장소나 명령 기록에 직접 적지 않고 현재 PowerShell session의 환경 변수로만 주입한다.
+
+```powershell
+$env:QUICK_ESTIMATE_LIVE_E2E='1'
+$env:QUICK_ESTIMATE_APPS_SCRIPT_URL='<승인 계정의 운영 Web App URL>'
+npm run build
+npx playwright test e2e/quick-estimate-rule-compatibility-live.spec.ts
+```
+
+검증 항목:
+
+1. v1 `professional_services`와 v2 `N` payload가 각각 `ok: true`, `duplicate: false`로 끝난다.
+2. 두 행의 `industry_code`와 `estimate_rule_version`이 payload와 일치한다.
+3. 상담 목록에서 두 행 모두 `용역·파견·시설관리업`에 대응하는 한글 label로 표시된다.
+4. v1/v2의 표시금액, 난수와 benchmark version이 서버 재계산 결과와 일치한다.
+5. 알 수 없는 version과 version에 속하지 않는 업종은 `UNSUPPORTED_RULE`로 거절된다.
+
+두 version의 실제 저장과 상담 목록 표시가 확인되기 전에는 브라우저 활성 규칙을 v2로 바꾸지 않는다. 테스트 행도 아래 개인정보 파기 절차 밖에서 임의 삭제하지 않는다.
 
 ## 스팸·quota 정책
 

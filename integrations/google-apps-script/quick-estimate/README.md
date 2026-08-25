@@ -2,7 +2,7 @@
 
 ## 범위
 
-이 integration은 정적 랜딩과 분리된 Google Apps Script 실행 경계다. form encoded `payload`를 검증하고 기존 간단 견적 규칙으로 금액을 재계산한 뒤, 승인된 24개 컬럼의 `leads` Sheet에 한 행을 저장한다. 저장된 원본은 `lead_id` 기준으로 한글 `상담 목록`에 투영한다.
+이 integration은 정적 랜딩과 분리된 Google Apps Script 실행 경계다. form encoded `payload`를 검증하고 payload의 계산 규칙 version으로 금액을 재계산한 뒤, 승인된 24개 컬럼의 `leads` Sheet에 한 행을 저장한다. 저장된 원본은 `lead_id` 기준으로 한글 `상담 목록`에 투영한다.
 
 포함 범위는 다음과 같다.
 
@@ -11,6 +11,7 @@
 - spreadsheet formula injection 방어
 - 서버 기준 UTC ISO 시각과 초기 상태 `NEW`
 - 개인정보 원문을 제외한 실패 로그
+- v1 14개 업종과 v2 KSIC 대분류 21개 규칙의 명시적 version별 재계산
 - honeypot·제출 소요 시간 재검증
 - 분·일·연락처 해시 기반 제출 제한과 `RATE_LIMITED` 응답
 - 원본과 분리된 한글 상담 목록 생성과 누락 행 재동기화
@@ -19,6 +20,8 @@
 - 평일 업무 시간의 30분 누락 행·알림 실패 자동 점검
 
 React 화면과 브라우저 transport는 `src/features/quick-estimate`가 소유한다. 계정·배포·실저장 E2E와 장애 대응은 [운영 runbook](../../../docs/operations/quick-estimate-runbook.md)을 따른다.
+
+알 수 없는 `ruleVersion`이나 해당 version에 없는 업종 코드는 `UNSUPPORTED_RULE`로 거절한다. 공개 브라우저를 v2로 전환하기 전에 Apps Script가 v1과 v2를 모두 허용하는 version을 먼저 배포한다.
 
 ## 파일 책임
 

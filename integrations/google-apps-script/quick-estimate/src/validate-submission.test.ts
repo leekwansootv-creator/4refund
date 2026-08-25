@@ -1,6 +1,7 @@
 import {
   ESTIMATE_BENCHMARK_VERSION,
   ESTIMATE_RULE_VERSION,
+  ESTIMATE_RULE_V2_VERSION,
   MARKETING_CONSENT_VERSION,
   PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
@@ -60,6 +61,31 @@ function validate(payload: Record<string, unknown>) {
   return parseAndValidateSubmissionPayload(JSON.stringify(payload));
 }
 
+function createV2Payload(): Record<string, unknown> {
+  const payload = createValidPayload();
+  const estimate = calculateEstimate({
+    industryCode: "N",
+    employeeCount: 10,
+    randomUpliftBps: 200,
+    ruleVersion: ESTIMATE_RULE_V2_VERSION,
+  });
+
+  if (estimate.status !== "calculated") {
+    throw new Error("유효한 v2 테스트 견적을 생성하지 못했습니다.");
+  }
+
+  payload.estimate = {
+    industryCode: estimate.industryCode,
+    employeeCount: estimate.employeeCount,
+    amount: estimate.amount,
+    currency: estimate.currency,
+    randomUpliftBps: estimate.randomUpliftBps,
+    ruleVersion: estimate.ruleVersion,
+    benchmarkVersion: estimate.benchmarkVersion,
+  };
+  return payload;
+}
+
 describe("parseAndValidateSubmissionPayload", () => {
   it("허용된 payload를 정규화하고 계산 결과를 재현한다", () => {
     const result = validate(createValidPayload());
@@ -73,6 +99,18 @@ describe("parseAndValidateSubmissionPayload", () => {
           contactName: "테스트 담당자",
           email: "Test.Person@example.com",
           phone: "01000000000",
+        },
+      },
+    });
+  });
+
+  it("v1 공개 중에도 v2 payload를 version별 규칙으로 재계산한다", () => {
+    expect(validate(createV2Payload())).toMatchObject({
+      ok: true,
+      submission: {
+        estimate: {
+          industryCode: "N",
+          ruleVersion: ESTIMATE_RULE_V2_VERSION,
         },
       },
     });
@@ -128,12 +166,17 @@ describe("parseAndValidateSubmissionPayload", () => {
 
   it("지원하지 않는 업종과 규칙 version을 구분해 거절한다", () => {
     const industryPayload = createValidPayload();
+    const mismatchedVersionPayload = createValidPayload();
     const rulePayload = createValidPayload();
     const benchmarkPayload = createValidPayload();
 
     industryPayload.estimate = {
       ...(industryPayload.estimate as Record<string, unknown>),
       industryCode: "unknown",
+    };
+    mismatchedVersionPayload.estimate = {
+      ...(mismatchedVersionPayload.estimate as Record<string, unknown>),
+      ruleVersion: ESTIMATE_RULE_V2_VERSION,
     };
     rulePayload.estimate = {
       ...(rulePayload.estimate as Record<string, unknown>),
@@ -145,6 +188,7 @@ describe("parseAndValidateSubmissionPayload", () => {
     };
 
     expect(validate(industryPayload)).toEqual({ ok: false, code: "UNSUPPORTED_RULE" });
+    expect(validate(mismatchedVersionPayload)).toEqual({ ok: false, code: "UNSUPPORTED_RULE" });
     expect(validate(rulePayload)).toEqual({ ok: false, code: "UNSUPPORTED_RULE" });
     expect(validate(benchmarkPayload)).toEqual({ ok: false, code: "UNSUPPORTED_RULE" });
   });

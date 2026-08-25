@@ -1,4 +1,4 @@
-import { ESTIMATE_RULE_SET } from "@/features/quick-estimate";
+import { getEstimateIndustryRule } from "@/features/quick-estimate";
 
 import { LEAD_SHEET_HEADERS, LEAD_STATUSES, type LeadSheetRow } from "./sheet-schema";
 
@@ -68,10 +68,6 @@ export type ConsultationSheetCell = string | number;
 export type ConsultationSheetRow = readonly ConsultationSheetCell[];
 
 type LeadSheetHeader = (typeof LEAD_SHEET_HEADERS)[number];
-
-const INDUSTRY_LABELS = new Map<string, string>(
-  ESTIMATE_RULE_SET.industries.map((industry) => [industry.code, industry.label]),
-);
 
 function getLeadSheetCell(row: LeadSheetRow, header: LeadSheetHeader) {
   return row[LEAD_SHEET_HEADERS.indexOf(header)] ?? "";
@@ -178,6 +174,7 @@ function toMarketingChannels(agreement: LeadSheetRow[number], value: LeadSheetRo
 export function buildConsultationSheetRow(row: LeadSheetRow): ConsultationSheetRow {
   const status = toText(getLeadSheetCell(row, "lead_status"));
   const industryCode = toText(getLeadSheetCell(row, "industry_code"));
+  const estimateRuleVersion = toText(getLeadSheetCell(row, "estimate_rule_version"));
   const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
   const consultationRow: ConsultationSheetRow = [
     CONSULTATION_STATUS_LABELS[status as keyof typeof CONSULTATION_STATUS_LABELS] ?? "확인 필요",
@@ -187,7 +184,7 @@ export function buildConsultationSheetRow(row: LeadSheetRow): ConsultationSheetR
     toText(getLeadSheetCell(row, "contact_name")),
     toKoreanPhoneNumber(getLeadSheetCell(row, "phone")),
     toText(getLeadSheetCell(row, "email")),
-    INDUSTRY_LABELS.get(industryCode) ?? "확인 필요",
+    getEstimateIndustryRule(estimateRuleVersion, industryCode)?.label ?? "확인 필요",
     toDisplayNumber(getLeadSheetCell(row, "employee_count")),
     toDisplayNumber(getLeadSheetCell(row, "estimate_amount_krw")),
     formatKoreanDateTime(getLeadSheetCell(row, "handled_at")),

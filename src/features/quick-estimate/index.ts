@@ -1,9 +1,21 @@
 export {
   ESTIMATE_BENCHMARK_VERSION,
   ESTIMATE_RULE_SET,
+  ESTIMATE_RULE_SETS,
+  ESTIMATE_RULE_SET_V1,
+  ESTIMATE_RULE_SET_V2,
   ESTIMATE_RULE_VERSION,
+  ESTIMATE_RULE_V1_VERSION,
+  ESTIMATE_RULE_V2_VERSION,
+  getEstimateIndustryRule,
+  getEstimateRuleSet,
 } from "./constants/estimate-rule-set";
-export type { EstimateIndustryCode, EstimateIndustryRule } from "./constants/estimate-rule-set";
+export type {
+  EstimateIndustryCode,
+  EstimateIndustryRule,
+  EstimateRuleSet,
+  EstimateRuleVersion,
+} from "./constants/estimate-rule-set";
 export {
   MAX_SUBMISSION_ELAPSED_MS,
   MARKETING_CONSENT_VERSION,

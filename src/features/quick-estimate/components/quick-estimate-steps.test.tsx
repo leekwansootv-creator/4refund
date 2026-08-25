@@ -87,12 +87,44 @@ describe("QuickEstimateContactStep", () => {
 });
 
 describe("QuickEstimateEstimateStep", () => {
+  it("용역·파견·시설관리업을 첫 번째로 둔 KSIC 대분류 21개를 표시한다", () => {
+    render(<EstimateHarness onLookup={vi.fn()} />);
+
+    const options = screen.getAllByRole("option");
+
+    expect(options).toHaveLength(22);
+    expect(options.slice(1).map((option) => option.getAttribute("value"))).toEqual([
+      "N",
+      "T",
+      "F",
+      "O",
+      "B",
+      "P",
+      "U",
+      "K",
+      "A",
+      "G",
+      "Q",
+      "L",
+      "E",
+      "I",
+      "R",
+      "H",
+      "D",
+      "M",
+      "J",
+      "C",
+      "S",
+    ]);
+    expect(options[1]).toHaveTextContent("용역·파견·시설관리업");
+  });
+
   it("마케팅에 동의하지 않아도 계산 조건과 개인정보 동의만으로 조회를 허용한다", () => {
     const onLookup = vi.fn();
     render(<EstimateHarness onLookup={onLookup} />);
 
     const lookupButton = screen.getByRole("button", { name: "조회하기" });
-    fireEvent.change(screen.getByLabelText("업종"), { target: { value: "software_it" } });
+    fireEvent.change(screen.getByLabelText("업종"), { target: { value: "N" } });
     fireEvent.change(screen.getByLabelText("직원 수"), { target: { value: "25" } });
 
     expect(lookupButton).toBeDisabled();

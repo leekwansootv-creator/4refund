@@ -21,7 +21,7 @@
 
 React 화면과 브라우저 transport는 `src/features/quick-estimate`가 소유한다. 계정·배포·실저장 E2E와 장애 대응은 [운영 runbook](../../../docs/operations/quick-estimate-runbook.md)을 따른다.
 
-알 수 없는 `ruleVersion`이나 해당 version에 없는 업종 코드는 `UNSUPPORTED_RULE`로 거절한다. 공개 브라우저를 v2로 전환하기 전에 Apps Script가 v1과 v2를 모두 허용하는 version을 먼저 배포한다.
+알 수 없는 `ruleVersion`이나 해당 version에 없는 업종 코드는 `UNSUPPORTED_RULE`로 거절한다. 공개 브라우저는 v2를 사용하고 Apps Script는 이전 화면의 제출·재시도를 위해 v1과 v2를 모두 허용한다.
 
 ## 파일 책임
 

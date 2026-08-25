@@ -18,15 +18,16 @@ describe("ESTIMATE_RULE_SET", () => {
       employeeCount: { max: 6_000, min: 1 },
       maxDisplayAmount: 10_000_000_000,
       randomUpliftBps: { max: 300, min: 100 },
-      version: "estimate-rule-2026-08-05",
+      version: "estimate-rule-2026-08-25",
     });
   });
 
-  it("14개 업종의 내부 code와 label을 중복 없이 보유한다", () => {
+  it("공개 규칙에 21개 업종의 code와 label을 중복 없이 보유한다", () => {
     const codes = ESTIMATE_RULE_SET.industries.map(({ code }) => code);
     const labels = ESTIMATE_RULE_SET.industries.map(({ label }) => label);
 
-    expect(ESTIMATE_RULE_SET.industries).toHaveLength(14);
+    expect(ESTIMATE_RULE_SET).toBe(ESTIMATE_RULE_SET_V2);
+    expect(ESTIMATE_RULE_SET.industries).toHaveLength(21);
     expect(new Set(codes).size).toBe(codes.length);
     expect(new Set(labels).size).toBe(labels.length);
   });

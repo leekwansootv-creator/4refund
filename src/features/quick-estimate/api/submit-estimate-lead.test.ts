@@ -14,7 +14,7 @@ const LEAD_ID = "4d95c6c8-0217-44c7-9d84-e81842721767";
 
 function createPayload(): QuickEstimateSubmissionPayload {
   const estimate = calculateEstimate({
-    industryCode: "software_it",
+    industryCode: "J",
     employeeCount: 10,
     randomUpliftBps: 200,
   });

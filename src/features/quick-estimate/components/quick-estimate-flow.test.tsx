@@ -127,7 +127,7 @@ function moveToEstimate() {
 }
 
 function fillEstimate({ marketingAgreed = false }: { marketingAgreed?: boolean } = {}) {
-  fireEvent.change(screen.getByLabelText("업종"), { target: { value: "software_it" } });
+  fireEvent.change(screen.getByLabelText("업종"), { target: { value: "N" } });
   fireEvent.change(screen.getByLabelText("직원 수"), { target: { value: "25" } });
   fireEvent.click(screen.getByLabelText("개인정보 처리 동의 (필수)"));
 
@@ -170,6 +170,10 @@ describe("QuickEstimateFlow", () => {
 
     expect(payload).toMatchObject({
       requestId: REQUEST_IDS[0],
+      estimate: {
+        industryCode: "N",
+        ruleVersion: "estimate-rule-2026-08-25",
+      },
       lead: { phone: "01012345678" },
       privacy: { agreed: true },
       marketing: { agreed: false, channels: [] },

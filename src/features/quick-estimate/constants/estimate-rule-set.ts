@@ -5,7 +5,7 @@ export const ESTIMATE_RULE_V1_VERSION = "estimate-rule-2026-08-05";
 export const ESTIMATE_RULE_V2_VERSION = "estimate-rule-2026-08-25";
 
 /** 공개 브라우저가 현재 사용하는 계산 규칙 version입니다. */
-export const ESTIMATE_RULE_VERSION = ESTIMATE_RULE_V1_VERSION;
+export const ESTIMATE_RULE_VERSION = ESTIMATE_RULE_V2_VERSION;
 
 /** 외부 기준액을 마지막으로 확인한 snapshot 버전입니다. */
 export const ESTIMATE_BENCHMARK_VERSION = "incruit-2026-08-05";
@@ -297,7 +297,7 @@ export const ESTIMATE_RULE_SET_V2 = {
 export const ESTIMATE_RULE_SETS = [ESTIMATE_RULE_SET_V1, ESTIMATE_RULE_SET_V2] as const;
 
 /** 공개 브라우저가 현재 사용하는 간단 견적 규칙입니다. */
-export const ESTIMATE_RULE_SET = ESTIMATE_RULE_SET_V1;
+export const ESTIMATE_RULE_SET = ESTIMATE_RULE_SET_V2;
 
 /** v1 또는 v2에서 계산 가능한 4refund 업종 코드입니다. */
 export type EstimateIndustryCode =

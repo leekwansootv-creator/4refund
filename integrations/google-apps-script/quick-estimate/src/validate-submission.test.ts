@@ -1,7 +1,7 @@
 import {
   ESTIMATE_BENCHMARK_VERSION,
   ESTIMATE_RULE_VERSION,
-  ESTIMATE_RULE_V2_VERSION,
+  ESTIMATE_RULE_V1_VERSION,
   MARKETING_CONSENT_VERSION,
   PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
@@ -13,7 +13,7 @@ import { parseAndValidateSubmissionPayload } from "./validate-submission";
 
 function createValidPayload(): Record<string, unknown> {
   const estimate = calculateEstimate({
-    industryCode: "software_it",
+    industryCode: "N",
     employeeCount: 10,
     randomUpliftBps: 200,
   });
@@ -61,17 +61,17 @@ function validate(payload: Record<string, unknown>) {
   return parseAndValidateSubmissionPayload(JSON.stringify(payload));
 }
 
-function createV2Payload(): Record<string, unknown> {
+function createV1Payload(): Record<string, unknown> {
   const payload = createValidPayload();
   const estimate = calculateEstimate({
-    industryCode: "N",
+    industryCode: "professional_services",
     employeeCount: 10,
     randomUpliftBps: 200,
-    ruleVersion: ESTIMATE_RULE_V2_VERSION,
+    ruleVersion: ESTIMATE_RULE_V1_VERSION,
   });
 
   if (estimate.status !== "calculated") {
-    throw new Error("유효한 v2 테스트 견적을 생성하지 못했습니다.");
+    throw new Error("유효한 v1 테스트 견적을 생성하지 못했습니다.");
   }
 
   payload.estimate = {
@@ -104,13 +104,13 @@ describe("parseAndValidateSubmissionPayload", () => {
     });
   });
 
-  it("v1 공개 중에도 v2 payload를 version별 규칙으로 재계산한다", () => {
-    expect(validate(createV2Payload())).toMatchObject({
+  it("v2 공개 중에도 v1 payload를 version별 규칙으로 재계산한다", () => {
+    expect(validate(createV1Payload())).toMatchObject({
       ok: true,
       submission: {
         estimate: {
-          industryCode: "N",
-          ruleVersion: ESTIMATE_RULE_V2_VERSION,
+          industryCode: "professional_services",
+          ruleVersion: ESTIMATE_RULE_V1_VERSION,
         },
       },
     });
@@ -176,7 +176,7 @@ describe("parseAndValidateSubmissionPayload", () => {
     };
     mismatchedVersionPayload.estimate = {
       ...(mismatchedVersionPayload.estimate as Record<string, unknown>),
-      ruleVersion: ESTIMATE_RULE_V2_VERSION,
+      ruleVersion: ESTIMATE_RULE_V1_VERSION,
     };
     rulePayload.estimate = {
       ...(rulePayload.estimate as Record<string, unknown>),

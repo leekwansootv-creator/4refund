@@ -32,7 +32,7 @@ var QuickEstimateWebApp = (() => {
   // src/features/quick-estimate/constants/estimate-rule-set.ts
   var ESTIMATE_RULE_V1_VERSION = "estimate-rule-2026-08-05";
   var ESTIMATE_RULE_V2_VERSION = "estimate-rule-2026-08-25";
-  var ESTIMATE_RULE_VERSION = ESTIMATE_RULE_V1_VERSION;
+  var ESTIMATE_RULE_VERSION = ESTIMATE_RULE_V2_VERSION;
   var ESTIMATE_BENCHMARK_VERSION = "incruit-2026-08-05";
   var COMMON_ESTIMATE_RULE = {
     benchmarkVersion: ESTIMATE_BENCHMARK_VERSION,

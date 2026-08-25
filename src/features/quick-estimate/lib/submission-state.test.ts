@@ -16,7 +16,7 @@ const REQUEST_ID_SOURCE = { randomUUID: () => REQUEST_ID };
 
 function createDraft(): QuickEstimateLeadDraft {
   const estimate = calculateEstimate({
-    industryCode: "software_it",
+    industryCode: "J",
     employeeCount: 10,
     randomUpliftBps: 200,
   });

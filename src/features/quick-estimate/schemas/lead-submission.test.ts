@@ -8,7 +8,7 @@ const REQUEST_ID = "0fca3874-40bc-4ea9-a7ad-742a062736ea";
 
 function createDraft(): QuickEstimateLeadDraft {
   const estimate = calculateEstimate({
-    industryCode: "software_it",
+    industryCode: "J",
     employeeCount: 10,
     randomUpliftBps: 200,
   });

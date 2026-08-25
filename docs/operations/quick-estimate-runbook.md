@@ -28,6 +28,7 @@
 - [ ] GitHub Actions secret `QUICK_ESTIMATE_APPS_SCRIPT_URL`에 같은 URL을 등록했다.
 - [ ] Sheet 공유가 제한됨이고 소유 계정 외 접근자가 없다.
 - [ ] `leads` 24개 header와 `codebook`, `lead_status` validation이 유지된다.
+- [ ] 업종 규칙 전환 시 Apps Script가 운영 브라우저 version과 차기 version을 모두 재계산한다.
 - [ ] `onEditQuickEstimateConsultation` 설치형 편집 트리거가 한 개만 존재한다.
 - [ ] Script Property `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`가 승인 계정으로 설정됐다.
 - [ ] `runQuickEstimateOperationsCheck` 시간 기반 트리거가 한 개만 존재한다.
@@ -35,6 +36,27 @@
 - [ ] 아래 실제 저장 E2E와 Sheet 대조가 끝났다.
 
 `NEXT_PUBLIC_` 값은 정적 JavaScript에 포함되므로 인증 비밀이 아니다. 다만 배포 URL을 저장소 이력과 PR에 남기지 않기 위해 로컬 env와 GitHub secret으로만 전달한다. `main` 배포 job은 URL이 없거나 Apps Script Web App 형식이 아니면 빌드를 시작하지 않는다.
+
+### 업종 규칙 v1/v2 선배포
+
+한국표준산업분류 대분류 21개 화면을 공개하기 전에 Apps Script가 기존 v1과 차기 v2를 모두 허용하는 version을 먼저 배포한다. endpoint는 저장소나 명령 기록에 직접 적지 않고 현재 PowerShell session의 환경 변수로만 주입한다.
+
+```powershell
+$env:QUICK_ESTIMATE_LIVE_E2E='1'
+$env:QUICK_ESTIMATE_APPS_SCRIPT_URL='<승인 계정의 운영 Web App URL>'
+npm run build
+npx playwright test e2e/quick-estimate-rule-compatibility-live.spec.ts
+```
+
+검증 항목:
+
+1. v1 `professional_services`와 v2 `N` payload가 각각 `ok: true`, `duplicate: false`로 끝난다.
+2. 두 행의 `industry_code`와 `estimate_rule_version`이 payload와 일치한다.
+3. 상담 목록에서 두 행 모두 `용역·파견·시설관리업`에 대응하는 한글 label로 표시된다.
+4. v1/v2의 표시금액, 난수와 benchmark version이 서버 재계산 결과와 일치한다.
+5. 알 수 없는 version과 version에 속하지 않는 업종은 `UNSUPPORTED_RULE`로 거절된다.
+
+두 version의 실제 저장과 상담 목록 표시가 확인되기 전에는 브라우저 활성 규칙을 v2로 바꾸지 않는다. 테스트 행도 아래 개인정보 파기 절차 밖에서 임의 삭제하지 않는다.
 
 ## 스팸·quota 정책
 
@@ -102,6 +124,23 @@ npx playwright test e2e/quick-estimate-live.spec.ts
 | 운영 점검        | 업무 시간 중 수동 실행 완료, 누락 복구와 알림 실패가 없어 운영 확인 메일을 보내지 않음                      |
 
 원본 저장 대조에서 마케팅 미동의 행은 허용 방법이 비어 있고, 동의 행은 이메일·문자 허용으로 저장됐다. 두 행 모두 개인정보 처리 동의는 참이며 서로 다른 난수와 표시금액을 보존했다. 테스트 행은 회사명에 `4refund E2E 삭제대상` 표시를 유지하며 이 검증에서 삭제하지 않았다.
+
+### 2026-08-25 업종 규칙 v2 운영 검증 기록
+
+승인 계정의 기존 Web App URL과 접근 권한을 유지한 채 생성된 `Code.gs`와 `appsscript.json`을 version 6으로 배포했다. endpoint와 테스트 연락처 원문은 기록하지 않는다.
+
+| 검증 항목        | 확인 결과                                                                       |
+| ---------------- | ------------------------------------------------------------------------------- |
+| Apps Script 반영 | 업종 규칙 v2 브라우저 활성화 artifact를 version 6으로 배포                      |
+| v1/v2 호환       | v1 `professional_services`, v2 `N` 실제 저장 2개 시나리오 통과                  |
+| 공개 화면 v2     | desktop 미동의, mobile 마케팅 동의 실제 저장 2개 시나리오 통과                  |
+| 접근성           | keyboard, 200% 확대, reduced motion, dialog axe 시나리오 통과                   |
+| 원본 저장 대조   | `industry_code`, 인원, 표시금액, 200bp, 규칙·benchmark version과 동의 값 확인   |
+| 상담 목록        | v2 `N`을 `용역·파견·시설관리업`으로 표시하고 신규 신청·이관수 담당 상태 확인    |
+| 거절 경계        | 알 수 없는 version과 v2 version의 v1 업종 코드 조합을 `UNSUPPORTED_RULE`로 거절 |
+| 신규 알림        | 실제 저장 v1/v2·desktop·mobile 신규 신청과 같은 접수 시각에 알림 4건 수신       |
+
+실제 저장 검증은 `npm run build` 후 두 live Playwright 파일의 5개 시나리오를 실행해 통과했다. 테스트 행은 개인정보 파기 절차 밖에서 삭제하지 않는다.
 
 ## 영업일 점검
 

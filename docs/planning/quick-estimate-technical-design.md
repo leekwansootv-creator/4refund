@@ -4,7 +4,7 @@
 
 이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의하며, 전달된 화면은 [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md)에서 이 계약과 대조한다. 사람용 상담 업무 화면은 [상담 목록 설계](quick-estimate-consultation-queue.md)를 따른다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다. Apps Script 전송 방식의 실제 관측 결과는 [전송 검증 문서](quick-estimate-apps-script-spike.md)를 기준으로 삼는다.
 
-현재 통합 브랜치에는 계산 core, Apps Script 저장·rate limit 처리, 브라우저 제출 계약, 단계형 UI와 루트 랜딩 조합이 구현되어 있다. 2026-08-07에 Apps Script version 3과 비공개 운영 Sheet로 실제 저장 E2E를 완료했으며, PR 8은 `integration/quick-estimate`에만 병합한다. 운영 공개는 별도 PR 9에서만 수행한다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리는 동의를 근거로 접수일로부터 1년간 보유하며, 마케팅은 이메일·문자 선택 동의로 분리하는 계약을 승인했다.
+현재 통합 브랜치에는 계산 core, Apps Script 저장·rate limit 처리, 브라우저 제출 계약, 단계형 UI와 루트 랜딩 조합이 구현되어 있다. 2026-08-25 운영 Apps Script version 6에서 기존 v1과 KSIC 대분류 21개 v2 제출을 함께 허용하고, 공개 브라우저의 활성 규칙은 v2를 사용한다. 사원 수는 1명부터 6,000명까지, 표시금액은 100억 원까지로 승인했다. 개인정보 처리는 동의를 근거로 접수일로부터 1년간 보유하며, 마케팅은 이메일·문자 선택 동의로 분리하는 계약을 승인했다. 업종 표시 순서와 기존 benchmark 대응은 [업종 분류 v2 계약](quick-estimate-industry-v2.md)을 따른다.
 
 ## 설계 결정
 

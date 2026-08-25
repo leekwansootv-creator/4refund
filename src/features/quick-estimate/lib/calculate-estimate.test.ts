@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { ESTIMATE_RULE_SET, type EstimateIndustryCode } from "../constants/estimate-rule-set";
+import {
+  ESTIMATE_RULE_SET,
+  ESTIMATE_RULE_SET_V1,
+  ESTIMATE_RULE_SET_V2,
+  ESTIMATE_RULE_V1_VERSION,
+  ESTIMATE_RULE_V2_VERSION,
+} from "../constants/estimate-rule-set";
 import { calculateEstimate } from "./calculate-estimate";
 
 const employeeExamples = [1, 10, 50, 100] as const;
@@ -90,13 +96,16 @@ const expectedRanges = {
     [4_300_000, 4_380_000],
     [8_590_000, 8_760_000],
   ],
-} satisfies Record<EstimateIndustryCode, readonly (readonly [number, number])[]>;
+} satisfies Record<
+  (typeof ESTIMATE_RULE_SET_V1.industries)[number]["code"],
+  readonly (readonly [number, number])[]
+>;
 
 describe("calculateEstimate", () => {
-  it("14개 업종의 1명, 10명, 50명, 100명 경계 예시를 재현한다", () => {
+  it("공개 21개 업종의 1명, 10명, 50명, 100명 경계 예시를 재현한다", () => {
     for (const industry of ESTIMATE_RULE_SET.industries) {
       employeeExamples.forEach((employeeCount, index) => {
-        const expectedRange = expectedRanges[industry.code][index];
+        const expectedRange = expectedRanges[industry.benchmarkGroupCode][index];
 
         expect(
           calculateEstimate({
@@ -157,7 +166,7 @@ describe("calculateEstimate", () => {
 
   it("동일 입력과 동일 난수에서 동일한 결과를 반환한다", () => {
     const input = {
-      industryCode: "software_it",
+      industryCode: "J",
       employeeCount: 10,
       randomUpliftBps: 200,
     };
@@ -165,14 +174,48 @@ describe("calculateEstimate", () => {
     expect(calculateEstimate(input)).toEqual(calculateEstimate(input));
   });
 
+  it("v2의 21개 업종을 대응한 v1 benchmark 그룹과 같은 금액으로 계산한다", () => {
+    for (const industry of ESTIMATE_RULE_SET_V2.industries) {
+      const v2Result = calculateEstimate({
+        industryCode: industry.code,
+        employeeCount: 10,
+        randomUpliftBps: 200,
+        ruleVersion: ESTIMATE_RULE_V2_VERSION,
+      });
+      const v1Result = calculateEstimate({
+        industryCode: industry.benchmarkGroupCode,
+        employeeCount: 10,
+        randomUpliftBps: 200,
+        ruleVersion: ESTIMATE_RULE_V1_VERSION,
+      });
+
+      expect(v2Result).toMatchObject({
+        status: "calculated",
+        amount: v1Result.status === "calculated" ? v1Result.amount : undefined,
+        ruleVersion: ESTIMATE_RULE_V2_VERSION,
+      });
+    }
+  });
+
+  it("지원하지 않는 규칙 version은 현재 규칙으로 fallback하지 않는다", () => {
+    expect(
+      calculateEstimate({
+        industryCode: "J",
+        employeeCount: 10,
+        randomUpliftBps: 200,
+        ruleVersion: "estimate-rule-unknown",
+      }),
+    ).toEqual({ status: "unsupported", reason: "unsupported_rule_version" });
+  });
+
   it("다른 난수는 승인 범위 안에서 다른 금액을 만들 수 있다", () => {
     const minimum = calculateEstimate({
-      industryCode: "software_it",
+      industryCode: "J",
       employeeCount: 10,
       randomUpliftBps: 100,
     });
     const maximum = calculateEstimate({
-      industryCode: "software_it",
+      industryCode: "J",
       employeeCount: 10,
       randomUpliftBps: 300,
     });
@@ -201,7 +244,7 @@ describe("calculateEstimate", () => {
   ])("잘못된 사원 수 %s를 거절한다", (employeeCount, reason) => {
     expect(
       calculateEstimate({
-        industryCode: "software_it",
+        industryCode: "J",
         employeeCount,
         randomUpliftBps: 200,
       }),
@@ -216,7 +259,7 @@ describe("calculateEstimate", () => {
   ])("잘못된 난수 %s를 거절한다", (randomUpliftBps, reason) => {
     expect(
       calculateEstimate({
-        industryCode: "software_it",
+        industryCode: "J",
         employeeCount: 10,
         randomUpliftBps,
       }),
@@ -226,7 +269,7 @@ describe("calculateEstimate", () => {
   it("가장 큰 승인 입력도 100억 원 이하의 계산 결과를 반환한다", () => {
     expect(
       calculateEstimate({
-        industryCode: "construction_engineering",
+        industryCode: "F",
         employeeCount: 6_000,
         randomUpliftBps: 300,
       }),

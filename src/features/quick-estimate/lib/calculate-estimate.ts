@@ -1,4 +1,4 @@
-import { ESTIMATE_RULE_SET } from "../constants/estimate-rule-set";
+import { ESTIMATE_RULE_VERSION, getEstimateRuleSet } from "../constants/estimate-rule-set";
 import type { EstimateCalculationInput, EstimateResult } from "../types/estimate";
 
 function roundToNearestUnit(amount: number, unit: number): number {
@@ -16,7 +16,13 @@ function roundUpToUnit(amount: number, unit: number): number {
  * 표시금액 상한을 넘는 결과는 금액을 잘라 반환하지 않고 실패로 처리합니다.
  */
 export function calculateEstimate(input: EstimateCalculationInput): EstimateResult {
-  const industry = ESTIMATE_RULE_SET.industries.find(({ code }) => code === input.industryCode);
+  const ruleSet = getEstimateRuleSet(input.ruleVersion ?? ESTIMATE_RULE_VERSION);
+
+  if (ruleSet === undefined) {
+    return { status: "unsupported", reason: "unsupported_rule_version" };
+  }
+
+  const industry = ruleSet.industries.find(({ code }) => code === input.industryCode);
 
   if (industry === undefined) {
     return { status: "unsupported", reason: "unsupported_industry" };
@@ -27,8 +33,8 @@ export function calculateEstimate(input: EstimateCalculationInput): EstimateResu
   }
 
   if (
-    input.employeeCount < ESTIMATE_RULE_SET.employeeCount.min ||
-    input.employeeCount > ESTIMATE_RULE_SET.employeeCount.max
+    input.employeeCount < ruleSet.employeeCount.min ||
+    input.employeeCount > ruleSet.employeeCount.max
   ) {
     return { status: "invalid", reason: "employee_count_out_of_range" };
   }
@@ -38,25 +44,25 @@ export function calculateEstimate(input: EstimateCalculationInput): EstimateResu
   }
 
   if (
-    input.randomUpliftBps < ESTIMATE_RULE_SET.randomUpliftBps.min ||
-    input.randomUpliftBps > ESTIMATE_RULE_SET.randomUpliftBps.max
+    input.randomUpliftBps < ruleSet.randomUpliftBps.min ||
+    input.randomUpliftBps > ruleSet.randomUpliftBps.max
   ) {
     return { status: "invalid", reason: "random_uplift_out_of_range" };
   }
 
   const benchmarkAmount = roundToNearestUnit(
     industry.benchmarkRatePerEmployee * input.employeeCount,
-    ESTIMATE_RULE_SET.displayUnit,
+    ruleSet.displayUnit,
   );
 
   // 정수 basis point 연산을 유지해 부동소수점 비율 변환에 따른 경계 오차를 피합니다.
   const upliftedAmount =
     (industry.baseRatePerEmployee * input.employeeCount * (10_000 + input.randomUpliftBps)) /
     10_000;
-  const candidateAmount = roundUpToUnit(upliftedAmount, ESTIMATE_RULE_SET.displayUnit);
-  const amount = Math.max(candidateAmount, benchmarkAmount + ESTIMATE_RULE_SET.displayUnit);
+  const candidateAmount = roundUpToUnit(upliftedAmount, ruleSet.displayUnit);
+  const amount = Math.max(candidateAmount, benchmarkAmount + ruleSet.displayUnit);
 
-  if (amount > ESTIMATE_RULE_SET.maxDisplayAmount) {
+  if (amount > ruleSet.maxDisplayAmount) {
     return { status: "invalid", reason: "amount_limit_exceeded" };
   }
 
@@ -65,9 +71,9 @@ export function calculateEstimate(input: EstimateCalculationInput): EstimateResu
     industryCode: industry.code,
     employeeCount: input.employeeCount,
     amount,
-    currency: ESTIMATE_RULE_SET.currency,
+    currency: ruleSet.currency,
     randomUpliftBps: input.randomUpliftBps,
-    ruleVersion: ESTIMATE_RULE_SET.version,
-    benchmarkVersion: ESTIMATE_RULE_SET.benchmarkVersion,
+    ruleVersion: ruleSet.version,
+    benchmarkVersion: ruleSet.benchmarkVersion,
   };
 }

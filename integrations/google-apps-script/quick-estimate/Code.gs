@@ -30,10 +30,11 @@ var QuickEstimateWebApp = (() => {
   });
 
   // src/features/quick-estimate/constants/estimate-rule-set.ts
-  var ESTIMATE_RULE_VERSION = "estimate-rule-2026-08-05";
+  var ESTIMATE_RULE_V1_VERSION = "estimate-rule-2026-08-05";
+  var ESTIMATE_RULE_V2_VERSION = "estimate-rule-2026-08-25";
+  var ESTIMATE_RULE_VERSION = ESTIMATE_RULE_V2_VERSION;
   var ESTIMATE_BENCHMARK_VERSION = "incruit-2026-08-05";
-  var ESTIMATE_RULE_SET = {
-    version: ESTIMATE_RULE_VERSION,
+  var COMMON_ESTIMATE_RULE = {
     benchmarkVersion: ESTIMATE_BENCHMARK_VERSION,
     currency: "KRW",
     displayUnit: 1e4,
@@ -45,7 +46,11 @@ var QuickEstimateWebApp = (() => {
     employeeCount: {
       min: 1,
       max: 6e3
-    },
+    }
+  };
+  var ESTIMATE_RULE_SET_V1 = {
+    ...COMMON_ESTIMATE_RULE,
+    version: ESTIMATE_RULE_V1_VERSION,
     industries: [
       {
         code: "software_it",
@@ -133,6 +138,188 @@ var QuickEstimateWebApp = (() => {
       }
     ]
   };
+  var ESTIMATE_RULE_SET_V2 = {
+    ...COMMON_ESTIMATE_RULE,
+    version: ESTIMATE_RULE_V2_VERSION,
+    industries: [
+      {
+        code: "N",
+        label: "용역·파견·시설관리업",
+        officialLabel: "사업시설 관리, 사업 지원 및 임대 서비스업",
+        benchmarkGroupCode: "professional_services",
+        benchmarkRatePerEmployee: 171700,
+        baseRatePerEmployee: 181e3
+      },
+      {
+        code: "T",
+        label: "가구 내 고용활동 및 달리 분류되지 않은 자가 소비 생산활동",
+        officialLabel: "가구 내 고용활동 및 달리 분류되지 않은 자가 소비 생산활동",
+        benchmarkGroupCode: "hospitality_other",
+        benchmarkRatePerEmployee: 39760,
+        baseRatePerEmployee: 42e3
+      },
+      {
+        code: "F",
+        label: "건설업",
+        officialLabel: "건설업",
+        benchmarkGroupCode: "construction_engineering",
+        benchmarkRatePerEmployee: 1518670,
+        baseRatePerEmployee: 1595e3
+      },
+      {
+        code: "O",
+        label: "공공 행정, 국방 및 사회보장 행정",
+        officialLabel: "공공 행정, 국방 및 사회보장 행정",
+        benchmarkGroupCode: "education_research",
+        benchmarkRatePerEmployee: 82640,
+        baseRatePerEmployee: 87e3
+      },
+      {
+        code: "B",
+        label: "광업",
+        officialLabel: "광업",
+        benchmarkGroupCode: "industrial_manufacturing",
+        benchmarkRatePerEmployee: 101430,
+        baseRatePerEmployee: 107e3
+      },
+      {
+        code: "P",
+        label: "교육 서비스업",
+        officialLabel: "교육 서비스업",
+        benchmarkGroupCode: "education_research",
+        benchmarkRatePerEmployee: 82640,
+        baseRatePerEmployee: 87e3
+      },
+      {
+        code: "U",
+        label: "국제 및 외국기관",
+        officialLabel: "국제 및 외국기관",
+        benchmarkGroupCode: "professional_services",
+        benchmarkRatePerEmployee: 171700,
+        baseRatePerEmployee: 181e3
+      },
+      {
+        code: "K",
+        label: "금융 및 보험업",
+        officialLabel: "금융 및 보험업",
+        benchmarkGroupCode: "finance_insurance",
+        benchmarkRatePerEmployee: 358800,
+        baseRatePerEmployee: 377e3
+      },
+      {
+        code: "A",
+        label: "농업, 임업 및 어업",
+        officialLabel: "농업, 임업 및 어업",
+        benchmarkGroupCode: "agriculture_fisheries",
+        benchmarkRatePerEmployee: 137810,
+        baseRatePerEmployee: 145e3
+      },
+      {
+        code: "G",
+        label: "도매 및 소매업",
+        officialLabel: "도매 및 소매업",
+        benchmarkGroupCode: "wholesale_retail",
+        benchmarkRatePerEmployee: 78960,
+        baseRatePerEmployee: 83e3
+      },
+      {
+        code: "Q",
+        label: "보건업 및 사회복지 서비스업",
+        officialLabel: "보건업 및 사회복지 서비스업",
+        benchmarkGroupCode: "health_socialcare",
+        benchmarkRatePerEmployee: 631040,
+        baseRatePerEmployee: 663e3
+      },
+      {
+        code: "L",
+        label: "부동산업",
+        officialLabel: "부동산업",
+        benchmarkGroupCode: "real_estate_leasing",
+        benchmarkRatePerEmployee: 317190,
+        baseRatePerEmployee: 334e3
+      },
+      {
+        code: "E",
+        label: "수도, 하수 및 폐기물 처리, 원료 재생업",
+        officialLabel: "수도, 하수 및 폐기물 처리, 원료 재생업",
+        benchmarkGroupCode: "energy_utilities",
+        benchmarkRatePerEmployee: 121190,
+        baseRatePerEmployee: 128e3
+      },
+      {
+        code: "I",
+        label: "숙박 및 음식점업",
+        officialLabel: "숙박 및 음식점업",
+        benchmarkGroupCode: "hospitality_other",
+        benchmarkRatePerEmployee: 39760,
+        baseRatePerEmployee: 42e3
+      },
+      {
+        code: "R",
+        label: "예술, 스포츠 및 여가관련 서비스업",
+        officialLabel: "예술, 스포츠 및 여가관련 서비스업",
+        benchmarkGroupCode: "publishing_media",
+        benchmarkRatePerEmployee: 80790,
+        baseRatePerEmployee: 85e3
+      },
+      {
+        code: "H",
+        label: "운수 및 창고업",
+        officialLabel: "운수 및 창고업",
+        benchmarkGroupCode: "transport_logistics",
+        benchmarkRatePerEmployee: 67190,
+        baseRatePerEmployee: 71e3
+      },
+      {
+        code: "D",
+        label: "전기, 가스, 증기 및 공기 조절 공급업",
+        officialLabel: "전기, 가스, 증기 및 공기 조절 공급업",
+        benchmarkGroupCode: "energy_utilities",
+        benchmarkRatePerEmployee: 121190,
+        baseRatePerEmployee: 128e3
+      },
+      {
+        code: "M",
+        label: "전문, 과학 및 기술 서비스업",
+        officialLabel: "전문, 과학 및 기술 서비스업",
+        benchmarkGroupCode: "professional_services",
+        benchmarkRatePerEmployee: 171700,
+        baseRatePerEmployee: 181e3
+      },
+      {
+        code: "J",
+        label: "정보통신업",
+        officialLabel: "정보통신업",
+        benchmarkGroupCode: "software_it",
+        benchmarkRatePerEmployee: 118030,
+        baseRatePerEmployee: 124e3
+      },
+      {
+        code: "C",
+        label: "제조업",
+        officialLabel: "제조업",
+        benchmarkGroupCode: "industrial_manufacturing",
+        benchmarkRatePerEmployee: 101430,
+        baseRatePerEmployee: 107e3
+      },
+      {
+        code: "S",
+        label: "협회 및 단체, 수리 및 기타 개인 서비스업",
+        officialLabel: "협회 및 단체, 수리 및 기타 개인 서비스업",
+        benchmarkGroupCode: "hospitality_other",
+        benchmarkRatePerEmployee: 39760,
+        baseRatePerEmployee: 42e3
+      }
+    ]
+  };
+  var ESTIMATE_RULE_SETS = [ESTIMATE_RULE_SET_V1, ESTIMATE_RULE_SET_V2];
+  function getEstimateRuleSet(ruleVersion) {
+    return ESTIMATE_RULE_SETS.find(({ version }) => version === ruleVersion);
+  }
+  function getEstimateIndustryRule(ruleVersion, industryCode) {
+    var _a;
+    return (_a = getEstimateRuleSet(ruleVersion)) == null ? void 0 : _a.industries.find(({ code }) => code === industryCode);
+  }
 
   // src/features/quick-estimate/constants/lead-submission-contract.ts
   var PRIVACY_NOTICE_VERSION = "privacy-2026-08-06-v1";
@@ -149,30 +336,35 @@ var QuickEstimateWebApp = (() => {
     return Math.ceil(amount / unit) * unit;
   }
   function calculateEstimate(input) {
-    const industry = ESTIMATE_RULE_SET.industries.find(({ code }) => code === input.industryCode);
+    var _a;
+    const ruleSet = getEstimateRuleSet((_a = input.ruleVersion) != null ? _a : ESTIMATE_RULE_VERSION);
+    if (ruleSet === void 0) {
+      return { status: "unsupported", reason: "unsupported_rule_version" };
+    }
+    const industry = ruleSet.industries.find(({ code }) => code === input.industryCode);
     if (industry === void 0) {
       return { status: "unsupported", reason: "unsupported_industry" };
     }
     if (!Number.isInteger(input.employeeCount)) {
       return { status: "invalid", reason: "employee_count_not_integer" };
     }
-    if (input.employeeCount < ESTIMATE_RULE_SET.employeeCount.min || input.employeeCount > ESTIMATE_RULE_SET.employeeCount.max) {
+    if (input.employeeCount < ruleSet.employeeCount.min || input.employeeCount > ruleSet.employeeCount.max) {
       return { status: "invalid", reason: "employee_count_out_of_range" };
     }
     if (!Number.isInteger(input.randomUpliftBps)) {
       return { status: "invalid", reason: "random_uplift_not_integer" };
     }
-    if (input.randomUpliftBps < ESTIMATE_RULE_SET.randomUpliftBps.min || input.randomUpliftBps > ESTIMATE_RULE_SET.randomUpliftBps.max) {
+    if (input.randomUpliftBps < ruleSet.randomUpliftBps.min || input.randomUpliftBps > ruleSet.randomUpliftBps.max) {
       return { status: "invalid", reason: "random_uplift_out_of_range" };
     }
     const benchmarkAmount = roundToNearestUnit(
       industry.benchmarkRatePerEmployee * input.employeeCount,
-      ESTIMATE_RULE_SET.displayUnit
+      ruleSet.displayUnit
     );
     const upliftedAmount = industry.baseRatePerEmployee * input.employeeCount * (1e4 + input.randomUpliftBps) / 1e4;
-    const candidateAmount = roundUpToUnit(upliftedAmount, ESTIMATE_RULE_SET.displayUnit);
-    const amount = Math.max(candidateAmount, benchmarkAmount + ESTIMATE_RULE_SET.displayUnit);
-    if (amount > ESTIMATE_RULE_SET.maxDisplayAmount) {
+    const candidateAmount = roundUpToUnit(upliftedAmount, ruleSet.displayUnit);
+    const amount = Math.max(candidateAmount, benchmarkAmount + ruleSet.displayUnit);
+    if (amount > ruleSet.maxDisplayAmount) {
       return { status: "invalid", reason: "amount_limit_exceeded" };
     }
     return {
@@ -180,10 +372,10 @@ var QuickEstimateWebApp = (() => {
       industryCode: industry.code,
       employeeCount: input.employeeCount,
       amount,
-      currency: ESTIMATE_RULE_SET.currency,
+      currency: ruleSet.currency,
       randomUpliftBps: input.randomUpliftBps,
-      ruleVersion: ESTIMATE_RULE_SET.version,
-      benchmarkVersion: ESTIMATE_RULE_SET.benchmarkVersion
+      ruleVersion: ruleSet.version,
+      benchmarkVersion: ruleSet.benchmarkVersion
     };
   }
 
@@ -291,9 +483,6 @@ var QuickEstimateWebApp = (() => {
     "중복 신청",
     "상담 완료"
   ];
-  var INDUSTRY_LABELS = new Map(
-    ESTIMATE_RULE_SET.industries.map((industry) => [industry.code, industry.label])
-  );
   function getLeadSheetCell(row, header) {
     var _a;
     return (_a = row[LEAD_SHEET_HEADERS.indexOf(header)]) != null ? _a : "";
@@ -368,9 +557,10 @@ var QuickEstimateWebApp = (() => {
     return "확인 필요";
   }
   function buildConsultationSheetRow(row) {
-    var _a, _b;
+    var _a, _b, _c;
     const status = toText(getLeadSheetCell(row, "lead_status"));
     const industryCode = toText(getLeadSheetCell(row, "industry_code"));
+    const estimateRuleVersion = toText(getLeadSheetCell(row, "estimate_rule_version"));
     const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
     const consultationRow = [
       (_a = CONSULTATION_STATUS_LABELS[status]) != null ? _a : "확인 필요",
@@ -380,7 +570,7 @@ var QuickEstimateWebApp = (() => {
       toText(getLeadSheetCell(row, "contact_name")),
       toKoreanPhoneNumber(getLeadSheetCell(row, "phone")),
       toText(getLeadSheetCell(row, "email")),
-      (_b = INDUSTRY_LABELS.get(industryCode)) != null ? _b : "확인 필요",
+      (_c = (_b = getEstimateIndustryRule(estimateRuleVersion, industryCode)) == null ? void 0 : _b.label) != null ? _c : "확인 필요",
       toDisplayNumber(getLeadSheetCell(row, "employee_count")),
       toDisplayNumber(getLeadSheetCell(row, "estimate_amount_krw")),
       formatKoreanDateTime(getLeadSheetCell(row, "handled_at")),
@@ -1595,13 +1785,14 @@ var QuickEstimateWebApp = (() => {
     if (!isRecord(estimate) || !hasExactKeys(estimate, ESTIMATE_KEYS) || !isRecord(lead) || !hasExactKeys(lead, LEAD_KEYS) || !isRecord(privacy) || !hasExactKeys(privacy, PRIVACY_KEYS) || !isRecord(marketing) || !hasExactKeys(marketing, MARKETING_KEYS) || !isRecord(antiSpam) || !hasExactKeys(antiSpam, ANTI_SPAM_KEYS)) {
       return failure("INVALID_INPUT");
     }
-    if (estimate.ruleVersion !== ESTIMATE_RULE_VERSION || estimate.benchmarkVersion !== ESTIMATE_BENCHMARK_VERSION) {
+    if (estimate.benchmarkVersion !== ESTIMATE_BENCHMARK_VERSION) {
       return failure("UNSUPPORTED_RULE");
     }
     const calculated = calculateEstimate({
       industryCode: typeof estimate.industryCode === "string" ? estimate.industryCode : "",
       employeeCount: typeof estimate.employeeCount === "number" ? estimate.employeeCount : NaN,
-      randomUpliftBps: typeof estimate.randomUpliftBps === "number" ? estimate.randomUpliftBps : NaN
+      randomUpliftBps: typeof estimate.randomUpliftBps === "number" ? estimate.randomUpliftBps : NaN,
+      ruleVersion: typeof estimate.ruleVersion === "string" ? estimate.ruleVersion : ""
     });
     if (calculated.status === "unsupported") {
       return failure("UNSUPPORTED_RULE");

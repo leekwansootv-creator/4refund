@@ -1,3 +1,4 @@
+import { ESTIMATE_RULE_V1_VERSION, ESTIMATE_RULE_V2_VERSION } from "@/features/quick-estimate";
 import { describe, expect, it } from "vitest";
 
 import { LEAD_SHEET_HEADERS, type LeadSheetCell, type LeadSheetRow } from "./sheet-schema";
@@ -14,7 +15,7 @@ function createLeadRow(
     employee_count: 100,
     estimate_amount_krw: 10_870_000,
     random_uplift_bps: 200,
-    estimate_rule_version: "rule-v1",
+    estimate_rule_version: ESTIMATE_RULE_V1_VERSION,
     benchmark_version: "benchmark-v1",
     company_name: "테스트 주식회사",
     contact_name: "홍길동",
@@ -62,6 +63,17 @@ describe("buildConsultationSheetRow", () => {
       "마케팅 허용 방법": "해당 없음",
       "상담 신청 번호": "lead-a",
     });
+  });
+
+  it("v2의 N 업종을 사용자용 표시명으로 변환한다", () => {
+    const row = buildConsultationSheetRow(
+      createLeadRow({
+        industry_code: "N",
+        estimate_rule_version: ESTIMATE_RULE_V2_VERSION,
+      }),
+    );
+
+    expect(row[7]).toBe("용역·파견·시설관리업");
   });
 
   it.each([

@@ -11,7 +11,7 @@ const OCCURRED_AT = "2026-08-06T01:02:03.456Z";
 
 function createPayload(): string {
   const estimate = calculateEstimate({
-    industryCode: "software_it",
+    industryCode: "N",
     employeeCount: 10,
     randomUpliftBps: 200,
   });

@@ -5,6 +5,7 @@ export type EstimateCalculationInput = {
   industryCode: string;
   employeeCount: number;
   randomUpliftBps: number;
+  ruleVersion?: string;
 };
 
 /** 입력 형식이나 승인 범위를 벗어난 계산 실패 코드입니다. */
@@ -33,5 +34,5 @@ export type EstimateResult =
     }
   | {
       status: "unsupported";
-      reason: "unsupported_industry";
+      reason: "unsupported_industry" | "unsupported_rule_version";
     };

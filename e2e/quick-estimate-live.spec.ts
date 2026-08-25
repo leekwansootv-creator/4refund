@@ -20,7 +20,7 @@ async function fillContact(page: Page, suffix: string) {
 }
 
 async function fillEstimate(page: Page, marketingAgreed: boolean) {
-  await page.getByLabel("업종").selectOption("software_it");
+  await page.getByLabel("업종").selectOption("N");
   await page.getByLabel("직원 수").fill("25");
   await page.getByLabel("개인정보 처리 동의 (필수)").check();
 

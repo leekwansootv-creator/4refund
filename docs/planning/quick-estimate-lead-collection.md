@@ -14,6 +14,7 @@
 - [간단 견적 리드 수집 기술 설계](quick-estimate-technical-design.md)
 - [간단 견적 UI 디자인 해석 및 구현 기획](quick-estimate-ui-design-plan.md)
 - [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)
+- [간단 견적 업종 분류 v2](quick-estimate-industry-v2.md)
 - [간단 견적 Apps Script 전송 검증](quick-estimate-apps-script-spike.md)
 - [랜딩 페이지 구현 기획](landing-page-implementation.md)
 - [폴더 구조와 의존성](../engineering/architecture.md)

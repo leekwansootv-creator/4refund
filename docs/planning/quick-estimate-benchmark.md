@@ -9,6 +9,7 @@
 - [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)
 - [간단 견적 리드 수집 기술 설계](quick-estimate-technical-design.md)
 - [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)
+- [간단 견적 업종 분류 v2](quick-estimate-industry-v2.md)
 
 ## 참고 출처와 확인일
 

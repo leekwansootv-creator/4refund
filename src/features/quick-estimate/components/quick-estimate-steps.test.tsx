@@ -7,6 +7,7 @@ import { QuickEstimateResultStep } from "./estimate-result-step";
 import { QuickEstimateEstimateStep } from "./estimate-step";
 import type {
   QuickEstimateContactValues,
+  QuickEstimateConsentValues,
   QuickEstimateFormValues,
   QuickEstimateResultFeedback,
 } from "../types/quick-estimate-ui";
@@ -21,6 +22,9 @@ const EMPTY_CONTACT_VALUES: QuickEstimateContactValues = {
 const EMPTY_ESTIMATE_VALUES: QuickEstimateFormValues = {
   industryCode: "",
   employeeCount: "",
+};
+
+const EMPTY_CONSENT_VALUES: QuickEstimateConsentValues = {
   privacyAgreed: false,
   marketingAgreed: false,
 };
@@ -39,6 +43,7 @@ function ContactHarness({ onNext }: { onNext: () => void }) {
 
 function EstimateHarness({ onLookup }: { onLookup: () => void }) {
   const [values, setValues] = useState(EMPTY_ESTIMATE_VALUES);
+  const [consents, setConsents] = useState(EMPTY_CONSENT_VALUES);
 
   function handleChange<Field extends keyof QuickEstimateFormValues>(
     field: Field,
@@ -47,7 +52,15 @@ function EstimateHarness({ onLookup }: { onLookup: () => void }) {
     setValues((current) => ({ ...current, [field]: value }));
   }
 
-  return <QuickEstimateEstimateStep values={values} onChange={handleChange} onLookup={onLookup} />;
+  return (
+    <QuickEstimateEstimateStep
+      consentValues={consents}
+      onConsentChange={(field, value) => setConsents((current) => ({ ...current, [field]: value }))}
+      values={values}
+      onChange={handleChange}
+      onLookup={onLookup}
+    />
+  );
 }
 
 describe("QuickEstimateContactStep", () => {

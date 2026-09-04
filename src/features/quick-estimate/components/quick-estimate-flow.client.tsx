@@ -23,6 +23,7 @@ import {
 import type { QuickEstimateSubmissionTransportResult } from "../types/lead-submission";
 import type {
   QuickEstimateContactValues,
+  QuickEstimateConsentValues,
   QuickEstimateFormValues,
   QuickEstimateResultFeedback,
 } from "../types/quick-estimate-ui";
@@ -56,6 +57,9 @@ const EMPTY_CONTACT_VALUES: QuickEstimateContactValues = {
 const EMPTY_ESTIMATE_VALUES: QuickEstimateFormValues = {
   industryCode: "",
   employeeCount: "",
+};
+
+const EMPTY_CONSENT_VALUES: QuickEstimateConsentValues = {
   privacyAgreed: false,
   marketingAgreed: false,
 };
@@ -119,6 +123,8 @@ export function QuickEstimateFlow({
   const [honeypotValue, setHoneypotValue] = useState("");
   const [estimateValues, setEstimateValues] =
     useState<QuickEstimateFormValues>(EMPTY_ESTIMATE_VALUES);
+  const [consentValues, setConsentValues] =
+    useState<QuickEstimateConsentValues>(EMPTY_CONSENT_VALUES);
   const [estimateResult, setEstimateResult] = useState<EstimateResult | null>(null);
   const [submissionState, setSubmissionState] = useState<QuickEstimateSubmissionState>(() =>
     createInitialSubmissionState(),
@@ -143,6 +149,7 @@ export function QuickEstimateFlow({
     setContactValues(EMPTY_CONTACT_VALUES);
     setHoneypotValue("");
     setEstimateValues(EMPTY_ESTIMATE_VALUES);
+    setConsentValues(EMPTY_CONSENT_VALUES);
     setEstimateResult(null);
     updateSubmissionState(createInitialSubmissionState());
     formOpenedAtRef.current = now();
@@ -192,6 +199,10 @@ export function QuickEstimateFlow({
     setEstimateValues((current) => ({ ...current, [field]: value }));
   }
 
+  function handleConsentChange(field: keyof QuickEstimateConsentValues, value: boolean) {
+    setConsentValues((current) => ({ ...current, [field]: value }));
+  }
+
   function startSubmission(calculated: CalculatedEstimate) {
     if (submissionInFlightRef.current) {
       return;
@@ -203,10 +214,10 @@ export function QuickEstimateFlow({
       {
         estimate: calculated,
         lead: contactValues,
-        privacyAgreed: estimateValues.privacyAgreed,
+        privacyAgreed: consentValues.privacyAgreed,
         marketing: {
-          agreed: estimateValues.marketingAgreed,
-          channels: estimateValues.marketingAgreed ? ["EMAIL", "SMS"] : [],
+          agreed: consentValues.marketingAgreed,
+          channels: consentValues.marketingAgreed ? ["EMAIL", "SMS"] : [],
         },
         antiSpam: {
           honeypot: honeypotValue,
@@ -354,6 +365,8 @@ export function QuickEstimateFlow({
         {step === "estimate" ? (
           <QuickEstimateEstimateStep
             values={estimateValues}
+            consentValues={consentValues}
+            onConsentChange={handleConsentChange}
             onChange={handleEstimateChange}
             onLookup={handleLookup}
           />

@@ -2,11 +2,11 @@
 
 ## 상태
 
-RF-PR1~3은 전용 milestone에 병합됐다. RF-PR4는 브라우저 검증과 실제 저장 대조 준비 단계다. **실제 저장 검증과 RF-PR5 공개 조건은 아직 충족하지 않았다.** main 반영·운영 배포 완료로 해석하지 않는다.
+RF-PR1~3은 전용 milestone에 병합됐다. [RF-PR4 #45](https://github.com/leekwansootv-creator/4refund/pull/45)는 일반 검증을 완료한 Draft PR이며 실제 저장 대조를 기다린다. **실제 저장 검증과 RF-PR5 공개 조건은 아직 충족하지 않았다.** main 반영·운영 배포 완료로 해석하지 않는다.
 
 ## 검증 환경과 구분
 
-- 런타임 기준: RF-PR3 merge `4193550eb3aa65ab281ae4c73733958126bb4f8c`, 검증 HEAD `93a3d46fe5faa04d94247547027a8e59e5c26bc5`.
+- 런타임 기준: RF-PR3 merge `4193550eb3aa65ab281ae4c73733958126bb4f8c`에 RF-PR4 `c609a75bf45fd1e39801391724aa57c5cf1004e4`를 적용했다. 이후 실행 기록 문서를 포함하는 최종 HEAD의 검사·리뷰 상태는 PR 본문에서 확인한다.
 - 일반 검증: 로컬 정적 export, Chromium, 테스트 전용 endpoint 식별자. POST는 모두 가로채 실제 저장·알림을 생성하지 않는다.
 - 화면 범위: 데스크톱 1440px, 모바일 375px, 200% 확대에 대응하는 720×450 CSS viewport, reduced motion, native dialog 키보드 포커스와 내부 스크롤. 실제 브라우저 메뉴의 확대 조작과 스크린 리더 검증은 별도 미검증이다.
 - 실제 저장: 승인된 endpoint·Sheet·알림 접근이 확보된 경우에만 별도 실행한다. 로컬 설정의 URL 존재는 승인된 테스트 환경의 증거가 아니다.
@@ -14,9 +14,11 @@ RF-PR1~3은 전용 milestone에 병합됐다. RF-PR4는 브라우저 검증과 �
 
 ## 일반 검증 기록
 
-RF-PR3에서 `npm run check`와 `git diff --check`가 통과했다. 검사 도구 7건, Vitest 208건, 일반 E2E 18건 통과, live 5건 skip이다. RF-PR4에서 추가한 브라우저 시나리오의 실제 실행 결과는 출하 기록에 추가한다.
+RF-PR4 `c609a75bf45fd1e39801391724aa57c5cf1004e4`에서 `npm run check`와 `git diff --check`가 통과했다. 검사 도구 7건, Vitest 208건, 일반 E2E 21건 통과, live 5건 skip이다. 실제 저장·알림·테스트 행 정리는 실행하지 않았다.
 
 RF-PR4에서 `npm run test:e2e:run -- e2e/quick-estimate-result-first.spec.ts` 7건이 통과했다. 별도 endpoint 없는 정적 빌드도 Chromium 1440px·375px에서 계산·재조회·문의 이동, POST 0회, 페이지 오류 0건을 확인했다. 이 빌드의 접수 불가 결과 화면을 캡처해 확인했으며 실제 외부 저장은 발생시키지 않았다.
+
+375px 빈 신청 화면과 720×450 CSS viewport·deviceScaleFactor 2의 동의 전문 확장 화면도 캡처해 검토했다. 첫 클릭 전문 확장과 하단 복귀 버튼의 화면 내 접근을 확인했다. 개인정보 입력 없이 수행했다.
 
 | 범위      | 확인 내용                                               |
 | --------- | ------------------------------------------------------- |

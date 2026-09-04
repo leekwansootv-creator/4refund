@@ -232,13 +232,13 @@ RF-PR4는 RF-PR3에서 빠진 필수 테스트를 뒤늦게 작성하는 단계�
 
 계획과 실제 상태를 구분하기 위한 기록 표다. 실행한 뒤 확인된 값만 채운다.
 
-| 계획   | 실제 PR                                                        | 검증 commit                                | 상태                                |
-| ------ | -------------------------------------------------------------- | ------------------------------------------ | ----------------------------------- |
-| RF-PR1 | [#42](https://github.com/leekwansootv-creator/4refund/pull/42) | `16c3e7c61c09faa016b9adfdb1372907ff2ced77` | milestone 병합 완료                 |
-| RF-PR2 | [#43](https://github.com/leekwansootv-creator/4refund/pull/43) | `ac8f22ef35096b0b871ff84e45a0a242a0a6ebac` | milestone 병합 완료                 |
-| RF-PR3 | [#44](https://github.com/leekwansootv-creator/4refund/pull/44) | `93a3d46fe5faa04d94247547027a8e59e5c26bc5` | milestone 병합 완료                 |
-| RF-PR4 | PR 준비 중                                                     | 출하 시 기록                               | 일반 검증 진행, 실제 저장 환경 차단 |
-| RF-PR5 | 미생성                                                         | 미기록                                     | 미착수                              |
+| 계획   | 실제 PR                                                        | 검증 commit                                | 상태                                 |
+| ------ | -------------------------------------------------------------- | ------------------------------------------ | ------------------------------------ |
+| RF-PR1 | [#42](https://github.com/leekwansootv-creator/4refund/pull/42) | `16c3e7c61c09faa016b9adfdb1372907ff2ced77` | milestone 병합 완료                  |
+| RF-PR2 | [#43](https://github.com/leekwansootv-creator/4refund/pull/43) | `ac8f22ef35096b0b871ff84e45a0a242a0a6ebac` | milestone 병합 완료                  |
+| RF-PR3 | [#44](https://github.com/leekwansootv-creator/4refund/pull/44) | `93a3d46fe5faa04d94247547027a8e59e5c26bc5` | milestone 병합 완료                  |
+| RF-PR4 | [#45](https://github.com/leekwansootv-creator/4refund/pull/45) | `c609a75bf45fd1e39801391724aa57c5cf1004e4` | Draft, 일반 검증 완료·실제 저장 차단 |
+| RF-PR5 | 미생성                                                         | 미기록                                     | 미착수                               |
 
 ### RF-PR1 확인 기록
 
@@ -263,5 +263,10 @@ RF-PR4는 RF-PR3에서 빠진 필수 테스트를 뒤늦게 작성하는 단계�
 - 담당자 `misosiruda`, 기존 라벨 `enhancement`, `documentation` 확인. 전용 frontend 라벨은 저장소에 없음.
 
 ### RF-PR4 공개 조건
+
+- `npm run check`, `git diff --check` 통과: 검사 도구 7건, Vitest 208건, 일반 E2E 21건, live 5건 skip.
+- 일반 선조회 E2E 7건과 endpoint 없는 별도 빌드의 1440px·375px 계산·재조회·문의 경로를 확인했다. 실제 외부 저장 없음, endpoint 없는 화면의 POST·페이지 오류 모두 0건.
+- 브라우저에서 초기 안내 명암 대비와 blur 오류로 인한 첫 클릭 누락을 발견해 수정했다. 확대 모사·native dialog 포커스 검사와 Playwright 캡처 옵션 범위도 정정한 뒤 재검증했다.
+- 담당자 `misosiruda`, 기존 라벨 `documentation`, `bug`로 Draft PR #45를 생성했다. frontend 전용 라벨은 저장소에 없다. 문서 기록을 포함한 최종 HEAD의 검수·CI 상태는 해당 PR에 갱신한다. 아직 병합하지 않았다.
 
 실제 저장 검증은 [출시 검증 기록](../operations/quick-estimate-result-first-release-check.md)의 승인 계정·테스트 자산 접근 조건에 막혀 있다. 일반 검사 통과나 live skip을 실제 저장 성공으로 바꾸지 않는다. RF-PR5는 미착수이며 main·운영 배포는 변경하지 않았다.

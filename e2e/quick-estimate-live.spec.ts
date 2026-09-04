@@ -1,7 +1,16 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { recordLiveSubmissionEvidence } from "./quick-estimate-live-evidence";
+
+import {
+  submitEstimateLead,
+  type QuickEstimateSubmissionPayload,
+} from "../src/features/quick-estimate";
 
 const runLiveE2e = process.env.QUICK_ESTIMATE_LIVE_E2E === "1";
+
+// 실제 endpoint와 입력값이 브라우저 캡처·네트워크 trace에 남지 않게 한다.
+test.use({ screenshot: "off", video: "off", trace: "off" });
 
 async function openQuickEstimate(page: Page) {
   await page.goto("/");
@@ -22,12 +31,14 @@ async function fillEstimate(page: Page, marketingAgreed: boolean) {
   await page.getByLabel("업종").selectOption("N");
   await page.getByLabel("직원 수").fill("25");
   await page.getByRole("button", { name: "조회하기", exact: true }).click();
+  const amount = await page.getByText(/^[\d,]+원$/u).textContent();
   await page.getByRole("button", { name: "상세 견적 받기" }).click();
   await page.getByLabel("개인정보 처리 동의 (필수)").check();
 
   if (marketingAgreed) {
     await page.getByLabel("마케팅 활용 동의 (선택)").check();
   }
+  return amount;
 }
 
 test.describe("간단 견적 실제 저장 E2E", () => {
@@ -36,8 +47,9 @@ test.describe("간단 견적 실제 저장 E2E", () => {
   test("데스크톱에서 마케팅 미동의 접수를 저장한다", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await openQuickEstimate(page);
-    await fillEstimate(page, false);
+    const amount = await fillEstimate(page, false);
     await fillContact(page, "opt-out");
+    const requestPromise = page.waitForRequest((request) => request.method() === "POST");
     await page.waitForTimeout(3_100);
     await page.getByRole("button", { name: "상세 견적 신청하기", exact: true }).click();
 
@@ -45,13 +57,22 @@ test.describe("간단 견적 실제 저장 E2E", () => {
       timeout: 20_000,
     });
     await expect(page.getByRole("region", { name: "상세 견적 접수 상태" })).toBeFocused();
+    const request = await requestPromise;
+    const payload = JSON.parse(
+      new URLSearchParams(request.postData() ?? "").get("payload") ?? "null",
+    ) as QuickEstimateSubmissionPayload;
+    await recordLiveSubmissionEvidence(payload);
+    expect(`${payload.estimate.amount.toLocaleString("ko-KR")}원`).toBe(amount);
+    const duplicate = await submitEstimateLead(payload, { endpoint: request.url() });
+    expect(duplicate).toMatchObject({ ok: true, duplicate: true });
   });
 
   test("모바일에서 마케팅 동의 접수를 저장한다", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await openQuickEstimate(page);
-    await fillEstimate(page, true);
+    const amount = await fillEstimate(page, true);
     await fillContact(page, "opt-in");
+    const requestPromise = page.waitForRequest((request) => request.method() === "POST");
     await page.waitForTimeout(3_100);
     await page.getByRole("button", { name: "상세 견적 신청하기", exact: true }).click();
 
@@ -59,14 +80,21 @@ test.describe("간단 견적 실제 저장 E2E", () => {
       timeout: 20_000,
     });
     await expect(page.getByText("예상 환급액", { exact: true })).toBeVisible();
+    const request = await requestPromise;
+    const payload = JSON.parse(
+      new URLSearchParams(request.postData() ?? "").get("payload") ?? "null",
+    ) as QuickEstimateSubmissionPayload;
+    await recordLiveSubmissionEvidence(payload);
+    expect(`${payload.estimate.amount.toLocaleString("ko-KR")}원`).toBe(amount);
+    expect(payload.marketing.agreed).toBe(true);
   });
 
-  test("키보드와 200% 확대에서도 입력 dialog에 자동 접근성 위반이 없다", async ({ page }) => {
+  test("키보드와 200% 확대에 대응하는 영역에서도 입력 dialog에 자동 접근성 위반이 없다", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 720, height: 450 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await openQuickEstimate(page);
-    await page.evaluate(() => {
-      document.documentElement.style.zoom = "2";
-    });
 
     await expect(page.getByLabel("업종")).toBeFocused();
     await page.keyboard.press("Tab");

@@ -8,10 +8,12 @@ type QuickEstimateFieldProps = Omit<InputHTMLAttributes<HTMLInputElement>, "id">
   error?: string | undefined;
   suffix?: string;
   initialFocus?: boolean;
+  reserveErrorSpace?: boolean;
 };
 
 /**
  * 간단 견적 연락처와 직원 수 입력에 동일한 label·오류 연결을 제공합니다.
+ * blur 검증을 사용하는 필드는 오류 공간을 예약해 클릭 중 후속 버튼이 이동하지 않게 합니다.
  */
 export function QuickEstimateField({
   id,
@@ -19,6 +21,7 @@ export function QuickEstimateField({
   error,
   suffix,
   initialFocus = false,
+  reserveErrorSpace = false,
   ...inputProps
 }: QuickEstimateFieldProps) {
   const errorId = `${id}-error`;
@@ -39,8 +42,8 @@ export function QuickEstimateField({
         />
         {suffix ? <span className={styles.suffix}>{suffix}</span> : null}
       </div>
-      {error ? (
-        <p id={errorId} className={styles.error}>
+      {error || reserveErrorSpace ? (
+        <p id={errorId} className={`${styles.error} ${reserveErrorSpace ? styles.errorSpace : ""}`}>
           {error}
         </p>
       ) : null}

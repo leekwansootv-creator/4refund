@@ -5,7 +5,7 @@
 [선조회 및 상세 견적 신청 기획](quick-estimate-result-first-flow.md)을 독립적으로 검토할 수 있는 PR로 나누고, 별도 milestone 브랜치에서 통합한 뒤 완성된 흐름을 `main`에 반영하는 실행 계획이다.
 
 - 작성일: 2026-09-04
-- 상태: RF-PR3 진행. 최신 `origin/main`의 `59531812614af079740cf662dd2fc8c8a45b241a`에서 전용 milestone과 RF-PR1 브랜치를 생성했다. PR·검사·병합은 아래 실행 기록에 확인 후 기록한다.
+- 상태: RF-PR1~3 병합 완료, RF-PR4 검증 진행. 최신 `origin/main`의 `59531812614af079740cf662dd2fc8c8a45b241a`에서 전용 milestone과 RF-PR1 브랜치를 생성했다. PR·검사·병합은 아래 실행 기록에 확인 후 기록한다.
 - `RF-PR1`~`RF-PR5`는 이 문서의 계획 식별자이며 실제 GitHub PR 번호가 아니다.
 - 현재 작성된 기획 문서와 기존 문서의 참조 안내는 `RF-PR1`에 포함할 대상이다. 문서가 작성됐다는 사실이 PR 생성·검토·병합 완료를 뜻하지 않는다.
 - 이 문서는 이번 플로우 변경의 실행 순서를 소유한다. [기존 PR 로드맵](quick-estimate-pr-roadmap.md)의 과거 브랜치·PR 순서는 새 작업에 적용하지 않는다.
@@ -232,13 +232,13 @@ RF-PR4는 RF-PR3에서 빠진 필수 테스트를 뒤늦게 작성하는 단계�
 
 계획과 실제 상태를 구분하기 위한 기록 표다. 실행한 뒤 확인된 값만 채운다.
 
-| 계획   | 실제 PR                                                        | 검증 commit                                | 상태                            |
-| ------ | -------------------------------------------------------------- | ------------------------------------------ | ------------------------------- |
-| RF-PR1 | [#42](https://github.com/leekwansootv-creator/4refund/pull/42) | `16c3e7c61c09faa016b9adfdb1372907ff2ced77` | milestone 병합 완료             |
-| RF-PR2 | [#43](https://github.com/leekwansootv-creator/4refund/pull/43) | `ac8f22ef35096b0b871ff84e45a0a242a0a6ebac` | milestone 병합 완료             |
-| RF-PR3 | [#44](https://github.com/leekwansootv-creator/4refund/pull/44) | `e317a6562e2dcc6ed4556ccc7540456f7b3af677` | 구현·로컬 검사 통과, PR 검수 중 |
-| RF-PR4 | 미생성                                                         | 미기록                                     | 미착수                          |
-| RF-PR5 | 미생성                                                         | 미기록                                     | 미착수                          |
+| 계획   | 실제 PR                                                        | 검증 commit                                              | 상태                                               |
+| ------ | -------------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------- |
+| RF-PR1 | [#42](https://github.com/leekwansootv-creator/4refund/pull/42) | `16c3e7c61c09faa016b9adfdb1372907ff2ced77`               | milestone 병합 완료                                |
+| RF-PR2 | [#43](https://github.com/leekwansootv-creator/4refund/pull/43) | `ac8f22ef35096b0b871ff84e45a0a242a0a6ebac`               | milestone 병합 완료                                |
+| RF-PR3 | [#44](https://github.com/leekwansootv-creator/4refund/pull/44) | `93a3d46fe5faa04d94247547027a8e59e5c26bc5`               | milestone 병합 완료                                |
+| RF-PR4 | [#45](https://github.com/leekwansootv-creator/4refund/pull/45) | `ea7404ecfb376ffa5281b6338cbecf2e32ed860e` (제품 런타임) | 일반·실제 저장 검증 완료, 최종 병합 상태는 PR 참조 |
+| RF-PR5 | 미생성                                                         | 미기록                                                   | 미착수                                             |
 
 ### RF-PR1 확인 기록
 
@@ -253,3 +253,22 @@ RF-PR4는 RF-PR3에서 빠진 필수 테스트를 뒤늦게 작성하는 단계�
 - 1440px·375px Chromium에서 기존 연락처 우선 전체 흐름·동의 전문을 검증했다. POST 2건 모두 가로챘고 실제 외부 저장 없음, 페이지 오류 0건.
 - 첫 lint에서 잔여 동의 JSX 참조를 수정한 뒤 전체 검증과 현재 HEAD 로컬 재검수 통과. 외부 리뷰 없음, 미해결 스레드 0건, GitHub Quality verify 성공.
 - 2026-09-04 MERGED 확인: `348e826fead776bb89f54c377872d1e45e089709`. 작업 브랜치 정리 후 RF-PR3 생성. 담당자 `misosiruda`, 기존 라벨 `documentation`, `enhancement` 확인. frontend/refactor 전용 라벨은 없어 추가하지 않았다.
+
+### RF-PR3 확인 기록
+
+- `npm run check`, `git diff --check` 통과: 검사 도구 7건, Vitest 208건, 일반 E2E 18건. live 5건 skip, 실제 저장 미검증.
+- 1440px·375px 선조회→신청→완료, 뒤로 이동·동의 전문·금액 대조·판독 불가 재시도·axe를 실제 저장 없이 검증. 조건·결과·빈 신청 화면 캡처 확인.
+- 테스트 endpoint 형식 불일치, 전문 버튼 명암 대비, 알림 locator 범위를 수정하고 재검증. HEAD 검수에서 실행 기록 표 위치를 정정한 뒤 전체 검사와 재검수 통과.
+- 외부 자동 리뷰 없음, 미해결 스레드 0건, 최종 HEAD GitHub Quality verify 성공. 2026-09-04 MERGED와 merge commit `4193550eb3aa65ab281ae4c73733958126bb4f8c` 확인. 작업 브랜치 정리 후 RF-PR4 생성.
+- 담당자 `misosiruda`, 기존 라벨 `enhancement`, `documentation` 확인. 전용 frontend 라벨은 저장소에 없음.
+
+### RF-PR4 공개 조건
+
+- `npm run check`, `git diff --check` 통과: 검사 도구 7건, Vitest 208건, 일반 E2E 21건, live 5건 skip.
+- 일반 선조회 E2E 7건과 endpoint 없는 별도 빌드의 1440px·375px 계산·재조회·문의 경로를 확인했다. 실제 외부 저장 없음, endpoint 없는 화면의 POST·페이지 오류 모두 0건.
+- 브라우저에서 초기 안내 명암 대비와 blur 오류로 인한 첫 클릭 누락을 발견해 수정했다. 확대 모사·native dialog 포커스 검사와 Playwright 캡처 옵션 범위도 정정한 뒤 재검증했다.
+- 담당자 `misosiruda`, 기존 라벨 `documentation`, `bug`로 Draft PR #45를 생성했다. frontend 전용 라벨은 저장소에 없다. 문서 기록을 포함한 최종 HEAD의 검수·CI 상태는 해당 PR에 갱신한다. 아직 병합하지 않았다.
+
+사용자가 제공한 관리자 탭으로 초기 접근 차단을 해소했다. 별도 live 실행은 5건 통과·0건 skip이며 신규 4건의 화면·payload·원본·상담 목록·알림 대조와 파기대장 기록·테스트 행 정리를 완료했다. 기존 접수 14건은 유지했다. 증빙 helper와 최종 문서 변경을 포함한 HEAD의 검사·검수·병합 결과는 #45에 기록한다.
+
+RF-PR5는 [출시 검증 기록](../operations/quick-estimate-result-first-release-check.md#현재-공개-차단-조건)의 Sheet 접근 기준 불일치 해소 전까지 미착수다. 실제 설정은 소유자 외 기존 편집자 3명을 포함하지만 runbook은 소유자만 접근하도록 승인돼 있다. 기존 권한을 임의로 변경하지 않았으며 main·운영 배포도 변경하지 않았다.

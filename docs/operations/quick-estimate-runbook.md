@@ -18,6 +18,15 @@
 | 파기 대상 점검           | 월 1회                                      |
 | 별도 export·backup       | 금지                                        |
 
+## 선조회 전환 운영 안내
+
+2026-09-04 선조회 흐름은 전용 milestone에서 구현·검증 중이며 운영 공개 전이다. [출시 검증 기록](quick-estimate-result-first-release-check.md)에서 실제 저장과 공개 조건을 확인한다.
+
+- 업종·직원 수 조회와 결과 확인만으로는 `leads`, `상담 목록`, 신규 알림을 생성하지 않는다. 최종 상세 견적 상담 신청자만 저장한다.
+- 상세 견적은 상담 안내이며 추가 정밀 금액 자동 산출을 뜻하지 않는다. 상담 목록 건수를 전체 조회 건수로 해석하지 않는다.
+- 저장 여부 미확인 시 같은 요청 재시도를 안내한다. 새 신청은 중복 가능성이 있고 모달을 닫으면 기존 요청을 복원하지 않는다.
+- payload·규칙·고지·시트·artifact 변경이 없는 이번 전환에는 Apps Script 재배포나 migration을 추가하지 않는다. 아래 배포 체크리스트의 Apps Script 반영 항목은 서버 변경이 있는 경우에 적용한다.
+
 ## 배포 전 점검
 
 - [ ] `npm run check`가 통과했다.
@@ -52,7 +61,7 @@ npx playwright test e2e/quick-estimate-rule-compatibility-live.spec.ts
 
 1. v1 `professional_services`와 v2 `N` payload가 각각 `ok: true`, `duplicate: false`로 끝난다.
 2. 두 행의 `industry_code`와 `estimate_rule_version`이 payload와 일치한다.
-3. 상담 목록에서 두 행 모두 `용역·파견·시설관리업`에 대응하는 한글 label로 표시된다.
+3. 상담 목록에서 v1 `professional_services`는 `전문·사업지원 서비스`, v2 `N`은 `용역·파견·시설관리업`으로 표시된다.
 4. v1/v2의 표시금액, 난수와 benchmark version이 서버 재계산 결과와 일치한다.
 5. 알 수 없는 version과 version에 속하지 않는 업종은 `UNSUPPORTED_RULE`로 거절된다.
 
@@ -91,7 +100,7 @@ Apps Script는 유효한 신규 payload에 다음 UTC 고정 구간 제한을 �
 
 ```powershell
 $env:QUICK_ESTIMATE_LIVE_E2E='1'
-npm run build
+npm run build:e2e
 npx playwright test e2e/quick-estimate-live.spec.ts
 ```
 
@@ -99,7 +108,7 @@ npx playwright test e2e/quick-estimate-live.spec.ts
 
 1. 데스크톱 마케팅 미동의 제출이 `ok: true`로 끝난다.
 2. 모바일 마케팅 동의 제출이 `ok: true`로 끝난다.
-3. keyboard focus, 200% 확대, reduced motion, dialog axe 검사가 통과한다.
+3. 화면 금액과 실제 payload를 대조하고 데스크톱 동일 요청 재전송이 `duplicate: true`인지 확인한다. keyboard·200% 확대 대응 viewport·reduced motion·axe는 일반 E2E에서도 실제 저장 없이 검사한다.
 4. Sheet에서 두 행의 회사명·연락처·업종·직원 수·표시금액·난수·동의 version을 화면과 대조한다.
 5. `marketing_agreed`, `marketing_channels`, `marketing_accepted_at`이 동의 여부에 맞는다.
 6. Apps Script 실행 기록에 개인정보 원문이 없다.

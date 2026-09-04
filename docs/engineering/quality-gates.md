@@ -19,10 +19,12 @@ npm run check
 | 5    | `npm run check:comments`     | 추적되지 않는 TODO/FIXME/XXX                            |
 | 6    | `npm run check:apps-script`  | Apps Script 원본과 배포 artifact가 다름                 |
 | 7    | `npm test`                   | 검사 도구와 UI 단위·컴포넌트 회귀 테스트 실패           |
-| 8    | `npm run build`              | Next.js 프로덕션 빌드 실패                              |
+| 8    | `npm run build:e2e`          | Next.js 프로덕션 빌드 실패                              |
 | 9    | `npm run test:e2e:run`       | 브라우저 사용자 흐름 또는 자동 접근성 검사 실패         |
 
 검사 순서를 건너뛰기 위해 `next.config.ts`에서 TypeScript 또는 ESLint 오류를 무시하지 않는다.
+
+일반 검사 빌드는 `scripts/build-e2e.mjs`가 `NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL`을 테스트 전용 식별자의 `https://script.google.com/macros/s/E2E-INTERCEPT-ONLY/exec`로 주입한다. 따라서 로컬 운영 설정 유무와 관계없이 일반 E2E가 모든 POST를 가로채 조회/신청 경계를 검증한다. `QUICK_ESTIMATE_LIVE_E2E=1`로 명시한 별도 실제 저장 검사만 승인된 환경 설정을 사용한다. `npm run build`와 운영 배포의 endpoint 필수·형식 검사는 유지한다.
 
 ## 개발 명령
 

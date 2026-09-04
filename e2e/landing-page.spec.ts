@@ -16,13 +16,8 @@ test("루트 첫 section은 간단 견적 hero와 한 벌의 환급 사례를 �
   await expect(main.getByRole("region", { name: "환급 사례 자동 이동 목록" })).toHaveCount(1);
   await expect(action).toBeVisible();
 
-  if (await action.isDisabled()) {
-    await expect(firstSection.getByText("간단 견적 접수 환경을 준비하고 있습니다.")).toHaveCount(1);
-    return;
-  }
-
   await action.click();
-  await expect(page.getByRole("dialog", { name: "정보를 입력해 주세요" })).toBeVisible();
+  await expect(page.getByRole("dialog", { name: "예상 환급액 조회" })).toBeVisible();
 });
 
 test("헤더는 Figma의 컬러 워드마크를 고유 비율로 표시한다", async ({ page }) => {

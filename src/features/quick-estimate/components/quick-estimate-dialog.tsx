@@ -63,6 +63,8 @@ export function QuickEstimateDialog({
 
   useEffect(() => {
     if (open) {
+      const body = dialogRef.current?.querySelector<HTMLElement>("[data-dialog-body]");
+      if (body) body.scrollTop = 0;
       dialogRef.current?.querySelector<HTMLElement>("[data-dialog-initial-focus]")?.focus();
     }
   }, [initialFocusKey, open]);
@@ -108,7 +110,9 @@ export function QuickEstimateDialog({
             <Image src={QUICK_ESTIMATE_ASSETS.icons.close} alt="" width={20} height={20} />
           </button>
         </header>
-        <div className={styles.dialogBody}>{children}</div>
+        <div className={styles.dialogBody} data-dialog-body>
+          {children}
+        </div>
       </div>
     </dialog>
   );

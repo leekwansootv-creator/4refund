@@ -2,19 +2,13 @@
 
 import type { FormEvent } from "react";
 
-import { QuickEstimateConsents } from "./estimate-consents";
 import styles from "./quick-estimate-dialog.module.css";
 import { QuickEstimateField } from "./quick-estimate-field";
 import { ESTIMATE_RULE_SET, type EstimateIndustryCode } from "../constants/estimate-rule-set";
-import type {
-  QuickEstimateFormValues,
-  QuickEstimateConsentValues,
-} from "../types/quick-estimate-ui";
+import type { QuickEstimateFormValues } from "../types/quick-estimate-ui";
 
 type QuickEstimateEstimateStepProps = {
   values: QuickEstimateFormValues;
-  consentValues: QuickEstimateConsentValues;
-  onConsentChange: (field: keyof QuickEstimateConsentValues, value: boolean) => void;
   showErrors?: boolean;
   onChange: <Field extends keyof QuickEstimateFormValues>(
     field: Field,
@@ -38,19 +32,16 @@ function isEmployeeCountValid(value: string): boolean {
 }
 
 /**
- * 업종·직원 수와 필수 개인정보·선택 마케팅 동의를 분리해 입력받습니다.
+ * 연락처나 동의 없이 업종·직원 수만 검증해 브라우저 조회를 요청합니다.
  */
 export function QuickEstimateEstimateStep({
   values,
-  consentValues,
-  onConsentChange,
   showErrors = false,
   onChange,
   onLookup,
 }: QuickEstimateEstimateStepProps) {
   const employeeCountValid = isEmployeeCountValid(values.employeeCount);
-  const isComplete =
-    values.industryCode !== "" && employeeCountValid && consentValues.privacyAgreed;
+  const isComplete = values.industryCode !== "" && employeeCountValid;
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -62,6 +53,7 @@ export function QuickEstimateEstimateStep({
 
   return (
     <form className={styles.form} noValidate onSubmit={handleSubmit}>
+      <p className={styles.description}>업종과 직원 수만으로 예상 환급액을 확인해 보세요.</p>
       <div className={styles.field}>
         <label
           htmlFor="quick-estimate-industry"
@@ -78,6 +70,9 @@ export function QuickEstimateEstimateStep({
             id="quick-estimate-industry"
             required
             value={values.industryCode}
+            aria-describedby={
+              showErrors && values.industryCode === "" ? "quick-estimate-industry-error" : undefined
+            }
             aria-invalid={showErrors && values.industryCode === "" ? true : undefined}
             className={styles.select}
             data-dialog-initial-focus
@@ -97,7 +92,9 @@ export function QuickEstimateEstimateStep({
           </span>
         </div>
         {showErrors && values.industryCode === "" ? (
-          <p className={styles.error}>업종을 선택해 주세요.</p>
+          <p id="quick-estimate-industry-error" className={styles.error}>
+            업종을 선택해 주세요.
+          </p>
         ) : null}
       </div>
 
@@ -109,17 +106,11 @@ export function QuickEstimateEstimateStep({
         suffix="명"
         value={values.employeeCount}
         error={
-          showErrors && !employeeCountValid
+          (showErrors || values.employeeCount !== "") && !employeeCountValid
             ? `직원 수는 ${ESTIMATE_RULE_SET.employeeCount.min.toLocaleString("ko-KR")}~${ESTIMATE_RULE_SET.employeeCount.max.toLocaleString("ko-KR")}명으로 입력해 주세요.`
             : undefined
         }
         onChange={(event) => onChange("employeeCount", event.currentTarget.value)}
-      />
-
-      <QuickEstimateConsents
-        values={consentValues}
-        onChange={onConsentChange}
-        showErrors={showErrors}
       />
 
       <button type="submit" disabled={!isComplete} className={styles.primaryButton}>

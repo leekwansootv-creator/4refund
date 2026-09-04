@@ -1,20 +1,27 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
+import { QuickEstimateConsents } from "./estimate-consents";
 
 import { QuickEstimateField } from "./quick-estimate-field";
 import styles from "./quick-estimate-dialog.module.css";
-import type { QuickEstimateContactValues } from "../types/quick-estimate-ui";
+import type {
+  QuickEstimateContactValues,
+  QuickEstimateConsentValues,
+} from "../types/quick-estimate-ui";
 
 type ContactField = keyof QuickEstimateContactValues;
 
 type QuickEstimateContactStepProps = {
   values: QuickEstimateContactValues;
+  consentValues: QuickEstimateConsentValues;
+  onConsentChange: (field: keyof QuickEstimateConsentValues, value: boolean) => void;
+  onBack: () => void;
   honeypotValue?: string;
   showErrors?: boolean;
   onChange: (field: ContactField, value: string) => void;
   onHoneypotChange?: (value: string) => void;
-  onNext: () => void;
+  onSubmit: () => void;
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
@@ -51,29 +58,34 @@ function getContactError(field: ContactField, value: string): string | undefined
 }
 
 /**
- * 회사명·담당자 이름·이메일·전화번호를 받고 유효할 때만 다음 단계를 허용합니다.
+ * 네 연락처 필드와 필수 동의를 검증하고 명시적인 최종 신청만 전달합니다.
  */
 export function QuickEstimateContactStep({
   values,
+  consentValues,
+  onConsentChange,
+  onBack,
   honeypotValue = "",
   showErrors = false,
   onChange,
   onHoneypotChange,
-  onNext,
+  onSubmit,
 }: QuickEstimateContactStepProps) {
+  const [touched, setTouched] = useState<Partial<Record<ContactField, boolean>>>({});
   const errors = {
     companyName: getContactError("companyName", values.companyName),
     contactName: getContactError("contactName", values.contactName),
     email: getContactError("email", values.email),
     phone: getContactError("phone", values.phone),
   };
-  const isComplete = Object.values(errors).every((error) => error === undefined);
+  const isComplete =
+    consentValues.privacyAgreed && Object.values(errors).every((error) => error === undefined);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (isComplete) {
-      onNext();
+      onSubmit();
     }
   }
 
@@ -98,7 +110,10 @@ export function QuickEstimateContactStep({
         autoComplete="organization"
         maxLength={100}
         value={values.companyName}
-        error={showErrors ? errors.companyName : undefined}
+        error={showErrors || touched.companyName ? errors.companyName : undefined}
+        required
+        reserveErrorSpace
+        onBlur={() => setTouched((current) => ({ ...current, companyName: true }))}
         initialFocus
         onChange={(event) => onChange("companyName", event.currentTarget.value)}
       />
@@ -109,7 +124,10 @@ export function QuickEstimateContactStep({
         autoComplete="name"
         maxLength={50}
         value={values.contactName}
-        error={showErrors ? errors.contactName : undefined}
+        error={showErrors || touched.contactName ? errors.contactName : undefined}
+        required
+        reserveErrorSpace
+        onBlur={() => setTouched((current) => ({ ...current, contactName: true }))}
         onChange={(event) => onChange("contactName", event.currentTarget.value)}
       />
       <QuickEstimateField
@@ -120,7 +138,10 @@ export function QuickEstimateContactStep({
         autoComplete="email"
         maxLength={254}
         value={values.email}
-        error={showErrors ? errors.email : undefined}
+        error={showErrors || touched.email ? errors.email : undefined}
+        required
+        reserveErrorSpace
+        onBlur={() => setTouched((current) => ({ ...current, email: true }))}
         onChange={(event) => onChange("email", event.currentTarget.value)}
       />
       <QuickEstimateField
@@ -132,11 +153,22 @@ export function QuickEstimateContactStep({
         autoComplete="tel"
         maxLength={30}
         value={values.phone}
-        error={showErrors ? errors.phone : undefined}
+        error={showErrors || touched.phone ? errors.phone : undefined}
+        required
+        reserveErrorSpace
+        onBlur={() => setTouched((current) => ({ ...current, phone: true }))}
         onChange={(event) => onChange("phone", event.currentTarget.value)}
       />
+      <QuickEstimateConsents
+        values={consentValues}
+        onChange={onConsentChange}
+        showErrors={showErrors}
+      />
       <button type="submit" disabled={!isComplete} className={styles.primaryButton}>
-        다음
+        상세 견적 신청하기
+      </button>
+      <button type="button" className={styles.secondaryButton} onClick={onBack}>
+        결과로 돌아가기
       </button>
     </form>
   );

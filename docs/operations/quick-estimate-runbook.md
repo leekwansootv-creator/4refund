@@ -4,19 +4,28 @@
 
 이 문서는 루트 랜딩의 간단 견적 상담 제출을 운영하는 절차를 고정한다. Apps Script 배포 URL, Script ID, Spreadsheet ID는 이 문서·PR·이슈에 기록하지 않는다. 사람용 상담 업무 화면의 목표 구조는 [간단 견적 상담 목록 설계](../planning/quick-estimate-consultation-queue.md)를 따른다.
 
-| 항목                     | 운영 기준                                   |
-| ------------------------ | ------------------------------------------- |
-| Apps Script·Sheet 소유자 | `QD-010`으로 승인된 이관수 Google 계정      |
-| Sheet 접근자             | 소유 계정 한 명                             |
-| 다중 인증                | 필수                                        |
-| 장애 대응 담당자         | 이관수                                      |
-| 정상 점검 주기           | 영업일마다 1회                              |
-| 상담 운영 자동 점검      | 평일 09:00~18:00, 30분마다                  |
-| 최초 연락 목표           | 접수 후 2업무시간 이내                      |
-| 장애 대응 시작 상한      | 인지 후 1영업일                             |
-| 개인정보 보유            | 접수일부터 1년, 목적 달성·철회 시 조기 파기 |
-| 파기 대상 점검           | 월 1회                                      |
-| 별도 export·backup       | 금지                                        |
+| 항목                     | 운영 기준                                     |
+| ------------------------ | --------------------------------------------- |
+| Apps Script·Sheet 소유자 | `QD-010`으로 승인된 이관수 Google 계정        |
+| Sheet 접근자             | 소유 계정과 2026-09-04 승인된 기존 편집자 3명 |
+| 다중 인증                | 필수                                          |
+| 장애 대응 담당자         | 이관수                                        |
+| 정상 점검 주기           | 영업일마다 1회                                |
+| 상담 운영 자동 점검      | 평일 09:00~18:00, 30분마다                    |
+| 최초 연락 목표           | 접수 후 2업무시간 이내                        |
+| 장애 대응 시작 상한      | 인지 후 1영업일                               |
+| 개인정보 보유            | 접수일부터 1년, 목적 달성·철회 시 조기 파기   |
+| 파기 대상 점검           | 월 1회                                        |
+| 별도 export·backup       | 금지                                          |
+
+## 선조회 전환 운영 안내
+
+2026-09-04 선조회 흐름의 구현·실제 저장 검증과 RF-PR1~4 milestone 병합을 완료했다. 사용자가 기존 편집자 접근 유지와 검증 후 main 출하를 승인했다. 최종 main 병합·배포 결과는 [출시 검증 기록](quick-estimate-result-first-release-check.md)과 릴리스 PR에서 확인한다.
+
+- 업종·직원 수 조회와 결과 확인만으로는 `leads`, `상담 목록`, 신규 알림을 생성하지 않는다. 최종 상세 견적 상담 신청자만 저장한다.
+- 상세 견적은 상담 안내이며 추가 정밀 금액 자동 산출을 뜻하지 않는다. 상담 목록 건수를 전체 조회 건수로 해석하지 않는다.
+- 저장 여부 미확인 시 같은 요청 재시도를 안내한다. 새 신청은 중복 가능성이 있고 모달을 닫으면 기존 요청을 복원하지 않는다.
+- payload·규칙·고지·시트·artifact 변경이 없는 이번 전환에는 Apps Script 재배포나 migration을 추가하지 않는다. 아래 배포 체크리스트의 Apps Script 반영 항목은 서버 변경이 있는 경우에 적용한다.
 
 ## 배포 전 점검
 
@@ -26,7 +35,7 @@
 - [ ] 배포 URL은 저장소 밖에서만 전달했다.
 - [ ] 로컬 검증은 `.env.local`의 `NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL`로 주입했다.
 - [ ] GitHub Actions secret `QUICK_ESTIMATE_APPS_SCRIPT_URL`에 같은 URL을 등록했다.
-- [ ] Sheet 공유가 제한됨이고 소유 계정 외 접근자가 없다.
+- [ ] Sheet 공유가 제한됨이고 소유 계정 및 승인된 기존 편집자 3명 외 접근자가 없다.
 - [ ] `leads` 24개 header와 `codebook`, `lead_status` validation이 유지된다.
 - [ ] 업종 규칙 전환 시 Apps Script가 운영 브라우저 version과 차기 version을 모두 재계산한다.
 - [ ] `onEditQuickEstimateConsultation` 설치형 편집 트리거가 한 개만 존재한다.
@@ -52,7 +61,7 @@ npx playwright test e2e/quick-estimate-rule-compatibility-live.spec.ts
 
 1. v1 `professional_services`와 v2 `N` payload가 각각 `ok: true`, `duplicate: false`로 끝난다.
 2. 두 행의 `industry_code`와 `estimate_rule_version`이 payload와 일치한다.
-3. 상담 목록에서 두 행 모두 `용역·파견·시설관리업`에 대응하는 한글 label로 표시된다.
+3. 상담 목록에서 v1 `professional_services`는 `전문·사업지원 서비스`, v2 `N`은 `용역·파견·시설관리업`으로 표시된다.
 4. v1/v2의 표시금액, 난수와 benchmark version이 서버 재계산 결과와 일치한다.
 5. 알 수 없는 version과 version에 속하지 않는 업종은 `UNSUPPORTED_RULE`로 거절된다.
 
@@ -91,7 +100,7 @@ Apps Script는 유효한 신규 payload에 다음 UTC 고정 구간 제한을 �
 
 ```powershell
 $env:QUICK_ESTIMATE_LIVE_E2E='1'
-npm run build
+npm run build:e2e
 npx playwright test e2e/quick-estimate-live.spec.ts
 ```
 
@@ -99,7 +108,7 @@ npx playwright test e2e/quick-estimate-live.spec.ts
 
 1. 데스크톱 마케팅 미동의 제출이 `ok: true`로 끝난다.
 2. 모바일 마케팅 동의 제출이 `ok: true`로 끝난다.
-3. keyboard focus, 200% 확대, reduced motion, dialog axe 검사가 통과한다.
+3. 화면 금액과 실제 payload를 대조하고 데스크톱 동일 요청 재전송이 `duplicate: true`인지 확인한다. keyboard·200% 확대 대응 viewport·reduced motion·axe는 일반 E2E에서도 실제 저장 없이 검사한다.
 4. Sheet에서 두 행의 회사명·연락처·업종·직원 수·표시금액·난수·동의 version을 화면과 대조한다.
 5. `marketing_agreed`, `marketing_channels`, `marketing_accepted_at`이 동의 여부에 맞는다.
 6. Apps Script 실행 기록에 개인정보 원문이 없다.
@@ -177,7 +186,7 @@ npx playwright test e2e/quick-estimate-live.spec.ts
 
 ## 권한·보유·파기
 
-- Sheet는 공개 링크 공유를 금지하고 소유 계정 한 명만 접근한다.
+- Sheet는 공개 링크 공유를 금지하고 소유 계정 및 2026-09-04 승인된 기존 편집자 3명만 접근한다. 승인 범위에는 같은 Spreadsheet의 상담 원본 열람이 포함된다.
 - 초기 상담 담당자는 이관수 한 명이며 신규 상담은 `상담 목록`에서 이관수에게 고정 배정한다.
 - 상담 담당자는 원본 `leads`를 수정하지 않고 한글 `상담 목록`의 허용 컬럼만 운영한다.
 - 월 1회 `submitted_at` 기준 1년 만료와 조기 파기 요청을 확인한다.
@@ -186,7 +195,11 @@ npx playwright test e2e/quick-estimate-live.spec.ts
 - Sheets version history 때문에 행 삭제만으로 복구 불가능한 파기를 단정하지 않는다. 실제 영구 파기는 대상 분리, 새 파일 교체, 기존 파일 영구 삭제 절차를 별도 승인 후 수행한다.
 - 소유 계정 복구 수단이나 접근자가 바뀌면 공개 접수를 먼저 중단하고 권한 기준을 다시 승인한다.
 
-저장소에는 사람용 `상담 목록` 생성, 원본 투영, 상담 상태 자동화와 개인정보 없는 알림 코드가 포함되어 있다. 다른 상담 담당자에게 이관수 계정 자격 증명을 공유하지 않는다. 다른 계정을 추가하기 전에는 개인별 계정, 편집 범위, 권한 회수와 배정 규칙을 다시 승인한다. 원본 24개 컬럼은 수정하지 않고 상담 담당자는 한글 업무 화면에서만 허용된 운영값을 변경한다.
+저장소에는 사람용 `상담 목록` 생성, 원본 투영, 상담 상태 자동화와 개인정보 없는 알림 코드가 포함되어 있다. 다른 상담 담당자에게 이관수 계정 자격 증명을 공유하지 않는다. 승인된 기존 3명 외 계정을 추가하거나 권한을 확대하기 전에는 개인별 계정, 편집 범위, 권한 회수와 배정 규칙을 다시 승인한다. 원본 24개 컬럼은 수정하지 않고 상담 담당자는 한글 업무 화면에서만 허용된 운영값을 변경한다.
+
+### 2026-09-04 접근 기준 승인
+
+RF-PR4에서 일반 액세스 `제한됨`, 소유자 외 기존 편집자 3명을 확인했다. 기존 편집자들의 상담 원본 포함 Sheet 접근 유지와 운영 문서 정정·최종 배포 여부를 질문한 뒤 사용자가 검증 후 main 출하를 지시했다. 이에 기존 접근 범위를 승인된 운영 기준으로 반영한다. 실제 공유 설정 변경이나 새 사용자 초대는 수행하지 않는다. 계정 식별자는 비공개 Sheet 공유 화면에서 관리하며 저장소에 복사하지 않는다. 기존 다중 인증·보유·파기·권한 회수·추가 접근 재승인 기준은 유지한다.
 
 ## 변경과 rollback 기록
 

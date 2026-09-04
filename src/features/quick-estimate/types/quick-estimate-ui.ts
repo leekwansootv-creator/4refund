@@ -8,22 +8,21 @@ export type QuickEstimateContactValues = {
   phone: string;
 };
 
-/** 견적 입력 단계가 편집하는 계산 조건과 분리된 동의 값입니다. */
+/** 견적 입력 단계가 편집하는 업종과 직원 수입니다. */
 export type QuickEstimateFormValues = {
   industryCode: EstimateIndustryCode | "";
   employeeCount: string;
+};
+
+/** 상담 접수의 필수 개인정보 동의와 선택 마케팅 동의를 별도로 보존합니다. */
+export type QuickEstimateConsentValues = {
   privacyAgreed: boolean;
   marketingAgreed: boolean;
 };
 
-/** 결과 금액과 독립적으로 표시하는 상담 접수 진행 상태입니다. */
-export type QuickEstimateResultFeedback =
-  | { status: "idle" }
-  | { status: "submitting" }
-  | { status: "succeeded" }
-  | {
-      status: "failed";
-      message: string;
-      onEditContact: () => void;
-      onRetry: () => void;
-    };
+/** 결과·신청·접수 화면에서 같은 확정 견적을 표시하는 요약입니다. */
+export type QuickEstimateSummaryValues = {
+  amount: number;
+  employeeCount: number;
+  industryLabel: string;
+};

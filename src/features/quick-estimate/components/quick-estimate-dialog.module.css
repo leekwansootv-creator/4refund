@@ -157,7 +157,11 @@
 
 .input::placeholder,
 .select:invalid {
-  color: #b3b3b3;
+  color: #666;
+}
+
+.errorSpace {
+  min-height: 20px;
 }
 
 .selectControl {

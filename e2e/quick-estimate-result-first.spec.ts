@@ -122,3 +122,95 @@ test("판독 불가 응답은 경고·동일 payload 재시도 뒤 중복 성공
   expect(bodies).toHaveLength(2);
   expect(bodies[1]).toBe(bodies[0]);
 });
+
+for (const scenario of [
+  { width: 1440, zoom: 2 },
+  { width: 375, zoom: 1 },
+]) {
+  test(`${scenario.width}px ${scenario.zoom * 100}% 확대·키보드·동의 전문·reduced motion`, async ({
+    page,
+  }) => {
+    // 브라우저 200% 확대와 같은 CSS 가용 영역을 사용한다. CSS zoom은 vh를 줄이지 않는다.
+    await page.setViewportSize({
+      width: scenario.width / scenario.zoom,
+      height: 900 / scenario.zoom,
+    });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    let posts = 0;
+    await page.route("**/*", async (route) => {
+      if (route.request().method() === "POST") {
+        posts++;
+        await route.abort();
+      } else await route.continue();
+    });
+    await page.goto("/");
+    const action = page.getByRole("button", { name: "환급액 조회하기" });
+    await action.click();
+    await expect(page.getByLabel("업종")).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(page.getByLabel("직원 수")).toBeFocused();
+    await expectAccessible(page);
+    await page.getByLabel("업종").selectOption("N");
+    await page.getByLabel("직원 수").fill("6000");
+    await page.getByRole("button", { name: "조회하기", exact: true }).click();
+    await expectAccessible(page);
+    await page.getByRole("button", { name: "상세 견적 받기" }).click();
+    // 빈 필드 blur로 오류가 표시되어도 전문 버튼의 첫 클릭을 잃지 않아야 한다.
+    await page.getByRole("button", { name: "[보기]", exact: true }).first().click();
+    await expect(page.getByRole("button", { name: "[접기]", exact: true })).toHaveCount(1);
+    await page.getByRole("button", { name: "[보기]", exact: true }).click();
+    await expect(page.getByText("보유 기간: 접수일부터 1년")).toBeAttached();
+    await expect(page.getByText("이용 채널: 이메일, 문자(SMS)")).toBeAttached();
+    await expectAccessible(page);
+    const back = page.getByRole("button", { name: "결과로 돌아가기" });
+    await back.focus();
+    await expect(back).toBeInViewport();
+    await page.keyboard.press("Tab");
+    // native dialog는 마지막 요소 뒤 브라우저 chrome으로 이동할 수 있지만 배경 UI는 inert다.
+    if (await page.evaluate(() => document.activeElement === document.body)) {
+      await page.keyboard.press("Tab");
+    }
+    await expect(page.getByRole("button", { name: "간단 견적 닫기" })).toBeFocused();
+    await page.keyboard.press("Shift+Tab");
+    if (await page.evaluate(() => document.activeElement === document.body)) {
+      await page.keyboard.press("Shift+Tab");
+    }
+    await expect(back).toBeFocused();
+    const overflow = await page.getByRole("dialog").evaluate((dialog) => {
+      const body = dialog.querySelector<HTMLElement>("[data-dialog-body]");
+      return body ? body.scrollWidth > body.clientWidth : true;
+    });
+    expect(overflow).toBe(false);
+    await page.keyboard.press("Escape");
+    await expect(action).toBeFocused();
+    expect(posts).toBe(0);
+  });
+}
+
+test("실제 모달은 접수 응답 전 Escape와 닫기를 차단하고 성공 후 복귀한다", async ({ page }) => {
+  let finish: (() => void) | undefined;
+  const pending = new Promise<void>((resolve) => {
+    finish = resolve;
+  });
+  let posts = 0;
+  await page.route("**/*", async (route) => {
+    if (route.request().method() !== "POST") return route.continue();
+    posts++;
+    await pending;
+    await route.fulfill({ json: SUCCESS });
+  });
+  await openResult(page);
+  await fillApplication(page);
+  await page.waitForTimeout(3_100);
+  await page.getByRole("button", { name: "상세 견적 신청하기" }).click();
+  await expect(page.getByText("상세 견적 신청을 접수하고 있습니다.")).toBeVisible();
+  await expect(page.getByRole("button", { name: "간단 견적 닫기" })).toBeDisabled();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(page.getByLabel("회사명")).toHaveCount(0);
+  await expect(page.getByText("상세 견적 신청이 접수되었습니다.")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "결과로 돌아가기" })).toHaveCount(0);
+  finish?.();
+  await expect(page.getByText("상세 견적 신청이 접수되었습니다.")).toBeVisible();
+  expect(posts).toBe(1);
+});

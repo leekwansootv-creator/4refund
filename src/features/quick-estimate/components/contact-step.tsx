@@ -112,6 +112,7 @@ export function QuickEstimateContactStep({
         value={values.companyName}
         error={showErrors || touched.companyName ? errors.companyName : undefined}
         required
+        reserveErrorSpace
         onBlur={() => setTouched((current) => ({ ...current, companyName: true }))}
         initialFocus
         onChange={(event) => onChange("companyName", event.currentTarget.value)}
@@ -125,6 +126,7 @@ export function QuickEstimateContactStep({
         value={values.contactName}
         error={showErrors || touched.contactName ? errors.contactName : undefined}
         required
+        reserveErrorSpace
         onBlur={() => setTouched((current) => ({ ...current, contactName: true }))}
         onChange={(event) => onChange("contactName", event.currentTarget.value)}
       />
@@ -138,6 +140,7 @@ export function QuickEstimateContactStep({
         value={values.email}
         error={showErrors || touched.email ? errors.email : undefined}
         required
+        reserveErrorSpace
         onBlur={() => setTouched((current) => ({ ...current, email: true }))}
         onChange={(event) => onChange("email", event.currentTarget.value)}
       />
@@ -152,6 +155,7 @@ export function QuickEstimateContactStep({
         value={values.phone}
         error={showErrors || touched.phone ? errors.phone : undefined}
         required
+        reserveErrorSpace
         onBlur={() => setTouched((current) => ({ ...current, phone: true }))}
         onChange={(event) => onChange("phone", event.currentTarget.value)}
       />

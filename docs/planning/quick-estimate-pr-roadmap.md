@@ -1,5 +1,7 @@
 # 간단 견적 기능 PR 로드맵
 
+> 2026-09-04 후속 기획: [간편 환급액 선조회 및 상세 견적 신청 플로우](quick-estimate-result-first-flow.md)와 [전용 PR 실행 계획](quick-estimate-result-first-pr-roadmap.md)을 따른다. 새 작업은 별도 `milestone/quick-estimate-result-first`에 순차 통합한 뒤 main으로 릴리스한다. 아래 PR 구분과 브랜치명은 기존 기능의 계획·이력이며, 새 변경안의 PR 생성이나 구현 완료를 뜻하지 않는다.
+
 ## 문서 목적
 
 이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md), [기술 설계](quick-estimate-technical-design.md), [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md), [기준액 벤치마크](quick-estimate-benchmark.md)를 실제 변경으로 옮길 때 사용할 PR 단위 실행 계획이다.

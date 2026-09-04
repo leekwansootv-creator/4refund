@@ -1,5 +1,7 @@
 # 간단 견적 리드 수집 기술 설계
 
+> 2026-09-04 후속 기획: [간편 환급액 선조회 및 상세 견적 신청 플로우](quick-estimate-result-first-flow.md)는 계산과 제출 시점을 분리하는 변경안이다. 아래 `QD-008`과 UI 흐름은 변경 전 기준이며, 최종 제출·계산·저장 계약을 재사용하는 방향으로 검토한다. 변경안은 아직 구현 전이다.
+
 ## 문서 목적
 
 이 문서는 [간단 견적 리드 수집 기능 기획](quick-estimate-lead-collection.md)을 구현 가능한 기술 계약으로 구체화한다. 예상 견적 엔진, 데이터 계약, Google Sheets schema, Google Apps Script 처리 순서, 보안·오류·테스트 경계를 정의하며, 전달된 화면은 [UI 디자인 구현 기획](quick-estimate-ui-design-plan.md)에서 이 계약과 대조한다. 사람용 상담 업무 화면은 [상담 목록 설계](quick-estimate-consultation-queue.md)를 따른다. 업종별 금액과 외부 참고값은 [간단 견적 기준액 벤치마크](quick-estimate-benchmark.md)를 따르며 실제 변경 순서는 [간단 견적 기능 PR 로드맵](quick-estimate-pr-roadmap.md)을 따른다. Apps Script 전송 방식의 실제 관측 결과는 [전송 검증 문서](quick-estimate-apps-script-spike.md)를 기준으로 삼는다.

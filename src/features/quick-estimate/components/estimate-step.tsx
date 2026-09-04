@@ -2,14 +2,19 @@
 
 import type { FormEvent } from "react";
 
-import { ConsentDisclosure } from "./consent-disclosure";
+import { QuickEstimateConsents } from "./estimate-consents";
 import styles from "./quick-estimate-dialog.module.css";
 import { QuickEstimateField } from "./quick-estimate-field";
 import { ESTIMATE_RULE_SET, type EstimateIndustryCode } from "../constants/estimate-rule-set";
-import type { QuickEstimateFormValues } from "../types/quick-estimate-ui";
+import type {
+  QuickEstimateFormValues,
+  QuickEstimateConsentValues,
+} from "../types/quick-estimate-ui";
 
 type QuickEstimateEstimateStepProps = {
   values: QuickEstimateFormValues;
+  consentValues: QuickEstimateConsentValues;
+  onConsentChange: (field: keyof QuickEstimateConsentValues, value: boolean) => void;
   showErrors?: boolean;
   onChange: <Field extends keyof QuickEstimateFormValues>(
     field: Field,
@@ -17,22 +22,6 @@ type QuickEstimateEstimateStepProps = {
   ) => void;
   onLookup: () => void;
 };
-
-const PRIVACY_NOTICE = [
-  "수집 항목: 회사명, 담당자 이름, 이메일, 전화번호, 업종, 직원 수, 예상 환급액",
-  "이용 목적: 간단 견적 상담 신청 접수, 담당자 연락 및 상담 상태 관리",
-  "보유 기간: 접수일부터 1년",
-  "",
-  "동의를 거부할 수 있으나, 거부 시 예상 견적 상담 접수가 제한됩니다.",
-].join("\n");
-
-const MARKETING_NOTICE = [
-  "이용 목적: 4대보험 환급 관련 혜택, 상담 및 서비스 소식 안내",
-  "이용 채널: 이메일, 문자(SMS)",
-  "보유 기간: 동의일부터 1년 또는 철회 시까지",
-  "",
-  "동의하지 않아도 예상 견적 확인과 상담 접수를 이용할 수 있습니다.",
-].join("\n");
 
 function isEmployeeCountValid(value: string): boolean {
   if (!/^\d+$/u.test(value)) {
@@ -53,12 +42,15 @@ function isEmployeeCountValid(value: string): boolean {
  */
 export function QuickEstimateEstimateStep({
   values,
+  consentValues,
+  onConsentChange,
   showErrors = false,
   onChange,
   onLookup,
 }: QuickEstimateEstimateStepProps) {
   const employeeCountValid = isEmployeeCountValid(values.employeeCount);
-  const isComplete = values.industryCode !== "" && employeeCountValid && values.privacyAgreed;
+  const isComplete =
+    values.industryCode !== "" && employeeCountValid && consentValues.privacyAgreed;
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -124,27 +116,11 @@ export function QuickEstimateEstimateStep({
         onChange={(event) => onChange("employeeCount", event.currentTarget.value)}
       />
 
-      <div className="flex flex-col gap-3">
-        <ConsentDisclosure
-          checked={values.privacyAgreed}
-          required
-          label="개인정보 처리 동의"
-          onCheckedChange={(checked) => onChange("privacyAgreed", checked)}
-        >
-          {PRIVACY_NOTICE}
-        </ConsentDisclosure>
-        <ConsentDisclosure
-          checked={values.marketingAgreed}
-          required={false}
-          label="마케팅 활용 동의"
-          onCheckedChange={(checked) => onChange("marketingAgreed", checked)}
-        >
-          {MARKETING_NOTICE}
-        </ConsentDisclosure>
-        {showErrors && !values.privacyAgreed ? (
-          <p className={styles.error}>개인정보 처리 동의가 필요합니다.</p>
-        ) : null}
-      </div>
+      <QuickEstimateConsents
+        values={consentValues}
+        onChange={onConsentChange}
+        showErrors={showErrors}
+      />
 
       <button type="submit" disabled={!isComplete} className={styles.primaryButton}>
         조회하기

@@ -23,8 +23,9 @@
     "test:unit": "vitest run",
     "test": "npm run test:checks && npm run test:unit",
     "test:e2e:run": "playwright test",
-    "test:e2e": "npm run build && npm run test:e2e:run",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:architecture && npm run check:comments && npm run check:apps-script && npm run test && npm run build && npm run test:e2e:run"
+    "test:e2e": "npm run build:e2e && npm run test:e2e:run",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:architecture && npm run check:comments && npm run check:apps-script && npm run test && npm run test:e2e",
+    "build:e2e": "node scripts/build-e2e.mjs"
   },
   "dependencies": {
     "next": "16.2.11",

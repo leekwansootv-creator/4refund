@@ -53,6 +53,7 @@
 
 .closeButton:focus-visible,
 .primaryButton:focus-visible,
+.secondaryButton:focus-visible,
 .disclosureButton:focus-visible {
   outline: 3px solid #3d6eed;
   outline-offset: 3px;
@@ -62,6 +63,27 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.description {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.secondaryButton {
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 1px solid #b8c9df;
+  border-radius: 8px;
+  background: #fff;
+  color: #1553a2;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  background: #f2f7ff;
 }
 
 .botTrap {
@@ -154,13 +176,13 @@
 
 .suffix {
   padding-right: 16px;
-  color: #808080;
+  color: #666;
   font-size: 14px;
   white-space: nowrap;
 }
 
 .error {
-  color: #e53333;
+  color: #c62828;
   font-size: 12px;
   line-height: 1.4;
 }
@@ -257,7 +279,7 @@
   cursor: pointer;
   border: 0;
   background: transparent;
-  color: #808080;
+  color: #666;
   font-size: 12px;
   line-height: normal;
   font-weight: 700;

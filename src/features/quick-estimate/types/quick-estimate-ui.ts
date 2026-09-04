@@ -20,14 +20,9 @@ export type QuickEstimateConsentValues = {
   marketingAgreed: boolean;
 };
 
-/** 결과 금액과 독립적으로 표시하는 상담 접수 진행 상태입니다. */
-export type QuickEstimateResultFeedback =
-  | { status: "idle" }
-  | { status: "submitting" }
-  | { status: "succeeded" }
-  | {
-      status: "failed";
-      message: string;
-      onEditContact: () => void;
-      onRetry: () => void;
-    };
+/** 결과·신청·접수 화면에서 같은 확정 견적을 표시하는 요약입니다. */
+export type QuickEstimateSummaryValues = {
+  amount: number;
+  employeeCount: number;
+  industryLabel: string;
+};

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { recordLiveSubmissionEvidence } from "./quick-estimate-live-evidence";
 
 import {
   ESTIMATE_BENCHMARK_VERSION,
@@ -72,7 +73,9 @@ test.describe("간단 견적 규칙 version 실제 저장 호환성", () => {
 
   for (const ruleVersion of [ESTIMATE_RULE_V1_VERSION, ESTIMATE_RULE_V2_VERSION] as const) {
     test(`${ruleVersion} payload를 저장한다`, async () => {
-      const result = await submitEstimateLead(createCompatibilityPayload(ruleVersion), {
+      const payload = createCompatibilityPayload(ruleVersion);
+      await recordLiveSubmissionEvidence(payload);
+      const result = await submitEstimateLead(payload, {
         endpoint: endpoint ?? "",
       });
 

@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { recordLiveSubmissionEvidence } from "./quick-estimate-live-evidence";
 
 import {
   submitEstimateLead,
@@ -60,6 +61,7 @@ test.describe("간단 견적 실제 저장 E2E", () => {
     const payload = JSON.parse(
       new URLSearchParams(request.postData() ?? "").get("payload") ?? "null",
     ) as QuickEstimateSubmissionPayload;
+    await recordLiveSubmissionEvidence(payload);
     expect(`${payload.estimate.amount.toLocaleString("ko-KR")}원`).toBe(amount);
     const duplicate = await submitEstimateLead(payload, { endpoint: request.url() });
     expect(duplicate).toMatchObject({ ok: true, duplicate: true });
@@ -82,6 +84,7 @@ test.describe("간단 견적 실제 저장 E2E", () => {
     const payload = JSON.parse(
       new URLSearchParams(request.postData() ?? "").get("payload") ?? "null",
     ) as QuickEstimateSubmissionPayload;
+    await recordLiveSubmissionEvidence(payload);
     expect(`${payload.estimate.amount.toLocaleString("ko-KR")}원`).toBe(amount);
     expect(payload.marketing.agreed).toBe(true);
   });

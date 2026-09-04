@@ -61,7 +61,7 @@ npx playwright test e2e/quick-estimate-rule-compatibility-live.spec.ts
 
 1. v1 `professional_services`와 v2 `N` payload가 각각 `ok: true`, `duplicate: false`로 끝난다.
 2. 두 행의 `industry_code`와 `estimate_rule_version`이 payload와 일치한다.
-3. 상담 목록에서 두 행 모두 `용역·파견·시설관리업`에 대응하는 한글 label로 표시된다.
+3. 상담 목록에서 v1 `professional_services`는 `전문·사업지원 서비스`, v2 `N`은 `용역·파견·시설관리업`으로 표시된다.
 4. v1/v2의 표시금액, 난수와 benchmark version이 서버 재계산 결과와 일치한다.
 5. 알 수 없는 version과 version에 속하지 않는 업종은 `UNSUPPORTED_RULE`로 거절된다.
 

@@ -55,3 +55,4 @@ SVG 루트 내보내기: 계정 역할, 공통 전달사항, ICON, 컴포넌트,
 - CSS 스캔 경계 수정 후 `npm run check` 통과: format, ESLint, TypeScript, architecture, comments, Apps Script artifact, 검사 도구 테스트 7개, 단위 테스트 208개, 프로덕션 빌드, 브라우저 테스트 21개. 실제 외부 저장 테스트 5개는 설정에 따라 skipped. 보관 MCP 코드에서 발생하던 CSS 경고 15개는 재빌드에서 사라졌다.
 - SVG 추출 도구를 임시 복사본에서 실행해 11개 SVG/4,606개 텍스트를 다시 추출했고, 저장된 모든 텍스트 JSON과 내용이 일치했다.
 - 마지막 검증 기록 갱신 뒤 문서 포맷 검사를 별도로 통과했다. 이 기록은 자료 수집 검증 시점의 결과이며, 앱 기능 구현·운영 배포 검증을 포함하지 않는다. 이후 출하·리뷰 상태는 Git 이력과 PR에서 확인한다.
+- Markdown 직접 열람에서 한글 깨짐이 보고되어 응답 헤더를 확인했다. 기본 서버는 `text/markdown`만 반환했고 UTF-8 지정을 생략했다. `serve.py`로 교체한 뒤 `text/plain; charset=utf-8` 응답을 확인했다. 회귀 검사는 Markdown·MCP 텍스트·JSON·HTML·SVG 6개 경로의 MIME/charset/본문 바이트를 검증한다. 자동 브라우저에서는 Markdown 직접 이동이 `ERR_BLOCKED_BY_CLIENT`로 차단되어 해당 페이지의 시각 검증은 수행하지 못했다.

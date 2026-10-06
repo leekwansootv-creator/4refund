@@ -45,5 +45,7 @@ SVG의 모든 도형과 포함 이미지는 로컬 파일 안에 있다. Pretend
 브라우저의 로컬 파일 정책 때문에 그림이 표시되지 않으면 저장소 루트에서 아래 명령을 실행하고 [탐색기](http://127.0.0.1:8765/index.html)를 연다. 인터넷이나 Figma 연결은 필요 없다. 종료는 해당 터미널에서 Ctrl+C다.
 
 ```powershell
-python -m http.server 8765 --bind 127.0.0.1 --directory docs/design/m1-figma
+python docs/design/m1-figma/serve.py
 ```
+
+이 서버는 Markdown·MCP 원문에 `charset=utf-8`을 지정한다. 기본 `python -m http.server`로 열면 브라우저가 한글 인코딩을 잘못 추측할 수 있다. Markdown 링크는 서식 렌더링 없이 읽을 수 있는 원문으로 표시한다. 서버 검증은 `python -B docs/design/m1-figma/test-serve.py`로 실행한다.

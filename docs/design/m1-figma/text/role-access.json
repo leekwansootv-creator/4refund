@@ -1,0 +1,290 @@
+{
+  "source": "exports/p0/역할별 접근 표.svg",
+  "width": "373",
+  "height": "154",
+  "groups": [
+    {
+      "path": ["역할별 접근 표"],
+      "transform": null,
+      "child_count": 13
+    }
+  ],
+  "text": [
+    {
+      "index": 1,
+      "path": ["역할별 접근 표"],
+      "id": "관계",
+      "text": "관계",
+      "attributes": {
+        "id": "ê´ê³",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "21.2656",
+          "text": "관계"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "path": ["역할별 접근 표"],
+      "id": "접근",
+      "text": "접근",
+      "attributes": {
+        "id": "ì ê·¼",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "122",
+          "y": "21.2656",
+          "text": "접근"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "path": ["역할별 접근 표"],
+      "id": "최초 영업 담당자",
+      "text": "최초 영업 담당자",
+      "attributes": {
+        "id": "ìµì´ ìì ë´ë¹ì",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "45.2656",
+          "text": "최초 영업 담당자"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "path": ["역할별 접근 표"],
+      "id": "본인이 요청한 작업 상세와 결과·제출 자료 접근 유지",
+      "text": "본인이 요청한 작업 상세와 결과·제출 자료 접근 유지",
+      "attributes": {
+        "id": "ë³¸ì¸ì´ ìì²­í ìì ìì¸ì ê²°ê³¼Â·ì ì¶ ìë£ ì ê·¼ ì ì§",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "122",
+          "y": "45.2656",
+          "text": "본인이 요청한 작업 상세와 결과·제출 자료 접근 유지"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "path": ["역할별 접근 표"],
+      "id": "현재 신고 담당자",
+      "text": "현재 신고 담당자",
+      "attributes": {
+        "id": "íì¬ ì ê³  ë´ë¹ì",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "69.2656",
+          "text": "현재 신고 담당자"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "path": ["역할별 접근 표"],
+      "id": "본 청구 원본·결과·신고 준비·인계·업무 종료 접근",
+      "text": "본 청구 원본·결과·신고 준비·인계·업무 종료 접근",
+      "attributes": {
+        "id": "ë³¸ ì²­êµ¬ ìë³¸Â·ê²°ê³¼Â·ì ê³  ì¤ë¹Â·ì¸ê³Â·ìë¬´ ì¢ë£ ì ê·¼",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "122",
+          "y": "69.2656",
+          "text": "본 청구 원본·결과·신고 준비·인계·업무 종료 접근"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "path": ["역할별 접근 표"],
+      "id": "이전 신고 담당자",
+      "text": "이전 신고 담당자",
+      "attributes": {
+        "id": "ì´ì  ì ê³  ë´ë¹ì",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "93.2656",
+          "text": "이전 신고 담당자"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "path": ["역할별 접근 표"],
+      "id": "변경 이후 원본·인계 접근 종료",
+      "text": "변경 이후 원본·인계 접근 종료",
+      "attributes": {
+        "id": "ë³ê²½ ì´í ìë³¸Â·ì¸ê³ ì ê·¼ ì¢ë£",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "122",
+          "y": "93.2656",
+          "text": "변경 이후 원본·인계 접근 종료"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "path": ["역할별 접근 표"],
+      "id": "관계 없는 총괄 관리자",
+      "text": "관계 없는 총괄 관리자",
+      "attributes": {
+        "id": "ê´ê³ ìë ì´ê´ ê´ë¦¬ì",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "117.266",
+          "text": "관계 없는 총괄 관리자"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "path": ["역할별 접근 표"],
+      "id": "원본·인계 없이 요약 정보와 배정 행동만",
+      "text": "원본·인계 없이 요약 정보와 배정 행동만",
+      "attributes": {
+        "id": "ìë³¸Â·ì¸ê³ ìì´ ìì½ ì ë³´ì ë°°ì  íëë§",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "122",
+          "y": "117.266",
+          "text": "원본·인계 없이 요약 정보와 배정 행동만"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "path": ["역할별 접근 표"],
+      "id": "개발자",
+      "text": "개발자",
+      "attributes": {
+        "id": "ê°ë°ì",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "141.266",
+          "text": "개발자"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "path": ["역할별 접근 표"],
+      "id": "확정된 운영·장애 확인 범위만",
+      "text": "확정된 운영·장애 확인 범위만",
+      "attributes": {
+        "id": "íì ë ì´ìÂ·ì¥ì  íì¸ ë²ìë§",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "122",
+          "y": "141.266",
+          "text": "확정된 운영·장애 확인 범위만"
+        }
+      ]
+    }
+  ]
+}

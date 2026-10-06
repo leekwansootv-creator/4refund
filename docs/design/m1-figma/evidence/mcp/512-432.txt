@@ -1,0 +1,438 @@
+const imgIcon = "http://localhost:3845/assets/1a8fafe4afdc7b2e33fbb19e4346c99e0969058d.svg";
+const imgArrowhead = "http://localhost:3845/assets/7cdea77803639c1caf42fa62ac24e2c7312f7e34.svg";
+const imgIcon1 = "http://localhost:3845/assets/c50e0fddfc3167d99b1f952c39de210ed9135a04.svg";
+const imgIcon2 = "http://localhost:3845/assets/1c1dd58b4297ee86cb074e7808f122f37dbfe181.svg";
+const imgPlus = "http://localhost:3845/assets/54b4f012e057aeddf843af57fd644c5bd9aa14f3.svg";
+const imgCustomerSupport = "http://localhost:3845/assets/a79aa08bdc45f2bc534b59ab0b8882f58377a0cd.svg";
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const imgSidebar = "http://localhost:3845/assets/b4c0b7a2789e2ab6d315cb4f040ec892eade9774.svg";
+type HeaderCellProps = {
+  className?: string;
+  label?: string;
+};
+
+function HeaderCell({ className, label = "헤더" }: HeaderCellProps) {
+  return (
+    <div className={className || "content-stretch flex flex-col h-[40px] items-start justify-center p-[12px] relative w-[140px]"} data-node-id="499:88" data-name="HeaderCell">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="499:89">
+        {label}
+      </p>
+    </div>
+  );
+}
+type NewTaskBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function NewTaskBtn({ className, label = "새 작업 요청", state = "Default" }: NewTaskBtnProps) {
+  return (
+    <div className={className || "bg-[var(--brand\\/primary,#1e50d4)] content-stretch flex gap-[8px] items-center justify-center px-[16px] py-[10px] relative rounded-[8px]"} data-node-id="515:2048">
+      <div className="flex flex-row items-center self-stretch" data-node-id="515:2049">
+        <div className="aspect-[32/32] h-full relative shrink-0" data-name="Icon">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+        </div>
+      </div>
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="515:2051">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function Arrowhead({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[36px]"} data-node-id="493:2079" data-name="arrowhead">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead} />
+    </div>
+  );
+}
+type SidebarItemProps = {
+  className?: string;
+  state?: "Active" | "Default";
+};
+
+function SidebarItem({ className, state = "Default" }: SidebarItemProps) {
+  const isActive = state === "Active";
+  return (
+    <div className={className || `content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] w-[208px] ${isActive ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)]` : String.raw`bg-[var(--utility\/transparent,rgba(0,0,0,0))]`}`} id={isActive ? "node-495_13" : "node-495_18"}>
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" id={isActive ? "node-493_1348" : "node-495_19"} data-name="label-container">
+        <div className="flex flex-row items-center self-stretch" id={isActive ? "node-493_1349" : "node-495_20"}>
+          <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={isActive ? imgIcon2 : imgIcon1} />
+          </div>
+        </div>
+        <p className={`[word-break:break-word] leading-[normal] not-italic relative shrink-0 text-[16px] whitespace-nowrap ${isActive ? String.raw`font-["Pretendard:Bold"] text-[color:var(--text\/link,#1e50d4)]` : String.raw`font-["Pretendard:Medium"] text-[color:var(--text\/primary-warm,#231f20)]`}`} id={isActive ? "node-493_1350" : "node-495_21"}>
+          내 작업
+        </p>
+      </div>
+    </div>
+  );
+}
+type MenuContainerProps = {
+  className?: string;
+  propValue?: "영업직";
+};
+
+function MenuContainer({ className, propValue = "영업직" }: MenuContainerProps) {
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[4px] items-start relative w-[208px]"} data-node-id="679:6578">
+      <SidebarItem className="bg-[var(--surface\/brand-light,#eef2ff)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" state="Active" />
+      <div className="bg-[var(--utility\/transparent,rgba(0,0,0,0))] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="679:6573" data-name="SidebarItem">
+        <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I679:6573;495:19" data-name="label-container">
+          <div className="flex flex-row items-center self-stretch" data-node-id="I679:6573;495:20">
+            <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPlus} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/primary-warm,#231f20)] whitespace-nowrap" data-node-id="I679:6573;495:21">
+            새 작업 요청
+          </p>
+        </div>
+      </div>
+      <div className="bg-[rgba(0,0,0,0)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="679:6577" data-name="SidebarItem">
+        <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I679:6577;516:5560" data-name="label-container">
+          <div className="flex flex-row items-center self-stretch" data-node-id="I679:6577;516:5561">
+            <div className="aspect-[24/24] h-full relative shrink-0" data-name="document">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCustomerSupport} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[16px] whitespace-nowrap" data-node-id="I679:6577;516:5562">
+            고객지원
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+
+export default function Component() {
+  return (
+    <div className="content-stretch flex items-start relative size-full" data-node-id="512:432" data-development-annotations="모든 목록 로딩은 스켈레톤 애니메이션으로 재생합니다." data-name="내작업 : 목록로딩_스켈레톤">
+      <div className="bg-[var(--surface\/default,white)] content-stretch flex flex-col h-full items-start justify-between overflow-clip px-[16px] py-[24px] relative shrink-0 w-[240px]" data-node-id="512:433" data-name="Sidebar">
+        <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-start min-h-px relative w-full" data-node-id="I512:433;543:18727" data-name="Sidebar Content">
+          <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="I512:433;493:1692" data-name="SidebarHeader">
+            <div className="content-stretch flex gap-[4px] items-center relative shrink-0" data-node-id="I512:433;493:1758" data-name="Logo Container">
+              <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+              <div className="bg-[#1e50d4] content-stretch flex items-start px-[4px] py-[2px] relative rounded-[2px] shrink-0" data-node-id="I512:433;493:1694" data-name="LogoIcon">
+                <p className="[word-break:break-word] font-['Pretendard:ExtraBold'] leading-[normal] not-italic relative shrink-0 text-[10px] text-white whitespace-nowrap" data-node-id="I512:433;493:1695">
+                  CMS
+                </p>
+              </div>
+            </div>
+            <button className="content-stretch cursor-pointer flex items-center justify-center relative shrink-0 size-[25px]" data-node-id="I512:433;497:66" data-name="ToggleBtn">
+              <div className="relative shrink-0 size-[18px]" data-node-id="I512:433;497:66;4709:128866" data-name="Sidebar">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSidebar} />
+              </div>
+            </button>
+          </div>
+          <MenuContainer className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" />
+        </div>
+        <div className="content-stretch flex flex-col items-end relative shrink-0 w-full" data-node-id="I512:433;774:6400" data-name="user-profile">
+          <div className="content-stretch flex items-center justify-between p-[8px] relative shrink-0 w-[208px]" data-node-id="I512:433;774:6400;774:6374" data-name="Profile name">
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="I512:433;774:6400;774:6374;774:6344" data-name="Account details">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="I512:433;774:6400;774:6374;774:6345">
+                홍길동
+              </p>
+              <div className="content-stretch flex items-start relative shrink-0" data-node-id="I512:433;774:6400;774:6374;774:6347" data-name="사용자 역할 / 영업직">
+                <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/muted,rgba(30,34,41,0.5))] whitespace-nowrap" data-node-id="I512:433;774:6400;774:6374;774:6347;668:5213">
+                  영업직
+                </p>
+              </div>
+            </div>
+            <Arrowhead className="relative shrink-0 size-[12px]" />
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--background\/default,#f3f7fe)] content-stretch flex flex-[1_0_0] flex-col gap-[24px] h-full items-start min-w-px p-[32px] relative" data-node-id="512:434" data-name="ContentContainer">
+        <div className="content-stretch flex items-end justify-between relative shrink-0 w-full" data-node-id="516:9838" data-name="HeaderRow">
+          <div className="[word-break:break-word] content-stretch flex gap-[8px] items-end leading-[normal] not-italic relative shrink-0 whitespace-nowrap" data-node-id="516:9839" data-name="TitleGroup">
+            <p className="font-['Pretendard:Bold'] relative shrink-0 text-[28px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="516:9840">
+              내 작업
+            </p>
+            <p className="font-['Pretendard:Regular'] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)]" data-node-id="516:9841">
+              본인이 요청한 의뢰와 RPA 결과
+            </p>
+          </div>
+          <NewTaskBtn className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex gap-[8px] items-center justify-center px-[16px] py-[10px] relative rounded-[8px] shrink-0" />
+        </div>
+        <div className="bg-[var(--background\/canvas,white)] border border-[var(--border\/default,#e4e8ee)] border-solid content-stretch flex flex-[1_0_0] flex-col items-center justify-between min-h-px p-[24px] relative rounded-[12px] w-full" data-node-id="512:442" data-name="TableCard">
+          <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="512:443" data-name="TableBody">
+            <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="512:454" data-name="TableBody">
+              <div className="content-stretch flex items-end justify-between relative shrink-0 w-full" data-node-id="512:455" data-name="TableRow">
+                <div className="content-stretch flex items-start relative shrink-0" data-node-id="512:456" data-name="RowContent">
+                  <div className="bg-[#ededed] h-[16px] relative rounded-[4px] shrink-0 w-[60px]" data-node-id="540:1263" data-name="SkeletonBar" />
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="512:463" data-name="Table">
+                <div className="bg-[var(--surface\/subtle-neutral,#f1f3f7)] border-[var(--border\/default,#e4e8ee)] border-b border-solid border-t content-stretch flex items-start px-[8px] relative shrink-0 w-full" data-node-id="658:14026" data-name="TableHeader">
+                  <div className="content-stretch flex flex-col items-start justify-center max-w-[178px] min-w-[140px] p-[12px] relative shrink-0 w-[178px]" data-node-id="658:14027" data-name="Table Header Cell">
+                    <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="I658:14027;499:89">
+                      작업번호
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[12px] relative shrink-0 w-[110px]" data-node-id="658:14028" data-name="Table Header Cell">
+                    <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="I658:14028;499:89">
+                      고객사
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[12px] relative shrink-0 w-[140px]" data-node-id="658:14029" data-name="Table Header Cell">
+                    <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="I658:14029;499:89">
+                      작업 종류
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[12px] relative shrink-0 w-[183px]" data-node-id="658:14030" data-name="Table Header Cell">
+                    <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="I658:14030;499:89">
+                      대상 기간
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[12px] relative shrink-0 w-[140px]" data-node-id="658:14031" data-name="Table Header Cell">
+                    <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="I658:14031;499:89">
+                      대상 범위
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[12px] relative shrink-0 w-[110px]" data-node-id="658:14034" data-name="Table Header Cell">
+                    <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="I658:14034;499:89">
+                      진행 상태
+                    </p>
+                  </div>
+                  <HeaderCell className="content-stretch flex flex-col h-[40px] items-start justify-center p-[12px] relative shrink-0 w-[120px]" label="신고 담당자" />
+                  <HeaderCell className="content-stretch flex flex-col h-[40px] items-start justify-center p-[12px] relative shrink-0 w-[190px]" label="업무·자료 상태" />
+                  <div className="content-stretch flex flex-col items-start justify-center p-[12px] relative shrink-0 w-[144px]" data-node-id="658:14035" data-name="Table Header Cell">
+                    <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="I658:14035;499:89">
+                      요청 일시
+                    </p>
+                  </div>
+                  <HeaderCell className="content-stretch flex flex-col h-[40px] items-start justify-center p-[12px] relative shrink-0 w-[158px]" label="활동" />
+                </div>
+                <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[56px] items-center px-[8px] relative shrink-0 w-full" data-node-id="512:4011" data-name="SkeletonRow">
+                  <div className="content-stretch flex flex-col items-start max-w-[178px] min-w-[140px] p-[16px] relative shrink-0 w-[178px]" data-node-id="512:4012" data-name="cell-id">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[90px]" data-node-id="512:4013" data-name="cell-id Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4014" data-name="cell-customer">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[70px]" data-node-id="512:4015" data-name="cell-customer Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4016" data-name="cell-type">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[100px]" data-node-id="512:4017" data-name="cell-type Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[183px]" data-node-id="512:4018" data-name="cell-period">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[110px]" data-node-id="512:4019" data-name="cell-period Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4020" data-name="cell-scope">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[50px]" data-node-id="512:4021" data-name="cell-scope Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4022" data-name="cell-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[80px]" data-node-id="512:4023" data-name="cell-status Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[120px]" data-node-id="664:5122" data-name="cell-assignee">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5123" data-name="cell-assignee Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[4px] items-start justify-center p-[16px] relative shrink-0 w-[190px]" data-node-id="664:5124" data-name="cell-business-data-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[12px] relative rounded-[4px] shrink-0 w-[96px]" data-node-id="664:5125" data-name="cell-business-data-stat… Surface" />
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[10px] opacity-70 relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5126" data-name="cell-business-data-stat… Surface 2" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[144px]" data-node-id="512:4024" data-name="cell-date">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[90px]" data-node-id="512:4025" data-name="cell-date Surface" />
+                  </div>
+                  <div className="content-stretch flex items-center p-[16px] relative shrink-0 w-[158px]" data-node-id="512:4026" data-name="cell-action">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[32px] relative rounded-[6px] shrink-0 w-[80px]" data-node-id="512:4027" data-name="cell-action Surface" />
+                  </div>
+                </div>
+                <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[56px] items-center px-[8px] relative shrink-0 w-full" data-node-id="512:4028" data-name="SkeletonRow">
+                  <div className="content-stretch flex flex-col items-start max-w-[178px] min-w-[140px] p-[16px] relative shrink-0 w-[178px]" data-node-id="512:4029" data-name="cell-id">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[95px]" data-node-id="512:4030" data-name="cell-id Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4031" data-name="cell-customer">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[85px]" data-node-id="512:4032" data-name="cell-customer Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4033" data-name="cell-type">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[115px]" data-node-id="512:4034" data-name="cell-type Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[183px]" data-node-id="512:4035" data-name="cell-period">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[120px]" data-node-id="512:4036" data-name="cell-period Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4037" data-name="cell-scope">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[60px]" data-node-id="512:4038" data-name="cell-scope Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4039" data-name="cell-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[85px]" data-node-id="512:4040" data-name="cell-status Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[120px]" data-node-id="664:5127" data-name="cell-assignee">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5128" data-name="cell-assignee Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[4px] items-start justify-center p-[16px] relative shrink-0 w-[190px]" data-node-id="664:5129" data-name="cell-business-data-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[12px] relative rounded-[4px] shrink-0 w-[96px]" data-node-id="664:5130" data-name="cell-business-data-stat… Surface" />
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[10px] opacity-70 relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5131" data-name="cell-business-data-stat… Surface 2" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[144px]" data-node-id="512:4041" data-name="cell-date">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[95px]" data-node-id="512:4042" data-name="cell-date Surface" />
+                  </div>
+                  <div className="content-stretch flex items-center p-[16px] relative shrink-0 w-[158px]" data-node-id="512:4043" data-name="cell-action">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[32px] relative rounded-[6px] shrink-0 w-[80px]" data-node-id="512:4044" data-name="cell-action Surface" />
+                  </div>
+                </div>
+                <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[56px] items-center px-[8px] relative shrink-0 w-full" data-node-id="512:4045" data-name="SkeletonRow">
+                  <div className="content-stretch flex flex-col items-start max-w-[178px] min-w-[140px] p-[16px] relative shrink-0 w-[178px]" data-node-id="512:4046" data-name="cell-id">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[88px]" data-node-id="512:4047" data-name="cell-id Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4048" data-name="cell-customer">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[75px]" data-node-id="512:4049" data-name="cell-customer Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4050" data-name="cell-type">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[105px]" data-node-id="512:4051" data-name="cell-type Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[183px]" data-node-id="512:4052" data-name="cell-period">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[110px]" data-node-id="512:4053" data-name="cell-period Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4054" data-name="cell-scope">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[55px]" data-node-id="512:4055" data-name="cell-scope Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4056" data-name="cell-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[80px]" data-node-id="512:4057" data-name="cell-status Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[120px]" data-node-id="664:5132" data-name="cell-assignee">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5133" data-name="cell-assignee Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[4px] items-start justify-center p-[16px] relative shrink-0 w-[190px]" data-node-id="664:5134" data-name="cell-business-data-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[12px] relative rounded-[4px] shrink-0 w-[96px]" data-node-id="664:5135" data-name="cell-business-data-stat… Surface" />
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[10px] opacity-70 relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5136" data-name="cell-business-data-stat… Surface 2" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[144px]" data-node-id="512:4058" data-name="cell-date">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[90px]" data-node-id="512:4059" data-name="cell-date Surface" />
+                  </div>
+                  <div className="content-stretch flex items-center p-[16px] relative shrink-0 w-[158px]" data-node-id="512:4060" data-name="cell-action">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[32px] relative rounded-[6px] shrink-0 w-[80px]" data-node-id="512:4061" data-name="cell-action Surface" />
+                  </div>
+                </div>
+                <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[56px] items-center px-[8px] relative shrink-0 w-full" data-node-id="512:4062" data-name="SkeletonRow">
+                  <div className="content-stretch flex flex-col items-start max-w-[178px] min-w-[140px] p-[16px] relative shrink-0 w-[178px]" data-node-id="512:4063" data-name="cell-id">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[92px]" data-node-id="512:4064" data-name="cell-id Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4065" data-name="cell-customer">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[80px]" data-node-id="512:4066" data-name="cell-customer Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4067" data-name="cell-type">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[110px]" data-node-id="512:4068" data-name="cell-type Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[183px]" data-node-id="512:4069" data-name="cell-period">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[115px]" data-node-id="512:4070" data-name="cell-period Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4071" data-name="cell-scope">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[65px]" data-node-id="512:4072" data-name="cell-scope Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4073" data-name="cell-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[85px]" data-node-id="512:4074" data-name="cell-status Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[120px]" data-node-id="664:5137" data-name="cell-assignee">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5138" data-name="cell-assignee Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[4px] items-start justify-center p-[16px] relative shrink-0 w-[190px]" data-node-id="664:5139" data-name="cell-business-data-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[12px] relative rounded-[4px] shrink-0 w-[96px]" data-node-id="664:5140" data-name="cell-business-data-stat… Surface" />
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[10px] opacity-70 relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5141" data-name="cell-business-data-stat… Surface 2" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[144px]" data-node-id="512:4075" data-name="cell-date">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[95px]" data-node-id="512:4076" data-name="cell-date Surface" />
+                  </div>
+                  <div className="content-stretch flex items-center p-[16px] relative shrink-0 w-[158px]" data-node-id="512:4077" data-name="cell-action">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[32px] relative rounded-[6px] shrink-0 w-[80px]" data-node-id="512:4078" data-name="cell-action Surface" />
+                  </div>
+                </div>
+                <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[56px] items-center px-[8px] relative shrink-0 w-full" data-node-id="512:4079" data-name="SkeletonRow">
+                  <div className="content-stretch flex flex-col items-start max-w-[178px] min-w-[140px] p-[16px] relative shrink-0 w-[178px]" data-node-id="512:4080" data-name="cell-id">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[90px]" data-node-id="512:4081" data-name="cell-id Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4082" data-name="cell-customer">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[75px]" data-node-id="512:4083" data-name="cell-customer Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4084" data-name="cell-type">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[100px]" data-node-id="512:4085" data-name="cell-type Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[183px]" data-node-id="512:4086" data-name="cell-period">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[110px]" data-node-id="512:4087" data-name="cell-period Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4088" data-name="cell-scope">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[55px]" data-node-id="512:4089" data-name="cell-scope Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4090" data-name="cell-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[80px]" data-node-id="512:4091" data-name="cell-status Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[120px]" data-node-id="664:5142" data-name="cell-assignee">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5143" data-name="cell-assignee Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[4px] items-start justify-center p-[16px] relative shrink-0 w-[190px]" data-node-id="664:5144" data-name="cell-business-data-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[12px] relative rounded-[4px] shrink-0 w-[96px]" data-node-id="664:5145" data-name="cell-business-data-stat… Surface" />
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[10px] opacity-70 relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5146" data-name="cell-business-data-stat… Surface 2" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[144px]" data-node-id="512:4092" data-name="cell-date">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[90px]" data-node-id="512:4093" data-name="cell-date Surface" />
+                  </div>
+                  <div className="content-stretch flex items-center p-[16px] relative shrink-0 w-[158px]" data-node-id="512:4094" data-name="cell-action">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[32px] relative rounded-[6px] shrink-0 w-[80px]" data-node-id="512:4095" data-name="cell-action Surface" />
+                  </div>
+                </div>
+                <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[56px] items-center px-[8px] relative shrink-0 w-full" data-node-id="512:4096" data-name="SkeletonRow">
+                  <div className="content-stretch flex flex-col items-start max-w-[178px] min-w-[140px] p-[16px] relative shrink-0 w-[178px]" data-node-id="512:4097" data-name="cell-id">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[95px]" data-node-id="512:4098" data-name="cell-id Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4099" data-name="cell-customer">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[85px]" data-node-id="512:4100" data-name="cell-customer Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4101" data-name="cell-type">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[115px]" data-node-id="512:4102" data-name="cell-type Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[183px]" data-node-id="512:4103" data-name="cell-period">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[120px]" data-node-id="512:4104" data-name="cell-period Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[140px]" data-node-id="512:4105" data-name="cell-scope">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[60px]" data-node-id="512:4106" data-name="cell-scope Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[110px]" data-node-id="512:4107" data-name="cell-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[85px]" data-node-id="512:4108" data-name="cell-status Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start justify-center p-[16px] relative shrink-0 w-[120px]" data-node-id="664:5147" data-name="cell-assignee">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5148" data-name="cell-assignee Surface" />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[4px] items-start justify-center p-[16px] relative shrink-0 w-[190px]" data-node-id="664:5149" data-name="cell-business-data-status">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[12px] relative rounded-[4px] shrink-0 w-[96px]" data-node-id="664:5150" data-name="cell-business-data-stat… Surface" />
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[10px] opacity-70 relative rounded-[4px] shrink-0 w-[72px]" data-node-id="664:5151" data-name="cell-business-data-stat… Surface 2" />
+                  </div>
+                  <div className="content-stretch flex flex-col items-start p-[16px] relative shrink-0 w-[144px]" data-node-id="512:4109" data-name="cell-date">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[14px] relative rounded-[4px] shrink-0 w-[95px]" data-node-id="512:4110" data-name="cell-date Surface" />
+                  </div>
+                  <div className="content-stretch flex items-center p-[16px] relative shrink-0 w-[158px]" data-node-id="512:4111" data-name="cell-action">
+                    <div className="bg-[var(--surface\/muted,#e5e7eb)] h-[32px] relative rounded-[6px] shrink-0 w-[80px]" data-node-id="512:4112" data-name="cell-action Surface" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: Color/black/black4: #6A6F73.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.
+
+Some elements have annotation data attributes. They provide extra information about how the element should be implemented.IMPORTANT: Do not ignore these annotation attributes. They should not appear in your final code.

@@ -1,0 +1,30 @@
+<section id="493:2529" name="테이블" x="786" y="227" width="1592" height="401">
+  <frame id="499:85" name="StatusTag" x="12" y="254" width="598" height="54">
+    <symbol id="499:71" name="Status=대기 중" x="16" y="16" width="54" height="22" />
+    <symbol id="499:73" name="Status=실행 준비 중" x="78" y="16" width="78" height="22" />
+    <symbol id="499:75" name="Status=실행 중" x="164" y="16" width="54" height="22" />
+    <symbol id="686:5961" name="Status=결과 수신 중" x="226" y="16" width="78" height="22" />
+    <symbol id="698:5766" name="Status=자료 파기로 종료" x="312" y="16" width="99" height="22" />
+    <symbol id="499:77" name="Status=완료" x="419" y="16" width="41" height="22" />
+    <symbol id="499:79" name="Status=실패" x="468" y="16" width="41" height="22" />
+    <symbol id="499:81" name="Status=확인 필요" x="517" y="16" width="65" height="22" />
+  </frame>
+  <symbol id="499:88" name="HeaderCell" x="12" y="337" width="140" height="40" />
+  <frame id="659:6298" name="업무·자료 상태 라벨" x="711" y="243" width="465" height="94">
+    <symbol id="659:6286" name="상태=입력 자료 보관 중" x="16" y="16" width="112" height="25" />
+    <symbol id="659:6288" name="상태=파기 예정" x="140" y="16" width="68" height="25" />
+    <symbol id="659:6290" name="상태=파기 완료" x="220" y="16" width="68" height="25" />
+    <symbol id="659:6292" name="상태=종료 미기록" x="300" y="16" width="81" height="25" />
+    <symbol id="659:6294" name="상태=환급 완료" x="16" y="53" width="68" height="25" />
+    <symbol id="659:6296" name="상태=계약 종료" x="96" y="53" width="68" height="25" />
+  </frame>
+  <frame id="659:6305" name="보관 상태 문구" x="1189" y="252" width="100" height="49">
+    <symbol id="659:6299" name="상태=서버 제공 중" x="16" y="16" width="68" height="17" />
+  </frame>
+  <frame id="677:5580" name="TableRow / 의뢰" x="0" y="41" width="1516" height="85">
+    <symbol id="499:945" name="유형=내가 등록한 의뢰" x="16" y="16" width="1489" height="61" hidden="true" />
+    <symbol id="669:5298" name="유형=배정받은 의뢰" x="16" y="16" width="1484" height="53" />
+  </frame>
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

@@ -1,0 +1,253 @@
+{
+  "source": "exports/p0/ICON.svg",
+  "width": "618",
+  "height": "325",
+  "groups": [
+    {
+      "path": ["ICON"],
+      "transform": null,
+      "child_count": 35
+    },
+    {
+      "path": ["ICON", "document"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["ICON", "document_simple"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "plus"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "plus", "plus Shape"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["ICON", "EyeOn"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "EyeOff"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "EyeOff_2"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", " Hamburger menu"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Warning"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "help-circle"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", " close"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", " close", "close Shape"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["ICON", " close_simple "],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Check"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Users"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Users", "Users Shape"],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": ["ICON", "Customer Support"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Search"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Cogwheel"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "arrowhead"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Alarm"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "아이콘 네모BTN"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "아이콘 네모BTN", "Sidebar"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "아이콘 네모BTN", "Sidebar", "Vector"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["ICON", "inbox"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "loding"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "loding", "loding Shape"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["ICON", "warning"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "warning", "warning Shape"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["ICON", "warning_simple"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "Check_2"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "캘린더"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "LeftArrow"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "upload"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "아이콘 / 잠금"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "UserCog"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "UserCog", "UserCog Group"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "UserCog", "UserCog Group", "Vector Shape"],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": ["ICON", "UsersRound"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "UsersRound", "UsersRound Group"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "UsersRound", "UsersRound Group", "Vector Shape_2"],
+      "transform": null,
+      "child_count": 5
+    },
+    {
+      "path": ["ICON", "Computer"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "미트볼"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "미트볼", "미트볼_2"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "User"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "User", "user"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["ICON", "user_2"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["ICON", "user_2", "user_3"],
+      "transform": null,
+      "child_count": 2
+    }
+  ],
+  "text": []
+}

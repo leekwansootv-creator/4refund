@@ -1,0 +1,31 @@
+type ComponentProps = {
+  className?: string;
+  propValue?: "영업직" | "신고 담당 노무사" | "영업직 · 신고 담당 노무사" | "본부장" | "총괄 관리자" | "개발자";
+};
+
+export default function Component({ className, propValue = "영업직" }: ComponentProps) {
+  const is = propValue === "신고 담당 노무사";
+  const is1 = propValue === "영업직 · 신고 담당 노무사";
+  const is2 = propValue === "본부장";
+  const is3 = propValue === "총괄 관리자";
+  const is4 = propValue === "개발자";
+  return (
+    <div className={className || "content-stretch flex items-start relative"} id={is4 ? "node-668_5222" : is3 ? "node-668_5220" : is2 ? "node-668_5218" : is1 ? "node-668_5216" : is ? "node-668_5214" : "node-668_5212"}>
+      <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/muted,rgba(30,34,41,0.5))] whitespace-nowrap" id={is4 ? "node-668_5223" : is3 ? "node-668_5221" : is2 ? "node-668_5219" : is1 ? "node-668_5217" : is ? "node-668_5215" : "node-668_5213"}>
+        {is4 ? "개발자" : is3 ? "총괄 관리자" : is2 ? "본부장" : is1 ? "영업직 · 신고 담당 노무사" : is ? "신고 담당 노무사" : "영업직"}
+      </p>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

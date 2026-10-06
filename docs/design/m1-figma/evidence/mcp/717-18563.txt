@@ -1,0 +1,201 @@
+const img = "http://localhost:3845/assets/649d477d995ea8fc7c464e47377420738e05b32e.svg";
+const imgCheck = "http://localhost:3845/assets/8071f751b40490a1b0c361c206ba472b0f0bbfa6.svg";
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const imgConnector1 = "http://localhost:3845/assets/3c314f30be10acb862db6e8b32f42a85757b2ba0.svg";
+const imgConnector2 = "http://localhost:3845/assets/c67e8356b1d37839daf39bae7ca92d0e6f88ac4c.svg";
+type PrimaryActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default" | "Disabled";
+};
+
+function PrimaryActionBtn({ className, label = "기록 저장", state = "Default" }: PrimaryActionBtnProps) {
+  const isDisabled = state === "Disabled";
+  return (
+    <div className={className || `content-stretch flex h-[28px] items-center justify-center px-[16px] py-[6px] relative rounded-[6px] w-[71px] ${isDisabled ? String.raw`bg-[var(--status\/disabled-background,#e2e4e5)]` : String.raw`bg-[var(--brand\/primary,#1e50d4)]`}`} id={isDisabled ? "node-762_6355" : "node-722_14686"}>
+      {state === "Default" && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="722:14685">
+          {label}
+        </p>
+      )}
+      {isDisabled && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[#9ea7af] text-[13px] whitespace-nowrap" data-node-id="762:6356">
+          {label}
+        </p>
+      )}
+    </div>
+  );
+}
+type ActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function ActionBtn({ className, label = "작업 보기", state = "Default" }: ActionBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/focus,#1e50d4)] border-solid content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[6px]"} data-node-id="499:86">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="499:87">
+        {label}
+      </p>
+    </div>
+  );
+}
+type InputFieldProps = {
+  className?: string;
+  propValue?: boolean;
+  state?: "Default";
+  value?: string;
+};
+
+function InputField({ className, propValue = false, state = "Default", value = "회사명을 입력해 주세요." }: InputFieldProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/default,#e4e8ee)] border-solid content-stretch flex gap-[8px] h-[40px] items-center px-[12px] py-[10px] relative rounded-[6px] w-[538.5px]"} data-node-id="577:4712">
+      <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Regular'] leading-[normal] min-w-px not-italic relative text-[14px] text-[color:var(--text\/tertiary,#8a94a0)]" data-node-id="574:1719">
+        {value}
+      </p>
+      {propValue && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="597:2169" data-name="아이콘">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={img} />
+        </div>
+      )}
+    </div>
+  );
+}
+type StepperItemProps = {
+  className?: string;
+  propValue?: string;
+  propValue1?: string;
+  propValue2?: "진행 전" | "진행 중" | "진행 완료";
+};
+
+function StepperItem({ className, propValue = "1. 인증 앱 등록", propValue1 = "1", propValue2 = "진행 전" }: StepperItemProps) {
+  const is = propValue2 === "진행 중";
+  const is1 = propValue2 === "진행 완료";
+  const is2 = propValue2 === "진행 전";
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[8px] h-[46px] items-center relative w-[92px]"} id={is1 ? "node-735_13841" : is ? "node-735_13840" : "node-735_13839"}>
+      {is2 && (
+        <>
+          <div className="bg-[var(--surface\/subtle,#f1f5f9)] content-stretch flex items-center justify-center relative rounded-[12px] shrink-0 size-[24px]" data-node-id="735:13827" data-name="CircleInactive">
+            <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="735:13828">
+              {propValue1}
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] text-center whitespace-nowrap" data-node-id="735:13829">
+            {propValue}
+          </p>
+        </>
+      )}
+      {is && (
+        <>
+          <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex items-center justify-center relative rounded-[12px] shrink-0 size-[24px]" data-node-id="735:13831" data-name="CircleActive">
+            <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="735:13832">
+              {propValue1}
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] text-center whitespace-nowrap" data-node-id="735:13833">
+            {propValue}
+          </p>
+        </>
+      )}
+      {is1 && (
+        <>
+          <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex items-center justify-center relative rounded-[12px] shrink-0 size-[24px]" data-node-id="735:13835" data-name="상태=진행 완료 Track">
+            <div className="h-[10px] relative shrink-0 w-[12px]" data-node-id="735:13836" data-name="check">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCheck} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] text-center whitespace-nowrap" data-node-id="735:13838">
+            {propValue}
+          </p>
+        </>
+      )}
+    </div>
+  );
+}
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+
+export default function Component() {
+  return (
+    <div className="bg-[var(--surface\/default,white)] content-stretch drop-shadow-[0px_10px_12px_var(--effect\/shadow-soft,rgba(0,0,0,0.05))] flex flex-col gap-[32px] items-center p-[32px] relative rounded-[16px] size-full" data-node-id="717:18563" data-name="2단계 인증 설정 : 코드 확인">
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="717:18565" data-name="Logo Combined">
+        <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+        <div className="bg-[#1e50d4] content-stretch flex items-start px-[6px] py-[2px] relative rounded-[4px] shrink-0" data-node-id="717:18567" data-name="CMS Badge">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[11px] text-white whitespace-nowrap" data-node-id="717:18568">
+            CMS
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-node-id="717:18564" data-name="Title Header Section">
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-center leading-[normal] not-italic relative shrink-0 text-center w-full" data-node-id="717:18569" data-name="Title Stack">
+          <p className="font-['Pretendard:ExtraBold'] relative shrink-0 text-[24px] text-[color:var(--text\/primary-slate,#111827)] w-full" data-node-id="717:18570">
+            인증 코드 확인
+          </p>
+          <p className="font-['Pretendard:Medium'] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="717:18571">
+            인증 앱에 표시된 6자리 코드를 입력해 주세요.
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex gap-[12px] items-center px-[20px] relative shrink-0 w-full" data-node-id="717:18572" data-name="Stepper">
+        <StepperItem className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center min-w-px relative" propValue2="진행 완료" />
+        <div className="flex-[1_0_0] h-0 min-w-px relative" data-node-id="717:18574" data-name="Connector1">
+          <div className="absolute inset-[-1px_0_0_0]">
+            <img alt="" className="block max-w-none size-full" src={imgConnector1} />
+          </div>
+        </div>
+        <StepperItem className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center min-w-px relative" propValue="2. 코드 확인" propValue1="2" propValue2="진행 중" />
+        <div className="flex-[1_0_0] h-0 min-w-px relative" data-node-id="717:18576" data-name="Connector2">
+          <div className="absolute inset-[-1px_0_0_0]">
+            <img alt="" className="block max-w-none size-full" src={imgConnector2} />
+          </div>
+        </div>
+        <StepperItem className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center min-w-px relative" propValue="3. 복구 코드 저장" propValue1="3" />
+      </div>
+      <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" data-node-id="717:18578" data-name="Form-Field">
+        <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-slate,#111827)] whitespace-nowrap" data-node-id="717:18579">
+          인증 코드
+        </p>
+        <InputField className="bg-[var(--surface\/default,white)] border border-[var(--border\/default,#e4e8ee)] border-solid content-stretch flex gap-[8px] h-[40px] items-center px-[12px] py-[10px] relative rounded-[6px] shrink-0 w-full" value="6자리 숫자" />
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="717:18582">
+          코드가 바뀌면 새 코드를 입력해 주세요.
+        </p>
+      </div>
+      <div className="content-stretch flex gap-[12px] items-start relative shrink-0 w-full" data-node-id="717:18583" data-name="Actions-Row">
+        <ActionBtn className="bg-[var(--surface\/default,white)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex flex-[1_0_0] items-center justify-center min-w-px px-[12px] py-[6px] relative rounded-[6px]" label="이전" />
+        <PrimaryActionBtn className="bg-[var(--status\/disabled-background,#e2e4e5)] content-stretch flex flex-[1_0_0] items-center justify-center min-w-px px-[16px] py-[6px] relative rounded-[6px]" label="코드 확인" state="Disabled" />
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## State=Default
+**Node ID:** 577:4712
+
+한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.
+
+## InputField
+**Node ID:** 578:1762
+
+재사용 가능한 한 줄 인풋입니다. Default, Hover, Focus, Filled, Error, Disabled 상태와 Value 속성을 지원합니다.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

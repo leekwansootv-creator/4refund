@@ -1,0 +1,317 @@
+type ComponentProps = {
+  className?: string;
+  propValue?: "업로드 중" | "업로드 완료·미접수";
+};
+
+function Component({ className, propValue = "업로드 중" }: ComponentProps) {
+  const is = propValue === "업로드 완료·미접수";
+  return (
+    <div className={className || "bg-[var(--surface\\/brand-light,#eef2ff)] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px]"} id={is ? "node-650_10646" : "node-650_10637"}>
+      <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" id={is ? "node-650_10645" : "node-650_10636"}>
+        {is ? "업로드 완료·미접수" : "업로드 중"}
+      </p>
+    </div>
+  );
+}
+type Component1Props = {
+  className?: string;
+  propValue?: "업로드 중" | "업로드 중단" | "수신 확인 중" | "업로드 완료·미접수" | "접수 여부 확인 중" | "기한 경과·정리 대상" | "자료 정리 완료";
+};
+
+export default function Component1({ className, propValue = "업로드 중" }: Component1Props) {
+  const is = propValue === "업로드 중단";
+  const is1 = propValue === "수신 확인 중";
+  const is2 = propValue === "업로드 완료·미접수";
+  const is3 = propValue === "접수 여부 확인 중";
+  const is4 = propValue === "기한 경과·정리 대상";
+  const is5 = propValue === "자료 정리 완료";
+  return (
+    <div className={className || "content-stretch flex h-[84px] items-start relative w-[1360px]"} id={is5 ? "node-650_11016" : is4 ? "node-650_10999" : is3 ? "node-650_10982" : is2 ? "node-650_10965" : is1 ? "node-650_10948" : is ? "node-650_10931" : "node-650_10914"}>
+      {propValue === "업로드 중" && (
+        <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[84px] items-center px-[24px] py-[20px] relative shrink-0 w-[1360px]" data-node-id="650:10915" data-name="접수 상태 행 / 업로드 중">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[110px] whitespace-nowrap" data-node-id="I650:10915;650:10669">
+            예시기업 A
+          </p>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[130px] whitespace-nowrap" data-node-id="I650:10915;650:10670">
+            예상 환급액 조회
+          </p>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px relative" data-node-id="I650:10915;650:10671" data-name="업로드 완료·미접수 Content">
+            <div className="bg-[var(--surface\/brand-light,#eef2ff)] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0" data-node-id="I650:10915;650:10685" data-name="상태 배지">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I650:10915;650:10685;650:10636">
+                업로드 중
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-warm,#6a6f73)] w-[min-content]" data-node-id="I650:10915;650:10674">
+              자료를 전송하고 있습니다.
+            </p>
+          </div>
+          <div className="content-stretch flex items-center pr-[24px] relative shrink-0 w-[180px]" data-node-id="I650:10915;650:10675" data-name="2.0GB · 2.0GB · 100% Control">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="I650:10915;650:10676" data-name="2.0GB · 2.0GB · 100% Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10915;650:10677">
+                1.2GB / 2.0GB · 60%
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[2px] items-start relative shrink-0 w-[140px]" data-node-id="I650:10915;650:10678" data-name="2026.09.10 14·30 Control">
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10915;650:10679">
+              2026.09.10 14:30
+            </p>
+          </div>
+          <div className="content-stretch flex items-start justify-end relative shrink-0 w-[110px]" data-node-id="I650:10915;650:10681" data-name="작업 보기 Control">
+            <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[6px] shrink-0" data-node-id="I650:10915;650:10687" data-name="작업 버튼">
+              <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I650:10915;650:10687;650:10658">
+                자료 제출로 이동
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {is && (
+        <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[84px] items-center px-[24px] py-[20px] relative shrink-0 w-[1360px]" data-node-id="650:10932" data-name="접수 상태 행 / 업로드 중단">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[110px] whitespace-nowrap" data-node-id="I650:10932;650:10669">
+            예시기업 B
+          </p>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[130px] whitespace-nowrap" data-node-id="I650:10932;650:10670">
+            본 경정청구 준비
+          </p>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px relative" data-node-id="I650:10932;650:10671" data-name="업로드 완료·미접수 Content">
+            <div className="bg-[var(--status\/error-background,#fee2e2)] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0" data-node-id="I650:10932;650:10685" data-name="상태 배지">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error-system,#ef4444)] whitespace-nowrap" data-node-id="I650:10932;650:10685;650:10639">
+                업로드 중단
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-warm,#6a6f73)] w-[min-content]" data-node-id="I650:10932;650:10674">
+              업로드가 중단되었습니다. 9월 16일 14:30 전에 이어서 업로드해 주세요.
+            </p>
+          </div>
+          <div className="content-stretch flex items-center pr-[24px] relative shrink-0 w-[180px]" data-node-id="I650:10932;650:10675" data-name="2.0GB · 2.0GB · 100% Control">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="I650:10932;650:10676" data-name="2.0GB · 2.0GB · 100% Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10932;650:10677">
+                -
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[2px] items-start relative shrink-0 w-[140px]" data-node-id="I650:10932;650:10678" data-name="2026.09.10 14·30 Control">
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10932;650:10679">
+              2026.09.09 16:20
+            </p>
+          </div>
+          <div className="content-stretch flex items-start justify-end relative shrink-0 w-[110px]" data-node-id="I650:10932;650:10681" data-name="작업 보기 Control">
+            <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[6px] shrink-0" data-node-id="I650:10932;650:10687" data-name="작업 버튼">
+              <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I650:10932;650:10687;650:10658">
+                업로드 이어하기
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {is1 && (
+        <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[84px] items-center px-[24px] py-[20px] relative shrink-0 w-[1360px]" data-node-id="650:10949" data-name="접수 상태 행 / 수신 확인 중">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[110px] whitespace-nowrap" data-node-id="I650:10949;650:10669">
+            예시기업 C
+          </p>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[130px] whitespace-nowrap" data-node-id="I650:10949;650:10670">
+            예상 환급액 조회
+          </p>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px relative" data-node-id="I650:10949;650:10671" data-name="업로드 완료·미접수 Content">
+            <div className="bg-[#fff9e6] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0" data-node-id="I650:10949;650:10685" data-name="상태 배지">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[#d97706] text-[12px] whitespace-nowrap" data-node-id="I650:10949;650:10685;650:10642">
+                수신 확인 중
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-warm,#6a6f73)] w-[min-content]" data-node-id="I650:10949;650:10674">
+              서버에서 자료 수신 상태를 확인하고 있습니다.
+            </p>
+          </div>
+          <div className="content-stretch flex items-center pr-[24px] relative shrink-0 w-[180px]" data-node-id="I650:10949;650:10675" data-name="2.0GB · 2.0GB · 100% Control">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="I650:10949;650:10676" data-name="2.0GB · 2.0GB · 100% Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10949;650:10677">
+                -
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[2px] items-start relative shrink-0 w-[140px]" data-node-id="I650:10949;650:10678" data-name="2026.09.10 14·30 Control">
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10949;650:10679">
+              2026.09.10 11:05
+            </p>
+          </div>
+          <div className="content-stretch flex items-start justify-end relative shrink-0 w-[110px]" data-node-id="I650:10949;650:10681" data-name="작업 보기 Control">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/gray,#ccd1d9)] border-solid content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[6px] shrink-0" data-node-id="I650:10949;650:10687" data-name="작업 버튼">
+              <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I650:10949;650:10687;650:10663">
+                상태 확인
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {is2 && (
+        <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[84px] items-center px-[24px] py-[20px] relative shrink-0 w-[1360px]" data-node-id="650:10966" data-name="접수 상태 행 / 업로드 완료·미접수">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[110px] whitespace-nowrap" data-node-id="I650:10966;650:10669">
+            예시기업 D
+          </p>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[130px] whitespace-nowrap" data-node-id="I650:10966;650:10670">
+            본 경정청구 준비
+          </p>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px relative" data-node-id="I650:10966;650:10671" data-name="업로드 완료·미접수 Content">
+            <Component className="bg-[var(--surface\/brand-light,#eef2ff)] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0" propValue="업로드 완료·미접수" />
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-warm,#6a6f73)] w-[min-content]" data-node-id="I650:10966;650:10674">
+              자료 업로드는 완료됐지만 작업이 접수되지 않았습니다.
+            </p>
+          </div>
+          <div className="content-stretch flex items-center pr-[24px] relative shrink-0 w-[180px]" data-node-id="I650:10966;650:10675" data-name="2.0GB · 2.0GB · 100% Control">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="I650:10966;650:10676" data-name="2.0GB · 2.0GB · 100% Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10966;650:10677">
+                2.0GB / 2.0GB · 100%
+              </p>
+            </div>
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-col font-['Pretendard:Regular'] gap-[2px] items-start not-italic relative shrink-0 w-[140px] whitespace-nowrap" data-node-id="I650:10966;650:10678" data-name="2026.09.10 14·30 Control">
+            <p className="leading-[normal] relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)]" data-node-id="I650:10966;650:10679">
+              2026.09.10 14:30
+            </p>
+            <div className="leading-[0] relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="I650:10966;650:10680">
+              <p className="leading-[normal] mb-0">정리 예정일</p>
+              <p className="leading-[normal]">2026.09.17 11:20</p>
+            </div>
+          </div>
+          <div className="content-stretch flex items-start justify-end relative shrink-0 w-[110px]" data-node-id="I650:10966;650:10681" data-name="작업 보기 Control">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/gray,#ccd1d9)] border-solid content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[6px] shrink-0" data-node-id="I650:10966;650:10687" data-name="작업 버튼">
+              <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I650:10966;650:10687;650:10663">
+                작성 이어하기
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {is3 && (
+        <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[84px] items-center px-[24px] py-[20px] relative shrink-0 w-[1360px]" data-node-id="650:10983" data-name="접수 상태 행 / 접수 여부 확인 중">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[110px] whitespace-nowrap" data-node-id="I650:10983;650:10669">
+            예시기업 E
+          </p>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[130px] whitespace-nowrap" data-node-id="I650:10983;650:10670">
+            예상 환급액 조회
+          </p>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px relative" data-node-id="I650:10983;650:10671" data-name="업로드 완료·미접수 Content">
+            <div className="bg-[var(--status\/warning-background,#fff9e6)] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0" data-node-id="I650:10983;650:10685" data-name="상태 배지">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/warning,#d97706)] whitespace-nowrap" data-node-id="I650:10983;650:10685;650:10648">
+                접수 여부 확인 중
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-warm,#6a6f73)] w-[min-content]" data-node-id="I650:10983;650:10674">
+              작업 접수 여부를 확인하고 있습니다. 새 요청을 다시 보내지 마세요.
+            </p>
+          </div>
+          <div className="content-stretch flex items-center pr-[24px] relative shrink-0 w-[180px]" data-node-id="I650:10983;650:10675" data-name="2.0GB · 2.0GB · 100% Control">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="I650:10983;650:10676" data-name="2.0GB · 2.0GB · 100% Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10983;650:10677">
+                -
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[2px] items-start relative shrink-0 w-[140px]" data-node-id="I650:10983;650:10678" data-name="2026.09.10 14·30 Control">
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:10983;650:10679">
+              2026.09.10 13:15
+            </p>
+          </div>
+          <div className="content-stretch flex items-start justify-end relative shrink-0 w-[110px]" data-node-id="I650:10983;650:10681" data-name="작업 보기 Control">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/gray,#ccd1d9)] border-solid content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[6px] shrink-0" data-node-id="I650:10983;650:10687" data-name="작업 버튼">
+              <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I650:10983;650:10687;650:10663">
+                접수 결과 확인
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {is4 && (
+        <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[84px] items-center px-[24px] py-[20px] relative shrink-0 w-[1360px]" data-node-id="650:11000" data-name="접수 상태 행 / 기한 경과·정리 대상">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[110px] whitespace-nowrap" data-node-id="I650:11000;650:10669">
+            예시기업 F
+          </p>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[130px] whitespace-nowrap" data-node-id="I650:11000;650:10670">
+            본 경정청구 준비
+          </p>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px relative" data-node-id="I650:11000;650:10671" data-name="업로드 완료·미접수 Content">
+            <div className="bg-[var(--status\/error-background,#fee2e2)] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0" data-node-id="I650:11000;650:10685" data-name="상태 배지">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error-system,#ef4444)] whitespace-nowrap" data-node-id="I650:11000;650:10685;650:10651">
+                기한 경과·정리 대상
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-warm,#6a6f73)] w-[min-content]" data-node-id="I650:11000;650:10674">
+              보관 기한이 지나 기존 자료를 접수에 사용할 수 없습니다. 해당 자료는 정리 대상입니다.
+            </p>
+          </div>
+          <div className="content-stretch flex items-center pr-[24px] relative shrink-0 w-[180px]" data-node-id="I650:11000;650:10675" data-name="2.0GB · 2.0GB · 100% Control">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="I650:11000;650:10676" data-name="2.0GB · 2.0GB · 100% Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:11000;650:10677">
+                -
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[2px] items-start relative shrink-0 w-[140px]" data-node-id="I650:11000;650:10678" data-name="2026.09.10 14·30 Control">
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:11000;650:10679">
+              2026.09.08 09:20
+            </p>
+          </div>
+          <div className="content-stretch flex items-start justify-end relative shrink-0 w-[110px]" data-node-id="I650:11000;650:10681" data-name="작업 보기 Control">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/gray,#ccd1d9)] border-solid content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[6px] shrink-0" data-node-id="I650:11000;650:10687" data-name="작업 버튼">
+              <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I650:11000;650:10687;650:10663">
+                새 자료 첨부
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {is5 && (
+        <div className="bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)] border-b border-solid content-stretch flex h-[84px] items-center px-[24px] py-[20px] relative shrink-0 w-[1360px]" data-node-id="650:11017" data-name="접수 상태 행 / 자료 정리 완료">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[110px] whitespace-nowrap" data-node-id="I650:11017;650:10669">
+            예시기업 G
+          </p>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic overflow-hidden relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] text-ellipsis w-[130px] whitespace-nowrap" data-node-id="I650:11017;650:10670">
+            예상 환급액 조회
+          </p>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px relative" data-node-id="I650:11017;650:10671" data-name="업로드 완료·미접수 Content">
+            <div className="bg-[var(--surface\/subtle,#f1f5f9)] content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] shrink-0" data-node-id="I650:11017;650:10685" data-name="상태 배지">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-strong,#4b5563)] whitespace-nowrap" data-node-id="I650:11017;650:10685;650:10654">
+                자료 정리 완료
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-warm,#6a6f73)] w-[min-content]" data-node-id="I650:11017;650:10674">
+              보관 기한이 지나 자료가 정리되었습니다. 파일을 다시 첨부해 주세요.
+            </p>
+          </div>
+          <div className="content-stretch flex items-center pr-[24px] relative shrink-0 w-[180px]" data-node-id="I650:11017;650:10675" data-name="2.0GB · 2.0GB · 100% Control">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="I650:11017;650:10676" data-name="2.0GB · 2.0GB · 100% Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:11017;650:10677">
+                -
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[2px] items-start relative shrink-0 w-[140px]" data-node-id="I650:11017;650:10678" data-name="2026.09.10 14·30 Control">
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="I650:11017;650:10679">
+              2026.09.03 10:10
+            </p>
+          </div>
+          <div className="content-stretch flex items-start justify-end relative shrink-0 w-[110px]" data-node-id="I650:11017;650:10681" data-name="작업 보기 Control">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/gray,#ccd1d9)] border-solid content-stretch flex items-center justify-center px-[12px] py-[8px] relative rounded-[6px] shrink-0" data-node-id="I650:11017;650:10687" data-name="작업 버튼">
+              <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I650:11017;650:10687;650:10663">
+                새 작업 작성
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

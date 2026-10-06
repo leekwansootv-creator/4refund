@@ -1,0 +1,72 @@
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const imgWarningIcon = "http://localhost:3845/assets/350edda6bb5609f263ec6d20d4c3eb0ef7713975.svg";
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+
+export default function Component() {
+  return (
+    <div className="bg-[var(--surface\/default,white)] content-stretch drop-shadow-[0px_8px_12px_var(--effect\/shadow-subtle,rgba(0,0,0,0.04))] flex flex-col gap-[24px] items-center justify-center pb-[40px] pt-[48px] px-[32px] relative rounded-[16px] size-full" data-node-id="740:6386" data-name="비밀번호 재설정_운영 문의 안내">
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="740:6387" data-name="Logo Combined">
+        <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+        <div className="bg-[#1e50d4] content-stretch flex items-start px-[6px] py-[2px] relative rounded-[4px] shrink-0" data-node-id="740:6389" data-name="CMS Badge">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[11px] text-white whitespace-nowrap" data-node-id="740:6390">
+            CMS
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-node-id="740:6391" data-name="Title Header Section">
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-center not-italic relative shrink-0 text-center w-full" data-node-id="740:6392" data-name="Title Stack">
+          <p className="font-['Pretendard:Bold'] leading-[normal] relative shrink-0 text-[#101828] text-[22px] w-full" data-node-id="740:6393">
+            비밀번호 재설정
+          </p>
+          <div className="font-['Pretendard:Regular'] leading-[0] relative shrink-0 text-[13px] text-[color:var(--text\/secondary-strong,#4b5563)] w-full" data-node-id="740:6394">
+            <p className="leading-[1.5] mb-0">비밀번호 재설정은 본인 확인과 승인 후 진행됩니다.</p>
+            <p className="leading-[1.5]">승인된 경우 일회성 링크에서 새 비밀번호를 설정할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--surface\/info-subtle,#f0f4ff)] content-stretch flex gap-[8px] items-start p-[12px] relative rounded-[6px] shrink-0 w-full" data-node-id="904:877" data-name="Password Reset Approval Notice">
+        <div className="flex items-center justify-center relative shrink-0" data-node-id="904:878">
+          <div className="flex-none rotate-180">
+            <div className="relative size-[16px]" data-name="Warning Icon">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWarningIcon} />
+            </div>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[1.4] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] w-[324px]" data-node-id="904:879">
+          비밀번호 재설정이 필요하면 로그인 문제 문의를 통해 본인 확인을 요청해 주세요.
+        </p>
+      </div>
+      <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex h-[44px] items-center justify-center px-[16px] py-[6px] relative rounded-[6px] shrink-0 w-full" data-node-id="740:6399" data-development-annotations="클릭 시 이메일로 이동" data-name="PrimaryActionBtn">
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I740:6399;722:14685">
+          로그인 문제 문의
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-node-id="740:6400" data-name="로그인으로 돌아가기 Container">
+        <p className="[text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary-strong,#4b5563)] text-center underline whitespace-nowrap" data-node-id="740:6401">
+          로그인으로 돌아가기
+        </p>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.
+
+Some elements have annotation data attributes. They provide extra information about how the element should be implemented.IMPORTANT: Do not ignore these annotation attributes. They should not appear in your final code.

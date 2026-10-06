@@ -1,0 +1,34 @@
+type ComponentProps = {
+  className?: string;
+  propValue?: "업로드 중" | "업로드 중단" | "업로드 완료·미접수" | "접수 여부 확인 중" | "기한 경과·정리 대상" | "자료 정리 완료" | "서버 수신·검증 중";
+};
+
+export default function Component({ className, propValue = "업로드 중" }: ComponentProps) {
+  const is = propValue === "자료 정리 완료";
+  const is1 = propValue === "업로드 중단";
+  const is2 = propValue === "업로드 완료·미접수";
+  const is3 = propValue === "접수 여부 확인 중";
+  const is4 = propValue === "기한 경과·정리 대상";
+  const is5 = propValue === "서버 수신·검증 중";
+  const isOr = ["업로드 중단", "기한 경과·정리 대상"].includes(propValue);
+  const isOr1 = ["접수 여부 확인 중", "서버 수신·검증 중"].includes(propValue);
+  return (
+    <div className={className || `content-stretch flex items-center px-[8px] py-[4px] relative rounded-[4px] ${is ? String.raw`bg-[var(--surface\/subtle,#f1f5f9)]` : isOr1 ? String.raw`bg-[var(--status\/warning-background,#fff9e6)]` : isOr ? String.raw`bg-[var(--status\/error-background,#fee2e2)]` : String.raw`bg-[var(--surface\/brand-light,#eef2ff)]`}`} id={is5 ? "node-857_8851" : is ? "node-650_10655" : is4 ? "node-650_10652" : is3 ? "node-650_10649" : is2 ? "node-650_10646" : is1 ? "node-650_10640" : "node-650_10637"}>
+      <p className={`[word-break:break-word] font-["Pretendard:Bold"] leading-[normal] not-italic relative shrink-0 text-[12px] whitespace-nowrap ${is ? String.raw`text-[color:var(--text\/secondary-strong,#4b5563)]` : isOr1 ? String.raw`text-[color:var(--status\/warning,#d97706)]` : isOr ? String.raw`text-[color:var(--status\/error-system,#ef4444)]` : String.raw`text-[color:var(--text\/link,#1e50d4)]`}`} id={is5 ? "node-857_8852" : is ? "node-650_10654" : is4 ? "node-650_10651" : is3 ? "node-650_10648" : is2 ? "node-650_10645" : is1 ? "node-650_10639" : "node-650_10636"}>
+        {is5 ? "서버 수신·검증 중" : is ? "자료 정리 완료" : is4 ? "기한 경과·정리 대상" : is3 ? "접수 여부 확인 중" : is2 ? "업로드 완료·미접수" : is1 ? "업로드 중단" : "업로드 중"}
+      </p>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

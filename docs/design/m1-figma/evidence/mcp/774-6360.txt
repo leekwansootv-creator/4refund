@@ -1,0 +1,32 @@
+type UserMenuAccountItemProps = {
+  className?: string;
+  detail?: string;
+  label?: string;
+  state?: "Default" | "Hover";
+};
+
+export default function UserMenuAccountItem({ className, detail = "홍길동님 · 영업직", label = "내 계정", state = "Default" }: UserMenuAccountItemProps) {
+  const isHover = state === "Hover";
+  return (
+    <div className={className || `content-stretch flex flex-col gap-[2px] items-start overflow-clip px-[16px] py-[10px] relative w-[114px] ${isHover ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)] rounded-[4px]` : ""}`} id={isHover ? "node-774_6359" : "node-774_6358"}>
+      <p className="font-['Pretendard:Medium'] relative shrink-0 text-[14px] text-[color:var(--text\/primary-warm,#231f20)]" data-node-id="774:6353">
+        {label}
+      </p>
+      <p className="font-['Pretendard:Regular'] relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)]" data-node-id="774:6354">
+        {detail}
+      </p>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

@@ -1,0 +1,752 @@
+[
+  {
+    "id": "495:24",
+    "name": "SidebarItem",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "497:93",
+    "name": "Sidebar",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "508:1193",
+    "name": "ActionBtn",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "493:2529",
+    "name": "테이블",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "515:2055",
+    "name": "NewTaskBtn",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "516:9863",
+    "name": "StatusTab",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "520:392",
+    "name": "BackLink",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "520:397",
+    "name": "ListBtn",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "533:3937",
+    "name": "NewTaskBtn_White",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "538:18133",
+    "name": "페이지네이션",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "538:18188",
+    "name": "소형 드롭박스",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "540:4160",
+    "name": "TimelineEntry",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "543:19440",
+    "name": "체크박스",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "547:1430",
+    "name": "대형 드롭박스",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "582:1903",
+    "name": "RetryActionBtn",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "550:1432",
+    "name": "MonthCell",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "550:1437",
+    "name": "NavArrow",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "550:1442",
+    "name": "PickerResetBtn",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "550:1447",
+    "name": "PickerApplyBtn",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "550:1448",
+    "name": "MonthPicker",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "558:4460",
+    "name": "MonthRangeField",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "565:4511",
+    "name": "YearCell",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "565:4573",
+    "name": "YearPicker",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "565:4688",
+    "name": "YearField",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "562:4378",
+    "name": "TaskTypeSelector",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "578:1762",
+    "name": "InputField",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "611:3705",
+    "name": "단계 항목",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "611:3727",
+    "name": "Tab Stepper / 4단계",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "583:2170",
+    "name": "FileUploadRow",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "583:5005",
+    "name": "StatusBadge",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "589:2063",
+    "name": "세그먼트 항목",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "590:2209",
+    "name": "조건 선택 행",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "591:23969",
+    "name": "자료 제출 콘텐츠",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "595:5014",
+    "name": "체크박스 / 원형",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "601:5362",
+    "name": "아이콘 버튼 / 제거",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "611:6666",
+    "name": "정보 항목",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "634:4620",
+    "name": "요청 요약 바",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "650:10656",
+    "name": "접수 상태 배지",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "650:10667",
+    "name": "테이블 작업 버튼",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "650:10684",
+    "name": "접수 상태 행",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "620:3914",
+    "name": "정보 값 행",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "679:6805",
+    "name": "MenuContainer / 역할",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "722:14433",
+    "name": "DayPicker",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "722:14435",
+    "name": "DayField",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "722:14689",
+    "name": "PrimaryActionBtn",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "735:13842",
+    "name": "StepperItem",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "771:11102",
+    "name": "유저프로필",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "789:14601",
+    "name": "SearchInput",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "789:6903",
+    "name": "영업직 목록 ",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "789:6884",
+    "name": "계정상태 배지",
+    "group": "컴포넌트"
+  },
+  {
+    "id": "518:2729",
+    "name": " 내작업 : 영업직",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "649:6967",
+    "name": "내작업 : 접수되지 않은 자료가 있을 경우",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "512:332",
+    "name": "내작업 : 작업이 없는 최초 상태",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "512:432",
+    "name": "내작업 : 목록로딩_스켈레톤",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "512:482",
+    "name": "내작업 : 조회 실패와 다시 불러오기",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "663:14652",
+    "name": " 내작업 : 영업직 · 신고 담당 노무사",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "717:6423",
+    "name": "내작업 : 신고 담당 노무사",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "667:15339",
+    "name": " 내작업 : 운영진·개발자용",
+    "group": "작업 목록/work-list-screen"
+  },
+  {
+    "id": "730:13772",
+    "name": "AU-01 로그인",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "740:7446",
+    "name": "AU-03 비밀번호 재설정",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "740:7447",
+    "name": "AU-02 최초 계정 설정",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "740:7448",
+    "name": "MY-03 2단계 인증 설정",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "740:7449",
+    "name": "AU-06 인증 수단 분실·복구",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "748:7302",
+    "name": "AU-05 2단계 인증",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "748:7303",
+    "name": "최초 계정 설정 안내",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "755:7199",
+    "name": "P0 대표 오류·접근 상태",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "832:12112",
+    "name": "공통 상태 : 세션 만료",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen"
+  },
+  {
+    "id": "531:16108",
+    "name": "작업상세 : 완료_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "813:10065",
+    "name": "작업상세 : 본 경정청구 준비 : 완료_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "923:20145",
+    "name": "작업상세 : 본 경정청구 준비 : 결과 검증 보류_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "830:10268",
+    "name": "작업상세 : 본 경정청구 준비 : 신고 담당자 미배정",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "923:20733",
+    "name": "작업상세 : 본 경정청구 준비 : 신고 담당자 변경",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:17598",
+    "name": "작업상세 : 완료0원 일 때_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:16420",
+    "name": "작업상세 : 실패_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "923:20333",
+    "name": "작업상세 : 확인 후 종료_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:17068",
+    "name": "작업상세 : 확인필요_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:17331",
+    "name": "작업상세 : 확인필요_처리이력탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:17694",
+    "name": "작업상세 : 상세 조회 실패",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:17985",
+    "name": "작업상세 : 접근 불가·작업 없음",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:15056",
+    "name": "작업상세 : 대기중_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:15544",
+    "name": "작업상세 : 실행준비중_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:15906",
+    "name": "작업상세 : 실행중_결과탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "675:24297",
+    "name": "작업상세 : 실행중_결과 수신 중",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:17797",
+    "name": "작업상세 : 최신 상태 갱신 실패",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:15271",
+    "name": "작업상세 : 제출자료탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "675:27666",
+    "name": "작업상세 : 제출자료탭_다운로드실패_모달",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:15393",
+    "name": "작업상세 : 대기중_처리이력탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:15627",
+    "name": "작업상세 : 실행준비중_처리이력탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:15940",
+    "name": "작업상세 : 실행중_처리이력탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "675:24353",
+    "name": "작업상세 : 결과 수신 중_처리이력탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:16208",
+    "name": "작업상세 : 완료_처리이력탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "531:16651",
+    "name": "작업상세 : 실패_처리이력탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "675:25047",
+    "name": "작업상세 : 요청 정보 정보",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "709:6738",
+    "name": "작업상세 : 본 경정청구 준비 : 신고 준비·인계탭",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "717:8980",
+    "name": "작업상세 : 본 경정청구 준비 : 업무 종료 기록",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "923:20493",
+    "name": "작업상세 : 본 경정청구 준비 : 업무 종료 기록 : 보관 기한 경과",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "923:20627",
+    "name": "작업상세 : 본 경정청구 준비 : 업무 종료 기록 : 보관 기한 경과·실행 중",
+    "group": "작업상세/work-detail-screen"
+  },
+  {
+    "id": "572:20511",
+    "name": "새 작업 요청 : 회사명·사업자등록번호 입력",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "553:19867",
+    "name": "새 작업 요청 : 본 경정청구 준비",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "627:36118",
+    "name": "새 작업 요청 : 본 경정청구 준비 : 기존 경정청구에 추가 실행 선택시",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "577:4496",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 자료 제출",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "855:17582",
+    "name": "새 작업 요청 : 자료 제출 : 파일 드래그 중",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "576:21674",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "832:12130",
+    "name": "점검상태 예시",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "591:25588",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 해당",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "591:25823",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 비해당",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "602:26051",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 확인필요",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "591:24462",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일 선택 완료",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "602:26918",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일첨부 실패",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "576:21777",
+    "name": "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업 > 자료 제출",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "602:28278",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "627:36288",
+    "name": "새 작업 요청 : 기존 경정청구에 추가 실행 선택시 > 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "602:29127",
+    "name": "새 작업 요청 : 요청 내용 확인 : 중복·재요청 경고",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "923:19549",
+    "name": "새 작업 요청 : 요청 내용 확인 : 실행 여부 확인 중",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "923:19380",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "619:30861",
+    "name": "새 작업 요청 : 요청 내용 확인 > 체크 다 할 경우",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "855:13591",
+    "name": "새 작업 요청 : 요청 내용 확인 : 신규 요청 제한",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "619:29698",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 성공",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "619:29911",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 실패",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "619:30113",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 여부 확인 중",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "619:30209",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 여부 확인 중 > 접수확인 클릭시",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "619:30023",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 작업 요청 중",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "602:28903",
+    "name": "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업> 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "602:27321",
+    "name": "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업 > 자료 제출 > 파일첨부,비밀번호 입력 완료",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "576:20968",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 자료 제출 > 파일 선택 완료",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "576:21282",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 자료 제출 > 파일첨부 실패",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "577:4555",
+    "name": "새 작업 요청 : 예상 환급액 조회",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "649:6091",
+    "name": "새 작업 요청 : 접수되지 않은 자료가 있을 경우",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "650:11033",
+    "name": "접수 상태 행 / 예시",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "832:12336",
+    "name": "공통 배너 / 점검 상태",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "877:9121",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일 전송 중",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "920:9467",
+    "name": "새 작업 요청 : 대상 범위 : 일부 직원 선택 완료",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "920:9628",
+    "name": "새 작업 요청 : 대상 범위 : 확인 필요",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "920:9773",
+    "name": "새 작업 요청 : 대상 범위 : 지원·검증 불가",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "942:21065",
+    "name": "개발 주석 : 입력 변경·화면 이탈",
+    "group": "새 작업 요청/new-work-request-screen"
+  },
+  {
+    "id": "771:8040",
+    "name": "MY-01 내 계정",
+    "group": "내 계정/login-my-account-screen.md"
+  },
+  {
+    "id": "771:12585",
+    "name": "MY-02 비밀번호 변경",
+    "group": "내 계정/login-my-account-screen.md"
+  },
+  {
+    "id": "771:13213",
+    "name": "MY-02 비밀번호 변경_완료",
+    "group": "내 계정/login-my-account-screen.md"
+  },
+  {
+    "id": "771:13342",
+    "name": "항목 Content",
+    "group": "내 계정/login-my-account-screen.md"
+  },
+  {
+    "id": "771:13475",
+    "name": "UA-01 계정 목록 : 본부장",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "789:14824",
+    "name": "UA-03 계정 생성 : 본부장",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "789:15205",
+    "name": "UA-03 계정 생성 : 운영진·개발자",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "789:15398",
+    "name": "UA-03 계정 생성 : 확인",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "789:15665",
+    "name": "UA-03 계정 생성 : 완료",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "789:26976",
+    "name": "UA-02 계정 상세",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "789:7111",
+    "name": "UA-01 계정 목록 : 운영진·개발자",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "796:8047",
+    "name": "UA-01 계정 목록 : 데이터 없음",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "796:8402",
+    "name": "UA-03 계정 생성 : 입력 오류",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "796:8507",
+    "name": "UA-03 계정 생성 : 완료 : 안내 발송 실패",
+    "group": "계정 관리/account-management-screen.md"
+  },
+  {
+    "id": "923:20919",
+    "name": "UA-03 계정 생성 : 처리 결과 확인 필요",
+    "group": "계정 관리/account-management-screen.md"
+  }
+]

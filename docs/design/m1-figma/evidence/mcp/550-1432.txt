@@ -1,0 +1,35 @@
+type MonthCellProps = {
+  className?: string;
+  label?: string;
+  state?: "Selected" | "Default";
+};
+
+export default function MonthCell({ className, label = "1월", state = "Default" }: MonthCellProps) {
+  const isSelected = state === "Selected";
+  return (
+    <div className={className || `border border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[62px] ${isSelected ? String.raw`bg-[#f0f3ff] border-[var(--border\/focus,#1e50d4)]` : String.raw`bg-[var(--surface\/default,white)] border-[var(--surface\/disabled-strong,#d1d5db)]`}`} id={isSelected ? "node-550_1428" : "node-550_1426"}>
+      {state === "Default" && (
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="550:1427">
+          {label}
+        </p>
+      )}
+      {isSelected && (
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/link,#1e50d4)] text-center whitespace-nowrap" data-node-id="550:1429">
+          {label}
+        </p>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

@@ -1,0 +1,336 @@
+const img = "http://localhost:3845/assets/649d477d995ea8fc7c464e47377420738e05b32e.svg";
+const imgIcon = "http://localhost:3845/assets/e126c8c7e33f84a8dc6ad703c2cfbe6d5dfcb58d.svg";
+const imgDocumentIcon = "http://localhost:3845/assets/e56e0baca069783d164836bbc2b384ed0232be81.svg";
+const imgCloseIcon = "http://localhost:3845/assets/5185761aef8228915a78b298de41671eba0e68a3.svg";
+const imgIcon = "http://localhost:3845/assets/e126c8c7e33f84a8dc6ad703c2cfbe6d5dfcb58d.svg";
+type InputFieldProps = {
+  className?: string;
+  propValue?: boolean;
+  state?: "Default";
+  value?: string;
+};
+
+function InputField({ className, propValue = false, state = "Default", value = "회사명을 입력해 주세요." }: InputFieldProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/default,#e4e8ee)] border-solid content-stretch flex gap-[8px] h-[40px] items-center px-[12px] py-[10px] relative rounded-[6px] w-[538.5px]"} data-node-id="577:4712">
+      <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Regular'] leading-[normal] min-w-px not-italic relative text-[14px] text-[color:var(--text\/tertiary,#8a94a0)]" data-node-id="574:1719">
+        {value}
+      </p>
+      {propValue && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="597:2169" data-name="아이콘">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={img} />
+        </div>
+      )}
+    </div>
+  );
+}
+type StatusBadgeProps = {
+  className?: string;
+  missingLabel?: string;
+  propValue?: string;
+  propValue1?: string;
+  propValue2?: string;
+  selectedLabel?: string;
+  status?: "Selected" | "UploadFailed" | "Missing" | "Sending" | "Received" | "Checking";
+  uploadFailedLabel?: string;
+};
+
+function StatusBadge({ className, missingLabel = "미첨부", propValue = "전송 중", propValue1 = "전송 완료", propValue2 = "수신 확인 중", selectedLabel = "선택됨", status = "Selected", uploadFailedLabel = "전송 실패" }: StatusBadgeProps) {
+  const isChecking = status === "Checking";
+  const isMissing = status === "Missing";
+  const isReceived = status === "Received";
+  const isSending = status === "Sending";
+  const isUploadFailed = status === "UploadFailed";
+  return (
+    <div className={className || `content-stretch flex items-start px-[8px] py-[3px] relative rounded-[4px] ${isMissing ? "bg-[#fef3f2] w-[48px]" : isUploadFailed ? "bg-[#fef3f2]" : isChecking ? "bg-[#fff7e3]" : isReceived ? "bg-[#ecfdf2]" : isSending ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)]` : String.raw`bg-[var(--surface\/brand-light,#eef2ff)] w-[48px]`}`} id={isMissing ? "node-583_5004" : isUploadFailed ? "node-583_5001" : isChecking ? "node-632_4377" : isReceived ? "node-632_4375" : isSending ? "node-632_4373" : "node-583_4998"}>
+      {status === "Selected" && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="583:4997">
+          {selectedLabel}
+        </p>
+      )}
+      {isSending && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="632:4374">
+          {propValue}
+        </p>
+      )}
+      {isReceived && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[#16a34a] text-[12px] whitespace-nowrap" data-node-id="632:4376">
+          {propValue1}
+        </p>
+      )}
+      {isChecking && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/warning,#d97706)] whitespace-nowrap" data-node-id="632:4378">
+          {propValue2}
+        </p>
+      )}
+      {isUploadFailed && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error,#e53e3e)] whitespace-nowrap" data-node-id="583:5000">
+          {uploadFailedLabel}
+        </p>
+      )}
+      {isMissing && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error,#e53e3e)] whitespace-nowrap" data-node-id="583:5003">
+          {missingLabel}
+        </p>
+      )}
+    </div>
+  );
+}
+type NewTaskBtnWhiteProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function NewTaskBtnWhite({ className, label = "새 작업 요청", state = "Default" }: NewTaskBtnWhiteProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/focus,#1e50d4)] border-solid content-stretch flex gap-[8px] items-center justify-center px-[15px] py-[9px] relative rounded-[8px]"} data-node-id="533:3938">
+      <div className="flex flex-row items-center self-stretch" data-node-id="533:3939">
+        <div className="aspect-[32/32] h-full relative shrink-0" data-name="Icon">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+        </div>
+      </div>
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="533:3940">
+        {label}
+      </p>
+    </div>
+  );
+}
+type RetryActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function RetryActionBtn({ className, label = "다시 선택", state = "Default" }: RetryActionBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--status\\/error,#e53e3e)] border-solid content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[6px]"} data-node-id="582:1904">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error,#e53e3e)] whitespace-nowrap" data-node-id="582:1905">
+        {label}
+      </p>
+    </div>
+  );
+}
+type FileUploadRowProps = {
+  className?: string;
+  fileName?: string;
+  status?: "Received";
+};
+
+function FileUploadRow({ className, fileName = "급여대장.xlsx", status = "Received" }: FileUploadRowProps) {
+  return (
+    <div className={className || "border-[var(--border\\/subtle,#e2e8f0)] border-b border-solid content-stretch flex flex-col items-start px-[16px] py-[8px] relative w-[760px]"} data-node-id="583:2168">
+      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="583:2149" data-name="급여대장.xlsx Content">
+        <div className="content-stretch flex flex-[1_0_0] items-center justify-between min-w-px relative" data-node-id="855:18267" data-name="File Info">
+          <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="583:2150" data-name="급여대장.xlsx Content">
+            <div className="relative shrink-0 size-[30px]" data-node-id="583:2151" data-name="Document Icon">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDocumentIcon} />
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="583:2152">
+              {fileName}
+            </p>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary-warm,#6a6f73)] whitespace-nowrap" data-node-id="871:8996">
+              24.8MB
+            </p>
+            <StatusBadge className="bg-[#ecfdf2] content-stretch flex items-start px-[8px] py-[3px] relative rounded-[4px] shrink-0" status="Received" />
+          </div>
+        </div>
+        <div className="content-stretch flex items-center relative shrink-0" data-node-id="583:2153" data-name="Content Row">
+          <div className="content-stretch flex items-center relative shrink-0" data-node-id="583:2154" data-name="Content Row">
+            <div className="content-stretch flex flex-col items-center justify-center relative rounded-[6px] shrink-0 size-[30px]" data-node-id="601:5363" data-name="제거 / 기본">
+              <div className="relative shrink-0 size-[24px]" data-node-id="I601:5363;601:5358" data-name="Close Icon">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCloseIcon} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+type ComponentProps = {
+  className?: string;
+  propValue?: string;
+  propValue1?: string;
+  propValue2?: boolean;
+  propValue4?: "주의" | "제출 항목" | "안내" | "없음" | "추가입력" | "파일제출" | "추가입력+파일제출";
+};
+
+export default function Component({ className, propValue = "급여대장", propValue1 = "대상 3개년 월별자료", propValue2 = true, propValue4 = "제출 항목" }: ComponentProps) {
+  const is = propValue4 === "파일제출";
+  const is1 = propValue4 === "추가입력+파일제출";
+  const is2 = propValue4 === "추가입력";
+  const is3 = propValue4 === "안내";
+  const is4 = propValue4 === "주의";
+  const is5 = propValue4 === "없음";
+  const is6 = propValue4 === "제출 항목";
+  const isOr = ["제출 항목", "파일제출"].includes(propValue4);
+  const isOr1 = ["추가입력+파일제출", "추가입력"].includes(propValue4);
+  return (
+    <div className={className || `min-w-[700px] relative rounded-[8px] w-[1098px] ${is5 ? "h-[0.01px]" : is4 ? "[word-break:break-word] bg-[#fdf7e9] border border-[#ffe7b1] border-solid content-stretch flex flex-col gap-[4px] items-start leading-[normal] not-italic px-[20px] py-[16px] whitespace-nowrap" : is3 ? String.raw`bg-[var(--surface\/default,white)] border border-[var(--border\/subtle,#e2e8f0)] border-solid content-stretch flex h-[46px] items-center justify-between px-[20px] py-[16px]` : is2 ? String.raw`bg-[var(--surface\/default,white)] border border-[var(--border\/subtle,#e2e8f0)] border-solid content-stretch flex flex-col items-start px-[20px] py-[16px]` : is1 ? String.raw`bg-[var(--surface\/default,white)] border border-[var(--border\/subtle,#e2e8f0)] border-solid content-stretch flex flex-col gap-[8px] items-center justify-end px-[20px] py-[16px]` : is ? String.raw`bg-[var(--surface\/default,white)] border border-[var(--border\/subtle,#e2e8f0)] border-solid content-stretch flex gap-[8px] items-end justify-center px-[20px] py-[16px]` : String.raw`bg-[var(--surface\/default,white)] border border-[var(--border\/subtle,#e2e8f0)] border-solid content-stretch flex items-center justify-between px-[20px] py-[16px]`}`} id={is5 ? "node-593_2120" : is4 ? "node-591_23967" : is3 ? "node-591_23968" : is2 ? "node-591_24332" : is1 ? "node-602_27718" : is ? "node-591_24922" : "node-590_2086"}>
+      {isOr && (
+        <>
+          <div className={`content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative ${is ? "gap-[6px]" : ""}`} id={is ? "node-591_24878" : "node-590_2077"} data-name="급여대장 Content">
+            <div className="content-stretch flex items-center relative shrink-0 w-full" id={is ? "node-591_24879" : "node-590_2078"} data-name="내용·상태">
+              <div className={`content-center flex flex-[1_0_0] flex-wrap gap-[4px_8px] items-center min-w-px relative ${is ? "[word-break:break-word] leading-[normal] not-italic whitespace-nowrap" : ""}`} id={is ? "node-591_24880" : "node-590_2079"} data-name="메인명·서브명">
+                <div className={`content-stretch flex font-["Pretendard:SemiBold"] gap-[2px] items-start relative shrink-0 ${is ? "" : "[word-break:break-word] leading-[normal] not-italic whitespace-nowrap"}`} id={is ? "node-591_24881" : "node-590_2080"} data-name="메인명">
+                  <p className="relative shrink-0 text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="590:2081">
+                    {propValue}
+                  </p>
+                  <p className="relative shrink-0 text-[15px] text-[color:var(--text\/link,#1e50d4)]" id={is ? "node-591_24883" : "node-590_2082"}>
+                    *
+                  </p>
+                </div>
+                {is6 && propValue2 && (
+                  <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="590:2083">
+                    {propValue1}
+                  </p>
+                )}
+                {is6 && <StatusBadge className="bg-[#fef3f2] content-stretch flex items-start px-[8px] py-[3px] relative rounded-[4px] shrink-0" status="Missing" uploadFailedLabel="" />}
+                {is && propValue2 && (
+                  <p className="font-['Pretendard:Regular'] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)]" data-node-id="591:24884">
+                    {propValue1}
+                  </p>
+                )}
+              </div>
+            </div>
+            {is && (
+              <div className="content-stretch flex flex-col items-start min-h-[0.009999999776482582px] overflow-clip relative shrink-0 w-full" data-node-id="591:24886" data-name="업로드 파일 목록">
+                <FileUploadRow className="border-[var(--border\/subtle,#e2e8f0)] border-b border-solid content-stretch flex flex-col items-start px-[16px] py-[8px] relative shrink-0 w-full" fileName="급여대장_2026.04.xlsx" />
+                <FileUploadRow className="border-[var(--border\/subtle,#e2e8f0)] border-b border-solid content-stretch flex flex-col items-start px-[16px] py-[8px] relative shrink-0 w-full" fileName="급여대장_2026.05.xlsx" />
+                <FileUploadRow className="border-[var(--border\/subtle,#e2e8f0)] border-b border-solid content-stretch flex flex-col items-start px-[16px] py-[8px] relative shrink-0 w-full" fileName="급여대장_2026.06.xlsx" />
+              </div>
+            )}
+          </div>
+          <NewTaskBtnWhite className="bg-[var(--surface\/default,white)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex gap-[8px] items-center justify-center px-[15px] py-[9px] relative rounded-[8px] shrink-0" label={is ? "파일 추가" : "파일 선택"} />
+        </>
+      )}
+      {isOr1 && (
+        <>
+          <div className={`content-stretch flex relative shrink-0 ${is2 ? "items-center justify-between w-[1058px]" : "gap-[8px] items-end w-full"}`} id={is2 ? "node-591_24362" : "node-602_27782"} data-name="Container">
+            <div className={`content-stretch flex flex-col items-start relative ${is2 ? "shrink-0 w-[949px]" : "flex-[1_0_0] gap-[6px] min-w-px"}`} id={is2 ? "node-591_24333" : "node-602_27719"} data-name="급여대장 Content">
+              <div className="content-stretch flex items-center relative shrink-0 w-full" id={is2 ? "node-591_24334" : "node-602_27720"} data-name="내용·상태">
+                <div className={`content-center flex flex-[1_0_0] flex-wrap gap-[4px_8px] items-center min-w-px relative ${is2 ? "" : "[word-break:break-word] leading-[normal] not-italic whitespace-nowrap"}`} id={is2 ? "node-591_24335" : "node-602_27721"} data-name="메인명·서브명">
+                  <div className={`content-stretch flex font-["Pretendard:SemiBold"] gap-[2px] items-start relative shrink-0 ${is2 ? "[word-break:break-word] leading-[normal] not-italic whitespace-nowrap" : ""}`} id={is2 ? "node-591_24336" : "node-602_27722"} data-name="메인명">
+                    <p className="relative shrink-0 text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="602:27723">
+                      {propValue}
+                    </p>
+                    <p className="relative shrink-0 text-[15px] text-[color:var(--text\/link,#1e50d4)]" id={is2 ? "node-591_24338" : "node-602_27724"}>
+                      *
+                    </p>
+                  </div>
+                  {is1 && propValue2 && (
+                    <p className="font-['Pretendard:Regular'] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)]" data-node-id="602:27725">
+                      {propValue1}
+                    </p>
+                  )}
+                  {is2 && propValue2 && (
+                    <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="591:24339">
+                      {propValue1}
+                    </p>
+                  )}
+                  {is2 && <StatusBadge className="bg-[#fef3f2] content-stretch flex items-start px-[8px] py-[3px] relative rounded-[4px] shrink-0" status="Missing" uploadFailedLabel="" />}
+                </div>
+              </div>
+              {is1 && (
+                <div className="content-stretch flex flex-col items-start min-h-[0.009999999776482582px] overflow-clip relative shrink-0 w-full" data-node-id="602:27727" data-name="업로드 파일 목록">
+                  <FileUploadRow className="border-[var(--border\/subtle,#e2e8f0)] border-b border-solid content-stretch flex flex-col items-start px-[16px] py-[8px] relative shrink-0 w-full" fileName="급여대장_2026.04.xlsx" />
+                  <FileUploadRow className="border-[var(--border\/subtle,#e2e8f0)] border-b border-solid content-stretch flex flex-col items-start px-[16px] py-[8px] relative shrink-0 w-full" fileName="급여대장_2026.05.xlsx" />
+                  <FileUploadRow className="border-[var(--border\/subtle,#e2e8f0)] border-b border-solid content-stretch flex flex-col items-start px-[16px] py-[8px] relative shrink-0 w-full" fileName="급여대장_2026.06.xlsx" />
+                </div>
+              )}
+            </div>
+            {is1 && <NewTaskBtnWhite className="bg-[var(--surface\/default,white)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex gap-[8px] items-center justify-center px-[15px] py-[9px] relative rounded-[8px] shrink-0" label="파일 추가" />}
+            {is2 && (
+              <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex gap-[8px] items-center justify-center px-[15px] py-[9px] relative rounded-[8px] shrink-0" data-node-id="591:24341" data-name="NewTaskBtn_White">
+                <div className="flex flex-row items-center self-stretch" data-node-id="I591:24341;533:3939">
+                  <div className="aspect-[32/32] h-full relative shrink-0" data-name="Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I591:24341;533:3940">
+                  파일 선택
+                </p>
+              </div>
+            )}
+          </div>
+          <div className="content-stretch flex flex-col gap-[10px] items-start p-[8px] relative rounded-[8px] shrink-0 w-full" id={is2 ? "node-591_24397" : "node-602_27767"} data-name="백업 암호 입력">
+            <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full" id={is2 ? "node-591_24398" : "node-602_27768"} data-name="백업 암호 Content">
+              <div className="[word-break:break-word] content-stretch flex font-['Pretendard:SemiBold'] gap-[4px] items-center leading-[normal] not-italic relative shrink-0 text-[14px] whitespace-nowrap" id={is2 ? "node-591_24399" : "node-602_27769"} data-name="백업 암호 Control">
+                <p className="relative shrink-0 text-[color:var(--text\/primary,#1e2229)]" id={is2 ? "node-591_24400" : "node-602_27770"}>
+                  백업 암호
+                </p>
+                <p className="relative shrink-0 text-[color:var(--text\/link,#1e50d4)]" id={is2 ? "node-591_24401" : "node-602_27771"}>
+                  *
+                </p>
+              </div>
+              <InputField className="bg-[var(--surface\/default,white)] border border-[var(--border\/default,#e4e8ee)] border-solid content-stretch flex flex-[1_0_0] gap-[8px] items-center max-w-[300px] min-w-px px-[12px] py-[10px] relative rounded-[6px]" propValue value="백업 암호를 입력해 주세요." />
+            </div>
+            <div className="content-stretch flex items-start pl-[74px] relative shrink-0 w-full" id={is2 ? "node-591_24406" : "node-602_27773"} data-name="최종 확인 화면에서는 암호 원문을 표시하지 않… Container">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" id={is2 ? "node-591_24407" : "node-602_27774"}>
+                최종 확인 화면에서는 암호 원문을 표시하지 않습니다.
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" id={is2 ? "node-591_24410" : "node-602_27777"}>
+              대상연도의 급여관리 자료와 원천 자료가 포함된 백업파일을 제출해 주세요.
+            </p>
+          </div>
+        </>
+      )}
+      {["안내", "주의"].includes(propValue4) && (
+        <p className={`relative shrink-0 ${is4 ? String.raw`font-["Pretendard:SemiBold"] text-[15px] text-[color:var(--text\/primary,#1e2229)]` : String.raw`[word-break:break-word] font-["Pretendard:Regular"] leading-[normal] not-italic text-[14px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap`}`} id={is4 ? "node-591_23964" : "node-591_23953"}>
+          {is4 ? "퇴직연급 가입 여부를 확인해 주세요." : is3 ? "추가로 제출할 자료가 없습니다." : ""}
+        </p>
+      )}
+      {is4 && (
+        <p className="font-['Pretendard:Regular'] relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)]" data-node-id="591:23963">
+          확인이 완료되기 전에는 다음 단계를 이동할 수 없습니다.
+        </p>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## StatusBadge
+**Node ID:** 583:5005
+
+선택됨, 업로드 실패, 미첨부 상태를 표시하는 배지 컴포넌트입니다.
+
+## 상태=파일제출
+**Node ID:** 591:24922
+
+파일 전송 상태는 제목이 아니라 각 파일 행에 표시한다.
+
+## FileUploadRow
+**Node ID:** 583:2170
+
+파일 1개 단위 전송 상태. 접수 상태 및 RPA 작업 상태와 분리한다. 전송 중에만 파일별 전송량·진행률을 표시한다.
+
+## 상태=추가입력+파일제출
+**Node ID:** 602:27718
+
+파일 전송 상태는 제목이 아니라 각 파일 행에 표시한다.
+
+## State=Default
+**Node ID:** 577:4712
+
+한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.
+
+## InputField
+**Node ID:** 578:1762
+
+재사용 가능한 한 줄 인풋입니다. Default, Hover, Focus, Filled, Error, Disabled 상태와 Value 속성을 지원합니다.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

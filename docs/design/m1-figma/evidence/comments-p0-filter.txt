@@ -1,0 +1,164 @@
+- application
+- status
+- generic: "새 작업 요청 : 자료 제출 : 파일 드래그 중"
+- button:
+  - generic: 개발
+  - paragraph: 클릭 시 이메일로 이동
+- button:
+  - generic: 개발
+  - paragraph: 클릭 시 이메일로 이동
+- button:
+  - generic: 개발
+  - paragraph: 파일첨부를 1개만 할 경우.
+  - paragraph: :라인을 구분하는 외곽선을 표시하지 않습니다.
+  - paragraph: 파일첨부가 2개 이상 일 경우.
+  - paragraph: :마지막 파일에 외곽선을 표시하지 않습니다.
+- button:
+  - generic: 개발
+  - paragraph: 클릭 시 이메일로 이동
+- region:
+  - toolbar:
+    - button:
+    - separator
+    - button [expanded]:
+      - generic: 파일
+    - separator
+    - button:
+      - generic: 변수
+  - button: 4대보험 환급센터
+  - generic: 파일 이름
+  - button:
+  - button:
+  - link:
+    - /url: https://www.figma.com/files/team/1528923043997497534/project/420051506
+    - text: 마이닝오천
+  - heading [level=2]:
+    - button [expanded]:
+      - generic: 페이지
+    - button:
+  - grid:
+    - row:
+      - gridcell:
+        - button:
+          - generic: P0
+    - row:
+      - gridcell:
+        - button:
+          - generic: P1
+  - button:
+    - generic: 모든 페이지 표시
+  - slider
+  - button [expanded]:
+    - generic: Ready for dev
+  - button:
+    - generic: "내작업 : 영업직"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "내작업 : 신고 담당 노무사"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "내작업 : 영업직 · 신고 담당 노무사"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "내작업 : 운영진·개발자용"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "내작업 : 접수되지 않은 자료가 있을 경우"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "내작업 : 작업이 없는 최초 상태"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "내작업 : 조회 실패와 다시 불러오기"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "내작업 : 목록로딩_스켈레톤"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "작업상세 : 대기중_결과탭"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "작업상세 : 대기중_처리이력탭"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: "작업상세 : 제출자료탭"
+    - generic: 4일 전 편집됨
+  - button:
+    - generic: 레이어
+  - button:
+    - generic: 계정 역할 Content
+  - button:
+    - generic: P0 공통 개발 전달 사항
+  - button:
+    - generic: ICON
+  - button:
+    - generic: 컴포넌트
+  - button:
+    - generic: 작업 목록/work-list-screen
+  - button:
+    - generic: 로그인·최초 설정·OTP/login-my-account-screen
+  - button:
+    - generic: 작업상세/work-detail-screen
+  - button:
+    - generic: 새 작업 요청/new-work-request-screen
+  - button:
+    - generic: 내 계정/login-my-account-screen.md
+  - button:
+    - generic: 계정 관리/account-management-screen.md
+  - button:
+    - generic: 역할별 접근 표
+  - slider
+- button
+- button
+- button:
+- button:
+- button:
+- button: 공유하기
+- tablist:
+  - tab [selected]:
+    - generic: 댓글
+    - generic: 댓글
+- tabpanel:
+  - dialog:
+    - searchbox
+    - button [expanded]:
+    - button:
+    - generic: 피드백을 주거나, 질문을 하거나, 감사의 말을 남기세요. 댓글을 남기려면 파일에서 아무 곳이나 클릭하세요.
+- slider
+- region:
+  - toolbar:
+    - button:
+    - button:
+    - button:
+    - button:
+    - button [pressed]:
+    - radiogroup:
+      - generic: 공구 벨트 모드
+      - radio
+      - generic: 그리기
+      - radio
+      - generic: 디자인
+      - radio
+      - generic: 모션
+      - radio [checked]
+      - generic: Dev Mode
+- region:
+  - toolbar:
+    - button:
+- alert
+- alert
+- menu "정렬/필터링":
+  - group "정렬":
+    - text: 정렬
+    - menuitemradio "날짜순 정렬" [checked] [active]:
+      - text: 날짜순 정렬
+    - menuitemradio "읽지 않은 항목 순 정렬":
+      - text: 읽지 않은 항목 순 정렬
+  - group "필터":
+    - text: 필터
+    - menuitemcheckbox "해결된 댓글 보기" [checked]:
+      - text: 해결된 댓글 보기
+    - menuitemcheckbox "내 스레드만":
+      - text: 내 스레드만
+    - menuitemcheckbox "현재 페이지만" [checked]:
+      - text: 현재 페이지만

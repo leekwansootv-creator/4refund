@@ -1,0 +1,26 @@
+<section id="771:11102" name="유저프로필" x="79" y="1230" width="976" height="529">
+  <symbol id="512:324" name="UserMenu" x="201" y="52" width="116" height="117" />
+  <frame id="668:5224" name="사용자 역할" x="23" y="52" width="151" height="176">
+    <symbol id="668:5212" name="역할=영업직" x="16" y="16" width="32" height="14" />
+    <symbol id="668:5214" name="역할=신고 담당 노무사" x="16" y="42" width="79" height="14" />
+    <symbol id="668:5216" name="역할=영업직 · 신고 담당 노무사" x="16" y="68" width="119" height="14" />
+    <symbol id="668:5218" name="역할=본부장" x="16" y="94" width="32" height="14" />
+    <symbol id="668:5220" name="역할=총괄 관리자" x="16" y="120" width="55" height="14" />
+    <symbol id="668:5222" name="역할=개발자" x="16" y="146" width="32" height="14" />
+  </frame>
+  <symbol id="774:6349" name="UserProfileTrigger" x="369" y="46" width="208" height="51" />
+  <frame id="774:6360" name="UserMenuAccountItem" x="669" y="169" width="284" height="85">
+    <symbol id="774:6358" name="State=Default" x="16" y="16" width="114" height="53" />
+    <symbol id="774:6359" name="State=Hover" x="154" y="16" width="114" height="53" />
+  </frame>
+  <frame id="774:6367" name="UserMenuLogoutItem" x="669" y="52" width="284" height="69">
+    <symbol id="774:6365" name="State=Default" x="16" y="16" width="114" height="37" />
+    <symbol id="774:6366" name="State=Hover" x="154" y="16" width="114" height="37" />
+  </frame>
+  <frame id="774:6399" name="UserProfileMenu" x="52" y="294" width="488" height="224">
+    <symbol id="774:6373" name="State=Closed" x="24" y="24" width="208" height="51" />
+    <symbol id="774:6382" name="State=Open" x="256" y="24" width="208" height="176" />
+  </frame>
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

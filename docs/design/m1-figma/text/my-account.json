@@ -1,0 +1,4121 @@
+{
+  "source": "exports/p0/내 계정/login-my-account-screen.md.svg",
+  "width": "2120",
+  "height": "3385",
+  "groups": [
+    {
+      "path": ["내 계정/login-my-account-screen.md"],
+      "transform": null,
+      "child_count": 5
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-01 내 계정"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-01 내 계정", "Sidebar"],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-01 내 계정", "Sidebar", "Sidebar Content"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader",
+        "Logo Container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader",
+        "Logo Container",
+        "Mini Logo"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader",
+        "Logo Container",
+        "LogoIcon"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader",
+        "ToggleBtn"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader",
+        "ToggleBtn",
+        "Sidebar_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader",
+        "ToggleBtn",
+        "Sidebar_2",
+        "Vector"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem",
+        "label-container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem",
+        "label-container",
+        "Icon"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_2",
+        "label-container_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_2",
+        "label-container_2",
+        "plus"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_2",
+        "label-container_2",
+        "plus",
+        "plus Shape"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_3",
+        "label-container_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_3",
+        "label-container_3",
+        "Customer Support"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-01 내 계정", "Sidebar", "user-profile"],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "user-profile",
+        "Profile name"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "user-profile",
+        "Profile name",
+        "Account details"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "user-profile",
+        "Profile name",
+        "Account details",
+        "사용자 역할 / 영업직"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "user-profile",
+        "Profile name",
+        "Dropdown arrow"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-01 내 계정", "ContentContainer"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "내 계정 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content"
+      ],
+      "transform": null,
+      "child_count": 6
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Account info container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Account info container",
+        "Account status container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Account info container",
+        "Account status container",
+        "계정상태 배지"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "이름 Content_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "이름 Content_2",
+        "InputField"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "연락처 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "연락처 Content",
+        "InputField_2"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2",
+        "hong@example.com Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2",
+        "hong@example.com Content",
+        "InputField_3"
+      ],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2",
+        "hong@example.com Content",
+        "InputField_3",
+        "읽기 전용 Control"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2",
+        "hong@example.com Content",
+        "InputField_3",
+        "읽기 전용 Control",
+        "Read only eye icon"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "역할 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "역할 Content",
+        "InputField_4"
+      ],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "역할 Content",
+        "InputField_4",
+        "읽기 전용 Control_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "역할 Content",
+        "InputField_4",
+        "읽기 전용 Control_2",
+        "Read only eye icon_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업직 소속 Content_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업직 소속 Content_2",
+        "InputField_5"
+      ],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업직 소속 Content_2",
+        "InputField_5",
+        "읽기 전용 Control_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업직 소속 Content_2",
+        "InputField_5",
+        "읽기 전용 Control_3",
+        "Read only eye icon_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업코드 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업코드 Content",
+        "InputField_6"
+      ],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업코드 Content",
+        "InputField_6",
+        "읽기 전용 Control_4"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업코드 Content",
+        "InputField_6",
+        "읽기 전용 Control_4",
+        "Read only eye icon_4"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역",
+        "2단계 인증 상태 및 행동"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역",
+        "2단계 인증 상태 및 행동",
+        "2단계 인증 상태"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역",
+        "2단계 인증 상태 및 행동",
+        "2단계 인증 상태",
+        "2단계 인증 상태 배지"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역",
+        "2단계 인증 상태 및 행동",
+        "2단계 인증 등록"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "계정 관련 문의 Control"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "계정 관련 문의 Control",
+        "Help icon"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "Save changes container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "Save changes container",
+        "ActionBtn"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "Save changes container",
+        "변경사항 저장 Control"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "Save changes container",
+        "변경사항 저장 Control",
+        "변경사항 저장 Control_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-02 비밀번호 변경"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-02 비밀번호 변경", "Sidebar_3"],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2",
+        "Logo Container_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2",
+        "Logo Container_2",
+        "Mini Logo_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2",
+        "Logo Container_2",
+        "LogoIcon_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2",
+        "ToggleBtn_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2",
+        "ToggleBtn_2",
+        "Sidebar_4"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2",
+        "ToggleBtn_2",
+        "Sidebar_4",
+        "Vector_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_4"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_4",
+        "label-container_4"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_4",
+        "label-container_4",
+        "Icon_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_5"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_5",
+        "label-container_5"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_5",
+        "label-container_5",
+        "plus_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_5",
+        "label-container_5",
+        "plus_2",
+        "plus Shape_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_6"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_6",
+        "label-container_6"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_6",
+        "label-container_6",
+        "Customer Support_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "user-profile_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "user-profile_2",
+        "Profile name_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "user-profile_2",
+        "Profile name_2",
+        "Account details_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "user-profile_2",
+        "Profile name_2",
+        "Account details_2",
+        "사용자 역할 / 영업직_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "user-profile_2",
+        "Profile name_2",
+        "Dropdown arrow_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-02 비밀번호 변경", "ContentContainer_2"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "비밀번호 변경 Content"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard"
+      ],
+      "transform": null,
+      "child_count": 6
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "CurrentPasswordGroup"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "CurrentPasswordGroup",
+        "InputField_7"
+      ],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "CurrentPasswordGroup",
+        "InputField_7",
+        "아이콘"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "NewPasswordGroup"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "NewPasswordGroup",
+        "InputField_8"
+      ],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "NewPasswordGroup",
+        "InputField_8",
+        "아이콘_2"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ConfirmPasswordGroup"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ConfirmPasswordGroup",
+        "InputField_9"
+      ],
+      "transform": null,
+      "child_count": 4
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ConfirmPasswordGroup",
+        "InputField_9",
+        "아이콘_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "InfoNotice"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "InfoNotice",
+        "info"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ActionRow"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ActionRow",
+        "BackLink"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ActionRow",
+        "PrimaryActionBtn"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-02 비밀번호 변경_완료"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "MY-02 비밀번호 변경_완료", "Sidebar_5"],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3",
+        "Logo Container_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3",
+        "Logo Container_3",
+        "Mini Logo_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3",
+        "Logo Container_3",
+        "LogoIcon_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3",
+        "ToggleBtn_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3",
+        "ToggleBtn_3",
+        "Sidebar_6"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3",
+        "ToggleBtn_3",
+        "Sidebar_6",
+        "Vector_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_7"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_7",
+        "label-container_7"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_7",
+        "label-container_7",
+        "Icon_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_8"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_8",
+        "label-container_8"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_8",
+        "label-container_8",
+        "plus_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_8",
+        "label-container_8",
+        "plus_3",
+        "plus Shape_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_9"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_9",
+        "label-container_9"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_9",
+        "label-container_9",
+        "Customer Support_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "user-profile_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "user-profile_3",
+        "Profile name_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "user-profile_3",
+        "Profile name_3",
+        "Account details_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "user-profile_3",
+        "Profile name_3",
+        "Account details_3",
+        "사용자 역할 / 영업직_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "user-profile_3",
+        "Profile name_3",
+        "Dropdown arrow_3"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "비밀번호 변경 Content_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "Illustration container"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "Illustration container",
+        "illustration"
+      ],
+      "transform": null,
+      "child_count": 3
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "Illustration container",
+        "illustration",
+        "Check icon"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "Illustration container",
+        "Title Header Section"
+      ],
+      "transform": null,
+      "child_count": 1
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "Illustration container",
+        "Title Header Section",
+        "Title Stack"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "PrimaryActionBtn_2"
+      ],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "transform": null,
+      "child_count": 13
+    }
+  ],
+  "text": [
+    {
+      "index": 1,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "SidebarHeader",
+        "Logo Container",
+        "LogoIcon"
+      ],
+      "id": "CMS Text",
+      "text": "CMS",
+      "attributes": {
+        "id": "CMS Text",
+        "fill": "white",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "10",
+        "font-weight": "800",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "162",
+          "y": "361.555",
+          "text": "CMS"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem",
+        "label-container"
+      ],
+      "id": "Label",
+      "text": "내 작업",
+      "attributes": {
+        "id": "Label",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "418.188",
+          "text": "내 작업"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_2",
+        "label-container_2"
+      ],
+      "id": "Label_2",
+      "text": "새 작업 요청",
+      "attributes": {
+        "id": "Label_2",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "457.188",
+          "text": "새 작업 요청"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "Sidebar Content",
+        "MenuContainer / 영업직",
+        "SidebarItem_3",
+        "label-container_3"
+      ],
+      "id": "내 작업",
+      "text": "고객지원",
+      "attributes": {
+        "id": "ë´ ìì",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "496.188",
+          "text": "고객지원"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "user-profile",
+        "Profile name",
+        "Account details"
+      ],
+      "id": "Account name",
+      "text": "홍길동",
+      "attributes": {
+        "id": "Account name",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "124",
+          "y": "1167.48",
+          "text": "홍길동"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "Sidebar",
+        "user-profile",
+        "Profile name",
+        "Account details",
+        "사용자 역할 / 영업직"
+      ],
+      "id": "역할명",
+      "text": "영업직 · 신고 담당 노무사",
+      "attributes": {
+        "id": "ì­í ëª",
+        "fill": "#1E2229",
+        "fill-opacity": "0.501961",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "124",
+          "y": "1186.27",
+          "text": "영업직 · 신고 담당 노무사"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "내 계정 Content"
+      ],
+      "id": "My account title",
+      "text": "내 계정",
+      "attributes": {
+        "id": "My account title",
+        "fill": "#111827",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "24",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "680",
+          "y": "376.031",
+          "text": "내 계정"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "내 계정 Content"
+      ],
+      "id": "My account description",
+      "text": "내 계정 정보와 로그인 설정을 관리합니다.",
+      "attributes": {
+        "id": "My account description",
+        "fill": "#6B7280",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "680",
+          "y": "403.477",
+          "text": "내 계정 정보와 로그인 설정을 관리합니다."
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Account info container"
+      ],
+      "id": "Account info title",
+      "text": "계정 정보",
+      "attributes": {
+        "id": "Account info title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "18",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "712",
+          "y": "479.898",
+          "text": "계정 정보"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Account info container",
+        "Account status container"
+      ],
+      "id": "Account usage status title",
+      "text": "계정 이용 상태",
+      "attributes": {
+        "id": "Account usage status title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "712",
+          "y": "512.977",
+          "text": "계정 이용 상태"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Account info container",
+        "Account status container",
+        "계정상태 배지"
+      ],
+      "id": "이용 중",
+      "text": "이용 중",
+      "attributes": {
+        "id": "ì´ì© ì¤",
+        "fill": "#10B981",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "822",
+          "y": "512.621",
+          "text": "이용 중"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "이름 Content_2"
+      ],
+      "id": "Name title",
+      "text": "이름",
+      "attributes": {
+        "id": "Name title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "712",
+          "y": "561.477",
+          "text": "이름"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "이름 Content_2",
+        "InputField"
+      ],
+      "id": "Value",
+      "text": "홍길동",
+      "attributes": {
+        "id": "Value",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "724",
+          "y": "597.977",
+          "text": "홍길동"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "연락처 Content"
+      ],
+      "id": "Contact title",
+      "text": "연락처",
+      "attributes": {
+        "id": "Contact title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1192",
+          "y": "561.477",
+          "text": "연락처"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "이름 Content",
+        "연락처 Content",
+        "InputField_2"
+      ],
+      "id": "Value_2",
+      "text": "010-1234-5678",
+      "attributes": {
+        "id": "Value_2",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1204",
+          "y": "597.977",
+          "text": "010-1234-5678"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2"
+      ],
+      "id": "Email title",
+      "text": "로그인 이메일",
+      "attributes": {
+        "id": "Email title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "712",
+          "y": "654.477",
+          "text": "로그인 이메일"
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2",
+        "hong@example.com Content",
+        "InputField_3"
+      ],
+      "id": "Read only value",
+      "text": "hong@example.com",
+      "attributes": {
+        "id": "Read only value",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "724",
+          "y": "686.977",
+          "text": "hong@example.com"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2",
+        "hong@example.com Content",
+        "InputField_3",
+        "읽기 전용 Control"
+      ],
+      "id": "Read only indicator text",
+      "text": "읽기 전용",
+      "attributes": {
+        "id": "Read only indicator text",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1111",
+          "y": "686.266",
+          "text": "읽기 전용"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "로그인 이메일 Content_2",
+        "hong@example.com Content"
+      ],
+      "id": "Email change notice",
+      "text": "로그인 이메일은 직접 변경할 수 없습니다.",
+      "attributes": {
+        "id": "Email change notice",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "712",
+          "y": "719.266",
+          "text": "로그인 이메일은 직접 변경할 수 없습니다."
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "역할 Content"
+      ],
+      "id": "Role title",
+      "text": "역할",
+      "attributes": {
+        "id": "Role title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1192",
+          "y": "654.477",
+          "text": "역할"
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "역할 Content",
+        "InputField_4"
+      ],
+      "id": "Read only value_2",
+      "text": "영업직 · 신고 담당 노무사",
+      "attributes": {
+        "id": "Read only value_2",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1204",
+          "y": "686.977",
+          "text": "영업직 · 신고 담당 노무사"
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "로그인 이메일 Content",
+        "역할 Content",
+        "InputField_4",
+        "읽기 전용 Control_2"
+      ],
+      "id": "Read only indicator text_2",
+      "text": "읽기 전용",
+      "attributes": {
+        "id": "Read only indicator text_2",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1591",
+          "y": "686.266",
+          "text": "읽기 전용"
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업직 소속 Content_2"
+      ],
+      "id": "Department title",
+      "text": "영업직 소속",
+      "attributes": {
+        "id": "Department title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "712",
+          "y": "763.477",
+          "text": "영업직 소속"
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업직 소속 Content_2",
+        "InputField_5"
+      ],
+      "id": "Read only value_3",
+      "text": "김영업 본부장",
+      "attributes": {
+        "id": "Read only value_3",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "724",
+          "y": "799.977",
+          "text": "김영업 본부장"
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업직 소속 Content_2",
+        "InputField_5",
+        "읽기 전용 Control_3"
+      ],
+      "id": "Read only indicator text_3",
+      "text": "읽기 전용",
+      "attributes": {
+        "id": "Read only indicator text_3",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1111",
+          "y": "799.266",
+          "text": "읽기 전용"
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업코드 Content"
+      ],
+      "id": "Sales code title",
+      "text": "영업코드",
+      "attributes": {
+        "id": "Sales code title",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1192",
+          "y": "763.477",
+          "text": "영업코드"
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업코드 Content",
+        "InputField_6"
+      ],
+      "id": "Read only value_4",
+      "text": "SA-2026-001",
+      "attributes": {
+        "id": "Read only value_4",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1204",
+          "y": "799.977",
+          "text": "SA-2026-001"
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Personal info container",
+        "영업직 소속 Content",
+        "영업코드 Content",
+        "InputField_6",
+        "읽기 전용 Control_4"
+      ],
+      "id": "Read only indicator text_4",
+      "text": "읽기 전용",
+      "attributes": {
+        "id": "Read only indicator text_4",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1591",
+          "y": "799.266",
+          "text": "읽기 전용"
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역",
+        "2단계 인증 상태 및 행동",
+        "2단계 인증 상태"
+      ],
+      "id": "2단계 인증",
+      "text": "2단계 인증",
+      "attributes": {
+        "id": "2ë¨ê³ ì¸ì¦",
+        "fill": "#1E242F",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "712",
+          "y": "887.477",
+          "text": "2단계 인증"
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역",
+        "2단계 인증 상태 및 행동",
+        "2단계 인증 상태",
+        "2단계 인증 상태 배지"
+      ],
+      "id": "상태",
+      "text": "미등록",
+      "attributes": {
+        "id": "ìí",
+        "fill": "#606978",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "795",
+          "y": "886.766",
+          "text": "미등록"
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "2단계 인증 영역",
+        "2단계 인증 상태 및 행동",
+        "2단계 인증 등록"
+      ],
+      "id": "Button Label",
+      "text": "2단계 인증 등록",
+      "attributes": {
+        "id": "Button Label",
+        "fill": "#1E50D4",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1554",
+          "y": "886.766",
+          "text": "2단계 인증 등록"
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "계정 관련 문의 Control"
+      ],
+      "id": "Help text",
+      "text": "계정 관련 문의",
+      "attributes": {
+        "id": "Help text",
+        "fill": "#1E50D4",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em",
+        "text-decoration": "underline"
+      },
+      "spans": [
+        {
+          "x": "732",
+          "y": "969.477",
+          "text": "계정 관련 문의"
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "Save changes container",
+        "ActionBtn"
+      ],
+      "id": "Button Label_2",
+      "text": "비밀번호 변경",
+      "attributes": {
+        "id": "Button Label_2",
+        "fill": "#1E50D4",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1457",
+          "y": "968.766",
+          "text": "비밀번호 변경"
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-01 내 계정",
+        "ContentContainer",
+        "Account details container",
+        "계정 정보 Content",
+        "Help section",
+        "계정 관련 문의 Content",
+        "Save changes container",
+        "변경사항 저장 Control",
+        "변경사항 저장 Control_2"
+      ],
+      "id": "Save changes button",
+      "text": "변경사항 저장",
+      "attributes": {
+        "id": "Save changes button",
+        "fill": "#9CA3AF",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1556",
+          "y": "969.477",
+          "text": "변경사항 저장"
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "SidebarHeader_2",
+        "Logo Container_2",
+        "LogoIcon_2"
+      ],
+      "id": "CMS Text_2",
+      "text": "CMS",
+      "attributes": {
+        "id": "CMS Text_2",
+        "fill": "white",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "10",
+        "font-weight": "800",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "162",
+          "y": "1393.55",
+          "text": "CMS"
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_4",
+        "label-container_4"
+      ],
+      "id": "Label_3",
+      "text": "내 작업",
+      "attributes": {
+        "id": "Label_3",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "1450.19",
+          "text": "내 작업"
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_5",
+        "label-container_5"
+      ],
+      "id": "Label_4",
+      "text": "새 작업 요청",
+      "attributes": {
+        "id": "Label_4",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "1489.19",
+          "text": "새 작업 요청"
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "Sidebar Content_2",
+        "MenuContainer / 영업직_2",
+        "SidebarItem_6",
+        "label-container_6"
+      ],
+      "id": "내 작업_2",
+      "text": "고객지원",
+      "attributes": {
+        "id": "ë´ ìì_2",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "1528.19",
+          "text": "고객지원"
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "user-profile_2",
+        "Profile name_2",
+        "Account details_2"
+      ],
+      "id": "Account name_2",
+      "text": "홍길동",
+      "attributes": {
+        "id": "Account name_2",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "124",
+          "y": "2199.48",
+          "text": "홍길동"
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "Sidebar_3",
+        "user-profile_2",
+        "Profile name_2",
+        "Account details_2",
+        "사용자 역할 / 영업직_2"
+      ],
+      "id": "역할명_2",
+      "text": "영업직 · 신고 담당 노무사",
+      "attributes": {
+        "id": "ì­í ëª_2",
+        "fill": "#1E2229",
+        "fill-opacity": "0.501961",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "124",
+          "y": "2218.27",
+          "text": "영업직 · 신고 담당 노무사"
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "비밀번호 변경 Content"
+      ],
+      "id": "Password change title",
+      "text": "비밀번호 변경",
+      "attributes": {
+        "id": "Password change title",
+        "fill": "#111827",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "24",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "920",
+          "y": "1408.03",
+          "text": "비밀번호 변경"
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "비밀번호 변경 Content"
+      ],
+      "id": "Password change description",
+      "text": "로그인 비밀번호를 변경합니다.",
+      "attributes": {
+        "id": "Password change description",
+        "fill": "#6B7280",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "920",
+          "y": "1435.48",
+          "text": "로그인 비밀번호를 변경합니다."
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "CurrentPasswordGroup"
+      ],
+      "id": "Current password title",
+      "text": "현재 비밀번호",
+      "attributes": {
+        "id": "Current password title",
+        "fill": "#0F172A",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "952",
+          "y": "1508.48",
+          "text": "현재 비밀번호"
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "CurrentPasswordGroup",
+        "InputField_7"
+      ],
+      "id": "Value_3",
+      "text": "비밀번호를 입력하세요.",
+      "attributes": {
+        "id": "Value_3",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "964",
+          "y": "1542.98",
+          "text": "비밀번호를 입력하세요."
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "NewPasswordGroup"
+      ],
+      "id": "New password title",
+      "text": "새 비밀번호",
+      "attributes": {
+        "id": "New password title",
+        "fill": "#0F172A",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "952",
+          "y": "1595.48",
+          "text": "새 비밀번호"
+        }
+      ]
+    },
+    {
+      "index": 46,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "NewPasswordGroup",
+        "InputField_8"
+      ],
+      "id": "Value_4",
+      "text": "비밀번호를 입력하세요.",
+      "attributes": {
+        "id": "Value_4",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "964",
+          "y": "1629.98",
+          "text": "비밀번호를 입력하세요."
+        }
+      ]
+    },
+    {
+      "index": 47,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ConfirmPasswordGroup"
+      ],
+      "id": "Confirm new password title",
+      "text": "새 비밀번호 확인",
+      "attributes": {
+        "id": "Confirm new password title",
+        "fill": "#0F172A",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "952",
+          "y": "1682.48",
+          "text": "새 비밀번호 확인"
+        }
+      ]
+    },
+    {
+      "index": 48,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ConfirmPasswordGroup",
+        "InputField_9"
+      ],
+      "id": "Value_5",
+      "text": "비밀번호를 입력하세요.",
+      "attributes": {
+        "id": "Value_5",
+        "fill": "#8A94A0",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "964",
+          "y": "1716.98",
+          "text": "비밀번호를 입력하세요."
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "InfoNotice"
+      ],
+      "id": "Password change notice",
+      "text": "비밀번호 변경이 완료되면 현재 세션을 포함한 기존 로그인 세션이 종료됩니다.\n새 비밀번호로 다시 로그인해 주세요.",
+      "attributes": {
+        "id": "Password change notice",
+        "fill": "#1E50D4",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "996",
+          "y": "1787.12",
+          "text": "비밀번호 변경이 완료되면 현재 세션을 포함한 기존 로그인 세션이 종료됩니다.\n"
+        },
+        {
+          "x": "996",
+          "y": "1808.12",
+          "text": "새 비밀번호로 다시 로그인해 주세요."
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ActionRow",
+        "BackLink"
+      ],
+      "id": "Return to my account link",
+      "text": "내 계정으로 돌아가기",
+      "attributes": {
+        "id": "Return to my account link",
+        "fill": "#4B5563",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "500",
+        "letter-spacing": "0em",
+        "text-decoration": "underline"
+      },
+      "spans": [
+        {
+          "x": "952",
+          "y": "1878.98",
+          "text": "내 계정으로 돌아가기"
+        }
+      ]
+    },
+    {
+      "index": 51,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경",
+        "ContentContainer_2",
+        "Password change container",
+        "FormCard",
+        "ActionRow",
+        "PrimaryActionBtn"
+      ],
+      "id": "Button Label_3",
+      "text": "비밀번호 변경",
+      "attributes": {
+        "id": "Button Label_3",
+        "fill": "#9EA7AF",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1312.5",
+          "y": "1878.62",
+          "text": "비밀번호 변경"
+        }
+      ]
+    },
+    {
+      "index": 52,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "SidebarHeader_3",
+        "Logo Container_3",
+        "LogoIcon_3"
+      ],
+      "id": "CMS Text_3",
+      "text": "CMS",
+      "attributes": {
+        "id": "CMS Text_3",
+        "fill": "white",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "10",
+        "font-weight": "800",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "162",
+          "y": "2425.55",
+          "text": "CMS"
+        }
+      ]
+    },
+    {
+      "index": 53,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_7",
+        "label-container_7"
+      ],
+      "id": "Label_5",
+      "text": "내 작업",
+      "attributes": {
+        "id": "Label_5",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "2482.19",
+          "text": "내 작업"
+        }
+      ]
+    },
+    {
+      "index": 54,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_8",
+        "label-container_8"
+      ],
+      "id": "Label_6",
+      "text": "새 작업 요청",
+      "attributes": {
+        "id": "Label_6",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "2521.19",
+          "text": "새 작업 요청"
+        }
+      ]
+    },
+    {
+      "index": 55,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "Sidebar Content_3",
+        "MenuContainer / 영업직_3",
+        "SidebarItem_9",
+        "label-container_9"
+      ],
+      "id": "내 작업_3",
+      "text": "고객지원",
+      "attributes": {
+        "id": "ë´ ìì_3",
+        "fill": "#231F20",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "16",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "155",
+          "y": "2560.19",
+          "text": "고객지원"
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "user-profile_3",
+        "Profile name_3",
+        "Account details_3"
+      ],
+      "id": "Account name_3",
+      "text": "홍길동",
+      "attributes": {
+        "id": "Account name_3",
+        "fill": "#1E2229",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "124",
+          "y": "3231.48",
+          "text": "홍길동"
+        }
+      ]
+    },
+    {
+      "index": 57,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "Sidebar_5",
+        "user-profile_3",
+        "Profile name_3",
+        "Account details_3",
+        "사용자 역할 / 영업직_3"
+      ],
+      "id": "역할명_3",
+      "text": "영업직 · 신고 담당 노무사",
+      "attributes": {
+        "id": "ì­í ëª_3",
+        "fill": "#1E2229",
+        "fill-opacity": "0.501961",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "124",
+          "y": "3250.27",
+          "text": "영업직 · 신고 담당 노무사"
+        }
+      ]
+    },
+    {
+      "index": 58,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "비밀번호 변경 Content_2"
+      ],
+      "id": "Password change title_2",
+      "text": "비밀번호 변경",
+      "attributes": {
+        "id": "Password change title_2",
+        "fill": "#111827",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "24",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "920",
+          "y": "2440.03",
+          "text": "비밀번호 변경"
+        }
+      ]
+    },
+    {
+      "index": 59,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "비밀번호 변경 Content_2"
+      ],
+      "id": "Password change description_2",
+      "text": "로그인 비밀번호를 변경합니다.",
+      "attributes": {
+        "id": "Password change description_2",
+        "fill": "#6B7280",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "14",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "920",
+          "y": "2467.48",
+          "text": "로그인 비밀번호를 변경합니다."
+        }
+      ]
+    },
+    {
+      "index": 60,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "Illustration container",
+        "Title Header Section",
+        "Title Stack"
+      ],
+      "id": "Main Title",
+      "text": "비밀번호가 변경되었습니다.",
+      "attributes": {
+        "id": "Main Title",
+        "fill": "#101828",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "22",
+        "font-weight": "bold",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1060.28",
+          "y": "2657.82",
+          "text": "비밀번호가 변경되었습니다."
+        }
+      ]
+    },
+    {
+      "index": 61,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "Illustration container",
+        "Title Header Section",
+        "Title Stack"
+      ],
+      "id": "Subtitle",
+      "text": "현재 세션을 포함한 기존 로그인 세션이 종료되었습니다.\n새 비밀번호로 다시 로그인해 주세요.",
+      "attributes": {
+        "id": "Subtitle",
+        "fill": "#4B5563",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1039.35",
+          "y": "2681.62",
+          "text": "현재 세션을 포함한 기존 로그인 세션이 종료되었습니다.\n"
+        },
+        {
+          "x": "1087.56",
+          "y": "2701.62",
+          "text": "새 비밀번호로 다시 로그인해 주세요."
+        }
+      ]
+    },
+    {
+      "index": 62,
+      "path": [
+        "내 계정/login-my-account-screen.md",
+        "MY-02 비밀번호 변경_완료",
+        "ContentContainer_3",
+        "Password change container_2",
+        "FormCard_2",
+        "PrimaryActionBtn_2"
+      ],
+      "id": "Button Label_4",
+      "text": "로그인으로 이동",
+      "attributes": {
+        "id": "Button Label_4",
+        "fill": "white",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1139",
+          "y": "2757.62",
+          "text": "로그인으로 이동"
+        }
+      ]
+    },
+    {
+      "index": 63,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Display item title",
+      "text": "항목",
+      "attributes": {
+        "id": "Display item title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1689",
+          "y": "122.621",
+          "text": "항목"
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Display target notice",
+      "text": "표시 대상",
+      "attributes": {
+        "id": "Display target notice",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1873",
+          "y": "122.621",
+          "text": "표시 대상"
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Contact info title",
+      "text": "이름·연락처",
+      "attributes": {
+        "id": "Contact info title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1689",
+          "y": "148.621",
+          "text": "이름·연락처"
+        }
+      ]
+    },
+    {
+      "index": 66,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "General info notice",
+      "text": "모든 역할",
+      "attributes": {
+        "id": "General info notice",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1873",
+          "y": "148.621",
+          "text": "모든 역할"
+        }
+      ]
+    },
+    {
+      "index": 67,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Login info title",
+      "text": "로그인 이메일·역할·계정 이용 상태",
+      "attributes": {
+        "id": "Login info title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1689",
+          "y": "174.621",
+          "text": "로그인 이메일·역할·계정 이용 상태"
+        }
+      ]
+    },
+    {
+      "index": 68,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "General info notice_2",
+      "text": "모든 역할",
+      "attributes": {
+        "id": "General info notice_2",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1873",
+          "y": "174.621",
+          "text": "모든 역할"
+        }
+      ]
+    },
+    {
+      "index": 69,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "General info title",
+      "text": "비밀번호 변경·문의·로그아웃",
+      "attributes": {
+        "id": "General info title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1689",
+          "y": "200.621",
+          "text": "비밀번호 변경·문의·로그아웃"
+        }
+      ]
+    },
+    {
+      "index": 70,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "General info notice_3",
+      "text": "모든 역할",
+      "attributes": {
+        "id": "General info notice_3",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1873",
+          "y": "200.621",
+          "text": "모든 역할"
+        }
+      ]
+    },
+    {
+      "index": 71,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Department info title",
+      "text": "영업직 소속",
+      "attributes": {
+        "id": "Department info title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1689",
+          "y": "226.621",
+          "text": "영업직 소속"
+        }
+      ]
+    },
+    {
+      "index": 72,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Role-specific info description",
+      "text": "영업직 역할이 있는 계정만",
+      "attributes": {
+        "id": "Role-specific info description",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1873",
+          "y": "226.621",
+          "text": "영업직 역할이 있는 계정만"
+        }
+      ]
+    },
+    {
+      "index": 73,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Role info title",
+      "text": "영업코드",
+      "attributes": {
+        "id": "Role info title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1689",
+          "y": "252.621",
+          "text": "영업코드"
+        }
+      ]
+    },
+    {
+      "index": 74,
+      "path": ["내 계정/login-my-account-screen.md", "항목 Content"],
+      "id": "Role-specific info notice",
+      "text": "발급된 계정에만",
+      "attributes": {
+        "id": "Role-specific info notice",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "13",
+        "font-weight": "600",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "1873",
+          "y": "252.621",
+          "text": "발급된 계정에만"
+        }
+      ]
+    }
+  ]
+}

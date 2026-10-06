@@ -1,0 +1,271 @@
+const imgArrowhead = "http://localhost:3845/assets/7cdea77803639c1caf42fa62ac24e2c7312f7e34.svg";
+const imgIcon = "http://localhost:3845/assets/c50e0fddfc3167d99b1f952c39de210ed9135a04.svg";
+const imgIcon1 = "http://localhost:3845/assets/1c1dd58b4297ee86cb074e7808f122f37dbfe181.svg";
+const imgPlus = "http://localhost:3845/assets/54b4f012e057aeddf843af57fd644c5bd9aa14f3.svg";
+const imgCustomerSupport = "http://localhost:3845/assets/a79aa08bdc45f2bc534b59ab0b8882f58377a0cd.svg";
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const imgSidebar = "http://localhost:3845/assets/b4c0b7a2789e2ab6d315cb4f040ec892eade9774.svg";
+const imgDocumentIcon = "http://localhost:3845/assets/0aa5e56e2e5f2d55b5edfa0e46a5749be6660fd1.svg";
+const imgPlusIcon = "http://localhost:3845/assets/6dac85d442c7cd333fb7bf1364251027a61a5da2.svg";
+const imgUsersIcon = "http://localhost:3845/assets/2e882d48ea8e951ac8cb485b3496abc6a958e4cb.svg";
+const imgCustomerSupport = "http://localhost:3845/assets/a79aa08bdc45f2bc534b59ab0b8882f58377a0cd.svg";
+const imgCogwheelIcon = "http://localhost:3845/assets/e1be4d80b69044faf66a6f15942863dc6b829ad7.svg";
+type UserMenuLogoutItemProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function UserMenuLogoutItem({ className, label = "로그아웃", state = "Default" }: UserMenuLogoutItemProps) {
+  return (
+    <div className={className || "content-stretch flex items-start overflow-clip px-[16px] py-[10px] relative rounded-[4px] w-[114px]"} data-node-id="774:6365">
+      <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[#d92e2e] text-[14px] whitespace-nowrap" data-node-id="774:6362">
+        {label}
+      </p>
+    </div>
+  );
+}
+type UserMenuAccountItemProps = {
+  className?: string;
+  detail?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function UserMenuAccountItem({ className, detail = "홍길동님 · 영업직", label = "내 계정", state = "Default" }: UserMenuAccountItemProps) {
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[2px] items-start overflow-clip px-[16px] py-[10px] relative w-[114px]"} data-node-id="774:6358">
+      <p className="font-['Pretendard:Medium'] relative shrink-0 text-[14px] text-[color:var(--text\/primary-warm,#231f20)]" data-node-id="774:6353">
+        {label}
+      </p>
+      <p className="font-['Pretendard:Regular'] relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)]" data-node-id="774:6354">
+        {detail}
+      </p>
+    </div>
+  );
+}
+
+function UserMenu({ className }: { className?: string }) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/default,#e4e8ee)] border-solid content-stretch drop-shadow-[0px_4px_8px_rgba(0,0,0,0.12)] flex flex-col items-start py-[8px] relative rounded-[10px] w-[116px]"} data-node-id="512:324" data-name="UserMenu">
+      <UserMenuAccountItem className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start leading-[normal] not-italic overflow-clip px-[16px] py-[10px] relative shrink-0 w-full whitespace-nowrap" />
+      <div className="content-stretch flex flex-col items-start overflow-clip px-[12px] py-[4px] relative shrink-0 w-full" data-node-id="512:329" data-name="DividerWrap">
+        <div className="bg-[#eaedf1] h-px relative shrink-0 w-full" data-node-id="512:328" data-name="Divider" />
+      </div>
+      <UserMenuLogoutItem className="content-stretch flex items-start overflow-clip px-[16px] py-[10px] relative rounded-[4px] shrink-0 w-full" />
+    </div>
+  );
+}
+
+function Arrowhead({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[36px]"} data-node-id="493:2079" data-name="arrowhead">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead} />
+    </div>
+  );
+}
+type ComponentProps = {
+  className?: string;
+  propValue?: "영업직" | "영업직 · 신고 담당 노무사";
+};
+
+function Component({ className, propValue = "영업직" }: ComponentProps) {
+  const is = propValue === "영업직 · 신고 담당 노무사";
+  return (
+    <div className={className || "content-stretch flex items-start relative"} id={is ? "node-668_5216" : "node-668_5212"}>
+      <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/muted,rgba(30,34,41,0.5))] whitespace-nowrap" id={is ? "node-668_5217" : "node-668_5213"}>
+        {is ? "영업직 · 신고 담당 노무사" : "영업직"}
+      </p>
+    </div>
+  );
+}
+type UserProfileTriggerProps = {
+  className?: string;
+  name?: string;
+};
+
+function UserProfileTrigger({ className, name = "홍길동" }: UserProfileTriggerProps) {
+  return (
+    <div className={className || "content-stretch flex items-center justify-between p-[8px] relative w-[208px]"} data-node-id="774:6349" data-name="UserProfileTrigger">
+      <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="774:6344" data-name="Account details">
+        <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="774:6345">
+          {name}
+        </p>
+        <Component className="content-stretch flex items-start relative shrink-0" propValue="영업직 · 신고 담당 노무사" />
+      </div>
+      <Arrowhead className="relative shrink-0 size-[12px]" />
+    </div>
+  );
+}
+type UserProfileMenuProps = {
+  className?: string;
+  state?: boolean;
+};
+
+function UserProfileMenu({ className, state = false }: UserProfileMenuProps) {
+  return (
+    <div className={className || "content-stretch flex flex-col items-end relative"} data-node-id="774:6373">
+      <UserProfileTrigger className="content-stretch flex items-center justify-between p-[8px] relative shrink-0 w-[208px]" />
+    </div>
+  );
+}
+type SidebarItemProps = {
+  className?: string;
+  state?: "Active" | "Default";
+};
+
+function SidebarItem({ className, state = "Default" }: SidebarItemProps) {
+  const isActive = state === "Active";
+  return (
+    <div className={className || `content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] w-[208px] ${isActive ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)]` : String.raw`bg-[var(--utility\/transparent,rgba(0,0,0,0))]`}`} id={isActive ? "node-495_13" : "node-495_18"}>
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" id={isActive ? "node-493_1348" : "node-495_19"} data-name="label-container">
+        <div className="flex flex-row items-center self-stretch" id={isActive ? "node-493_1349" : "node-495_20"}>
+          <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={isActive ? imgIcon1 : imgIcon} />
+          </div>
+        </div>
+        <p className={`[word-break:break-word] leading-[normal] not-italic relative shrink-0 text-[16px] whitespace-nowrap ${isActive ? String.raw`font-["Pretendard:Bold"] text-[color:var(--text\/link,#1e50d4)]` : String.raw`font-["Pretendard:Medium"] text-[color:var(--text\/primary-warm,#231f20)]`}`} id={isActive ? "node-493_1350" : "node-495_21"}>
+          내 작업
+        </p>
+      </div>
+    </div>
+  );
+}
+type MenuContainerProps = {
+  className?: string;
+  propValue?: "영업직";
+};
+
+function MenuContainer({ className, propValue = "영업직" }: MenuContainerProps) {
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[4px] items-start relative w-[208px]"} data-node-id="679:6578">
+      <SidebarItem className="bg-[var(--surface\/brand-light,#eef2ff)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" state="Active" />
+      <div className="bg-[var(--utility\/transparent,rgba(0,0,0,0))] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="679:6573" data-name="SidebarItem">
+        <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I679:6573;495:19" data-name="label-container">
+          <div className="flex flex-row items-center self-stretch" data-node-id="I679:6573;495:20">
+            <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPlus} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/primary-warm,#231f20)] whitespace-nowrap" data-node-id="I679:6573;495:21">
+            새 작업 요청
+          </p>
+        </div>
+      </div>
+      <div className="bg-[rgba(0,0,0,0)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="679:6577" data-name="SidebarItem">
+        <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I679:6577;516:5560" data-name="label-container">
+          <div className="flex flex-row items-center self-stretch" data-node-id="I679:6577;516:5561">
+            <div className="aspect-[24/24] h-full relative shrink-0" data-name="document">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCustomerSupport} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[16px] whitespace-nowrap" data-node-id="I679:6577;516:5562">
+            고객지원
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+type SidebarProps = {
+  className?: string;
+  state?: "Expanded" | "Collapsed";
+};
+
+export default function Sidebar({ className, state = "Expanded" }: SidebarProps) {
+  const isCollapsed = state === "Collapsed";
+  const isExpanded = state === "Expanded";
+  return (
+    <div className={className || `${String.raw`bg-[var(--surface\/default,white)] content-stretch flex flex-col h-[904px] items-start justify-between overflow-clip py-[24px] relative `}${isCollapsed ? "px-[12px] w-[64px]" : "px-[16px] w-[240px]"}`} id={isCollapsed ? "node-497_69" : "node-497_65"}>
+      {isExpanded && (
+        <>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-start min-h-px relative w-full" data-node-id="543:18727" data-name="Sidebar Content">
+            <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="493:1692" data-name="SidebarHeader">
+              <div className="content-stretch flex gap-[4px] items-center relative shrink-0" data-node-id="493:1758" data-name="Logo Container">
+                <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+                <div className="bg-[#1e50d4] content-stretch flex items-start px-[4px] py-[2px] relative rounded-[2px] shrink-0" data-node-id="493:1694" data-name="LogoIcon">
+                  <p className="[word-break:break-word] font-['Pretendard:ExtraBold'] leading-[normal] not-italic relative shrink-0 text-[10px] text-white whitespace-nowrap" data-node-id="493:1695">
+                    CMS
+                  </p>
+                </div>
+              </div>
+              <button className="content-stretch cursor-pointer flex items-center justify-center relative shrink-0 size-[25px]" data-node-id="497:66" data-name="ToggleBtn">
+                <div className="relative shrink-0 size-[18px]" data-node-id="I497:66;4709:128866" data-name="Sidebar">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSidebar} />
+                </div>
+              </button>
+            </div>
+            <MenuContainer className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" />
+          </div>
+          <UserProfileMenu className="content-stretch flex flex-col items-end relative shrink-0 w-full" />
+        </>
+      )}
+      {isCollapsed && (
+        <>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-start min-h-px relative w-full" data-node-id="543:19395" data-name="Collapsed Content">
+            <div className="content-stretch flex items-center justify-center overflow-clip relative shrink-0 w-full" data-node-id="497:70" data-name="SidebarHeader">
+              <button className="content-stretch cursor-pointer flex items-center justify-center relative shrink-0 size-[25px]" data-node-id="497:71" data-name="ToggleBtn">
+                <div className="relative shrink-0 size-[18px]" data-node-id="I497:71;4709:128866" data-name="Sidebar">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSidebar} />
+                </div>
+              </button>
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-center overflow-clip relative shrink-0 w-full" data-node-id="497:74" data-name="MenuContainer">
+              <div className="bg-[var(--surface\/brand-light,#eef2ff)] content-stretch flex items-center justify-center overflow-clip p-[10px] relative rounded-[8px] shrink-0 size-[40px]" data-node-id="497:75" data-name="SidebarIconItem">
+                <div className="relative shrink-0 size-[20px]" data-node-id="497:76" data-name="Document Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDocumentIcon} />
+                </div>
+              </div>
+              <div className="bg-[var(--utility\/transparent,rgba(0,0,0,0))] content-stretch flex items-center justify-center overflow-clip p-[10px] relative rounded-[8px] shrink-0 size-[40px]" data-node-id="497:79" data-name="SidebarIconItem">
+                <div className="relative shrink-0 size-[20px]" data-node-id="497:80" data-name="Plus Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPlusIcon} />
+                </div>
+              </div>
+              <div className="bg-[var(--utility\/transparent,rgba(0,0,0,0))] content-stretch flex items-center justify-center overflow-clip p-[10px] relative rounded-[8px] shrink-0 size-[40px]" data-node-id="497:82" data-name="SidebarIconItem">
+                <div className="relative shrink-0 size-[20px]" data-node-id="497:83" data-name="Users Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgUsersIcon} />
+                </div>
+              </div>
+              <div className="bg-[rgba(0,0,0,0)] content-stretch flex items-center px-[12px] py-[8px] relative rounded-[8px] shrink-0" data-node-id="675:17787" data-name="SidebarItem">
+                <div className="content-stretch flex gap-[8px] h-[19px] items-center relative shrink-0" data-node-id="I675:17787;516:5560" data-name="label-container">
+                  <div className="flex flex-row items-center self-stretch" data-node-id="I675:17787;516:5561">
+                    <div className="aspect-[24/24] h-full relative shrink-0" data-name="document">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCustomerSupport} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex items-center justify-center overflow-clip relative shrink-0 w-full" data-node-id="497:91" data-name="user-profile">
+            <div className="relative shrink-0 size-[25px]" data-node-id="493:1765" data-name="Cogwheel Icon">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCogwheelIcon} />
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: Color/black/black4: #6A6F73.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

@@ -1,0 +1,46 @@
+const imgLeftArrow = "http://localhost:3845/assets/e9ecf4b1f8b3aeeaa31749588398838d2604ac97.svg";
+const imgLeftArrow1 = "http://localhost:3845/assets/73e79081de5ffcba1fc4f57704bde59b90b819fd.svg";
+const imgRightArrow = "http://localhost:3845/assets/31ca5f165c10a32fdb5b7bb93cb4a976ea658b9c.svg";
+const imgRightArrow1 = "http://localhost:3845/assets/70c81c1e02d8adae2f09a5fcdc0fbc41f31adae3.svg";
+type NavArrowProps = {
+  className?: string;
+  direction?: "Left" | "Right";
+  state?: "Hover" | "Default";
+};
+
+export default function NavArrow({ className, direction = "Left", state = "Default" }: NavArrowProps) {
+  const isLeftAndHover = direction === "Left" && state === "Hover";
+  const isRight = direction === "Right";
+  const isRightAndDefault = direction === "Right" && state === "Default";
+  const isRightAndHover = direction === "Right" && state === "Hover";
+  return (
+    <div className={className || `border border-solid content-stretch flex items-center justify-center relative rounded-[24px] size-[30px] ${state === "Hover" ? String.raw`bg-[#f0f3ff] border-[var(--border\/focus,#1e50d4)]` : String.raw`bg-[var(--surface\/default,white)] border-[var(--surface\/disabled-strong,#d1d5db)]`}`} id={isRightAndHover ? "node-550_1436" : isRightAndDefault ? "node-550_1435" : isLeftAndHover ? "node-550_1434" : "node-550_1433"}>
+      <div className="flex items-center justify-center relative shrink-0" id={isRightAndHover ? "node-552_19798" : isRightAndDefault ? "node-552_19790" : isLeftAndHover ? "node-552_19795" : "node-552_19785"}>
+        <div className={`-scale-y-100 flex-none ${isRight ? "" : "rotate-180"}`}>
+          {direction === "Left" && (
+            <div className="relative size-[14px]" data-name="Left Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={isLeftAndHover ? imgLeftArrow1 : imgLeftArrow} />
+            </div>
+          )}
+          {isRight && (
+            <div className="relative size-[14px]" data-name="Right Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={isRightAndHover ? imgRightArrow1 : imgRightArrow} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

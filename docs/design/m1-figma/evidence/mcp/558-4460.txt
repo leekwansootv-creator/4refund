@@ -1,0 +1,186 @@
+const imgLeftArrow = "http://localhost:3845/assets/e9ecf4b1f8b3aeeaa31749588398838d2604ac97.svg";
+const imgRightArrow = "http://localhost:3845/assets/31ca5f165c10a32fdb5b7bb93cb4a976ea658b9c.svg";
+const imgCalendarIcon = "http://localhost:3845/assets/1a2c75d182762bda7063b4409fe7ab0797597da7.svg";
+type MonthCellProps = {
+  className?: string;
+  label?: string;
+  state?: "Selected" | "Default";
+};
+
+function MonthCell({ className, label = "1월", state = "Default" }: MonthCellProps) {
+  const isSelected = state === "Selected";
+  return (
+    <div className={className || `border border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[62px] ${isSelected ? String.raw`bg-[#f0f3ff] border-[var(--border\/focus,#1e50d4)]` : String.raw`bg-[var(--surface\/default,white)] border-[var(--surface\/disabled-strong,#d1d5db)]`}`} id={isSelected ? "node-550_1428" : "node-550_1426"}>
+      {state === "Default" && (
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="550:1427">
+          {label}
+        </p>
+      )}
+      {isSelected && (
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/link,#1e50d4)] text-center whitespace-nowrap" data-node-id="550:1429">
+          {label}
+        </p>
+      )}
+    </div>
+  );
+}
+type NavArrowProps = {
+  className?: string;
+  direction?: "Left" | "Right";
+  state?: "Default";
+};
+
+function NavArrow({ className, direction = "Left", state = "Default" }: NavArrowProps) {
+  const isRightAndDefault = direction === "Right" && state === "Default";
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] size-[30px]"} id={isRightAndDefault ? "node-550_1435" : "node-550_1433"}>
+      <div className="flex items-center justify-center relative shrink-0" id={isRightAndDefault ? "node-552_19790" : "node-552_19785"}>
+        <div className={`-scale-y-100 flex-none ${isRightAndDefault ? "" : "rotate-180"}`}>
+          {direction === "Left" && state === "Default" && (
+            <div className="relative size-[14px]" data-name="Left Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLeftArrow} />
+            </div>
+          )}
+          {isRightAndDefault && (
+            <div className="relative size-[14px]" data-name="Right Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRightArrow} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+type MonthRangeFieldProps = {
+  className?: string;
+  rangeValue?: string;
+  state?: "Empty" | "PickerOpen" | "Selected";
+};
+
+export default function MonthRangeField({ className, rangeValue = "2025.10 ~ 2025.12", state = "Empty" }: MonthRangeFieldProps) {
+  const isEmpty = state === "Empty";
+  const isPickerOpen = state === "PickerOpen";
+  const isSelected = state === "Selected";
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[12px] items-start max-w-[600px] relative w-[538.5px]"} id={isSelected ? "node-558_4459" : isPickerOpen ? "node-558_4458" : "node-558_4457"}>
+      <div className="content-stretch flex flex-col gap-[6px] items-start relative shrink-0 w-full" id={isSelected ? "node-558_4438" : isPickerOpen ? "node-558_4384" : "node-558_4373"} data-name="대상 연월 범위 Content">
+        <div className="[word-break:break-word] content-stretch flex font-['Pretendard:SemiBold'] gap-[4px] items-start leading-[normal] not-italic relative shrink-0 text-[14px] whitespace-nowrap" id={isSelected ? "node-574_1726" : isPickerOpen ? "node-574_1724" : "node-574_1722"} data-name="대상 연월 범위 필수 라벨">
+          <p className="relative shrink-0 text-[color:var(--text\/primary,#1e2229)]" id={isSelected ? "node-558_4439" : isPickerOpen ? "node-558_4385" : "node-558_4374"}>
+            대상 연월 범위
+          </p>
+          <p className="relative shrink-0 text-[color:var(--text\/link,#1e50d4)]" id={isSelected ? "node-574_1727" : isPickerOpen ? "node-574_1725" : "node-574_1723"}>
+            *
+          </p>
+        </div>
+        {["Empty", "PickerOpen"].includes(state) && (
+          <div className={`border border-solid content-stretch flex items-center justify-between px-[14px] py-[10px] relative rounded-[8px] shrink-0 w-full ${isPickerOpen ? String.raw`border-[var(--border\/focus,#1e50d4)]` : String.raw`bg-[var(--background\/subtle,#f8fafc)] border-[var(--border\/gray,#ccd1d9)]`}`} id={isPickerOpen ? "node-558_4386" : "node-558_4375"} data-name="YYYY.MM Container">
+            {isEmpty && (
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="558:4376">
+                YYYY.MM
+              </p>
+            )}
+            <div aria-hidden={isPickerOpen ? true : undefined} className={isPickerOpen ? String.raw`absolute bg-[var(--surface\/default,white)] inset-0 pointer-events-none rounded-[8px]` : "flex flex-row items-center self-stretch"} id={isEmpty ? "node-559_20028" : undefined}>
+              {isEmpty && (
+                <div className="aspect-[24/24] h-full relative shrink-0" data-name="Calendar Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCalendarIcon} />
+                </div>
+              )}
+            </div>
+            {isPickerOpen && (
+              <>
+                <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="558:4387">
+                  YYYY.MM
+                </p>
+                <div className="flex flex-row items-center self-stretch" data-node-id="559:20033">
+                  <div className="aspect-[24/24] h-full relative shrink-0" data-name="Calendar Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCalendarIcon} />
+                  </div>
+                </div>
+                <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_0px_4px_0px_rgba(30,80,212,0.08)]" />
+              </>
+            )}
+          </div>
+        )}
+        {isSelected && (
+          <div className="bg-[var(--surface\/subtle,#f1f5f9)] border border-[var(--border\/gray,#ccd1d9)] border-solid content-stretch flex items-center justify-between px-[14px] py-[10px] relative rounded-[8px] shrink-0 w-full" data-node-id="558:4440" data-name="2025.10 ~ 2025.12 Container">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="558:4441">
+              {rangeValue}
+            </p>
+            <div className="flex flex-row items-center self-stretch" data-node-id="559:20036">
+              <div className="aspect-[24/24] h-full relative shrink-0" data-name="Calendar Icon">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCalendarIcon} />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <p className={`${String.raw`[word-break:break-word] font-["Pretendard:Regular"] leading-[1.4] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary,#5e6670)] `}${isPickerOpen ? "min-w-full w-[min-content]" : "w-full"}`} id={isSelected ? "node-558_4444" : isPickerOpen ? "node-558_4433" : "node-558_4379"}>
+        예상 환급액 조회에는 선택한 3개월의 전체 직원 급여대장이 필요합니다.
+      </p>
+      {isPickerOpen && (
+        <div className="absolute bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch drop-shadow-[0px_4px_8px_rgba(0,0,0,0.08)] flex flex-col gap-[20px] items-start left-0 p-[24px] rounded-[16px] top-[72px]" data-node-id="558:4390" data-name="Month Picker">
+          <div className="content-stretch flex items-center justify-between overflow-clip relative shrink-0 w-[272px]" data-node-id="I558:4390;550:1449" data-name="Year Header">
+            <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" />
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Bold'] leading-[normal] min-w-px not-italic relative text-[#101010] text-[18px] text-center" data-node-id="I558:4390;550:1451">
+              2025년
+            </p>
+            <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" direction="Right" />
+          </div>
+          <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[272px]" data-node-id="I558:4390;553:19803" data-name="MonthPicker Container">
+            <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I558:4390;550:1453" data-name="MonthGrid">
+              <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I558:4390;550:1454" data-name="Row">
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="2월" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="3월" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="4월" />
+              </div>
+              <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I558:4390;550:1463" data-name="Row">
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="5월" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="6월" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="7월" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="8월" />
+              </div>
+              <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I558:4390;550:1472" data-name="Row">
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="9월" />
+                <MonthCell className="bg-[#f0f3ff] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="10월" state="Selected" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="11월" />
+                <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="12월" />
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I558:4390;550:1481" data-name="Action Area">
+              <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" data-node-id="I558:4390;550:1482" data-name="ResetBtn">
+                <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] text-center whitespace-nowrap" data-node-id="I558:4390;550:1482;550:1439">
+                  초기화
+                </p>
+              </div>
+              <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" data-node-id="I558:4390;550:1484" data-name="ApplyBtn">
+                <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] text-center whitespace-nowrap" data-node-id="I558:4390;550:1484;550:1444">
+                  적용하기
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## MonthRangeField
+**Node ID:** 558:4460
+
+시작 연월을 선택하면 종료 연월은 +3개월로 표시합니다. 예상 환급액 조회에는 선택한 3개월의 전체 직원 급여대장이 필요합니다.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

@@ -1,0 +1,177 @@
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const imgConnector1 = "http://localhost:3845/assets/cbeca0badb88eb888df218f39c8fcf63d6ab4095.svg";
+const imgConnector2 = "http://localhost:3845/assets/c67e8356b1d37839daf39bae7ca92d0e6f88ac4c.svg";
+type PrimaryActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PrimaryActionBtn({ className, label = "기록 저장", state = "Default" }: PrimaryActionBtnProps) {
+  return (
+    <div className={className || "bg-[var(--brand\\/primary,#1e50d4)] content-stretch flex h-[28px] items-center justify-center px-[16px] py-[6px] relative rounded-[6px] w-[71px]"} data-node-id="722:14686">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="722:14685">
+        {label}
+      </p>
+    </div>
+  );
+}
+type ActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function ActionBtn({ className, label = "작업 보기", state = "Default" }: ActionBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/focus,#1e50d4)] border-solid content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[6px]"} data-node-id="499:86">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="499:87">
+        {label}
+      </p>
+    </div>
+  );
+}
+type StepperItemProps = {
+  className?: string;
+  propValue?: string;
+  propValue1?: string;
+  propValue2?: "진행 전" | "진행 중";
+};
+
+function StepperItem({ className, propValue = "1. 인증 앱 등록", propValue1 = "1", propValue2 = "진행 전" }: StepperItemProps) {
+  const is = propValue2 === "진행 중";
+  const is1 = propValue2 === "진행 전";
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[8px] h-[46px] items-center relative w-[92px]"} id={is ? "node-735_13840" : "node-735_13839"}>
+      {is1 && (
+        <>
+          <div className="bg-[var(--surface\/subtle,#f1f5f9)] content-stretch flex items-center justify-center relative rounded-[12px] shrink-0 size-[24px]" data-node-id="735:13827" data-name="CircleInactive">
+            <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="735:13828">
+              {propValue1}
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] text-center whitespace-nowrap" data-node-id="735:13829">
+            {propValue}
+          </p>
+        </>
+      )}
+      {is && (
+        <>
+          <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex items-center justify-center relative rounded-[12px] shrink-0 size-[24px]" data-node-id="735:13831" data-name="CircleActive">
+            <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="735:13832">
+              {propValue1}
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] text-center whitespace-nowrap" data-node-id="735:13833">
+            {propValue}
+          </p>
+        </>
+      )}
+    </div>
+  );
+}
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+
+export default function Component() {
+  return (
+    <div className="bg-[var(--surface\/default,white)] content-stretch drop-shadow-[0px_8px_12px_var(--effect\/shadow-soft,rgba(0,0,0,0.05))] flex flex-col gap-[32px] items-center p-[32px] relative rounded-[16px] size-full" data-node-id="717:18515" data-name="2단계 인증 설정 : 인증 앱 등록">
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="717:18517" data-name="Logo Combined">
+        <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+        <div className="bg-[#1e50d4] content-stretch flex items-start px-[6px] py-[2px] relative rounded-[4px] shrink-0" data-node-id="717:18519" data-name="CMS Badge">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[11px] text-white whitespace-nowrap" data-node-id="717:18520">
+            CMS
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-node-id="717:18516" data-name="Title Header Section">
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-center leading-[normal] not-italic relative shrink-0 text-center w-full" data-node-id="717:18521" data-name="Title Stack">
+          <p className="font-['Pretendard:Bold'] relative shrink-0 text-[24px] text-[color:var(--text\/primary-deep-blue,#1e293b)] w-full" data-node-id="717:18522">
+            2단계 인증 설정
+          </p>
+          <p className="font-['Pretendard:Regular'] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="717:18523">
+            인증 앱을 등록해 계정을 보호해 주세요.
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex gap-[12px] items-center px-[20px] relative shrink-0 w-full" data-node-id="717:18524" data-name="Stepper">
+        <StepperItem className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center min-w-px relative" propValue2="진행 중" />
+        <div className="flex-[1_0_0] h-0 min-w-px relative" data-node-id="717:18526" data-name="Connector1">
+          <div className="absolute inset-[-1px_0_0_0]">
+            <img alt="" className="block max-w-none size-full" src={imgConnector1} />
+          </div>
+        </div>
+        <StepperItem className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center min-w-px relative" propValue="2. 코드 확인" propValue1="2" />
+        <div className="flex-[1_0_0] h-0 min-w-px relative" data-node-id="717:18528" data-name="Connector2">
+          <div className="absolute inset-[-1px_0_0_0]">
+            <img alt="" className="block max-w-none size-full" src={imgConnector2} />
+          </div>
+        </div>
+        <StepperItem className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center min-w-px relative" propValue="3. 복구 코드 저장" propValue1="3" />
+      </div>
+      <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full" data-node-id="717:18530" data-name="ContentColumns">
+        <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0" data-node-id="717:18531" data-name="LeftColumn">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] min-w-full not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-deep-blue,#1e293b)] w-[min-content]" data-node-id="717:18532">
+            QR 코드
+          </p>
+          <div className="bg-[var(--surface\/subtle,#f1f5f9)] border border-[var(--border\/subtle,#e2e8f0)] border-solid h-[210px] relative rounded-[8px] shrink-0 w-[211px]" data-node-id="717:18533" data-name="QRPlaceholderBox" />
+        </div>
+        <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] items-start min-w-px relative" data-node-id="717:18534" data-name="RightColumn">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start not-italic relative shrink-0 w-full" data-node-id="717:18535" data-name="InstructionsGroup">
+            <p className="font-['Pretendard:Bold'] leading-[normal] relative shrink-0 text-[14px] text-[color:var(--text\/primary-deep-blue,#1e293b)] w-full" data-node-id="717:18536">
+              인증 앱에 계정 추가
+            </p>
+            <div className="content-stretch flex flex-col font-['Pretendard:Regular'] gap-[6px] items-start leading-[1.5] relative shrink-0 text-[13px] text-[color:var(--text\/secondary,#5e6670)] w-full" data-node-id="717:18537" data-name="InstructionList">
+              <p className="relative shrink-0 w-full" data-node-id="717:18538">
+                1. 스마트폰에서 Google OTP 등 인증 앱을 실행합니다.
+              </p>
+              <p className="relative shrink-0 w-full" data-node-id="717:18539">
+                2. 앱 내의 카메라로 왼쪽의 QR 코드를 스캔합니다.
+              </p>
+              <p className="relative shrink-0 w-full" data-node-id="717:18540">
+                3. 스캔할 수 없다면 아래의 등록키를 직접 입력합니다.
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" data-node-id="717:18541" data-name="ManualKeyGroup">
+            <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-deep-blue,#1e293b)] w-full" data-node-id="717:18542">
+              수동 등록키
+            </p>
+            <div className="content-stretch flex flex-col gap-[8px] items-end justify-end relative shrink-0 w-full" data-node-id="717:18543" data-name="InputAndButtonRow">
+              <div className="bg-[var(--surface\/subtle,#f1f5f9)] border border-[var(--border\/subtle,#e2e8f0)] border-solid content-stretch flex items-center px-[14px] py-[10px] relative rounded-[6px] shrink-0 w-full" data-node-id="717:18544" data-name="ManualKeyDisplay">
+                <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Medium'] leading-[normal] min-w-px not-italic relative text-[13px] text-[color:var(--text\/primary-deep-blue,#1e293b)]" data-node-id="717:18545">
+                  ABCD EFGH IJKL MNOP
+                </p>
+              </div>
+              <ActionBtn className="bg-[var(--surface\/default,white)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[6px] shrink-0" label="등록키 복사" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-full" data-node-id="717:18547" data-name="CardFooterActions">
+        <PrimaryActionBtn className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex h-[44px] items-center justify-center px-[16px] py-[6px] relative rounded-[6px] shrink-0 w-full" label="다음" />
+        <a className="[word-break:break-word] block font-['Pretendard:Medium'] leading-[0] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] text-center w-full" href="https://example.com/support" data-node-id="717:18549" target="_blank">
+          <p className="cursor-pointer leading-[normal]">인증 앱을 사용할 수 없나요?</p>
+        </a>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

@@ -1,0 +1,273 @@
+const imgArrowhead = "http://localhost:3845/assets/7cdea77803639c1caf42fa62ac24e2c7312f7e34.svg";
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const imgSidebar = "http://localhost:3845/assets/b4c0b7a2789e2ab6d315cb4f040ec892eade9774.svg";
+const imgIcon = "http://localhost:3845/assets/c50e0fddfc3167d99b1f952c39de210ed9135a04.svg";
+const imgPlus = "http://localhost:3845/assets/54b4f012e057aeddf843af57fd644c5bd9aa14f3.svg";
+const imgUserCog = "http://localhost:3845/assets/1c1dd58b4297ee86cb074e7808f122f37dbfe181.svg";
+const imgCustomerSupport = "http://localhost:3845/assets/a79aa08bdc45f2bc534b59ab0b8882f58377a0cd.svg";
+const imgWarningIcon = "http://localhost:3845/assets/350edda6bb5609f263ec6d20d4c3eb0ef7713975.svg";
+type ActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function ActionBtn({ className, label = "작업 보기", state = "Default" }: ActionBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/focus,#1e50d4)] border-solid content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[6px]"} data-node-id="499:86">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="499:87">
+        {label}
+      </p>
+    </div>
+  );
+}
+type BackLinkProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function BackLink({ className, label = "← 내 작업 목록", state = "Default" }: BackLinkProps) {
+  return (
+    <div className={className || "content-stretch flex items-start relative"} data-node-id="520:388">
+      <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="520:389">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function Arrowhead({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[36px]"} data-node-id="493:2079" data-name="arrowhead">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead} />
+    </div>
+  );
+}
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+
+export default function Ua() {
+  return (
+    <div className="content-stretch flex items-start relative size-full" data-node-id="789:15398" data-name="UA-03 계정 생성 : 확인">
+      <div className="bg-[var(--surface\/default,white)] content-stretch flex flex-col h-full items-start justify-between overflow-clip px-[16px] py-[24px] relative shrink-0 w-[240px]" data-node-id="789:15399" data-name="Sidebar">
+        <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] items-start min-h-px relative w-full" data-node-id="I789:15399;543:18727" data-name="Sidebar Content">
+          <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="I789:15399;493:1692" data-name="SidebarHeader">
+            <div className="content-stretch flex gap-[4px] items-center relative shrink-0" data-node-id="I789:15399;493:1758" data-name="Logo Container">
+              <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+              <div className="bg-[#1e50d4] content-stretch flex items-start px-[4px] py-[2px] relative rounded-[2px] shrink-0" data-node-id="I789:15399;493:1694" data-name="LogoIcon">
+                <p className="[word-break:break-word] font-['Pretendard:ExtraBold'] leading-[normal] not-italic relative shrink-0 text-[10px] text-white whitespace-nowrap" data-node-id="I789:15399;493:1695">
+                  CMS
+                </p>
+              </div>
+            </div>
+            <button className="content-stretch cursor-pointer flex items-center justify-center relative shrink-0 size-[25px]" data-node-id="I789:15399;497:66" data-name="ToggleBtn">
+              <div className="relative shrink-0 size-[18px]" data-node-id="I789:15399;497:66;4709:128866" data-name="Sidebar">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSidebar} />
+              </div>
+            </button>
+          </div>
+          <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="I789:15399;679:6806" data-name="MenuContainer / 영업직">
+            <div className="bg-[var(--utility\/transparent,rgba(0,0,0,0))] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="I789:15399;679:6806;679:6728" data-name="SidebarItem">
+              <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I789:15399;679:6806;679:6728;495:19" data-name="label-container">
+                <div className="flex flex-row items-center self-stretch" data-node-id="I789:15399;679:6806;679:6728;495:20">
+                  <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/primary-warm,#231f20)] whitespace-nowrap" data-node-id="I789:15399;679:6806;679:6728;495:21">
+                  내 작업
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--utility\/transparent,rgba(0,0,0,0))] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="I789:15399;679:6806;679:6729" data-name="SidebarItem">
+              <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I789:15399;679:6806;679:6729;495:19" data-name="label-container">
+                <div className="flex flex-row items-center self-stretch" data-node-id="I789:15399;679:6806;679:6729;495:20">
+                  <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPlus} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/primary-warm,#231f20)] whitespace-nowrap" data-node-id="I789:15399;679:6806;679:6729;495:21">
+                  새 작업 요청
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface\/brand-light,#eef2ff)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="I789:15399;679:6806;679:6732" data-name="SidebarItem">
+              <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I789:15399;679:6806;679:6732;493:1348" data-name="label-container">
+                <div className="flex flex-row items-center self-stretch" data-node-id="I789:15399;679:6806;679:6732;493:1349">
+                  <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgUserCog} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="I789:15399;679:6806;679:6732;493:1350">
+                  사용자 관리
+                </p>
+              </div>
+            </div>
+            <div className="bg-[rgba(0,0,0,0)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" data-node-id="I789:15399;679:6806;679:6733" data-name="SidebarItem">
+              <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="I789:15399;679:6806;679:6733;516:5560" data-name="label-container">
+                <div className="flex flex-row items-center self-stretch" data-node-id="I789:15399;679:6806;679:6733;516:5561">
+                  <div className="aspect-[24/24] h-full relative shrink-0" data-name="document">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCustomerSupport} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[16px] whitespace-nowrap" data-node-id="I789:15399;679:6806;679:6733;516:5562">
+                  고객지원
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col items-end relative shrink-0 w-full" data-node-id="I789:15399;774:6400" data-name="user-profile">
+          <div className="content-stretch flex items-center justify-between p-[8px] relative shrink-0 w-[208px]" data-node-id="I789:15399;774:6400;774:6374" data-name="Profile name">
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="I789:15399;774:6400;774:6374;774:6344" data-name="Account details">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="I789:15399;774:6400;774:6374;774:6345">
+                홍길동
+              </p>
+              <div className="content-stretch flex items-start relative shrink-0" data-node-id="I789:15399;774:6400;774:6374;774:6347" data-name="사용자 역할 / 영업직">
+                <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/muted,rgba(30,34,41,0.5))] whitespace-nowrap" data-node-id="I789:15399;774:6400;774:6374;774:6347;668:5221">
+                  총괄 관리자
+                </p>
+              </div>
+            </div>
+            <Arrowhead className="relative shrink-0 size-[12px]" />
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--background\/default,#f3f7fe)] content-stretch flex flex-col gap-[24px] h-full items-start p-[32px] relative shrink-0 w-[1680px]" data-node-id="789:15400" data-name="ContentContainer">
+        <BackLink className="content-stretch flex items-start relative shrink-0" label="← 목록으로 돌아가기" />
+        <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[1616px]" data-node-id="789:15402" data-name="New Account Error Container">
+          <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="789:15403" data-name="계정 생성 확인 Container">
+            <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[24px] text-[color:var(--text\/primary-slate,#111827)] whitespace-nowrap" data-node-id="789:15404">
+              계정 생성 확인
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-slate,#6b7280)] whitespace-nowrap" data-node-id="789:15405">
+            생성할 계정의 정보와 권한을 확인합니다.
+          </p>
+        </div>
+        <div className="bg-[var(--background\/canvas,white)] border border-[var(--border\/default,#e4e8ee)] border-solid content-stretch flex flex-[1_0_0] flex-col items-start justify-between min-h-px p-[24px] relative rounded-[12px] w-full" data-node-id="789:15406" data-name="TableCard">
+          <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="789:15577" data-name="Confirmation Form Container">
+            <div className="border border-[var(--border\/subtle,#e2e8f0)] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[8px] shrink-0 w-full" data-node-id="789:15506" data-name="이름 Content">
+              <div className="content-stretch flex items-start relative shrink-0 w-full" data-node-id="789:15510" data-name="정보 항목 / 고객사">
+                <div className="bg-[var(--background\/subtle,#f8fafc)] content-stretch flex flex-col items-start px-[20px] py-[12px] relative self-stretch shrink-0 w-[200px]" data-node-id="I789:15510;611:6667" data-name="라벨 셀">
+                  <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="I789:15510;611:6668">
+                    이름
+                  </p>
+                </div>
+                <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative" data-node-id="I789:15510;620:3915" data-name="값 목록">
+                  <div className="content-stretch flex gap-[8px] h-[40px] items-center px-[20px] py-[12px] relative shrink-0 w-full" data-node-id="I789:15510;620:3915;789:15509" data-name="정보 값 / 예시기업 D">
+                    <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Medium'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="I789:15510;620:3915;789:15509;620:3913">
+                      김지영
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex items-start relative shrink-0 w-full" data-node-id="789:15513" data-name="정보 항목 / 자료 방식">
+                <div className="bg-[var(--background\/subtle,#f8fafc)] content-stretch flex flex-col items-start px-[20px] py-[12px] relative self-stretch shrink-0 w-[200px]" data-node-id="I789:15513;611:6667" data-name="라벨 셀">
+                  <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="I789:15513;611:6668">
+                    로그인 이메일
+                  </p>
+                </div>
+                <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative" data-node-id="I789:15513;620:3915" data-name="값 목록">
+                  <div className="content-stretch flex gap-[8px] h-[40px] items-center px-[20px] py-[12px] relative shrink-0 w-full" data-node-id="I789:15513;620:3915;789:15512" data-name="정보 값 / 엑셀 자료">
+                    <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Medium'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="I789:15513;620:3915;789:15512;620:3913">
+                      hong2@example.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex items-start relative shrink-0 w-full" data-node-id="789:15517" data-name="정보 항목 / 작업 종류">
+                <div className="bg-[var(--background\/subtle,#f8fafc)] content-stretch flex flex-col items-start px-[20px] py-[12px] relative self-stretch shrink-0 w-[200px]" data-node-id="I789:15517;611:6667" data-name="라벨 셀">
+                  <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="I789:15517;611:6668">
+                    관리 역할
+                  </p>
+                </div>
+                <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative" data-node-id="I789:15517;620:3915" data-name="값 목록">
+                  <div className="content-stretch flex gap-[8px] h-[40px] items-center px-[20px] py-[12px] relative shrink-0 w-full" data-node-id="I789:15517;620:3915;789:15516" data-name="정보 값 / 본 경정청구 준비">
+                    <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Medium'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="I789:15517;620:3915;789:15516;620:3913">
+                      없음
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex items-start relative shrink-0 w-full" data-node-id="789:15520" data-name="정보 항목 / 대상 범위">
+                <div className="bg-[var(--background\/subtle,#f8fafc)] content-stretch flex flex-col items-start px-[20px] py-[12px] relative self-stretch shrink-0 w-[200px]" data-node-id="I789:15520;611:6667" data-name="라벨 셀">
+                  <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="I789:15520;611:6668">
+                    부여할 업무 권한
+                  </p>
+                </div>
+                <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative" data-node-id="I789:15520;620:3915" data-name="값 목록">
+                  <div className="content-stretch flex gap-[8px] h-[40px] items-center px-[20px] py-[12px] relative shrink-0 w-full" data-node-id="I789:15520;620:3915;789:15519" data-name="정보 값 / 사업장 전체 직원">
+                    <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Medium'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="I789:15520;620:3915;789:15519;620:3913">
+                      영업직, 신고 담당 노무사
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex items-start relative shrink-0 w-full" data-node-id="789:15524" data-name="정보 항목 / 대상 기간">
+                <div className="bg-[var(--background\/subtle,#f8fafc)] content-stretch flex flex-col items-start px-[20px] py-[12px] relative self-stretch shrink-0 w-[200px]" data-node-id="I789:15524;611:6667" data-name="라벨 셀">
+                  <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="I789:15524;611:6668">
+                    영업직 소속
+                  </p>
+                </div>
+                <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative" data-node-id="I789:15524;620:3915" data-name="값 목록">
+                  <div className="content-stretch flex gap-[8px] h-[40px] items-center px-[20px] py-[12px] relative shrink-0 w-full" data-node-id="I789:15524;620:3915;789:15523" data-name="정보 값 / 2023년 ~ 2025년">
+                    <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Medium'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="I789:15524;620:3915;789:15523;620:3913">
+                      김본부장
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-[var(--surface\/info-subtle,#f0f4ff)] content-stretch flex gap-[8px] items-start p-[12px] relative rounded-[6px] shrink-0 w-full" data-node-id="789:15572" data-name="Notice-Banner">
+              <div className="flex items-center justify-center relative shrink-0" data-node-id="789:15573">
+                <div className="flex-none rotate-180">
+                  <div className="relative size-[16px]" data-name="Warning Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWarningIcon} />
+                  </div>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[1.4] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="789:15574">
+                계정을 생성하면 입력한 이메일로 최초 계정 설정 안내를 보냅니다.
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="789:15445" data-name="Footer Container">
+            <div className="bg-[var(--surface\/muted,#e5e7eb)] h-px relative shrink-0 w-full" data-node-id="789:15446" data-name="Footer Container Surface" />
+            <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="789:15447" data-name="Action Buttons Container">
+              <ActionBtn className="flex flex-row items-center self-stretch" label="이전" />
+              <div className="content-stretch flex items-center relative shrink-0" data-node-id="789:15449" data-name="계정 생성 Control">
+                <div className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex gap-[8px] items-center justify-center px-[16px] py-[10px] relative rounded-[8px] shrink-0 w-[165px]" data-node-id="789:15659" data-name="NewTaskBtn">
+                  <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I789:15659;515:2051">
+                    계정 생성
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: Color/black/black4: #6A6F73.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

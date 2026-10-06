@@ -1,0 +1,56 @@
+<section id="748:7303" name="최초 계정 설정 안내" x="100" y="1110" width="1289" height="635">
+  <frame id="740:7179" name="최초 계정 설정 안내_재요청" x="100" y="100" width="520" height="435">
+    <frame id="740:7180" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="740:7181" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:7182" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:7183" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:7184" name="Title Header Section" x="32" y="90" width="456" height="50">
+      <frame id="740:7185" name="Title Stack" x="0" y="0" width="456" height="50">
+        <text id="740:7186" name="Main Title" x="0" y="0" width="456" height="29" />
+        <text id="740:7187" name="Subtitle" x="0" y="33" width="456" height="17" />
+      </frame>
+    </frame>
+    <frame id="740:7188" name="Email Field Group" x="32" y="172" width="456" height="61">
+      <text id="740:7189" name="Email Label" x="0" y="0" width="37" height="17" />
+      <instance id="740:7190" name="InputField" x="0" y="21" width="456" height="40" />
+    </frame>
+    <frame id="740:7191" name="Action-Group" x="32" y="265" width="456" height="92">
+      <frame id="740:7192" name="Action Container" x="0" y="0" width="456" height="60">
+        <instance id="740:7193" name="PrimaryActionBtn" x="0" y="0" width="456" height="40" />
+        <text id="740:7194" name="Spam Folder Notice" x="0" y="44" width="456" height="16" />
+      </frame>
+      <text id="740:7195" name="Back to Login" x="175.5" y="76" width="105" height="16" />
+    </frame>
+    <frame id="740:7196" name="Footer Notice" x="32" y="389" width="456" height="14">
+      <instance id="740:7197" name="Eye Off Icon" x="79.5" y="0" width="14" height="14" />
+      <text id="740:7198" name="Footer Notice Text" x="99.5" y="0" width="277" height="14" />
+    </frame>
+  </frame>
+  <frame id="740:7205" name="최초 계정 설정 안내_요청 결과" x="669" y="100" width="520" height="373">
+    <frame id="740:7206" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="740:7207" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:7208" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:7209" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:7210" name="Title Header Section" x="32" y="90" width="456" height="73">
+      <frame id="740:7211" name="Title Stack" x="0" y="0" width="456" height="73">
+        <text id="740:7212" name="Main Title" x="0" y="0" width="456" height="26" />
+        <text id="740:7213" name="Subtitle" x="0" y="30" width="456" height="21" />
+        <text id="740:7214" name="Email Notice" x="0" y="55" width="456" height="18" />
+      </frame>
+    </frame>
+    <frame id="740:7215" name="로그인으로 돌아가기 Content" x="32" y="195" width="456" height="100">
+      <instance id="740:7216" name="PrimaryActionBtn" x="0" y="0" width="456" height="44" />
+      <instance id="740:7217" name="ActionBtn" x="0" y="56" width="456" height="44" />
+    </frame>
+    <frame id="740:7218" name="Footer Notice" x="32" y="327" width="456" height="14">
+      <instance id="740:7219" name="Eye Off Icon" x="79.5" y="0" width="14" height="14" />
+      <text id="740:7220" name="Footer Notice Text" x="99.5" y="0" width="277" height="14" />
+    </frame>
+  </frame>
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

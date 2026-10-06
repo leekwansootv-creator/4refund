@@ -1,0 +1,347 @@
+[
+  {
+    "slug": "icons",
+    "source": "exports/p0/ICON.svg",
+    "width": "618",
+    "height": "325",
+    "text_count": 0,
+    "top_groups": [
+      ["ICON"],
+      ["ICON", "document"],
+      ["ICON", "document_simple"],
+      ["ICON", "plus"],
+      ["ICON", "EyeOn"],
+      ["ICON", "EyeOff"],
+      ["ICON", "EyeOff_2"],
+      ["ICON", " Hamburger menu"],
+      ["ICON", "Warning"],
+      ["ICON", "help-circle"],
+      ["ICON", " close"],
+      ["ICON", " close_simple "],
+      ["ICON", "Check"],
+      ["ICON", "Users"],
+      ["ICON", "Customer Support"],
+      ["ICON", "Search"],
+      ["ICON", "Cogwheel"],
+      ["ICON", "arrowhead"],
+      ["ICON", "Alarm"],
+      ["ICON", "아이콘 네모BTN"],
+      ["ICON", "inbox"],
+      ["ICON", "loding"],
+      ["ICON", "warning"],
+      ["ICON", "warning_simple"],
+      ["ICON", "Check_2"],
+      ["ICON", "캘린더"],
+      ["ICON", "LeftArrow"],
+      ["ICON", "upload"],
+      ["ICON", "아이콘 / 잠금"],
+      ["ICON", "UserCog"],
+      ["ICON", "UsersRound"],
+      ["ICON", "Computer"],
+      ["ICON", "미트볼"],
+      ["ICON", "User"],
+      ["ICON", "user_2"]
+    ]
+  },
+  {
+    "slug": "common-guidance",
+    "source": "exports/p0/P0 공통 개발 전달 사항.svg",
+    "width": "796",
+    "height": "162",
+    "text_count": 1,
+    "top_groups": [["P0 공통 개발 전달 사항"]]
+  },
+  {
+    "slug": "account-roles",
+    "source": "exports/p0/계정 역할 Content.svg",
+    "width": "651",
+    "height": "178",
+    "text_count": 21,
+    "top_groups": [["계정 역할 Content"], ["계정 역할 Content", "계정 역할 Content_2"]]
+  },
+  {
+    "slug": "role-access",
+    "source": "exports/p0/역할별 접근 표.svg",
+    "width": "373",
+    "height": "154",
+    "text_count": 12,
+    "top_groups": [["역할별 접근 표"]]
+  },
+  {
+    "slug": "components",
+    "source": "exports/p0/컴포넌트.svg",
+    "width": "2721",
+    "height": "7422",
+    "text_count": 508,
+    "top_groups": [
+      ["컴포넌트"],
+      ["컴포넌트", "SidebarItem"],
+      ["컴포넌트", "Sidebar"],
+      ["컴포넌트", "ActionBtn"],
+      ["컴포넌트", "테이블"],
+      ["컴포넌트", "NewTaskBtn"],
+      ["컴포넌트", "StatusTab"],
+      ["컴포넌트", "BackLink"],
+      ["컴포넌트", "ListBtn"],
+      ["컴포넌트", "NewTaskBtn_White"],
+      ["컴포넌트", "페이지네이션"],
+      ["컴포넌트", "소형 드롭박스"],
+      ["컴포넌트", "TimelineEntry"],
+      ["컴포넌트", "체크박스"],
+      ["컴포넌트", "대형 드롭박스"],
+      ["컴포넌트", "RetryActionBtn"],
+      ["컴포넌트", "MonthCell"],
+      ["컴포넌트", "NavArrow"],
+      ["컴포넌트", "PickerResetBtn"],
+      ["컴포넌트", "PickerApplyBtn"],
+      ["컴포넌트", "MonthPicker"],
+      ["컴포넌트", "MonthRangeField"],
+      ["컴포넌트", "YearCell"],
+      ["컴포넌트", "YearPicker"],
+      ["컴포넌트", "YearField"],
+      ["컴포넌트", "TaskTypeSelector"],
+      ["컴포넌트", "InputField"],
+      ["컴포넌트", "단계 항목"],
+      ["컴포넌트", "Tab Stepper / 4단계"],
+      ["컴포넌트", "FileUploadRow"],
+      ["컴포넌트", "StatusBadge"],
+      ["컴포넌트", "세그먼트 항목"],
+      ["컴포넌트", "조건 선택 행"],
+      ["컴포넌트", "자료 제출 콘텐츠"],
+      ["컴포넌트", "체크박스 / 원형"],
+      ["컴포넌트", "아이콘 버튼 / 제거"],
+      ["컴포넌트", "정보 항목"],
+      ["컴포넌트", "요청 요약 바"],
+      ["컴포넌트", "접수 상태 배지"],
+      ["컴포넌트", "테이블 작업 버튼"],
+      ["컴포넌트", "접수 상태 행"],
+      ["컴포넌트", "정보 값 행"],
+      ["컴포넌트", "MenuContainer / 역할"],
+      ["컴포넌트", "DayPicker"],
+      ["컴포넌트", "DayField"],
+      ["컴포넌트", "PrimaryActionBtn"],
+      ["컴포넌트", "StepperItem"],
+      ["컴포넌트", "유저프로필"],
+      ["컴포넌트", "SearchInput"],
+      ["컴포넌트", "영업직 목록 "],
+      ["컴포넌트", "계정상태 배지_2"]
+    ]
+  },
+  {
+    "slug": "account-management",
+    "source": "exports/p0/계정 관리/account-management-screen.md.svg",
+    "width": "10028",
+    "height": "4183",
+    "text_count": 321,
+    "top_groups": [
+      ["계정 관리/account-management-screen.md"],
+      ["계정 관리/account-management-screen.md", "UA-01 계정 목록 : 본부장"],
+      ["계정 관리/account-management-screen.md", "UA-03 계정 생성 : 본부장"],
+      ["계정 관리/account-management-screen.md", "UA-03 계정 생성 : 운영진·개발자"],
+      ["계정 관리/account-management-screen.md", "UA-03 계정 생성 : 확인"],
+      ["계정 관리/account-management-screen.md", "UA-03 계정 생성 : 완료"],
+      ["계정 관리/account-management-screen.md", "UA-02 계정 상세"],
+      ["계정 관리/account-management-screen.md", "UA-01 계정 목록 : 운영진·개발자"],
+      ["계정 관리/account-management-screen.md", "UA-01 계정 목록 : 데이터 없음"],
+      ["계정 관리/account-management-screen.md", "UA-03 계정 생성 : 입력 오류"],
+      ["계정 관리/account-management-screen.md", "UA-03 계정 생성 : 완료 : 안내 발송 실패"],
+      ["계정 관리/account-management-screen.md", "UA-03 계정 생성 : 처리 결과 확인 필요"]
+    ]
+  },
+  {
+    "slug": "my-account",
+    "source": "exports/p0/내 계정/login-my-account-screen.md.svg",
+    "width": "2120",
+    "height": "3385",
+    "text_count": 74,
+    "top_groups": [
+      ["내 계정/login-my-account-screen.md"],
+      ["내 계정/login-my-account-screen.md", "MY-01 내 계정"],
+      ["내 계정/login-my-account-screen.md", "MY-02 비밀번호 변경"],
+      ["내 계정/login-my-account-screen.md", "MY-02 비밀번호 변경_완료"],
+      ["내 계정/login-my-account-screen.md", "항목 Content"]
+    ]
+  },
+  {
+    "slug": "authentication",
+    "source": "exports/p0/로그인·최초 설정·OTP/login-my-account-screen.svg",
+    "width": "2573",
+    "height": "8712",
+    "text_count": 222,
+    "top_groups": [
+      ["로그인·최초 설정·OTP/login-my-account-screen"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "AU-01 로그인"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "AU-03 비밀번호 재설정"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "AU-02 최초 계정 설정"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "MY-03 2단계 인증 설정"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "AU-06 인증 수단 분실·복구"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "AU-05 2단계 인증"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "최초 계정 설정 안내"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "P0 대표 오류·접근 상태"],
+      ["로그인·최초 설정·OTP/login-my-account-screen", "공통 상태 : 세션 만료"]
+    ]
+  },
+  {
+    "slug": "new-work-request",
+    "source": "exports/p0/새 작업 요청/new-work-request-screen.svg",
+    "width": "8219",
+    "height": "20681",
+    "text_count": 1679,
+    "top_groups": [
+      ["새 작업 요청/new-work-request-screen"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 회사명·사업자등록번호 입력"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 본 경정청구 준비"],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비 : 기존 경정청구에 추가 실행 선택시"
+      ],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 예상 환급액 조회 > 자료 제출"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 자료 제출 : 파일 드래그 중"],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출"
+      ],
+      ["새 작업 요청/new-work-request-screen", "점검상태 예시"],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 해당"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 비해당"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 확인필요"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일 선택 완료"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일첨부 실패"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업 > 자료 제출"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 요청 내용 확인"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 기존 경정청구에 추가 실행 선택시 > 요청 내용 확인"
+      ],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 요청 내용 확인 : 중복·재요청 경고"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 요청 내용 확인 : 실행 여부 확인 중"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 예상 환급액 조회 > 요청 내용 확인"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 요청 내용 확인 > 체크 다 할 경우"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 요청 내용 확인 : 신규 요청 제한"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 예상 환급액 조회 > 접수 성공"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 예상 환급액 조회 > 접수 실패"],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 예상 환급액 조회 > 접수 여부 확인 중"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 예상 환급액 조회 > 접수 여부 확인 중 > 접수확인 클릭시"
+      ],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 예상 환급액 조회 > 작업 요청 중"],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업> 요청 내용 확인"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업 > 자료 제출 > 파일첨부,비밀번호 입력 완료"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 예상 환급액 조회 > 자료 제출 > 파일 선택 완료"
+      ],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 예상 환급액 조회 > 자료 제출 > 파일첨부 실패"
+      ],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 예상 환급액 조회"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 접수되지 않은 자료가 있을 경우"],
+      ["새 작업 요청/new-work-request-screen", "접수 상태 행 / 예시"],
+      ["새 작업 요청/new-work-request-screen", "공통 배너 / 점검 상태_3"],
+      [
+        "새 작업 요청/new-work-request-screen",
+        "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일 전송 중"
+      ],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 대상 범위 : 일부 직원 선택 완료"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 대상 범위 : 확인 필요"],
+      ["새 작업 요청/new-work-request-screen", "새 작업 요청 : 대상 범위 : 지원·검증 불가"],
+      ["새 작업 요청/new-work-request-screen", "개발 주석 : 입력 변경·화면 이탈"]
+    ]
+  },
+  {
+    "slug": "work-list",
+    "source": "exports/p0/작업 목록/work-list-screen.svg",
+    "width": "2120",
+    "height": "7960",
+    "text_count": 606,
+    "top_groups": [
+      ["작업 목록/work-list-screen"],
+      ["작업 목록/work-list-screen", " 내작업 : 영업직"],
+      ["작업 목록/work-list-screen", "내작업 : 접수되지 않은 자료가 있을 경우"],
+      ["작업 목록/work-list-screen", "내작업 : 작업이 없는 최초 상태"],
+      ["작업 목록/work-list-screen", "내작업 : 목록로딩_스켈레톤"],
+      ["작업 목록/work-list-screen", "내작업 : 조회 실패와 다시 불러오기"],
+      ["작업 목록/work-list-screen", " 내작업 : 영업직 · 신고 담당 노무사"],
+      ["작업 목록/work-list-screen", "내작업 : 신고 담당 노무사"],
+      ["작업 목록/work-list-screen", " 내작업 : 운영진·개발자용"]
+    ]
+  },
+  {
+    "slug": "work-detail",
+    "source": "exports/p0/작업상세/work-detail-screen.svg",
+    "width": "9043",
+    "height": "10941",
+    "text_count": 1162,
+    "top_groups": [
+      ["작업상세/work-detail-screen"],
+      ["작업상세/work-detail-screen", "작업상세 : 완료_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 본 경정청구 준비 : 완료_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 본 경정청구 준비 : 결과 검증 보류_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 본 경정청구 준비 : 신고 담당자 미배정"],
+      ["작업상세/work-detail-screen", "작업상세 : 본 경정청구 준비 : 신고 담당자 변경"],
+      ["작업상세/work-detail-screen", "작업상세 : 완료0원 일 때_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 실패_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 확인 후 종료_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 확인필요_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 확인필요_처리이력탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 상세 조회 실패"],
+      ["작업상세/work-detail-screen", "작업상세 : 접근 불가·작업 없음"],
+      ["작업상세/work-detail-screen", "작업상세 : 대기중_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 실행준비중_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 실행중_결과탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 실행중_결과 수신 중"],
+      ["작업상세/work-detail-screen", "작업상세 : 최신 상태 갱신 실패"],
+      ["작업상세/work-detail-screen", "작업상세 : 제출자료탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 제출자료탭_다운로드실패_모달"],
+      ["작업상세/work-detail-screen", "작업상세 : 대기중_처리이력탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 실행준비중_처리이력탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 실행중_처리이력탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 결과 수신 중_처리이력탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 완료_처리이력탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 실패_처리이력탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 요청 정보 정보"],
+      ["작업상세/work-detail-screen", "작업상세 : 본 경정청구 준비 : 신고 준비·인계탭"],
+      ["작업상세/work-detail-screen", "작업상세 : 본 경정청구 준비 : 업무 종료 기록"],
+      [
+        "작업상세/work-detail-screen",
+        "작업상세 : 본 경정청구 준비 : 업무 종료 기록 : 보관 기한 경과"
+      ],
+      [
+        "작업상세/work-detail-screen",
+        "작업상세 : 본 경정청구 준비 : 업무 종료 기록 : 보관 기한 경과·실행 중"
+      ]
+    ]
+  }
+]

@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "../shared/styles/theme.css";
 
+/* 보관한 Figma 생성 코드가 실제 서비스의 CSS 후보로 수집되지 않게 한다. */
+@source not "../../docs/design/m1-figma";
+
 :root {
   --background: #ffffff;
   --foreground: #101010;

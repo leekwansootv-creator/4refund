@@ -1,0 +1,154 @@
+const img = "http://localhost:3845/assets/649d477d995ea8fc7c464e47377420738e05b32e.svg";
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const img1 = "http://localhost:3845/assets/18897d5712a217b0da920296c5100fcf1d937539.svg";
+const imgHorizontalDivider = "http://localhost:3845/assets/9257414deed3de5832ffc4ba0897d9f6e4335819.svg";
+const imgEyeIcon = "http://localhost:3845/assets/5f0216840acfbd92bcd30591bbe0489998d01270.svg";
+type InputFieldProps = {
+  className?: string;
+  propValue?: boolean;
+  state?: "Default";
+  value?: string;
+};
+
+function InputField({ className, propValue = false, state = "Default", value = "회사명을 입력해 주세요." }: InputFieldProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/default,#e4e8ee)] border-solid content-stretch flex gap-[8px] h-[40px] items-center px-[12px] py-[10px] relative rounded-[6px] w-[538.5px]"} data-node-id="577:4712">
+      <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Regular'] leading-[normal] min-w-px not-italic relative text-[14px] text-[color:var(--text\/tertiary,#8a94a0)]" data-node-id="574:1719">
+        {value}
+      </p>
+      {propValue && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="597:2169" data-name="아이콘">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={img} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+
+export default function Au() {
+  return (
+    <div className="bg-[#e3ebf5] content-stretch flex flex-col items-center justify-center py-[60px] relative size-full" data-node-id="730:13772" data-name="AU-01 로그인">
+      <div className="bg-[var(--surface\/default,white)] content-stretch drop-shadow-[0px_10px_15px_var(--effect\/shadow-subtle,rgba(0,0,0,0.04))] flex flex-col gap-[32px] items-center max-w-[520px] p-[32px] relative rounded-[16px] shrink-0 w-full" data-node-id="730:13773" data-name="로그인 화면">
+        <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="730:13775" data-name="Logo Combined">
+          <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+          <div className="bg-[#1e50d4] content-stretch flex items-start px-[6px] py-[2px] relative rounded-[4px] shrink-0" data-node-id="730:13776" data-name="CMS Badge">
+            <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[11px] text-white whitespace-nowrap" data-node-id="730:13777">
+              CMS
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-node-id="730:13774" data-name="Title Header Section">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-center leading-[normal] not-italic relative shrink-0 text-center w-full" data-node-id="730:13778" data-name="Title Stack">
+            <p className="font-['Pretendard:Bold'] relative shrink-0 text-[24px] text-[color:var(--text\/primary-deep,#0f172a)] w-full" data-node-id="730:13779">
+              4대보험 환급센터 CMS
+            </p>
+            <p className="font-['Pretendard:Medium'] relative shrink-0 text-[14px] text-[color:var(--text\/tertiary-bluegray,#64748b)] w-full" data-node-id="730:13780">
+              발급받은 계정으로 로그인해 주세요.
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full" data-node-id="730:13781" data-name="Form Fields">
+          <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="730:13782" data-name="Email Field Group">
+            <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-deep,#0f172a)] whitespace-nowrap" data-node-id="730:13783">
+              이메일
+            </p>
+            <InputField className="bg-[var(--surface\/default,white)] border border-[var(--border\/default,#e4e8ee)] border-solid content-stretch flex gap-[8px] h-[40px] items-center px-[12px] py-[10px] relative rounded-[6px] shrink-0 w-full" value="이메일을 입력해 주세요." />
+          </div>
+          <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="730:13788" data-name="Password Field Group">
+            <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-deep,#0f172a)] whitespace-nowrap" data-node-id="730:13789">
+              비밀번호
+            </p>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/default,#e4e8ee)] border-solid content-stretch flex gap-[8px] h-[40px] items-center px-[12px] py-[10px] relative rounded-[6px] shrink-0 w-full" data-node-id="730:13790" data-name="InputField">
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Regular'] leading-[normal] min-w-px not-italic relative text-[14px] text-[color:var(--text\/tertiary,#8a94a0)]" data-node-id="I730:13790;574:1719">
+                비밀번호를 입력해 주세요.
+              </p>
+              <div className="relative shrink-0 size-[24px]" data-node-id="I730:13790;597:2169" data-name="아이콘">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={img1} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full" data-node-id="730:13794" data-name="Action Area">
+          <div className="bg-[var(--status\/disabled-background,#e2e4e5)] content-stretch flex h-[40px] items-center justify-center px-[16px] py-[6px] relative rounded-[6px] shrink-0 w-full" data-node-id="730:13795" data-name="PrimaryActionBtn">
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[normal] not-italic relative shrink-0 text-[#9ea7af] text-[15px] whitespace-nowrap" data-node-id="I730:13795;762:6356">
+              로그인
+            </p>
+          </div>
+          <div className="content-stretch flex items-center justify-between px-[8px] relative shrink-0 w-full" data-node-id="730:13797" data-name="Sub Navigation Links">
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/tertiary-bluegray,#64748b)] whitespace-nowrap" data-node-id="730:13798">
+              비밀번호 재설정
+            </p>
+            <div className="flex flex-row items-center self-stretch" data-node-id="730:13799">
+              <div className="flex h-full items-center justify-center relative shrink-0 w-0" style={{ containerType: "size" }}>
+                <div className="flex-none rotate-90 w-[100cqh]">
+                  <div className="h-0 relative w-full" data-name="Horizontal Divider">
+                    <div className="absolute inset-[-1px_0_0_0]">
+                      <img alt="" className="block max-w-none size-full" src={imgHorizontalDivider} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/tertiary-bluegray,#64748b)] whitespace-nowrap" data-node-id="730:13800">
+              최초 계정 설정 안내
+            </p>
+            <div className="flex flex-row items-center self-stretch" data-node-id="730:13801">
+              <div className="flex h-full items-center justify-center relative shrink-0 w-0" style={{ containerType: "size" }}>
+                <div className="flex-none rotate-90 w-[100cqh]">
+                  <div className="h-0 relative w-full" data-name="Horizontal Divider 2">
+                    <div className="absolute inset-[-1px_0_0_0]">
+                      <img alt="" className="block max-w-none size-full" src={imgHorizontalDivider} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/tertiary-bluegray,#64748b)] whitespace-nowrap" data-node-id="730:13802">
+              로그인 문제 문의
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[6px] items-center justify-center relative shrink-0 w-full" data-node-id="730:13803" data-name="Footer Notice">
+          <div className="relative shrink-0 size-[14px]" data-node-id="717:17771" data-name="Eye Icon">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEyeIcon} />
+          </div>
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/tertiary,#8a94a0)] whitespace-nowrap" data-node-id="730:13805">
+            관리자가 발급한 계정만 이용할 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## State=Default
+**Node ID:** 577:4712
+
+한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.
+
+## InputField
+**Node ID:** 578:1762
+
+재사용 가능한 한 줄 인풋입니다. Default, Hover, Focus, Filled, Error, Disabled 상태와 Value 속성을 지원합니다.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

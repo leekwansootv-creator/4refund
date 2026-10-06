@@ -1,0 +1,141 @@
+<section id="740:7447" name="AU-02 최초 계정 설정" x="100" y="1855" width="2247" height="853">
+  <frame id="740:7418" name="최초 계정 설정_링크 만료·무효" x="669" y="100" width="460" height="440">
+    <frame id="740:7419" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="740:7420" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:7421" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:7422" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:7423" name="Container" x="32" y="98" width="396" height="178">
+      <frame id="789:26863" name="illustration" x="149" y="0" width="98" height="98">
+        <instance id="789:26864" name="Warning Icon" x="25" y="25" width="48" height="48" />
+      </frame>
+      <frame id="740:7426" name="Title Header Section" x="0" y="110" width="396" height="68">
+        <frame id="740:7427" name="Title Stack" x="0" y="0" width="396" height="68">
+          <text id="740:7428" name="Main Title" x="0" y="0" width="396" height="26" />
+          <text id="740:7429" name="Subtitle" x="0" y="30" width="396" height="20" />
+          <text id="740:7430" name="Request New Instructions Text" x="0" y="54" width="396" height="14" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="740:7431" name="설정 안내 다시 요청 Content" x="32" y="300" width="396" height="100">
+      <instance id="740:7432" name="PrimaryActionBtn" x="0" y="0" width="396" height="44" />
+      <instance id="740:7433" name="ActionBtn" x="0" y="56" width="396" height="44" />
+    </frame>
+  </frame>
+  <frame id="717:17810" name="최초 계정 설정" x="100" y="100" width="520" height="653">
+    <frame id="717:17882" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="717:17883" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="717:17884" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="717:17885" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="717:17881" name="Title Header Section" x="32" y="90" width="456" height="50">
+      <frame id="717:17886" name="Title Stack" x="0" y="0" width="456" height="50">
+        <text id="717:17887" name="Main Title" x="0" y="0" width="456" height="29" />
+        <text id="717:17888" name="Subtitle" x="0" y="33" width="456" height="17" />
+      </frame>
+    </frame>
+    <frame id="717:17819" name="Account Info Section" x="32" y="172" width="456" height="167">
+      <text id="717:17820" name="Account Info Title" x="0" y="0" width="52" height="17" />
+      <frame id="717:17821" name="Account Info Table" x="0" y="21" width="456" height="146">
+        <frame id="717:17822" name="Row Email" x="1" y="1" width="454" height="36">
+          <frame id="717:17823" name="Label Cell" x="0" y="0" width="120" height="36">
+            <text id="717:17824" name="Email Label" x="16" y="10" width="34" height="16" />
+          </frame>
+          <frame id="717:17825" name="Value Cell" x="120" y="0" width="334" height="36">
+            <text id="717:17826" name="Email Value" x="16" y="10" width="134" height="16" />
+          </frame>
+        </frame>
+        <frame id="717:17827" name="Row Name" x="1" y="37" width="454" height="36">
+          <frame id="717:17828" name="Label Cell" x="0" y="0" width="120" height="36">
+            <text id="717:17829" name="Name Label" x="16" y="10" width="23" height="16" />
+          </frame>
+          <frame id="717:17830" name="Value Cell" x="120" y="0" width="334" height="36">
+            <text id="717:17831" name="Name Value" x="16" y="10" width="34" height="16" />
+          </frame>
+        </frame>
+        <frame id="717:17832" name="Row Role" x="1" y="73" width="454" height="36">
+          <frame id="717:17833" name="Label Cell" x="0" y="0" width="120" height="36">
+            <text id="717:17834" name="Role Label" x="16" y="10" width="23" height="16" />
+          </frame>
+          <frame id="717:17835" name="Value Cell" x="120" y="0" width="334" height="36">
+            <text id="717:17836" name="Role Value" x="16" y="10" width="34" height="16" />
+          </frame>
+        </frame>
+        <frame id="717:17837" name="Row Dept" x="1" y="109" width="454" height="36">
+          <frame id="717:17838" name="Label Cell" x="0" y="0" width="120" height="36">
+            <text id="717:17839" name="Dept Label" x="16" y="10" width="23" height="16" />
+          </frame>
+          <frame id="717:17840" name="Value Cell" x="120" y="0" width="334" height="36">
+            <text id="717:17841" name="Dept Value" x="16" y="10" width="45" height="16" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="717:17842" name="Password Fields" x="32" y="371" width="456" height="142">
+      <frame id="717:17843" name="New Password Field Group" x="0" y="0" width="456" height="61">
+        <text id="717:17844" name="New Password Label" x="0" y="0" width="64" height="17" />
+        <instance id="717:17845" name="InputField" x="0" y="21" width="456" height="40" />
+      </frame>
+      <frame id="717:17846" name="Confirm Password Field Group" x="0" y="81" width="456" height="61">
+        <text id="717:17847" name="Confirm Password Label" x="0" y="0" width="92" height="17" />
+        <instance id="717:17848" name="InputField" x="0" y="21" width="456" height="40" />
+      </frame>
+    </frame>
+    <frame id="717:17849" name="Action Area" x="32" y="545" width="456" height="76">
+      <instance id="717:17850" name="PrimaryActionBtn" x="0" y="0" width="456" height="40" />
+      <text id="717:17851" name="Return to Login Text" x="175.5" y="60" width="105" height="16" />
+    </frame>
+  </frame>
+  <frame id="908:878" name="최초 계정 설정_이미 사용된 링크" x="1178" y="100" width="460" height="384">
+    <frame id="908:879" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="908:880" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="908:881" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="908:882" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="908:883" name="Container" x="32" y="98" width="396" height="178">
+      <frame id="908:884" name="illustration" x="149" y="0" width="98" height="98">
+        <instance id="908:885" name="Warning Icon" x="25" y="25" width="48" height="48" />
+      </frame>
+      <frame id="908:886" name="Title Header Section" x="0" y="110" width="396" height="68">
+        <frame id="908:887" name="Title Stack" x="0" y="0" width="396" height="68">
+          <text id="908:888" name="Main Title" x="0" y="0" width="396" height="26" />
+          <text id="908:889" name="Subtitle" x="0" y="30" width="396" height="20" />
+          <text id="908:890" name="Request New Instructions Text" x="0" y="54" width="396" height="14" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="908:891" name="로그인으로 이동 Container" x="32" y="300" width="396" height="44">
+      <instance id="908:892" name="PrimaryActionBtn" x="0" y="0" width="396" height="44" />
+      <instance id="908:893" name="ActionBtn" x="0" y="56" width="396" height="44" hidden="true" />
+    </frame>
+  </frame>
+  <frame id="908:899" name="최초 계정 설정_OTP 설정 미완료" x="1687" y="100" width="460" height="384">
+    <frame id="908:900" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="908:901" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="908:902" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="908:903" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="908:904" name="Container" x="32" y="98" width="396" height="178">
+      <frame id="908:905" name="illustration" x="149" y="0" width="98" height="98">
+        <instance id="908:906" name="Warning Icon" x="25" y="25" width="48" height="48" />
+      </frame>
+      <frame id="908:907" name="Title Header Section" x="0" y="110" width="396" height="68">
+        <frame id="908:908" name="Title Stack" x="0" y="0" width="396" height="68">
+          <text id="908:909" name="Main Title" x="0" y="0" width="396" height="26" />
+          <text id="908:910" name="Subtitle" x="0" y="30" width="396" height="20" />
+          <text id="908:911" name="Request New Instructions Text" x="0" y="54" width="396" height="14" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="908:912" name="로그인 후 설정 이어가기 Container" x="32" y="300" width="396" height="44">
+      <instance id="908:913" name="PrimaryActionBtn" x="0" y="0" width="396" height="44" />
+      <instance id="908:914" name="ActionBtn" x="0" y="56" width="396" height="44" hidden="true" />
+    </frame>
+  </frame>
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

@@ -1,0 +1,308 @@
+- application
+- status:
+  - generic: "경고:"
+  - generic: 이 파일은 잠긴 팀에 속해 있습니다.
+  - text: 이 팀의 모든 작업은 현재 보기 전용입니다. 팀이 잠금 해제되면 다시 편집할 수 있습니다.
+  - link "자세히 알아보기":
+    - /url: "#"
+- button "프로페셔널을 다시 활성화하세요":
+  - generic: 프로페셔널을 다시 활성화하세요
+- status
+- region "캔버스 댓글 영역":
+  - button "새 댓글 만들기"
+  - button:
+  - button:
+  - button:
+- region "왼쪽 사이드바":
+  - toolbar "탐색 표시줄":
+    - button "메인 메뉴":
+    - separator
+    - button "파일" [expanded]:
+      - generic: 파일
+  - button "4대보험 환급센터, 파일 이름": 4대보험 환급센터
+  - generic: 파일 이름
+  - button "파일 편집 메뉴":
+  - button "UI 최소화":
+  - link "마이닝오천":
+    - /url: https://www.figma.com/files/team/1528923043997497534/project/420051506
+  - button "잠김":
+    - generic: 잠김
+  - heading "페이지 찾기" [level=2]:
+    - button "페이지" [expanded]:
+      - generic: 페이지
+    - button "찾기":
+  - grid:
+    - row "메인 페이지":
+      - gridcell "메인 페이지":
+        - button "메인 페이지":
+          - generic: 메인 페이지
+    - row "P0 Ready for dev":
+      - gridcell "P0 Ready for dev":
+        - button "P0 Ready for dev":
+          - generic: P0
+          - img "Ready for dev"
+    - row "P1 Ready for dev":
+      - gridcell "P1 Ready for dev":
+        - button "P1 Ready for dev":
+          - generic: P1
+          - img "Ready for dev"
+    - row "모바일":
+      - gridcell "모바일":
+        - button "모바일":
+          - generic: 모바일
+    - row "디자인":
+      - gridcell "디자인":
+        - button "디자인":
+          - generic: 디자인
+    - row "참고":
+      - gridcell "참고":
+        - button "참고":
+          - generic: 참고
+  - slider "크기 조정 핸들"
+  - heading "레이어" [level=2]:
+    - button "레이어" [expanded]:
+      - generic: 레이어
+  - treegrid:
+    - row "예상 환급액 계산기 결과":
+      - button:
+      - gridcell:
+      - gridcell "예상 환급액 계산기 결과":
+        - generic: 예상 환급액 계산기 결과
+    - row "예상 환급액 계산기":
+      - button:
+      - gridcell:
+      - gridcell "예상 환급액 계산기":
+        - generic: 예상 환급액 계산기
+    - row "담당자 정보 입력시 다음 버튼 활성화":
+      - button:
+      - gridcell:
+      - gridcell "담당자 정보 입력시 다음 버튼 활성화":
+        - generic: 담당자 정보 입력시 다음 버튼 활성화
+    - row "환급액 조회하기 클릭 후":
+      - button:
+      - gridcell:
+      - gridcell "환급액 조회하기 클릭 후":
+        - generic: 환급액 조회하기 클릭 후
+    - row "image 21":
+      - gridcell:
+      - gridcell "image 21":
+        - generic: image 21
+    - row "IMG":
+      - button:
+      - gridcell:
+      - gridcell "IMG":
+        - generic: IMG
+    - row "IMG":
+      - button:
+      - gridcell:
+      - gridcell "IMG":
+        - generic: IMG
+    - row "컴포넌트":
+      - button:
+      - gridcell:
+      - gridcell "컴포넌트":
+        - generic: 컴포넌트
+    - row "컴포넌트":
+      - button:
+      - gridcell:
+      - gridcell "컴포넌트":
+        - generic: 컴포넌트
+    - row "ICON":
+      - button:
+      - gridcell:
+      - gridcell "ICON":
+        - generic: ICON
+    - row "환급예상액":
+      - button:
+      - gridcell:
+      - gridcell "환급예상액":
+        - generic: 환급예상액
+    - row "랜딩페이지":
+      - button:
+      - gridcell:
+      - gridcell "랜딩페이지":
+        - generic: 랜딩페이지
+  - slider "크기 조정 핸들"
+- region "오른쪽 사이드바":
+  - button "jina kim 팔로우하기"
+  - button "멀티플레이어 도구":
+  - group "프로토타입 보기":
+    - button "프레젠테이션":
+    - button "프로토타입 보기":
+  - button "공유하기"
+  - tablist:
+    - tab "댓글" [selected]:
+      - generic: 댓글
+      - generic: 댓글
+    - tab "속성":
+      - generic: 속성
+      - generic: 속성
+  - button "16%, 확대/축소 및 보기 옵션":
+    - text: 16%
+  - dialog "댓글 패널":
+    - searchbox "댓글 검색"
+    - button "정렬/필터링":
+    - button "설정":
+    - button "jina kim, 창은 닫히고 , 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "해결됨으로 표시":
+    - generic: "#13 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 창은 닫히고 해당 섹션으로 바로 이동합니다.
+    - button "jina kim, , 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#12 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - list:
+      - listitem: 헤더의 외곽선은 하단에만 있습니다.
+      - listitem: 외곽선은 내부가 아닌 외부에 있습니다.
+      - listitem: 외곽선의 투명도는 50%입니다.
+    - button "jina kim, 호버있습니다., 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#11 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 호버있습니다.
+    - button "jina kim, 총 , 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#10 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - text: 총 8개의 아이템을 A 4개 / B 4개로 나누어 구성합니다.
+    - list:
+      - listitem: A 아이템 4개가 먼저 노출
+      - listitem: B 아이템이 재생되기 시작하면, A 아이템은 B 아이템 뒤로 자연스럽게 이동
+      - listitem: 이후 A → B → A → B 순서로 이어지며, 끊김 없이 무한 루프되는 것처럼 보이도록 구현
+      - listitem: 사용자가 봤을 때 아이템이 사라졌다가 다시 나타나는 느낌보다는, 뒤로 이동한 아이템이 자연스럽게 순환하는 형태로 보여야 합니다.
+    - button "jina kim, 호버 전환되는 애니메이션 있음. shift+E > 상호작용에서 확인, 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#9 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 호버 전환되는 애니메이션 있음. shift+E > 상호작용에서 확인
+    - button "jina kim, 호버 전환되는 애니메이션 있음. shift+E > 상호작용에서 확인, 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#8 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 호버 전환되는 애니메이션 있음. shift+E > 상호작용에서 확인
+    - button "jina kim, 눌러서 이동할 때는 슬라이드효과, 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#7 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 눌러서 이동할 때는 슬라이드효과
+    - button "jina kim, 루프 애니메이션, 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#6 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 루프 애니메이션
+    - button "jina kim, 뷰포트 20~30% 진입 시 애니메이션 재생, 1개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#5 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 뷰포트 20~30% 진입 시 애니메이션 재생
+    - generic: 1개의 답글
+    - button "jina kim, [메뉴], 0개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#4 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - text: "[메뉴]"
+    - list:
+      - listitem: 현재 섹션의 메뉴는 초록색으로 활성화됩니다.
+      - listitem: 메뉴 Hover 시에도 초록색으로 활성화됩니다.
+      - listitem: 메뉴 클릭 시 해당 섹션으로 스크롤 이동합니다.
+    - text: ※shift+E를 누를 경우 어디로 이동되는지 확인 할 수 있습니다.
+    - button "jina kim, 1~4번 애니메이션은 순차적으로 1회 재생되며, 이후 동일한 동작을 반복합니다., 1개의 답글에 의해 작성된 댓글 선택" [expanded]
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#3 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - generic: 1~4번 애니메이션은 순차적으로 1회 재생되며, 이후 동일한 동작을 반복합니다.
+    - generic: 1개의 답글
+    - button "jina kim, , 1개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#2 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - list:
+      - listitem: 1~3번 이미지는 위·아래로 반복 이동하는 애니메이션이 적용됩니다.
+      - listitem: 반대편 텍스트 영역은 섹션이 뷰포트에 진입하면 애니메이션이 1회 재생됩니다.(섹션별로 뷰포트 20~30% 진입 시 애니메이션 재생)
+    - generic: 1개의 답글
+    - button "jina kim, , 2개의 답글에 의해 작성된 댓글 선택"
+    - button "추가 액션":
+    - button "미해결로 표시":
+    - generic: "#1 · 메인 페이지"
+    - generic: jina kim
+    - generic: 2개월 전
+    - list:
+      - listitem: 섹션이 뷰포트 20%~30% 진입 시 애니메이션 재생
+      - listitem: "기본 상태 : 마우스를 올리지 않았을 경우, 카드가 자동으로 왼쪽 → 오른쪽 방향으로 무한 반복 재생됩니다."
+      - listitem: "Hover 상태 : 카드에 마우스를 올리면 해당 카드만 Active 상태로 전환되며, 나머지 카드는 Off 상태로 변경됩니다. 자동 재생은 일시 정지됩니다."
+      - listitem: "Hover 해제 : 마우스를 벗어나면 일시 정지된 위치에서부터 자동 재생이 다시 시작됩니다."
+    - generic: 2개의 답글
+    - generic: ·
+    - generic: 1개의 이미지
+  - slider "크기 조정 핸들"
+- region "애플리케이션 도구 모음":
+  - toolbar "편집기":
+    - text: 요청이 전송되었습니다
+    - button "이동":
+    - button "손 도구":
+    - button "댓글" [pressed]:
+    - button "보기 전용" [disabled]:
+      - generic: 보기 전용
+    - text: 요청이 전송되었습니다
+    - text: 요청이 전송되었습니다
+    - radiogroup "공구 벨트 모드":
+      - generic: 공구 벨트 모드
+      - radio "그리기"
+      - generic: 그리기
+      - radio "디자인" [checked]
+      - generic: 디자인
+      - radio "모션"
+      - generic: 모션
+      - radio "Dev Mode"
+      - generic: Dev Mode
+- region "도움말/확대/축소 도구 모음":
+  - toolbar "도움말/확대/축소 도구 모음":
+    - button "도움말":
+- dialog:
+  - region "현재 확장된 댓글 스레드 이 대화 상자를 닫고 보드로 돌아갑니다.":
+    - heading "댓글" [level=2]
+    - button "스레드 액션":
+    - button "미해결로 표시":
+    - button "댓글 닫기":
+    - status
+    - heading "jina kim" [level=3]
+    - generic: 2개월 전
+    - button "댓글 액션":
+    - generic: 1~4번 애니메이션은 순차적으로 1회 재생되며, 이후 동일한 동작을 반복합니다.
+    - button "반응 추가":
+    - heading "jina kim" [level=3]
+    - generic: 2개월 전
+    - button "댓글 액션":
+    - generic: 몇번 반복하고 멈춥니다. 계속 재생되게 해주세요.
+    - button "반응 추가":
+    - combobox "jina kim(으)로 댓글에 답변하기" [active]:
+      - paragraph
+    - generic: 답변
+    - button "전송" [disabled]:
+- alert
+- alert

@@ -1,0 +1,175 @@
+const imgLeftArrow = "http://localhost:3845/assets/e9ecf4b1f8b3aeeaa31749588398838d2604ac97.svg";
+const imgRightArrow = "http://localhost:3845/assets/31ca5f165c10a32fdb5b7bb93cb4a976ea658b9c.svg";
+type PickerApplyBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PickerApplyBtn({ className, label = "적용하기", state = "Default" }: PickerApplyBtnProps) {
+  return (
+    <div className={className || "bg-[var(--brand\\/primary,#1e50d4)] content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[131px]"} data-node-id="550:1443">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] text-center whitespace-nowrap" data-node-id="550:1444">
+        {label}
+      </p>
+    </div>
+  );
+}
+type PickerResetBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PickerResetBtn({ className, label = "초기화", state = "Default" }: PickerResetBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[133px]"} data-node-id="550:1438">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] text-center whitespace-nowrap" data-node-id="550:1439">
+        {label}
+      </p>
+    </div>
+  );
+}
+type NavArrowProps = {
+  className?: string;
+  direction?: "Left" | "Right";
+  state?: "Default";
+};
+
+function NavArrow({ className, direction = "Left", state = "Default" }: NavArrowProps) {
+  const isRightAndDefault = direction === "Right" && state === "Default";
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] size-[30px]"} id={isRightAndDefault ? "node-550_1435" : "node-550_1433"}>
+      <div className="flex items-center justify-center relative shrink-0" id={isRightAndDefault ? "node-552_19790" : "node-552_19785"}>
+        <div className={`-scale-y-100 flex-none ${isRightAndDefault ? "" : "rotate-180"}`}>
+          {direction === "Left" && state === "Default" && (
+            <div className="relative size-[14px]" data-name="Left Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLeftArrow} />
+            </div>
+          )}
+          {isRightAndDefault && (
+            <div className="relative size-[14px]" data-name="Right Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRightArrow} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+type YearPickerProps = {
+  className?: string;
+  rangeLabel?: string;
+};
+
+export default function YearPicker({ className, rangeLabel = "2020년 ~ 2031년" }: YearPickerProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch drop-shadow-[0px_4px_8px_rgba(0,0,0,0.08)] flex flex-col gap-[20px] items-start p-[24px] relative rounded-[16px]"} data-node-id="565:4573" data-name="YearPicker">
+      <div className="content-stretch flex items-center justify-between overflow-clip relative shrink-0 w-[272px]" data-node-id="565:4513" data-name="Year Header">
+        <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" />
+        <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Bold'] leading-[normal] min-w-px not-italic relative text-[#101010] text-[16px] text-center" data-node-id="565:4515">
+          {rangeLabel}
+        </p>
+        <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" direction="Right" />
+      </div>
+      <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[272px]" data-node-id="565:4517" data-name="2020 Content">
+        <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="565:4518" data-name="YearGrid">
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="565:4519" data-name="Row">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4549" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4549;565:4506">
+                2020
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4551" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4551;565:4506">
+                2021
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4553" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4553;565:4506">
+                2022
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4555" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4555;565:4506">
+                2023
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="565:4528" data-name="Row">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4557" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4557;565:4506">
+                2024
+              </p>
+            </div>
+            <div className="bg-[#f0f3ff] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4559" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/link,#1e50d4)] text-center whitespace-nowrap" data-node-id="I565:4559;565:4508">
+                2025
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4561" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4561;565:4506">
+                2026
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4563" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4563;565:4506">
+                2027
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="565:4537" data-name="Row">
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4565" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4565;565:4506">
+                2028
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4567" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4567;565:4506">
+                2029
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4569" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4569;565:4506">
+                2030
+              </p>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[62px]" data-node-id="565:4571" data-name="YearCell">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="I565:4571;565:4506">
+                2031
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="565:4546" data-name="Action Area">
+          <PickerResetBtn className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[133px]" />
+          <PickerApplyBtn className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[131px]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## YearPicker
+**Node ID:** 565:4573
+
+12개 연도 범위를 탐색하고 하나의 연도를 선택하는 Picker입니다.
+
+## YearCell
+**Node ID:** 565:4511
+
+YearPicker에서 사용하는 연도 셀입니다. State로 기본/선택 상태를 전환합니다.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

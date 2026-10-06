@@ -1,0 +1,43 @@
+const imgIcon = "http://localhost:3845/assets/1a8fafe4afdc7b2e33fbb19e4346c99e0969058d.svg";
+const imgIcon1 = "http://localhost:3845/assets/b65b185e856e6fd04fdd90b15cf107b12de03c9d.svg";
+type NewTaskBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default" | "Hover" | "Disabled";
+};
+
+export default function NewTaskBtn({ className, label = "새 작업 요청", state = "Default" }: NewTaskBtnProps) {
+  const isDisabled = state === "Disabled";
+  const isHover = state === "Hover";
+  return (
+    <div className={className || `content-stretch flex gap-[8px] items-center justify-center px-[16px] py-[10px] relative rounded-[8px] ${isDisabled ? String.raw`bg-[var(--status\/disabled-background,#e2e4e5)]` : isHover ? String.raw`bg-[var(--brand\/primary-hover,#1440b8)]` : String.raw`bg-[var(--brand\/primary,#1e50d4)]`}`} id={isDisabled ? "node-562_1594" : isHover ? "node-515_2052" : "node-515_2048"}>
+      <div className="flex flex-row items-center self-stretch" id={isDisabled ? "node-562_1595" : isHover ? "node-515_2053" : "node-515_2049"}>
+        <div className="aspect-[32/32] h-full relative shrink-0" data-name="Icon">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={isDisabled ? imgIcon1 : imgIcon} />
+        </div>
+      </div>
+      {["Default", "Hover"].includes(state) && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="515:2051">
+          {label}
+        </p>
+      )}
+      {isDisabled && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[#9ea7af] text-[14px] whitespace-nowrap" data-node-id="562:1596">
+          {label}
+        </p>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

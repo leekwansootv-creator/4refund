@@ -1,0 +1,31 @@
+type ComponentProps = {
+  className?: string;
+  propValue?: "입력 자료 보관 중" | "파기 예정" | "파기 완료" | "종료 미기록" | "환급 완료" | "계약 종료";
+};
+
+export default function Component({ className, propValue = "입력 자료 보관 중" }: ComponentProps) {
+  const is = propValue === "파기 예정";
+  const is1 = propValue === "파기 완료";
+  const is2 = propValue === "종료 미기록";
+  const is3 = propValue === "환급 완료";
+  const is4 = propValue === "계약 종료";
+  return (
+    <div className={className || `content-stretch flex h-[25px] items-start px-[8px] py-[4px] relative rounded-[4px] ${is4 ? "bg-[#fef3f2]" : is3 ? "bg-[#ecfdf2]" : is2 ? "bg-[#f4f0ff]" : is1 ? String.raw`bg-[var(--surface\/subtle,#f1f5f9)]` : is ? "bg-[#fff7e3]" : String.raw`bg-[var(--surface\/brand-light,#eef2ff)]`}`} id={is4 ? "node-659_6296" : is3 ? "node-659_6294" : is2 ? "node-659_6292" : is1 ? "node-659_6290" : is ? "node-659_6288" : "node-659_6286"}>
+      <p className={`[word-break:break-word] font-["Pretendard:Regular"] leading-[normal] not-italic relative self-stretch shrink-0 text-[14px] ${is4 ? String.raw`text-[color:var(--status\/error,#e53e3e)] w-[52px]` : is3 ? "text-[#16a34a] w-[52px]" : is2 ? String.raw`text-[color:var(--status\/ready,#7c3aed)] w-[65px]` : is1 ? String.raw`text-[color:var(--text\/secondary,#5e6670)] w-[52px]` : is ? String.raw`text-[color:var(--status\/warning,#d97706)] w-[52px]` : String.raw`text-[color:var(--text\/link,#1e50d4)] w-[96px]`}`} id={is4 ? "node-659_6297" : is3 ? "node-659_6295" : is2 ? "node-659_6293" : is1 ? "node-659_6291" : is ? "node-659_6289" : "node-659_6287"}>
+        {is4 ? "계약 종료" : is3 ? "환급 완료" : is2 ? "종료 미기록" : is1 ? "파기 완료" : is ? "파기 예정" : "입력 자료 보관 중"}
+      </p>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

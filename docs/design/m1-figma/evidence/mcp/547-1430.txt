@@ -1,0 +1,109 @@
+const imgArrowhead = "http://localhost:3845/assets/b002a8291263832384e99c6f7c1dbbb83c84a8dc.svg";
+const imgArrowhead1 = "http://localhost:3845/assets/5d0dae8f37f3708f0ab7a03a00cedf8624a7f781.svg";
+const imgArrowhead2 = "http://localhost:3845/assets/b38f8e43f9aba911475c31501f099065db3bb695.svg";
+type DropdownPanelProps = {
+  className?: string;
+  state?: "Hover";
+};
+
+function DropdownPanel({ className, state = "Hover" }: DropdownPanelProps) {
+  return (
+    <div className={className || "bg-[#eef2ff] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px]"} data-node-id="493:2195">
+      <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[#1e50d4] text-[14px] whitespace-nowrap" data-node-id="493:2194">
+        작업 종류 전체
+      </p>
+    </div>
+  );
+}
+
+function DropdownPanel1({ className }: { className?: string }) {
+  return (
+    <div className={className || "bg-white border border-[#e4e8ee] border-solid content-stretch drop-shadow-[0px_4px_6px_rgba(0,0,0,0.1)] flex flex-col gap-[2px] items-start px-[4px] py-[6px] relative rounded-[8px] w-[126px]"} data-node-id="503:1172" data-name="DropdownPanel">
+      <DropdownPanel className="bg-[#eef2ff] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px] shrink-0 w-full" />
+      <div className="bg-[rgba(255,255,255,0)] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px] shrink-0 w-full" data-node-id="493:2251" data-name="DropdownPanel 요소">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[14px] whitespace-nowrap" data-node-id="I493:2251;493:2192">
+          예상 환급액 조회
+        </p>
+      </div>
+      <div className="bg-[rgba(255,255,255,0)] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px] shrink-0 w-full" data-node-id="493:2248" data-name="DropdownPanel 요소">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[14px] whitespace-nowrap" data-node-id="I493:2248;493:2192">
+          본 경정청구 준비
+        </p>
+      </div>
+    </div>
+  );
+}
+type ComponentProps = {
+  className?: string;
+  state?: "Default" | "Hover" | "Open" | "Error" | "Disabled";
+  value?: string;
+};
+
+export default function Component({ className, state = "Default", value = "선택해 주세요" }: ComponentProps) {
+  const isDefaultOrOpenOrError = ["Default", "Open", "Error"].includes(state);
+  const isDisabled = state === "Disabled";
+  const isError = state === "Error";
+  const isHover = state === "Hover";
+  const isOpen = state === "Open";
+  return (
+    <div className={className || `content-stretch flex flex-col relative ${isOpen ? "gap-[4px] items-start" : ["Hover", "Disabled"].includes(state) ? "items-start w-[185px]" : "h-[44px] items-center justify-center w-[185px]"}`} id={isDisabled ? "node-790_28045" : isError ? "node-790_28017" : isOpen ? "node-547_1418" : isHover ? "node-547_1413" : "node-547_1408"}>
+      <div className={`border border-solid content-stretch flex h-[44px] items-center justify-between overflow-clip px-[16px] py-[12px] relative rounded-[8px] shrink-0 w-full ${isDisabled ? String.raw`bg-[var(--surface\/subtle,#f1f5f9)] border-[var(--border\/strong,#b2b8c2)]` : isError ? String.raw`bg-[var(--surface\/default,white)] border-[var(--status\/error-system,#ef4444)]` : isOpen ? String.raw`bg-[var(--surface\/default,white)] border-[var(--border\/focus,#1e50d4)]` : isHover ? String.raw`bg-[var(--surface\/default,white)] border-[var(--border\/strong,#b2b8c2)]` : String.raw`bg-[var(--surface\/default,white)] border-[var(--border\/default,#e4e8ee)]`}`} id={isDisabled ? "node-790_28046" : isError ? "node-790_28018" : isOpen ? "node-547_1419" : isHover ? "node-547_1414" : "node-547_1409"} data-name="Trigger">
+        {isDefaultOrOpenOrError && (
+          <>
+            <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="547:1410">
+              {value}
+            </p>
+            <div className="flex items-center justify-center relative shrink-0 size-[14px]" id={isError ? "node-790_28020" : isOpen ? "node-547_1421" : "node-547_1411"}>
+              <div className={`flex-none ${isOpen ? "-rotate-90" : "rotate-90"}`}>
+                <div className="relative size-[14px]" data-name="Arrowhead">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={isOpen ? imgArrowhead1 : imgArrowhead} />
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+        {isHover && (
+          <>
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Regular'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/primary,#1e2229)]" data-node-id="547:1415">
+              {value}
+            </p>
+            <div className="flex items-center justify-center relative shrink-0 size-[14px]" data-node-id="547:1416">
+              <div className="flex-none rotate-90">
+                <div className="relative size-[14px]" data-name="Arrowhead">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead} />
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+        {isDisabled && (
+          <>
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Regular'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/disabled,#a0a8b2)]" data-node-id="790:28047">
+              {value}
+            </p>
+            <div className="flex items-center justify-center relative shrink-0 size-[14px]" data-node-id="790:28048">
+              <div className="flex-none rotate-90">
+                <div className="relative size-[14px]" data-name="Arrowhead">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead2} />
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+      {isOpen && <DropdownPanel1 className="bg-white border border-[#e4e8ee] border-solid content-stretch drop-shadow-[0px_4px_6px_rgba(0,0,0,0.1)] flex flex-col gap-[2px] items-start px-[4px] py-[6px] relative rounded-[8px] shrink-0 w-[126px]" />}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

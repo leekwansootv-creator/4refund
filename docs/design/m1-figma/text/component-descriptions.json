@@ -1,0 +1,237 @@
+[
+  {
+    "nodeId": "686:5961",
+    "name": "Status=결과 수신 중",
+    "text": "결과를 서버에 저장·검증하고 있습니다. 실제 RPA 종료가 확인된 경우에만 처리 종료 문구 표시",
+    "sources": [
+      "evidence/mcp/518-2729.txt",
+      "evidence/mcp/649-6967.txt",
+      "evidence/mcp/675-24297.txt",
+      "evidence/mcp/675-24353.txt",
+      "evidence/mcp-status-tag.txt"
+    ]
+  },
+  {
+    "nodeId": "698:5766",
+    "name": "Status=자료 파기로 종료",
+    "text": "입력 자료 또는 결과 자료가 최종 파기되어 정상 결과 없이 작업이 종결된 상태입니다. 완료·실패·전체 파기 완료와 구분합니다.",
+    "sources": [
+      "evidence/mcp/518-2729.txt",
+      "evidence/mcp/649-6967.txt",
+      "evidence/mcp-status-tag.txt"
+    ]
+  },
+  {
+    "nodeId": "562:4378",
+    "name": "TaskTypeSelector",
+    "text": "두 작업 유형 중 하나만 선택하는 단일 선택 그룹입니다. Selection 속성으로 선택 상태를 전환합니다.",
+    "sources": [
+      "evidence/mcp/553-19867.txt",
+      "evidence/mcp/562-4378.txt",
+      "evidence/mcp/572-20511.txt",
+      "evidence/mcp/577-4555.txt",
+      "evidence/mcp/627-36118.txt",
+      "evidence/mcp/649-6091.txt",
+      "evidence/mcp/717-8980.txt",
+      "evidence/mcp/923-20493.txt",
+      "evidence/mcp/923-20627.txt"
+    ]
+  },
+  {
+    "nodeId": "565:4688",
+    "name": "YearField",
+    "text": "연도 입력 필드입니다. State는 Empty, PickerOpen, Selected이며 Value 속성으로 선택 연도를 변경합니다.",
+    "sources": [
+      "evidence/mcp/553-19867.txt",
+      "evidence/mcp/565-4688.txt",
+      "evidence/mcp/627-36118.txt"
+    ]
+  },
+  {
+    "nodeId": "558:4460",
+    "name": "MonthRangeField",
+    "text": "시작 연월을 선택하면 종료 연월은 +3개월로 표시합니다. 예상 환급액 조회에는 선택한 3개월의 전체 직원 급여대장이 필요합니다.",
+    "sources": [
+      "evidence/mcp/558-4460.txt",
+      "evidence/mcp/572-20511.txt",
+      "evidence/mcp/577-4555.txt",
+      "evidence/mcp/649-6091.txt"
+    ]
+  },
+  {
+    "nodeId": "565:4511",
+    "name": "YearCell",
+    "text": "YearPicker에서 사용하는 연도 셀입니다. State로 기본/선택 상태를 전환합니다.",
+    "sources": [
+      "evidence/mcp/565-4511.txt",
+      "evidence/mcp/565-4573.txt",
+      "evidence/mcp/565-4688.txt"
+    ]
+  },
+  {
+    "nodeId": "565:4573",
+    "name": "YearPicker",
+    "text": "12개 연도 범위를 탐색하고 하나의 연도를 선택하는 Picker입니다.",
+    "sources": ["evidence/mcp/565-4573.txt", "evidence/mcp/565-4688.txt"]
+  },
+  {
+    "nodeId": "577:4712",
+    "name": "State=Default",
+    "text": "한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.",
+    "sources": [
+      "evidence/mcp/572-20511.txt",
+      "evidence/mcp/576-21777.txt",
+      "evidence/mcp/578-1762.txt",
+      "evidence/mcp/591-23969.txt",
+      "evidence/mcp/602-27321.txt",
+      "evidence/mcp/717-17810.txt",
+      "evidence/mcp/717-18563.txt",
+      "evidence/mcp/730-13772.txt",
+      "evidence/mcp/740-6516.txt",
+      "evidence/mcp/771-12585.txt",
+      "evidence/mcp/789-14824.txt",
+      "evidence/mcp/789-15205.txt",
+      "evidence/mcp/796-8402.txt"
+    ]
+  },
+  {
+    "nodeId": "578:1762",
+    "name": "InputField",
+    "text": "재사용 가능한 한 줄 인풋입니다. Default, Hover, Focus, Filled, Error, Disabled 상태와 Value 속성을 지원합니다.",
+    "sources": [
+      "evidence/mcp/572-20511.txt",
+      "evidence/mcp/576-21777.txt",
+      "evidence/mcp/578-1762.txt",
+      "evidence/mcp/591-23969.txt",
+      "evidence/mcp/602-27321.txt",
+      "evidence/mcp/717-17810.txt",
+      "evidence/mcp/717-18563.txt",
+      "evidence/mcp/730-13772.txt",
+      "evidence/mcp/740-6516.txt",
+      "evidence/mcp/771-12585.txt",
+      "evidence/mcp/771-8040.txt",
+      "evidence/mcp/789-14824.txt",
+      "evidence/mcp/789-15205.txt",
+      "evidence/mcp/796-8402.txt"
+    ]
+  },
+  {
+    "nodeId": "583:2170",
+    "name": "FileUploadRow",
+    "text": "파일 1개 단위 전송 상태. 접수 상태 및 RPA 작업 상태와 분리한다. 전송 중에만 파일별 전송량·진행률을 표시한다.",
+    "sources": [
+      "evidence/mcp/576-20968.txt",
+      "evidence/mcp/576-21282.txt",
+      "evidence/mcp/583-2170.txt",
+      "evidence/mcp/591-23969.txt",
+      "evidence/mcp/591-24462.txt",
+      "evidence/mcp/602-26918.txt",
+      "evidence/mcp/602-27321.txt",
+      "evidence/mcp/877-9121.txt"
+    ]
+  },
+  {
+    "nodeId": "583:5005",
+    "name": "StatusBadge",
+    "text": "선택됨, 업로드 실패, 미첨부 상태를 표시하는 배지 컴포넌트입니다.",
+    "sources": [
+      "evidence/mcp/576-20968.txt",
+      "evidence/mcp/576-21282.txt",
+      "evidence/mcp/576-21674.txt",
+      "evidence/mcp/576-21777.txt",
+      "evidence/mcp/577-4496.txt",
+      "evidence/mcp/583-2170.txt",
+      "evidence/mcp/583-5005.txt",
+      "evidence/mcp/591-23969.txt",
+      "evidence/mcp/591-24462.txt",
+      "evidence/mcp/591-25588.txt",
+      "evidence/mcp/591-25823.txt",
+      "evidence/mcp/602-26051.txt",
+      "evidence/mcp/602-26918.txt",
+      "evidence/mcp/602-27321.txt",
+      "evidence/mcp/832-12130.txt",
+      "evidence/mcp/855-17582.txt",
+      "evidence/mcp/877-9121.txt"
+    ]
+  },
+  {
+    "nodeId": "583:2169",
+    "name": "Status=Failed",
+    "text": "개별 파일 전송 실패. 다시 시도 또는 같은 파일 재선택 안내에 사용한다.",
+    "sources": [
+      "evidence/mcp/576-21282.txt",
+      "evidence/mcp/583-2170.txt",
+      "evidence/mcp/602-26918.txt"
+    ]
+  },
+  {
+    "nodeId": "582:1903",
+    "name": "RetryActionBtn",
+    "text": "다시 선택 및 위험/재시도 액션에 사용하는 #E53E3E 컬러 버튼입니다.",
+    "sources": [
+      "evidence/mcp/576-21282.txt",
+      "evidence/mcp/582-1903.txt",
+      "evidence/mcp/583-2170.txt",
+      "evidence/mcp/602-26918.txt"
+    ]
+  },
+  {
+    "nodeId": "578:1752",
+    "name": "State=Hover",
+    "text": "한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.",
+    "sources": ["evidence/mcp/578-1762.txt"]
+  },
+  {
+    "nodeId": "578:1754",
+    "name": "State=Focus",
+    "text": "한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.",
+    "sources": ["evidence/mcp/578-1762.txt"]
+  },
+  {
+    "nodeId": "578:1756",
+    "name": "State=Filled",
+    "text": "한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.",
+    "sources": ["evidence/mcp/578-1762.txt", "evidence/mcp/771-8040.txt"]
+  },
+  {
+    "nodeId": "578:1758",
+    "name": "State=Error",
+    "text": "한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.",
+    "sources": ["evidence/mcp/578-1762.txt", "evidence/mcp/796-8402.txt"]
+  },
+  {
+    "nodeId": "578:1760",
+    "name": "State=Disabled",
+    "text": "한 줄 텍스트 입력 필드입니다. Value 속성으로 플레이스홀더 또는 입력값을 변경합니다.",
+    "sources": ["evidence/mcp/578-1762.txt"]
+  },
+  {
+    "nodeId": "591:24922",
+    "name": "상태=파일제출",
+    "text": "파일 전송 상태는 제목이 아니라 각 파일 행에 표시한다.",
+    "sources": [
+      "evidence/mcp/591-23969.txt",
+      "evidence/mcp/591-24462.txt",
+      "evidence/mcp/602-26918.txt",
+      "evidence/mcp/602-27321.txt",
+      "evidence/mcp/877-9121.txt"
+    ]
+  },
+  {
+    "nodeId": "602:27718",
+    "name": "상태=추가입력+파일제출",
+    "text": "파일 전송 상태는 제목이 아니라 각 파일 행에 표시한다.",
+    "sources": ["evidence/mcp/591-23969.txt", "evidence/mcp/602-27321.txt"]
+  },
+  {
+    "nodeId": "722:14435",
+    "name": "DayField",
+    "text": "연도 입력 필드입니다. State는 Empty, PickerOpen, Selected이며 Value 속성으로 선택 연도를 변경합니다.",
+    "sources": [
+      "evidence/mcp/717-8980.txt",
+      "evidence/mcp/722-14435.txt",
+      "evidence/mcp/923-20493.txt",
+      "evidence/mcp/923-20627.txt"
+    ]
+  }
+]

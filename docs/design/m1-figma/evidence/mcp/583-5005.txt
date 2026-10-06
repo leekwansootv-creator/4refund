@@ -1,0 +1,71 @@
+type StatusBadgeProps = {
+  className?: string;
+  missingLabel?: string;
+  propValue?: string;
+  propValue1?: string;
+  propValue2?: string;
+  selectedLabel?: string;
+  status?: "Selected" | "UploadFailed" | "Missing" | "Sending" | "Received" | "Checking";
+  uploadFailedLabel?: string;
+};
+
+export default function StatusBadge({ className, missingLabel = "미첨부", propValue = "전송 중", propValue1 = "전송 완료", propValue2 = "수신 확인 중", selectedLabel = "선택됨", status = "Selected", uploadFailedLabel = "전송 실패" }: StatusBadgeProps) {
+  const isChecking = status === "Checking";
+  const isMissing = status === "Missing";
+  const isReceived = status === "Received";
+  const isSending = status === "Sending";
+  const isUploadFailed = status === "UploadFailed";
+  return (
+    <div className={className || `content-stretch flex items-start px-[8px] py-[3px] relative rounded-[4px] ${isMissing ? "bg-[#fef3f2] w-[48px]" : isUploadFailed ? "bg-[#fef3f2]" : isChecking ? "bg-[#fff7e3]" : isReceived ? "bg-[#ecfdf2]" : isSending ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)]` : String.raw`bg-[var(--surface\/brand-light,#eef2ff)] w-[48px]`}`} id={isMissing ? "node-583_5004" : isUploadFailed ? "node-583_5001" : isChecking ? "node-632_4377" : isReceived ? "node-632_4375" : isSending ? "node-632_4373" : "node-583_4998"}>
+      {status === "Selected" && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="583:4997">
+          {selectedLabel}
+        </p>
+      )}
+      {isSending && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="632:4374">
+          {propValue}
+        </p>
+      )}
+      {isReceived && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[#16a34a] text-[12px] whitespace-nowrap" data-node-id="632:4376">
+          {propValue1}
+        </p>
+      )}
+      {isChecking && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/warning,#d97706)] whitespace-nowrap" data-node-id="632:4378">
+          {propValue2}
+        </p>
+      )}
+      {isUploadFailed && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error,#e53e3e)] whitespace-nowrap" data-node-id="583:5000">
+          {uploadFailedLabel}
+        </p>
+      )}
+      {isMissing && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error,#e53e3e)] whitespace-nowrap" data-node-id="583:5003">
+          {missingLabel}
+        </p>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## StatusBadge
+**Node ID:** 583:5005
+
+선택됨, 업로드 실패, 미첨부 상태를 표시하는 배지 컴포넌트입니다.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

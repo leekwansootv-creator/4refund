@@ -1,0 +1,96 @@
+const imgHorizontalDivider = "http://localhost:3845/assets/231586ad0b1c0ba3ec8fabcbf335291ab49101db.svg";
+type ComponentProps = {
+  className?: string;
+  propValue?: "예상 환급액 조회" | "본 경정청구 준비 + 엑셀 자료" | "본 경정청구 준비 + WEHAGO·Smart A 백업";
+};
+
+export default function Component({ className, propValue = "예상 환급액 조회" }: ComponentProps) {
+  const is = propValue === "본 경정청구 준비 + 엑셀 자료";
+  const isOrWehagoSmartA = ["본 경정청구 준비 + 엑셀 자료", "본 경정청구 준비 + WEHAGO·Smart A 백업"].includes(propValue);
+  const isWehagoSmartA = propValue === "본 경정청구 준비 + WEHAGO·Smart A 백업";
+  return (
+    <div className={className || "bg-[var(--background\\/subtle,#f8fafc)] border border-[var(--border\\/subtle,#e2e8f0)] border-solid content-stretch flex items-center justify-between px-[24px] py-[16px] relative rounded-[10px] w-[1440px]"} id={isWehagoSmartA ? "node-634_4600" : is ? "node-634_4542" : "node-634_4487"}>
+      <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] gap-[8px] items-center leading-[normal] min-w-px not-italic relative text-[13px] whitespace-nowrap" id={isWehagoSmartA ? "node-634_4582" : is ? "node-634_4524" : "node-634_4472"} data-name="1 항목">
+        <p className="font-['Pretendard:Regular'] relative shrink-0 text-[color:var(--text\/tertiary,#8a94a0)]" id={isWehagoSmartA ? "node-634_4583" : is ? "node-634_4525" : "node-634_4473"}>
+          고객사
+        </p>
+        <p className="font-['Pretendard:SemiBold'] relative shrink-0 text-[color:var(--text\/primary,#1e2229)]" id={isWehagoSmartA ? "node-634_4584" : is ? "node-634_4526" : "node-634_4474"}>
+          예시기업 D
+        </p>
+      </div>
+      <div className="flex h-px items-center justify-center relative shrink-0 w-0" id={isWehagoSmartA ? "node-634_4585" : is ? "node-634_4527" : "node-634_4475"}>
+        <div className="flex-none rotate-90">
+          <div className="h-0 relative w-px" data-name="Horizontal Divider">
+            <div className="absolute inset-[-1px_0_0_0]">
+              <img alt="" className="block max-w-none size-full" src={imgHorizontalDivider} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] gap-[8px] items-center leading-[normal] min-w-px not-italic relative text-[13px] whitespace-nowrap" id={isWehagoSmartA ? "node-634_4586" : is ? "node-634_4528" : "node-634_4476"} data-name="2 항목">
+        <p className="font-['Pretendard:Regular'] relative shrink-0 text-[color:var(--text\/tertiary,#8a94a0)]" id={isWehagoSmartA ? "node-634_4587" : is ? "node-634_4529" : "node-634_4477"}>
+          작업 종류
+        </p>
+        <p className="font-['Pretendard:SemiBold'] relative shrink-0 text-[color:var(--text\/primary,#1e2229)]" id={isWehagoSmartA ? "node-634_4588" : is ? "node-634_4530" : "node-634_4478"}>
+          {isOrWehagoSmartA ? "본 경정청구 준비" : "예상 환급액 조회"}
+        </p>
+      </div>
+      <div className="flex h-px items-center justify-center relative shrink-0 w-0" id={isWehagoSmartA ? "node-634_4589" : is ? "node-634_4531" : "node-634_4479"}>
+        <div className="flex-none rotate-90">
+          <div className="h-0 relative w-px" data-name="Horizontal Divider 2">
+            <div className="absolute inset-[-1px_0_0_0]">
+              <img alt="" className="block max-w-none size-full" src={imgHorizontalDivider} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] gap-[8px] items-center leading-[normal] min-w-px not-italic relative text-[13px] whitespace-nowrap" id={isWehagoSmartA ? "node-634_4590" : is ? "node-634_4532" : "node-634_4480"} data-name="3 항목">
+        <p className="font-['Pretendard:Regular'] relative shrink-0 text-[color:var(--text\/tertiary,#8a94a0)]" id={isWehagoSmartA ? "node-634_4591" : is ? "node-634_4533" : "node-634_4481"}>
+          대상 기간
+        </p>
+        <p className="font-['Pretendard:SemiBold'] relative shrink-0 text-[color:var(--text\/primary,#1e2229)]" id={isWehagoSmartA ? "node-634_4592" : is ? "node-634_4534" : "node-634_4482"}>
+          {isOrWehagoSmartA ? "2023년 ~ 2025년" : "2026.04 ~ 2026.06"}
+        </p>
+      </div>
+      <div className="flex h-px items-center justify-center relative shrink-0 w-0" id={isWehagoSmartA ? "node-634_4593" : is ? "node-634_4535" : "node-634_4483"}>
+        <div className="flex-none rotate-90">
+          <div className="h-0 relative w-px" data-name="Horizontal Divider 3">
+            <div className="absolute inset-[-1px_0_0_0]">
+              <img alt="" className="block max-w-none size-full" src={imgHorizontalDivider} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] gap-[8px] items-center leading-[normal] min-w-px not-italic relative text-[13px] whitespace-nowrap" id={isWehagoSmartA ? "node-634_4594" : is ? "node-634_4536" : "node-634_4484"} data-name="4 항목">
+        <p className="font-['Pretendard:Regular'] relative shrink-0 text-[color:var(--text\/tertiary,#8a94a0)]" id={isWehagoSmartA ? "node-634_4595" : is ? "node-634_4537" : "node-634_4485"}>
+          대상 범위
+        </p>
+        <p className="font-['Pretendard:SemiBold'] relative shrink-0 text-[color:var(--text\/primary,#1e2229)]" id={isWehagoSmartA ? "node-634_4596" : is ? "node-634_4538" : "node-634_4486"}>
+          사업장 전체 직원
+        </p>
+      </div>
+      {isOrWehagoSmartA && (
+        <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] gap-[8px] items-center leading-[normal] min-w-px not-italic relative text-[13px] whitespace-nowrap" id={isWehagoSmartA ? "node-634_4597" : "node-634_4539"} data-name="5 항목">
+          <p className="font-['Pretendard:Regular'] relative shrink-0 text-[color:var(--text\/tertiary,#8a94a0)]" id={isWehagoSmartA ? "node-634_4598" : "node-634_4540"}>
+            자료방식
+          </p>
+          <p className="font-['Pretendard:SemiBold'] relative shrink-0 text-[color:var(--text\/primary,#1e2229)]" id={isWehagoSmartA ? "node-634_4599" : "node-634_4541"}>
+            {isWehagoSmartA ? "WEHAGO·Smart A 백업" : is ? "엑셀 자료" : ""}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

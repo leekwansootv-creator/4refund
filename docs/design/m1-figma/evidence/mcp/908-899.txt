@@ -1,0 +1,75 @@
+const imgMiniLogo = "http://localhost:3845/assets/659a2a99c748f2697f0675df31c56b7eacd27090.svg";
+const imgWarningIcon = "http://localhost:3845/assets/8729a0c3ec2a9db5ff7abde52b9a9b530e5a3f2f.svg";
+type PrimaryActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PrimaryActionBtn({ className, label = "기록 저장", state = "Default" }: PrimaryActionBtnProps) {
+  return (
+    <div className={className || "bg-[var(--brand\\/primary,#1e50d4)] content-stretch flex h-[28px] items-center justify-center px-[16px] py-[6px] relative rounded-[6px] w-[71px]"} data-node-id="722:14686">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="722:14685">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function MiniLogo({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[26px] relative w-[38px]"} data-node-id="493:2479" data-name="mini logo">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMiniLogo} />
+    </div>
+  );
+}
+
+export default function Otp() {
+  return (
+    <div className="bg-[var(--surface\/default,white)] content-stretch drop-shadow-[0px_8px_12px_var(--effect\/shadow-subtle,rgba(0,0,0,0.04))] flex flex-col gap-[24px] items-center justify-center pb-[40px] pt-[48px] px-[32px] relative rounded-[16px] size-full" data-node-id="908:899" data-name="최초 계정 설정_OTP 설정 미완료">
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="908:900" data-name="Logo Combined">
+        <MiniLogo className="h-[26px] relative shrink-0 w-[38px]" />
+        <div className="bg-[#1e50d4] content-stretch flex items-start px-[6px] py-[2px] relative rounded-[4px] shrink-0" data-node-id="908:902" data-name="CMS Badge">
+          <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[11px] text-white whitespace-nowrap" data-node-id="908:903">
+            CMS
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0" data-node-id="908:904" data-name="Container">
+        <div className="bg-[rgba(255,156,55,0.05)] border border-[rgba(255,156,55,0.1)] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[60px] shrink-0 size-[98px]" data-node-id="908:905" data-name="illustration">
+          <div className="relative shrink-0 size-[48px]" data-node-id="908:906" data-name="Warning Icon">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWarningIcon} />
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col items-center relative shrink-0 w-[396px]" data-node-id="908:907" data-name="Title Header Section">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-center not-italic relative shrink-0 text-center w-full" data-node-id="908:908" data-name="Title Stack">
+            <p className="font-['Pretendard:Bold'] leading-[normal] relative shrink-0 text-[#101828] text-[22px] w-full" data-node-id="908:909">
+              2단계 인증 설정이 필요합니다.
+            </p>
+            <p className="font-['Pretendard:Regular'] leading-[1.5] relative shrink-0 text-[13px] text-[color:var(--text\/secondary-strong,#4b5563)] w-full" data-node-id="908:910">
+              비밀번호 저장은 완료됐지만 2단계 인증 설정이 남아 있습니다.
+            </p>
+            <p className="font-['Pretendard:Regular'] leading-[normal] relative shrink-0 text-[12px] text-[color:var(--text\/tertiary,#8a94a0)] w-full" data-node-id="908:911">
+              저장한 비밀번호로 로그인한 뒤 설정을 이어가 주세요.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full" data-node-id="908:912" data-name="로그인 후 설정 이어가기 Container">
+        <PrimaryActionBtn className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex h-[44px] items-center justify-center px-[16px] py-[6px] relative rounded-[6px] shrink-0 w-full" label="로그인 후 설정 이어가기" />
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

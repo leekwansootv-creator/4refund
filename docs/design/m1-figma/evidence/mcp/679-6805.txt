@@ -1,0 +1,112 @@
+const imgIcon = "http://localhost:3845/assets/c50e0fddfc3167d99b1f952c39de210ed9135a04.svg";
+const imgIcon1 = "http://localhost:3845/assets/1c1dd58b4297ee86cb074e7808f122f37dbfe181.svg";
+const imgPlus = "http://localhost:3845/assets/54b4f012e057aeddf843af57fd644c5bd9aa14f3.svg";
+const imgCustomerSupport = "http://localhost:3845/assets/a79aa08bdc45f2bc534b59ab0b8882f58377a0cd.svg";
+const imgIcon = "http://localhost:3845/assets/c50e0fddfc3167d99b1f952c39de210ed9135a04.svg";
+type SidebarItemProps = {
+  className?: string;
+  state?: "Active" | "Default";
+};
+
+function SidebarItem({ className, state = "Default" }: SidebarItemProps) {
+  const isActive = state === "Active";
+  return (
+    <div className={className || `content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] w-[208px] ${isActive ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)]` : String.raw`bg-[var(--utility\/transparent,rgba(0,0,0,0))]`}`} id={isActive ? "node-495_13" : "node-495_18"}>
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" id={isActive ? "node-493_1348" : "node-495_19"} data-name="label-container">
+        <div className="flex flex-row items-center self-stretch" id={isActive ? "node-493_1349" : "node-495_20"}>
+          <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={isActive ? imgIcon1 : imgIcon} />
+          </div>
+        </div>
+        <p className={`[word-break:break-word] leading-[normal] not-italic relative shrink-0 text-[16px] whitespace-nowrap ${isActive ? String.raw`font-["Pretendard:Bold"] text-[color:var(--text\/link,#1e50d4)]` : String.raw`font-["Pretendard:Medium"] text-[color:var(--text\/primary-warm,#231f20)]`}`} id={isActive ? "node-493_1350" : "node-495_21"}>
+          내 작업
+        </p>
+      </div>
+    </div>
+  );
+}
+type MenuContainerProps = {
+  className?: string;
+  propValue?: "영업직" | "신고 담당 노무사" | "영업직 · 신고 담당 노무사" | "본부장" | "총괄 관리자" | "개발자";
+};
+
+export default function MenuContainer({ className, propValue = "영업직" }: MenuContainerProps) {
+  const is = propValue === "신고 담당 노무사";
+  const is1 = propValue === "영업직 · 신고 담당 노무사";
+  const is2 = propValue === "본부장";
+  const is3 = propValue === "총괄 관리자";
+  const is4 = propValue === "개발자";
+  const isOrOr = ["본부장", "총괄 관리자", "개발자"].includes(propValue);
+  const isOrOrOrOr = ["영업직", "영업직 · 신고 담당 노무사", "본부장", "총괄 관리자", "개발자"].includes(propValue);
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[4px] items-start relative w-[208px]"} id={is4 ? "node-679_6773" : is3 ? "node-679_6734" : is2 ? "node-679_6695" : is1 ? "node-679_6656" : is ? "node-679_6617" : "node-679_6578"}>
+      <SidebarItem className="bg-[var(--surface\/brand-light,#eef2ff)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" state="Active" />
+      <div className={`content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px] ${is ? "bg-[rgba(0,0,0,0)]" : String.raw`bg-[var(--utility\/transparent,rgba(0,0,0,0))]`}`} id={is4 ? "node-679_6768" : is3 ? "node-679_6729" : is2 ? "node-679_6690" : is1 ? "node-679_6651" : is ? "node-679_6616" : "node-679_6573"} data-name="SidebarItem">
+        <div className="content-stretch flex gap-[8px] items-center relative shrink-0" id={is4 ? "node-I679_6768-495_19" : is3 ? "node-I679_6729-495_19" : is2 ? "node-I679_6690-495_19" : is1 ? "node-I679_6651-495_19" : is ? "node-I679_6616-516_5560" : "node-I679_6573-495_19"} data-name="label-container">
+          <div className="flex flex-row items-center self-stretch" id={is4 ? "node-I679_6768-495_20" : is3 ? "node-I679_6729-495_20" : is2 ? "node-I679_6690-495_20" : is1 ? "node-I679_6651-495_20" : is ? "node-I679_6616-516_5561" : "node-I679_6573-495_20"}>
+            {isOrOrOrOr && (
+              <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPlus} />
+              </div>
+            )}
+            {is && (
+              <div className="aspect-[24/24] h-full relative shrink-0" data-name="document">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCustomerSupport} />
+              </div>
+            )}
+          </div>
+          <p className={`[word-break:break-word] font-["Pretendard:Medium"] leading-[normal] not-italic relative shrink-0 text-[16px] whitespace-nowrap ${is ? "text-[#231f20]" : String.raw`text-[color:var(--text\/primary-warm,#231f20)]`}`} id={is4 ? "node-I679_6768-495_21" : is3 ? "node-I679_6729-495_21" : is2 ? "node-I679_6690-495_21" : is1 ? "node-I679_6651-495_21" : is ? "node-I679_6616-516_5562" : "node-I679_6573-495_21"}>
+            {is ? "고객지원" : ["영업직 · 신고 담당 노무사", "본부장", "총괄 관리자", "개발자"].includes(propValue) ? "새 작업 요청" : "새 작업 요청"}
+          </p>
+        </div>
+      </div>
+      {isOrOrOrOr && (
+        <div className={`content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px] ${isOrOr ? String.raw`bg-[var(--utility\/transparent,rgba(0,0,0,0))]` : "bg-[rgba(0,0,0,0)]"}`} id={is4 ? "node-679_6771" : is3 ? "node-679_6732" : is2 ? "node-679_6692" : is1 ? "node-679_6655" : "node-679_6577"} data-name="SidebarItem">
+          <div className="content-stretch flex gap-[8px] items-center relative shrink-0" id={is4 ? "node-I679_6771-495_19" : is3 ? "node-I679_6732-495_19" : is2 ? "node-I679_6692-495_19" : is1 ? "node-I679_6655-516_5560" : "node-I679_6577-516_5560"} data-name="label-container">
+            <div className="flex flex-row items-center self-stretch" id={is4 ? "node-I679_6771-495_20" : is3 ? "node-I679_6732-495_20" : is2 ? "node-I679_6692-495_20" : is1 ? "node-I679_6655-516_5561" : "node-I679_6577-516_5561"}>
+              {isOrOr && (
+                <div className="aspect-[24/24] h-full relative shrink-0" data-name="Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcon} />
+                </div>
+              )}
+              {["영업직", "영업직 · 신고 담당 노무사"].includes(propValue) && (
+                <div className="aspect-[24/24] h-full relative shrink-0" data-name="document">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCustomerSupport} />
+                </div>
+              )}
+            </div>
+            <p className={`[word-break:break-word] font-["Pretendard:Medium"] leading-[normal] not-italic relative shrink-0 text-[16px] whitespace-nowrap ${isOrOr ? String.raw`text-[color:var(--text\/primary-warm,#231f20)]` : "text-[#231f20]"}`} id={is4 ? "node-I679_6771-495_21" : is3 ? "node-I679_6732-495_21" : is2 ? "node-I679_6692-495_21" : is1 ? "node-I679_6655-516_5562" : "node-I679_6577-516_5562"}>
+              {["총괄 관리자", "개발자"].includes(propValue) ? "사용자 관리" : is2 ? "영업직 계정" : is1 ? "고객지원" : "고객지원"}
+            </p>
+          </div>
+        </div>
+      )}
+      {isOrOr && (
+        <div className="bg-[rgba(0,0,0,0)] content-stretch flex items-center justify-between px-[12px] py-[8px] relative rounded-[8px] shrink-0 w-[208px]" id={is4 ? "node-679_6772" : is3 ? "node-679_6733" : "node-679_6694"} data-name="SidebarItem">
+          <div className="content-stretch flex gap-[8px] items-center relative shrink-0" id={is4 ? "node-I679_6772-516_5560" : is3 ? "node-I679_6733-516_5560" : "node-I679_6694-516_5560"} data-name="label-container">
+            <div className="flex flex-row items-center self-stretch" id={is4 ? "node-I679_6772-516_5561" : is3 ? "node-I679_6733-516_5561" : "node-I679_6694-516_5561"}>
+              <div className="aspect-[24/24] h-full relative shrink-0" data-name="document">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCustomerSupport} />
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[16px] whitespace-nowrap" id={is4 ? "node-I679_6772-516_5562" : is3 ? "node-I679_6733-516_5562" : "node-I679_6694-516_5562"}>
+              고객지원
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

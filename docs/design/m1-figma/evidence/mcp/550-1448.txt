@@ -1,0 +1,138 @@
+const imgLeftArrow = "http://localhost:3845/assets/e9ecf4b1f8b3aeeaa31749588398838d2604ac97.svg";
+const imgRightArrow = "http://localhost:3845/assets/31ca5f165c10a32fdb5b7bb93cb4a976ea658b9c.svg";
+type PickerApplyBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PickerApplyBtn({ className, label = "적용하기", state = "Default" }: PickerApplyBtnProps) {
+  return (
+    <div className={className || "bg-[var(--brand\\/primary,#1e50d4)] content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[131px]"} data-node-id="550:1443">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] text-center whitespace-nowrap" data-node-id="550:1444">
+        {label}
+      </p>
+    </div>
+  );
+}
+type PickerResetBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PickerResetBtn({ className, label = "초기화", state = "Default" }: PickerResetBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[133px]"} data-node-id="550:1438">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] text-center whitespace-nowrap" data-node-id="550:1439">
+        {label}
+      </p>
+    </div>
+  );
+}
+type MonthCellProps = {
+  className?: string;
+  label?: string;
+  state?: "Selected" | "Default";
+};
+
+function MonthCell({ className, label = "1월", state = "Default" }: MonthCellProps) {
+  const isSelected = state === "Selected";
+  return (
+    <div className={className || `border border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[62px] ${isSelected ? String.raw`bg-[#f0f3ff] border-[var(--border\/focus,#1e50d4)]` : String.raw`bg-[var(--surface\/default,white)] border-[var(--surface\/disabled-strong,#d1d5db)]`}`} id={isSelected ? "node-550_1428" : "node-550_1426"}>
+      {state === "Default" && (
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="550:1427">
+          {label}
+        </p>
+      )}
+      {isSelected && (
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/link,#1e50d4)] text-center whitespace-nowrap" data-node-id="550:1429">
+          {label}
+        </p>
+      )}
+    </div>
+  );
+}
+type NavArrowProps = {
+  className?: string;
+  direction?: "Left" | "Right";
+  state?: "Default";
+};
+
+function NavArrow({ className, direction = "Left", state = "Default" }: NavArrowProps) {
+  const isRightAndDefault = direction === "Right" && state === "Default";
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] size-[30px]"} id={isRightAndDefault ? "node-550_1435" : "node-550_1433"}>
+      <div className="flex items-center justify-center relative shrink-0" id={isRightAndDefault ? "node-552_19790" : "node-552_19785"}>
+        <div className={`-scale-y-100 flex-none ${isRightAndDefault ? "" : "rotate-180"}`}>
+          {direction === "Left" && state === "Default" && (
+            <div className="relative size-[14px]" data-name="Left Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLeftArrow} />
+            </div>
+          )}
+          {isRightAndDefault && (
+            <div className="relative size-[14px]" data-name="Right Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRightArrow} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+type MonthPickerProps = {
+  className?: string;
+  yearLabel?: string;
+};
+
+export default function MonthPicker({ className, yearLabel = "2025년" }: MonthPickerProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch drop-shadow-[0px_4px_8px_rgba(0,0,0,0.08)] flex flex-col gap-[20px] items-start p-[24px] relative rounded-[16px]"} data-node-id="550:1448" data-name="MonthPicker">
+      <div className="content-stretch flex items-center justify-between overflow-clip relative shrink-0 w-[272px]" data-node-id="550:1449" data-name="Year Header">
+        <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" />
+        <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Bold'] leading-[normal] min-w-px not-italic relative text-[#101010] text-[18px] text-center" data-node-id="550:1451">
+          {yearLabel}
+        </p>
+        <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" direction="Right" />
+      </div>
+      <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[272px]" data-node-id="553:19803" data-name="MonthPicker Container">
+        <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="550:1453" data-name="MonthGrid">
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="550:1454" data-name="Row">
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="2월" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="3월" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="4월" />
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="550:1463" data-name="Row">
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="5월" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="6월" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="7월" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="8월" />
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="550:1472" data-name="Row">
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="9월" />
+            <MonthCell className="bg-[#f0f3ff] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="10월" state="Selected" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="11월" />
+            <MonthCell className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" label="12월" />
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="550:1481" data-name="Action Area">
+          <PickerResetBtn className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" />
+          <PickerApplyBtn className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex flex-[1_0_0] h-[37px] items-center justify-center min-w-px py-[10px] relative rounded-[8px]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

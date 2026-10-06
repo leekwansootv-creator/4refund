@@ -1,0 +1,36 @@
+type ComponentProps = {
+  className?: string;
+  propValue?: string;
+  propValue1?: "완료" | "현재" | "기본";
+};
+
+export default function Component({ className, propValue = "단계", propValue1 = "기본" }: ComponentProps) {
+  const is = propValue1 === "현재";
+  const is1 = propValue1 === "완료";
+  return (
+    <div className={className || `content-stretch flex items-start px-[16px] py-[8px] relative ${is1 ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)] rounded-[6px]` : is ? String.raw`bg-[var(--surface\/default,white)] drop-shadow-[0px_1px_1px_var(--effect\/shadow-subtle,rgba(0,0,0,0.04))] rounded-[6px]` : ""}`} id={is1 ? "node-611_3698" : is ? "node-611_3701" : "node-611_3704"}>
+      {["현재", "완료"].includes(propValue1) && (
+        <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="611:3700">
+          {propValue}
+        </p>
+      )}
+      {propValue1 === "기본" && (
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="611:3703">
+          {propValue}
+        </p>
+      )}
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

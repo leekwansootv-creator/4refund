@@ -1,0 +1,48 @@
+type StatusTagProps = {
+  className?: string;
+  status?: "대기 중" | "실행 준비 중" | "실행 중" | "완료" | "실패" | "확인 필요" | "결과 수신 중" | "자료 파기로 종료";
+};
+
+export default function StatusTag({ className, status = "대기 중" }: StatusTagProps) {
+  const is = status === "실행 준비 중";
+  const is1 = status === "완료";
+  const is2 = status === "실패";
+  const is3 = status === "실행 중";
+  const is4 = status === "결과 수신 중";
+  const is5 = status === "자료 파기로 종료";
+  const is6 = status === "확인 필요";
+  const isOr = ["실행 중", "결과 수신 중"].includes(status);
+  return (
+    <div className={className || `content-stretch flex items-center justify-center px-[10px] py-[4px] relative rounded-[4px] ${is2 ? String.raw`bg-[var(--status\/error-background,#fee2e2)]` : is1 ? String.raw`bg-[var(--status\/success-background,#e6f9f0)]` : ["자료 파기로 종료", "확인 필요"].includes(status) ? String.raw`bg-[var(--status\/attention-background,#fff2ec)]` : isOr ? String.raw`bg-[var(--status\/progress-background,#e0f2fe)]` : is ? String.raw`bg-[var(--status\/ready-background,#f5f0ff)]` : String.raw`bg-[var(--status\/warning-background,#fff9e6)]`}`} id={is6 ? "node-499_81" : is2 ? "node-499_79" : is1 ? "node-499_77" : is5 ? "node-698_5766" : is4 ? "node-686_5961" : is3 ? "node-499_75" : is ? "node-499_73" : "node-499_71"}>
+      <p className={`[word-break:break-word] font-["Pretendard:SemiBold"] leading-[normal] not-italic relative shrink-0 text-[12px] whitespace-nowrap ${is6 ? String.raw`text-[color:var(--status\/attention,#ea580c)]` : is1 ? String.raw`text-[color:var(--status\/success,#15803d)]` : ["자료 파기로 종료", "실패"].includes(status) ? String.raw`text-[color:var(--status\/error-strong,#b91c1c)]` : isOr ? String.raw`text-[color:var(--status\/progress,#0284c7)]` : is ? String.raw`text-[color:var(--status\/ready,#7c3aed)]` : String.raw`text-[color:var(--status\/warning,#d97706)]`}`} id={is6 ? "node-499_82" : is2 ? "node-499_80" : is1 ? "node-499_78" : is5 ? "node-698_5767" : is4 ? "node-686_5962" : is3 ? "node-499_76" : is ? "node-499_74" : "node-499_72"}>
+        {is6 ? "확인 필요" : is2 ? "실패" : is1 ? "완료" : is5 ? "자료 파기로 종료" : is4 ? "결과 수신 중" : is3 ? "실행 중" : is ? "실행 준비 중" : "대기 중"}
+      </p>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Component descriptions: The following components have usage descriptions or documentation links defined in Figma. These descriptions provide important context about the intended usage, best practices, and any constraints for each component. Follow these guidelines when implementing or using these components.
+
+## Status=결과 수신 중
+**Node ID:** 686:5961
+
+결과를 서버에 저장·검증하고 있습니다. 실제 RPA 종료가 확인된 경우에만 처리 종료 문구 표시
+
+## Status=자료 파기로 종료
+**Node ID:** 698:5766
+
+입력 자료 또는 결과 자료가 최종 파기되어 정상 결과 없이 작업이 종결된 상태입니다. 완료·실패·전체 파기 완료와 구분합니다.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.
+
+Some elements have annotation data attributes. They provide extra information about how the element should be implemented.IMPORTANT: Do not ignore these annotation attributes. They should not appear in your final code.

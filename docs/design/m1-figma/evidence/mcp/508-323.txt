@@ -1,0 +1,85 @@
+const imgArrowhead = "http://localhost:3845/assets/7cdea77803639c1caf42fa62ac24e2c7312f7e34.svg";
+const imgArrowhead1 = "http://localhost:3845/assets/bcb85086b070d65bf2915a67cb2aa22fff00fbd4.svg";
+
+function Arrowhead({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[36px]"} data-node-id="493:2079" data-name="arrowhead">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead} />
+    </div>
+  );
+}
+type PaginationArrowProps = {
+  className?: string;
+  direction?: "Next";
+  state?: "Default";
+};
+
+function PaginationArrow({ className, direction = "Next", state = "Default" }: PaginationArrowProps) {
+  return (
+    <div className={className || "bg-white border border-[#e4e8ee] border-solid content-stretch flex items-center justify-center p-[6px] relative rounded-[4px] size-[24px]"} data-node-id="508:298">
+      <Arrowhead className="relative shrink-0 size-[12px]" />
+    </div>
+  );
+}
+type PageButtonProps = {
+  className?: string;
+  page?: string;
+  state?: "Default" | "Active";
+};
+
+function PageButton({ className, page = "1", state = "Default" }: PageButtonProps) {
+  const isActive = state === "Active";
+  return (
+    <div className={className || `content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] size-[31px] ${isActive ? "bg-[#1e50d4]" : "bg-white"}`} id={isActive ? "node-508_295" : "node-508_291"}>
+      {state === "Default" && (
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[14px] text-center whitespace-nowrap" data-node-id="508:292">
+          {page}
+        </p>
+      )}
+      {isActive && (
+        <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-center text-white whitespace-nowrap" data-node-id="508:296">
+          {page}
+        </p>
+      )}
+    </div>
+  );
+}
+
+export default function Pagination({ className }: { className?: string }) {
+  return (
+    <div className={className || "content-stretch flex gap-[4px] items-center justify-center relative"} data-node-id="508:323" data-name="Pagination">
+      <div className="bg-white border border-[rgba(228,232,238,0.5)] border-solid content-stretch flex items-center justify-center p-[6px] relative rounded-[4px] shrink-0 size-[24px]" data-node-id="508:324" data-name="PrevArrow">
+        <div className="flex items-center justify-center relative shrink-0" data-node-id="I508:324;493:2365">
+          <div className="flex-none rotate-180">
+            <div className="relative size-[12px]" data-name="arrowhead">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead1} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <PageButton className="bg-[#1e50d4] content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" state="Active" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="2" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="3" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="4" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="5" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="6" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="7" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="8" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="9" />
+      <PageButton className="bg-white content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[4px] shrink-0 size-[31px]" page="10" />
+      <PaginationArrow className="bg-white border border-[#e4e8ee] border-solid content-stretch flex items-center justify-center p-[6px] relative rounded-[4px] shrink-0 size-[24px]" />
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

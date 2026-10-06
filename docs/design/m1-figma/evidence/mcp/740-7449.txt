@@ -1,0 +1,89 @@
+<section id="740:7449" name="AU-06 인증 수단 분실·복구" x="100" y="5931" width="1858" height="770.5">
+  <frame id="740:7252" name="인증 수단 분실·복구_복구 코드 사용" x="100" y="100" width="520" height="411">
+    <frame id="740:7253" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="740:7254" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:7255" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:7256" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:7257" name="Title Header Section" x="32" y="90" width="456" height="50">
+      <frame id="740:7258" name="Title Stack" x="0" y="0" width="456" height="50">
+        <text id="740:7259" name="Main Title" x="0" y="0" width="456" height="29" />
+        <text id="740:7260" name="Subtitle" x="0" y="33" width="456" height="17" />
+      </frame>
+    </frame>
+    <frame id="740:7261" name="Email Field Group" x="32" y="172" width="456" height="61">
+      <text id="740:7262" name="Recovery Code Label" x="0" y="0" width="52" height="17" />
+      <instance id="740:7263" name="InputField" x="0" y="21" width="456" height="40" />
+    </frame>
+    <frame id="740:7264" name="Action-Group" x="32" y="265" width="456" height="68">
+      <instance id="740:7265" name="PrimaryActionBtn" x="0" y="0" width="456" height="40" />
+      <frame id="740:7266" name="Links-Row" x="0" y="52" width="456" height="16">
+        <text id="740:7269" name="Back Link" x="164.5" y="0" width="127" height="16" />
+      </frame>
+    </frame>
+    <frame id="740:7270" name="Footer Notice" x="52" y="365" width="416" height="14">
+      <instance id="740:7271" name="Eye Off Icon" x="94" y="0" width="14" height="14" />
+      <text id="740:7272" name="Footer Notice Text" x="114" y="0" width="208" height="14" />
+    </frame>
+  </frame>
+  <frame id="740:7306" name="인증 수단 분실·복구_재등록 안내" x="669" y="100.5" width="520" height="487">
+    <frame id="740:7307" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="740:7308" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:7309" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:7310" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:7311" name="Content Section" x="32" y="90" width="456" height="160">
+      <frame id="789:26855" name="illustration" x="179" y="0" width="98" height="98">
+        <instance id="789:26856" name="Check Icon" x="25" y="25" width="48" height="48" />
+      </frame>
+      <frame id="740:7314" name="Title Header Section" x="0" y="110" width="456" height="50">
+        <frame id="740:7315" name="Title Stack" x="0" y="0" width="456" height="50">
+          <text id="740:7316" name="Main Title" x="0" y="0" width="456" height="29" />
+          <text id="740:7317" name="Subtitle" x="0" y="33" width="456" height="17" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="740:7318" name="Notice-Banner" x="32" y="282" width="456" height="41">
+      <instance id="740:7319" name="Warning Icon" x="28" y="28" width="16.000001398762834" height="16.000001398764653" />
+      <text id="740:7320" name="Warning Text" x="36" y="12" width="408" height="17" />
+    </frame>
+    <frame id="740:7321" name="인증 앱 다시 등록 Content" x="52" y="355" width="416" height="100">
+      <instance id="740:7322" name="PrimaryActionBtn" x="0" y="0" width="416" height="44" />
+      <instance id="740:7323" name="ActionBtn" x="0" y="56" width="416" height="44" />
+    </frame>
+  </frame>
+  <frame id="740:7354" name="인증 수단 분실·복구_운영 문의 안내" x="1238" y="100.5" width="520" height="570">
+    <frame id="740:7355" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="740:7356" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:7357" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:7358" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="789:26851" name="illustration" x="211" y="90" width="98" height="98">
+      <instance id="789:26852" name="Warning Icon" x="25" y="25" width="48" height="48" />
+    </frame>
+    <frame id="740:7361" name="Title Header Section" x="32" y="220" width="456" height="67">
+      <frame id="740:7362" name="Title Stack" x="0" y="0" width="456" height="67">
+        <text id="740:7363" name="Main Title" x="0" y="0" width="456" height="29" />
+        <text id="740:7364" name="Subtitle" x="0" y="33" width="456" height="34" />
+      </frame>
+    </frame>
+    <frame id="740:7365" name="Notice-Banner" x="32" y="319" width="456" height="41">
+      <instance id="740:7366" name="Warning Icon" x="28" y="28" width="16.000001398762834" height="16.000001398764653" />
+      <text id="740:7367" name="Warning Text" x="36" y="12" width="332" height="17" />
+    </frame>
+    <frame id="740:7368" name="Action-Group" x="32" y="392" width="456" height="100">
+      <frame id="740:7369" name="로그인 문제 문의 Content" x="0" y="0" width="456" height="100">
+        <instance id="740:7370" name="PrimaryActionBtn" x="0" y="0" width="456" height="44" />
+        <instance id="740:7371" name="ActionBtn" x="0" y="56" width="456" height="44" />
+      </frame>
+    </frame>
+    <frame id="740:7372" name="Footer Notice" x="32" y="524" width="456" height="14">
+      <text id="740:7373" name="Footer Notice" x="149" y="0" width="158" height="14" />
+    </frame>
+  </frame>
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

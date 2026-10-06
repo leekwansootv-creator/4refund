@@ -1,0 +1,125 @@
+type ActionBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function ActionBtn({ className, label = "작업 보기", state = "Default" }: ActionBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--border\\/focus,#1e50d4)] border-solid content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[6px]"} data-node-id="499:86">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="499:87">
+        {label}
+      </p>
+    </div>
+  );
+}
+type StatusTagProps = {
+  className?: string;
+  status?: "대기 중";
+};
+
+function StatusTag({ className, status = "대기 중" }: StatusTagProps) {
+  return (
+    <div className={className || "bg-[var(--status\\/warning-background,#fff9e6)] content-stretch flex items-center justify-center px-[10px] py-[4px] relative rounded-[4px]"} data-node-id="499:71">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/warning,#d97706)] whitespace-nowrap" data-node-id="499:72">
+        대기 중
+      </p>
+    </div>
+  );
+}
+type TableRowProps = {
+  className?: string;
+  propValue?: string;
+  propValue1?: string;
+  propValue10?: string;
+  propValue11?: string;
+  propValue12?: "배정받은 의뢰";
+  propValue2?: string;
+  propValue3?: string;
+  propValue4?: string;
+  propValue5?: string;
+  propValue6?: React.ReactNode | null;
+  propValue7?: string;
+  propValue8?: string;
+  propValue9?: string;
+};
+
+export default function TableRow({ className, propValue = "WK-260908-007", propValue1 = "예시기업 A", propValue10 = "종료 미기록", propValue11 = "예정일 -", propValue12 = "배정받은 의뢰", propValue2 = "예상 환급액 조회", propValue3 = "2026.04 ~ 2026.06", propValue4 = "사업장 전체 직원", propValue5 = "2026.09.08 14:32", propValue6 = null, propValue7 = "미배정", propValue8 = "-", propValue9 = "서버 제공 중" }: TableRowProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border-[var(--border\\/default,#e4e8ee)] border-b border-solid content-stretch flex items-center px-[8px] relative w-[1484px]"} data-node-id="669:5298">
+      <div className="content-stretch flex flex-col items-start max-w-[148px] min-w-[120px] p-[12px] relative shrink-0 w-[148px]" data-node-id="669:5272" data-name="cell-id">
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5273">
+          {propValue}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[90px]" data-node-id="669:5274" data-name="cell-customer">
+        <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5275">
+          {propValue1}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[110px]" data-node-id="669:5276" data-name="cell-type">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5277">
+          {propValue2}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[130px]" data-node-id="669:5278" data-name="cell-period">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="669:5279">
+          {propValue3}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[110px]" data-node-id="669:5280" data-name="cell-scope">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5281">
+          {propValue4}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[90px]" data-node-id="669:5282" data-name="cell-sales">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5283">
+          {propValue8}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[90px]" data-node-id="669:5284" data-name="cell-assignee">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5285">
+          {propValue7}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start justify-center p-[12px] relative shrink-0 w-[110px]" data-node-id="669:5286" data-name="cell-status">
+        <StatusTag className="bg-[var(--status\/warning-background,#fff9e6)] content-stretch flex items-center justify-center px-[10px] py-[4px] relative rounded-[4px] shrink-0" />
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[130px]" data-node-id="669:5288" data-name="cell-server">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5289">
+          {propValue9}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[110px]" data-node-id="669:5290" data-name="cell-end-record">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5291">
+          {propValue10}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[130px]" data-node-id="669:5292" data-name="cell-final-disposal">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] w-full" data-node-id="669:5293">
+          {propValue11}
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-start p-[12px] relative shrink-0 w-[140px]" data-node-id="669:5294" data-name="cell-date">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[1.4] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="669:5295">
+          {propValue5}
+        </p>
+      </div>
+      <div className="content-stretch flex items-center justify-center p-[12px] relative shrink-0 w-[80px]" data-node-id="669:5296" data-name="cell-action">
+        <ActionBtn className="bg-[var(--surface\/default,white)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex items-center justify-center px-[12px] py-[6px] relative rounded-[6px] shrink-0" />
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

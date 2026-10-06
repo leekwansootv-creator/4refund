@@ -1,0 +1,96 @@
+const imgArrowhead = "http://localhost:3845/assets/7cdea77803639c1caf42fa62ac24e2c7312f7e34.svg";
+type DropdownPanelProps = {
+  className?: string;
+  state?: "Hover";
+};
+
+function DropdownPanel({ className, state = "Hover" }: DropdownPanelProps) {
+  return (
+    <div className={className || "bg-[#eef2ff] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px]"} data-node-id="493:2195">
+      <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[#1e50d4] text-[14px] whitespace-nowrap" data-node-id="493:2194">
+        작업 종류 전체
+      </p>
+    </div>
+  );
+}
+
+function DropdownPanel1({ className }: { className?: string }) {
+  return (
+    <div className={className || "bg-white border border-[#e4e8ee] border-solid content-stretch drop-shadow-[0px_4px_6px_rgba(0,0,0,0.1)] flex flex-col gap-[2px] items-start px-[4px] py-[6px] relative rounded-[8px] w-[126px]"} data-node-id="503:1172" data-name="DropdownPanel">
+      <DropdownPanel className="bg-[#eef2ff] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px] shrink-0 w-full" />
+      <div className="bg-[rgba(255,255,255,0)] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px] shrink-0 w-full" data-node-id="493:2251" data-name="DropdownPanel 요소">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[14px] whitespace-nowrap" data-node-id="I493:2251;493:2192">
+          예상 환급액 조회
+        </p>
+      </div>
+      <div className="bg-[rgba(255,255,255,0)] content-stretch flex h-[34px] items-center px-[12px] py-[8px] relative rounded-[4px] shrink-0 w-full" data-node-id="493:2248" data-name="DropdownPanel 요소">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[#231f20] text-[14px] whitespace-nowrap" data-node-id="I493:2248;493:2192">
+          본 경정청구 준비
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Arrowhead({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[36px]"} data-node-id="493:2079" data-name="arrowhead">
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowhead} />
+    </div>
+  );
+}
+type ComponentProps = {
+  className?: string;
+  state?: "Default" | "Hover" | "Open";
+  value?: string;
+};
+
+export default function Component({ className, state = "Default", value = "10개씩 보기" }: ComponentProps) {
+  if (state === "Hover") {
+    return (
+      <button className={className || "content-stretch cursor-pointer flex flex-col items-start relative"} data-node-id="538:18193" data-name="State=Hover">
+        <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/strong,#b2b8c2)] border-solid content-stretch flex gap-[8px] items-center overflow-clip px-[10px] py-[6px] relative rounded-[6px] shrink-0" data-node-id="538:18194" data-name="Trigger">
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-warm,#231f20)] text-left whitespace-nowrap" data-node-id="538:18195">
+            {value}
+          </p>
+          <Arrowhead className="flex items-center justify-center relative shrink-0 size-[12px]" />
+        </div>
+      </button>
+    );
+  }
+  if (state === "Open") {
+    return (
+      <div className={className || "content-stretch flex flex-col gap-[4px] items-start relative"} data-node-id="538:18197" data-name="State=Open">
+        <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex gap-[8px] items-center overflow-clip px-[10px] py-[6px] relative rounded-[6px] shrink-0" data-node-id="538:18198" data-name="Trigger">
+          <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-warm,#231f20)] whitespace-nowrap" data-node-id="538:18199">
+            {value}
+          </p>
+          <Arrowhead className="flex items-center justify-center relative shrink-0 size-[12px]" />
+        </div>
+        <DropdownPanel1 className="bg-white border border-[#e4e8ee] border-solid content-stretch drop-shadow-[0px_4px_6px_rgba(0,0,0,0.1)] flex flex-col gap-[2px] items-start px-[4px] py-[6px] relative rounded-[8px] shrink-0 w-[126px]" />
+      </div>
+    );
+  }
+  return (
+    <div className={className || "content-stretch flex flex-col items-start relative"} data-node-id="538:18189" data-name="State=Default">
+      <div className="bg-[var(--surface\/default,white)] border border-[var(--border\/default,#e4e8ee)] border-solid content-stretch flex gap-[8px] items-center overflow-clip px-[10px] py-[6px] relative rounded-[6px] shrink-0" data-node-id="538:18190" data-name="Trigger">
+        <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary-warm,#231f20)] whitespace-nowrap" data-node-id="538:18191">
+          {value}
+        </p>
+        <Arrowhead className="flex items-center justify-center relative shrink-0 size-[12px]" />
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

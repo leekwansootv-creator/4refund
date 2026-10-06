@@ -1,0 +1,182 @@
+- application
+- status: 현재 보드에 대한 스크린 리더 지원이 비활성화되어 있습니다. 접근성 설정에서 사용 설정하려면 Ctrl+K을(를) 누르고, 접근성 설정을 입력한 후 Enter 키를 누릅니다. 사용 가능한 키보드 단축키를 보려면 Ctrl+Shift+물음표을(를) 입력하세요.
+- status
+- region "캔버스 댓글 영역":
+  - button "새 댓글 만들기"
+  - button:
+    - generic: "3"
+  - button:
+  - button:
+  - button:
+  - button:
+  - button:
+  - button:
+  - button:
+  - button:
+- region "왼쪽 사이드바":
+  - toolbar "탐색 표시줄":
+    - button "메인 메뉴":
+    - separator
+    - button "파일" [expanded]:
+      - generic: 파일
+    - separator
+    - button "변수":
+      - generic: 변수
+  - button "4대보험 환급센터, 파일 이름": 4대보험 환급센터
+  - generic: 파일 이름
+  - button "파일 편집 메뉴":
+  - button "UI 최소화":
+  - link "마이닝오천":
+    - /url: https://www.figma.com/files/team/1528923043997497534/project/420051506
+  - heading "페이지 찾기" [level=2]:
+    - button "페이지" [expanded]:
+      - generic: 페이지
+    - button "찾기":
+  - grid:
+    - row "메인 페이지":
+      - gridcell "메인 페이지":
+        - button "메인 페이지":
+          - generic: 메인 페이지
+    - row "P0 Ready for dev":
+      - gridcell "P0 Ready for dev":
+        - button "P0 Ready for dev":
+          - generic: P0
+          - img "Ready for dev"
+    - row "P1 Ready for dev":
+      - gridcell "P1 Ready for dev":
+        - button "P1 Ready for dev":
+          - generic: P1
+          - img "Ready for dev"
+  - button "모든 페이지 표시":
+    - generic: 모든 페이지 표시
+  - slider "크기 조정 핸들"
+  - button "Ready for dev" [expanded]:
+    - generic: Ready for dev
+  - generic: 아직 ready for dev 상태로 표시된 것은 없습니다. ready for dev 상태로 표시하려면 섹션이나 최상위 프레임을 선택하세요.
+  - button "레이어":
+    - generic: 레이어
+  - button "레이어 접기":
+  - button "오토레이아웃 랜딩페이지":
+    - img "오토레이아웃":
+    - generic: 랜딩페이지
+  - button "오토레이아웃 환급예상액":
+    - img "오토레이아웃":
+    - generic: 환급예상액
+  - button "섹션 ICON":
+    - img "섹션":
+    - generic: ICON
+  - button "섹션 컴포넌트":
+    - img "섹션":
+    - generic: 컴포넌트
+  - button "섹션 컴포넌트":
+    - img "섹션":
+    - generic: 컴포넌트
+  - button "섹션 IMG":
+    - img "섹션":
+    - generic: IMG
+  - button "섹션 IMG":
+    - img "섹션":
+    - generic: IMG
+  - button "이미지 image 21":
+    - img "이미지":
+    - generic: image 21
+  - button "오토레이아웃 환급액 조회하기 클릭 후":
+    - img "오토레이아웃":
+    - generic: 환급액 조회하기 클릭 후
+  - button "오토레이아웃 담당자 정보 입력시 다음 버튼 활성화":
+    - img "오토레이아웃":
+    - generic: 담당자 정보 입력시 다음 버튼 활성화
+  - button "프레임 예상 환급액 계산기":
+    - img "프레임":
+    - generic: 예상 환급액 계산기
+  - button "프레임 예상 환급액 계산기 결과":
+    - img "프레임":
+    - generic: 예상 환급액 계산기 결과
+  - slider "크기 조정 핸들"
+- region "속성과 플러그인":
+  - button "jina kim 팔로우하기"
+  - button "멀티플레이어 도구":
+  - group "프로토타입 보기":
+    - button "프레젠테이션":
+    - button "프로토타입 보기":
+  - button "공유하기"
+  - tablist:
+    - tab "검사" [selected]:
+      - generic: 검사
+      - generic: 검사
+    - tab "플러그인":
+      - generic: 플러그인
+      - generic: 플러그인
+  - button "9%, 확대/축소 및 보기 옵션":
+    - text: 9%
+  - tabpanel "검사":
+    - 'button "페이지 이름 클릭하여 복사: 메인 페이지"':
+      - generic: 메인 페이지
+    - button "파일의 URL 복사":
+    - button "추가 액션":
+    - img "캔버스":
+    - generic: 페이지
+    - button "코드 설정" [expanded]:
+      - heading "코드 설정" [level=3]
+    - button "코드 옵션":
+    - generic: 언어
+    - generic: "언어: CSS"
+    - 'button "언어: CSS"':
+      - generic: CSS
+    - generic: 단위
+    - 'button "단위: 픽셀"':
+      - generic: 픽셀
+    - button "MCP" [expanded]:
+      - heading "MCP" [level=3]
+    - link:
+      - /url: https://developers.figma.com/docs/figma-mcp-server/
+    - generic: 클라이언트
+    - generic "Codex, Cursor, ChatGPT"
+    - button "MCP 클라이언트 설정":
+  - slider "크기 조정 핸들"
+- region "애플리케이션 도구 모음":
+  - toolbar "편집기":
+    - button "이동" [pressed]:
+    - button "색상 복사":
+    - button "측정값":
+    - button "주석":
+    - button "댓글":
+    - radiogroup "공구 벨트 모드":
+      - generic: 공구 벨트 모드
+      - radio "그리기"
+      - generic: 그리기
+      - radio "디자인"
+      - generic: 디자인
+      - radio "모션"
+      - generic: 모션
+      - radio "Dev Mode" [checked]
+      - generic: Dev Mode
+- region "도움말/확대/축소 도구 모음":
+  - toolbar "도움말/확대/축소 도구 모음":
+    - button "도움말":
+- dialog:
+  - region "현재 확장된 댓글 스레드 이 대화 상자를 닫고 보드로 돌아갑니다.":
+    - heading "댓글" [level=2]
+    - button "스레드 액션":
+    - button "미해결로 표시":
+    - button "댓글 닫기":
+    - status
+    - heading "jina kim" [level=3]
+    - generic: 2개월 전
+    - button "댓글 액션":
+    - list:
+      - listitem: 1~3번 이미지는 위·아래로 반복 이동하는 애니메이션이 적용됩니다.
+      - listitem: 반대편 텍스트 영역은 섹션이 뷰포트에 진입하면 애니메이션이 1회 재생됩니다.(섹션별로 뷰포트 20~30% 진입 시 애니메이션 재생)
+    - button "반응 추가":
+    - heading "jina kim" [level=3]
+    - generic: 2개월 전
+    - button "댓글 액션":
+    - generic: 애니메이션 확인.
+    - button "반응 추가":
+    - combobox "jina kim(으)로 댓글에 답변하기" [active]:
+      - paragraph
+    - generic: 답변
+    - button "전송" [disabled]:
+- status
+- alert
+- alert

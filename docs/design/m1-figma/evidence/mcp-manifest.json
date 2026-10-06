@@ -1,0 +1,1352 @@
+[
+  {
+    "id": "495:24",
+    "name": "SidebarItem",
+    "group": "컴포넌트",
+    "characters": 3109,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/495-24.txt"
+  },
+  {
+    "id": "497:93",
+    "name": "Sidebar",
+    "group": "컴포넌트",
+    "characters": 17500,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/497-93.txt"
+  },
+  {
+    "id": "508:1193",
+    "name": "ActionBtn",
+    "group": "컴포넌트",
+    "characters": 2014,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/508-1193.txt"
+  },
+  {
+    "id": "493:2529",
+    "name": "테이블",
+    "group": "컴포넌트",
+    "characters": 2214,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/493-2529.txt"
+  },
+  {
+    "id": "515:2055",
+    "name": "NewTaskBtn",
+    "group": "컴포넌트",
+    "characters": 3004,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/515-2055.txt"
+  },
+  {
+    "id": "516:9863",
+    "name": "StatusTab",
+    "group": "컴포넌트",
+    "characters": 3181,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/516-9863.txt"
+  },
+  {
+    "id": "520:392",
+    "name": "BackLink",
+    "group": "컴포넌트",
+    "characters": 2157,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/520-392.txt"
+  },
+  {
+    "id": "520:397",
+    "name": "ListBtn",
+    "group": "컴포넌트",
+    "characters": 1961,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/520-397.txt"
+  },
+  {
+    "id": "533:3937",
+    "name": "NewTaskBtn_White",
+    "group": "컴포넌트",
+    "characters": 2422,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/533-3937.txt"
+  },
+  {
+    "id": "538:18133",
+    "name": "페이지네이션",
+    "group": "컴포넌트",
+    "characters": 1471,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/538-18133.txt"
+  },
+  {
+    "id": "538:18188",
+    "name": "소형 드롭박스",
+    "group": "컴포넌트",
+    "characters": 6509,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/538-18188.txt"
+  },
+  {
+    "id": "540:4160",
+    "name": "TimelineEntry",
+    "group": "컴포넌트",
+    "characters": 3223,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/540-4160.txt"
+  },
+  {
+    "id": "543:19440",
+    "name": "체크박스",
+    "group": "컴포넌트",
+    "characters": 1779,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/543-19440.txt"
+  },
+  {
+    "id": "547:1430",
+    "name": "대형 드롭박스",
+    "group": "컴포넌트",
+    "characters": 7701,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/547-1430.txt"
+  },
+  {
+    "id": "582:1903",
+    "name": "RetryActionBtn",
+    "group": "컴포넌트",
+    "characters": 2393,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/582-1903.txt"
+  },
+  {
+    "id": "550:1432",
+    "name": "MonthCell",
+    "group": "컴포넌트",
+    "characters": 2402,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/550-1432.txt"
+  },
+  {
+    "id": "550:1437",
+    "name": "NavArrow",
+    "group": "컴포넌트",
+    "characters": 3364,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/550-1437.txt"
+  },
+  {
+    "id": "550:1442",
+    "name": "PickerResetBtn",
+    "group": "컴포넌트",
+    "characters": 2404,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/550-1442.txt"
+  },
+  {
+    "id": "550:1447",
+    "name": "PickerApplyBtn",
+    "group": "컴포넌트",
+    "characters": 1944,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/550-1447.txt"
+  },
+  {
+    "id": "550:1448",
+    "name": "MonthPicker",
+    "group": "컴포넌트",
+    "characters": 11403,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/550-1448.txt"
+  },
+  {
+    "id": "558:4460",
+    "name": "MonthRangeField",
+    "group": "컴포넌트",
+    "characters": 16462,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/558-4460.txt"
+  },
+  {
+    "id": "565:4511",
+    "name": "YearCell",
+    "group": "컴포넌트",
+    "characters": 2799,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/565-4511.txt"
+  },
+  {
+    "id": "565:4573",
+    "name": "YearPicker",
+    "group": "컴포넌트",
+    "characters": 14614,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/565-4573.txt"
+  },
+  {
+    "id": "565:4688",
+    "name": "YearField",
+    "group": "컴포넌트",
+    "characters": 20050,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/565-4688.txt"
+  },
+  {
+    "id": "562:4378",
+    "name": "TaskTypeSelector",
+    "group": "컴포넌트",
+    "characters": 6877,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/562-4378.txt"
+  },
+  {
+    "id": "578:1762",
+    "name": "InputField",
+    "group": "컴포넌트",
+    "characters": 6919,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/578-1762.txt"
+  },
+  {
+    "id": "611:3705",
+    "name": "단계 항목",
+    "group": "컴포넌트",
+    "characters": 2437,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/611-3705.txt"
+  },
+  {
+    "id": "611:3727",
+    "name": "Tab Stepper / 4단계",
+    "group": "컴포넌트",
+    "characters": 4550,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/611-3727.txt"
+  },
+  {
+    "id": "583:2170",
+    "name": "FileUploadRow",
+    "group": "컴포넌트",
+    "characters": 14600,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/583-2170.txt"
+  },
+  {
+    "id": "583:5005",
+    "name": "StatusBadge",
+    "group": "컴포넌트",
+    "characters": 4576,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/583-5005.txt"
+  },
+  {
+    "id": "589:2063",
+    "name": "세그먼트 항목",
+    "group": "컴포넌트",
+    "characters": 2312,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/589-2063.txt"
+  },
+  {
+    "id": "590:2209",
+    "name": "조건 선택 행",
+    "group": "컴포넌트",
+    "characters": 3623,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/590-2209.txt"
+  },
+  {
+    "id": "591:23969",
+    "name": "자료 제출 콘텐츠",
+    "group": "컴포넌트",
+    "characters": 24019,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/591-23969.txt"
+  },
+  {
+    "id": "595:5014",
+    "name": "체크박스 / 원형",
+    "group": "컴포넌트",
+    "characters": 1990,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/595-5014.txt"
+  },
+  {
+    "id": "601:5362",
+    "name": "아이콘 버튼 / 제거",
+    "group": "컴포넌트",
+    "characters": 1992,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/601-5362.txt"
+  },
+  {
+    "id": "611:6666",
+    "name": "정보 항목",
+    "group": "컴포넌트",
+    "characters": 2637,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/611-6666.txt"
+  },
+  {
+    "id": "634:4620",
+    "name": "요청 요약 바",
+    "group": "컴포넌트",
+    "characters": 7355,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/634-4620.txt"
+  },
+  {
+    "id": "650:10656",
+    "name": "접수 상태 배지",
+    "group": "컴포넌트",
+    "characters": 3049,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/650-10656.txt"
+  },
+  {
+    "id": "650:10667",
+    "name": "테이블 작업 버튼",
+    "group": "컴포넌트",
+    "characters": 2811,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/650-10667.txt"
+  },
+  {
+    "id": "650:10684",
+    "name": "접수 상태 행",
+    "group": "컴포넌트",
+    "characters": 7079,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/650-10684.txt"
+  },
+  {
+    "id": "620:3914",
+    "name": "정보 값 행",
+    "group": "컴포넌트",
+    "characters": 2200,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/620-3914.txt"
+  },
+  {
+    "id": "679:6805",
+    "name": "MenuContainer / 역할",
+    "group": "컴포넌트",
+    "characters": 9524,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/679-6805.txt"
+  },
+  {
+    "id": "722:14433",
+    "name": "DayPicker",
+    "group": "컴포넌트",
+    "characters": 27263,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/722-14433.txt"
+  },
+  {
+    "id": "722:14435",
+    "name": "DayField",
+    "group": "컴포넌트",
+    "characters": 33942,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/722-14435.txt"
+  },
+  {
+    "id": "722:14689",
+    "name": "PrimaryActionBtn",
+    "group": "컴포넌트",
+    "characters": 2469,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/722-14689.txt"
+  },
+  {
+    "id": "735:13842",
+    "name": "StepperItem",
+    "group": "컴포넌트",
+    "characters": 4231,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/735-13842.txt"
+  },
+  {
+    "id": "771:11102",
+    "name": "유저프로필",
+    "group": "컴포넌트",
+    "characters": 1900,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/771-11102.txt"
+  },
+  {
+    "id": "789:14601",
+    "name": "SearchInput",
+    "group": "컴포넌트",
+    "characters": 4905,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-14601.txt"
+  },
+  {
+    "id": "789:6903",
+    "name": "영업직 목록 ",
+    "group": "컴포넌트",
+    "characters": 6154,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-6903.txt"
+  },
+  {
+    "id": "789:6884",
+    "name": "계정상태 배지",
+    "group": "컴포넌트",
+    "characters": 2812,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-6884.txt"
+  },
+  {
+    "id": "518:2729",
+    "name": " 내작업 : 영업직",
+    "group": "작업 목록/work-list-screen",
+    "characters": 83683,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/518-2729.txt"
+  },
+  {
+    "id": "649:6967",
+    "name": "내작업 : 접수되지 않은 자료가 있을 경우",
+    "group": "작업 목록/work-list-screen",
+    "characters": 86174,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/649-6967.txt"
+  },
+  {
+    "id": "512:332",
+    "name": "내작업 : 작업이 없는 최초 상태",
+    "group": "작업 목록/work-list-screen",
+    "characters": 20365,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/512-332.txt"
+  },
+  {
+    "id": "512:432",
+    "name": "내작업 : 목록로딩_스켈레톤",
+    "group": "작업 목록/work-list-screen",
+    "characters": 44090,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/512-432.txt"
+  },
+  {
+    "id": "512:482",
+    "name": "내작업 : 조회 실패와 다시 불러오기",
+    "group": "작업 목록/work-list-screen",
+    "characters": 19244,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/512-482.txt"
+  },
+  {
+    "id": "663:14652",
+    "name": " 내작업 : 영업직 · 신고 담당 노무사",
+    "group": "작업 목록/work-list-screen",
+    "characters": 74434,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/663-14652.txt"
+  },
+  {
+    "id": "717:6423",
+    "name": "내작업 : 신고 담당 노무사",
+    "group": "작업 목록/work-list-screen",
+    "characters": 66498,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/717-6423.txt"
+  },
+  {
+    "id": "667:15339",
+    "name": " 내작업 : 운영진·개발자용",
+    "group": "작업 목록/work-list-screen",
+    "characters": 51941,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/667-15339.txt"
+  },
+  {
+    "id": "730:13772",
+    "name": "AU-01 로그인",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 11261,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/730-13772.txt"
+  },
+  {
+    "id": "740:7446",
+    "name": "AU-03 비밀번호 재설정",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 7670,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/740-7446.txt"
+  },
+  {
+    "id": "740:7447",
+    "name": "AU-02 최초 계정 설정",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 9046,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/740-7447.txt"
+  },
+  {
+    "id": "740:7448",
+    "name": "MY-03 2단계 인증 설정",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 10962,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/740-7448.txt"
+  },
+  {
+    "id": "740:7449",
+    "name": "AU-06 인증 수단 분실·복구",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 5761,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/740-7449.txt"
+  },
+  {
+    "id": "748:7302",
+    "name": "AU-05 2단계 인증",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 2275,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/748-7302.txt"
+  },
+  {
+    "id": "748:7303",
+    "name": "최초 계정 설정 안내",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 3687,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/748-7303.txt"
+  },
+  {
+    "id": "755:7199",
+    "name": "P0 대표 오류·접근 상태",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 8648,
+    "sparse": true,
+    "error": false,
+    "path": "evidence/mcp/755-7199.txt"
+  },
+  {
+    "id": "832:12112",
+    "name": "공통 상태 : 세션 만료",
+    "group": "로그인·최초 설정·OTP/login-my-account-screen",
+    "characters": 5738,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/832-12112.txt"
+  },
+  {
+    "id": "531:16108",
+    "name": "작업상세 : 완료_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24076,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-16108.txt"
+  },
+  {
+    "id": "813:10065",
+    "name": "작업상세 : 본 경정청구 준비 : 완료_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 39611,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/813-10065.txt"
+  },
+  {
+    "id": "923:20145",
+    "name": "작업상세 : 본 경정청구 준비 : 결과 검증 보류_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 32489,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-20145.txt"
+  },
+  {
+    "id": "830:10268",
+    "name": "작업상세 : 본 경정청구 준비 : 신고 담당자 미배정",
+    "group": "작업상세/work-detail-screen",
+    "characters": 37661,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/830-10268.txt"
+  },
+  {
+    "id": "923:20733",
+    "name": "작업상세 : 본 경정청구 준비 : 신고 담당자 변경",
+    "group": "작업상세/work-detail-screen",
+    "characters": 38749,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-20733.txt"
+  },
+  {
+    "id": "531:17598",
+    "name": "작업상세 : 완료0원 일 때_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24371,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-17598.txt"
+  },
+  {
+    "id": "531:16420",
+    "name": "작업상세 : 실패_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 26023,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-16420.txt"
+  },
+  {
+    "id": "923:20333",
+    "name": "작업상세 : 확인 후 종료_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 30956,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-20333.txt"
+  },
+  {
+    "id": "531:17068",
+    "name": "작업상세 : 확인필요_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24786,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-17068.txt"
+  },
+  {
+    "id": "531:17331",
+    "name": "작업상세 : 확인필요_처리이력탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 26927,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-17331.txt"
+  },
+  {
+    "id": "531:17694",
+    "name": "작업상세 : 상세 조회 실패",
+    "group": "작업상세/work-detail-screen",
+    "characters": 13252,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-17694.txt"
+  },
+  {
+    "id": "531:17985",
+    "name": "작업상세 : 접근 불가·작업 없음",
+    "group": "작업상세/work-detail-screen",
+    "characters": 12721,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-17985.txt"
+  },
+  {
+    "id": "531:15056",
+    "name": "작업상세 : 대기중_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24006,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-15056.txt"
+  },
+  {
+    "id": "531:15544",
+    "name": "작업상세 : 실행준비중_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24252,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-15544.txt"
+  },
+  {
+    "id": "531:15906",
+    "name": "작업상세 : 실행중_결과탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24245,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-15906.txt"
+  },
+  {
+    "id": "675:24297",
+    "name": "작업상세 : 실행중_결과 수신 중",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24705,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/675-24297.txt"
+  },
+  {
+    "id": "531:17797",
+    "name": "작업상세 : 최신 상태 갱신 실패",
+    "group": "작업상세/work-detail-screen",
+    "characters": 26363,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-17797.txt"
+  },
+  {
+    "id": "531:15271",
+    "name": "작업상세 : 제출자료탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 38764,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-15271.txt"
+  },
+  {
+    "id": "675:27666",
+    "name": "작업상세 : 제출자료탭_다운로드실패_모달",
+    "group": "작업상세/work-detail-screen",
+    "characters": 41220,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/675-27666.txt"
+  },
+  {
+    "id": "531:15393",
+    "name": "작업상세 : 대기중_처리이력탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 25719,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-15393.txt"
+  },
+  {
+    "id": "531:15627",
+    "name": "작업상세 : 실행준비중_처리이력탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 26464,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-15627.txt"
+  },
+  {
+    "id": "531:15940",
+    "name": "작업상세 : 실행중_처리이력탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 26694,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-15940.txt"
+  },
+  {
+    "id": "675:24353",
+    "name": "작업상세 : 결과 수신 중_처리이력탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 27378,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/675-24353.txt"
+  },
+  {
+    "id": "531:16208",
+    "name": "작업상세 : 완료_처리이력탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 27164,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-16208.txt"
+  },
+  {
+    "id": "531:16651",
+    "name": "작업상세 : 실패_처리이력탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 26924,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/531-16651.txt"
+  },
+  {
+    "id": "675:25047",
+    "name": "작업상세 : 요청 정보 정보",
+    "group": "작업상세/work-detail-screen",
+    "characters": 4322,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/675-25047.txt"
+  },
+  {
+    "id": "709:6738",
+    "name": "작업상세 : 본 경정청구 준비 : 신고 준비·인계탭",
+    "group": "작업상세/work-detail-screen",
+    "characters": 29870,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/709-6738.txt"
+  },
+  {
+    "id": "717:8980",
+    "name": "작업상세 : 본 경정청구 준비 : 업무 종료 기록",
+    "group": "작업상세/work-detail-screen",
+    "characters": 24620,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/717-8980.txt"
+  },
+  {
+    "id": "923:20493",
+    "name": "작업상세 : 본 경정청구 준비 : 업무 종료 기록 : 보관 기한 경과",
+    "group": "작업상세/work-detail-screen",
+    "characters": 25861,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-20493.txt"
+  },
+  {
+    "id": "923:20627",
+    "name": "작업상세 : 본 경정청구 준비 : 업무 종료 기록 : 보관 기한 경과·실행 중",
+    "group": "작업상세/work-detail-screen",
+    "characters": 26502,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-20627.txt"
+  },
+  {
+    "id": "572:20511",
+    "name": "새 작업 요청 : 회사명·사업자등록번호 입력",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 40324,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/572-20511.txt"
+  },
+  {
+    "id": "553:19867",
+    "name": "새 작업 요청 : 본 경정청구 준비",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 42913,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/553-19867.txt"
+  },
+  {
+    "id": "627:36118",
+    "name": "새 작업 요청 : 본 경정청구 준비 : 기존 경정청구에 추가 실행 선택시",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 46065,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/627-36118.txt"
+  },
+  {
+    "id": "577:4496",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 자료 제출",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 31455,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/577-4496.txt"
+  },
+  {
+    "id": "855:17582",
+    "name": "새 작업 요청 : 자료 제출 : 파일 드래그 중",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 32713,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/855-17582.txt"
+  },
+  {
+    "id": "576:21674",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 43265,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/576-21674.txt"
+  },
+  {
+    "id": "832:12130",
+    "name": "점검상태 예시",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 44879,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/832-12130.txt"
+  },
+  {
+    "id": "591:25588",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 해당",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 47547,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/591-25588.txt"
+  },
+  {
+    "id": "591:25823",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 비해당",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 43724,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/591-25823.txt"
+  },
+  {
+    "id": "602:26051",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 추가 자료 선택 : 확인필요",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 47936,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/602-26051.txt"
+  },
+  {
+    "id": "591:24462",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일 선택 완료",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 84698,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/591-24462.txt"
+  },
+  {
+    "id": "602:26918",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일첨부 실패",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 86538,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/602-26918.txt"
+  },
+  {
+    "id": "576:21777",
+    "name": "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업 > 자료 제출",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 48770,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/576-21777.txt"
+  },
+  {
+    "id": "602:28278",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 40356,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/602-28278.txt"
+  },
+  {
+    "id": "627:36288",
+    "name": "새 작업 요청 : 기존 경정청구에 추가 실행 선택시 > 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 42584,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/627-36288.txt"
+  },
+  {
+    "id": "602:29127",
+    "name": "새 작업 요청 : 요청 내용 확인 : 중복·재요청 경고",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 33721,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/602-29127.txt"
+  },
+  {
+    "id": "923:19549",
+    "name": "새 작업 요청 : 요청 내용 확인 : 실행 여부 확인 중",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 32517,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-19549.txt"
+  },
+  {
+    "id": "923:19380",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 30999,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-19380.txt"
+  },
+  {
+    "id": "619:30861",
+    "name": "새 작업 요청 : 요청 내용 확인 > 체크 다 할 경우",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 31663,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/619-30861.txt"
+  },
+  {
+    "id": "855:13591",
+    "name": "새 작업 요청 : 요청 내용 확인 : 신규 요청 제한",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 32576,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/855-13591.txt"
+  },
+  {
+    "id": "619:29698",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 성공",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 28028,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/619-29698.txt"
+  },
+  {
+    "id": "619:29911",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 실패",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 25748,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/619-29911.txt"
+  },
+  {
+    "id": "619:30113",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 여부 확인 중",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 25228,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/619-30113.txt"
+  },
+  {
+    "id": "619:30209",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 접수 여부 확인 중 > 접수확인 클릭시",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 25233,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/619-30209.txt"
+  },
+  {
+    "id": "619:30023",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 작업 요청 중",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 24729,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/619-30023.txt"
+  },
+  {
+    "id": "602:28903",
+    "name": "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업> 요청 내용 확인",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 37306,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/602-28903.txt"
+  },
+  {
+    "id": "602:27321",
+    "name": "새 작업 요청 : 본 경정청구 준비+WEHAGO·Smart A 백업 > 자료 제출 > 파일첨부,비밀번호 입력 완료",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 71843,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/602-27321.txt"
+  },
+  {
+    "id": "576:20968",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 자료 제출 > 파일 선택 완료",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 38883,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/576-20968.txt"
+  },
+  {
+    "id": "576:21282",
+    "name": "새 작업 요청 : 예상 환급액 조회 > 자료 제출 > 파일첨부 실패",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 39529,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/576-21282.txt"
+  },
+  {
+    "id": "577:4555",
+    "name": "새 작업 요청 : 예상 환급액 조회",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 34268,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/577-4555.txt"
+  },
+  {
+    "id": "649:6091",
+    "name": "새 작업 요청 : 접수되지 않은 자료가 있을 경우",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 44009,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/649-6091.txt"
+  },
+  {
+    "id": "650:11033",
+    "name": "접수 상태 행 / 예시",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 29628,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/650-11033.txt"
+  },
+  {
+    "id": "832:12336",
+    "name": "공통 배너 / 점검 상태",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 3332,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/832-12336.txt"
+  },
+  {
+    "id": "877:9121",
+    "name": "새 작업 요청 : 본 경정청구 준비+엑셀 자료 > 자료 제출 > 파일 전송 중",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 85985,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/877-9121.txt"
+  },
+  {
+    "id": "920:9467",
+    "name": "새 작업 요청 : 대상 범위 : 일부 직원 선택 완료",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 50756,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/920-9467.txt"
+  },
+  {
+    "id": "920:9628",
+    "name": "새 작업 요청 : 대상 범위 : 확인 필요",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 31661,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/920-9628.txt"
+  },
+  {
+    "id": "920:9773",
+    "name": "새 작업 요청 : 대상 범위 : 지원·검증 불가",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 31700,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/920-9773.txt"
+  },
+  {
+    "id": "942:21065",
+    "name": "개발 주석 : 입력 변경·화면 이탈",
+    "group": "새 작업 요청/new-work-request-screen",
+    "characters": 2046,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/942-21065.txt"
+  },
+  {
+    "id": "771:8040",
+    "name": "MY-01 내 계정",
+    "group": "내 계정/login-my-account-screen.md",
+    "characters": 30101,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/771-8040.txt"
+  },
+  {
+    "id": "771:12585",
+    "name": "MY-02 비밀번호 변경",
+    "group": "내 계정/login-my-account-screen.md",
+    "characters": 20734,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/771-12585.txt"
+  },
+  {
+    "id": "771:13213",
+    "name": "MY-02 비밀번호 변경_완료",
+    "group": "내 계정/login-my-account-screen.md",
+    "characters": 16548,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/771-13213.txt"
+  },
+  {
+    "id": "771:13342",
+    "name": "항목 Content",
+    "group": "내 계정/login-my-account-screen.md",
+    "characters": 3234,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/771-13342.txt"
+  },
+  {
+    "id": "771:13475",
+    "name": "UA-01 계정 목록 : 본부장",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 37443,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/771-13475.txt"
+  },
+  {
+    "id": "789:14824",
+    "name": "UA-03 계정 생성 : 본부장",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 22599,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-14824.txt"
+  },
+  {
+    "id": "789:15205",
+    "name": "UA-03 계정 생성 : 운영진·개발자",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 25838,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-15205.txt"
+  },
+  {
+    "id": "789:15398",
+    "name": "UA-03 계정 생성 : 확인",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 23375,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-15398.txt"
+  },
+  {
+    "id": "789:15665",
+    "name": "UA-03 계정 생성 : 완료",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 21055,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-15665.txt"
+  },
+  {
+    "id": "789:26976",
+    "name": "UA-02 계정 상세",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 34442,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-26976.txt"
+  },
+  {
+    "id": "789:7111",
+    "name": "UA-01 계정 목록 : 운영진·개발자",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 41416,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/789-7111.txt"
+  },
+  {
+    "id": "796:8047",
+    "name": "UA-01 계정 목록 : 데이터 없음",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 20140,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/796-8047.txt"
+  },
+  {
+    "id": "796:8402",
+    "name": "UA-03 계정 생성 : 입력 오류",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 27614,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/796-8402.txt"
+  },
+  {
+    "id": "796:8507",
+    "name": "UA-03 계정 생성 : 완료 : 안내 발송 실패",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 20977,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/796-8507.txt"
+  },
+  {
+    "id": "923:20919",
+    "name": "UA-03 계정 생성 : 처리 결과 확인 필요",
+    "group": "계정 관리/account-management-screen.md",
+    "characters": 22656,
+    "sparse": false,
+    "error": false,
+    "path": "evidence/mcp/923-20919.txt"
+  }
+]

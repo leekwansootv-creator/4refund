@@ -1,0 +1,42 @@
+const imgWarningIcon = "http://localhost:3845/assets/a8202c1cdab8c91487e910cbe51762649be0282e.svg";
+const imgWarningIcon1 = "http://localhost:3845/assets/b899c1ae62b014cf8fea8c5af818cca131f504ab.svg";
+type ComponentProps = {
+  className?: string;
+  propValue?: "점검 중·새 접수 중단" | "점검 예정";
+};
+
+export default function Component({ className, propValue = "점검 예정" }: ComponentProps) {
+  const is = propValue === "점검 중·새 접수 중단";
+  return (
+    <div className={className || `border border-solid content-stretch flex gap-[18px] items-start p-[20px] relative rounded-[6px] w-[1552px] ${is ? "bg-[rgba(229,62,62,0.1)] border-[rgba(229,62,62,0.2)]" : String.raw`bg-[var(--surface\/attention-wash,rgba(255,156,55,0.1))] border-[var(--border\/attention,rgba(255,156,55,0.2))]`}`} id={is ? "node-832_12334" : "node-832_12335"}>
+      <div className="flex items-center justify-center relative shrink-0" id={is ? "node-832_12329" : "node-832_12323"}>
+        <div className="flex-none rotate-180">
+          <div className="relative size-[34px]" data-name="Warning Icon">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={is ? imgWarningIcon1 : imgWarningIcon} />
+          </div>
+        </div>
+      </div>
+      <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-start justify-center not-italic relative shrink-0 whitespace-nowrap" id={is ? "node-832_12330" : "node-832_12324"} data-name="Info Container">
+        <p className="font-['Pretendard:Bold'] leading-[1.4] relative shrink-0 text-[18px] text-[color:var(--text\/primary,#1e2229)]" id={is ? "node-832_12331" : "node-832_12325"}>
+          {is ? "서비스 점검 중입니다." : "서비스 점검이 예정되어 있습니다."}
+        </p>
+        <div className="font-['Pretendard:Regular'] leading-[0] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#5e6670)]" id={is ? "node-832_12332" : "node-832_12326"}>
+          <p className="leading-[1.4] mb-0">{is ? "서비스 점검 중으로 새 작업 접수가 잠시 중단됩니다." : "점검 일시 : 2026.09.18 02:00 ~ 04:00"}</p>
+          <p className="leading-[1.4]">{is ? "이미 접수된 작업은 유지됩니다. 점검이 끝난 뒤 다시 시도해 주세요." : "점검 전까지는 새 작업을 요청할 수 있습니다."}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

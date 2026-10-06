@@ -1,0 +1,18 @@
+<section id="538:18133" name="페이지네이션" x="1914" y="793" width="464" height="252">
+  <frame id="538:18134" name="PageButton" x="31" y="63" width="133" height="55">
+    <symbol id="538:18135" name="State=Default" x="12" y="12" width="31" height="31" />
+    <symbol id="538:18137" name="State=Hover" x="51" y="12" width="31" height="31" />
+    <symbol id="538:18139" name="State=Active" x="90" y="12" width="31" height="31" />
+  </frame>
+  <frame id="538:18141" name="PaginationArrow" x="206" y="63" width="208" height="48">
+    <symbol id="538:18142" name="Direction=Next, State=Default" x="12" y="12" width="24" height="24" />
+    <symbol id="538:18144" name="Direction=Next, State=Hover" x="44" y="12" width="24" height="24" />
+    <symbol id="538:18146" name="Direction=Next, State=Disabled" x="76" y="12" width="24" height="24" />
+    <symbol id="538:18148" name="Direction=Prev, State=Default" x="108" y="12" width="24" height="24" />
+    <symbol id="538:18150" name="Direction=Prev, State=Hover" x="140" y="12" width="24" height="24" />
+    <symbol id="538:18152" name="Direction=Prev, State=Disabled" x="172" y="12" width="24" height="24" />
+  </frame>
+  <symbol id="508:323" name="Pagination" x="31" y="167" width="402" height="31" />
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

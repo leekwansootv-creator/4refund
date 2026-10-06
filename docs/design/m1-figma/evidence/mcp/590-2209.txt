@@ -1,0 +1,54 @@
+type ComponentProps = {
+  className?: string;
+  propValue?: string;
+  propValue1?: "비활성화" | "활성화";
+};
+
+function Component({ className, propValue = "옵션", propValue1 = "비활성화" }: ComponentProps) {
+  const is = propValue1 === "활성화";
+  return (
+    <div className={className || `content-stretch flex items-start px-[12px] py-[8px] relative rounded-[6px] ${is ? String.raw`bg-[var(--surface\/brand-light,#eef2ff)] border border-[var(--border\/focus,#1e50d4)] border-solid` : String.raw`bg-[var(--surface\/subtle,#f1f5f9)]`}`} id={is ? "node-589_2062" : "node-589_2061"}>
+      {propValue1 === "비활성화" && (
+        <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="589:2060">
+          {propValue}
+        </p>
+      )}
+      {is && (
+        <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] whitespace-nowrap" data-node-id="589:2058">
+          {propValue}
+        </p>
+      )}
+    </div>
+  );
+}
+type Component1Props = {
+  className?: string;
+  propValue?: string;
+};
+
+export default function Component1({ className, propValue = "우선지원대상기업" }: Component1Props) {
+  return (
+    <div className={className || "content-stretch flex gap-[12px] items-center relative"} data-node-id="590:2209" data-name="조건 선택 행">
+      <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/primary,#1e2229)] whitespace-nowrap" data-node-id="590:2204">
+        {propValue}
+      </p>
+      <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="590:2205" data-name="Segmented Control / 대상 여부">
+        <Component className="bg-[var(--surface\/brand-light,#eef2ff)] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex items-start px-[12px] py-[8px] relative rounded-[6px] shrink-0" propValue="해당" propValue1="활성화" />
+        <Component className="bg-[var(--surface\/subtle,#f1f5f9)] content-stretch flex items-start px-[12px] py-[8px] relative rounded-[6px] shrink-0" propValue="비해당" />
+        <Component className="bg-[var(--surface\/subtle,#f1f5f9)] content-stretch flex items-start px-[12px] py-[8px] relative rounded-[6px] shrink-0" propValue="확인 필요" />
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

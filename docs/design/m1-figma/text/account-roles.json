@@ -1,0 +1,502 @@
+{
+  "source": "exports/p0/계정 역할 Content.svg",
+  "width": "651",
+  "height": "178",
+  "groups": [
+    {
+      "path": ["계정 역할 Content"],
+      "transform": null,
+      "child_count": 2
+    },
+    {
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "transform": null,
+      "child_count": 22
+    }
+  ],
+  "text": [
+    {
+      "index": 1,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Account Role Title",
+      "text": "계정 역할",
+      "attributes": {
+        "id": "Account Role Title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "21.2656",
+          "text": "계정 역할"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Sidebar Menu Text",
+      "text": "사이드바에 표시할 P0 메뉴",
+      "attributes": {
+        "id": "Sidebar Menu Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "139",
+          "y": "21.2656",
+          "text": "사이드바에 표시할 P0 메뉴"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Task Tab Text",
+      "text": "내 작업 탭",
+      "attributes": {
+        "id": "Task Tab Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "368",
+          "y": "21.2656",
+          "text": "내 작업 탭"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Employee Title",
+      "text": "영업직",
+      "attributes": {
+        "id": "Employee Title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "45.2656",
+          "text": "영업직"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Employee Task Text",
+      "text": "내 작업 / 새 작업 요청 / 고객지원",
+      "attributes": {
+        "id": "Employee Task Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "139",
+          "y": "45.2656",
+          "text": "내 작업 / 새 작업 요청 / 고객지원"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Sales Task Text",
+      "text": "탭 없음",
+      "attributes": {
+        "id": "Sales Task Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "368",
+          "y": "45.2656",
+          "text": "탭 없음"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Report Title",
+      "text": "신고 담당 노무사",
+      "attributes": {
+        "id": "Report Title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "69.2656",
+          "text": "신고 담당 노무사"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Report Task Text",
+      "text": "내 작업 / 고객지원",
+      "attributes": {
+        "id": "Report Task Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "139",
+          "y": "69.2656",
+          "text": "내 작업 / 고객지원"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Employee Task Text_2",
+      "text": "탭 없음 — 배정받은 의뢰만 표시",
+      "attributes": {
+        "id": "Employee Task Text_2",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "368",
+          "y": "69.2656",
+          "text": "탭 없음 — 배정받은 의뢰만 표시"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Employee Title_2",
+      "text": "영업직 · 신고 담당 노무사",
+      "attributes": {
+        "id": "Employee Title_2",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "93.2656",
+          "text": "영업직 · 신고 담당 노무사"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Employee Task Text_3",
+      "text": "내 작업 / 새 작업 요청 / 고객지원",
+      "attributes": {
+        "id": "Employee Task Text_3",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "139",
+          "y": "93.2656",
+          "text": "내 작업 / 새 작업 요청 / 고객지원"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Sales Task Text_2",
+      "text": "내가 등록한 의뢰 / 배정받은 의뢰",
+      "attributes": {
+        "id": "Sales Task Text_2",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "368",
+          "y": "93.2656",
+          "text": "내가 등록한 의뢰 / 배정받은 의뢰"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Director Title",
+      "text": "본부장",
+      "attributes": {
+        "id": "Director Title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "117.266",
+          "text": "본부장"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Sales Task Text_3",
+      "text": "내 작업 / 새 작업 요청 / 영업직 계정 / 고객지원",
+      "attributes": {
+        "id": "Sales Task Text_3",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "139",
+          "y": "117.266",
+          "text": "내 작업 / 새 작업 요청 / 영업직 계정 / 고객지원"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Director Task Text",
+      "text": "탭 없음 — 본인이 등록한 의뢰만 표시",
+      "attributes": {
+        "id": "Director Task Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "368",
+          "y": "117.266",
+          "text": "탭 없음 — 본인이 등록한 의뢰만 표시"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Manager Title",
+      "text": "총괄 관리자",
+      "attributes": {
+        "id": "Manager Title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "141.266",
+          "text": "총괄 관리자"
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "User Task Text",
+      "text": "내 작업 / 새 작업 요청 / 사용자 관리 / 고객지원",
+      "attributes": {
+        "id": "User Task Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "139",
+          "y": "141.266",
+          "text": "내 작업 / 새 작업 요청 / 사용자 관리 / 고객지원"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Manager Task Text",
+      "text": "전체 작업 / 내가 등록한 의뢰 / 배정받은 의뢰 / 미배정 의뢰",
+      "attributes": {
+        "id": "Manager Task Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "368",
+          "y": "141.266",
+          "text": "전체 작업 / 내가 등록한 의뢰 / 배정받은 의뢰 / 미배정 의뢰"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Developer Title",
+      "text": "개발자",
+      "attributes": {
+        "id": "Developer Title",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "10",
+          "y": "165.266",
+          "text": "개발자"
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "User Task Text_2",
+      "text": "내 작업 / 새 작업 요청 / 사용자 관리 / 고객지원",
+      "attributes": {
+        "id": "User Task Text_2",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "139",
+          "y": "165.266",
+          "text": "내 작업 / 새 작업 요청 / 사용자 관리 / 고객지원"
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "path": ["계정 역할 Content", "계정 역할 Content_2"],
+      "id": "Developer Task Text",
+      "text": "전체 작업 / 내가 등록한 의뢰 / 배정받은 의뢰 / 미배정 의뢰",
+      "attributes": {
+        "id": "Developer Task Text",
+        "fill": "black",
+        "style": "white-space: pre",
+        "{http://www.w3.org/XML/1998/namespace}space": "preserve",
+        "font-family": "Pretendard",
+        "font-size": "12",
+        "font-weight": "500",
+        "letter-spacing": "0em"
+      },
+      "spans": [
+        {
+          "x": "368",
+          "y": "165.266",
+          "text": "전체 작업 / 내가 등록한 의뢰 / 배정받은 의뢰 / 미배정 의뢰"
+        }
+      ]
+    }
+  ]
+}

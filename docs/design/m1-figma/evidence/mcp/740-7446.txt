@@ -1,0 +1,118 @@
+<section id="740:7446" name="AU-03 비밀번호 재설정" x="100" y="3789" width="1672" height="1302">
+  <frame id="740:6386" name="비밀번호 재설정_운영 문의 안내" x="100" y="100" width="460" height="398">
+    <frame id="740:6387" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="740:6388" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:6389" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:6390" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:6391" name="Title Header Section" x="32" y="98" width="396" height="70">
+      <frame id="740:6392" name="Title Stack" x="0" y="0" width="396" height="70">
+        <text id="740:6393" name="Main Title" x="0" y="0" width="396" height="26" />
+        <text id="740:6394" name="Subtitle" x="0" y="30" width="396" height="40" />
+      </frame>
+    </frame>
+    <frame id="904:877" name="Password Reset Approval Notice" x="32" y="192" width="396" height="58">
+      <instance id="904:878" name="Warning Icon" x="28" y="28" width="16.000001398762834" height="16.000001398764653" />
+      <text id="904:879" name="Warning Text" x="36" y="12" width="324" height="34" />
+    </frame>
+    <instance id="740:6399" name="PrimaryActionBtn" x="32" y="274" width="396" height="44" />
+    <frame id="740:6400" name="로그인으로 돌아가기 Container" x="32" y="342" width="396" height="16">
+      <text id="740:6401" name="Return to Login Link" x="145.5" y="0" width="105" height="16" />
+    </frame>
+  </frame>
+  <frame id="740:6499" name="비밀번호 재설정_승인된 안내 발송 결과" x="606" y="100" width="460" height="335">
+    <frame id="740:6500" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="740:6501" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:6502" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:6503" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:6504" name="Title Header Section" x="32" y="98" width="396" height="73">
+      <frame id="740:6505" name="Title Stack" x="0" y="0" width="396" height="73">
+        <text id="740:6506" name="Main Title" x="0" y="0" width="396" height="26" />
+        <text id="740:6507" name="Subtitle" x="0" y="30" width="396" height="21" />
+        <text id="740:6508" name="Email Notice" x="0" y="55" width="396" height="18" />
+      </frame>
+    </frame>
+    <frame id="740:6509" name="로그인으로 돌아가기 Content" x="32" y="195" width="396" height="100">
+      <instance id="740:6510" name="PrimaryActionBtn" x="0" y="0" width="396" height="44" />
+      <instance id="740:6511" name="ActionBtn" x="0" y="56" width="396" height="44" />
+    </frame>
+  </frame>
+  <frame id="740:6516" name="비밀번호 재설정_새 비밀번호 입력" x="1112" y="100" width="460" height="462">
+    <frame id="740:6517" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="740:6518" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:6519" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:6520" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:6521" name="Title Header Section" x="32" y="98" width="396" height="50">
+      <frame id="740:6522" name="Title Stack" x="0" y="0" width="396" height="50">
+        <text id="740:6523" name="Main Title" x="0" y="0" width="396" height="26" />
+        <text id="740:6524" name="Subtitle" x="0" y="30" width="396" height="20" />
+      </frame>
+    </frame>
+    <frame id="740:7986" name="Password Fields" x="32" y="172" width="396" height="142">
+      <frame id="740:7987" name="New Password Field Group" x="0" y="0" width="396" height="61">
+        <text id="740:7988" name="New Password Label" x="0" y="0" width="64" height="17" />
+        <instance id="740:7989" name="InputField" x="0" y="21" width="396" height="40" />
+      </frame>
+      <frame id="740:7990" name="Confirm Password Field Group" x="0" y="81" width="396" height="61">
+        <text id="740:7991" name="Confirm Password Label" x="0" y="0" width="92" height="17" />
+        <instance id="740:7992" name="InputField" x="0" y="21" width="396" height="40" />
+      </frame>
+    </frame>
+    <instance id="740:6538" name="PrimaryActionBtn" x="32" y="338" width="396" height="44" />
+    <frame id="740:6539" name="로그인으로 돌아가기 Container" x="32" y="406" width="396" height="16">
+      <text id="740:6540" name="Return to Login Link" x="145.5" y="0" width="105" height="16" />
+    </frame>
+  </frame>
+  <frame id="740:6544" name="비밀번호 재설정_완료" x="100" y="762" width="460" height="384">
+    <frame id="740:6545" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="740:6546" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:6547" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:6548" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:6549" name="Illustration Container" x="32" y="98" width="396" height="178">
+      <frame id="740:6550" name="illustration" x="149" y="0" width="98" height="98">
+        <instance id="740:6551" name="Check Mark" x="25" y="25" width="48" height="48" />
+      </frame>
+      <frame id="740:6552" name="Title Header Section" x="0" y="110" width="396" height="68">
+        <frame id="740:6553" name="Title Stack" x="0" y="0" width="396" height="68">
+          <text id="740:6554" name="Main Title" x="0" y="0" width="396" height="26" />
+          <text id="740:6555" name="Subtitle" x="0" y="30" width="396" height="20" />
+          <text id="740:6556" name="Additional Info" x="0" y="54" width="396" height="14" />
+        </frame>
+      </frame>
+    </frame>
+    <instance id="740:6557" name="PrimaryActionBtn" x="32" y="300" width="396" height="44" />
+  </frame>
+  <frame id="740:6580" name="비밀번호 재설정_링크 만료·무효" x="606" y="762" width="460" height="440">
+    <frame id="740:6581" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="740:6582" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:6583" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:6584" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:6585" name="Container" x="32" y="98" width="396" height="178">
+      <frame id="740:6586" name="illustration" x="149" y="0" width="98" height="98">
+        <instance id="740:6587" name="Warning Icon" x="25" y="25" width="48" height="48" />
+      </frame>
+      <frame id="740:6588" name="Title Header Section" x="0" y="110" width="396" height="68">
+        <frame id="740:6589" name="Title Stack" x="0" y="0" width="396" height="68">
+          <text id="740:6590" name="Main Title" x="0" y="0" width="396" height="26" />
+          <text id="740:6591" name="Subtitle" x="0" y="30" width="396" height="20" />
+          <text id="740:6592" name="Additional Info" x="0" y="54" width="396" height="14" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="740:6593" name="로그인 문제 문의 Content" x="32" y="300" width="396" height="100">
+      <instance id="740:6594" name="PrimaryActionBtn" x="0" y="0" width="396" height="44" />
+      <instance id="740:6595" name="ActionBtn" x="0" y="56" width="396" height="44" />
+    </frame>
+  </frame>
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

@@ -1,0 +1,315 @@
+const imgLeftArrow = "http://localhost:3845/assets/e9ecf4b1f8b3aeeaa31749588398838d2604ac97.svg";
+const imgRightArrow = "http://localhost:3845/assets/31ca5f165c10a32fdb5b7bb93cb4a976ea658b9c.svg";
+type PickerApplyBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PickerApplyBtn({ className, label = "적용하기", state = "Default" }: PickerApplyBtnProps) {
+  return (
+    <div className={className || "bg-[var(--brand\\/primary,#1e50d4)] content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[131px]"} data-node-id="550:1443">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] text-center whitespace-nowrap" data-node-id="550:1444">
+        {label}
+      </p>
+    </div>
+  );
+}
+type PickerResetBtnProps = {
+  className?: string;
+  label?: string;
+  state?: "Default";
+};
+
+function PickerResetBtn({ className, label = "초기화", state = "Default" }: PickerResetBtnProps) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] w-[133px]"} data-node-id="550:1438">
+      <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary-warm,#6a6f73)] text-center whitespace-nowrap" data-node-id="550:1439">
+        {label}
+      </p>
+    </div>
+  );
+}
+type NavArrowProps = {
+  className?: string;
+  direction?: "Left" | "Right";
+  state?: "Default";
+};
+
+function NavArrow({ className, direction = "Left", state = "Default" }: NavArrowProps) {
+  const isRightAndDefault = direction === "Right" && state === "Default";
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] size-[30px]"} id={isRightAndDefault ? "node-550_1435" : "node-550_1433"}>
+      <div className="flex items-center justify-center relative shrink-0" id={isRightAndDefault ? "node-552_19790" : "node-552_19785"}>
+        <div className={`-scale-y-100 flex-none ${isRightAndDefault ? "" : "rotate-180"}`}>
+          {direction === "Left" && state === "Default" && (
+            <div className="relative size-[14px]" data-name="Left Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLeftArrow} />
+            </div>
+          )}
+          {isRightAndDefault && (
+            <div className="relative size-[14px]" data-name="Right Arrow">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRightArrow} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function DayPicker({ className }: { className?: string }) {
+  return (
+    <div className={className || "bg-[var(--surface\\/default,white)] border border-[var(--surface\\/disabled-strong,#d1d5db)] border-solid content-stretch drop-shadow-[0px_4px_8px_rgba(0,0,0,0.08)] flex flex-col gap-[20px] items-start p-[24px] relative rounded-[16px]"} data-node-id="722:14433" data-name="DayPicker">
+      <div className="content-stretch flex items-center justify-between overflow-clip relative shrink-0 w-[272px]" data-node-id="722:14269" data-name="Month Header">
+        <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" />
+        <p className="[word-break:break-word] flex-[1_0_0] font-['Pretendard:Bold'] leading-[normal] min-w-px not-italic relative text-[#101010] text-[16px] text-center" data-node-id="722:14273">
+          2026년 3월
+        </p>
+        <NavArrow className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex items-center justify-center relative rounded-[24px] shrink-0 size-[30px]" direction="Right" />
+      </div>
+      <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-[272px]" data-node-id="722:14279" data-name="일 Content">
+        <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14280" data-name="Weekday Row">
+          <div className="content-stretch flex h-[20px] items-center justify-center relative shrink-0 w-[32px]" data-node-id="722:14281" data-name="일 Control">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error,#e53e3e)] whitespace-nowrap" data-node-id="722:14282">
+              일
+            </p>
+          </div>
+          <div className="content-stretch flex h-[20px] items-center justify-center relative shrink-0 w-[32px]" data-node-id="722:14283" data-name="월 Control">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="722:14284">
+              월
+            </p>
+          </div>
+          <div className="content-stretch flex h-[20px] items-center justify-center relative shrink-0 w-[32px]" data-node-id="722:14285" data-name="화 Control">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="722:14286">
+              화
+            </p>
+          </div>
+          <div className="content-stretch flex h-[20px] items-center justify-center relative shrink-0 w-[32px]" data-node-id="722:14287" data-name="수 Control">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="722:14288">
+              수
+            </p>
+          </div>
+          <div className="content-stretch flex h-[20px] items-center justify-center relative shrink-0 w-[32px]" data-node-id="722:14289" data-name="목 Control">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="722:14290">
+              목
+            </p>
+          </div>
+          <div className="content-stretch flex h-[20px] items-center justify-center relative shrink-0 w-[32px]" data-node-id="722:14291" data-name="금 Control">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#5e6670)] whitespace-nowrap" data-node-id="722:14292">
+              금
+            </p>
+          </div>
+          <div className="content-stretch flex h-[20px] items-center justify-center relative shrink-0 w-[32px]" data-node-id="722:14293" data-name="토 Control">
+            <p className="[word-break:break-word] font-['Pretendard:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--status\/error,#e53e3e)] whitespace-nowrap" data-node-id="722:14294">
+              토
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14295" data-name="DayGrid">
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14296" data-name="Row">
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14297" data-name="1 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14298">
+                1
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14299" data-name="2 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14300">
+                2
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14301" data-name="3 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14302">
+                3
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14303" data-name="4 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14304">
+                4
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14305" data-name="5 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14306">
+                5
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14307" data-name="6 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14308">
+                6
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14309" data-name="7 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14310">
+                7
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14311" data-name="Row">
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14312" data-name="8 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14313">
+                8
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14314" data-name="9 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14315">
+                9
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14316" data-name="10 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14317">
+                10
+              </p>
+            </div>
+            <div className="bg-[#f0f3ff] border border-[var(--border\/focus,#1e50d4)] border-solid content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14318" data-name="11 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/link,#1e50d4)] text-center whitespace-nowrap" data-node-id="722:14319">
+                11
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14320" data-name="12 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14321">
+                12
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14322" data-name="13 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14323">
+                13
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14324" data-name="14 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14325">
+                14
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14326" data-name="Row">
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14327" data-name="15 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14328">
+                15
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14329" data-name="16 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14330">
+                16
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14331" data-name="17 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14332">
+                17
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="717:9132" data-name="18 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="717:9133">
+                18
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14335" data-name="19 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14336">
+                19
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14337" data-name="20 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14338">
+                20
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14339" data-name="21 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14340">
+                21
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14341" data-name="Row">
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14342" data-name="22 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14343">
+                22
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14344" data-name="23 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14345">
+                23
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14346" data-name="24 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14347">
+                24
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14348" data-name="25 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14349">
+                25
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14350" data-name="26 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14351">
+                26
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14352" data-name="27 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14353">
+                27
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14354" data-name="28 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14355">
+                28
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14356" data-name="Row">
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14357" data-name="29 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14358">
+                29
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14359" data-name="30 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14360">
+                30
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative rounded-[8px] shrink-0 size-[32px]" data-node-id="722:14361" data-name="31 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/primary-neutral,#272727)] text-center whitespace-nowrap" data-node-id="722:14362">
+                31
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative shrink-0 size-[32px]" data-node-id="722:14363" data-name="1 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/tertiary-bluegray,#64748b)] text-center whitespace-nowrap" data-node-id="722:14364">
+                1
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative shrink-0 size-[32px]" data-node-id="722:14365" data-name="2 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/tertiary-bluegray,#64748b)] text-center whitespace-nowrap" data-node-id="722:14366">
+                2
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative shrink-0 size-[32px]" data-node-id="722:14367" data-name="3 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/tertiary-bluegray,#64748b)] text-center whitespace-nowrap" data-node-id="722:14368">
+                3
+              </p>
+            </div>
+            <div className="content-stretch flex items-center justify-center py-[6px] relative shrink-0 size-[32px]" data-node-id="722:14369" data-name="4 Control">
+              <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[13px] text-[color:var(--text\/tertiary-bluegray,#64748b)] text-center whitespace-nowrap" data-node-id="722:14370">
+                4
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="722:14371" data-name="Action Area">
+          <PickerResetBtn className="bg-[var(--surface\/default,white)] border border-[var(--surface\/disabled-strong,#d1d5db)] border-solid content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[133px]" />
+          <PickerApplyBtn className="bg-[var(--brand\/primary,#1e50d4)] content-stretch flex h-[37px] items-center justify-center py-[10px] relative rounded-[8px] shrink-0 w-[131px]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

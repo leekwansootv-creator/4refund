@@ -1,0 +1,156 @@
+<section id="740:7448" name="MY-03 2단계 인증 설정" x="100" y="2818" width="2367" height="861">
+  <frame id="717:18515" name="2단계 인증 설정 : 인증 앱 등록" x="100" y="100" width="520" height="661">
+    <frame id="717:18517" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="717:18518" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="717:18519" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="717:18520" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="717:18516" name="Title Header Section" x="32" y="90" width="456" height="50">
+      <frame id="717:18521" name="Title Stack" x="0" y="0" width="456" height="50">
+        <text id="717:18522" name="Main Title" x="0" y="0" width="456" height="29" />
+        <text id="717:18523" name="Subtitle" x="0" y="33" width="456" height="17" />
+      </frame>
+    </frame>
+    <frame id="717:18524" name="Stepper" x="32" y="172" width="456" height="46">
+      <instance id="717:18525" name="StepperItem" x="20" y="0" width="73.5999984741211" height="46" />
+      <line id="717:18526" name="Connector1" x="105.5999984741211" y="23" width="73.5999984741211" height="0" />
+      <instance id="717:18527" name="StepperItem" x="191.1999969482422" y="0" width="73.5999984741211" height="46" />
+      <line id="717:18528" name="Connector2" x="276.79998779296875" y="23" width="73.59999084472656" height="0" />
+      <instance id="717:18529" name="StepperItem" x="362.39996337890625" y="0" width="73.59999084472656" height="46" />
+    </frame>
+    <frame id="717:18530" name="ContentColumns" x="32" y="250" width="456" height="271">
+      <frame id="717:18531" name="LeftColumn" x="0" y="0" width="211" height="234">
+        <text id="717:18532" name="QR Code Label" x="0" y="0" width="211" height="16" />
+        <frame id="717:18533" name="QRPlaceholderBox" x="0" y="24" width="211" height="210" />
+      </frame>
+      <frame id="717:18534" name="RightColumn" x="235" y="0" width="221" height="271">
+        <frame id="717:18535" name="InstructionsGroup" x="0" y="0" width="221" height="159">
+          <text id="717:18536" name="Instructions Header" x="0" y="0" width="221" height="17" />
+          <frame id="717:18537" name="InstructionList" x="0" y="27" width="221" height="132">
+            <text id="717:18538" name="Instruction Step 1" x="0" y="0" width="221" height="40" />
+            <text id="717:18539" name="Instruction Step 2" x="0" y="46" width="221" height="40" />
+            <text id="717:18540" name="Instruction Step 3" x="0" y="92" width="221" height="40" />
+          </frame>
+        </frame>
+        <frame id="717:18541" name="ManualKeyGroup" x="0" y="175" width="221" height="96">
+          <text id="717:18542" name="Manual Key Label" x="0" y="0" width="221" height="16" />
+          <frame id="717:18543" name="InputAndButtonRow" x="0" y="24" width="221" height="72">
+            <frame id="717:18544" name="ManualKeyDisplay" x="0" y="0" width="221" height="36">
+              <text id="717:18545" name="Manual Key Display" x="14" y="10" width="193" height="16" />
+            </frame>
+            <instance id="717:18546" name="ActionBtn" x="140" y="44" width="81" height="28" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="717:18547" name="CardFooterActions" x="32" y="553" width="456" height="76">
+      <instance id="717:18548" name="PrimaryActionBtn" x="0" y="0" width="456" height="44" />
+      <text id="717:18549" name="HelpLinkText" x="0" y="60" width="456" height="16" />
+    </frame>
+  </frame>
+  <frame id="717:18563" name="2단계 인증 설정 : 코드 확인" x="669" y="100" width="520" height="429">
+    <frame id="717:18565" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="717:18566" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="717:18567" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="717:18568" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="717:18564" name="Title Header Section" x="32" y="90" width="456" height="50">
+      <frame id="717:18569" name="Title Stack" x="0" y="0" width="456" height="50">
+        <text id="717:18570" name="Main Title" x="0" y="0" width="456" height="29" />
+        <text id="717:18571" name="Subtitle" x="0" y="33" width="456" height="17" />
+      </frame>
+    </frame>
+    <frame id="717:18572" name="Stepper" x="32" y="172" width="456" height="46">
+      <instance id="717:18573" name="StepperItem" x="20" y="0" width="73.5999984741211" height="46" />
+      <line id="717:18574" name="Connector1" x="105.5999984741211" y="23" width="73.5999984741211" height="0" />
+      <instance id="717:18575" name="StepperItem" x="191.1999969482422" y="0" width="73.5999984741211" height="46" />
+      <line id="717:18576" name="Connector2" x="276.79998779296875" y="23" width="73.59999084472656" height="0" />
+      <instance id="717:18577" name="StepperItem" x="362.39996337890625" y="0" width="73.59999084472656" height="46" />
+    </frame>
+    <frame id="717:18578" name="Form-Field" x="32" y="250" width="456" height="87">
+      <text id="717:18579" name="Field Label" x="0" y="0" width="52" height="17" />
+      <instance id="740:8006" name="InputField" x="0" y="25" width="456" height="40" />
+      <text id="717:18582" name="Code Instruction" x="0" y="73" width="184" height="14" />
+    </frame>
+    <frame id="717:18583" name="Actions-Row" x="32" y="369" width="456" height="28">
+      <instance id="717:18584" name="ActionBtn" x="0" y="0" width="219" height="28" />
+      <instance id="717:18585" name="PrimaryActionBtn" x="231" y="0" width="225" height="28" />
+    </frame>
+  </frame>
+  <frame id="717:18600" name="2단계 인증 설정 : 복구 코드 저장" x="1238" y="100" width="520" height="546">
+    <frame id="717:18602" name="Logo Combined" x="218.5" y="32" width="83" height="26">
+      <instance id="717:18603" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="717:18604" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="717:18605" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="717:18601" name="Title Header Section" x="32" y="82" width="456" height="50">
+      <frame id="717:18606" name="Title Stack" x="0" y="0" width="456" height="50">
+        <text id="717:18607" name="Main Title" x="0" y="0" width="456" height="29" />
+        <text id="717:18608" name="Subtitle" x="0" y="33" width="456" height="17" />
+      </frame>
+    </frame>
+    <frame id="717:18609" name="Stepper" x="32" y="156" width="456" height="46">
+      <instance id="717:18610" name="StepperItem" x="20" y="0" width="73.5999984741211" height="46" />
+      <line id="717:18611" name="Connector1" x="105.5999984741211" y="23" width="73.5999984741211" height="0" />
+      <instance id="717:18612" name="StepperItem" x="191.1999969482422" y="0" width="73.5999984741211" height="46" />
+      <line id="717:18613" name="Connector2" x="276.79998779296875" y="23" width="73.59999084472656" height="0" />
+      <instance id="717:18614" name="StepperItem" x="362.39996337890625" y="0" width="73.59999084472656" height="46" />
+    </frame>
+    <frame id="717:18676" name="Recovery Code Container" x="32" y="226" width="456" height="190">
+      <frame id="717:18615" name="Recovery Code Box" x="0" y="0" width="456" height="150">
+        <frame id="717:18616" name="Code-Grid-Box" x="0" y="0" width="456" height="129">
+          <frame id="717:18617" name="R4CM-8K2P Content" x="24" y="24" width="196" height="81">
+            <text id="717:18618" name="Recovery Code 1" x="50.5" y="0" width="95" height="19" />
+            <text id="717:18619" name="Recovery Code 2" x="52" y="31" width="92" height="19" />
+            <text id="717:18620" name="Recovery Code 3" x="53" y="62" width="90" height="19" />
+          </frame>
+          <frame id="717:18621" name="V7QA-3N5T Content" x="236" y="24" width="196" height="81">
+            <text id="717:18622" name="Recovery Code 4" x="51.5" y="0" width="93" height="19" />
+            <text id="717:18623" name="Recovery Code 5" x="52.5" y="31" width="91" height="19" />
+            <text id="717:18624" name="Recovery Code 6" x="51" y="62" width="94" height="19" />
+          </frame>
+        </frame>
+        <text id="717:18625" name="Recovery Code Instructions" x="0" y="133" width="456" height="17" />
+      </frame>
+      <frame id="717:18626" name="Utility-Buttons" x="0" y="162" width="456" height="28">
+        <instance id="717:18627" name="ActionBtn" x="0" y="0" width="222" height="28" />
+        <instance id="717:18628" name="ActionBtn" x="234" y="0" width="222" height="28" />
+      </frame>
+    </frame>
+    <frame id="717:18677" name="Checkbox Container" x="32" y="440" width="456" height="74">
+      <frame id="717:18629" name="Checkbox-Row" x="0" y="0" width="456" height="18">
+        <frame id="717:18630" name="Checkbox-Row Content" x="117" y="0" width="18" height="18">
+          <frame id="717:18631" name="check" x="0" y="0" width="10" height="8" />
+        </frame>
+        <text id="717:18633" name="Checkbox Label" x="143" y="1" width="196" height="16" />
+      </frame>
+      <instance id="717:18634" name="PrimaryActionBtn" x="0" y="30" width="456" height="44" />
+    </frame>
+  </frame>
+  <frame id="740:7404" name="최초 계정 설정_완료" x="1807" y="100" width="460" height="384">
+    <frame id="740:7405" name="Logo Combined" x="188.5" y="48" width="83" height="26">
+      <instance id="740:7406" name="Mini Logo" x="0" y="0" width="38" height="26" />
+      <frame id="740:7407" name="CMS Badge" x="46" y="4.5" width="37" height="17">
+        <text id="740:7408" name="CMS Text" x="6" y="2" width="25" height="13" />
+      </frame>
+    </frame>
+    <frame id="740:7409" name="Illustration Container" x="32" y="98" width="396" height="178">
+      <frame id="789:26859" name="illustration" x="149" y="0" width="98" height="98">
+        <instance id="789:26860" name="Check Mark" x="25" y="25" width="48" height="48" />
+      </frame>
+      <frame id="740:7412" name="Title Header Section" x="0" y="110" width="396" height="68">
+        <frame id="740:7413" name="Title Stack" x="0" y="0" width="396" height="68">
+          <text id="740:7414" name="Main Title" x="0" y="0" width="396" height="26" />
+          <text id="740:7415" name="Subtitle" x="0" y="30" width="396" height="20" />
+          <text id="740:7416" name="Additional Info Text" x="0" y="54" width="396" height="14" />
+        </frame>
+      </frame>
+    </frame>
+    <instance id="740:7417" name="PrimaryActionBtn" x="32" y="300" width="396" height="44" />
+  </frame>
+</section>
+
+IMPORTANT: The user has selected a section node, so you have received a sparse metadata response. You MUST call get_design_context on the nodes or their sublayers individually based on their IDs to implement the design.

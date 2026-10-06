@@ -1,0 +1,45 @@
+const imgDotColumn = "http://localhost:3845/assets/ad1d5880059770920826120bcdfcc2ac6c8390f8.svg";
+const imgDotColumn1 = "http://localhost:3845/assets/68f5b1af976b6f64e08a0e62321f5c3cf3e6e6c4.svg";
+type TimelineEntryProps = {
+  className?: string;
+  description?: string;
+  timestamp?: string;
+  title?: string;
+  type?: "최근" | "지난";
+};
+
+export default function TimelineEntry({ className, description = "작업이 서버 대기열에 접수되었습니다.", timestamp = "2026.09.08 13:40", title = "작업 접수", type = "최근" }: TimelineEntryProps) {
+  const is = type === "지난";
+  return (
+    <div className={className || "content-stretch flex h-[70px] items-center justify-between py-[12px] relative w-[504px]"} id={is ? "node-540_4159" : "node-540_4158"}>
+      <div className="content-stretch flex gap-[16px] items-start overflow-clip relative shrink-0" id={is ? "node-538_18406" : "node-538_18398"} data-name="LeftGroup">
+        <div className="relative shrink-0 size-[20px]" id={is ? "node-538_18407" : "node-538_18399"} data-name="DotColumn">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={is ? imgDotColumn1 : imgDotColumn} />
+        </div>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[4px] items-start leading-[normal] not-italic overflow-clip relative shrink-0 whitespace-nowrap" id={is ? "node-538_18409" : "node-538_18401"} data-name="TextGroup">
+          <p className="font-['Pretendard:SemiBold'] relative shrink-0 text-[18px] text-[color:var(--text\/primary-slate,#111827)]" data-node-id="538:18402">
+            {title}
+          </p>
+          <p className="font-['Pretendard:Regular'] relative shrink-0 text-[16px] text-[color:var(--text\/secondary-slate,#6b7280)]" data-node-id="538:18403">
+            {description}
+          </p>
+        </div>
+      </div>
+      <p className="[word-break:break-word] font-['Pretendard:Regular'] leading-[normal] not-italic relative shrink-0 text-[18px] text-[color:var(--text\/primary-black,black)] w-[160px]" data-node-id="538:18404">
+        {timestamp}
+      </p>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

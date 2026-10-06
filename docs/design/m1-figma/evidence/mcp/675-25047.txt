@@ -1,0 +1,78 @@
+export default function Component() {
+  return (
+    <div className="[word-break:break-word] bg-[var(--surface\/default,white)] font-['Pretendard:Bold'] gap-x-[10px] gap-y-[10px] grid grid-cols-[repeat(3,fit-content(100%))] grid-rows-[repeat(7,fit-content(100%))] leading-[normal] not-italic p-[10px] relative size-full text-[16px] text-[color:var(--text\/primary-black,black)]" data-node-id="675:25047" data-name="작업상세 : 요청 정보 정보">
+      <p className="col-2 justify-self-stretch relative row-1 self-start shrink-0" data-node-id="675:25049">
+        예상 환급액 조회
+      </p>
+      <p className="col-3 justify-self-stretch relative row-1 self-start shrink-0" data-node-id="675:25050">
+        본 경정청구 준비
+      </p>
+      <p className="col-1 justify-self-stretch relative row-2 self-start shrink-0" data-node-id="675:25051">
+        영업 담당자
+      </p>
+      <p className="col-2 justify-self-stretch relative row-2 self-start shrink-0" data-node-id="675:25052">
+        홍길동
+      </p>
+      <p className="col-3 justify-self-stretch relative row-2 self-start shrink-0" data-node-id="675:25053">
+        홍길동
+      </p>
+      <p className="col-1 justify-self-stretch relative row-3 self-start shrink-0" data-node-id="675:25054">
+        신고 담당자
+      </p>
+      <p className="col-2 justify-self-stretch relative row-3 self-start shrink-0" data-node-id="675:25055">
+        해당 없음
+      </p>
+      <p className="col-3 justify-self-stretch relative row-3 self-start shrink-0" data-node-id="675:25056">
+        김노무 / 미배정
+      </p>
+      <p className="col-1 justify-self-stretch relative row-4 self-start shrink-0" data-node-id="675:25057">
+        요청 일시
+      </p>
+      <p className="col-2 justify-self-stretch relative row-4 self-start shrink-0" data-node-id="675:25058">
+        표시
+      </p>
+      <p className="col-3 justify-self-stretch relative row-4 self-start shrink-0" data-node-id="675:25059">
+        표시
+      </p>
+      <p className="col-1 justify-self-stretch relative row-5 self-start shrink-0" data-node-id="675:25060">
+        자료 방식
+      </p>
+      <p className="col-2 justify-self-stretch relative row-5 self-start shrink-0" data-node-id="675:25061">
+        엑셀 파일
+      </p>
+      <p className="col-3 justify-self-stretch relative row-5 self-start shrink-0" data-node-id="675:25062">
+        엑셀 파일 / WEHAGO·Smart A
+      </p>
+      <p className="col-1 justify-self-stretch relative row-6 self-start shrink-0" data-node-id="675:25063">
+        요청 구분
+      </p>
+      <p className="col-2 justify-self-stretch relative row-6 self-start shrink-0" data-node-id="675:25064">
+        불필요
+      </p>
+      <p className="col-3 justify-self-stretch relative row-6 self-start shrink-0" data-node-id="675:25065">
+        새 경정청구 / 기존 경정청구 추가 실행
+      </p>
+      <p className="col-1 justify-self-stretch relative row-7 self-start shrink-0" data-node-id="675:25066">
+        연결된 기존 경정청구
+      </p>
+      <p className="col-2 justify-self-stretch relative row-7 self-start shrink-0" data-node-id="675:25067">
+        불필요
+      </p>
+      <p className="col-3 justify-self-stretch relative row-7 self-start shrink-0" data-node-id="675:25068">
+        추가 실행인 경우 표시
+      </p>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+Image assets are stored on a localhost server. Clients can use these images directly in code as a way to view the image assets the same way they would other remote servers. Images and SVGs will be stored as constants, e.g. const image = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png' These constants will be used in the code as the source for the image, e.g. <img src={image} /> This is true for both images and SVGs, so you can use the same approach for both types of assets.

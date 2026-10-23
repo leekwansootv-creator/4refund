@@ -48,9 +48,6 @@ export function buildConsultationSourceCells(row: LeadSheetRow): [string, string
 /** 상담 목록에서 표시하는 초기 상담 결과입니다. */
 export const INITIAL_CONSULTATION_RESULT = "미입력";
 
-/** 승인된 1인 운영에서 신규 상담을 고정 배정하는 담당자 이름입니다. */
-export const DEFAULT_CONSULTATION_ASSIGNEE = "이관수";
-
 /** 상담 목록의 업무 입력과 내부 동기화에 사용하는 1부터 시작하는 컬럼 번호입니다. */
 export const CONSULTATION_COLUMN_NUMBERS = {
   status: 1,
@@ -193,15 +190,18 @@ function toMarketingChannels(agreement: LeadSheetRow[number], value: LeadSheetRo
   return "확인 필요";
 }
 
-/** 원본 leads 한 행을 내부 코드가 노출되지 않는 한글 상담 목록 행으로 변환합니다. */
-export function buildConsultationSheetRow(row: LeadSheetRow): ConsultationSheetRow {
+/** 원본 행을 한글 상담 행으로 바꾸며 검증된 기본 담당자가 없으면 미배정으로 둡니다. */
+export function buildConsultationSheetRow(
+  row: LeadSheetRow,
+  defaultAssignee = "",
+): ConsultationSheetRow {
   const status = toText(getLeadSheetCell(row, "lead_status"));
   const industryCode = toText(getLeadSheetCell(row, "industry_code"));
   const estimateRuleVersion = toText(getLeadSheetCell(row, "estimate_rule_version"));
   const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
   const consultationRow: ConsultationSheetRow = [
     CONSULTATION_STATUS_LABELS[status as keyof typeof CONSULTATION_STATUS_LABELS] ?? "확인 필요",
-    DEFAULT_CONSULTATION_ASSIGNEE,
+    defaultAssignee,
     formatKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
     toText(getLeadSheetCell(row, "company_name")),
     toText(getLeadSheetCell(row, "contact_name")),

@@ -5,6 +5,7 @@ import {
   type ConsultationSheetCell,
 } from "./consultation-sheet-schema";
 import type { LeadSheetRow } from "./sheet-schema";
+import { validateConsultationAssignee } from "./consultation-status-policy";
 
 const CONSULTATION_LEAD_ID_COLUMN_NUMBER = 16;
 
@@ -58,7 +59,10 @@ export function syncConsultationSheetRows(
   sheet: ConsultationSheetPort,
   leadRows: readonly LeadSheetRow[],
   attributed = false,
+  defaultAssignee = "",
 ): ConsultationSheetSyncResult {
+  const assignee = validateConsultationAssignee(defaultAssignee);
+  if (!assignee.ok) throw new Error("default_assignee_invalid");
   const existingLeadIds = getExistingLeadIds(sheet);
   const sourceRows = new Map<string, { number: number; cells: string[] }>();
   if (attributed && sheet.getLastRow() > 1) {
@@ -98,7 +102,7 @@ export function syncConsultationSheetRows(
     }
 
     rowsToCreate.push([
-      ...buildConsultationSheetRow(leadRow),
+      ...buildConsultationSheetRow(leadRow, assignee.value),
       ...(attributed ? buildConsultationSourceCells(leadRow) : []),
     ]);
     existingLeadIds.add(leadId);

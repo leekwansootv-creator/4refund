@@ -51,6 +51,30 @@ function createSheet(existingLeadIds: string[] = []) {
 }
 
 describe("syncConsultationSheetRows", () => {
+  it("기본 담당자는 새 상담에만 반영하고 기존 담당자를 덮어쓰지 않는다", () => {
+    const { sheet, setValues } = createSheet(["lead-a"]);
+    syncConsultationSheetRows(
+      sheet,
+      [createLeadRow("lead-a"), createLeadRow("lead-b")],
+      false,
+      " 새 담당자 ",
+    );
+    expect(setValues).toHaveBeenCalledOnce();
+    expect(setValues.mock.calls[0]?.[0]).toHaveLength(1);
+    expect(setValues.mock.calls[0]?.[0][0]?.[1]).toBe("새 담당자");
+    expect(setValues.mock.calls[0]?.[0][0]?.[15]).toBe("lead-b");
+  });
+
+  it("설정이 없으면 미배정이며 잘못된 이름은 쓰기 전에 거절한다", () => {
+    const { sheet, setValues } = createSheet();
+    syncConsultationSheetRows(sheet, [createLeadRow("lead-a")]);
+    expect(setValues.mock.calls[0]?.[0][0]?.[1]).toBe("");
+    setValues.mockClear();
+    expect(() =>
+      syncConsultationSheetRows(sheet, [createLeadRow("lead-b")], false, "=1+1"),
+    ).toThrow("default_assignee_invalid");
+    expect(setValues).not.toHaveBeenCalled();
+  });
   it("확장 상담의 출처 표시만 보강하고 기존 업무값과 새 행 수를 유지한다", () => {
     const business = ["연락 중", "기존 담당자", ...Array<string>(13).fill("업무값"), "lead-a"];
     const cells = [...business, "", ""];

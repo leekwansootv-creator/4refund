@@ -2,8 +2,10 @@ import type { EstimateIndustryCode } from "../constants/estimate-rule-set";
 import {
   MARKETING_CONSENT_VERSION,
   PRIVACY_NOTICE_VERSION,
+  ATTRIBUTION_PRIVACY_NOTICE_VERSION,
 } from "../constants/lead-submission-contract";
 import type { EstimateResult } from "./estimate";
+import type { SubmissionAttribution } from "../lib/submission-attribution";
 
 /** 선택 마케팅 활용에 동의할 수 있는 연락 채널입니다. */
 export type MarketingChannel = "EMAIL" | "SMS";
@@ -16,6 +18,7 @@ export type QuickEstimateAntiSpam = {
 
 /** 연락처와 동의 입력을 견적 결과와 결합한 브라우저 제출 초안입니다. */
 export type QuickEstimateLeadDraft = {
+  attribution?: SubmissionAttribution;
   estimate: EstimateResult;
   lead: {
     companyName: string;
@@ -32,7 +35,14 @@ export type QuickEstimateLeadDraft = {
 };
 
 /** 브라우저와 Apps Script가 공유하는 간단 견적 상담 wire payload입니다. */
-export type QuickEstimateSubmissionPayload = {
+export type QuickEstimateSubmissionPayload = QuickEstimateSubmissionBase &
+  (
+    | { submissionVersion?: never; attribution?: never }
+    | { submissionVersion: 2; attribution: SubmissionAttribution }
+  );
+
+/** 기존 v1의 키와 의미를 보존하는 제출 공통 부분입니다. */
+export type QuickEstimateSubmissionBase = {
   requestId: string;
   estimate: {
     industryCode: EstimateIndustryCode;
@@ -51,7 +61,7 @@ export type QuickEstimateSubmissionPayload = {
   };
   privacy: {
     basis: "CONSENT";
-    noticeVersion: typeof PRIVACY_NOTICE_VERSION;
+    noticeVersion: typeof PRIVACY_NOTICE_VERSION | typeof ATTRIBUTION_PRIVACY_NOTICE_VERSION;
     agreed: true;
   };
   marketing: {
@@ -86,6 +96,7 @@ export type QuickEstimateSubmissionResponse =
 /** UI가 입력 항목별 안내를 선택할 수 있는 브라우저 제출 검증 코드입니다. */
 export type QuickEstimateLeadValidationIssue =
   | "invalid_request_id"
+  | "invalid_attribution"
   | "invalid_estimate"
   | "invalid_company_name"
   | "invalid_contact_name"

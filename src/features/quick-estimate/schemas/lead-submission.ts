@@ -4,9 +4,11 @@ import {
   MARKETING_CONSENT_VERSION,
   MIN_SUBMISSION_ELAPSED_MS,
   PRIVACY_NOTICE_VERSION,
+  ATTRIBUTION_PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
 } from "../constants/lead-submission-contract";
 import { calculateEstimate } from "../lib/calculate-estimate";
+import { parseSubmissionAttribution } from "../lib/submission-attribution";
 import type {
   MarketingChannel,
   QuickEstimateLeadDraft,
@@ -93,6 +95,13 @@ export function createQuickEstimateSubmissionPayload(
   requestId: string,
 ): QuickEstimateLeadValidationResult {
   const issues: QuickEstimateLeadValidationIssue[] = [];
+  const attribution = draft.attribution
+    ? parseSubmissionAttribution(draft.attribution, {
+        allowedOrigins: (process.env.NEXT_PUBLIC_EMBED_ALLOWED_ORIGINS ?? "").split(","),
+        homepageOrigins: [process.env.NEXT_PUBLIC_SITE_ORIGIN ?? ""],
+      })
+    : null;
+  if (draft.attribution && !attribution) issues.push("invalid_attribution");
   const companyName = normalizeRequiredText(draft.lead.companyName, 100);
   const contactName = normalizeRequiredText(draft.lead.contactName, 50);
   const email = normalizeEmail(draft.lead.email);
@@ -175,7 +184,9 @@ export function createQuickEstimateSubmissionPayload(
     },
     privacy: {
       basis: "CONSENT",
-      noticeVersion: PRIVACY_NOTICE_VERSION,
+      noticeVersion: draft.attribution
+        ? ATTRIBUTION_PRIVACY_NOTICE_VERSION
+        : PRIVACY_NOTICE_VERSION,
       agreed: true,
     },
     marketing: {
@@ -188,6 +199,7 @@ export function createQuickEstimateSubmissionPayload(
       elapsedMs: draft.antiSpam.elapsedMs,
     },
     sourcePath: "/",
+    ...(attribution ? { submissionVersion: 2 as const, attribution: { ...attribution } } : {}),
   };
 
   if (calculateUtf8ByteLength(JSON.stringify(payload)) > SUBMISSION_PAYLOAD_MAX_BYTES) {

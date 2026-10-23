@@ -15,6 +15,24 @@
   background: rgb(19 21 31 / 40%);
 }
 
+.embeddedViewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+}
+
+.embeddedCard {
+  width: min(480px, calc(100vw - 40px));
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 8%);
+  color: #212121;
+}
+
 .dialogCard {
   display: flex;
   max-height: min(90vh, 760px);

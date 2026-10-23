@@ -1,5 +1,15 @@
 # 간단 견적 운영 runbook
 
+## 외부 삽입 확장 준비 상태: 2026-10-23
+
+버전 자원 보존, 수동 프런트 공개와 전체 홈페이지 rollback, archive 만료·최초 전환의 처리 기준은 [출시·복구 절차](quick-estimate-embed-release.md)를 따른다. 로컬 workflow에서는 main 자동 배포를 분리했으며 실제 원격 workflow·운영 자산에는 아직 반영하지 않았다.
+
+로컬 소스에는 출처 제출 v2·구형 호환 writer·별도 `migrateQuickEstimateAttribution()`·설정 가능한 제한이 추가되었다. 실제 Google 자산에는 반영하지 않았다. 실행 순서와 각 Script Property는 [설치·운영 전환 가이드](../engineering/quick-estimate-embed-installation.md#서버-호환-설정과-공개-순서)를 따른다. `setupQuickEstimateStorage()`를 반복해도 출처 migration을 대신하지 않는다.
+
+승인된 작업에서 호환 서버 B를 먼저 반영하고, 시트 추가 열·codebook·보호·필터 readback을 확인한 뒤 프런트를 공개한다. migration은 Script lock 안에서 동작하고 완료 전 표식은 `pending`이다. 부분 실패 때 기존 원본을 추정으로 채우거나 열을 제거하지 말고 같은 migration을 재개한다. 원본 확장 후 구형 24열 전용 코드 A로 rollback하지 않는다. 기존 trigger도 호환 소스가 필요하다.
+
+10건/분·100건/일은 초기 보호값이다. `QUICK_ESTIMATE_RATE_LIMITS`로 조정할 수 있으나 모든 사이트가 공유하며, 측정된 저장 용량이나 MailApp quota를 뜻하지 않는다. 실제 부하·Google 연동 테스트는 대상·가짜 데이터·건수·수신자를 별도 승인한 후 수행한다. 일반 자동 검사에서는 실제 신청이나 메일을 만들지 않는다.
+
 ## 목적과 책임
 
 이 문서는 루트 랜딩의 간단 견적 상담 제출을 운영하는 절차를 고정한다. Apps Script 배포 URL, Script ID, Spreadsheet ID는 이 문서·PR·이슈에 기록하지 않는다. 사람용 상담 업무 화면의 목표 구조는 [간단 견적 상담 목록 설계](../planning/quick-estimate-consultation-queue.md)를 따른다.

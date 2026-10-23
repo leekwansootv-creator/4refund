@@ -4,8 +4,11 @@ import {
   MAX_SUBMISSION_ELAPSED_MS,
   MIN_SUBMISSION_ELAPSED_MS,
   PRIVACY_NOTICE_VERSION,
+  ATTRIBUTION_PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
   calculateEstimate,
+  parseSubmissionAttribution,
+  type AttributionPolicy,
   type MarketingChannel,
   type QuickEstimateSubmissionPayload,
   type QuickEstimateSubmissionValidationErrorCode,
@@ -146,12 +149,21 @@ function normalizeMarketingChannels(value: unknown): MarketingChannel[] | null {
   );
 }
 
-function validateParsedSubmission(input: unknown): SubmissionValidationResult {
-  if (!isRecord(input) || !hasExactKeys(input, ROOT_KEYS)) {
+function validateParsedSubmission(
+  input: unknown,
+  policy: AttributionPolicy,
+): SubmissionValidationResult {
+  if (!isRecord(input)) return failure("INVALID_INPUT");
+  const version2 = input.submissionVersion === 2;
+  if (
+    !hasExactKeys(input, version2 ? [...ROOT_KEYS, "submissionVersion", "attribution"] : ROOT_KEYS)
+  ) {
     return failure("INVALID_INPUT");
   }
 
   const { estimate, lead, privacy, marketing, antiSpam } = input;
+  const attribution = version2 ? parseSubmissionAttribution(input.attribution, policy) : null;
+  if (version2 && attribution === null) return failure("INVALID_INPUT");
 
   if (
     !isRecord(estimate) ||
@@ -193,7 +205,8 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
 
   if (
     privacy.basis !== "CONSENT" ||
-    privacy.noticeVersion !== PRIVACY_NOTICE_VERSION ||
+    privacy.noticeVersion !==
+      (version2 ? ATTRIBUTION_PRIVACY_NOTICE_VERSION : PRIVACY_NOTICE_VERSION) ||
     privacy.agreed !== true
   ) {
     return failure("INVALID_CONSENT");
@@ -255,7 +268,7 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
     },
     privacy: {
       basis: "CONSENT",
-      noticeVersion: PRIVACY_NOTICE_VERSION,
+      noticeVersion: version2 ? ATTRIBUTION_PRIVACY_NOTICE_VERSION : PRIVACY_NOTICE_VERSION,
       agreed: true,
     },
     marketing: {
@@ -268,13 +281,17 @@ function validateParsedSubmission(input: unknown): SubmissionValidationResult {
       elapsedMs: antiSpam.elapsedMs as number,
     },
     sourcePath: "/",
+    ...(attribution ? { submissionVersion: 2 as const, attribution } : {}),
   };
 
   return { ok: true, submission };
 }
 
 /** form field의 JSON 문자열을 크기 제한 안에서 parse하고 저장 가능한 값으로 정규화합니다. */
-export function parseAndValidateSubmissionPayload(payload: unknown): SubmissionValidationResult {
+export function parseAndValidateSubmissionPayload(
+  payload: unknown,
+  policy: AttributionPolicy = {},
+): SubmissionValidationResult {
   if (
     typeof payload !== "string" ||
     calculateUtf8ByteLength(payload) > SUBMISSION_PAYLOAD_MAX_BYTES
@@ -283,7 +300,7 @@ export function parseAndValidateSubmissionPayload(payload: unknown): SubmissionV
   }
 
   try {
-    return validateParsedSubmission(JSON.parse(payload) as unknown);
+    return validateParsedSubmission(JSON.parse(payload) as unknown, policy);
   } catch {
     return failure("INVALID_INPUT");
   }

@@ -51,6 +51,33 @@ function createSheet(existingLeadIds: string[] = []) {
 }
 
 describe("syncConsultationSheetRows", () => {
+  it("확장 상담의 출처 표시만 보강하고 기존 업무값과 새 행 수를 유지한다", () => {
+    const business = ["연락 중", "기존 담당자", ...Array<string>(13).fill("업무값"), "lead-a"];
+    const cells = [...business, "", ""];
+    const writes = vi.fn((values: (string | number)[][]) => {
+      cells.splice(16, 2, ...values[0]!.map(String));
+    });
+    const sheet: ConsultationSheetPort = {
+      getLastRow: () => 2,
+      getRange: (_row, column, _rows, width) => ({
+        getDisplayValues: () => [cells.slice(column - 1, column - 1 + width)],
+        setValues: writes,
+      }),
+    };
+    const row = [
+      ...createLeadRow("lead-a"),
+      2,
+      "embed",
+      "partner.example",
+      "https://partner.example",
+      "parent_message",
+    ];
+    expect(syncConsultationSheetRows(sheet, [row], true).createdRows).toBe(0);
+    syncConsultationSheetRows(sheet, [row], true);
+    expect(cells.slice(0, 16)).toEqual(business);
+    expect(cells.slice(16)).toEqual(["partner.example", "부모 페이지 전달"]);
+    expect(writes).toHaveBeenCalledOnce();
+  });
   it("상담 목록에 없는 lead_id만 한글 행으로 한 번에 추가한다", () => {
     const { sheet, getRange, setValues } = createSheet(["lead-a"]);
 

@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 import { LEAD_SHEET_HEADERS, type LeadSheetCell } from "./sheet-schema";
+import { CONSULTATION_SHEET_HEADERS } from "./consultation-sheet-schema";
 import {
   createAppsScriptLeadSheetStorage,
   type AppsScriptLeadSheetDependencies,
@@ -10,8 +11,8 @@ function createDependencies(overrides: Partial<AppsScriptLeadSheetDependencies> 
   const releaseLock = vi.fn();
   const setNumberFormat = vi.fn();
   const setValues = vi.fn();
-  const getRange = vi.fn(() => ({
-    getDisplayValues: () => [],
+  const getRange = vi.fn((row: number) => ({
+    getDisplayValues: () => (row === 1 ? [Array.from(LEAD_SHEET_HEADERS)] : []),
     setNumberFormat,
     setValues,
   }));
@@ -35,6 +36,23 @@ function createDependencies(overrides: Partial<AppsScriptLeadSheetDependencies> 
 }
 
 describe("createAppsScriptLeadSheetStorage", () => {
+  it("구형 시트의 실제 grid 폭을 넘겨 header를 읽지 않는다", () => {
+    const { dependencies } = createDependencies();
+    const range = vi.fn((row: number, _column: number, _rows: number, width: number) => {
+      if (width > 24) throw new Error("grid_limit");
+      return {
+        getDisplayValues: () => (row === 1 ? [[...LEAD_SHEET_HEADERS]] : []),
+        setValues: vi.fn(),
+        setNumberFormat: vi.fn(),
+      };
+    });
+    const storage = createAppsScriptLeadSheetStorage({
+      ...dependencies,
+      getLeadsSheet: () => ({ getLastRow: () => 1, getMaxColumns: () => 24, getRange: range }),
+    });
+    expect(() => storage.appendLeadRow([...LEAD_SHEET_HEADERS])).not.toThrow();
+    expect(range).toHaveBeenCalledWith(1, 1, 1, 24);
+  });
   it("5초 안에 Script lock을 얻지 못하면 operation을 실행하지 않는다", () => {
     const operation = vi.fn();
     const releaseLock = vi.fn();
@@ -100,7 +118,7 @@ describe("createAppsScriptLeadSheetStorage", () => {
 
     storage.appendLeadRow(row);
 
-    expect(getRange).toHaveBeenNthCalledWith(1, 5, 13, 1, 1);
+    expect(getRange).toHaveBeenCalledWith(5, 13, 1, 1);
     expect(setNumberFormat).toHaveBeenCalledWith("@");
     expect(getRange).toHaveBeenCalledWith(5, 1, 1, 24);
     expect(setValues).toHaveBeenCalledWith([row]);
@@ -108,8 +126,8 @@ describe("createAppsScriptLeadSheetStorage", () => {
 
   it("신규 원본 행을 lead_id 기준 상담 목록 투영에 전달한다", () => {
     const setValues = vi.fn();
-    const getRange = vi.fn(() => ({
-      getDisplayValues: () => [],
+    const getRange = vi.fn((row: number) => ({
+      getDisplayValues: () => (row === 1 ? [Array.from(CONSULTATION_SHEET_HEADERS)] : []),
       setValues,
     }));
     const { dependencies } = createDependencies({

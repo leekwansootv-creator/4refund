@@ -41,6 +41,8 @@ npm test
 npm run test:unit
 npm run test:e2e
 npm run build
+npm run build:embed-release
+npm run test:embed-release
 ```
 
 ## 테스트 기준
@@ -54,6 +56,8 @@ npm run build
 - 버그 수정: 실패를 재현하는 회귀 테스트를 먼저 또는 같은 변경에서 추가
 
 도구 선택 시 설치된 Next.js의 `node_modules/next/dist/docs/01-app/02-guides/testing/`을 먼저 확인한다.
+
+외부 삽입은 `e2e/quick-estimate-embed.spec.ts`에서 로컬 export 자원을 모의 HTTPS origin으로 제공해 검증한다. 제휴 origin과 위젯 origin은 분리하며 모든 POST는 모의 응답·차단으로 처리한다. `npm test`에는 출처 요청·시트 migration·제한 설정·release 무결성과 rollback 검사가 포함된다. `npm run build:embed-release`는 별도 로컬 artifact만 만들며 공개 배포를 수행하지 않는다. 설치·전환 절차는 [외부 삽입 가이드](quick-estimate-embed-installation.md)를 따른다.
 
 ## GitHub Actions
 
@@ -71,17 +75,23 @@ npm run build
 
 ## 배포
 
-프로덕션은 GitHub Pages에 Next.js 정적 export 결과물인 `out/`을 배포한다. 서버 런타임이 없으므로 Server Action, 동적 Route Handler, cookie·header 기반 응답, ISR, 기본 `next/image` loader처럼 요청 시점의 Next.js 서버가 필요한 기능은 사용할 수 없다. 이런 기능이 필요해지면 구현 전에 호스팅 대상을 다시 결정한다.
+프로덕션은 GitHub Pages의 정적 호스팅을 유지한다. 외부 모듈을 공개할 때는 일반 `out/` 대신 홈페이지와 모든 고정 release를 조립한 배포본을 사용한다. 서버 런타임이 없으므로 Server Action, 동적 Route Handler, cookie·header 기반 응답, ISR, 기본 `next/image` loader처럼 요청 시점의 Next.js 서버가 필요한 기능은 사용할 수 없다. 이런 기능이 필요해지면 구현 전에 호스팅 대상을 다시 결정한다.
 
 - pull request에서는 `Quality / verify`까지만 실행하고 preview 환경은 만들지 않는다.
-- `main` push의 `Quality / verify`가 성공해야 같은 commit SHA를 다시 정적 export하고 `github-pages` 환경에 배포한다.
+- `main` push와 PR은 `Quality / verify`만 수행한다. 공개는 별도 `Embed release`의 `workflow_dispatch`로만 시작한다. workflow를 저장소에 반영하거나 PR을 병합하는 것만으로 공개 배포를 시작하지 않는다.
+- 수동 workflow는 `main`의 선택된 SHA에서 `npm run check`를 실행한다. 운영 서버 v2 확인값·내부 운영 증적 참조, 직전 공개본과 archive의 일치를 요구한다. Google 준비를 자동으로 추정하거나 실제 신청으로 탐색하지 않는다.
 - Pages의 기본 URL과 custom domain 차이는 `actions/configure-pages`가 제공하는 `PAGES_BASE_PATH`로 빌드에 주입한다.
 - 배포 job은 저장소에 URL을 남기지 않도록 `QUICK_ESTIMATE_APPS_SCRIPT_URL` secret을 `NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL`로 빌드 시 주입한다. 이 값은 브라우저에 포함되는 공개 endpoint이며 인증 secret으로 사용하지 않는다.
-- 배포 job은 endpoint가 없거나 Apps Script Web App URL 형식이 아니면 정적 export 전에 실패한다. DB migration은 없다.
-- rollback은 문제 commit을 `main`에서 revert하여 이전 정적 결과물을 다시 배포하는 방식으로 수행한다.
-- 배포 후 GitHub Actions의 `deploy-pages` 결과와 배포 URL의 HTTP 응답, 주요 이미지·링크를 확인한다.
+- 배포 job은 endpoint가 없거나 Apps Script Web App URL 형식이 아니거나 일반 E2E endpoint이면 실패한다. 시트 확장은 별도 승인된 Apps Script 운영 단계이며 workflow에서 실행하지 않는다.
+- 전체 artifact 검증과 `npm run test:embed-release`를 통과한 파일을 archive한 뒤 `github-pages` 환경에서 같은 파일을 공개한다. 환경 승인 대기 뒤에도 직전 공개본의 digest를 재확인한다. 배포 동시 실행은 직렬화하며 진행 중인 배포를 새 요청으로 취소하지 않는다.
+- rollback은 과거 홈페이지와 기본 채널을 새 artifact로 복구하면서 현재까지의 고정 release와 홈페이지 `_next/static/` 자원을 모두 보존한다. 단순 revert·과거 archive 단독 업로드로 새 버전 경로를 삭제하지 않는다.
+- 홈페이지와 모든 보존 release의 접수 설정 해시를 운영 endpoint secret과 대조한다. 접수 비활성·테스트 주소·설정 증거가 없는 로컬 archive는 공개하지 않는다. 승인 대기 뒤에도 같은 검사를 수행하며 과거 archive의 주소를 현재 secret 값으로 추정하지 않는다.
+- 두 번째 공개부터는 직전 홈페이지 HTML이 새 배포의 자원으로 조회되는지도 브라우저에서 확인한다. rollback에도 동일하게 적용한다.
+- 배포 후 `Embed release / deploy`의 Pages 결과와 공개 manifest, 주요 이미지·링크를 확인한다.
 
 저장소 관리자는 Pages의 Source를 `GitHub Actions`로 설정하고 `github-pages` 환경은 `main`만 배포할 수 있도록 보호한다. custom domain과 HTTPS는 Pages 설정 및 DNS에서 별도로 활성화한다.
+
+전체 archive의 보존 기한과 최초 전환, 실패·롤백 절차는 [출시·복구 절차](../operations/quick-estimate-embed-release.md)를 따른다. 수동 입력과 저장소 변수는 운영 증적을 대신하지 않으며 실제 환경 보호 규칙의 설정 여부도 별도로 확인한다.
 
 ## 의존성 보안
 

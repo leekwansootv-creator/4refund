@@ -47,6 +47,8 @@ const eslintConfig = defineConfig([
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
+    "public/embed/v1/**",
+    ".embed-artifacts/**",
     "build/**",
     "coverage/**",
     "next-env.d.ts",

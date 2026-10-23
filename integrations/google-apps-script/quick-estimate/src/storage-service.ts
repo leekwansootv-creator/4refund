@@ -3,7 +3,7 @@ import {
   buildNewConsultationNotification,
   type ConsultationNotificationMessage,
 } from "./consultation-notification";
-import { LEAD_SHEET_HEADERS, type LeadSheetRow } from "./sheet-schema";
+import { LEAD_SHEET_HEADERS, ATTRIBUTED_LEAD_HEADERS, type LeadSheetRow } from "./sheet-schema";
 
 const FORMULA_PREFIX_PATTERN = /^[=+\-@]/u;
 
@@ -57,7 +57,7 @@ export function buildLeadSheetRow(
 ): LeadSheetRow {
   const marketingAcceptedAt = submission.marketing.agreed ? submittedAt : "";
 
-  const row: LeadSheetRow = [
+  const row = [
     leadId,
     submission.requestId,
     submittedAt,
@@ -84,7 +84,23 @@ export function buildLeadSheetRow(
     "",
   ];
 
-  if (row.length !== LEAD_SHEET_HEADERS.length) {
+  if (submission.submissionVersion === 2) {
+    const { channel, siteOrigin, collectionMethod } = submission.attribution;
+    row.push(
+      2,
+      channel,
+      siteOrigin?.replace(/^https?:\/\//u, "").split(":")[0] ?? "",
+      siteOrigin ?? "",
+      collectionMethod,
+    );
+  }
+
+  if (
+    row.length !==
+    (submission.submissionVersion === 2
+      ? ATTRIBUTED_LEAD_HEADERS.length
+      : LEAD_SHEET_HEADERS.length)
+  ) {
     throw new Error("lead_sheet_schema_mismatch");
   }
 

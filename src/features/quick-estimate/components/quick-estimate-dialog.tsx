@@ -15,6 +15,7 @@ type QuickEstimateDialogProps = {
   closeDisabled?: boolean;
   initialFocusKey?: string;
   onClose: () => void;
+  surface?: "modal" | "embedded";
 };
 
 /**
@@ -28,15 +29,17 @@ export function QuickEstimateDialog({
   closeDisabled = false,
   initialFocusKey,
   onClose,
+  surface = "modal",
 }: QuickEstimateDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
   const titleId = useId();
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const dialog = dialogRef.current;
 
-    if (!dialog || !open) {
+    if (!dialog || !open || surface === "embedded") {
       return;
     }
 
@@ -59,13 +62,13 @@ export function QuickEstimateDialog({
 
       returnFocusRef.current?.focus();
     };
-  }, [open]);
+  }, [open, surface]);
 
   useEffect(() => {
     if (open) {
-      const body = dialogRef.current?.querySelector<HTMLElement>("[data-dialog-body]");
+      const body = cardRef.current?.querySelector<HTMLElement>("[data-dialog-body]");
       if (body) body.scrollTop = 0;
-      dialogRef.current?.querySelector<HTMLElement>("[data-dialog-initial-focus]")?.focus();
+      cardRef.current?.querySelector<HTMLElement>("[data-dialog-initial-focus]")?.focus();
     }
   }, [initialFocusKey, open]);
 
@@ -74,6 +77,52 @@ export function QuickEstimateDialog({
       onClose();
     }
   }
+
+  const card = (
+    <div ref={cardRef} className={styles.dialogCard}>
+      <header className="flex shrink-0 items-center">
+        <span aria-hidden="true" className="size-11" />
+        <h2
+          id={titleId}
+          className={`min-w-0 flex-1 text-center font-bold text-[#111118] ${titleVariant === "contact" ? "text-[22px]" : "text-lg"}`}
+        >
+          {title}
+        </h2>
+        <button
+          type="button"
+          aria-label="간단 견적 닫기"
+          disabled={closeDisabled}
+          className={styles.closeButton}
+          onClick={onClose}
+        >
+          <Image src={QUICK_ESTIMATE_ASSETS.icons.close} alt="" width={20} height={20} />
+        </button>
+      </header>
+      <div className={styles.dialogBody} data-dialog-body>
+        {children}
+      </div>
+    </div>
+  );
+
+  if (surface === "embedded")
+    return (
+      <div
+        className={styles.embeddedViewport}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            if (!closeDisabled) onClose();
+          }
+        }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget && !closeDisabled) onClose();
+        }}
+      >
+        <section aria-labelledby={titleId} className={styles.embeddedCard}>
+          {card}
+        </section>
+      </div>
+    );
 
   return (
     <dialog
@@ -89,31 +138,7 @@ export function QuickEstimateDialog({
       }}
       onClick={handleBackdropClick}
     >
-      <div className={styles.dialogCard}>
-        <header className="flex shrink-0 items-center">
-          <span aria-hidden="true" className="size-11" />
-          <h2
-            id={titleId}
-            className={`min-w-0 flex-1 text-center font-bold text-[#111118] ${
-              titleVariant === "contact" ? "text-[22px]" : "text-lg"
-            }`}
-          >
-            {title}
-          </h2>
-          <button
-            type="button"
-            aria-label="간단 견적 닫기"
-            disabled={closeDisabled}
-            className={styles.closeButton}
-            onClick={onClose}
-          >
-            <Image src={QUICK_ESTIMATE_ASSETS.icons.close} alt="" width={20} height={20} />
-          </button>
-        </header>
-        <div className={styles.dialogBody} data-dialog-body>
-          {children}
-        </div>
-      </div>
+      {card}
     </dialog>
   );
 }

@@ -72,6 +72,7 @@ loader를 한 번 로드한 뒤 `window.FourRefundEmbed.mount(containerElement)`
 - manifest에는 source SHA, dirty 여부, protocol, 제출·고지·계산 버전, HTML 경로, 자원 SHA-256이 들어간다. 로컬 수정은 `dirty: true`로 표시한다.
 - 기본 채널 loader는 검증된 pinned loader를 로드한다. `--verify`는 전체 배포본을 검증하고 `--production`을 더하면 미커밋·설명용 주소 후보, 접수 불가·테스트 설정, 운영 endpoint와 접수 설정 해시가 다른 홈페이지·고정 버전을 거절한다. 이전 로컬 archive에 접수 설정 증거가 없으면 공개용으로 사용할 수 없다.
 - `--rollback`은 `EMBED_PREVIOUS_ARTIFACT`의 현재 버전을 모두 유지하면서 `EMBED_ROLLBACK_ARTIFACT`의 홈페이지와 채널을 **새** `EMBED_ARTIFACT_DIRECTORY`에 복구한다. 원본 archive는 수정하지 않는다. 봉인된 배포본에 기존 `--activate`만 적용하는 작업은 거절한다.
+- PowerShell에서 옵션을 전달할 때는 `node scripts/build-embed-release.mjs --rollback` 또는 `node scripts/build-embed-release.mjs --verify`로 직접 실행한다. `npm.ps1`의 `--` 인자 전달 누락을 피하기 위한 명령이며 Linux Actions의 npm 실행에는 영향을 주지 않는다.
 - `embed/partner/`에는 기본 설치·버전 고정·iframe 코드, README와 조회 전용 demo를 자동 생성한다. demo는 `demo=1`을 사용해 접수를 열지 않는다. iframe 방식임을 명시하며 기본 script의 부모 전체 모달과 구분한다.
 - `npm run test:embed-release`는 해당 배포본의 홈페이지·기본 채널·보존된 모든 고정 버전·데모를 1440px/375px Chromium에서 확인한다. `EMBED_BROWSER_PREVIOUS_ARTIFACT`가 있으면 직전 홈페이지 HTML이 새 배포 자원을 사용하는 경우도 확인한다. 모든 요청을 로컬 파일로 처리하고 POST·누락 자원·브라우저 오류가 있으면 실패한다.
 

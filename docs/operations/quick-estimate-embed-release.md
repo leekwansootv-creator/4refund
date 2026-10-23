@@ -41,7 +41,7 @@ $env:EMBED_RELEASE = '1.0.0'
 $env:EMBED_ARTIFACT_DIRECTORY = '.embed-artifacts/rehearsal-first'
 Remove-Item Env:EMBED_PREVIOUS_ARTIFACT -ErrorAction SilentlyContinue
 npm run build:embed-release
-npm run build:embed-release -- --verify
+node scripts/build-embed-release.mjs --verify
 npm run test:embed-release
 ```
 
@@ -50,6 +50,8 @@ npm run test:embed-release
 `EMBED_PUBLIC_BASE_URL`의 prefix와 `PAGES_BASE_PATH`는 같아야 한다. custom domain 루트는 빈 basePath다. Next.js의 basePath와 공개 환경 변수는 빌드에 포함되므로 폴더 이동이나 실행 시 환경 변수 변경으로 대체하지 않는다. 별도 공식 문의 호스트에는 `NEXT_PUBLIC_SITE_ORIGIN`과 `NEXT_PUBLIC_SITE_BASE_PATH`를 함께 지정한다.
 
 release 빌드는 `NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL`을 프로세스 환경 변수로 명시해야 접수를 활성화한다. 생략하면 빈 값으로 고정해 `.env.local` 등의 주소를 암묵적으로 사용하지 않는다. `--verify --production`과 공개본 대조 CLI에도 승인된 같은 주소를 명시해야 한다. 로컬 검증에서는 위 테스트 주소 또는 빈 값을 사용한다.
+
+PowerShell에서는 옵션이 필요한 명령을 위 예시처럼 `node scripts/build-embed-release.mjs --verify`로 직접 실행한다. Node 22.15.0/npm 10.9.2의 `npm.ps1`을 경유한 `npm run … -- --rollback`은 이 환경에서 옵션이 누락되어 새 빌드를 시작했다. `npm.cmd run build:embed-release -- --rollback`도 인자를 보존하지만 직접 Node 실행을 기본 안내로 사용한다. Linux Actions의 npm 명령은 그대로 사용한다.
 
 ## 운영 전환 순서
 
@@ -94,8 +96,8 @@ Google 자원·권한·실제 제출과 메일은 로컬 자동 검사가 입증
 $env:EMBED_PREVIOUS_ARTIFACT = '.embed-artifacts/rehearsal-second'
 $env:EMBED_ROLLBACK_ARTIFACT = '.embed-artifacts/rehearsal-first'
 $env:EMBED_ARTIFACT_DIRECTORY = '.embed-artifacts/rehearsal-rollback'
-npm run build:embed-release -- --rollback
-npm run build:embed-release -- --verify
+node scripts/build-embed-release.mjs --rollback
+node scripts/build-embed-release.mjs --verify
 $env:EMBED_BROWSER_PREVIOUS_ARTIFACT = $env:EMBED_PREVIOUS_ARTIFACT
 npm run test:embed-release
 ```

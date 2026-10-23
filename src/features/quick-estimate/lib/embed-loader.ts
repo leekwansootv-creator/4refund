@@ -247,18 +247,30 @@ function mount(container: HTMLElement): Mount {
           document.body.style.getPropertyPriority(property),
         ] as const,
     );
-    const oldHtml = document.documentElement.style.overflow;
+    // shorthand는 축별 값이나 우선순위가 다르면 빈 문자열이므로 각 longhand를 보존합니다.
+    const htmlStyle = document.documentElement.style;
+    const oldHtml = ["overflow-x", "overflow-y"].map(
+      (property) =>
+        [
+          property,
+          htmlStyle.getPropertyValue(property),
+          htmlStyle.getPropertyPriority(property),
+        ] as const,
+    );
     document.body.style.position = "fixed";
     document.body.style.top = `-${y}px`;
     document.body.style.left = `-${x}px`;
     document.body.style.width = "100%";
-    document.documentElement.style.overflow = "hidden";
+    htmlStyle.overflow = "hidden";
     restoreScroll = () => {
       oldBody.forEach(([property, value, priority]) => {
         if (value) document.body.style.setProperty(property, value, priority);
         else document.body.style.removeProperty(property);
       });
-      document.documentElement.style.overflow = oldHtml;
+      oldHtml.forEach(([property, value, priority]) => {
+        if (value) htmlStyle.setProperty(property, value, priority);
+        else htmlStyle.removeProperty(property);
+      });
       window.scrollTo(x, y);
       restoreScroll = () => {};
     };

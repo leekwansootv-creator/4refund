@@ -159,6 +159,39 @@ test("조회·재조회·닫기와 잘못된 메시지는 저장을 발생시키
   expect(posts).toBe(0);
 });
 
+test("모달을 닫으면 부모의 축별 스크롤 스타일과 important를 복원한다", async ({ page }) => {
+  await host(page);
+  const before = await page.evaluate(() => {
+    const style = document.documentElement.style;
+    style.setProperty("overflow-x", "scroll", "important");
+    style.setProperty("overflow-y", "auto");
+    return ["overflow-x", "overflow-y"].map((property) => ({
+      value: style.getPropertyValue(property),
+      priority: style.getPropertyPriority(property),
+    }));
+  });
+  for (let cycle = 0; cycle < 2; cycle++) {
+    await open(page);
+    await expect(page.locator("html")).toHaveCSS("overflow-y", "hidden");
+    await page.evaluate(() => {
+      document.documentElement.style.setProperty("--host-updated", "preserved");
+    });
+    await flow(page).getByRole("button", { name: "간단 견적 닫기" }).click();
+    await expect(page.locator("dialog")).not.toBeVisible();
+    expect(
+      await page.evaluate(() =>
+        ["overflow-x", "overflow-y"].map((property) => ({
+          value: document.documentElement.style.getPropertyValue(property),
+          priority: document.documentElement.style.getPropertyPriority(property),
+        })),
+      ),
+    ).toEqual(before);
+    expect(
+      await page.evaluate(() => document.documentElement.style.getPropertyValue("--host-updated")),
+    ).toBe("preserved");
+  }
+});
+
 test("연결 실패는 성공처럼 표시하지 않고 링크와 재진입을 제공한다", async ({ page }) => {
   await host(page, "https://partner-a.example", "", true);
   await expect(page.getByText("조회 화면 연결에 실패했습니다.", { exact: false })).toBeVisible({

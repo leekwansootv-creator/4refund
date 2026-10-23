@@ -4,6 +4,9 @@ export const SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
 /** 신규 상담과 운영 점검 메일 수신자를 저장하는 Script Property 이름입니다. */
 export const NOTIFICATION_RECIPIENT_PROPERTY = "QUICK_ESTIMATE_NOTIFICATION_RECIPIENT";
 
+/** 신규 상담의 기본 담당자이며 비어 있으면 자동 배정하지 않습니다. */
+export const DEFAULT_ASSIGNEE_PROPERTY = "QUICK_ESTIMATE_DEFAULT_ASSIGNEE";
+
 /** 개인정보 없는 메일 실패 집계를 저장하는 Script Property 이름입니다. */
 export const NOTIFICATION_FAILURE_PROPERTY = "QUICK_ESTIMATE_NOTIFICATION_FAILURE";
 

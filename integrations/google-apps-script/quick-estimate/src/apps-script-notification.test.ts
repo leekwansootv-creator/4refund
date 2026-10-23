@@ -39,17 +39,20 @@ describe("Apps Script 상담 알림 어댑터", () => {
     expect(sendEmail).toHaveBeenCalledWith("owner@example.com", message);
   });
 
-  it("수신자가 없거나 이메일 형식이 아니면 발송하지 않는다", () => {
-    const sendEmail = vi.fn();
-    const notifier = createAppsScriptConsultationNotifier(
-      createDependencies({ getProperty: () => null, sendEmail }),
-    );
+  it.each([null, "", "wrong", "a@example.com,b@example.com", "a@example.com;b@example.com"])(
+    "수신자 %s가 없거나 올바른 한 주소가 아니면 발송하지 않는다",
+    (recipient) => {
+      const sendEmail = vi.fn();
+      const notifier = createAppsScriptConsultationNotifier(
+        createDependencies({ getProperty: () => recipient, sendEmail }),
+      );
 
-    expect(() => notifier.send({ subject: "상담 알림", body: "본문" })).toThrow(
-      "notification_recipient_not_configured",
-    );
-    expect(sendEmail).not.toHaveBeenCalled();
-  });
+      expect(() => notifier.send({ subject: "상담 알림", body: "본문" })).toThrow(
+        "notification_recipient_not_configured",
+      );
+      expect(sendEmail).not.toHaveBeenCalled();
+    },
+  );
 
   it("개인정보 없는 실패 상태를 누적하고 성공 후 제거한다", () => {
     const properties = new Map<string, string>();

@@ -131,6 +131,7 @@ describe("createAppsScriptLeadSheetStorage", () => {
       setValues,
     }));
     const { dependencies } = createDependencies({
+      getDefaultAssignee: () => "새 담당자",
       getConsultationSheet: () => ({
         getLastRow: () => 1,
         getRange,
@@ -143,6 +144,7 @@ describe("createAppsScriptLeadSheetStorage", () => {
 
     expect(getRange).toHaveBeenCalledWith(2, 1, 1, 16);
     expect(setValues).toHaveBeenCalledOnce();
+    expect(setValues.mock.calls[0]?.[0][0]?.[1]).toBe("새 담당자");
     expect(setValues.mock.calls[0]?.[0][0]?.[15]).toBe("lead_id");
   });
 });

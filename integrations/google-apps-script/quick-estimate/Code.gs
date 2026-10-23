@@ -22,6 +22,7 @@ var QuickEstimateWebApp = (() => {
   // integrations/google-apps-script/quick-estimate/src/entrypoint.ts
   var entrypoint_exports = {};
   __export(entrypoint_exports, {
+    checkQuickEstimateOperatorSettings: () => checkQuickEstimateOperatorSettings,
     doPost: () => doPost,
     migrateQuickEstimateAttribution: () => migrateQuickEstimateAttribution,
     onEditQuickEstimateConsultation: () => onEditQuickEstimateConsultation,
@@ -524,7 +525,6 @@ var QuickEstimateWebApp = (() => {
     ];
   }
   var INITIAL_CONSULTATION_RESULT = "미입력";
-  var DEFAULT_CONSULTATION_ASSIGNEE = "이관수";
   var CONSULTATION_COLUMN_NUMBERS = {
     status: 1,
     assignee: 2,
@@ -623,7 +623,7 @@ var QuickEstimateWebApp = (() => {
     }
     return "확인 필요";
   }
-  function buildConsultationSheetRow(row) {
+  function buildConsultationSheetRow(row, defaultAssignee = "") {
     var _a, _b, _c;
     const status = toText(getLeadSheetCell(row, "lead_status"));
     const industryCode = toText(getLeadSheetCell(row, "industry_code"));
@@ -631,7 +631,7 @@ var QuickEstimateWebApp = (() => {
     const marketingAgreement = getLeadSheetCell(row, "marketing_agreed");
     const consultationRow = [
       (_a = CONSULTATION_STATUS_LABELS[status]) != null ? _a : "확인 필요",
-      DEFAULT_CONSULTATION_ASSIGNEE,
+      defaultAssignee,
       formatKoreanDateTime(getLeadSheetCell(row, "submitted_at")),
       toText(getLeadSheetCell(row, "company_name")),
       toText(getLeadSheetCell(row, "contact_name")),
@@ -896,6 +896,7 @@ var QuickEstimateWebApp = (() => {
   // integrations/google-apps-script/quick-estimate/src/apps-script-config.ts
   var SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
   var NOTIFICATION_RECIPIENT_PROPERTY = "QUICK_ESTIMATE_NOTIFICATION_RECIPIENT";
+  var DEFAULT_ASSIGNEE_PROPERTY = "QUICK_ESTIMATE_DEFAULT_ASSIGNEE";
   var NOTIFICATION_FAILURE_PROPERTY = "QUICK_ESTIMATE_NOTIFICATION_FAILURE";
   var LEADS_SHEET_NAME = "leads";
   var CONSULTATION_SHEET_NAME = "상담 목록";
@@ -1106,10 +1107,32 @@ var QuickEstimateWebApp = (() => {
     };
   }
 
+  // integrations/google-apps-script/quick-estimate/src/operator-settings.ts
+  function isNotificationRecipient(value) {
+    return value.length <= 254 && /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/u.test(value);
+  }
+  function inspectOperatorSettings(getProperty) {
+    var _a, _b, _c, _d;
+    const assignee = (_b = (_a = getProperty(DEFAULT_ASSIGNEE_PROPERTY)) == null ? void 0 : _a.trim()) != null ? _b : "";
+    const recipient = (_d = (_c = getProperty(NOTIFICATION_RECIPIENT_PROPERTY)) == null ? void 0 : _c.trim()) != null ? _d : "";
+    const defaultAssignee = !assignee ? "missing" : validateConsultationAssignee(assignee).ok ? "configured" : "invalid";
+    const notificationRecipient = !recipient ? "missing" : isNotificationRecipient(recipient) ? "configured" : "invalid";
+    return {
+      ready: defaultAssignee === "configured" && notificationRecipient === "configured",
+      defaultAssignee,
+      notificationRecipient
+    };
+  }
+  function checkQuickEstimateOperatorSettings() {
+    const properties = PropertiesService.getScriptProperties();
+    const result = inspectOperatorSettings((name) => properties.getProperty(name));
+    console.log(JSON.stringify(result));
+    return result;
+  }
+
   // integrations/google-apps-script/quick-estimate/src/apps-script-notification.ts
   var OPERATIONS_CHECK_HANDLER_FUNCTION_NAME = "runQuickEstimateOperationsCheck";
   var OPERATIONS_CHECK_INTERVAL_MINUTES = 30;
-  var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
   function parseFailureState(value) {
     if (value === null) {
       return null;
@@ -1133,7 +1156,7 @@ var QuickEstimateWebApp = (() => {
       send: (message) => {
         var _a, _b;
         const recipient = (_b = (_a = dependencies.getProperty(NOTIFICATION_RECIPIENT_PROPERTY)) == null ? void 0 : _a.trim()) != null ? _b : "";
-        if (!EMAIL_PATTERN.test(recipient)) {
+        if (!isNotificationRecipient(recipient)) {
           throw new Error("notification_recipient_not_configured");
         }
         dependencies.sendEmail(recipient, message);
@@ -1198,7 +1221,9 @@ var QuickEstimateWebApp = (() => {
       sheet.getRange(2, CONSULTATION_LEAD_ID_COLUMN_NUMBER, lastRow - 1, 1).getDisplayValues().flat().filter(Boolean)
     );
   }
-  function syncConsultationSheetRows(sheet, leadRows, attributed = false) {
+  function syncConsultationSheetRows(sheet, leadRows, attributed = false, defaultAssignee = "") {
+    const assignee = validateConsultationAssignee(defaultAssignee);
+    if (!assignee.ok) throw new Error("default_assignee_invalid");
     const existingLeadIds = getExistingLeadIds(sheet);
     const sourceRows = /* @__PURE__ */ new Map();
     if (attributed && sheet.getLastRow() > 1) {
@@ -1231,7 +1256,7 @@ var QuickEstimateWebApp = (() => {
         continue;
       }
       rowsToCreate.push([
-        ...buildConsultationSheetRow(leadRow),
+        ...buildConsultationSheetRow(leadRow, assignee.value),
         ...attributed ? buildConsultationSourceCells(leadRow) : []
       ]);
       existingLeadIds.add(leadId);
@@ -1345,9 +1370,15 @@ var QuickEstimateWebApp = (() => {
         sheet.getRange(nextRow, 1, 1, cells.length).setValues([cells]);
       },
       syncConsultationRow: (row) => {
+        var _a, _b;
         const sheet = dependencies.getConsultationSheet();
         const schema = readSheetSchema(sheet, "consultation");
-        syncConsultationSheetRows(sheet, [row], schema === "attributed");
+        syncConsultationSheetRows(
+          sheet,
+          [row],
+          schema === "attributed",
+          (_b = (_a = dependencies.getDefaultAssignee) == null ? void 0 : _a.call(dependencies)) != null ? _b : ""
+        );
       }
     };
   }
@@ -1373,6 +1404,10 @@ var QuickEstimateWebApp = (() => {
   }
   function createRuntimeLeadSheetStorage() {
     return createAppsScriptLeadSheetStorage({
+      getDefaultAssignee: () => {
+        var _a;
+        return (_a = PropertiesService.getScriptProperties().getProperty(DEFAULT_ASSIGNEE_PROPERTY)) != null ? _a : "";
+      },
       getScriptLock: () => LockService.getScriptLock(),
       getLeadsSheet: getRuntimeLeadsSheet,
       getConsultationSheet: getRuntimeConsultationSheet,
@@ -1449,8 +1484,14 @@ var QuickEstimateWebApp = (() => {
     return leadsSheet.getRange(2, 1, lastRow - 1, schema === "attributed" ? 29 : 24).getDisplayValues().map((row) => row);
   }
   function syncConsultationRows(spreadsheet, consultationSheet) {
+    var _a;
     const attributed = readSheetSchema(consultationSheet, "consultation") === "attributed";
-    return syncConsultationSheetRows(consultationSheet, getLeadRows(spreadsheet), attributed);
+    return syncConsultationSheetRows(
+      consultationSheet,
+      getLeadRows(spreadsheet),
+      attributed,
+      (_a = PropertiesService.getScriptProperties().getProperty(DEFAULT_ASSIGNEE_PROPERTY)) != null ? _a : ""
+    );
   }
   function withRuntimeScriptLock(operation) {
     const lock = LockService.getScriptLock();
@@ -1485,9 +1526,13 @@ var QuickEstimateWebApp = (() => {
     SpreadsheetApp.flush();
   }
   function setupQuickEstimateStorage() {
+    const properties = PropertiesService.getScriptProperties();
+    if (!inspectOperatorSettings((name) => properties.getProperty(name)).ready) {
+      throw new Error("operator_settings_not_ready");
+    }
     return withRuntimeScriptLock(() => {
-      const properties = PropertiesService.getScriptProperties();
-      const existingSpreadsheetId = properties.getProperty(SPREADSHEET_ID_PROPERTY);
+      const properties2 = PropertiesService.getScriptProperties();
+      const existingSpreadsheetId = properties2.getProperty(SPREADSHEET_ID_PROPERTY);
       if (existingSpreadsheetId !== null) {
         const existingSpreadsheet = SpreadsheetApp.openById(existingSpreadsheetId);
         const consultationSheet = ensureConsultationSheet(existingSpreadsheet);
@@ -1507,7 +1552,7 @@ var QuickEstimateWebApp = (() => {
       }
       const spreadsheet = SpreadsheetApp.create("간단 견적 리드 저장소");
       initializeSpreadsheet(spreadsheet);
-      properties.setProperty(SPREADSHEET_ID_PROPERTY, spreadsheet.getId());
+      properties2.setProperty(SPREADSHEET_ID_PROPERTY, spreadsheet.getId());
       const consultationEditTriggerCreated = ensureConsultationEditTrigger(spreadsheet);
       const consultationOperationsCheckTriggerCreated = createRuntimeConsultationNotifier().ensureOperationsCheckTrigger();
       return {
@@ -1873,7 +1918,7 @@ var QuickEstimateWebApp = (() => {
   var MARKETING_KEYS = ["agreed", "channels", "consentVersion"];
   var ANTI_SPAM_KEYS = ["honeypot", "elapsedMs"];
   var CONTROL_CHARACTER_PATTERN = /[\u0000-\u001f\u007f-\u009f]/u;
-  var EMAIL_PATTERN2 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
+  var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
   var PHONE_SEPARATOR_PATTERN = /[\s().-]/gu;
   var UUID_V4_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu;
   var MARKETING_CHANNELS = /* @__PURE__ */ new Set(["EMAIL", "SMS"]);
@@ -1918,7 +1963,7 @@ var QuickEstimateWebApp = (() => {
   }
   function normalizeEmail(value) {
     const normalized = normalizeRequiredText(value, 254);
-    if (normalized === null || !EMAIL_PATTERN2.test(normalized)) {
+    if (normalized === null || !EMAIL_PATTERN.test(normalized)) {
       return null;
     }
     return normalized;
@@ -2365,6 +2410,9 @@ var QuickEstimateWebApp = (() => {
   }
   return __toCommonJS(entrypoint_exports);
 })();
+function checkQuickEstimateOperatorSettings() {
+  return QuickEstimateWebApp.checkQuickEstimateOperatorSettings();
+}
 function migrateQuickEstimateAttribution() {
   return QuickEstimateWebApp.migrateQuickEstimateAttribution();
 }

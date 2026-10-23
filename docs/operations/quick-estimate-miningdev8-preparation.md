@@ -1,6 +1,6 @@
 # 신규 계정 접수 환경 준비 기록
 
-최초 생성 시점의 기록은 아래에 보존한다. 같은 날 이어진 보호·검증·서식 준비는 마지막의 **빈 신규 시트 준비 도구와 후속 검증** 절에서 확인한다.
+최초 생성 시점의 기록은 아래에 보존한다. 같은 날 이어진 보호·검증·서식 준비는 **빈 신규 시트 준비 도구와 후속 검증** 절에서 확인한다. 최신 운영자 설정 준비와 검증 결과는 마지막 절 및 [설정 입력과 활성화](quick-estimate-activation.md)를 따른다. 앞부분의 `pending`, 담당자 고정, 함수 미실행 기록은 최초 시점의 상태다.
 
 ## 범위와 상태
 
@@ -151,3 +151,11 @@ node scripts/build-empty-storage-preparation.mjs <별도-출력-폴더>/Preparat
 최종 로컬 검사는 Node.js 22.15.0 / npm 10.9.2에서 `QUICK_ESTIMATE_LIVE_E2E=0`으로 다시 실행했다. `npm run check`의 포맷·lint·타입·구조·주석·운영 Apps Script artifact 일치 검사, 도구 테스트 24개, Vitest 33개 파일의 263개 테스트, E2E 35개가 통과했다. 실제 Google 접수 테스트 5개는 건너뛰었다. 이 수치는 최초 준비 때의 21/247/35 결과와 구분한 이번 후속 작업 결과다.
 
 이번 결과는 빈 시트의 설정·출처 계약 준비다. 실제 접수 저장, 동기화 트리거, 이메일 전달, quota·부하, 개인정보 보유·파기 운영의 검증을 뜻하지 않는다. 다음 단계는 앞 절의 3번 운영 담당·설정 확정부터이며, 메일·트리거 권한과 운영 배포·실제 연동 검증·홈페이지 전환은 별도 승인 범위로 남긴다.
+
+## 운영자 설정을 추후 입력하도록 준비
+
+2026-10-23 후속 사용자 결정에 따라 담당자와 알림 수신자는 미입력으로 유지했다. 하드코딩된 담당자를 제거하고 `QUICK_ESTIMATE_DEFAULT_ASSIGNEE`와 기존 `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`를 사용한다. 실제 값이나 계정명으로 대신 채우지 않았다. 설정 위치, 검사 결과, 활성화 순서는 [설정 입력과 활성화](quick-estimate-activation.md)에 정리했다.
+
+새 미배포 프로젝트의 `Code.gs`만 갱신하고 편집기 전체 readback과 개행 정규화로 로컬 생성물과 일치를 확인했다. SHA-256은 `4a72c99bdcf6ba9a1691045595fec2751272c60ce1ef89a704fccd139323157d`다. 교체 전 코드와 준비용 `Preparation.gs`, 두 scope의 준비 manifest, 기존 Google 자산은 보존했다.
+
+18:04 KST에 `checkQuickEstimateOperatorSettings()`가 정상 완료되어 `ready: false`, `defaultAssignee: missing`, `notificationRecipient: missing`을 반환했다. 이 함수는 Script Properties 조회와 값 원문 없는 로그만 사용한다. 이번 후속 점검에서는 시트 설정·업무 행을 쓰지 않았으며 접수·알림·setup·운영 점검 함수를 실행하지 않았다. 출처 schema `2`, 트리거 0개, 활성·보관 배포 없음도 이번 세션에서 읽어 확인했다. 이전 시트 준비 결과를 실제 접수 검증으로 바꾸어 해석하지 않는다.

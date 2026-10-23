@@ -20,7 +20,7 @@
 - 분·일·연락처 해시 기반 제출 제한과 `RATE_LIMITED` 응답
 - 원본과 분리된 한글 상담 목록 생성과 누락 행 재동기화
 - 한글 상담 상태 전이 검증과 원본 `lead_status`, `handled_at` 동기화
-- 이관수 고정 담당자 배정과 개인정보 없는 신규 상담 이메일 알림
+- Script Properties의 기본 담당자 배정과 개인정보 없는 신규 상담 이메일 알림
 - 평일 업무 시간의 30분 누락 행·알림 실패 자동 점검
 
 React 화면과 브라우저 transport는 `src/features/quick-estimate`가 소유한다. 계정·배포·실저장 E2E와 장애 대응은 [운영 runbook](../../../docs/operations/quick-estimate-runbook.md)을 따른다.
@@ -62,7 +62,7 @@ npm run check:apps-script
 2. Project Settings에서 `Show "appsscript.json" manifest file in editor`를 켠다.
 3. 저장소의 `appsscript.json` 내용으로 편집기의 manifest를 교체한다.
 4. 저장소의 생성된 `Code.gs` 내용으로 편집기의 스크립트 파일을 교체한다.
-5. Project Settings의 Script Properties에 `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`를 추가하고 승인된 이관수 계정 이메일을 값으로 설정한다.
+5. Project Settings의 Script Properties에 `QUICK_ESTIMATE_DEFAULT_ASSIGNEE`(담당자 이름)와 `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`(알림 이메일 한 주소)를 입력한다. `checkQuickEstimateOperatorSettings`로 형식 검사를 확인한다. 두 값은 나중에 입력할 수 있으며 미입력 상태에서 setup은 쓰기·트리거 설치 전에 중단한다. [나중에 입력하는 방법](../../../docs/operations/quick-estimate-activation.md)을 따른다.
 6. 함수 목록에서 `setupQuickEstimateStorage`를 선택해 한 번 실행하고 Sheet, 메일 발송과 설치형 trigger 권한을 승인한다.
 7. 반환값에서 `consultationEditTriggerCreated`, `consultationOperationsCheckTriggerCreated`를 확인하고 반환된 URL로 Sheet를 연다. 기존 설정을 갱신한 경우 `created`는 `false`가 정상이다. 반환된 ID와 URL은 저장소나 PR에 남기지 않는다.
 8. Sheet가 첫 번째 `상담 목록`, `leads`, `codebook` 세 탭을 가지는지 확인한다.
@@ -86,7 +86,7 @@ npm run check:apps-script
 - 잘못된 입력은 이전 값으로 되돌리고 해당 셀에 한글 사유를 남긴다.
 - 원본 반영 실패 시 상담 목록 값은 보존하고 `원본 반영 대기` 메모와 개인정보 없는 오류 코드를 남긴다.
 
-신규 상담 행의 `상담 담당자`는 승인된 초기 운영 기준에 따라 `이관수`로 생성한다. 신규 담당자가 추가되기 전까지 자동 분배와 순번 배정은 사용하지 않는다.
+신규 상담 행의 `상담 담당자`는 `QUICK_ESTIMATE_DEFAULT_ASSIGNEE`의 검증된 이름으로 생성한다. 설정이 없으면 미배정(빈 셀)이며 기존 행의 담당자는 변경하지 않는다. 설정 변경 이후 새로 투영되는 행부터 적용한다. 이관수 이름을 코드에서 자동 지정하지 않으며 자동 분배·순번 배정은 사용하지 않는다.
 
 ## 신규 상담 알림과 자동 점검
 
@@ -103,10 +103,10 @@ npm run check:apps-script
 
 Apps Script의 Deploy > New deployment > Web app에서 다음 값을 사용한다.
 
-| 항목           | 값                            |
-| -------------- | ----------------------------- |
-| Execute as     | Me (`leekwansootv@gmail.com`) |
-| Who has access | Anyone                        |
+| 항목           | 값                         |
+| -------------- | -------------------------- |
+| Execute as     | 승인된 새 환경 소유자 본인 |
+| Who has access | Anyone                     |
 
 manifest의 `USER_DEPLOYING`과 `ANYONE_ANONYMOUS`는 이 실행 계약을 고정한다. 배포 URL은 환경 설정값으로만 다루며 저장소에 commit하지 않는다. 공개 랜딩에는 아직 연결하지 않는다.
 
@@ -119,7 +119,7 @@ fake 데이터로만 아래를 확인한다.
 - 같은 `leadId` 재동기화: 상담 목록 행 수 유지
 - 상담 목록 쓰기 실패: 원본 `leads` 저장 성공 응답 유지
 - 신규 저장 알림 수신과 중복 재시도 알림 미발송
-- 신규 상담의 이관수 고정 배정
+- 신규 상담의 설정한 담당자 배정과 기존 담당자 보존
 - 운영 점검의 누락 행 복구와 알림 실패 재전달
 - 허용·거부 상태 전이와 소유자 전용 재개
 - 최초 `연락 중`에서만 `handled_at` 기록

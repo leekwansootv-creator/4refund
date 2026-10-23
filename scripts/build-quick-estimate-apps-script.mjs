@@ -41,6 +41,9 @@ export async function buildQuickEstimateAppsScriptBundle() {
     },
     footer: {
       js: [
+        "function checkQuickEstimateOperatorSettings() {",
+        "  return QuickEstimateWebApp.checkQuickEstimateOperatorSettings();",
+        "}",
         "function migrateQuickEstimateAttribution() {",
         "  return QuickEstimateWebApp.migrateQuickEstimateAttribution();",
         "}",

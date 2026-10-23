@@ -30,9 +30,13 @@
     "build:e2e": "node scripts/build-e2e.mjs"
   },
   "dependencies": {
-    "next": "16.2.11",
+    "next": "16.4.2",
     "react": "19.2.4",
     "react-dom": "19.2.4"
+  },
+  "overrides": {
+    "playwright-core": "1.62.0",
+    "vitest": "4.1.12"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",
@@ -48,7 +52,7 @@
     "@vitejs/plugin-react": "6.0.4",
     "esbuild": "0.28.1",
     "eslint": "^9",
-    "eslint-config-next": "16.2.11",
+    "eslint-config-next": "16.4.2",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsdoc": "63.3.0",
     "jsdom": "29.1.1",
@@ -56,6 +60,7 @@
     "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "4.1.10"
+    "vite": "8.1.6",
+    "vitest": "4.1.12"
   }
 }

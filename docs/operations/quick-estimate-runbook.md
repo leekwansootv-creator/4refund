@@ -1,8 +1,12 @@
 # 간단 견적 운영 runbook
 
+## 새 계정의 담당자·알림 설정: 2026-10-23
+
+사용자 요청에 따라 새 환경의 담당자와 알림 수신자는 나중에 입력한다. 최신 소스는 `QUICK_ESTIMATE_DEFAULT_ASSIGNEE`와 `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`를 사용하며 특정 사람에게 자동 배정하지 않는다. [입력·활성화 안내](quick-estimate-activation.md)가 새 환경의 기준이다. 아래의 이관수 소유자·고정 배정·과거 검증 표는 기존 계정의 운영 기록이며 새 계정에 자동 적용하지 않는다. 기존 상담 행과 Google 자산은 보존한다.
+
 ## 외부 삽입 확장 준비 상태: 2026-10-23
 
-버전 자원 보존, 수동 프런트 공개와 전체 홈페이지 rollback, archive 만료·최초 전환의 처리 기준은 [출시·복구 절차](quick-estimate-embed-release.md)를 따른다. 로컬 workflow에서는 main 자동 배포를 분리했으며 실제 원격 workflow·운영 자산에는 아직 반영하지 않았다.
+버전 자원 보존, 수동 프런트 공개와 전체 홈페이지 rollback, archive 만료·최초 전환의 처리 기준은 [출시·복구 절차](quick-estimate-embed-release.md)를 따른다. 최초 로컬 준비 이후 PR #49가 병합되어 원격 workflow도 main 자동 배포와 수동 공개가 분리됐다. 병합만으로 공개되지 않으며 Google 운영 자산과 새 홈페이지 접수 주소의 전환은 아직 수행하지 않았다.
 
 로컬 소스에는 출처 제출 v2·구형 호환 writer·별도 `migrateQuickEstimateAttribution()`·설정 가능한 제한이 추가되었다. 실제 Google 자산에는 반영하지 않았다. 실행 순서와 각 Script Property는 [설치·운영 전환 가이드](../engineering/quick-estimate-embed-installation.md#서버-호환-설정과-공개-순서)를 따른다. `setupQuickEstimateStorage()`를 반복해도 출처 migration을 대신하지 않는다.
 

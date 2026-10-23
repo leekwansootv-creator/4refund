@@ -7,10 +7,10 @@ import {
   NOTIFICATION_FAILURE_PROPERTY,
   NOTIFICATION_RECIPIENT_PROPERTY,
 } from "./apps-script-config";
+import { isNotificationRecipient } from "./operator-settings";
 
 const OPERATIONS_CHECK_HANDLER_FUNCTION_NAME = "runQuickEstimateOperationsCheck";
 const OPERATIONS_CHECK_INTERVAL_MINUTES = 30;
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
 
 /** MailApp, Script Properties와 시간 기반 trigger를 감싼 테스트 가능한 의존성입니다. */
 export type AppsScriptNotificationDependencies = {
@@ -63,7 +63,7 @@ export function createAppsScriptConsultationNotifier(
     send: (message: ConsultationNotificationMessage): void => {
       const recipient = dependencies.getProperty(NOTIFICATION_RECIPIENT_PROPERTY)?.trim() ?? "";
 
-      if (!EMAIL_PATTERN.test(recipient)) {
+      if (!isNotificationRecipient(recipient)) {
         throw new Error("notification_recipient_not_configured");
       }
 

@@ -39,4 +39,4 @@ npm run check
 - [로컬 검사와 CI 운영](docs/engineering/quality-gates.md)
 - [기여 절차](CONTRIBUTING.md)
 
-프레임워크 동작은 인터넷의 임의 예제가 아니라 설치된 `next@16.2.11`의 `node_modules/next/dist/docs/`를 우선 기준으로 삼는다.
+프레임워크 동작은 인터넷의 임의 예제가 아니라 설치된 `next@16.4.2`의 `node_modules/next/dist/docs/`를 우선 기준으로 삼는다.

@@ -16,7 +16,9 @@ import {
   LEADS_SHEET_NAME,
   LOCK_TIMEOUT_MILLISECONDS,
   SPREADSHEET_ID_PROPERTY,
+  DEFAULT_ASSIGNEE_PROPERTY,
 } from "./apps-script-config";
+import { inspectOperatorSettings } from "./operator-settings";
 import {
   syncConsultationSheetRows,
   type ConsultationSheetPort,
@@ -65,6 +67,7 @@ type LeadsSheetPort = {
 
 /** Apps Script service를 얇은 port로 주입하는 Sheet 저장 어댑터 의존성입니다. */
 export type AppsScriptLeadSheetDependencies = {
+  getDefaultAssignee?: () => string;
   isAttributionEnabled?: () => boolean;
   getScriptLock: () => ScriptLockPort;
   getLeadsSheet: () => LeadsSheetPort;
@@ -129,7 +132,12 @@ export function createAppsScriptLeadSheetStorage(
     syncConsultationRow: (row: LeadSheetRow) => {
       const sheet = dependencies.getConsultationSheet();
       const schema = readSheetSchema(sheet, "consultation");
-      syncConsultationSheetRows(sheet, [row], schema === "attributed");
+      syncConsultationSheetRows(
+        sheet,
+        [row],
+        schema === "attributed",
+        dependencies.getDefaultAssignee?.() ?? "",
+      );
     },
   };
 }
@@ -169,6 +177,8 @@ function getRuntimeConsultationSheet(): GoogleAppsScript.Spreadsheet.Sheet {
 /** 현재 Apps Script의 Properties, LockService, SpreadsheetApp에 연결한 저장 port를 생성합니다. */
 export function createRuntimeLeadSheetStorage(): LeadSheetStoragePort {
   return createAppsScriptLeadSheetStorage({
+    getDefaultAssignee: () =>
+      PropertiesService.getScriptProperties().getProperty(DEFAULT_ASSIGNEE_PROPERTY) ?? "",
     getScriptLock: () => LockService.getScriptLock(),
     getLeadsSheet: getRuntimeLeadsSheet,
     getConsultationSheet: getRuntimeConsultationSheet,
@@ -294,7 +304,12 @@ function syncConsultationRows(
   consultationSheet: GoogleAppsScript.Spreadsheet.Sheet,
 ): ConsultationSheetSyncResult {
   const attributed = readSheetSchema(consultationSheet, "consultation") === "attributed";
-  return syncConsultationSheetRows(consultationSheet, getLeadRows(spreadsheet), attributed);
+  return syncConsultationSheetRows(
+    consultationSheet,
+    getLeadRows(spreadsheet),
+    attributed,
+    PropertiesService.getScriptProperties().getProperty(DEFAULT_ASSIGNEE_PROPERTY) ?? "",
+  );
 }
 
 function withRuntimeScriptLock<Result>(operation: () => Result): Result {
@@ -360,6 +375,11 @@ export function setupQuickEstimateStorage(): {
   spreadsheetId: string;
   spreadsheetUrl: string;
 } {
+  // 설정 누락 상태에서 트리거를 설치해 반복 알림 실패를 만들지 않습니다.
+  const properties = PropertiesService.getScriptProperties();
+  if (!inspectOperatorSettings((name) => properties.getProperty(name)).ready) {
+    throw new Error("operator_settings_not_ready");
+  }
   return withRuntimeScriptLock(() => {
     const properties = PropertiesService.getScriptProperties();
     const existingSpreadsheetId = properties.getProperty(SPREADSHEET_ID_PROPERTY);

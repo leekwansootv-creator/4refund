@@ -4,7 +4,7 @@
 
 ## 적용 우선순위
 
-1. 설치된 Next.js 16.2.11의 `node_modules/next/dist/docs/`
+1. 설치된 Next.js 16.4.2의 `node_modules/next/dist/docs/`
 2. 이 디렉터리의 프로젝트 규칙
 3. 개별 코드의 지역적 패턴
 
@@ -12,14 +12,15 @@
 
 ## 문서 지도
 
-| 문서                                                                               | 결정하는 내용                                 |
-| ---------------------------------------------------------------------------------- | --------------------------------------------- |
-| [architecture.md](architecture.md)                                                 | 폴더 책임, 파일 배치, 의존성 방향, 공개 API   |
-| [code-conventions.md](code-conventions.md)                                         | TypeScript, Next.js 경계, 이름, 주석          |
-| [quality-gates.md](quality-gates.md)                                               | 로컬 명령, CI, 테스트와 배포 기준             |
-| [quick-estimate-embed-installation.md](quick-estimate-embed-installation.md)       | 외부 삽입 코드, 정적 release, 서버 전환·복구  |
-| [quick-estimate-embed-partner-handoff.md](quick-estimate-embed-partner-handoff.md) | 제휴사 전달 묶음과 설치 책임                  |
-| [출시·복구 절차](../operations/quick-estimate-embed-release.md)                    | 수동 공개, 운영 증적, archive 보존과 rollback |
+| 문서                                                                               | 결정하는 내용                                    |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------ |
+| [architecture.md](architecture.md)                                                 | 폴더 책임, 파일 배치, 의존성 방향, 공개 API      |
+| [code-conventions.md](code-conventions.md)                                         | TypeScript, Next.js 경계, 이름, 주석             |
+| [quality-gates.md](quality-gates.md)                                               | 로컬 명령, CI, 테스트와 배포 기준                |
+| [quick-estimate-embed-installation.md](quick-estimate-embed-installation.md)       | 외부 삽입 코드, 정적 release, 서버 전환·복구     |
+| [quick-estimate-embed-partner-handoff.md](quick-estimate-embed-partner-handoff.md) | 제휴사 전달 묶음과 설치 책임                     |
+| [출시·복구 절차](../operations/quick-estimate-embed-release.md)                    | 수동 공개, 운영 증적, archive 보존과 rollback    |
+| [설정 입력과 활성화](../operations/quick-estimate-activation.md)                   | 추후 담당자·수신자 입력, 준비 검사와 활성화 순서 |
 
 ## 고정 도구 체인
 
@@ -27,13 +28,17 @@
 | ---------- | ----------------------------------- |
 | Node.js    | 22.15.x                             |
 | npm        | 10.9.x                              |
-| Next.js    | 16.2.11                             |
+| Next.js    | 16.4.2                              |
 | React      | 19.2.4                              |
 | TypeScript | strict + 추가 안전성 옵션           |
 | 포맷       | Prettier + Tailwind CSS 클래스 정렬 |
 | 정적 검사  | ESLint + 프로젝트 구조/주석 검사    |
 
 정확한 의존성은 `package-lock.json`, 실행 버전은 `.nvmrc`와 `package.json`의 `engines`를 기준으로 한다.
+
+Vitest는 `4.1.12`, Vite는 `8.1.6`으로 고정한다. npm 10의 optional peer 해석 중 `edgesOut` 오류가 재현되어 `overrides.vitest`도 직접 의존성과 같은 `4.1.12`로 맞춘다. 다른 Vitest 버전으로 분기하는 해석을 방지하는 설정이며 peer 검사를 끄지 않는다. Vitest를 올릴 때 두 값을 함께 변경하고 `npm ci`를 확인한다. [npm 재현 이슈](https://github.com/npm/cli/issues/9787)를 참고한다.
+
+`playwright-core` override는 `@playwright/test`와 같은 `1.62.0`으로 고정한다. 접근성 도구가 별도 최신 core를 선택하면 Page 타입이 충돌하므로 함께 갱신하고 브라우저 테스트로 확인한다.
 
 ## 규칙 변경 원칙
 

@@ -23,6 +23,7 @@ import {
   type ConsultationSheetSyncResult,
 } from "./consultation-sheet-projection";
 import { CONSULTATION_SHEET_HEADERS } from "./consultation-sheet-schema";
+import { ATTRIBUTION_SCHEMA_PROPERTY, readSheetSchema } from "./attribution-sheet-schema";
 import type { LeadSheetStoragePort } from "./storage-service";
 
 const CODEBOOK_SHEET_NAME = "codebook";
@@ -51,6 +52,8 @@ type SheetRangePort = {
 };
 
 type LeadsSheetPort = {
+  getMaxColumns?: () => number;
+  getLastColumn?: () => number;
   getLastRow: () => number;
   getRange: (
     row: number,
@@ -62,6 +65,7 @@ type LeadsSheetPort = {
 
 /** Apps Script service를 얇은 port로 주입하는 Sheet 저장 어댑터 의존성입니다. */
 export type AppsScriptLeadSheetDependencies = {
+  isAttributionEnabled?: () => boolean;
   getScriptLock: () => ScriptLockPort;
   getLeadsSheet: () => LeadsSheetPort;
   getConsultationSheet: () => ConsultationSheetPort;
@@ -100,13 +104,32 @@ export function createAppsScriptLeadSheetStorage(
     },
     appendLeadRow: (row: LeadSheetRow) => {
       const sheet = dependencies.getLeadsSheet();
+      const schema = readSheetSchema(sheet, "leads");
+      if (row.length !== 24 && row.length !== 29) throw new Error("lead_row_schema_mismatch");
+      if (row.length === 29) {
+        const consultation = dependencies.getConsultationSheet();
+        if (
+          schema !== "attributed" ||
+          !dependencies.isAttributionEnabled?.() ||
+          readSheetSchema(consultation, "consultation") !== "attributed"
+        )
+          throw new Error("attribution_schema_not_ready");
+      }
+      const cells =
+        schema === "attributed" && row.length === 24
+          ? [...row, 1, "legacy_unknown", "", "", "legacy_absent"]
+          : Array.from(row);
       const nextRow = Math.max(sheet.getLastRow() + 1, 2);
 
       sheet.getRange(nextRow, PHONE_COLUMN_NUMBER, 1, 1).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
-      sheet.getRange(nextRow, 1, 1, LEAD_SHEET_HEADERS.length).setValues([Array.from(row)]);
+      if (schema === "attributed")
+        sheet.getRange(nextRow, 26, 1, 4).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
+      sheet.getRange(nextRow, 1, 1, cells.length).setValues([cells]);
     },
     syncConsultationRow: (row: LeadSheetRow) => {
-      syncConsultationSheetRows(dependencies.getConsultationSheet(), [row]);
+      const sheet = dependencies.getConsultationSheet();
+      const schema = readSheetSchema(sheet, "consultation");
+      syncConsultationSheetRows(sheet, [row], schema === "attributed");
     },
   };
 }
@@ -149,6 +172,8 @@ export function createRuntimeLeadSheetStorage(): LeadSheetStoragePort {
     getScriptLock: () => LockService.getScriptLock(),
     getLeadsSheet: getRuntimeLeadsSheet,
     getConsultationSheet: getRuntimeConsultationSheet,
+    isAttributionEnabled: () =>
+      PropertiesService.getScriptProperties().getProperty(ATTRIBUTION_SCHEMA_PROPERTY) === "2",
   });
 }
 
@@ -239,16 +264,7 @@ function ensureConsultationSheet(spreadsheet: GoogleAppsScript.Spreadsheet.Sprea
   if (sheet.getLastRow() === 0) {
     initializeConsultationSheet(sheet);
   } else {
-    const headers = sheet
-      .getRange(1, 1, 1, CONSULTATION_SHEET_HEADERS.length)
-      .getDisplayValues()[0];
-
-    if (
-      headers === undefined ||
-      headers.some((header, index) => header !== CONSULTATION_SHEET_HEADERS[index])
-    ) {
-      throw new Error("consultation_sheet_schema_mismatch");
-    }
+    readSheetSchema(sheet, "consultation");
   }
 
   spreadsheet.setActiveSheet(sheet);
@@ -260,6 +276,7 @@ function ensureConsultationSheet(spreadsheet: GoogleAppsScript.Spreadsheet.Sprea
 
 function getLeadRows(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet): LeadSheetRow[] {
   const leadsSheet = getNamedSheet(spreadsheet, LEADS_SHEET_NAME);
+  const schema = readSheetSchema(leadsSheet, "leads");
   const lastRow = leadsSheet.getLastRow();
 
   if (lastRow <= 1) {
@@ -267,7 +284,7 @@ function getLeadRows(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet): Lea
   }
 
   return leadsSheet
-    .getRange(2, 1, lastRow - 1, LEAD_SHEET_HEADERS.length)
+    .getRange(2, 1, lastRow - 1, schema === "attributed" ? 29 : 24)
     .getDisplayValues()
     .map((row) => row as LeadSheetRow);
 }
@@ -276,7 +293,8 @@ function syncConsultationRows(
   spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet,
   consultationSheet: GoogleAppsScript.Spreadsheet.Sheet,
 ): ConsultationSheetSyncResult {
-  return syncConsultationSheetRows(consultationSheet, getLeadRows(spreadsheet));
+  const attributed = readSheetSchema(consultationSheet, "consultation") === "attributed";
+  return syncConsultationSheetRows(consultationSheet, getLeadRows(spreadsheet), attributed);
 }
 
 function withRuntimeScriptLock<Result>(operation: () => Result): Result {

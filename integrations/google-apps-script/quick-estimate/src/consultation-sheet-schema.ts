@@ -22,6 +22,29 @@ export const CONSULTATION_SHEET_HEADERS = [
   "상담 신청 번호",
 ] as const;
 
+/** 숨겨진 연결 ID 16열을 옮기지 않는 출처 표시 확장입니다. */
+export const ATTRIBUTED_CONSULTATION_HEADERS = [
+  ...CONSULTATION_SHEET_HEADERS,
+  "설치 사이트",
+  "출처 확인 방법",
+] as const;
+
+/** 과거 미수집과 신규 획득 실패를 구분하며 업무 열에는 손대지 않습니다. */
+export function buildConsultationSourceCells(row: LeadSheetRow): [string, string] {
+  const labels: Record<string, string> = {
+    parent_message: "부모 페이지 전달",
+    referrer: "브라우저 참조",
+    self_location: "홈페이지 직접",
+    configured: "설정값 전달",
+    unknown: "확인 불가",
+    legacy_absent: "과거 미수집",
+  };
+  return [
+    String(row[26] || (String(row[24]) === "2" ? "확인 불가" : "미수집")),
+    labels[String(row[28])] ?? "과거 미수집",
+  ];
+}
+
 /** 상담 목록에서 표시하는 초기 상담 결과입니다. */
 export const INITIAL_CONSULTATION_RESULT = "미입력";
 

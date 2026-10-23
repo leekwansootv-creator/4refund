@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
+import { observeAttribution, type SubmissionAttribution } from "../lib/submission-attribution";
 import { QuickEstimateContactStep } from "./contact-step";
 import { QuickEstimateResultStep } from "./estimate-result-step";
 import { QuickEstimateEstimateStep } from "./estimate-step";
@@ -40,7 +41,13 @@ type QuickEstimateFlowDependencies = {
 };
 type QuickEstimateFlowProps = {
   endpoint: string;
-  consultHref: `#${string}`;
+  consultHref: string;
+  embedded?: {
+    attribution: SubmissionAttribution;
+    subscribeClose: (handler: () => void) => () => void;
+    onClose: () => void;
+    onStatus: (status: "BUSY" | "UNCERTAIN" | "IDLE") => void;
+  };
   timeoutMs?: number;
   dependencies?: QuickEstimateFlowDependencies;
 };
@@ -62,8 +69,9 @@ export function QuickEstimateFlow({
   consultHref,
   timeoutMs,
   dependencies = {},
+  embedded,
 }: QuickEstimateFlowProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(Boolean(embedded));
   const [step, setStep] = useState<FlowStep>("estimate");
   const [contactValues, setContactValues] = useState(EMPTY_CONTACT);
   const [estimateValues, setEstimateValues] = useState(EMPTY_ESTIMATE);
@@ -81,6 +89,18 @@ export function QuickEstimateFlow({
   const formOpenedAtRef = useRef(0);
   // 미확인 요청의 후속 재시도가 거절돼도 최초 저장 여부는 여전히 불명확합니다.
   const unconfirmedAttemptRef = useRef(false);
+  const attributionRef = useRef<SubmissionAttribution | null>(embedded?.attribution ?? null);
+  const requestClose = useEffectEvent(() => handleClose());
+  useEffect(() => {
+    if (!embedded) return;
+    formOpenedAtRef.current = Date.now();
+    return embedded.subscribeClose(requestClose);
+  }, [embedded]);
+
+  function finishClose() {
+    if (embedded) embedded.onClose();
+    else setOpen(false);
+  }
 
   function updateSubmissionState(state: QuickEstimateSubmissionState) {
     submissionStateRef.current = state;
@@ -101,6 +121,13 @@ export function QuickEstimateFlow({
     setHasUnconfirmedAttempt(false);
     updateSubmissionState(createInitialSubmissionState());
     formOpenedAtRef.current = (dependencies.now ?? Date.now)();
+    if (!embedded)
+      attributionRef.current = observeAttribution(
+        "homepage",
+        "self_location",
+        window.location.origin,
+        { homepageOrigins: [process.env.NEXT_PUBLIC_SITE_ORIGIN ?? ""] },
+      );
     setOpen(true);
   }
 
@@ -109,13 +136,14 @@ export function QuickEstimateFlow({
     if (unconfirmedAttemptRef.current) {
       setCloseWarning(true);
     } else {
-      setOpen(false);
+      finishClose();
     }
   }
 
   async function performSubmission(state: QuickEstimateSubmissionState) {
     if (state.status !== "submitting" || submissionInFlightRef.current) return;
     submissionInFlightRef.current = true;
+    embedded?.onStatus("BUSY");
     try {
       const submitLead = dependencies.submitLead ?? submitEstimateLead;
       const result = await submitLead(state.payload, {
@@ -136,6 +164,7 @@ export function QuickEstimateFlow({
       );
     } finally {
       submissionInFlightRef.current = false;
+      embedded?.onStatus(unconfirmedAttemptRef.current ? "UNCERTAIN" : "IDLE");
     }
   }
 
@@ -173,6 +202,7 @@ export function QuickEstimateFlow({
       const nextState = startQuickEstimateSubmission(
         currentState,
         {
+          ...(attributionRef.current ? { attribution: attributionRef.current } : {}),
           estimate: estimateResult,
           lead: contactValues,
           privacyAgreed: consentValues.privacyAgreed,
@@ -247,13 +277,14 @@ export function QuickEstimateFlow({
 
   return (
     <>
-      <QuickEstimateHeroAction onClick={handleOpen} />
+      {embedded ? null : <QuickEstimateHeroAction onClick={handleOpen} />}
       <QuickEstimateDialog
         open={open}
         title={title}
         closeDisabled={submissionState.status === "submitting"}
         initialFocusKey={`${step}-${submissionState.status}-${closeWarning}`}
         onClose={handleClose}
+        surface={embedded ? "embedded" : "modal"}
       >
         {closeWarning ? (
           <div className="flex flex-col gap-5" data-dialog-initial-focus tabIndex={-1}>
@@ -268,7 +299,7 @@ export function QuickEstimateFlow({
             >
               돌아가서 접수 확인
             </button>
-            <button type="button" className={styles.secondaryButton} onClick={() => setOpen(false)}>
+            <button type="button" className={styles.secondaryButton} onClick={finishClose}>
               접수 여부 미확인 상태로 닫기
             </button>
           </div>
@@ -294,8 +325,11 @@ export function QuickEstimateFlow({
                 onApply={endpoint ? handleApply : null}
                 onRestart={handleRestart}
                 onConsult={() => {
-                  setOpen(false);
-                  window.location.hash = consultHref;
+                  if (embedded) window.open(consultHref, "_blank", "noopener,noreferrer");
+                  else {
+                    setOpen(false);
+                    window.location.hash = consultHref;
+                  }
                 }}
               />
             ) : null}

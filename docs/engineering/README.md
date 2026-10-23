@@ -12,11 +12,14 @@
 
 ## 문서 지도
 
-| 문서                                       | 결정하는 내용                               |
-| ------------------------------------------ | ------------------------------------------- |
-| [architecture.md](architecture.md)         | 폴더 책임, 파일 배치, 의존성 방향, 공개 API |
-| [code-conventions.md](code-conventions.md) | TypeScript, Next.js 경계, 이름, 주석        |
-| [quality-gates.md](quality-gates.md)       | 로컬 명령, CI, 테스트와 배포 기준           |
+| 문서                                                                               | 결정하는 내용                                 |
+| ---------------------------------------------------------------------------------- | --------------------------------------------- |
+| [architecture.md](architecture.md)                                                 | 폴더 책임, 파일 배치, 의존성 방향, 공개 API   |
+| [code-conventions.md](code-conventions.md)                                         | TypeScript, Next.js 경계, 이름, 주석          |
+| [quality-gates.md](quality-gates.md)                                               | 로컬 명령, CI, 테스트와 배포 기준             |
+| [quick-estimate-embed-installation.md](quick-estimate-embed-installation.md)       | 외부 삽입 코드, 정적 release, 서버 전환·복구  |
+| [quick-estimate-embed-partner-handoff.md](quick-estimate-embed-partner-handoff.md) | 제휴사 전달 묶음과 설치 책임                  |
+| [출시·복구 절차](../operations/quick-estimate-embed-release.md)                    | 수동 공개, 운영 증적, archive 보존과 rollback |
 
 ## 고정 도구 체인
 

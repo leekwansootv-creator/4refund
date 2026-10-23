@@ -1,11 +1,10 @@
-import Image from "next/image";
+import { QuickEstimateEnvelope } from "@/features/quick-estimate";
 import type { ReactNode } from "react";
 
 import motionStyles from "./landing-motion.module.css";
 import styles from "./quick-estimate-hero.module.css";
 import { RefundCasesTrack } from "./refund-cases-track";
 import { LANDING_CONTENT } from "../constants/landing-content";
-import { QUICK_ESTIMATE_HERO_ASSETS } from "../constants/quick-estimate-hero-assets";
 
 /**
  * 기존 hero를 대체할 간단 견적 소개와 환급 사례를 조합합니다.
@@ -32,73 +31,7 @@ export function QuickEstimateHeroSection({ action }: { action: ReactNode }) {
       </div>
 
       <div className={styles.illustrationStage}>
-        <div aria-label="우리 회사 예상 환급액 조회" className={styles.illustration}>
-          <Image
-            src={QUICK_ESTIMATE_HERO_ASSETS.envelope.back}
-            alt=""
-            fill
-            loading="eager"
-            sizes="442px"
-            className={styles.envelopeLayer}
-          />
-          <div aria-hidden="true" className={styles.paper}>
-            <Image
-              src={QUICK_ESTIMATE_HERO_ASSETS.envelope.paper}
-              alt=""
-              width={1024}
-              height={1024}
-              className={styles.paperImage}
-            />
-          </div>
-          <Image
-            src={QUICK_ESTIMATE_HERO_ASSETS.envelope.frontShadow}
-            alt=""
-            fill
-            sizes="442px"
-            className={`${styles.envelopeLayer} ${styles.frontShadow}`}
-          />
-          <Image
-            src={QUICK_ESTIMATE_HERO_ASSETS.envelope.front}
-            alt=""
-            fill
-            sizes="442px"
-            className={`${styles.envelopeLayer} ${styles.front}`}
-          />
-          <p className={styles.estimatePrompt}>우리 회사 예상 환급액은?</p>
-          <div className={styles.actionSlot}>{action}</div>
-
-          <div aria-hidden="true" className={`${styles.coin} ${styles.coinTop}`}>
-            <Image
-              src={QUICK_ESTIMATE_HERO_ASSETS.coins}
-              alt=""
-              width={1536}
-              height={1024}
-              className={styles.coinImage}
-            />
-          </div>
-          <div aria-hidden="true" className={`${styles.coin} ${styles.coinLeft}`}>
-            <div className={styles.coinLeftCrop}>
-              <Image
-                src={QUICK_ESTIMATE_HERO_ASSETS.coins}
-                alt=""
-                width={1536}
-                height={1024}
-                className={styles.coinImage}
-              />
-            </div>
-          </div>
-          <div aria-hidden="true" className={`${styles.coin} ${styles.coinBottom}`}>
-            <div className={styles.coinBottomCrop}>
-              <Image
-                src={QUICK_ESTIMATE_HERO_ASSETS.coins}
-                alt=""
-                width={1536}
-                height={1024}
-                className={styles.coinImage}
-              />
-            </div>
-          </div>
-        </div>
+        <QuickEstimateEnvelope action={action} />
       </div>
 
       <RefundCasesTrack variant="hero" />

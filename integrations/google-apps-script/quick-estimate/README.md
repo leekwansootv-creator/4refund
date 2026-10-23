@@ -2,7 +2,11 @@
 
 ## 범위
 
-이 integration은 정적 랜딩과 분리된 Google Apps Script 실행 경계다. form encoded `payload`를 검증하고 payload의 계산 규칙 version으로 금액을 재계산한 뒤, 승인된 24개 컬럼의 `leads` Sheet에 한 행을 저장한다. 저장된 원본은 `lead_id` 기준으로 한글 `상담 목록`에 투영한다.
+이 integration은 정적 랜딩과 분리된 Google Apps Script 실행 경계다. form encoded `payload`를 검증하고 payload의 계산 규칙 version으로 금액을 재계산한 뒤 `leads` Sheet에 한 행을 저장한다. 저장된 원본은 `lead_id` 기준으로 한글 `상담 목록`에 투영한다. 로컬 소스는 기존 제출 v1의 24/16열과 출처 확장 v2의 29/18열을 함께 지원한다. 기존 앞쪽 컬럼 의미·순서는 변경하지 않는다.
+
+2026-10-23 외부 삽입 확장은 로컬 구현 상태이며 Google 시트·Apps Script 운영 배포는 미수행이다. [설치·전환 가이드](../../../docs/engineering/quick-estimate-embed-installation.md#서버-호환-설정과-공개-순서)에 `migrateQuickEstimateAttribution()`, 활성화 표식, origin 설정, 제한 설정, rollback 절차를 정의했다. 실제 migration 함수 실행은 별도 운영 승인 범위다. `Code.gs`는 `npm run build:apps-script`로 생성한 로컬 artifact이며 배포 완료 증거가 아니다.
+
+출처 열 보호를 실행 계정·소유자에게 한정하기 위해 로컬 manifest에 `userinfo.email` scope를 선언했다. 승인된 운영 전환에서는 manifest 반영과 실행 계정 재인증을 확인해야 한다. 실제 권한 승인이나 방문자 로그인·이메일 자동 수집은 이번 작업에 포함하지 않았다.
 
 포함 범위는 다음과 같다.
 

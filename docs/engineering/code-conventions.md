@@ -119,6 +119,8 @@
 - Apps Script 전역 service는 어댑터 경계에서만 참조하고 단위 테스트에는 명시적인 port를 주입한다.
 - 공개 `doPost` 응답은 내부 stack, Sheet ID, 입력 원문을 포함하지 않는다.
 
+공개 feature barrel에 UI re-export가 있어도 Apps Script에는 UI가 포함되면 안 된다. Apps Script 빌더는 `components/` re-export를 실행 대상에서 제외하고, 실제 사용으로 외부 runtime 참조가 bundle에 남으면 실패시킨다. 생성물 테스트는 React·Next 의존성이 없고 Google service·DOM 없는 VM에서도 초기화되는지 확인한다. integration의 feature 내부 경로 참조를 허용하는 예외는 추가하지 않는다.
+
 ## 입력, mutation, 오류
 
 - 브라우저와 외부 시스템에서 들어오는 값은 경계에서 검증한다.

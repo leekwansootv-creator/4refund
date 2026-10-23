@@ -26,6 +26,16 @@ export const LEAD_SHEET_HEADERS = [
   "handled_at",
 ] as const;
 
+/** 기존 24열 뒤에만 추가하는 출처 확장 컬럼입니다. */
+export const ATTRIBUTED_LEAD_HEADERS = [
+  ...LEAD_SHEET_HEADERS,
+  "submission_version",
+  "source_channel",
+  "source_domain",
+  "source_origin",
+  "source_method",
+] as const;
+
 /** 담당자가 수정할 수 있는 상담 처리 상태입니다. */
 export const LEAD_STATUSES = ["NEW", "CONTACTING", "COMPLETED", "CLOSED"] as const;
 

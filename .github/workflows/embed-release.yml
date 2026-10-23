@@ -1,0 +1,180 @@
+name: Embed release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: "New immutable release ID (ignored for rollback)"
+        required: true
+        type: string
+      previous_run_id:
+        description: "Current published Embed release run ID, or first for first publication"
+        required: true
+        type: string
+      rollback_run_id:
+        description: "Previously published run to restore homepage/channel; blank for new release"
+        required: false
+        type: string
+      operations_record:
+        description: "Internal approval/evidence record for compatible server, migration, consent, quota and Google verification"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: embed-pages-production
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      actions: read
+      pages: read
+    outputs:
+      base_url: ${{ steps.pages.outputs.base_url }}
+      base_path: ${{ steps.pages.outputs.base_path }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Validate release prerequisites
+        env:
+          EMBED_SERVER_READY: ${{ vars.QUICK_ESTIMATE_EMBED_SERVER_READY }}
+          EMBED_OPERATIONS_RECORD: ${{ inputs.operations_record }}
+          EMBED_RELEASE: ${{ inputs.release }}
+          EMBED_PREVIOUS_RUN: ${{ inputs.previous_run_id }}
+          EMBED_ROLLBACK_RUN: ${{ inputs.rollback_run_id }}
+          NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL: ${{ secrets.QUICK_ESTIMATE_APPS_SCRIPT_URL }}
+        run: node scripts/check-embed-release-inputs.mjs
+      - name: Configure existing Pages site
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Download current published archive
+        if: inputs.previous_run_id != 'first'
+        uses: actions/download-artifact@v8
+        with:
+          name: embed-pages-bundle
+          run-id: ${{ inputs.previous_run_id }}
+          github-token: ${{ github.token }}
+          path: .embed-artifacts/previous
+      - name: Check archive against published identity
+        env:
+          NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL: ${{ secrets.QUICK_ESTIMATE_APPS_SCRIPT_URL }}
+          EMBED_PUBLIC_BASE_URL: ${{ steps.pages.outputs.base_url }}
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          EMBED_PREVIOUS_ARTIFACT: ${{ inputs.previous_run_id != 'first' && '.embed-artifacts/previous' || '' }}
+          EMBED_FIRST_RELEASE: ${{ inputs.previous_run_id == 'first' && '1' || '0' }}
+        run: node scripts/check-embed-published.mjs
+      - name: Download rollback archive
+        if: inputs.rollback_run_id != ''
+        uses: actions/download-artifact@v8
+        with:
+          name: embed-pages-bundle
+          run-id: ${{ inputs.rollback_run_id }}
+          github-token: ${{ github.token }}
+          path: .embed-artifacts/rollback-target
+      - run: npx playwright install --with-deps chromium
+      - name: Verify current source without Google writes
+        env:
+          QUICK_ESTIMATE_LIVE_E2E: "0"
+        run: npm run check
+      - name: Build new deployment
+        if: inputs.rollback_run_id == ''
+        env:
+          EMBED_RELEASE: ${{ inputs.release }}
+          EMBED_ARTIFACT_DIRECTORY: .embed-artifacts/candidate
+          EMBED_PREVIOUS_ARTIFACT: ${{ inputs.previous_run_id != 'first' && '.embed-artifacts/previous' || '' }}
+          EMBED_PUBLIC_BASE_URL: ${{ steps.pages.outputs.base_url }}
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_SITE_ORIGIN: ${{ steps.pages.outputs.origin }}
+          NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL: ${{ secrets.QUICK_ESTIMATE_APPS_SCRIPT_URL }}
+        run: npm run build:embed-release
+      - name: Restore homepage and preserve every published release
+        if: inputs.rollback_run_id != ''
+        env:
+          EMBED_ARTIFACT_DIRECTORY: .embed-artifacts/candidate
+          EMBED_PREVIOUS_ARTIFACT: .embed-artifacts/previous
+          EMBED_ROLLBACK_ARTIFACT: .embed-artifacts/rollback-target
+        run: npm run build:embed-release -- --rollback
+      - name: Verify publishable artifact
+        env:
+          EMBED_ARTIFACT_DIRECTORY: .embed-artifacts/candidate
+          NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL: ${{ secrets.QUICK_ESTIMATE_APPS_SCRIPT_URL }}
+        run: npm run build:embed-release -- --verify --production
+      - name: Verify exact artifact in browser without external requests
+        env:
+          EMBED_ARTIFACT_DIRECTORY: .embed-artifacts/candidate
+          EMBED_BROWSER_PREVIOUS_ARTIFACT: ${{ inputs.previous_run_id != 'first' && '.embed-artifacts/previous' || '' }}
+        run: npm run test:embed-release
+      - name: Retain complete archive for next release and rollback
+        uses: actions/upload-artifact@v7
+        with:
+          name: embed-pages-bundle
+          path: .embed-artifacts/candidate
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
+
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      - uses: actions/download-artifact@v8
+        with:
+          name: embed-pages-bundle
+          path: .embed-artifacts/candidate
+      - run: npm ci
+      - name: Recheck readiness and current published identity after approval
+        env:
+          EMBED_SERVER_READY: ${{ vars.QUICK_ESTIMATE_EMBED_SERVER_READY }}
+          EMBED_OPERATIONS_RECORD: ${{ inputs.operations_record }}
+          EMBED_RELEASE: ${{ inputs.release }}
+          EMBED_PREVIOUS_RUN: ${{ inputs.previous_run_id }}
+          EMBED_ROLLBACK_RUN: ${{ inputs.rollback_run_id }}
+          NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL: ${{ secrets.QUICK_ESTIMATE_APPS_SCRIPT_URL }}
+          EMBED_ARTIFACT_DIRECTORY: .embed-artifacts/candidate
+          EMBED_PUBLIC_BASE_URL: ${{ needs.prepare.outputs.base_url }}
+          PAGES_BASE_PATH: ${{ needs.prepare.outputs.base_path }}
+          EMBED_FIRST_RELEASE: ${{ inputs.previous_run_id == 'first' && '1' || '0' }}
+        run: |
+          node scripts/check-embed-release-inputs.mjs
+          node scripts/check-embed-published.mjs
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: .embed-artifacts/candidate
+      - name: Publish verified snapshot
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Confirm published identity with GET only
+        env:
+          NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL: ${{ secrets.QUICK_ESTIMATE_APPS_SCRIPT_URL }}
+          EMBED_ARTIFACT_DIRECTORY: .embed-artifacts/candidate
+          EMBED_PUBLIC_BASE_URL: ${{ needs.prepare.outputs.base_url }}
+          PAGES_BASE_PATH: ${{ needs.prepare.outputs.base_path }}
+        run: node scripts/check-embed-published.mjs --after

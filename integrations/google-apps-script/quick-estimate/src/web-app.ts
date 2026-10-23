@@ -1,12 +1,14 @@
 import type {
   QuickEstimateSubmissionPayload,
   QuickEstimateSubmissionResponse,
+  AttributionPolicy,
 } from "@/features/quick-estimate";
 import { createRuntimeLeadSheetStorage } from "./apps-script-storage";
 import { createRuntimeConsultationNotifier } from "./apps-script-notification";
 import {
   createRuntimeSubmissionRateLimitPort,
   enforceSubmissionRateLimit,
+  parseSubmissionRateLimits,
   type SubmissionRateLimitResult,
 } from "./submission-rate-limit";
 import { storeLeadSubmission, type StoreLeadResult } from "./storage-service";
@@ -17,6 +19,7 @@ type QuickEstimateFailureCode = Extract<QuickEstimateSubmissionResponse, { ok: f
 
 /** 순수 요청 처리기에 주입하는 저장 함수와 개인정보 비포함 실패 logger입니다. */
 export type QuickEstimatePostDependencies = {
+  attributionPolicy?: AttributionPolicy;
   enforceRateLimit: (submission: QuickEstimateSubmissionPayload) => SubmissionRateLimitResult;
   storeSubmission: (submission: QuickEstimateSubmissionPayload) => StoreLeadResult;
   logFailure: (event: {
@@ -43,7 +46,7 @@ export function handleQuickEstimatePost(
   payload: unknown,
   dependencies: QuickEstimatePostDependencies,
 ): QuickEstimateSubmissionResponse {
-  const validation = parseAndValidateSubmissionPayload(payload);
+  const validation = parseAndValidateSubmissionPayload(payload, dependencies.attributionPolicy);
 
   if (!validation.ok) {
     logFailureSafely(dependencies, {
@@ -92,11 +95,19 @@ export function doPost(
   event: GoogleAppsScript.Events.DoPost | undefined,
 ): GoogleAppsScript.Content.TextOutput {
   try {
+    const properties = PropertiesService.getScriptProperties();
+    const readOrigins = (key: string) =>
+      (properties.getProperty(key) ?? "").split(",").filter(Boolean);
     const response = handleQuickEstimatePost(event?.parameter.payload, {
+      attributionPolicy: {
+        homepageOrigins: readOrigins("QUICK_ESTIMATE_HOMEPAGE_ORIGINS"),
+        allowedOrigins: readOrigins("QUICK_ESTIMATE_ALLOWED_SOURCE_ORIGINS"),
+      },
       enforceRateLimit: (submission) =>
         enforceSubmissionRateLimit(submission, {
           port: createRuntimeSubmissionRateLimitPort(),
           now: () => new Date(),
+          limits: parseSubmissionRateLimits(properties.getProperty("QUICK_ESTIMATE_RATE_LIMITS")),
         }),
       storeSubmission: (submission) => {
         const notifier = createRuntimeConsultationNotifier();

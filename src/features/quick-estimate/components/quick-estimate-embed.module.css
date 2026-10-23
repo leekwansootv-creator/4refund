@@ -1,0 +1,17 @@
+.entry {
+  display: flex;
+  justify-content: center;
+  padding-block: 36px;
+  width: 100%;
+  overflow: hidden;
+}
+
+:global(html.fourrefund-embed-document),
+:global(.fourrefund-embed-document body) {
+  background: transparent;
+  scroll-padding: 0;
+}
+
+:global(.fourrefund-embed-document body) {
+  min-height: 0;
+}

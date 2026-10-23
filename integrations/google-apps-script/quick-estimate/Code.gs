@@ -23,6 +23,7 @@ var QuickEstimateWebApp = (() => {
   var entrypoint_exports = {};
   __export(entrypoint_exports, {
     doPost: () => doPost,
+    migrateQuickEstimateAttribution: () => migrateQuickEstimateAttribution,
     onEditQuickEstimateConsultation: () => onEditQuickEstimateConsultation,
     runQuickEstimateOperationsCheck: () => runQuickEstimateOperationsCheck,
     setupQuickEstimateStorage: () => setupQuickEstimateStorage,
@@ -323,6 +324,7 @@ var QuickEstimateWebApp = (() => {
 
   // src/features/quick-estimate/constants/lead-submission-contract.ts
   var PRIVACY_NOTICE_VERSION = "privacy-2026-08-06-v1";
+  var ATTRIBUTION_PRIVACY_NOTICE_VERSION = "privacy-2026-10-23-v2";
   var MARKETING_CONSENT_VERSION = "marketing-2026-08-06-v1";
   var SUBMISSION_PAYLOAD_MAX_BYTES = 16 * 1024;
   var MIN_SUBMISSION_ELAPSED_MS = 3e3;
@@ -379,6 +381,43 @@ var QuickEstimateWebApp = (() => {
     };
   }
 
+  // src/features/quick-estimate/lib/submission-attribution.ts
+  function normalizeSiteOrigin(value, allowedOrigins = []) {
+    var _a, _b;
+    if (typeof value !== "string" || value.length > 300) return null;
+    const match = /^(https?):\/\/([a-z0-9.-]+)(?::([0-9]{1,5}))?$/iu.exec(value);
+    if (!match) return null;
+    const scheme = (_a = match[1]) == null ? void 0 : _a.toLowerCase();
+    const host = (_b = match[2]) == null ? void 0 : _b.toLowerCase().replace(/\.$/u, "");
+    if (!host || host.length > 253 || host.split(".").some((label) => !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/u.test(label)))
+      return null;
+    const port = match[3] ? Number(match[3]) : null;
+    if (port !== null && (port < 1 || port > 65535)) return null;
+    const nonDefaultPort = port !== null && port !== (scheme === "https" ? 443 : 80);
+    const origin = `${scheme}://${host}${nonDefaultPort ? `:${port}` : ""}`;
+    const standard = scheme === "https" && !nonDefaultPort && host.includes(".") && !/^[\d.]+$/u.test(host) && host !== "localhost";
+    return standard || allowedOrigins.includes(origin) ? origin : null;
+  }
+  function parseSubmissionAttribution(value, policy = {}) {
+    var _a;
+    if (typeof value !== "object" || value === null || Array.isArray(value)) return null;
+    const input = value;
+    if (Object.keys(input).length !== 3 || !["channel", "siteOrigin", "collectionMethod"].every(
+      (key) => Object.prototype.hasOwnProperty.call(input, key)
+    ))
+      return null;
+    const channel = input.channel;
+    const method = input.collectionMethod;
+    if (channel !== "homepage" && channel !== "embed" && channel !== "hosted") return null;
+    if (method === "unknown")
+      return input.siteOrigin === null ? { channel, siteOrigin: null, collectionMethod: method } : null;
+    if (!(channel === "homepage" && method === "self_location" || channel === "embed" && (method === "parent_message" || method === "referrer") || channel === "hosted" && method === "configured"))
+      return null;
+    const origin = normalizeSiteOrigin(input.siteOrigin, policy.allowedOrigins);
+    if (!origin || channel === "homepage" && !((_a = policy.homepageOrigins) == null ? void 0 : _a.includes(origin))) return null;
+    return { channel, siteOrigin: origin, collectionMethod: method };
+  }
+
   // src/features/quick-estimate/lib/generate-random-uplift.ts
   var UINT32_RANGE = 2 ** 32;
 
@@ -408,6 +447,14 @@ var QuickEstimateWebApp = (() => {
     "source_path",
     "lead_status",
     "handled_at"
+  ];
+  var ATTRIBUTED_LEAD_HEADERS = [
+    ...LEAD_SHEET_HEADERS,
+    "submission_version",
+    "source_channel",
+    "source_domain",
+    "source_origin",
+    "source_method"
   ];
   var LEAD_STATUSES = ["NEW", "CONTACTING", "COMPLETED", "CLOSED"];
   var LEAD_SHEET_COLUMN_DESCRIPTIONS = [
@@ -456,6 +503,26 @@ var QuickEstimateWebApp = (() => {
     "마케팅 허용 방법",
     "상담 신청 번호"
   ];
+  var ATTRIBUTED_CONSULTATION_HEADERS = [
+    ...CONSULTATION_SHEET_HEADERS,
+    "설치 사이트",
+    "출처 확인 방법"
+  ];
+  function buildConsultationSourceCells(row) {
+    var _a;
+    const labels = {
+      parent_message: "부모 페이지 전달",
+      referrer: "브라우저 참조",
+      self_location: "홈페이지 직접",
+      configured: "설정값 전달",
+      unknown: "확인 불가",
+      legacy_absent: "과거 미수집"
+    };
+    return [
+      String(row[26] || (String(row[24]) === "2" ? "확인 불가" : "미수집")),
+      (_a = labels[String(row[28])]) != null ? _a : "과거 미수집"
+    ];
+  }
   var INITIAL_CONSULTATION_RESULT = "미입력";
   var DEFAULT_CONSULTATION_ASSIGNEE = "이관수";
   var CONSULTATION_COLUMN_NUMBERS = {
@@ -1131,8 +1198,17 @@ var QuickEstimateWebApp = (() => {
       sheet.getRange(2, CONSULTATION_LEAD_ID_COLUMN_NUMBER, lastRow - 1, 1).getDisplayValues().flat().filter(Boolean)
     );
   }
-  function syncConsultationSheetRows(sheet, leadRows) {
+  function syncConsultationSheetRows(sheet, leadRows, attributed = false) {
     const existingLeadIds = getExistingLeadIds(sheet);
+    const sourceRows = /* @__PURE__ */ new Map();
+    if (attributed && sheet.getLastRow() > 1) {
+      sheet.getRange(2, 16, sheet.getLastRow() - 1, 3).getDisplayValues().forEach((row, index) => {
+        const id = row[0];
+        if (!id) return;
+        if (sourceRows.has(id)) throw new Error("consultation_duplicate_id");
+        sourceRows.set(id, { number: index + 2, cells: row.slice(1, 3) });
+      });
+    }
     const rowsToCreate = [];
     let existingRows = 0;
     let skippedRows = 0;
@@ -1143,21 +1219,60 @@ var QuickEstimateWebApp = (() => {
         continue;
       }
       if (existingLeadIds.has(leadId)) {
+        if (attributed) {
+          const sourceRow = sourceRows.get(leadId);
+          const cells = buildConsultationSourceCells(leadRow);
+          if (sourceRow && sourceRow.cells.join("|") !== cells.join("|")) {
+            sheet.getRange(sourceRow.number, 17, 1, 2).setValues([cells]);
+            sourceRow.cells = cells;
+          }
+        }
         existingRows += 1;
         continue;
       }
-      rowsToCreate.push(Array.from(buildConsultationSheetRow(leadRow)));
+      rowsToCreate.push([
+        ...buildConsultationSheetRow(leadRow),
+        ...attributed ? buildConsultationSourceCells(leadRow) : []
+      ]);
       existingLeadIds.add(leadId);
     }
     if (rowsToCreate.length > 0) {
       const nextRow = Math.max(sheet.getLastRow() + 1, 2);
-      sheet.getRange(nextRow, 1, rowsToCreate.length, CONSULTATION_SHEET_HEADERS.length).setValues(rowsToCreate);
+      sheet.getRange(
+        nextRow,
+        1,
+        rowsToCreate.length,
+        CONSULTATION_SHEET_HEADERS.length + (attributed ? 2 : 0)
+      ).setValues(rowsToCreate);
     }
     return {
       createdRows: rowsToCreate.length,
       existingRows,
       skippedRows
     };
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/attribution-sheet-schema.ts
+  var ATTRIBUTION_SCHEMA_PROPERTY = "QUICK_ESTIMATE_ATTRIBUTION_SCHEMA";
+  function identifySheetSchema(headers, kind) {
+    const legacy = kind === "leads" ? LEAD_SHEET_HEADERS : CONSULTATION_SHEET_HEADERS;
+    const expanded = kind === "leads" ? ATTRIBUTED_LEAD_HEADERS : ATTRIBUTED_CONSULTATION_HEADERS;
+    const trimmed = [...headers];
+    while (trimmed[trimmed.length - 1] === "") trimmed.pop();
+    if (trimmed.length === expanded.length && expanded.every((value, index) => value === trimmed[index]))
+      return "attributed";
+    if (trimmed.length === legacy.length && legacy.every((value, index) => value === trimmed[index]))
+      return "legacy";
+    throw new Error(`${kind}_sheet_schema_mismatch`);
+  }
+  function readSheetSchema(sheet, kind) {
+    var _a, _b, _c, _d, _e;
+    const expectedWidth = kind === "leads" ? 29 : 18;
+    const width = Math.min(
+      (_b = (_a = sheet.getMaxColumns) == null ? void 0 : _a.call(sheet)) != null ? _b : expectedWidth,
+      Math.max((_d = (_c = sheet.getLastColumn) == null ? void 0 : _c.call(sheet)) != null ? _d : expectedWidth, expectedWidth)
+    );
+    return identifySheetSchema((_e = sheet.getRange(1, 1, 1, width).getDisplayValues()[0]) != null ? _e : [], kind);
   }
 
   // integrations/google-apps-script/quick-estimate/src/apps-script-storage.ts
@@ -1213,13 +1328,26 @@ var QuickEstimateWebApp = (() => {
         return (matchedRow == null ? void 0 : matchedRow[0]) || null;
       },
       appendLeadRow: (row) => {
+        var _a;
         const sheet = dependencies.getLeadsSheet();
+        const schema = readSheetSchema(sheet, "leads");
+        if (row.length !== 24 && row.length !== 29) throw new Error("lead_row_schema_mismatch");
+        if (row.length === 29) {
+          const consultation = dependencies.getConsultationSheet();
+          if (schema !== "attributed" || !((_a = dependencies.isAttributionEnabled) == null ? void 0 : _a.call(dependencies)) || readSheetSchema(consultation, "consultation") !== "attributed")
+            throw new Error("attribution_schema_not_ready");
+        }
+        const cells = schema === "attributed" && row.length === 24 ? [...row, 1, "legacy_unknown", "", "", "legacy_absent"] : Array.from(row);
         const nextRow = Math.max(sheet.getLastRow() + 1, 2);
         sheet.getRange(nextRow, PHONE_COLUMN_NUMBER, 1, 1).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
-        sheet.getRange(nextRow, 1, 1, LEAD_SHEET_HEADERS.length).setValues([Array.from(row)]);
+        if (schema === "attributed")
+          sheet.getRange(nextRow, 26, 1, 4).setNumberFormat(PLAIN_TEXT_NUMBER_FORMAT);
+        sheet.getRange(nextRow, 1, 1, cells.length).setValues([cells]);
       },
       syncConsultationRow: (row) => {
-        syncConsultationSheetRows(dependencies.getConsultationSheet(), [row]);
+        const sheet = dependencies.getConsultationSheet();
+        const schema = readSheetSchema(sheet, "consultation");
+        syncConsultationSheetRows(sheet, [row], schema === "attributed");
       }
     };
   }
@@ -1247,7 +1375,8 @@ var QuickEstimateWebApp = (() => {
     return createAppsScriptLeadSheetStorage({
       getScriptLock: () => LockService.getScriptLock(),
       getLeadsSheet: getRuntimeLeadsSheet,
-      getConsultationSheet: getRuntimeConsultationSheet
+      getConsultationSheet: getRuntimeConsultationSheet,
+      isAttributionEnabled: () => PropertiesService.getScriptProperties().getProperty(ATTRIBUTION_SCHEMA_PROPERTY) === "2"
     });
   }
   function createCodebookRows() {
@@ -1303,10 +1432,7 @@ var QuickEstimateWebApp = (() => {
     if (sheet.getLastRow() === 0) {
       initializeConsultationSheet(sheet);
     } else {
-      const headers = sheet.getRange(1, 1, 1, CONSULTATION_SHEET_HEADERS.length).getDisplayValues()[0];
-      if (headers === void 0 || headers.some((header, index) => header !== CONSULTATION_SHEET_HEADERS[index])) {
-        throw new Error("consultation_sheet_schema_mismatch");
-      }
+      readSheetSchema(sheet, "consultation");
     }
     spreadsheet.setActiveSheet(sheet);
     spreadsheet.moveActiveSheet(1);
@@ -1315,14 +1441,16 @@ var QuickEstimateWebApp = (() => {
   }
   function getLeadRows(spreadsheet) {
     const leadsSheet = getNamedSheet(spreadsheet, LEADS_SHEET_NAME);
+    const schema = readSheetSchema(leadsSheet, "leads");
     const lastRow = leadsSheet.getLastRow();
     if (lastRow <= 1) {
       return [];
     }
-    return leadsSheet.getRange(2, 1, lastRow - 1, LEAD_SHEET_HEADERS.length).getDisplayValues().map((row) => row);
+    return leadsSheet.getRange(2, 1, lastRow - 1, schema === "attributed" ? 29 : 24).getDisplayValues().map((row) => row);
   }
   function syncConsultationRows(spreadsheet, consultationSheet) {
-    return syncConsultationSheetRows(consultationSheet, getLeadRows(spreadsheet));
+    const attributed = readSheetSchema(consultationSheet, "consultation") === "attributed";
+    return syncConsultationSheetRows(consultationSheet, getLeadRows(spreadsheet), attributed);
   }
   function withRuntimeScriptLock(operation) {
     const lock = LockService.getScriptLock();
@@ -1481,6 +1609,30 @@ var QuickEstimateWebApp = (() => {
   var GLOBAL_MINUTE_LIMIT = 10;
   var GLOBAL_DAILY_LIMIT = 100;
   var CONTACT_HOURLY_LIMIT = 3;
+  function parseSubmissionRateLimits(value) {
+    const fallback = {
+      minute: GLOBAL_MINUTE_LIMIT,
+      daily: GLOBAL_DAILY_LIMIT,
+      contactHourly: CONTACT_HOURLY_LIMIT
+    };
+    if (!value) return fallback;
+    try {
+      const input = JSON.parse(value);
+      if (typeof input !== "object" || input === null) return fallback;
+      const record = input;
+      if (Object.keys(record).length !== 3 || !["minute", "daily", "contactHourly"].every(
+        (key) => Number.isSafeInteger(record[key]) && Number(record[key]) > 0
+      ))
+        return fallback;
+      return {
+        minute: Number(record.minute),
+        daily: Number(record.daily),
+        contactHourly: Number(record.contactHourly)
+      };
+    } catch {
+      return fallback;
+    }
+  }
   var MINUTE_CACHE_TTL_SECONDS = 120;
   var CONTACT_CACHE_TTL_SECONDS = 7200;
   var SEEN_REQUEST_CACHE_TTL_SECONDS = 21600;
@@ -1518,6 +1670,9 @@ var QuickEstimateWebApp = (() => {
   }
   function enforceSubmissionRateLimit(submission, dependencies) {
     return dependencies.port.withLock(() => {
+      const limits = parseSubmissionRateLimits(
+        dependencies.limits ? JSON.stringify(dependencies.limits) : null
+      );
       const seenRequestKey = `quick-estimate:seen:${submission.requestId}`;
       if (dependencies.port.getCache(seenRequestKey) !== null) {
         return { ok: true };
@@ -1532,7 +1687,7 @@ var QuickEstimateWebApp = (() => {
       const minuteCount = parseCounter(dependencies.port.getCache(minuteKey));
       const contactCount = parseCounter(dependencies.port.getCache(contactKey));
       const dailyCount = parseDailyCount(dependencies.port.getDailyState(), currentDate);
-      if (minuteCount >= GLOBAL_MINUTE_LIMIT || dailyCount >= GLOBAL_DAILY_LIMIT || contactCount >= CONTACT_HOURLY_LIMIT) {
+      if (minuteCount >= limits.minute || dailyCount >= limits.daily || contactCount >= limits.contactHourly) {
         return { ok: false, code: "RATE_LIMITED" };
       }
       dependencies.port.putCache(minuteKey, String(minuteCount + 1), MINUTE_CACHE_TTL_SECONDS);
@@ -1578,6 +1733,7 @@ var QuickEstimateWebApp = (() => {
     return FORMULA_PREFIX_PATTERN.test(value) ? `'${value}` : value;
   }
   function buildLeadSheetRow(submission, leadId, submittedAt) {
+    var _a;
     const marketingAcceptedAt = submission.marketing.agreed ? submittedAt : "";
     const row = [
       leadId,
@@ -1605,7 +1761,17 @@ var QuickEstimateWebApp = (() => {
       "NEW",
       ""
     ];
-    if (row.length !== LEAD_SHEET_HEADERS.length) {
+    if (submission.submissionVersion === 2) {
+      const { channel, siteOrigin, collectionMethod } = submission.attribution;
+      row.push(
+        2,
+        channel,
+        (_a = siteOrigin == null ? void 0 : siteOrigin.replace(/^https?:\/\//u, "").split(":")[0]) != null ? _a : "",
+        siteOrigin != null ? siteOrigin : "",
+        collectionMethod
+      );
+    }
+    if (row.length !== (submission.submissionVersion === 2 ? ATTRIBUTED_LEAD_HEADERS.length : LEAD_SHEET_HEADERS.length)) {
       throw new Error("lead_sheet_schema_mismatch");
     }
     return row;
@@ -1777,11 +1943,15 @@ var QuickEstimateWebApp = (() => {
       (channel) => uniqueChannels.has(channel)
     );
   }
-  function validateParsedSubmission(input) {
-    if (!isRecord(input) || !hasExactKeys(input, ROOT_KEYS)) {
+  function validateParsedSubmission(input, policy) {
+    if (!isRecord(input)) return failure("INVALID_INPUT");
+    const version2 = input.submissionVersion === 2;
+    if (!hasExactKeys(input, version2 ? [...ROOT_KEYS, "submissionVersion", "attribution"] : ROOT_KEYS)) {
       return failure("INVALID_INPUT");
     }
     const { estimate, lead, privacy, marketing, antiSpam } = input;
+    const attribution = version2 ? parseSubmissionAttribution(input.attribution, policy) : null;
+    if (version2 && attribution === null) return failure("INVALID_INPUT");
     if (!isRecord(estimate) || !hasExactKeys(estimate, ESTIMATE_KEYS) || !isRecord(lead) || !hasExactKeys(lead, LEAD_KEYS) || !isRecord(privacy) || !hasExactKeys(privacy, PRIVACY_KEYS) || !isRecord(marketing) || !hasExactKeys(marketing, MARKETING_KEYS) || !isRecord(antiSpam) || !hasExactKeys(antiSpam, ANTI_SPAM_KEYS)) {
       return failure("INVALID_INPUT");
     }
@@ -1800,7 +1970,7 @@ var QuickEstimateWebApp = (() => {
     if (calculated.status !== "calculated" || estimate.amount !== calculated.amount || estimate.currency !== calculated.currency) {
       return failure("INVALID_INPUT");
     }
-    if (privacy.basis !== "CONSENT" || privacy.noticeVersion !== PRIVACY_NOTICE_VERSION || privacy.agreed !== true) {
+    if (privacy.basis !== "CONSENT" || privacy.noticeVersion !== (version2 ? ATTRIBUTION_PRIVACY_NOTICE_VERSION : PRIVACY_NOTICE_VERSION) || privacy.agreed !== true) {
       return failure("INVALID_CONSENT");
     }
     if (antiSpam.honeypot !== "" || !Number.isInteger(antiSpam.elapsedMs) || antiSpam.elapsedMs < MIN_SUBMISSION_ELAPSED_MS || antiSpam.elapsedMs > MAX_SUBMISSION_ELAPSED_MS) {
@@ -1836,7 +2006,7 @@ var QuickEstimateWebApp = (() => {
       },
       privacy: {
         basis: "CONSENT",
-        noticeVersion: PRIVACY_NOTICE_VERSION,
+        noticeVersion: version2 ? ATTRIBUTION_PRIVACY_NOTICE_VERSION : PRIVACY_NOTICE_VERSION,
         agreed: true
       },
       marketing: {
@@ -1848,16 +2018,17 @@ var QuickEstimateWebApp = (() => {
         honeypot: "",
         elapsedMs: antiSpam.elapsedMs
       },
-      sourcePath: "/"
+      sourcePath: "/",
+      ...attribution ? { submissionVersion: 2, attribution } : {}
     };
     return { ok: true, submission };
   }
-  function parseAndValidateSubmissionPayload(payload) {
+  function parseAndValidateSubmissionPayload(payload, policy = {}) {
     if (typeof payload !== "string" || calculateUtf8ByteLength(payload) > SUBMISSION_PAYLOAD_MAX_BYTES) {
       return failure("INVALID_INPUT");
     }
     try {
-      return validateParsedSubmission(JSON.parse(payload));
+      return validateParsedSubmission(JSON.parse(payload), policy);
     } catch {
       return failure("INVALID_INPUT");
     }
@@ -1871,7 +2042,7 @@ var QuickEstimateWebApp = (() => {
     }
   }
   function handleQuickEstimatePost(payload, dependencies) {
-    const validation = parseAndValidateSubmissionPayload(payload);
+    const validation = parseAndValidateSubmissionPayload(payload, dependencies.attributionPolicy);
     if (!validation.ok) {
       logFailureSafely2(dependencies, {
         code: validation.code,
@@ -1905,10 +2076,20 @@ var QuickEstimateWebApp = (() => {
   }
   function doPost(event) {
     try {
+      const properties = PropertiesService.getScriptProperties();
+      const readOrigins = (key) => {
+        var _a;
+        return ((_a = properties.getProperty(key)) != null ? _a : "").split(",").filter(Boolean);
+      };
       const response = handleQuickEstimatePost(event == null ? void 0 : event.parameter.payload, {
+        attributionPolicy: {
+          homepageOrigins: readOrigins("QUICK_ESTIMATE_HOMEPAGE_ORIGINS"),
+          allowedOrigins: readOrigins("QUICK_ESTIMATE_ALLOWED_SOURCE_ORIGINS")
+        },
         enforceRateLimit: (submission) => enforceSubmissionRateLimit(submission, {
           port: createRuntimeSubmissionRateLimitPort(),
-          now: () => /* @__PURE__ */ new Date()
+          now: () => /* @__PURE__ */ new Date(),
+          limits: parseSubmissionRateLimits(properties.getProperty("QUICK_ESTIMATE_RATE_LIMITS"))
         }),
         storeSubmission: (submission) => {
           const notifier = createRuntimeConsultationNotifier();
@@ -1939,8 +2120,254 @@ var QuickEstimateWebApp = (() => {
       return createJsonOutput(response);
     }
   }
+
+  // integrations/google-apps-script/quick-estimate/src/attribution-source-protection.ts
+  var DESCRIPTION = "Apps Script 관리 출처 컬럼";
+  function configureAttributionSourceProtection(range, protections, allowedEditors) {
+    var _a, _b, _c;
+    if (!allowedEditors.length || allowedEditors.some((email) => !email.trim()))
+      throw new Error("migration_editor_identity_missing");
+    const protection = (_a = protections.find(
+      (candidate) => candidate.getDescription() === DESCRIPTION && candidate.getRange().getA1Notation() === range.getA1Notation()
+    )) != null ? _a : range.protect();
+    range.setNumberFormat("@");
+    protection.setDescription(DESCRIPTION);
+    protection.setWarningOnly(false);
+    protection.addEditors(allowedEditors);
+    protection.removeEditors(
+      protection.getEditors().map((user) => user.getEmail()).filter((email) => !allowedEditors.includes(email))
+    );
+    if (protection.canDomainEdit()) protection.setDomainEdit(false);
+    for (const audience of (_c = (_b = protection.getTargetAudiences) == null ? void 0 : _b.call(protection)) != null ? _c : []) {
+      if (!protection.removeTargetAudience) throw new Error("migration_audience_permission");
+      protection.removeTargetAudience(audience.getAudienceId());
+    }
+  }
+  function verifyAttributionSourceProtection(range, protections, allowedEditors) {
+    return allowedEditors.length > 0 && range.getNumberFormats().every((row) => row.every((format) => format === "@")) && protections.some(
+      (protection) => {
+        var _a, _b;
+        return protection.getDescription() === DESCRIPTION && protection.getRange().getA1Notation() === range.getA1Notation() && !protection.isWarningOnly() && protection.canEdit() && !protection.canDomainEdit() && protection.getEditors().every((user) => allowedEditors.includes(user.getEmail())) && ((_b = (_a = protection.getTargetAudiences) == null ? void 0 : _a.call(protection).length) != null ? _b : 0) === 0;
+      }
+    );
+  }
+
+  // integrations/google-apps-script/quick-estimate/src/attribution-migration.ts
+  var ATTRIBUTION_CODEBOOK_ROWS = [
+    ["column", "submission_version", "25열. 확장 전 빈칸, 구 요청 1, 출처 요청 2"],
+    ["column", "source_channel", "26열. homepage/embed/hosted/legacy_unknown. 인증 아님"],
+    ["column", "source_domain", "27열. 소문자 ASCII 도메인, www·하위 도메인 유지. 미확인 빈칸"],
+    ["column", "source_origin", "28열. 정규화 origin. 경로·query·fragment 수집 안 함"],
+    [
+      "column",
+      "source_method",
+      "29열. parent_message/referrer/self_location/configured/unknown/legacy_absent"
+    ],
+    ["source", "history", "확장 전 원본 빈칸은 과거 미수집. 근거 없는 출처 backfill 금지"],
+    ["source", "trust", "외부 요청자가 출처 문자열을 조작할 수 있음. 인증·정산에 사용 금지"],
+    [
+      "privacy_notice_version",
+      "privacy-2026-10-23-v2",
+      "출처 정보를 포함한 v2 제출 전용 개인정보 고지. 기존 v1 요청 고지도 계속 지원"
+    ]
+  ];
+  function preflight(snapshot) {
+    var _a, _b, _c, _d;
+    identifySheetSchema(snapshot.leadHeaders, "leads");
+    identifySheetSchema(snapshot.consultationHeaders, "consultation");
+    const ids = /* @__PURE__ */ new Set();
+    const requests = /* @__PURE__ */ new Set();
+    for (const row of snapshot.leadRows) {
+      const id = String((_a = row[0]) != null ? _a : "");
+      const request = String((_b = row[1]) != null ? _b : "");
+      if (!id || !request || ids.has(id) || requests.has(request))
+        throw new Error("migration_duplicate_or_missing_id");
+      ids.add(id);
+      requests.add(request);
+      if (row.slice(29).some((cell) => cell !== ""))
+        throw new Error("migration_unrecognized_lead_columns");
+      if (identifySheetSchema(snapshot.leadHeaders, "leads") === "legacy" && row.slice(24).some((cell) => cell !== ""))
+        throw new Error("migration_unheaded_lead_data");
+    }
+    const queueIds = /* @__PURE__ */ new Set();
+    for (const row of snapshot.consultationRows) {
+      const id = row[15];
+      if (!id || queueIds.has(id) || !ids.has(id))
+        throw new Error("migration_unmatched_consultation_id");
+      queueIds.add(id);
+      if (row.slice(18).some(Boolean) || identifySheetSchema(snapshot.consultationHeaders, "consultation") === "legacy" && row.slice(16).some(Boolean))
+        throw new Error("migration_unrecognized_consultation_data");
+    }
+    const missing = [];
+    if (((_c = snapshot.codebook[0]) == null ? void 0 : _c.join("|")) !== "category|code|description")
+      throw new Error("migration_codebook_header");
+    for (const row of ATTRIBUTION_CODEBOOK_ROWS) {
+      const existing = snapshot.codebook.filter(
+        (entry) => entry[0] === row[0] && entry[1] === row[1]
+      );
+      if (existing.length > 1 || existing.length === 1 && ((_d = existing[0]) == null ? void 0 : _d.join("|")) !== row.join("|"))
+        throw new Error("migration_codebook_conflict");
+      if (!existing.length) missing.push([...row]);
+    }
+    return missing;
+  }
+  function migrateAttributionSchema(port) {
+    return port.withLock(() => {
+      var _a, _b;
+      const snapshot = port.read();
+      const missing = preflight(snapshot);
+      (_a = port.preflightConfiguration) == null ? void 0 : _a.call(port);
+      port.setEnabled(false);
+      port.writeHeaders();
+      if (missing.length) port.appendCodebook(missing);
+      const leads = new Map(snapshot.leadRows.map((row) => [String(row[0]), row]));
+      snapshot.consultationRows.forEach((row, index) => {
+        var _a2;
+        const lead = leads.get((_a2 = row[15]) != null ? _a2 : "");
+        if (lead) port.writeSource(index + 2, buildConsultationSourceCells(lead));
+      });
+      port.configure();
+      port.flush();
+      const readback = port.read();
+      const sameExistingRows = (before, after, width) => before.length === after.length && before.every(
+        (row, index) => JSON.stringify(Array.from({ length: width }, (_, column) => {
+          var _a2;
+          return (_a2 = row[column]) != null ? _a2 : "";
+        })) === JSON.stringify(
+          Array.from({ length: width }, (_, column) => {
+            var _a2, _b2;
+            return (_b2 = (_a2 = after[index]) == null ? void 0 : _a2[column]) != null ? _b2 : "";
+          })
+        )
+      );
+      if (!sameExistingRows(snapshot.leadRows, readback.leadRows, 29) || !sameExistingRows(snapshot.consultationRows, readback.consultationRows, 16))
+        throw new Error("migration_existing_data_changed");
+      if (preflight(readback).length || identifySheetSchema(readback.leadHeaders, "leads") !== "attributed" || identifySheetSchema(readback.consultationHeaders, "consultation") !== "attributed" || !port.verifyConfiguration())
+        throw new Error("migration_readback_failed");
+      for (const row of readback.consultationRows) {
+        const lead = leads.get((_b = row[15]) != null ? _b : "");
+        if (!lead || row.slice(16, 18).join("|") !== buildConsultationSourceCells(lead).join("|"))
+          throw new Error("migration_source_readback_failed");
+      }
+      port.setEnabled(true);
+      return { sourceRows: snapshot.consultationRows.length };
+    });
+  }
+  function migrateQuickEstimateAttribution() {
+    var _a;
+    const properties = PropertiesService.getScriptProperties();
+    const id = properties.getProperty(SPREADSHEET_ID_PROPERTY);
+    if (!id) throw new Error("spreadsheet_not_configured");
+    const book = SpreadsheetApp.openById(id);
+    const leads = book.getSheetByName("leads");
+    const queue = book.getSheetByName("상담 목록");
+    const codebook = book.getSheetByName("codebook");
+    if (!leads || !queue || !codebook) throw new Error("migration_sheet_missing");
+    const readSheet = (sheet) => sheet.getDataRange().getDisplayValues();
+    const effectiveEmail = Session.getEffectiveUser().getEmail();
+    if (!effectiveEmail) throw new Error("migration_editor_identity_missing");
+    const allowedEditors = [
+      ...new Set(
+        [effectiveEmail, (_a = book.getOwner()) == null ? void 0 : _a.getEmail()].filter(
+          (email) => Boolean(email)
+        )
+      )
+    ];
+    const configureSource = (sheet, start, width) => {
+      const range = sheet.getRange(1, start, sheet.getMaxRows(), width);
+      configureAttributionSourceProtection(
+        range,
+        sheet.getProtections(SpreadsheetApp.ProtectionType.RANGE),
+        allowedEditors
+      );
+    };
+    return migrateAttributionSchema({
+      preflightConfiguration: () => {
+        var _a2;
+        const range = (_a2 = queue.getFilter()) == null ? void 0 : _a2.getRange();
+        if (range && (range.getRow() !== 1 || range.getColumn() !== 1 || ![16, 18].includes(range.getNumColumns())))
+          throw new Error("migration_unrecognized_filter");
+      },
+      withLock: (operation) => {
+        const lock = LockService.getScriptLock();
+        if (!lock.tryLock(LOCK_TIMEOUT_MILLISECONDS)) throw new Error("migration_lock_unavailable");
+        try {
+          return operation();
+        } finally {
+          lock.releaseLock();
+        }
+      },
+      read: () => {
+        var _a2, _b;
+        const l = readSheet(leads);
+        const q = readSheet(queue);
+        return {
+          leadHeaders: (_a2 = l[0]) != null ? _a2 : [],
+          consultationHeaders: (_b = q[0]) != null ? _b : [],
+          leadRows: l.slice(1),
+          consultationRows: q.slice(1),
+          codebook: readSheet(codebook)
+        };
+      },
+      setEnabled: (enabled) => {
+        properties.setProperty(ATTRIBUTION_SCHEMA_PROPERTY, enabled ? "2" : "pending");
+      },
+      writeHeaders: () => {
+        if (leads.getMaxColumns() < 29)
+          leads.insertColumnsAfter(leads.getMaxColumns(), 29 - leads.getMaxColumns());
+        if (queue.getMaxColumns() < 18)
+          queue.insertColumnsAfter(queue.getMaxColumns(), 18 - queue.getMaxColumns());
+        leads.getRange(1, 25, 1, 5).setValues([ATTRIBUTED_LEAD_HEADERS.slice(24)]);
+        queue.getRange(1, 17, 1, 2).setValues([ATTRIBUTED_CONSULTATION_HEADERS.slice(16)]);
+      },
+      appendCodebook: (rows) => {
+        codebook.getRange(codebook.getLastRow() + 1, 1, rows.length, 3).setValues(rows);
+      },
+      writeSource: (row, cells) => {
+        queue.getRange(row, 17, 1, 2).setValues([cells]);
+      },
+      configure: () => {
+        var _a2;
+        configureSource(leads, 25, 5);
+        configureSource(queue, 17, 2);
+        queue.setColumnWidth(17, 220);
+        queue.setColumnWidth(18, 160);
+        queue.hideColumns(16);
+        const filter = queue.getFilter();
+        const criteria = Array.from(
+          { length: Math.min((_a2 = filter == null ? void 0 : filter.getRange().getNumColumns()) != null ? _a2 : 16, 18) },
+          (_, index) => {
+            var _a3;
+            return (_a3 = filter == null ? void 0 : filter.getColumnFilterCriteria(index + 1)) != null ? _a3 : null;
+          }
+        );
+        filter == null ? void 0 : filter.remove();
+        const next = queue.getRange(1, 1, queue.getMaxRows(), 18).createFilter();
+        criteria.forEach((criterion, index) => {
+          if (criterion) next.setColumnFilterCriteria(index + 1, criterion);
+        });
+      },
+      flush: () => SpreadsheetApp.flush(),
+      verifyConfiguration: () => {
+        var _a2;
+        const filter = (_a2 = queue.getFilter()) == null ? void 0 : _a2.getRange();
+        return (filter == null ? void 0 : filter.getRow()) === 1 && filter.getColumn() === 1 && filter.getNumColumns() === 18 && filter.getNumRows() === queue.getMaxRows() && queue.getColumnWidth(17) === 220 && queue.getColumnWidth(18) === 160 && queue.isColumnHiddenByUser(16) && verifyAttributionSourceProtection(
+          leads.getRange(1, 25, leads.getMaxRows(), 5),
+          leads.getProtections(SpreadsheetApp.ProtectionType.RANGE),
+          allowedEditors
+        ) && verifyAttributionSourceProtection(
+          queue.getRange(1, 17, queue.getMaxRows(), 2),
+          queue.getProtections(SpreadsheetApp.ProtectionType.RANGE),
+          allowedEditors
+        );
+      }
+    });
+  }
   return __toCommonJS(entrypoint_exports);
 })();
+function migrateQuickEstimateAttribution() {
+  return QuickEstimateWebApp.migrateQuickEstimateAttribution();
+}
 function doPost(e) {
   return QuickEstimateWebApp.doPost(e);
 }

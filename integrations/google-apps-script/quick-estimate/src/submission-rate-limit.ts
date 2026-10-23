@@ -3,6 +3,38 @@ import type { QuickEstimateSubmissionPayload } from "@/features/quick-estimate";
 const GLOBAL_MINUTE_LIMIT = 10;
 const GLOBAL_DAILY_LIMIT = 100;
 const CONTACT_HOURLY_LIMIT = 3;
+
+/** 측정 전의 호환 기본값이며 Google의 최대 처리 용량을 뜻하지 않습니다. */
+export type SubmissionRateLimits = { minute: number; daily: number; contactHourly: number };
+
+/** 서버 설정 누락·오류가 무제한 접수로 바뀌지 않도록 양의 정수만 허용합니다. */
+export function parseSubmissionRateLimits(value: string | null): SubmissionRateLimits {
+  const fallback = {
+    minute: GLOBAL_MINUTE_LIMIT,
+    daily: GLOBAL_DAILY_LIMIT,
+    contactHourly: CONTACT_HOURLY_LIMIT,
+  };
+  if (!value) return fallback;
+  try {
+    const input: unknown = JSON.parse(value);
+    if (typeof input !== "object" || input === null) return fallback;
+    const record = input as Record<string, unknown>;
+    if (
+      Object.keys(record).length !== 3 ||
+      !["minute", "daily", "contactHourly"].every(
+        (key) => Number.isSafeInteger(record[key]) && Number(record[key]) > 0,
+      )
+    )
+      return fallback;
+    return {
+      minute: Number(record.minute),
+      daily: Number(record.daily),
+      contactHourly: Number(record.contactHourly),
+    };
+  } catch {
+    return fallback;
+  }
+}
 const MINUTE_CACHE_TTL_SECONDS = 120;
 const CONTACT_CACHE_TTL_SECONDS = 7_200;
 const SEEN_REQUEST_CACHE_TTL_SECONDS = 21_600;
@@ -82,9 +114,13 @@ export function enforceSubmissionRateLimit(
   dependencies: {
     port: SubmissionRateLimitPort;
     now: () => Date;
+    limits?: SubmissionRateLimits;
   },
 ): SubmissionRateLimitResult {
   return dependencies.port.withLock(() => {
+    const limits = parseSubmissionRateLimits(
+      dependencies.limits ? JSON.stringify(dependencies.limits) : null,
+    );
     const seenRequestKey = `quick-estimate:seen:${submission.requestId}`;
 
     if (dependencies.port.getCache(seenRequestKey) !== null) {
@@ -103,9 +139,9 @@ export function enforceSubmissionRateLimit(
     const dailyCount = parseDailyCount(dependencies.port.getDailyState(), currentDate);
 
     if (
-      minuteCount >= GLOBAL_MINUTE_LIMIT ||
-      dailyCount >= GLOBAL_DAILY_LIMIT ||
-      contactCount >= CONTACT_HOURLY_LIMIT
+      minuteCount >= limits.minute ||
+      dailyCount >= limits.daily ||
+      contactCount >= limits.contactHourly
     ) {
       return { ok: false, code: "RATE_LIMITED" };
     }

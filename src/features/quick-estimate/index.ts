@@ -21,11 +21,15 @@ export {
   MARKETING_CONSENT_VERSION,
   MIN_SUBMISSION_ELAPSED_MS,
   PRIVACY_NOTICE_VERSION,
+  ATTRIBUTION_PRIVACY_NOTICE_VERSION,
   SUBMISSION_PAYLOAD_MAX_BYTES,
 } from "./constants/lead-submission-contract";
 export { DEFAULT_SUBMISSION_TIMEOUT_MS, submitEstimateLead } from "./api/submit-estimate-lead";
 export type { EstimateLeadFetch, SubmitEstimateLeadOptions } from "./api/submit-estimate-lead";
 export { calculateEstimate } from "./lib/calculate-estimate";
+export { QuickEstimateEnvelope } from "./components/quick-estimate-envelope";
+export { normalizeSiteOrigin, parseSubmissionAttribution } from "./lib/submission-attribution";
+export type { SubmissionAttribution, AttributionPolicy } from "./lib/submission-attribution";
 export { generateRandomUpliftBps } from "./lib/generate-random-uplift";
 export type { RandomUpliftSource } from "./lib/generate-random-uplift";
 export { generateSubmissionRequestId } from "./lib/generate-submission-request-id";

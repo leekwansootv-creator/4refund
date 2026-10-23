@@ -19,6 +19,8 @@
 # next.js
 /.next/
 /out/
+/public/embed/v1/
+/.embed-artifacts/
 
 # production
 /build

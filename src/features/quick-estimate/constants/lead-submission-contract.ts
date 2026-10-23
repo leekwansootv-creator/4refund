@@ -1,6 +1,9 @@
 /** 현재 상담 제출에서 사용하는 개인정보 수집·이용 고지 버전입니다. */
 export const PRIVACY_NOTICE_VERSION = "privacy-2026-08-06-v1";
 
+/** 설치 사이트 출처 수집을 설명하는 v2 전용 고지이며 기존 요청의 고지 버전도 보존합니다. */
+export const ATTRIBUTION_PRIVACY_NOTICE_VERSION = "privacy-2026-10-23-v2";
+
 /** 현재 상담 제출에서 사용하는 선택 마케팅 동의 버전입니다. */
 export const MARKETING_CONSENT_VERSION = "marketing-2026-08-06-v1";
 

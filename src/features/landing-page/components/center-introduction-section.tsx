@@ -1,15 +1,23 @@
 import Image from "next/image";
 
+import { CenterLeaderProfile } from "./center-leader-profile";
+
 import responsiveStyles from "./landing-responsive.module.css";
 import styles from "./landing-upper-sections.module.css";
 import { LANDING_ASSETS } from "../constants/landing-assets";
 import { LANDING_CONTENT } from "../constants/landing-content";
 
+// 큰 원본은 유지하고 원형 슬롯 안의 얼굴 크기와 위치만 조정한다.
 const memberImageCropStyles = {
   leeKwanSoo: {
     objectPosition: "55% 20%",
     transform: "translate(2%, 5%) scale(1.5)",
     transformOrigin: "55% 0%",
+  },
+  parkJinSeok: {
+    objectPosition: "50% 0%",
+    transform: "translate(-25%, -54%) scale(2.6)",
+    transformOrigin: "50% 0%",
   },
   kimMinHan: {
     objectPosition: "50% 0%",
@@ -34,7 +42,7 @@ const memberImageCropStyles = {
 } as const;
 
 /**
- * 센터 구성원과 센터장의 경력 정보를 목록 구조로 제공한다.
+ * 실제 구성원 사진과 센터장·부센터장의 경력을 목록 구조로 제공한다.
  */
 export function CenterIntroductionSection() {
   const { centerIntroduction } = LANDING_CONTENT;
@@ -43,7 +51,7 @@ export function CenterIntroductionSection() {
     <section
       id="about"
       aria-labelledby="center-introduction-heading"
-      className={`${responsiveStyles.centerSection} relative h-[1132px] overflow-hidden bg-[#f1f2f5]`}
+      className={`${responsiveStyles.centerSection} relative min-h-[1580px] overflow-hidden bg-[#f1f2f5]`}
     >
       <div className="absolute inset-x-0 top-0 h-[578px]">
         <Image
@@ -89,96 +97,47 @@ export function CenterIntroductionSection() {
                     key={member.name}
                     className={`${responsiveStyles.memberItem} flex w-[139px] flex-col items-center gap-4 text-center`}
                   >
-                    {member.assetKey === null ? (
-                      <div
-                        className={`${responsiveStyles.memberVisual} flex size-[139px] items-center justify-center rounded-full border border-[#d8dee6] bg-[#f2f6fb]`}
-                      >
-                        <span className="flex h-[13px] w-[51px] items-center justify-center overflow-hidden">
-                          <Image
-                            aria-hidden="true"
-                            src={LANDING_ASSETS.icons.more}
-                            alt=""
-                            width={13}
-                            height={51}
-                            className="h-[51px] w-[13px] rotate-90"
-                          />
-                        </span>
-                      </div>
-                    ) : (
-                      <div
-                        className={`${responsiveStyles.memberVisual} relative size-[139px] overflow-hidden rounded-full border border-[#d8dee6] bg-[#f2f6fb]`}
-                      >
-                        <Image
-                          aria-hidden="true"
-                          src={LANDING_ASSETS.images.centerMembers[member.assetKey]}
-                          alt=""
-                          fill
-                          sizes="139px"
-                          className="object-cover"
-                          style={memberImageCropStyles[member.assetKey]}
-                        />
-                      </div>
-                    )}
+                    <div
+                      className={`${responsiveStyles.memberVisual} relative size-[139px] overflow-hidden rounded-full border border-[#d8dee6] bg-[#f2f6fb]`}
+                    >
+                      <Image
+                        src={LANDING_ASSETS.images.centerMembers[member.assetKey]}
+                        alt=""
+                        fill
+                        sizes="139px"
+                        className="object-cover"
+                        style={memberImageCropStyles[member.assetKey]}
+                      />
+                    </div>
                     <p
                       className={`${responsiveStyles.memberName} w-full text-xl leading-[1.2] text-[#101010]`}
                     >
                       <strong className="font-bold">{member.name}</strong>
-                      {member.role === null ? null : ` ${member.role}`}
+                      {` ${member.role}`}
                     </p>
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-
-          <div
-            className={`${responsiveStyles.centerDirector} grid h-[393px] grid-cols-[515px_1fr] bg-[#f9fbfe] pt-[45px]`}
-          >
-            <div className={`${responsiveStyles.directorFigure} relative h-[348px] w-[515px]`}>
-              <h3
-                className={`${responsiveStyles.directorHeading} absolute top-0 left-[45px] z-10 text-2xl leading-[1.2] font-bold text-[#0e163d]`}
-              >
-                {centerIntroduction.directorHeading}
-              </h3>
-              <Image
-                src={LANDING_ASSETS.images.centerDirector}
-                alt="센터장 이관수"
-                fill
-                sizes="425px"
-                className="object-contain object-right-bottom"
-              />
-            </div>
-
-            <div
-              className={`${responsiveStyles.directorDetails} flex flex-col items-start gap-6 pb-10 pl-[21px]`}
-            >
-              <p
-                className={`${responsiveStyles.directorName} text-4xl leading-[1.2] font-bold text-[#101010]`}
-              >
-                {centerIntroduction.directorName}
+              <p className="w-full text-right text-base text-[#6a6f73]">
+                {centerIntroduction.moreMembers}
               </p>
-              <ul
-                className={`${responsiveStyles.credentialList} grid h-[190px] w-full grid-flow-col grid-cols-2 grid-rows-4 gap-x-8 gap-y-2.5`}
-              >
-                {centerIntroduction.directorCredentials.map((credential) => (
-                  <li
-                    key={credential}
-                    className={`${responsiveStyles.credentialItem} flex items-center gap-4`}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="size-2 shrink-0 rounded-full bg-[#006dd2]"
-                    />
-                    <span
-                      className={`${responsiveStyles.credentialText} text-xl leading-[2] font-medium text-[#101010]`}
-                    >
-                      {credential}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
+
+          <CenterLeaderProfile
+            heading="센터장"
+            name={centerIntroduction.directorName}
+            role="노무사"
+            credentials={centerIntroduction.directorCredentials}
+            image={{ src: LANDING_ASSETS.images.centerDirector, position: "left" }}
+          />
+          <CenterLeaderProfile
+            heading={centerIntroduction.deputyHeading}
+            name={centerIntroduction.deputyName}
+            role="세무사"
+            credentials={centerIntroduction.deputyCredentials}
+            image={{ src: LANDING_ASSETS.images.centerDeputy, position: "right", crop: "deputy" }}
+          />
         </div>
       </div>
     </section>

@@ -1,0 +1,139 @@
+.section {
+  min-height: 640px;
+  padding: 80px var(--content-inline-padding, 24px);
+  background: #fff;
+  color: var(--color-brand-navy, #10294c);
+  font-family: var(--font-noto-sans-kr), "Noto Sans KR", sans-serif;
+}
+
+.inner {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.inner h2 {
+  margin: 0 0 48px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid li {
+  min-width: 0;
+}
+
+.card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #e8eff9;
+  border-radius: 16px;
+  background: #f9fbfe;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    box-shadow 160ms ease-out,
+    border-color 160ms ease-out;
+}
+
+.card:focus-visible,
+.message button:focus-visible {
+  outline: 3px solid var(--color-brand-primary, #0074ca);
+  outline-offset: 5px;
+}
+
+.card:hover {
+  border-color: #b3c9e8;
+  box-shadow: 0 6px 20px rgb(16 41 76 / 8%);
+}
+
+.image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: #f3f7fe;
+}
+
+.image img {
+  object-fit: cover;
+}
+
+.card h3 {
+  display: -webkit-box;
+  min-height: 50.4px;
+  margin: 24px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  margin-top: 4px;
+  color: #56627a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.message {
+  display: grid;
+  min-height: 300px;
+  place-content: center;
+  justify-items: center;
+  gap: 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.message button {
+  min-height: 44px;
+  padding: 10px 24px;
+  border: 1px solid #0074ca;
+  border-radius: 8px;
+  background: #fff;
+  color: #0063ac;
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 1279px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .section {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: 64px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .inner h2 {
+    margin-bottom: 32px;
+    font-size: 28px;
+    line-height: 1.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}

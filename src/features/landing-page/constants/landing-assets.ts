@@ -22,6 +22,10 @@ export const LANDING_ASSETS = {
     lock: toLandingAssetPath("/assets/landing/icons/lock.svg"),
     arrowUpRight: toLandingAssetPath("/assets/landing/icons/arrow-up-right.svg"),
     location: toLandingAssetPath("/assets/landing/icons/location.svg"),
+    consultation: toLandingAssetPath("/assets/landing/icons/expert-consultation.svg"),
+    automation: toLandingAssetPath("/assets/landing/icons/expert-automation.svg"),
+    patentAward: toLandingAssetPath("/assets/landing/icons/patent-award.svg"),
+    securitySolution: toLandingAssetPath("/assets/landing/icons/expert-security.svg"),
   },
   images: {
     hero: toLandingAssetPath("/assets/landing/images/hero-refund-desk.png"),
@@ -30,12 +34,15 @@ export const LANDING_ASSETS = {
     ),
     centerMembers: {
       leeKwanSoo: toLandingAssetPath("/assets/landing/images/center-director.png"),
+      parkJinSeok: toLandingAssetPath("/assets/landing/images/center-deputy-park-jin-seok.png"),
       kimMinHan: toLandingAssetPath("/assets/landing/images/center-member-kim-min-han.jpg"),
       parkSeolYoung: toLandingAssetPath("/assets/landing/images/center-member-park-seol-young.jpg"),
       kimSangJae: toLandingAssetPath("/assets/landing/images/center-member-kim-sang-jae.jpg"),
       leeJeongGye: toLandingAssetPath("/assets/landing/images/center-member-lee-jeong-gye.png"),
     },
     centerDirector: toLandingAssetPath("/assets/landing/images/center-director.png"),
+    centerDeputy: toLandingAssetPath("/assets/landing/images/center-deputy-park-jin-seok.png"),
+    centerSilhouette: toLandingAssetPath("/assets/landing/images/center-member-silhouette.svg"),
     benefits: {
       hiddenPremium: toLandingAssetPath("/assets/landing/images/benefit-hidden-premium.png"),
       laborAttorneyReview: toLandingAssetPath(
@@ -51,11 +58,12 @@ export const LANDING_ASSETS = {
       records: toLandingAssetPath("/assets/landing/images/refund-case-records.png"),
     },
     expertStrengths: {
-      introduction: toLandingAssetPath("/assets/landing/images/expert-introduction.png"),
+      introduction: toLandingAssetPath("/assets/landing/images/expert-technology.png"),
       remoteConsultation: toLandingAssetPath(
         "/assets/landing/images/expert-remote-consultation.png",
       ),
       successFee: toLandingAssetPath("/assets/landing/images/expert-success-fee.png"),
+      rpaAi: toLandingAssetPath("/assets/landing/images/expert-rpa-ai.png"),
       security: toLandingAssetPath("/assets/landing/images/expert-security.png"),
     },
     refundProcess: {

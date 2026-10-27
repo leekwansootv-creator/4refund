@@ -4,12 +4,12 @@
 
 .introductionArtwork {
   position: absolute;
-  top: 0;
-  left: -22.29%;
-  width: 205.12%;
+  top: -5.42%;
+  left: -36.94%;
+  width: 175.8%;
   max-width: none;
-  height: 100%;
-  filter: drop-shadow(4px 4px 30px rgb(126 161 255 / 30%));
+  height: 109.91%;
+  filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
 }
 
 .remoteConsultationArtwork {
@@ -22,7 +22,7 @@
   filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
 }
 
-.successFeeArtwork {
+.automationArtwork {
   position: absolute;
   inset: 0;
   width: 100%;

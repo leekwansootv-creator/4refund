@@ -1,7 +1,8 @@
 /**
  * Figma 전체 페이지와 구현 기획에서 확정한 랜딩 페이지의 정적 콘텐츠다.
  *
- * 공개 전 확인 대상으로 분류된 표현도 소유자 확인 전에는 원문을 유지한다.
+ * 2026-10-27 사용자가 보존 시안의 인물·홍보 문구를 최종본으로 승인했다.
+ * 연락처는 별도 상수의 기존 계약을 유지하며, 문구 승인을 독립적인 사실 검증으로 간주하지 않는다.
  */
 export const LANDING_CONTENT = {
   brandName: "4대보험경정청구센터",
@@ -38,13 +39,14 @@ export const LANDING_CONTENT = {
     membersHeading: "센터 구성원",
     members: [
       { name: "이관수", role: "노무사", assetKey: "leeKwanSoo" },
+      { name: "박진석", role: "세무사", assetKey: "parkJinSeok" },
       { name: "김민한", role: "노무사", assetKey: "kimMinHan" },
       { name: "박설영", role: "노무사", assetKey: "parkSeolYoung" },
       { name: "김상재", role: "노무사", assetKey: "kimSangJae" },
       { name: "이정계", role: "행정사", assetKey: "leeJeongGye" },
-      { name: "외 다수", role: null, assetKey: null },
     ],
-    directorHeading: "센터장 소개",
+    moreMembers: "외 다수",
+    directorHeading: "센터장",
     directorName: "이관수",
     directorCredentials: [
       "성균관대 법학박사",
@@ -52,8 +54,19 @@ export const LANDING_CONTENT = {
       "근로복지공단 지문위원",
       "한국공인노무사회 이사",
       "한국사회보장법학회 이사",
-      "서경대 공공정책센터 연구교수",
+      "서경대 연구교수",
       "노무법인 권리 대표 공인노무사",
+    ],
+    deputyHeading: "부센터장",
+    deputyName: "박진석",
+    deputyCredentials: [
+      "세무회계 제이에스피(JSP) 대표세무사",
+      "한국세무사회 법제위원회 위원",
+      "한국세무사회 마을세무사회 위원",
+      "서울지방세무사회 국제협력위원",
+      "관할세무서 국세심사위원",
+      "선경 세무법인 총괄 세무사",
+      "세무그룹 정율 근무 세무사",
     ],
   },
   benefits: {
@@ -125,37 +138,42 @@ export const LANDING_CONTENT = {
     eyebrow: "복잡한 4대보험 환급,",
     heading: "전문가는 다릅니다!",
     description:
-      "단순 대행이 아닌, 법률적 리스크를 원천\n차단하고 가장 안전한 방식으로 최대의 혜택을\n돌려드리는 것이 저희의 사명입니다.",
+      "비대면 전국 상담부터 RPA·AI 기반 환급 분석, 검증된 보안 솔루션까지 체계적으로 제공합니다.",
+    patentLabel: "특허 출원 중",
     items: [
       {
         id: "remote-consultation",
         step: "01",
-        iconKey: "globe",
+        iconKey: "consultation",
         assetKey: "remoteConsultation",
         layout: "image-left",
         title: "비대면 전국 상담",
+        summary: "지역 제한 없이 간편한 상담과 서류 접수",
         description:
           "전국 어디서나 지역 제한 없이\n간편하게 비대면으로 상담 및\n서류 접수가 가능합니다.",
       },
       {
-        id: "success-fee",
+        id: "rpa-ai",
         step: "02",
-        iconKey: "percent",
-        assetKey: "successFee",
+        iconKey: "automation",
+        assetKey: "rpaAi",
         layout: "image-right",
-        title: "성공 보수형 수수료",
-        description:
-          "환급 성공 시에만 수수료가 발생하며,\n사전 착수금이나 진행 비용은\n전혀 없습니다.",
+        title: "국내 최초 자동화 인공지능 프로그램 구축",
+        cardTitle: "RPA 자동화 + AI 분석",
+        summary: "환급 가능 항목을 신속하고 정확하게 분석",
+        description: "RPA 자동화와 AI 분석을 통해 환급 가능 항목을 신속하고 정확하게 확인합니다.",
       },
       {
         id: "security",
         step: "03",
-        iconKey: "lock",
+        iconKey: "securitySolution",
         assetKey: "security",
         layout: "image-left",
-        title: "100% 정보 보안",
+        title: "검증된 보안 솔루션 적용",
+        cardTitle: "검증된 보안 솔루션",
+        summary: "고객 정보를 안전하게 관리",
         description:
-          "제출해주신 모든 기업 정보와\n개인정보는 암호화되어 철저하게\n보안 관리됩니다.",
+          "SentinelOne의 Singularity AI SIEM을 적용하여 고객 정보와 업무 데이터를 안전하게 관리합니다.",
       },
     ],
   },
@@ -225,7 +243,7 @@ export const LANDING_CONTENT = {
   },
   footer: {
     serviceNotice: "본 서비스는 공인노무사가 직접 검토하고 진행하는 전문 법률 서비스입니다.",
-    copyright: "© 2026 4대보험경정청구센터. All Rights Reserved.",
+    copyright: "© 2026 포리펀. All Rights Reserved.",
     producer: "Powered by MINING5000",
     address: "서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16)",
     businessName: "4대보험경정청구센터",

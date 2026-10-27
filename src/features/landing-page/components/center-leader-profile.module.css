@@ -1,0 +1,195 @@
+.profile {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 515px) minmax(0, 1fr);
+  padding-top: 45px;
+  background: #f9fbfe;
+  color: #101010;
+}
+
+.profile + .profile {
+  border-top: 1px solid #e8eff9;
+}
+
+.figure {
+  position: relative;
+  min-height: 348px;
+  overflow: hidden;
+}
+
+.artwork {
+  position: absolute;
+  inset: 0;
+}
+
+/* fill은 부모를 채우므로 보존 크롭은 이미지 속성 대신 별도 표시 창으로 표현한다. */
+.artwork[data-crop="deputy"] {
+  inset: auto;
+  top: -43.01%;
+  left: -16.51%;
+  width: 157.9%;
+  height: 288.21%;
+}
+
+.figure[data-crop="deputy"] {
+  min-height: 0;
+  aspect-ratio: 423 / 348;
+  align-self: end;
+}
+
+.artwork[data-crop="deputy"] img {
+  object-fit: fill;
+}
+
+.heading {
+  position: absolute;
+  top: 24px;
+  left: 45px;
+  z-index: 1;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0e163d;
+}
+
+.figure img {
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.details {
+  min-width: 0;
+  padding: 24px 32px 40px 21px;
+}
+
+.name {
+  margin: 0 0 24px;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.credentials {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(4, auto);
+  gap: 10px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.credentials li {
+  display: flex;
+  gap: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+.credentials li::before {
+  width: 8px;
+  height: 8px;
+  margin-top: 16px;
+  border-radius: 50%;
+  background: #006dd2;
+  content: "";
+  flex: none;
+}
+
+.profile[data-image-position="right"] {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 423px);
+}
+
+.profile[data-image-position="right"] .figure {
+  grid-column: 2;
+  grid-row: 1;
+}
+.profile[data-image-position="right"] .details {
+  grid-column: 1;
+  grid-row: 1;
+  padding-left: 45px;
+}
+
+@media (min-width: 1280px) {
+  .profile[data-image-position="right"] {
+    padding-inline: 155px;
+  }
+
+  /* 경력은 사진의 투명한 왼쪽 영역까지 사용해 시안 여백과 한 줄 표시를 함께 유지한다. */
+  .profile[data-image-position="right"] .details {
+    grid-column: 1 / -1;
+    align-self: center;
+    width: 744px;
+    max-width: 100%;
+    padding: 0 0 40px;
+  }
+
+  .profile[data-image-position="right"] .credentials {
+    grid-template-columns: repeat(2, minmax(0, 356px));
+    column-gap: 32px;
+  }
+
+  .profile[data-image-position="right"] .credentials li {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1279px) {
+  .profile {
+    grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
+  }
+  .credentials {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-flow: row;
+    grid-template-rows: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .profile,
+  .profile[data-image-position="right"] {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    padding: 32px 20px 40px;
+  }
+  .profile[data-image-position="right"] .figure,
+  .profile[data-image-position="right"] .details {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .figure {
+    width: min(100%, 423px);
+    min-height: 280px;
+    margin-inline: auto;
+  }
+  .heading {
+    position: static;
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .details,
+  .profile[data-image-position="right"] .details {
+    padding: 0;
+  }
+  .name {
+    font-size: 30px;
+  }
+  .credentials {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .credentials li {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .credentials li::before {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .credentials {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

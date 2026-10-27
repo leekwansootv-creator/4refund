@@ -62,78 +62,37 @@ test("푸터는 상담 번호와 구분한 회사 전화 및 팩스 정보를 �
   await expect(footer.locator("a[href='tel:01022250555']")).toHaveCount(0);
 });
 
-test("센터 구성원은 이름별 프로필 사진을 여섯 칸 구조에 표시한다", async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 });
+test("승인된 센터 구성원 6명과 두 인물 소개를 표시한다", async ({ page }) => {
+  await page.setViewportSize({ width: 1920, height: 1000 });
   await page.goto("/");
-
-  const memberList = page.locator("#about ul").first();
-  const profileImages = memberList.locator("img[src*='/assets/landing/images/']");
-  const expectedImageNames = [
-    "center-director.png",
-    "center-member-kim-min-han.jpg",
-    "center-member-park-seol-young.jpg",
-    "center-member-kim-sang-jae.jpg",
-    "center-member-lee-jeong-gye.png",
-  ];
-
-  await expect(memberList.locator("li")).toHaveCount(6);
-  await expect(profileImages).toHaveCount(5);
-
-  for (const imageName of expectedImageNames) {
-    const profileImage = memberList.locator(`img[src$='/${imageName}']`);
-
-    await expect(profileImage).toBeVisible();
-    await expect
-      .poll(() =>
-        profileImage.evaluate((image) => {
-          const element = image as HTMLImageElement;
-          const slot = element.parentElement;
-          const slotRect = slot?.getBoundingClientRect();
-          const transform = getComputedStyle(element).transform;
-          const transformValues = transform.startsWith("matrix(")
-            ? transform
-                .slice(7, -1)
-                .split(",")
-                .map((value) => Number(value.trim()))
-            : [];
-
-          return {
-            complete: element.complete,
-            isCropped: transform !== "none",
-            isRepositioned: (transformValues[4] ?? 0) !== 0 || (transformValues[5] ?? 0) !== 0,
-            isRound: slot ? getComputedStyle(slot).borderRadius !== "0px" : false,
-            naturalWidth: element.naturalWidth,
-            objectFit: getComputedStyle(element).objectFit,
-            slotHeight: Math.round(slotRect?.height ?? 0),
-            slotWidth: Math.round(slotRect?.width ?? 0),
-          };
-        }),
-      )
-      .toEqual({
-        complete: true,
-        isCropped: true,
-        isRepositioned: true,
-        isRound: true,
-        naturalWidth: expect.any(Number),
-        objectFit: "cover",
-        slotHeight: 139,
-        slotWidth: 139,
-      });
-    expect(
-      await profileImage.evaluate((image) => (image as HTMLImageElement).naturalWidth),
-    ).toBeGreaterThan(0);
-  }
-});
-
-test("센터장 소개는 이관수 센터장의 소속을 정확히 표시한다", async ({ page }) => {
-  await page.goto("/");
-
-  const aboutSection = page.locator("#about");
-
-  await expect(
-    aboutSection.getByText("서경대 공공정책센터 연구교수", { exact: true }),
-  ).toBeVisible();
-  await expect(aboutSection.getByText("서경대 연구교수", { exact: true })).toHaveCount(0);
+  const about = page.locator("#about");
+  const members = about.locator("ul").first();
+  await expect(members.locator("li")).toHaveText([
+    "이관수 노무사",
+    "박진석 세무사",
+    "김민한 노무사",
+    "박설영 노무사",
+    "김상재 노무사",
+    "이정계 행정사",
+  ]);
+  await expect(members.locator("img[src$='/center-member-silhouette.svg']")).toHaveCount(0);
+  const portraits = members.locator("img");
+  await expect(portraits).toHaveCount(6);
+  const portraitSources = await portraits.evaluateAll((images) =>
+    images.map((image) => (image as HTMLImageElement).src),
+  );
+  expect(new Set(portraitSources).size).toBe(6);
+  await expect(members.locator("li").nth(1).locator("img")).toHaveAttribute(
+    "src",
+    /center-deputy-park-jin-seok\.png$/u,
+  );
+  await expect(members.getByText("외 다수")).toHaveCount(0);
+  await expect(about.getByText("외 다수", { exact: true })).toBeVisible();
+  await expect(about.getByRole("article")).toHaveCount(2);
+  await expect(about.getByRole("img", { name: "부센터장 박진석" })).toBeVisible();
+  await expect(about.getByText("서경대 연구교수", { exact: true })).toBeVisible();
+  await expect(about.getByText("세무회계 제이에스피(JSP) 대표세무사")).toBeVisible();
+  await expect(about.getByText("세무그룹 정율 근무 세무사")).toBeVisible();
 });
 
 test("브라우저 탭은 헤더 심볼 SVG를 파비콘으로 사용한다", async ({ page, request }) => {

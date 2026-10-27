@@ -22,8 +22,8 @@ export function LandingRevealController() {
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const setFollowupActive = (target: HTMLElement, isActive: boolean) => {
-      const followupTarget =
-        target.closest("article")?.querySelector<HTMLElement>(FOLLOWUP_TARGET_SELECTOR) ?? null;
+      // 진입 대상 내부에서 찾으므로 article과 도입 figure가 같은 후속 모션 계약을 사용한다.
+      const followupTarget = target.querySelector<HTMLElement>(FOLLOWUP_TARGET_SELECTOR);
 
       if (!followupTarget) {
         return;
@@ -82,8 +82,10 @@ export function LandingRevealController() {
             }
 
             if (shouldRepeat) {
+              // 해시로 바로 들어온 영역은 진입 transition이 없으므로 후속 모션을 즉시 시작한다.
+              const alreadyRevealed = target.hasAttribute(REVEALED_ATTRIBUTE);
               target.removeAttribute(INSTANT_REVEAL_ATTRIBUTE);
-              setFollowupActive(target, false);
+              setFollowupActive(target, alreadyRevealed);
             }
 
             target.setAttribute(REVEALED_ATTRIBUTE, "true");

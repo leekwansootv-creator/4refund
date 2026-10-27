@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { NewsInsightsSection } from "@/features/news-insights";
+
 import { BenefitsSection } from "./benefits-section";
 import { CenterIntroductionSection } from "./center-introduction-section";
 import { ContactSection } from "./contact-section";
@@ -25,6 +27,7 @@ export function LandingPage({ quickEstimateAction }: { quickEstimateAction: Reac
         <BenefitsSection />
         <ExpertStrengthsSection />
         <RefundProcessSection />
+        <NewsInsightsSection state={{ status: "unconfigured" }} />
         <ContactSection />
       </main>
       <SiteFooter />

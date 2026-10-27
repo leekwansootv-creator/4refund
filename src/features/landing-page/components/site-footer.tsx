@@ -12,7 +12,9 @@ export function SiteFooter() {
   const { footer } = LANDING_CONTENT;
 
   return (
-    <footer className={`${responsiveStyles.footer} flex h-[204px] items-center bg-[#f5f6f8] py-8`}>
+    <footer
+      className={`${responsiveStyles.footer} flex min-h-[229px] items-center bg-[#f5f6f8] py-8`}
+    >
       <div
         className={`${responsiveStyles.footerInner} mx-auto flex w-full max-w-[var(--content-max-width)] items-end justify-between px-[var(--content-inline-padding)]`}
       >

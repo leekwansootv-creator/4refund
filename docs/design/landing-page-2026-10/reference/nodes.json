@@ -1,0 +1,4389 @@
+[
+  {
+    "source": "landing-design-context.txt",
+    "line": 55,
+    "nodeId": "{is ? \"node-994_282\" : \"node-994_281\"}",
+    "tag": "div",
+    "className": "{className || \"bg-[#f9fbfe] border border-[#e8eff9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[16px] w-[410.667px]\"}",
+    "id": "{is ? \"node-994_282\" : \"node-994_281\"}",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 58,
+    "nodeId": "994:274",
+    "tag": "div",
+    "className": "h-[200px] relative shrink-0 w-full",
+    "data-node-id": "994:274",
+    "data-name": "card-image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 61,
+    "nodeId": "994:275",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-start p-[24px] relative shrink-0 w-full",
+    "data-node-id": "994:275",
+    "data-name": "card-padding-wrapper",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 62,
+    "nodeId": "994:276",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold h-[50px] leading-[1.4] overflow-hidden relative shrink-0 text-[#10294c] text-[18px] text-ellipsis w-full",
+    "data-node-id": "994:276",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 70,
+    "nodeId": "995:10261",
+    "tag": "div",
+    "className": "h-[200px] relative shrink-0 w-[411px]",
+    "data-node-id": "995:10261",
+    "data-name": "Frame 75 1",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 75,
+    "nodeId": "994:279",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-start p-[24px] relative shrink-0 w-full",
+    "data-node-id": "994:279",
+    "data-name": "card-padding-wrapper",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 76,
+    "nodeId": "994:280",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold h-[50px] leading-[1.4] overflow-hidden relative shrink-0 text-[#10294c] text-[18px] text-ellipsis w-full",
+    "data-node-id": "994:280",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 88,
+    "nodeId": "2163:4123",
+    "tag": "div",
+    "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full",
+    "data-node-id": "2163:4123",
+    "data-name": "랜딩페이지_2026-10 변경안",
+    "text": "기업의 4대보험 환급을 함께합니다. 국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다. 환급액 조회하기 우리 회사 예상 환급액은? 제조업 (주)삼** 환급 총액 ₩127,663,492 건설업 (주)케** 환급 총액 ₩75,410,246 서비스업 하** 환급 총액 ₩62,768,010 제조업 (주)태** 환급 총액 ₩329,644,006 제조업 **제약 환급 총액 ₩85,925,244 서비스업 코*** 환급 총액 ₩135,418,733 도소매업 (주)민** 환급 총액 ₩45,285,402 아웃소싱업 (주)우* 환급 총액 ₩363,490,402 센터 소개 4대보험 전문가들이 고객의 권리를 지키고 최상의 결과와 위해 함께합니다. 센터 구성원 이관수  노무사 박진석  세무사 김민한  노무사 박설영  노무사 김상재  노무사 이정계  행정사 외 다수 이관수  노무사 성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사  한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사 박진석  세무사 세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원 관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사 부센터장 센터장 왜  4대보험경정청구센터 에서 환급받아야 할까요? 사업주님의 소중한 권리, 전문 노무사의 체계적인 분석을 통해 돌려드립니다. 숨은 보험료 진단 인지하지 못했던 과오납 4대보험료를  법률적 근거에 기반하여 정확하게 진단합니다. 노무사 직접 검토 최대 환급 보장 철저한 사후관리 복잡한 4대보험 환급, 전문가는 다릅니다! 비대면 전국 상담 지역 제한 없이 간편한 상담과 서류 접수 RPA 자동화 + AI 분석 환급 가능 항목을 신속하고 정확하게 분석 검증된 보안 솔루션 고객 정보를 안전하게 관리 비대면 전국 상담부터 RPA·AI 기반 환급 분석,  검증된 보안 솔루션까지 체계적으로 제공합니다. 특허 출원 중 01 비대면 전국 상담 전국 어디서나 지역 제한 없이 간편하게  비대면으로 상담 및 서류 접수가 가능합니다. 02 국내 최초 자동화 인공지능 프로그램 구축 RPA 자동화와 AI 분석을 통해 환급 가능 항목을 신속하고 정확하게 확인합니다. 03 검증된 보안 솔루션 적용 SentinelOne의 Singularity AI SIEM을 적용하여 고객 정보와 업무 데이터를 안전하게 관리합니다. 이렇게 진행합니다! 신속하고 정확하게, 사업주님의 부담을 최소화하는 프로세스입니다. 1 상담 및 접수 전화  또는  이메일 로 문의 접수 2 진단 및 분석 분석하여 환급 가능  금액 진단 3 서류 안내 및 진행 필요 서류  안내 및  환급 신청  대행 4 환급 완료 심사 후  환급금 입금  및  결과 안내 + 사후관리 컨설팅 환급 완료 후 재발 방지 대책 수립 및 맞춤형 절세 방안을 제안합니다. 포리펀 뉴스와 인사이트 최근 보도자료 3건만 노출합니다.        소멸시효 3년 경과 전 빠른 신청 필수! 지금 바로 무료 진단을 신청하세요! 환급 가능 여부는 무료로 확인해 드립니다. 지금이 환급을 받을 수 있는 가장 빠른 기회입니다. 빠른 전화 상담 010-2225-0005 이메일 서류 접수 및 문의 iwillceo@naver.com 본 서비스는 공인노무사가 직접 검토하고 진행하는 전문 법률 서비스입니다. © 2026 포리펀. All Rights Reserved. Powered by MINING5000 iwillceo@naver.com 02-3463-5119 02-3463-5119 서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16) 상호명  4대보험경정청구센터 대표자  이관수  |  정보보호책임자  이관수 사업자등록번호  249-81-03649 010-2225-0555 무료 진단 신청 센터 소개 주요 서비스 전문가 강점 환급 절차"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 89,
+    "nodeId": "2163:4124",
+    "tag": "div",
+    "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full",
+    "data-node-id": "2163:4124",
+    "data-name": "Hero Image",
+    "text": "기업의 4대보험 환급을 함께합니다. 국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다. 환급액 조회하기 우리 회사 예상 환급액은? 제조업 (주)삼** 환급 총액 ₩127,663,492 건설업 (주)케** 환급 총액 ₩75,410,246 서비스업 하** 환급 총액 ₩62,768,010 제조업 (주)태** 환급 총액 ₩329,644,006 제조업 **제약 환급 총액 ₩85,925,244 서비스업 코*** 환급 총액 ₩135,418,733 도소매업 (주)민** 환급 총액 ₩45,285,402 아웃소싱업 (주)우* 환급 총액 ₩363,490,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 90,
+    "nodeId": "2163:4125",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-start max-w-[1280px] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4125",
+    "data-name": "Main Content",
+    "text": "기업의 4대보험 환급을 함께합니다. 국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 91,
+    "nodeId": "2163:4126",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[12px] items-center leading-[1.2] relative shrink-0 text-black w-full whitespace-nowrap",
+    "data-node-id": "2163:4126",
+    "data-name": "Banner Container",
+    "text": "기업의 4대보험 환급을 함께합니다. 국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 92,
+    "nodeId": "2163:4127",
+    "tag": "p",
+    "className": "font-['Noto_Sans_KR:Bold'] font-bold relative shrink-0 text-[48px]",
+    "data-node-id": "2163:4127",
+    "text": "기업의 4대보험 환급을 함께합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 95,
+    "nodeId": "2163:4128",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] not-italic relative shrink-0 text-[20px]",
+    "data-node-id": "2163:4128",
+    "text": "국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 100,
+    "nodeId": "2163:4129",
+    "tag": "div",
+    "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]",
+    "data-node-id": "2163:4129",
+    "data-name": "Main Image Container",
+    "text": "환급액 조회하기 우리 회사 예상 환급액은?"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 101,
+    "nodeId": "2163:4130",
+    "tag": "div",
+    "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0",
+    "data-node-id": "2163:4130",
+    "data-name": "Image Group",
+    "text": "환급액 조회하기 우리 회사 예상 환급액은?"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 102,
+    "nodeId": "2163:4131",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0",
+    "data-node-id": "2163:4131",
+    "data-name": "Main Image",
+    "text": "환급액 조회하기 우리 회사 예상 환급액은?"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 103,
+    "nodeId": "2163:4132",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[442.169px]",
+    "data-node-id": "2163:4132",
+    "data-name": "편지봉투_뒷배경 3",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 106,
+    "nodeId": "2163:4133",
+    "tag": "motion.div",
+    "className": "col-1 h-[317.802px] ml-[71.04px] mt-[59.4px] relative row-1 w-[299.517px]",
+    "data-node-id": "2163:4133",
+    "data-name": "종이 2",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 111,
+    "nodeId": "2163:4134",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[442.169px]",
+    "data-node-id": "2163:4134",
+    "data-name": "편지봉투_앞배경 그림자 3",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 114,
+    "nodeId": "2163:4135",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[442.169px]",
+    "data-node-id": "2163:4135",
+    "data-name": "편지봉투_앞배경 복사 3",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 117,
+    "nodeId": "2163:4136",
+    "tag": "button",
+    "className": "bg-[#0074ca] col-1 content-stretch cursor-pointer drop-shadow-[0px_0px_6.124px_rgba(0,116,202,0.5)] flex gap-[7.699px] h-[53.893px] items-center justify-center ml-[74.1px] mt-[266px] px-[30.796px] py-[11.549px] relative rounded-[157.143px] row-1 w-[294.488px]",
+    "data-node-id": "2163:4136",
+    "data-name": "환급액_btn",
+    "text": "환급액 조회하기"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 118,
+    "nodeId": "I2163:4136;319:1789",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[19.25px] text-[color:var(--text\\/inverse,white)] text-left whitespace-nowrap",
+    "data-node-id": "I2163:4136;319:1789",
+    "text": "환급액 조회하기"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 121,
+    "nodeId": "I2163:4136;319:1795",
+    "tag": "div",
+    "className": "flex items-center justify-center relative shrink-0 size-[21.172px]",
+    "data-node-id": "I2163:4136;319:1795",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 129,
+    "nodeId": "2163:4137",
+    "tag": "p",
+    "className": "[word-break:break-word] col-1 font-['Noto_Sans_KR:Bold'] font-bold leading-[1.3] ml-[96.13px] mt-[221px] relative row-1 text-[#10294c] text-[24px] text-shadow-[0px_0px_10px_white] whitespace-nowrap",
+    "data-node-id": "2163:4137",
+    "text": "우리 회사 예상 환급액은?"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 133,
+    "nodeId": "2163:4138",
+    "tag": "motion.div",
+    "className": "absolute h-[104.887px] left-[393.79px] top-[59.4px] w-[78.268px]",
+    "data-node-id": "2163:4138",
+    "data-name": "Firefly_gpt-image (23) 2",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 138,
+    "nodeId": "2163:4139",
+    "tag": "motion.div",
+    "className": "absolute flex h-[115.437px] items-center justify-center left-[-53.89px] top-[171.48px] w-[80.743px]",
+    "data-node-id": "2163:4139",
+    "data-motion-keys": "y",
+    "data-motion-wrapper-for": "2163:4139",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 147,
+    "nodeId": "2163:4140",
+    "tag": "motion.div",
+    "className": "absolute flex h-[99.573px] items-center justify-center left-[368.68px] top-[292.72px] w-[111.235px]",
+    "data-node-id": "2163:4140",
+    "data-motion-keys": "y",
+    "data-motion-wrapper-for": "2163:4140",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 158,
+    "nodeId": "2163:4141",
+    "tag": "motion.div",
+    "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]",
+    "data-node-id": "2163:4141",
+    "text": "제조업 (주)삼** 환급 총액 ₩127,663,492 건설업 (주)케** 환급 총액 ₩75,410,246 서비스업 하** 환급 총액 ₩62,768,010 제조업 (주)태** 환급 총액 ₩329,644,006 제조업 **제약 환급 총액 ₩85,925,244 서비스업 코*** 환급 총액 ₩135,418,733 도소매업 (주)민** 환급 총액 ₩45,285,402 아웃소싱업 (주)우* 환급 총액 ₩363,490,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 159,
+    "nodeId": "2163:4142",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4142",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "제조업 (주)삼** 환급 총액 ₩127,663,492"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 161,
+    "nodeId": "I2163:4142;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4142;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 162,
+    "nodeId": "I2163:4142;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4142;130:481",
+    "data-name": "Container",
+    "text": "제조업 (주)삼** 환급 총액 ₩127,663,492"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 163,
+    "nodeId": "I2163:4142;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4142;130:482",
+    "data-name": "Company Info",
+    "text": "제조업 (주)삼**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 164,
+    "nodeId": "I2163:4142;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4142;130:483",
+    "text": "제조업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 167,
+    "nodeId": "I2163:4142;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4142;130:484",
+    "text": "(주)삼**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 171,
+    "nodeId": "I2163:4142;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4142;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩127,663,492"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 172,
+    "nodeId": "I2163:4142;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4142;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 173,
+    "nodeId": "I2163:4142;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4142;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 177,
+    "nodeId": "I2163:4142;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4142;130:486",
+    "text": "₩127,663,492"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 183,
+    "nodeId": "2163:4143",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4143",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "건설업 (주)케** 환급 총액 ₩75,410,246"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 185,
+    "nodeId": "I2163:4143;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4143;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 186,
+    "nodeId": "I2163:4143;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4143;130:481",
+    "data-name": "Container",
+    "text": "건설업 (주)케** 환급 총액 ₩75,410,246"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 187,
+    "nodeId": "I2163:4143;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4143;130:482",
+    "data-name": "Company Info",
+    "text": "건설업 (주)케**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 188,
+    "nodeId": "I2163:4143;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4143;130:483",
+    "text": "건설업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 191,
+    "nodeId": "I2163:4143;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4143;130:484",
+    "text": "(주)케**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 195,
+    "nodeId": "I2163:4143;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4143;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩75,410,246"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 196,
+    "nodeId": "I2163:4143;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4143;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 197,
+    "nodeId": "I2163:4143;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4143;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 201,
+    "nodeId": "I2163:4143;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4143;130:486",
+    "text": "₩75,410,246"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 207,
+    "nodeId": "2163:4144",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4144",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "서비스업 하** 환급 총액 ₩62,768,010"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 209,
+    "nodeId": "I2163:4144;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4144;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 210,
+    "nodeId": "I2163:4144;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4144;130:481",
+    "data-name": "Container",
+    "text": "서비스업 하** 환급 총액 ₩62,768,010"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 211,
+    "nodeId": "I2163:4144;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4144;130:482",
+    "data-name": "Company Info",
+    "text": "서비스업 하**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 212,
+    "nodeId": "I2163:4144;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4144;130:483",
+    "text": "서비스업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 215,
+    "nodeId": "I2163:4144;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4144;130:484",
+    "text": "하**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 219,
+    "nodeId": "I2163:4144;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4144;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩62,768,010"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 220,
+    "nodeId": "I2163:4144;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4144;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 221,
+    "nodeId": "I2163:4144;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4144;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 225,
+    "nodeId": "I2163:4144;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4144;130:486",
+    "text": "₩62,768,010"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 231,
+    "nodeId": "2163:4145",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4145",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "제조업 (주)태** 환급 총액 ₩329,644,006"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 233,
+    "nodeId": "I2163:4145;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4145;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 234,
+    "nodeId": "I2163:4145;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4145;130:481",
+    "data-name": "Container",
+    "text": "제조업 (주)태** 환급 총액 ₩329,644,006"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 235,
+    "nodeId": "I2163:4145;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4145;130:482",
+    "data-name": "Company Info",
+    "text": "제조업 (주)태**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 236,
+    "nodeId": "I2163:4145;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4145;130:483",
+    "text": "제조업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 239,
+    "nodeId": "I2163:4145;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4145;130:484",
+    "text": "(주)태**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 243,
+    "nodeId": "I2163:4145;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4145;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩329,644,006"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 244,
+    "nodeId": "I2163:4145;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4145;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 245,
+    "nodeId": "I2163:4145;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4145;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 249,
+    "nodeId": "I2163:4145;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4145;130:486",
+    "text": "₩329,644,006"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 255,
+    "nodeId": "2163:4146",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4146",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "제조업 **제약 환급 총액 ₩85,925,244"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 257,
+    "nodeId": "I2163:4146;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4146;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 258,
+    "nodeId": "I2163:4146;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4146;130:481",
+    "data-name": "Container",
+    "text": "제조업 **제약 환급 총액 ₩85,925,244"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 259,
+    "nodeId": "I2163:4146;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4146;130:482",
+    "data-name": "Company Info",
+    "text": "제조업 **제약"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 260,
+    "nodeId": "I2163:4146;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4146;130:483",
+    "text": "제조업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 263,
+    "nodeId": "I2163:4146;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4146;130:484",
+    "text": "**제약"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 267,
+    "nodeId": "I2163:4146;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4146;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩85,925,244"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 268,
+    "nodeId": "I2163:4146;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4146;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 269,
+    "nodeId": "I2163:4146;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4146;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 273,
+    "nodeId": "I2163:4146;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4146;130:486",
+    "text": "₩85,925,244"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 279,
+    "nodeId": "2163:4147",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4147",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "서비스업 코*** 환급 총액 ₩135,418,733"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 281,
+    "nodeId": "I2163:4147;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4147;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 282,
+    "nodeId": "I2163:4147;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4147;130:481",
+    "data-name": "Container",
+    "text": "서비스업 코*** 환급 총액 ₩135,418,733"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 283,
+    "nodeId": "I2163:4147;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4147;130:482",
+    "data-name": "Company Info",
+    "text": "서비스업 코***"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 284,
+    "nodeId": "I2163:4147;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4147;130:483",
+    "text": "서비스업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 287,
+    "nodeId": "I2163:4147;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4147;130:484",
+    "text": "코***"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 291,
+    "nodeId": "I2163:4147;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4147;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩135,418,733"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 292,
+    "nodeId": "I2163:4147;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4147;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 293,
+    "nodeId": "I2163:4147;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4147;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 297,
+    "nodeId": "I2163:4147;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4147;130:486",
+    "text": "₩135,418,733"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 303,
+    "nodeId": "2163:4148",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4148",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "도소매업 (주)민** 환급 총액 ₩45,285,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 305,
+    "nodeId": "I2163:4148;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4148;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 306,
+    "nodeId": "I2163:4148;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4148;130:481",
+    "data-name": "Container",
+    "text": "도소매업 (주)민** 환급 총액 ₩45,285,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 307,
+    "nodeId": "I2163:4148;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4148;130:482",
+    "data-name": "Company Info",
+    "text": "도소매업 (주)민**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 308,
+    "nodeId": "I2163:4148;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4148;130:483",
+    "text": "도소매업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 311,
+    "nodeId": "I2163:4148;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4148;130:484",
+    "text": "(주)민**"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 315,
+    "nodeId": "I2163:4148;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4148;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩45,285,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 316,
+    "nodeId": "I2163:4148;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4148;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 317,
+    "nodeId": "I2163:4148;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4148;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 321,
+    "nodeId": "I2163:4148;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4148;130:486",
+    "text": "₩45,285,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 327,
+    "nodeId": "2163:4149",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]",
+    "data-node-id": "2163:4149",
+    "data-name": "왜섹션/포폴 섹션 아이템",
+    "text": "아웃소싱업 (주)우* 환급 총액 ₩363,490,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 329,
+    "nodeId": "I2163:4149;135:167",
+    "tag": "div",
+    "className": "absolute bg-[rgba(0,0,0,0.2)] inset-0",
+    "data-node-id": "I2163:4149;135:167",
+    "data-name": "오버레이",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 330,
+    "nodeId": "I2163:4149;130:481",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0",
+    "data-node-id": "I2163:4149;130:481",
+    "data-name": "Container",
+    "text": "아웃소싱업 (주)우* 환급 총액 ₩363,490,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 331,
+    "nodeId": "I2163:4149;130:482",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\\/inverse,white)]",
+    "data-node-id": "I2163:4149;130:482",
+    "data-name": "Company Info",
+    "text": "아웃소싱업 (주)우*"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 332,
+    "nodeId": "I2163:4149;130:483",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap",
+    "data-node-id": "I2163:4149;130:483",
+    "text": "아웃소싱업"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 335,
+    "nodeId": "I2163:4149;130:484",
+    "tag": "p",
+    "className": "font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]",
+    "data-node-id": "I2163:4149;130:484",
+    "text": "(주)우*"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 339,
+    "nodeId": "I2163:4149;130:485",
+    "tag": "div",
+    "className": "backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0",
+    "data-node-id": "I2163:4149;130:485",
+    "style": "{{ backgroundImage: \"linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)\" }}",
+    "data-name": "Refund Info",
+    "text": "환급 총액 ₩363,490,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 340,
+    "nodeId": "I2163:4149;130:487",
+    "tag": "div",
+    "className": "bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0",
+    "data-node-id": "I2163:4149;130:487",
+    "data-name": "Refund Label",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 341,
+    "nodeId": "I2163:4149;130:488",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4149;130:488",
+    "text": "환급 총액"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 345,
+    "nodeId": "I2163:4149;130:486",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "I2163:4149;130:486",
+    "text": "₩363,490,402"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 353,
+    "nodeId": "2163:4150",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[100px] items-center py-[100px] relative shrink-0 w-full",
+    "data-node-id": "2163:4150",
+    "data-name": "Hero Image",
+    "text": "센터 소개 4대보험 전문가들이 고객의 권리를 지키고 최상의 결과와 위해 함께합니다. 센터 구성원 이관수  노무사 박진석  세무사 김민한  노무사 박설영  노무사 김상재  노무사 이정계  행정사 외 다수 이관수  노무사 성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사  한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사 박진석  세무사 세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원 관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사 부센터장 센터장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 361,
+    "nodeId": "2163:4151",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start max-w-[1280px] px-[45px] relative shrink-0 w-full whitespace-nowrap",
+    "data-node-id": "2163:4151",
+    "data-name": "Center Introduction",
+    "text": "센터 소개 4대보험 전문가들이 고객의 권리를 지키고 최상의 결과와 위해 함께합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 362,
+    "nodeId": "2163:4152",
+    "tag": "p",
+    "className": "font-['Noto_Sans_KR:Bold'] font-bold leading-[1.3] relative shrink-0 text-[#10294c] text-[64px]",
+    "data-node-id": "2163:4152",
+    "text": "센터 소개"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 365,
+    "nodeId": "2163:4153",
+    "tag": "p",
+    "className": "font-['Noto_Sans_KR:Regular'] font-normal leading-[1.2] relative shrink-0 text-[#486db2] text-[20px]",
+    "data-node-id": "2163:4153",
+    "text": "4대보험 전문가들이 고객의 권리를 지키고 최상의 결과와 위해 함께합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 369,
+    "nodeId": "2163:4154",
+    "tag": "div",
+    "className": "content-stretch drop-shadow-[0px_0px_10px_rgba(163,189,210,0.25)] flex flex-col items-start max-w-[1280px] relative shrink-0 w-full",
+    "data-node-id": "2163:4154",
+    "data-name": "Team Section",
+    "text": "센터 구성원 이관수  노무사 박진석  세무사 김민한  노무사 박설영  노무사 김상재  노무사 이정계  행정사 외 다수 이관수  노무사 성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사  한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사 박진석  세무사 세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원 관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사 부센터장 센터장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 370,
+    "nodeId": "2163:4155",
+    "tag": "div",
+    "className": "bg-white content-stretch flex flex-col items-start p-[45px] relative rounded-tl-[24px] rounded-tr-[24px] shrink-0 w-full",
+    "data-node-id": "2163:4155",
+    "data-name": "Member Container",
+    "text": "센터 구성원 이관수  노무사 박진석  세무사 김민한  노무사 박설영  노무사 김상재  노무사 이정계  행정사 외 다수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 371,
+    "nodeId": "2163:5293",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full",
+    "data-node-id": "2163:5293",
+    "text": "센터 구성원 이관수  노무사 박진석  세무사 김민한  노무사 박설영  노무사 김상재  노무사 이정계  행정사 외 다수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 372,
+    "nodeId": "2163:4156",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full",
+    "data-node-id": "2163:4156",
+    "data-name": "Member Heading",
+    "text": "센터 구성원 이관수  노무사 박진석  세무사 김민한  노무사 박설영  노무사 김상재  노무사 이정계  행정사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 373,
+    "nodeId": "2163:4157",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] relative shrink-0 text-[#0e163d] text-[24px] text-center whitespace-nowrap",
+    "data-node-id": "2163:4157",
+    "text": "센터 구성원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 376,
+    "nodeId": "2163:4158",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4158",
+    "data-name": "Members",
+    "text": "이관수  노무사 박진석  세무사 김민한  노무사 박설영  노무사 김상재  노무사 이정계  행정사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 377,
+    "nodeId": "2163:4159",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]",
+    "data-node-id": "2163:4159",
+    "data-name": "Member",
+    "text": "이관수  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 378,
+    "nodeId": "2163:4160",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0",
+    "data-node-id": "2163:4160",
+    "data-name": "Member Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 379,
+    "nodeId": "2163:4161",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]",
+    "data-node-id": "2163:4161",
+    "data-name": "Mask group",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 383,
+    "nodeId": "2163:4165",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]",
+    "data-node-id": "2163:4165",
+    "text": "이관수  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 388,
+    "nodeId": "2163:4166",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]",
+    "data-node-id": "2163:4166",
+    "data-name": "Member",
+    "text": "박진석  세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 389,
+    "nodeId": "2163:4167",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0",
+    "data-node-id": "2163:4167",
+    "data-name": "Member Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 390,
+    "nodeId": "2163:4168",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]",
+    "data-node-id": "2163:4168",
+    "data-name": "Mask group",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 394,
+    "nodeId": "2163:4172",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]",
+    "data-node-id": "2163:4172",
+    "text": "박진석  세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 399,
+    "nodeId": "2163:5282",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]",
+    "data-node-id": "2163:5282",
+    "data-name": "Member",
+    "text": "김민한  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 400,
+    "nodeId": "2163:5283",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0",
+    "data-node-id": "2163:5283",
+    "data-name": "Member Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 401,
+    "nodeId": "2163:5284",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]",
+    "data-node-id": "2163:5284",
+    "data-name": "Mask group",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 405,
+    "nodeId": "2163:5288",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]",
+    "data-node-id": "2163:5288",
+    "text": "김민한  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 410,
+    "nodeId": "2163:4173",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]",
+    "data-node-id": "2163:4173",
+    "data-name": "Member",
+    "text": "박설영  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 411,
+    "nodeId": "2163:4174",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0",
+    "data-node-id": "2163:4174",
+    "data-name": "Member Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 412,
+    "nodeId": "2163:4175",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]",
+    "data-node-id": "2163:4175",
+    "data-name": "Mask group",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 416,
+    "nodeId": "2163:4179",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]",
+    "data-node-id": "2163:4179",
+    "text": "박설영  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 421,
+    "nodeId": "2163:4180",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]",
+    "data-node-id": "2163:4180",
+    "data-name": "Member",
+    "text": "김상재  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 422,
+    "nodeId": "2163:4181",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0",
+    "data-node-id": "2163:4181",
+    "data-name": "Member Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 423,
+    "nodeId": "2163:4182",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]",
+    "data-node-id": "2163:4182",
+    "data-name": "Mask group",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 427,
+    "nodeId": "2163:4186",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]",
+    "data-node-id": "2163:4186",
+    "text": "김상재  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 432,
+    "nodeId": "2163:4187",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]",
+    "data-node-id": "2163:4187",
+    "data-name": "Member",
+    "text": "이정계  행정사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 433,
+    "nodeId": "2163:4188",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0",
+    "data-node-id": "2163:4188",
+    "data-name": "Member Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 434,
+    "nodeId": "2163:4189",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]",
+    "data-node-id": "2163:4189",
+    "data-name": "Mask group",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 438,
+    "nodeId": "2163:4193",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]",
+    "data-node-id": "2163:4193",
+    "text": "이정계  행정사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 445,
+    "nodeId": "2163:5291",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[1.2] relative shrink-0 text-[16px] text-[rgba(16,16,16,0.38)] text-right w-full",
+    "data-node-id": "2163:5291",
+    "text": "외 다수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 450,
+    "nodeId": "2179:30811",
+    "tag": "div",
+    "className": "bg-[#f9fbfe] content-stretch flex flex-col gap-[12px] items-center justify-center relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-[1280px]",
+    "data-node-id": "2179:30811",
+    "text": "이관수  노무사 성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사  한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사 박진석  세무사 세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원 관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사 부센터장 센터장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 451,
+    "nodeId": "2179:30812",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between pt-[45px] relative shrink-0 w-full",
+    "data-node-id": "2179:30812",
+    "data-name": "Expert Introduction",
+    "text": "이관수  노무사 성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사  한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 452,
+    "nodeId": "2179:30813",
+    "tag": "div",
+    "className": "h-[348px] relative shrink-0 w-[515px]",
+    "data-node-id": "2179:30813",
+    "data-name": "Expert Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 457,
+    "nodeId": "2179:30814",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-start pb-[40px] relative shrink-0",
+    "data-node-id": "2179:30814",
+    "data-name": "Expert Details",
+    "text": "이관수  노무사 성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사  한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 458,
+    "nodeId": "2179:30815",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[0] relative shrink-0 text-[#101010] text-[36px] text-center whitespace-nowrap",
+    "data-node-id": "2179:30815",
+    "text": "이관수  노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 462,
+    "nodeId": "2179:30816",
+    "tag": "div",
+    "className": "content-stretch flex gap-[32px] items-start relative shrink-0",
+    "data-node-id": "2179:30816",
+    "data-name": "Expert Info",
+    "text": "성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사  한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 463,
+    "nodeId": "2179:30817",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]",
+    "data-node-id": "2179:30817",
+    "data-name": "Expert Info Column",
+    "text": "성균관대 법학박사  제15회 공인노무사 최연소합격(20년차)  근로복지공단 지문위원  한국공인노무사회 이사 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 464,
+    "nodeId": "2179:30818",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30818",
+    "data-name": "Info Item",
+    "text": "성균관대 법학박사 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 465,
+    "nodeId": "2179:30819",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30819",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 468,
+    "nodeId": "2179:30820",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30820",
+    "text": "성균관대 법학박사 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 470,
+    "nodeId": "2179:30821",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full",
+    "data-node-id": "2179:30821",
+    "data-name": "Info Item",
+    "text": "제15회 공인노무사 최연소합격(20년차) "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 471,
+    "nodeId": "2179:30822",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30822",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 474,
+    "nodeId": "2179:30823",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30823",
+    "text": "제15회 공인노무사 최연소합격(20년차) "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 476,
+    "nodeId": "2179:30824",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30824",
+    "data-name": "Info Item",
+    "text": "근로복지공단 지문위원 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 477,
+    "nodeId": "2179:30825",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30825",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 480,
+    "nodeId": "2179:30826",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30826",
+    "text": "근로복지공단 지문위원 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 482,
+    "nodeId": "2179:30827",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30827",
+    "data-name": "Info Item",
+    "text": "한국공인노무사회 이사 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 483,
+    "nodeId": "2179:30828",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30828",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 486,
+    "nodeId": "2179:30829",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30829",
+    "text": "한국공인노무사회 이사 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 489,
+    "nodeId": "2179:30830",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]",
+    "data-node-id": "2179:30830",
+    "data-name": "Expert Info Column",
+    "text": "한국사회보장법학회 이사  서경대 연구교수  노무법인 권리 대표 공인노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 490,
+    "nodeId": "2179:30831",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30831",
+    "data-name": "Info Item",
+    "text": "한국사회보장법학회 이사 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 491,
+    "nodeId": "2179:30832",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30832",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 494,
+    "nodeId": "2179:30833",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30833",
+    "text": "한국사회보장법학회 이사 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 496,
+    "nodeId": "2179:30834",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full",
+    "data-node-id": "2179:30834",
+    "data-name": "Info Item",
+    "text": "서경대 연구교수 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 497,
+    "nodeId": "2179:30835",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30835",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 500,
+    "nodeId": "2179:30836",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30836",
+    "text": "서경대 연구교수 "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 502,
+    "nodeId": "2179:30837",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30837",
+    "data-name": "Info Item",
+    "text": "노무법인 권리 대표 공인노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 503,
+    "nodeId": "2179:30838",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30838",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 506,
+    "nodeId": "2179:30839",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30839",
+    "text": "노무법인 권리 대표 공인노무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 514,
+    "nodeId": "2179:30840",
+    "tag": "div",
+    "className": "h-0 relative shrink-0 w-[1280px]",
+    "data-node-id": "2179:30840",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 519,
+    "nodeId": "2179:30841",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between pt-[45px] px-[155px] relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-full",
+    "data-node-id": "2179:30841",
+    "data-name": "Expert Introduction",
+    "text": "박진석  세무사 세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원 관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 520,
+    "nodeId": "2179:30842",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-start mr-[-197px] pb-[40px] relative shrink-0",
+    "data-node-id": "2179:30842",
+    "data-name": "Expert Details",
+    "text": "박진석  세무사 세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원 관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 521,
+    "nodeId": "2179:30843",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[0] relative shrink-0 text-[#101010] text-[36px] text-center whitespace-nowrap",
+    "data-node-id": "2179:30843",
+    "text": "박진석  세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 525,
+    "nodeId": "2179:30844",
+    "tag": "div",
+    "className": "content-stretch flex gap-[32px] items-start relative shrink-0",
+    "data-node-id": "2179:30844",
+    "data-name": "Expert Info",
+    "text": "세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원 관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 526,
+    "nodeId": "2179:30845",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]",
+    "data-node-id": "2179:30845",
+    "data-name": "Expert Info Column",
+    "text": "세무회계 제이에스피(JSP) 대표세무사 한국세무사회 법제위원회 위원 한국세무사회 마을세무사회 위원 서울지방세무사회 국제협력위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 527,
+    "nodeId": "2179:30846",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30846",
+    "data-name": "Info Item",
+    "text": "세무회계 제이에스피(JSP) 대표세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 528,
+    "nodeId": "2179:30847",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30847",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 531,
+    "nodeId": "2179:30848",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30848",
+    "text": "세무회계 제이에스피(JSP) 대표세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 535,
+    "nodeId": "2179:30849",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full",
+    "data-node-id": "2179:30849",
+    "data-name": "Info Item",
+    "text": "한국세무사회 법제위원회 위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 536,
+    "nodeId": "2179:30850",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30850",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 539,
+    "nodeId": "2179:30851",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30851",
+    "text": "한국세무사회 법제위원회 위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 543,
+    "nodeId": "2179:30852",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30852",
+    "data-name": "Info Item",
+    "text": "한국세무사회 마을세무사회 위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 544,
+    "nodeId": "2179:30853",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30853",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 547,
+    "nodeId": "2179:30854",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30854",
+    "text": "한국세무사회 마을세무사회 위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 551,
+    "nodeId": "2179:30855",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30855",
+    "data-name": "Info Item",
+    "text": "서울지방세무사회 국제협력위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 552,
+    "nodeId": "2179:30856",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30856",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 555,
+    "nodeId": "2179:30857",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30857",
+    "text": "서울지방세무사회 국제협력위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 560,
+    "nodeId": "2179:30858",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]",
+    "data-node-id": "2179:30858",
+    "data-name": "Expert Info Column",
+    "text": "관할세무서 국세심사위원 선경 세무법인 총괄 세무사 세무그룹 정율 근무 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 561,
+    "nodeId": "2179:30859",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30859",
+    "data-name": "Info Item",
+    "text": "관할세무서 국세심사위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 562,
+    "nodeId": "2179:30860",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30860",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 565,
+    "nodeId": "2179:30861",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30861",
+    "text": "관할세무서 국세심사위원"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 569,
+    "nodeId": "2179:30862",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full",
+    "data-node-id": "2179:30862",
+    "data-name": "Info Item",
+    "text": "선경 세무법인 총괄 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 570,
+    "nodeId": "2179:30863",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30863",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 573,
+    "nodeId": "2179:30864",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30864",
+    "text": "선경 세무법인 총괄 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 577,
+    "nodeId": "2179:30865",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0",
+    "data-node-id": "2179:30865",
+    "data-name": "Info Item",
+    "text": "세무그룹 정율 근무 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 578,
+    "nodeId": "2179:30866",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "2179:30866",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 581,
+    "nodeId": "2179:30867",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30867",
+    "text": "세무그룹 정율 근무 세무사"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 588,
+    "nodeId": "2179:30868",
+    "tag": "div",
+    "className": "h-[348px] relative shrink-0 w-[423px]",
+    "data-node-id": "2179:30868",
+    "data-name": "image 22",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 594,
+    "nodeId": "2179:30869",
+    "tag": "p",
+    "className": "[word-break:break-word] absolute font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] left-[45px] text-[#0e163d] text-[24px] top-[423px] whitespace-nowrap",
+    "data-node-id": "2179:30869",
+    "text": "부센터장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 597,
+    "nodeId": "2179:30870",
+    "tag": "p",
+    "className": "[word-break:break-word] absolute font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] left-[45px] text-[#0e163d] text-[24px] top-[20px] whitespace-nowrap",
+    "data-node-id": "2179:30870",
+    "text": "센터장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 603,
+    "nodeId": "2163:4227",
+    "tag": "motion.div",
+    "className": "content-stretch flex flex-col h-[791px] items-center py-[140px] relative shrink-0 w-full",
+    "data-node-id": "2163:4227",
+    "data-name": "Benefits Section",
+    "text": "왜  4대보험경정청구센터 에서 환급받아야 할까요? 사업주님의 소중한 권리, 전문 노무사의 체계적인 분석을 통해 돌려드립니다. 숨은 보험료 진단 인지하지 못했던 과오납 4대보험료를  법률적 근거에 기반하여 정확하게 진단합니다. 노무사 직접 검토 최대 환급 보장 철저한 사후관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 604,
+    "nodeId": "2163:4228",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[64px] items-center max-w-[1280px] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4228",
+    "data-name": "Benefits Container",
+    "text": "왜  4대보험경정청구센터 에서 환급받아야 할까요? 사업주님의 소중한 권리, 전문 노무사의 체계적인 분석을 통해 돌려드립니다. 숨은 보험료 진단 인지하지 못했던 과오납 4대보험료를  법률적 근거에 기반하여 정확하게 진단합니다. 노무사 직접 검토 최대 환급 보장 철저한 사후관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 605,
+    "nodeId": "2163:4229",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[8px] items-center justify-center not-italic relative shrink-0 w-[532px] whitespace-nowrap",
+    "data-node-id": "2163:4229",
+    "data-name": "Benefits Details",
+    "text": "왜  4대보험경정청구센터 에서 환급받아야 할까요? 사업주님의 소중한 권리, 전문 노무사의 체계적인 분석을 통해 돌려드립니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 606,
+    "nodeId": "2163:4230",
+    "tag": "div",
+    "className": "font-['Pretendard:Bold'] leading-[0] relative shrink-0 text-[42px] text-black text-center",
+    "data-node-id": "2163:4230",
+    "text": "왜  4대보험경정청구센터 에서 환급받아야 할까요?"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 614,
+    "nodeId": "2163:4231",
+    "tag": "p",
+    "className": "font-['Pretendard:Medium'] leading-[1.3] relative shrink-0 text-[#2b2b2b] text-[18px]",
+    "data-node-id": "2163:4231",
+    "text": "사업주님의 소중한 권리, 전문 노무사의 체계적인 분석을 통해 돌려드립니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 618,
+    "nodeId": "2163:4232",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-start relative shrink-0 w-full",
+    "data-node-id": "2163:4232",
+    "data-name": "Benefits Grid",
+    "text": "숨은 보험료 진단 인지하지 못했던 과오납 4대보험료를  법률적 근거에 기반하여 정확하게 진단합니다. 노무사 직접 검토 최대 환급 보장 철저한 사후관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 619,
+    "nodeId": "2163:4233",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.689px]",
+    "data-node-id": "2163:4233",
+    "data-name": "왜섹션",
+    "text": "숨은 보험료 진단 인지하지 못했던 과오납 4대보험료를  법률적 근거에 기반하여 정확하게 진단합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 620,
+    "nodeId": "I2163:4233;57:154",
+    "tag": "div",
+    "className": "h-[150px] max-h-[150px] max-w-[198.90281677246094px] relative shrink-0 w-[198.903px]",
+    "data-node-id": "I2163:4233;57:154",
+    "data-name": "왜섹션_이미지",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 621,
+    "nodeId": "I2163:4233;57:154;52:58",
+    "tag": "div",
+    "className": "-translate-y-1/2 absolute aspect-[198/150] left-0 right-0 top-1/2",
+    "data-node-id": "I2163:4233;57:154;52:58",
+    "data-name": "숨은 보험료 진단",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 627,
+    "nodeId": "I2163:4233;52:73",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full",
+    "data-node-id": "I2163:4233;52:73",
+    "data-name": "Information Group",
+    "text": "숨은 보험료 진단 인지하지 못했던 과오납 4대보험료를  법률적 근거에 기반하여 정확하게 진단합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 628,
+    "nodeId": "I2163:4233;52:74",
+    "tag": "div",
+    "className": "content-stretch flex gap-[2px] items-end relative shrink-0 w-full",
+    "data-node-id": "I2163:4233;52:74",
+    "data-name": "Title Group",
+    "text": "숨은 보험료 진단"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 629,
+    "nodeId": "I2163:4233;52:75",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#141719] text-[36px] whitespace-nowrap",
+    "data-node-id": "I2163:4233;52:75",
+    "text": "숨은 보험료 진단"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 632,
+    "nodeId": "I2163:4233;52:76",
+    "tag": "div",
+    "className": "relative shrink-0 size-[8px]",
+    "data-node-id": "I2163:4233;52:76",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 636,
+    "nodeId": "I2163:4233;52:77",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#141719] text-[20px] text-center whitespace-nowrap",
+    "data-node-id": "I2163:4233;52:77",
+    "text": "인지하지 못했던 과오납 4대보험료를  법률적 근거에 기반하여 정확하게 진단합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 642,
+    "nodeId": "2163:4234",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.574px]",
+    "data-node-id": "2163:4234",
+    "data-name": "왜섹션",
+    "text": "노무사 직접 검토"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 643,
+    "nodeId": "I2163:4234;57:157",
+    "tag": "div",
+    "className": "h-[100px] relative shrink-0 w-[132.602px]",
+    "data-node-id": "I2163:4234;57:157",
+    "data-name": "왜섹션_이미지",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 644,
+    "nodeId": "I2163:4234;57:157;52:59",
+    "tag": "div",
+    "className": "-translate-y-1/2 absolute aspect-[178/150] left-0 right-0 top-1/2",
+    "data-node-id": "I2163:4234;57:157;52:59",
+    "data-name": "노무사 직접 검토",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 650,
+    "nodeId": "I2163:4234;52:93",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full",
+    "data-node-id": "I2163:4234;52:93",
+    "data-name": "Information Group",
+    "text": "노무사 직접 검토"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 651,
+    "nodeId": "I2163:4234;52:94",
+    "tag": "div",
+    "className": "content-stretch flex gap-[2px] items-end relative shrink-0 w-full",
+    "data-node-id": "I2163:4234;52:94",
+    "data-name": "Title Group",
+    "text": "노무사 직접 검토"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 652,
+    "nodeId": "I2163:4234;52:95",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#878787] text-[36px] whitespace-nowrap",
+    "data-node-id": "I2163:4234;52:95",
+    "text": "노무사 직접 검토"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 658,
+    "nodeId": "2163:4235",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.56px]",
+    "data-node-id": "2163:4235",
+    "data-name": "왜섹션",
+    "text": "최대 환급 보장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 659,
+    "nodeId": "I2163:4235;57:157",
+    "tag": "div",
+    "className": "h-[100px] relative shrink-0 w-[132.602px]",
+    "data-node-id": "I2163:4235;57:157",
+    "data-name": "왜섹션_이미지",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 660,
+    "nodeId": "I2163:4235;57:157;52:60",
+    "tag": "div",
+    "className": "-translate-y-1/2 absolute aspect-[176/150] left-0 right-0 top-1/2",
+    "data-node-id": "I2163:4235;57:157;52:60",
+    "data-name": "최대 환급 보장",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 666,
+    "nodeId": "I2163:4235;52:93",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full",
+    "data-node-id": "I2163:4235;52:93",
+    "data-name": "Information Group",
+    "text": "최대 환급 보장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 667,
+    "nodeId": "I2163:4235;52:94",
+    "tag": "div",
+    "className": "content-stretch flex gap-[2px] items-end relative shrink-0 w-full",
+    "data-node-id": "I2163:4235;52:94",
+    "data-name": "Title Group",
+    "text": "최대 환급 보장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 668,
+    "nodeId": "I2163:4235;52:95",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#878787] text-[36px] whitespace-nowrap",
+    "data-node-id": "I2163:4235;52:95",
+    "text": "최대 환급 보장"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 674,
+    "nodeId": "2163:4236",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.574px]",
+    "data-node-id": "2163:4236",
+    "data-name": "왜섹션",
+    "text": "철저한 사후관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 675,
+    "nodeId": "I2163:4236;57:157",
+    "tag": "div",
+    "className": "h-[100px] relative shrink-0 w-[132.602px]",
+    "data-node-id": "I2163:4236;57:157",
+    "data-name": "왜섹션_이미지",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 676,
+    "nodeId": "I2163:4236;57:157;52:61",
+    "tag": "div",
+    "className": "-translate-y-1/2 absolute aspect-[179/150] left-0 right-0 top-1/2",
+    "data-node-id": "I2163:4236;57:157;52:61",
+    "data-name": "철저한 사후관리",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 682,
+    "nodeId": "I2163:4236;52:93",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full",
+    "data-node-id": "I2163:4236;52:93",
+    "data-name": "Information Group",
+    "text": "철저한 사후관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 683,
+    "nodeId": "I2163:4236;52:94",
+    "tag": "div",
+    "className": "content-stretch flex gap-[2px] items-end relative shrink-0 w-full",
+    "data-node-id": "I2163:4236;52:94",
+    "data-name": "Title Group",
+    "text": "철저한 사후관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 684,
+    "nodeId": "I2163:4236;52:95",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#878787] text-[36px] whitespace-nowrap",
+    "data-node-id": "I2163:4236;52:95",
+    "text": "철저한 사후관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 693,
+    "nodeId": "2163:4237",
+    "tag": "div",
+    "className": "bg-[var(--background\\/default,#f3f7fe)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full",
+    "data-node-id": "2163:4237",
+    "data-name": "Expert Section",
+    "text": "복잡한 4대보험 환급, 전문가는 다릅니다! 비대면 전국 상담 지역 제한 없이 간편한 상담과 서류 접수 RPA 자동화 + AI 분석 환급 가능 항목을 신속하고 정확하게 분석 검증된 보안 솔루션 고객 정보를 안전하게 관리 비대면 전국 상담부터 RPA·AI 기반 환급 분석,  검증된 보안 솔루션까지 체계적으로 제공합니다. 특허 출원 중"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 694,
+    "nodeId": "2163:4238",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4238",
+    "data-name": "Expert Content",
+    "text": "복잡한 4대보험 환급, 전문가는 다릅니다! 비대면 전국 상담 지역 제한 없이 간편한 상담과 서류 접수 RPA 자동화 + AI 분석 환급 가능 항목을 신속하고 정확하게 분석 검증된 보안 솔루션 고객 정보를 안전하게 관리 비대면 전국 상담부터 RPA·AI 기반 환급 분석,  검증된 보안 솔루션까지 체계적으로 제공합니다. 특허 출원 중"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 695,
+    "nodeId": "2163:4239",
+    "tag": "motion.div",
+    "className": "content-stretch flex flex-col gap-[40px] items-start relative shrink-0",
+    "data-node-id": "2163:4239",
+    "data-name": "Expert Details Container",
+    "text": "복잡한 4대보험 환급, 전문가는 다릅니다! 비대면 전국 상담 지역 제한 없이 간편한 상담과 서류 접수 RPA 자동화 + AI 분석 환급 가능 항목을 신속하고 정확하게 분석 검증된 보안 솔루션 고객 정보를 안전하게 관리 비대면 전국 상담부터 RPA·AI 기반 환급 분석,  검증된 보안 솔루션까지 체계적으로 제공합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 696,
+    "nodeId": "2163:4240",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[40px] items-start relative shrink-0",
+    "data-node-id": "2163:4240",
+    "text": "복잡한 4대보험 환급, 전문가는 다릅니다! 비대면 전국 상담 지역 제한 없이 간편한 상담과 서류 접수 RPA 자동화 + AI 분석 환급 가능 항목을 신속하고 정확하게 분석 검증된 보안 솔루션 고객 정보를 안전하게 관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 697,
+    "nodeId": "2163:4241",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start leading-[0] relative shrink-0",
+    "data-node-id": "2163:4241",
+    "data-name": "Expert Details Header",
+    "text": "복잡한 4대보험 환급, 전문가는 다릅니다!"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 698,
+    "nodeId": "2163:4242",
+    "tag": "div",
+    "className": "flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center min-w-full relative shrink-0 text-[#486db2] text-[28px] w-[min-content]",
+    "data-node-id": "2163:4242",
+    "text": "복잡한 4대보험 환급,"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 701,
+    "nodeId": "2163:4243",
+    "tag": "div",
+    "className": "flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center not-italic relative shrink-0 text-[#10294c] text-[64px] whitespace-nowrap",
+    "data-node-id": "2163:4243",
+    "text": "전문가는 다릅니다!"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 705,
+    "nodeId": "2163:4244",
+    "tag": "div",
+    "className": "content-stretch flex gap-[12px] items-start relative shrink-0",
+    "data-node-id": "2163:4244",
+    "data-name": "Expert Info",
+    "text": "비대면 전국 상담 지역 제한 없이 간편한 상담과 서류 접수 RPA 자동화 + AI 분석 환급 가능 항목을 신속하고 정확하게 분석 검증된 보안 솔루션 고객 정보를 안전하게 관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 706,
+    "nodeId": "2163:4245",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0",
+    "data-node-id": "2163:4245",
+    "data-name": "Expert Info Item 1",
+    "text": "비대면 전국 상담 지역 제한 없이 간편한 상담과 서류 접수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 707,
+    "nodeId": "2163:4246",
+    "tag": "div",
+    "className": "content-stretch flex gap-[13px] items-center relative shrink-0",
+    "data-node-id": "2163:4246",
+    "text": "비대면 전국 상담"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 708,
+    "nodeId": "2163:4247",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-center justify-center relative shrink-0 size-[24px]",
+    "data-node-id": "2163:4247",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 709,
+    "nodeId": "2163:4248",
+    "tag": "div",
+    "className": "h-[21.972px] relative shrink-0 w-[21.986px]",
+    "data-node-id": "2163:4248",
+    "data-name": "Icons",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 713,
+    "nodeId": "2163:4250",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap",
+    "data-node-id": "2163:4250",
+    "text": "비대면 전국 상담"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 717,
+    "nodeId": "2163:4251",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[14px] whitespace-nowrap",
+    "data-node-id": "2163:4251",
+    "text": "지역 제한 없이 간편한 상담과 서류 접수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 721,
+    "nodeId": "2163:4252",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0",
+    "data-node-id": "2163:4252",
+    "data-name": "Expert Info Item 4",
+    "text": "RPA 자동화 + AI 분석 환급 가능 항목을 신속하고 정확하게 분석"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 722,
+    "nodeId": "2163:4253",
+    "tag": "div",
+    "className": "content-stretch flex gap-[4px] items-center relative shrink-0",
+    "data-node-id": "2163:4253",
+    "text": "RPA 자동화 + AI 분석"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 723,
+    "nodeId": "2163:4254",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-center justify-center relative shrink-0 size-[24px]",
+    "data-node-id": "2163:4254",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 724,
+    "nodeId": "2163:4255",
+    "tag": "div",
+    "className": "h-[22px] relative shrink-0 w-[14.219px]",
+    "data-node-id": "2163:4255",
+    "data-name": "Icons",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 728,
+    "nodeId": "2163:4257",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap",
+    "data-node-id": "2163:4257",
+    "text": "RPA 자동화 + AI 분석"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 732,
+    "nodeId": "2163:4258",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[14px] whitespace-nowrap",
+    "data-node-id": "2163:4258",
+    "text": "환급 가능 항목을 신속하고 정확하게 분석"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 736,
+    "nodeId": "2163:4259",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0",
+    "data-node-id": "2163:4259",
+    "data-name": "Expert Info Item 5",
+    "text": "검증된 보안 솔루션 고객 정보를 안전하게 관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 737,
+    "nodeId": "2163:4260",
+    "tag": "div",
+    "className": "content-stretch flex gap-[4px] items-center relative shrink-0",
+    "data-node-id": "2163:4260",
+    "text": "검증된 보안 솔루션"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 738,
+    "nodeId": "2163:4261",
+    "tag": "div",
+    "className": "relative shrink-0 size-[24px]",
+    "data-node-id": "2163:4261",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 741,
+    "nodeId": "2163:4263",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap",
+    "data-node-id": "2163:4263",
+    "text": "검증된 보안 솔루션"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 745,
+    "nodeId": "2163:4264",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[14px] w-[222px]",
+    "data-node-id": "2163:4264",
+    "text": "고객 정보를 안전하게 관리"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 751,
+    "nodeId": "2163:4265",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[24px] w-[609px] whitespace-pre-wrap",
+    "data-node-id": "2163:4265",
+    "text": "비대면 전국 상담부터 RPA·AI 기반 환급 분석,  검증된 보안 솔루션까지 체계적으로 제공합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 756,
+    "nodeId": "2163:4266",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12px] items-center relative shrink-0",
+    "data-node-id": "2163:4266",
+    "text": "특허 출원 중"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 757,
+    "nodeId": "2175:30488",
+    "tag": "div",
+    "className": "h-[413px] relative shadow-[-4px_-4px_30px_0px_var(--effect\\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[282px]",
+    "data-node-id": "2175:30488",
+    "data-name": "블루 기어 전구 기술 인증 카드 1",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 762,
+    "nodeId": "2163:4268",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0",
+    "data-node-id": "2163:4268",
+    "data-name": "Expert Info Item 6",
+    "text": "특허 출원 중"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 763,
+    "nodeId": "2163:4269",
+    "tag": "div",
+    "className": "content-stretch flex gap-[4px] items-center relative shrink-0",
+    "data-node-id": "2163:4269",
+    "text": "특허 출원 중"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 764,
+    "nodeId": "2163:4270",
+    "tag": "div",
+    "className": "relative shrink-0 size-[24px]",
+    "data-node-id": "2163:4270",
+    "data-name": "Award",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 767,
+    "nodeId": "2163:4272",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap",
+    "data-node-id": "2163:4272",
+    "text": "특허 출원 중"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 775,
+    "nodeId": "2163:4273",
+    "tag": "div",
+    "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center justify-center py-[140px] relative shrink-0 w-full",
+    "data-node-id": "2163:4273",
+    "data-name": "Process Section",
+    "text": "01 비대면 전국 상담 전국 어디서나 지역 제한 없이 간편하게  비대면으로 상담 및 서류 접수가 가능합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 776,
+    "nodeId": "2163:4274",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4274",
+    "data-name": "Process Content",
+    "text": "01 비대면 전국 상담 전국 어디서나 지역 제한 없이 간편하게  비대면으로 상담 및 서류 접수가 가능합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 777,
+    "nodeId": "2163:4275",
+    "tag": "motion.div",
+    "className": "h-[456px] relative shadow-[-4px_-4px_30px_0px_var(--effect\\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[662px]",
+    "data-node-id": "2163:4275",
+    "data-name": "비대면 전국 상담",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 782,
+    "nodeId": "2163:4276",
+    "tag": "motion.div",
+    "className": "content-stretch flex flex-col gap-[48px] items-end relative shrink-0 w-[506px]",
+    "data-node-id": "2163:4276",
+    "data-name": "Process Text",
+    "text": "01 비대면 전국 상담 전국 어디서나 지역 제한 없이 간편하게  비대면으로 상담 및 서류 접수가 가능합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 783,
+    "nodeId": "2163:4277",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-end relative shrink-0",
+    "data-node-id": "2163:4277",
+    "text": "01 비대면 전국 상담"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 784,
+    "nodeId": "2163:4278",
+    "tag": "div",
+    "className": "content-stretch flex gap-[24px] items-center justify-end relative shrink-0",
+    "data-node-id": "2163:4278",
+    "data-name": "Step 1 Container",
+    "text": "01"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 785,
+    "nodeId": "2163:4279",
+    "tag": "div",
+    "className": "flex items-center justify-center relative shrink-0",
+    "data-node-id": "2163:4279",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 794,
+    "nodeId": "2163:4280",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#75a7f3] text-[48px] whitespace-nowrap",
+    "data-node-id": "2163:4280",
+    "text": "01"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 798,
+    "nodeId": "2163:4281",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center leading-[0] not-italic relative shrink-0 text-[#10294c] text-[32px] whitespace-nowrap",
+    "data-node-id": "2163:4281",
+    "text": "비대면 전국 상담"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 802,
+    "nodeId": "2163:4282",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] min-w-full relative shrink-0 text-[#878787] text-[24px] text-right w-[min-content] whitespace-pre-wrap",
+    "data-node-id": "2163:4282",
+    "text": "전국 어디서나 지역 제한 없이 간편하게  비대면으로 상담 및 서류 접수가 가능합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 809,
+    "nodeId": "2163:4283",
+    "tag": "div",
+    "className": "bg-[var(--background\\/default,#f3f7fe)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full",
+    "data-node-id": "2163:4283",
+    "data-name": "Consultation Section",
+    "text": "02 국내 최초 자동화 인공지능 프로그램 구축 RPA 자동화와 AI 분석을 통해 환급 가능 항목을 신속하고 정확하게 확인합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 810,
+    "nodeId": "2163:4284",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4284",
+    "data-name": "Consultation Container",
+    "text": "02 국내 최초 자동화 인공지능 프로그램 구축 RPA 자동화와 AI 분석을 통해 환급 가능 항목을 신속하고 정확하게 확인합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 811,
+    "nodeId": "2163:4285",
+    "tag": "motion.div",
+    "className": "content-stretch flex flex-col gap-[48px] items-start justify-center relative shrink-0 w-[506px]",
+    "data-node-id": "2163:4285",
+    "data-name": "Consultation Details",
+    "text": "02 국내 최초 자동화 인공지능 프로그램 구축 RPA 자동화와 AI 분석을 통해 환급 가능 항목을 신속하고 정확하게 확인합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 812,
+    "nodeId": "2163:4286",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-start relative shrink-0",
+    "data-node-id": "2163:4286",
+    "text": "02 국내 최초 자동화 인공지능 프로그램 구축"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 813,
+    "nodeId": "2163:4287",
+    "tag": "div",
+    "className": "content-stretch flex gap-[24px] items-center justify-end relative shrink-0",
+    "data-node-id": "2163:4287",
+    "data-name": "Consultation Step 2",
+    "text": "02"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 814,
+    "nodeId": "2163:4288",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#75a7f3] text-[48px] whitespace-nowrap",
+    "data-node-id": "2163:4288",
+    "text": "02"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 817,
+    "nodeId": "2163:4289",
+    "tag": "div",
+    "className": "flex items-center justify-center relative shrink-0",
+    "data-node-id": "2163:4289",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 827,
+    "nodeId": "2163:4290",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center leading-[0] not-italic relative shrink-0 text-[#10294c] text-[32px] whitespace-nowrap",
+    "data-node-id": "2163:4290",
+    "text": "국내 최초 자동화 인공지능 프로그램 구축"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 831,
+    "nodeId": "2163:4291",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] min-w-full relative shrink-0 text-[#878787] text-[24px] w-[min-content]",
+    "data-node-id": "2163:4291",
+    "text": "RPA 자동화와 AI 분석을 통해 환급 가능 항목을 신속하고 정확하게 확인합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 836,
+    "nodeId": "2163:4292",
+    "tag": "motion.div",
+    "className": "h-[456px] relative shrink-0 w-[526px]",
+    "data-node-id": "2163:4292",
+    "data-name": "성공 보수형 수수료",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 843,
+    "nodeId": "2163:4293",
+    "tag": "div",
+    "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full",
+    "data-node-id": "2163:4293",
+    "data-name": "Security Section",
+    "text": "03 검증된 보안 솔루션 적용 SentinelOne의 Singularity AI SIEM을 적용하여 고객 정보와 업무 데이터를 안전하게 관리합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 844,
+    "nodeId": "2163:4294",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4294",
+    "data-name": "Security Content",
+    "text": "03 검증된 보안 솔루션 적용 SentinelOne의 Singularity AI SIEM을 적용하여 고객 정보와 업무 데이터를 안전하게 관리합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 845,
+    "nodeId": "2163:4295",
+    "tag": "motion.div",
+    "className": "h-[456px] relative shadow-[-4px_-4px_30px_0px_var(--effect\\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[540px]",
+    "data-node-id": "2163:4295",
+    "data-name": "정보보안",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 850,
+    "nodeId": "2163:4296",
+    "tag": "motion.div",
+    "className": "content-stretch flex flex-col gap-[48px] items-end relative shrink-0 w-[506px]",
+    "data-node-id": "2163:4296",
+    "data-name": "Security Details",
+    "text": "03 검증된 보안 솔루션 적용 SentinelOne의 Singularity AI SIEM을 적용하여 고객 정보와 업무 데이터를 안전하게 관리합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 851,
+    "nodeId": "2163:4297",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[24px] items-end relative shrink-0",
+    "data-node-id": "2163:4297",
+    "text": "03 검증된 보안 솔루션 적용"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 852,
+    "nodeId": "2163:4298",
+    "tag": "div",
+    "className": "content-stretch flex gap-[24px] items-center justify-end relative shrink-0",
+    "data-node-id": "2163:4298",
+    "data-name": "Security Step 3",
+    "text": "03"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 853,
+    "nodeId": "2163:4299",
+    "tag": "div",
+    "className": "flex items-center justify-center relative shrink-0",
+    "data-node-id": "2163:4299",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 862,
+    "nodeId": "2163:4300",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#75a7f3] text-[48px] whitespace-nowrap",
+    "data-node-id": "2163:4300",
+    "text": "03"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 866,
+    "nodeId": "2163:4301",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center leading-[0] not-italic relative shrink-0 text-[#10294c] text-[32px] whitespace-nowrap",
+    "data-node-id": "2163:4301",
+    "text": "검증된 보안 솔루션 적용"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 870,
+    "nodeId": "2163:4302",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] min-w-full relative shrink-0 text-[#878787] text-[24px] text-right w-[min-content]",
+    "data-node-id": "2163:4302",
+    "text": "SentinelOne의 Singularity AI SIEM을 적용하여 고객 정보와 업무 데이터를 안전하게 관리합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 878,
+    "nodeId": "2163:4303",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-center overflow-clip px-[45px] py-[140px] relative shrink-0 w-full",
+    "data-node-id": "2163:4303",
+    "data-name": "Steps Image",
+    "text": "이렇게 진행합니다! 신속하고 정확하게, 사업주님의 부담을 최소화하는 프로세스입니다. 1 상담 및 접수 전화  또는  이메일 로 문의 접수 2 진단 및 분석 분석하여 환급 가능  금액 진단 3 서류 안내 및 진행 필요 서류  안내 및  환급 신청  대행 4 환급 완료 심사 후  환급금 입금  및  결과 안내 + 사후관리 컨설팅 환급 완료 후 재발 방지 대책 수립 및 맞춤형 절세 방안을 제안합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 883,
+    "nodeId": "2163:4304",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[64px] items-center max-w-[1280px] relative shrink-0 w-full",
+    "data-node-id": "2163:4304",
+    "data-name": "Process Overview",
+    "text": "이렇게 진행합니다! 신속하고 정확하게, 사업주님의 부담을 최소화하는 프로세스입니다. 1 상담 및 접수 전화  또는  이메일 로 문의 접수 2 진단 및 분석 분석하여 환급 가능  금액 진단 3 서류 안내 및 진행 필요 서류  안내 및  환급 신청  대행 4 환급 완료 심사 후  환급금 입금  및  결과 안내 + 사후관리 컨설팅 환급 완료 후 재발 방지 대책 수립 및 맞춤형 절세 방안을 제안합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 884,
+    "nodeId": "2163:4305",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-col gap-[8px] items-center justify-center leading-[1.3] not-italic relative shrink-0 w-[532px] whitespace-nowrap",
+    "data-node-id": "2163:4305",
+    "data-name": "Process Intro",
+    "text": "이렇게 진행합니다! 신속하고 정확하게, 사업주님의 부담을 최소화하는 프로세스입니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 885,
+    "nodeId": "2163:4306",
+    "tag": "p",
+    "className": "font-['Pretendard:Bold'] relative shrink-0 text-[42px] text-white",
+    "data-node-id": "2163:4306",
+    "text": "이렇게 진행합니다!"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 888,
+    "nodeId": "2163:4307",
+    "tag": "p",
+    "className": "font-['Pretendard:Medium'] relative shrink-0 text-[#eaeaea] text-[18px]",
+    "data-node-id": "2163:4307",
+    "text": "신속하고 정확하게, 사업주님의 부담을 최소화하는 프로세스입니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 892,
+    "nodeId": "2163:4308",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full",
+    "data-node-id": "2163:4308",
+    "data-name": "Process Steps",
+    "text": "1 상담 및 접수 전화  또는  이메일 로 문의 접수 2 진단 및 분석 분석하여 환급 가능  금액 진단 3 서류 안내 및 진행 필요 서류  안내 및  환급 신청  대행 4 환급 완료 심사 후  환급금 입금  및  결과 안내 + 사후관리 컨설팅 환급 완료 후 재발 방지 대책 수립 및 맞춤형 절세 방안을 제안합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 893,
+    "nodeId": "2163:4309",
+    "tag": "div",
+    "className": "content-stretch flex gap-[8px] items-start relative shrink-0 w-full",
+    "data-node-id": "2163:4309",
+    "data-name": "Steps Container",
+    "text": "1 상담 및 접수 전화  또는  이메일 로 문의 접수 2 진단 및 분석 분석하여 환급 가능  금액 진단 3 서류 안내 및 진행 필요 서류  안내 및  환급 신청  대행 4 환급 완료 심사 후  환급금 입금  및  결과 안내"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 894,
+    "nodeId": "2163:4310",
+    "tag": "motion.div",
+    "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative",
+    "data-node-id": "2163:4310",
+    "data-name": "Step 1 Details",
+    "text": "1 상담 및 접수 전화  또는  이메일 로 문의 접수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 895,
+    "nodeId": "2163:4311",
+    "tag": "div",
+    "className": "-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0",
+    "data-node-id": "2163:4311",
+    "data-name": "Step 1 Icon",
+    "text": "1"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 896,
+    "nodeId": "2163:4312",
+    "tag": "div",
+    "className": "absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]",
+    "data-node-id": "2163:4312",
+    "data-name": "Step 1 Content",
+    "text": "1"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 897,
+    "nodeId": "2163:4313",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap",
+    "data-node-id": "2163:4313",
+    "text": "1"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 902,
+    "nodeId": "2163:4314",
+    "tag": "div",
+    "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full",
+    "data-node-id": "2163:4314",
+    "data-name": "Step Details",
+    "text": "상담 및 접수 전화  또는  이메일 로 문의 접수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 903,
+    "nodeId": "2163:4315",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]",
+    "data-node-id": "2163:4315",
+    "text": "상담 및 접수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 906,
+    "nodeId": "2163:4316",
+    "tag": "div",
+    "className": "h-[131.202px] relative shrink-0 w-[121.11px]",
+    "data-node-id": "2163:4316",
+    "data-name": "상담 및 접수",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 911,
+    "nodeId": "2163:4317",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-center text-white w-[min-content]",
+    "data-node-id": "2163:4317",
+    "text": "전화  또는  이메일 로 문의 접수"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 919,
+    "nodeId": "2163:4318",
+    "tag": "motion.div",
+    "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center justify-center min-w-px p-[26.302px] relative",
+    "data-node-id": "2163:4318",
+    "data-name": "Step 2 Details",
+    "text": "2 진단 및 분석 분석하여 환급 가능  금액 진단"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 920,
+    "nodeId": "2163:4319",
+    "tag": "div",
+    "className": "-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0",
+    "data-node-id": "2163:4319",
+    "data-name": "Step 2 Icon",
+    "text": "2"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 921,
+    "nodeId": "2163:4320",
+    "tag": "div",
+    "className": "absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]",
+    "data-node-id": "2163:4320",
+    "data-name": "Step 2 Content",
+    "text": "2"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 922,
+    "nodeId": "2163:4321",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap",
+    "data-node-id": "2163:4321",
+    "text": "2"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 927,
+    "nodeId": "2163:4322",
+    "tag": "div",
+    "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full",
+    "data-node-id": "2163:4322",
+    "data-name": "Step Title",
+    "text": "진단 및 분석 분석하여 환급 가능  금액 진단"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 928,
+    "nodeId": "2163:4323",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]",
+    "data-node-id": "2163:4323",
+    "text": "진단 및 분석"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 931,
+    "nodeId": "2163:4324",
+    "tag": "div",
+    "className": "h-[131.315px] relative shrink-0 w-[83.14px]",
+    "data-node-id": "2163:4324",
+    "data-name": "진단 및 분석",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 936,
+    "nodeId": "2163:4325",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-center text-white w-[min-content]",
+    "data-node-id": "2163:4325",
+    "text": "분석하여 환급 가능  금액 진단"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 942,
+    "nodeId": "2163:4326",
+    "tag": "motion.div",
+    "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative",
+    "data-node-id": "2163:4326",
+    "data-name": "Step 3 Details",
+    "text": "3 서류 안내 및 진행 필요 서류  안내 및  환급 신청  대행"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 943,
+    "nodeId": "2163:4327",
+    "tag": "div",
+    "className": "-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0",
+    "data-node-id": "2163:4327",
+    "data-name": "Step 3 Icon",
+    "text": "3"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 944,
+    "nodeId": "2163:4328",
+    "tag": "div",
+    "className": "absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]",
+    "data-node-id": "2163:4328",
+    "data-name": "Step 3 Content",
+    "text": "3"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 945,
+    "nodeId": "2163:4329",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap",
+    "data-node-id": "2163:4329",
+    "text": "3"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 950,
+    "nodeId": "2163:4330",
+    "tag": "div",
+    "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full",
+    "data-node-id": "2163:4330",
+    "data-name": "Step Title",
+    "text": "서류 안내 및 진행 필요 서류  안내 및  환급 신청  대행"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 951,
+    "nodeId": "2163:4331",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]",
+    "data-node-id": "2163:4331",
+    "text": "서류 안내 및 진행"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 954,
+    "nodeId": "2163:4332",
+    "tag": "div",
+    "className": "h-[130.47px] relative shrink-0 w-[95.343px]",
+    "data-node-id": "2163:4332",
+    "data-name": "서류 안내 및 진행",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 959,
+    "nodeId": "2163:4333",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[0] not-italic relative shrink-0 text-[0px] text-center text-white whitespace-nowrap",
+    "data-node-id": "2163:4333",
+    "text": "필요 서류  안내 및  환급 신청  대행"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 967,
+    "nodeId": "2163:4334",
+    "tag": "motion.div",
+    "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative",
+    "data-node-id": "2163:4334",
+    "data-name": "Step 4 Details",
+    "text": "4 환급 완료 심사 후  환급금 입금  및  결과 안내"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 968,
+    "nodeId": "2163:4335",
+    "tag": "div",
+    "className": "-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0",
+    "data-node-id": "2163:4335",
+    "data-name": "Step 4 Icon",
+    "text": "4"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 969,
+    "nodeId": "2163:4336",
+    "tag": "div",
+    "className": "absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]",
+    "data-node-id": "2163:4336",
+    "data-name": "Step 4 Content",
+    "text": "4"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 970,
+    "nodeId": "2163:4337",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap",
+    "data-node-id": "2163:4337",
+    "text": "4"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 975,
+    "nodeId": "2163:4338",
+    "tag": "div",
+    "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full",
+    "data-node-id": "2163:4338",
+    "data-name": "Step Title",
+    "text": "환급 완료 심사 후  환급금 입금  및  결과 안내"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 976,
+    "nodeId": "2163:4339",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]",
+    "data-node-id": "2163:4339",
+    "text": "환급 완료"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 979,
+    "nodeId": "2163:4340",
+    "tag": "div",
+    "className": "h-[131.27px] relative shrink-0 w-[130.105px]",
+    "data-node-id": "2163:4340",
+    "data-name": "환급 완료",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 984,
+    "nodeId": "2163:4341",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-center text-white w-[min-content]",
+    "data-node-id": "2163:4341",
+    "text": "심사 후  환급금 입금  및  결과 안내"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 993,
+    "nodeId": "2163:4342",
+    "tag": "div",
+    "className": "content-stretch drop-shadow-[0px_0px_15px_rgba(0,0,0,0.5)] flex gap-[8.184px] items-center justify-center p-[14px] relative rounded-[13.095px] shrink-0 w-full",
+    "data-node-id": "2163:4342",
+    "data-name": "Aftercare Consultation",
+    "text": "+ 사후관리 컨설팅 환급 완료 후 재발 방지 대책 수립 및 맞춤형 절세 방안을 제안합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 994,
+    "nodeId": "2163:4343",
+    "tag": "div",
+    "className": "bg-[#191922] content-stretch flex flex-col items-center justify-center relative rounded-[36.419px] shrink-0 size-[36.829px]",
+    "data-node-id": "2163:4343",
+    "data-name": "Plus Icon",
+    "text": "+"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 995,
+    "nodeId": "2163:4344",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.642px] text-white whitespace-nowrap",
+    "data-node-id": "2163:4344",
+    "text": "+"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 999,
+    "nodeId": "2163:4345",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[#89c6ff] text-[20px] text-center whitespace-nowrap",
+    "data-node-id": "2163:4345",
+    "text": "사후관리 컨설팅"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1002,
+    "nodeId": "2163:4346",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Pretendard:Medium'] leading-[1.2] not-italic relative shrink-0 text-[20px] text-center text-white whitespace-nowrap",
+    "data-node-id": "2163:4346",
+    "text": "환급 완료 후 재발 방지 대책 수립 및 맞춤형 절세 방안을 제안합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1009,
+    "nodeId": "2163:4347",
+    "tag": "div",
+    "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center justify-center min-h-[640px] p-[80px] relative shrink-0 w-full",
+    "data-node-id": "2163:4347",
+    "data-name": "news-section-card-grid",
+    "text": "포리펀 뉴스와 인사이트 최근 보도자료 3건만 노출합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1010,
+    "nodeId": "2163:4348",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[48px] items-start max-w-[1280px] relative shrink-0 w-full",
+    "data-node-id": "2163:4348",
+    "text": "포리펀 뉴스와 인사이트 최근 보도자료 3건만 노출합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1011,
+    "nodeId": "2163:4349",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-center relative shrink-0 w-full",
+    "data-node-id": "2163:4349",
+    "data-name": "section-header-center",
+    "text": "포리펀 뉴스와 인사이트"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1012,
+    "nodeId": "2163:4350",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] relative shrink-0 text-[#10294c] text-[36px] whitespace-nowrap",
+    "data-node-id": "2163:4350",
+    "text": "포리펀 뉴스와 인사이트"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1016,
+    "nodeId": "2163:4351",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full",
+    "data-node-id": "2163:4351",
+    "text": "최근 보도자료 3건만 노출합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1017,
+    "nodeId": "2163:4352",
+    "tag": "div",
+    "className": "content-start flex flex-wrap gap-[24px] items-start relative shrink-0 w-full",
+    "data-node-id": "2163:4352",
+    "data-name": "cards-grid",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1022,
+    "nodeId": "2163:4356",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[14px] text-[rgba(27,38,78,0.5)] whitespace-nowrap",
+    "data-node-id": "2163:4356",
+    "text": "최근 보도자료 3건만 노출합니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1028,
+    "nodeId": "2163:4357",
+    "tag": "div",
+    "className": "-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-[family-name:var(--font-family\\/font-1,'Noto_Sans_KR:Regular')] font-[var(--font-weight\\/400,400)] h-[28px] justify-center leading-[0] left-[1415px] text-[color:var(--text\\/primary-black,black)] text-[length:var(--font-size\\/18,18px)] top-[1292px] w-0",
+    "data-node-id": "2163:4357",
+    "text": "      "
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1031,
+    "nodeId": "2163:4358",
+    "tag": "div",
+    "className": "bg-[#111118] content-stretch flex items-center justify-center min-h-[300px] overflow-clip py-[48px] relative shrink-0 w-full",
+    "data-node-id": "2163:4358",
+    "data-name": "cta-banner-section",
+    "text": "소멸시효 3년 경과 전 빠른 신청 필수! 지금 바로 무료 진단을 신청하세요! 환급 가능 여부는 무료로 확인해 드립니다. 지금이 환급을 받을 수 있는 가장 빠른 기회입니다. 빠른 전화 상담 010-2225-0005 이메일 서류 접수 및 문의 iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1032,
+    "nodeId": "2163:4359",
+    "tag": "div",
+    "className": "content-stretch flex flex-[1_0_0] items-center justify-between max-w-[1280px] min-w-px px-[45px] relative",
+    "data-node-id": "2163:4359",
+    "data-name": "CTA Banner",
+    "text": "소멸시효 3년 경과 전 빠른 신청 필수! 지금 바로 무료 진단을 신청하세요! 환급 가능 여부는 무료로 확인해 드립니다. 지금이 환급을 받을 수 있는 가장 빠른 기회입니다. 빠른 전화 상담 010-2225-0005 이메일 서류 접수 및 문의 iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1033,
+    "nodeId": "2163:4360",
+    "tag": "div",
+    "className": "content-stretch flex flex-[1_0_0] flex-col gap-[16px] items-start min-w-px relative",
+    "data-node-id": "2163:4360",
+    "data-name": "left-content",
+    "text": "소멸시효 3년 경과 전 빠른 신청 필수! 지금 바로 무료 진단을 신청하세요! 환급 가능 여부는 무료로 확인해 드립니다. 지금이 환급을 받을 수 있는 가장 빠른 기회입니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1034,
+    "nodeId": "2163:4361",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Inter:Bold'] font-bold leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\\/inverse,white)] w-full",
+    "data-node-id": "2163:4361",
+    "text": "소멸시효 3년 경과 전 빠른 신청 필수!"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1037,
+    "nodeId": "2163:4362",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Inter:Extra_Bold'] font-extrabold leading-[normal] not-italic relative shrink-0 text-[32px] text-[color:var(--text\\/inverse,white)] w-full",
+    "data-node-id": "2163:4362",
+    "text": "지금 바로 무료 진단을 신청하세요!"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1040,
+    "nodeId": "2163:4363",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-start relative shrink-0 w-full",
+    "data-node-id": "2163:4363",
+    "data-name": "description-group",
+    "text": "환급 가능 여부는 무료로 확인해 드립니다. 지금이 환급을 받을 수 있는 가장 빠른 기회입니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1041,
+    "nodeId": "2163:4364",
+    "tag": "div",
+    "className": "[word-break:break-word] font-['Inter:Medium'] font-medium leading-[0] not-italic relative shrink-0 text-[#94a3b8] text-[15px] w-full",
+    "data-node-id": "2163:4364",
+    "text": "환급 가능 여부는 무료로 확인해 드립니다. 지금이 환급을 받을 수 있는 가장 빠른 기회입니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1047,
+    "nodeId": "2163:4365",
+    "tag": "div",
+    "className": "content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-end justify-center max-w-[526px] min-w-px relative",
+    "data-node-id": "2163:4365",
+    "data-name": "CTA Contact",
+    "text": "빠른 전화 상담 010-2225-0005 이메일 서류 접수 및 문의 iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1048,
+    "nodeId": "2163:4366",
+    "tag": "div",
+    "className": "bg-[#181820] border border-[#3e3e4a] border-solid content-stretch flex flex-col items-start min-w-[300px] p-[24px] relative rounded-[16px] shrink-0 w-full",
+    "data-node-id": "2163:4366",
+    "data-name": "문의버튼",
+    "text": "빠른 전화 상담 010-2225-0005"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1049,
+    "nodeId": "I2163:4366;67:331",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full",
+    "data-node-id": "I2163:4366;67:331",
+    "data-name": "card-top",
+    "text": "빠른 전화 상담 010-2225-0005"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1050,
+    "nodeId": "I2163:4366;67:332",
+    "tag": "div",
+    "className": "bg-[#111118] border-[#515156] border-[1.5px] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[24px] shrink-0 size-[48px]",
+    "data-node-id": "I2163:4366;67:332",
+    "data-name": "card-icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1051,
+    "nodeId": "I2163:4366;67:333",
+    "tag": "div",
+    "className": "relative shrink-0 size-[28px]",
+    "data-node-id": "I2163:4366;67:333",
+    "data-name": "Email Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1055,
+    "nodeId": "I2163:4366;67:334",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start leading-[normal] min-w-px not-italic relative",
+    "data-node-id": "I2163:4366;67:334",
+    "data-name": "card-content",
+    "text": "빠른 전화 상담 010-2225-0005"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1056,
+    "nodeId": "I2163:4366;67:335",
+    "tag": "p",
+    "className": "font-['Inter:Bold'] font-bold relative shrink-0 text-[#c0c0c0] text-[13px] w-full",
+    "data-node-id": "I2163:4366;67:335",
+    "text": "빠른 전화 상담"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1059,
+    "nodeId": "I2163:4366;67:336",
+    "tag": "p",
+    "className": "font-['Inter:Extra_Bold'] font-extrabold relative shrink-0 text-[20px] text-[color:var(--text\\/inverse,white)] w-full",
+    "data-node-id": "I2163:4366;67:336",
+    "text": "010-2225-0005"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1065,
+    "nodeId": "2163:4367",
+    "tag": "div",
+    "className": "bg-[#181820] border border-[#3e3e4a] border-solid content-stretch flex flex-col items-start min-w-[300px] p-[24px] relative rounded-[16px] shrink-0 w-full",
+    "data-node-id": "2163:4367",
+    "data-name": "문의버튼",
+    "text": "이메일 서류 접수 및 문의 iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1066,
+    "nodeId": "I2163:4367;67:331",
+    "tag": "div",
+    "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full",
+    "data-node-id": "I2163:4367;67:331",
+    "data-name": "card-top",
+    "text": "이메일 서류 접수 및 문의 iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1067,
+    "nodeId": "I2163:4367;67:332",
+    "tag": "div",
+    "className": "bg-[#111118] border-[#515156] border-[1.5px] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[24px] shrink-0 size-[48px]",
+    "data-node-id": "I2163:4367;67:332",
+    "data-name": "card-icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1068,
+    "nodeId": "I2163:4367;67:333",
+    "tag": "div",
+    "className": "relative shrink-0 size-[28px]",
+    "data-node-id": "I2163:4367;67:333",
+    "data-name": "Email Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1072,
+    "nodeId": "I2163:4367;67:334",
+    "tag": "div",
+    "className": "[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start leading-[normal] min-w-px not-italic relative",
+    "data-node-id": "I2163:4367;67:334",
+    "data-name": "card-content",
+    "text": "이메일 서류 접수 및 문의 iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1073,
+    "nodeId": "I2163:4367;67:335",
+    "tag": "p",
+    "className": "font-['Inter:Bold'] font-bold relative shrink-0 text-[#c0c0c0] text-[13px] w-full",
+    "data-node-id": "I2163:4367;67:335",
+    "text": "이메일 서류 접수 및 문의"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1076,
+    "nodeId": "I2163:4367;67:336",
+    "tag": "p",
+    "className": "font-['Inter:Extra_Bold'] font-extrabold relative shrink-0 text-[20px] text-[color:var(--text\\/inverse,white)] w-full",
+    "data-node-id": "I2163:4367;67:336",
+    "text": "iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1080,
+    "nodeId": "I2163:4367;67:337",
+    "tag": "div",
+    "className": "-translate-y-1/2 absolute right-0 size-[30px] top-[calc(50%-0.26px)]",
+    "data-node-id": "I2163:4367;67:337",
+    "data-name": "Arrow Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1088,
+    "nodeId": "2163:4368",
+    "tag": "div",
+    "className": "bg-[#f5f6f8] content-stretch flex flex-col items-center justify-center overflow-clip py-[32px] relative shrink-0 w-full",
+    "data-node-id": "2163:4368",
+    "data-name": "Footer Section",
+    "text": "본 서비스는 공인노무사가 직접 검토하고 진행하는 전문 법률 서비스입니다. © 2026 포리펀. All Rights Reserved. Powered by MINING5000 iwillceo@naver.com 02-3463-5119 02-3463-5119 서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16) 상호명  4대보험경정청구센터 대표자  이관수  |  정보보호책임자  이관수 사업자등록번호  249-81-03649"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1089,
+    "nodeId": "2163:4369",
+    "tag": "div",
+    "className": "content-stretch flex items-end justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full",
+    "data-node-id": "2163:4369",
+    "data-name": "Footer Container",
+    "text": "본 서비스는 공인노무사가 직접 검토하고 진행하는 전문 법률 서비스입니다. © 2026 포리펀. All Rights Reserved. Powered by MINING5000 iwillceo@naver.com 02-3463-5119 02-3463-5119 서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16) 상호명  4대보험경정청구센터 대표자  이관수  |  정보보호책임자  이관수 사업자등록번호  249-81-03649"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1090,
+    "nodeId": "2163:4370",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[20px] items-start relative shrink-0",
+    "data-node-id": "2163:4370",
+    "data-name": "Footer Logo Container",
+    "text": "본 서비스는 공인노무사가 직접 검토하고 진행하는 전문 법률 서비스입니다. © 2026 포리펀. All Rights Reserved. Powered by MINING5000"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1091,
+    "nodeId": "2163:4371",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-start relative shrink-0 w-full",
+    "data-node-id": "2163:4371",
+    "data-name": "Footer Logo",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1092,
+    "nodeId": "2163:4372",
+    "tag": "div",
+    "className": "h-[40px] relative shrink-0 w-[136px]",
+    "data-node-id": "2163:4372",
+    "data-name": "Footer Logo Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1096,
+    "nodeId": "2163:4373",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-[family-name:var(--font-family\\/font-1,'Noto_Sans_KR:Regular')] font-[var(--font-weight\\/400,400)] justify-center leading-[0] relative shrink-0 text-[#101010] text-[length:var(--item-spacing\\/12,12px)] whitespace-nowrap",
+    "data-node-id": "2163:4373",
+    "text": "본 서비스는 공인노무사가 직접 검토하고 진행하는 전문 법률 서비스입니다."
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1099,
+    "nodeId": "2163:4374",
+    "tag": "div",
+    "className": "[word-break:break-word] font-['Pretendard:Regular'] leading-[0] min-w-full not-italic relative shrink-0 text-[#6a6f73] text-[16px] w-[min-content]",
+    "data-node-id": "2163:4374",
+    "text": "© 2026 포리펀. All Rights Reserved. Powered by MINING5000"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1104,
+    "nodeId": "2163:4375",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[16px] items-end relative shrink-0",
+    "data-node-id": "2163:4375",
+    "data-name": "contact",
+    "text": "iwillceo@naver.com 02-3463-5119 02-3463-5119 서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16) 상호명  4대보험경정청구센터 대표자  이관수  |  정보보호책임자  이관수 사업자등록번호  249-81-03649"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1105,
+    "nodeId": "2163:4377",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full",
+    "data-node-id": "2163:4377",
+    "data-name": "info",
+    "text": "iwillceo@naver.com 02-3463-5119 02-3463-5119 서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16)"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1106,
+    "nodeId": "2163:4378",
+    "tag": "div",
+    "className": "content-stretch flex gap-[12px] items-center justify-end relative shrink-0",
+    "data-node-id": "2163:4378",
+    "data-name": "mail",
+    "text": "iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1107,
+    "nodeId": "2163:4379",
+    "tag": "a",
+    "className": "[word-break:break-word] block font-['Pretendard:Medium'] leading-[0] not-italic relative shrink-0 text-[#9ea7af] text-[14px] whitespace-nowrap",
+    "href": "mailto:iwillceo@naver.com",
+    "data-node-id": "2163:4379",
+    "target": "_blank",
+    "text": "iwillceo@naver.com"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1110,
+    "nodeId": "2163:4380",
+    "tag": "div",
+    "className": "h-[10px] relative shrink-0 w-[13px]",
+    "data-node-id": "2163:4380",
+    "data-name": "Email Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1114,
+    "nodeId": "2163:4381",
+    "tag": "div",
+    "className": "content-stretch flex gap-[12px] items-center justify-end relative shrink-0",
+    "data-node-id": "2163:4381",
+    "data-name": "call",
+    "text": "02-3463-5119"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1115,
+    "nodeId": "2163:4382",
+    "tag": "a",
+    "className": "[word-break:break-word] block font-['Pretendard:Medium'] leading-[0] not-italic relative shrink-0 text-[#9ea7af] text-[14px] whitespace-nowrap",
+    "href": "tel:0234635119",
+    "data-node-id": "2163:4382",
+    "target": "_blank",
+    "text": "02-3463-5119"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1118,
+    "nodeId": "2163:4383",
+    "tag": "div",
+    "className": "relative shrink-0 size-[13px]",
+    "data-node-id": "2163:4383",
+    "data-name": "Call Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1124,
+    "nodeId": "2179:30878",
+    "tag": "div",
+    "className": "content-stretch flex gap-[12px] items-center justify-end relative shrink-0",
+    "data-node-id": "2179:30878",
+    "data-name": "call",
+    "text": "02-3463-5119"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1125,
+    "nodeId": "2179:30879",
+    "tag": "a",
+    "className": "[word-break:break-word] block font-['Pretendard:Medium'] leading-[0] not-italic relative shrink-0 text-[#9ea7af] text-[14px] whitespace-nowrap",
+    "href": "tel:0234635119",
+    "data-node-id": "2179:30879",
+    "target": "_blank",
+    "text": "02-3463-5119"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1128,
+    "nodeId": "2179:30891",
+    "tag": "div",
+    "className": "relative shrink-0 size-[13px]",
+    "data-node-id": "2179:30891",
+    "data-name": "Print",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1132,
+    "nodeId": "2163:4384",
+    "tag": "div",
+    "className": "content-stretch flex gap-[12px] items-start justify-end relative shrink-0",
+    "data-node-id": "2163:4384",
+    "data-name": "location",
+    "text": "서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16)"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1133,
+    "nodeId": "2163:4385",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[normal] relative shrink-0 text-[#9ea7af] text-[14px] tracking-[0.28px] whitespace-nowrap",
+    "data-node-id": "2163:4385",
+    "text": "서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16)"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1136,
+    "nodeId": "2163:4386",
+    "tag": "div",
+    "className": "h-[16px] relative shrink-0 w-[13px]",
+    "data-node-id": "2163:4386",
+    "data-name": "Location Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1141,
+    "nodeId": "2163:4387",
+    "tag": "div",
+    "className": "[word-break:break-word] font-['Pretendard:Regular'] leading-[0] not-italic relative shrink-0 text-[16px] text-[color:var(--text\\/secondary-warm,#6a6f73)] text-right whitespace-nowrap",
+    "data-node-id": "2163:4387",
+    "text": "상호명  4대보험경정청구센터 대표자  이관수  |  정보보호책임자  이관수 사업자등록번호  249-81-03649"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1162,
+    "nodeId": "2163:4388",
+    "tag": "div",
+    "className": "absolute bg-[var(--surface\\/default,white)] border border-[rgba(234,234,234,0.5)] border-solid content-stretch flex h-[76px] items-center justify-between left-0 pl-[32px] right-0 top-0",
+    "data-node-id": "2163:4388",
+    "data-name": "헤더",
+    "text": "010-2225-0555 무료 진단 신청 센터 소개 주요 서비스 전문가 강점 환급 절차"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1163,
+    "nodeId": "2163:4389",
+    "tag": "div",
+    "className": "h-[40px] relative shrink-0 w-[136px]",
+    "data-node-id": "2163:4389",
+    "data-name": "Header Logo Image",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1166,
+    "nodeId": "2163:4390",
+    "tag": "div",
+    "className": "content-stretch flex items-center relative shrink-0 w-[261px]",
+    "data-node-id": "2163:4390",
+    "data-name": "Contact Container",
+    "text": "010-2225-0555 무료 진단 신청"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1167,
+    "nodeId": "2163:4391",
+    "tag": "div",
+    "className": "bg-[#0074ca] content-stretch flex flex-col items-center justify-center px-[20px] py-[10px] relative shrink-0",
+    "data-node-id": "2163:4391",
+    "data-name": "헤더_btn",
+    "text": "010-2225-0555"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1168,
+    "nodeId": "I2163:4391;33:440",
+    "tag": "div",
+    "className": "relative shrink-0 size-[36px]",
+    "data-node-id": "I2163:4391;33:440",
+    "data-name": "Balloon Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1171,
+    "nodeId": "I2163:4391;33:441",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[color:var(--text\\/inverse,white)] tracking-[-0.42px] whitespace-nowrap",
+    "data-node-id": "I2163:4391;33:441",
+    "text": "010-2225-0555"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1175,
+    "nodeId": "2163:4392",
+    "tag": "div",
+    "className": "h-[76px] relative shrink-0 w-0",
+    "data-node-id": "2163:4392",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1180,
+    "nodeId": "2163:4393",
+    "tag": "button",
+    "className": "bg-[#0074ca] content-stretch cursor-pointer flex flex-col items-center justify-center px-[20px] py-[10px] relative shrink-0",
+    "data-node-id": "2163:4393",
+    "data-name": "헤더_btn",
+    "text": "무료 진단 신청"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1181,
+    "nodeId": "I2163:4393;33:440",
+    "tag": "div",
+    "className": "relative shrink-0 size-[36px]",
+    "data-node-id": "I2163:4393;33:440",
+    "data-name": "Balloon Icon",
+    "text": ""
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1184,
+    "nodeId": "I2163:4393;33:441",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[color:var(--text\\/inverse,white)] text-left whitespace-nowrap",
+    "data-node-id": "I2163:4393;33:441",
+    "text": "무료 진단 신청"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1189,
+    "nodeId": "2163:4394",
+    "tag": "div",
+    "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch cursor-pointer flex items-center justify-between left-1/2 top-1/2 w-[434px]",
+    "data-node-id": "2163:4394",
+    "data-name": "메뉴",
+    "text": "센터 소개 주요 서비스 전문가 강점 환급 절차"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1190,
+    "nodeId": "2163:4395",
+    "tag": "button",
+    "className": "content-stretch flex flex-col items-start relative shrink-0",
+    "data-node-id": "2163:4395",
+    "data-name": "메인메뉴",
+    "text": "센터 소개"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1191,
+    "nodeId": "I2163:4395;37:500",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap",
+    "data-node-id": "I2163:4395;37:500",
+    "text": "센터 소개"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1195,
+    "nodeId": "2163:4396",
+    "tag": "button",
+    "className": "content-stretch flex flex-col items-start relative shrink-0",
+    "data-node-id": "2163:4396",
+    "data-name": "아이템",
+    "text": "주요 서비스"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1196,
+    "nodeId": "2163:4397",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-start relative shrink-0",
+    "data-node-id": "2163:4397",
+    "data-name": "메인메뉴",
+    "text": "주요 서비스"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1197,
+    "nodeId": "I2163:4397;37:500",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap",
+    "data-node-id": "I2163:4397;37:500",
+    "text": "주요 서비스"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1202,
+    "nodeId": "2163:4398",
+    "tag": "button",
+    "className": "content-stretch flex flex-col items-start relative shrink-0",
+    "data-node-id": "2163:4398",
+    "data-name": "아이템",
+    "text": "전문가 강점"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1203,
+    "nodeId": "2163:4399",
+    "tag": "div",
+    "className": "content-stretch flex flex-col items-start relative shrink-0",
+    "data-node-id": "2163:4399",
+    "data-name": "메인메뉴",
+    "text": "전문가 강점"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1204,
+    "nodeId": "I2163:4399;37:500",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap",
+    "data-node-id": "I2163:4399;37:500",
+    "text": "전문가 강점"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1209,
+    "nodeId": "2163:4400",
+    "tag": "button",
+    "className": "content-stretch flex flex-col items-start relative shrink-0",
+    "data-node-id": "2163:4400",
+    "data-name": "메인메뉴",
+    "text": "환급 절차"
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1210,
+    "nodeId": "I2163:4400;37:500",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap",
+    "data-node-id": "I2163:4400;37:500",
+    "text": "환급 절차"
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 12,
+    "nodeId": "290:363",
+    "tag": "div",
+    "className": "{className || \"h-[66.169px] relative w-[225px]\"}",
+    "data-node-id": "290:363",
+    "data-name": "LOGO2",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 20,
+    "nodeId": "2179:30520",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[28px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full",
+    "data-node-id": "2179:30520",
+    "data-name": "contact-info-popup",
+    "text": "우리 회사 예상 환급액은? 사업자라면 무료로 확인할 수 있습니다. 환급액 조회하기"
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 21,
+    "nodeId": "2179:30521",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between relative shrink-0 w-full",
+    "data-node-id": "2179:30521",
+    "data-name": "logo-row",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 23,
+    "nodeId": "2179:30557",
+    "tag": "button",
+    "className": "content-stretch cursor-pointer flex flex-col items-center justify-center relative shrink-0 size-[24px]",
+    "data-node-id": "2179:30557",
+    "data-name": "close-button-wrapper",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 24,
+    "nodeId": "2179:30558",
+    "tag": "div",
+    "className": "relative shrink-0 size-[20px]",
+    "data-node-id": "2179:30558",
+    "data-name": "x-circle",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 29,
+    "nodeId": "2179:30523",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Black'] font-black leading-[1.3] relative shrink-0 text-[#10294c] text-[26px] text-center w-full",
+    "data-node-id": "2179:30523",
+    "text": "우리 회사 예상 환급액은?"
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 32,
+    "nodeId": "2179:30524",
+    "tag": "div",
+    "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full",
+    "data-node-id": "2179:30524",
+    "data-name": "image-area",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 33,
+    "nodeId": "2179:30525",
+    "tag": "div",
+    "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0",
+    "data-node-id": "2179:30525",
+    "data-name": "Image Group",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 34,
+    "nodeId": "2179:30526",
+    "tag": "div",
+    "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0",
+    "data-node-id": "2179:30526",
+    "data-name": "Main Image",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 35,
+    "nodeId": "2179:30527",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[295px]",
+    "data-node-id": "2179:30527",
+    "data-name": "편지봉투_뒷배경",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 38,
+    "nodeId": "2179:30528",
+    "tag": "div",
+    "className": "col-1 h-[211.859px] ml-[47.36px] mt-[39.6px] relative row-1 w-[199.67px]",
+    "data-node-id": "2179:30528",
+    "data-name": "종이",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 43,
+    "nodeId": "2179:30529",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[295px]",
+    "data-node-id": "2179:30529",
+    "data-name": "편지봉투_앞배경_그림자",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 46,
+    "nodeId": "2179:30530",
+    "tag": "div",
+    "className": "col-1 ml-0 mt-0 relative row-1 size-[295px]",
+    "data-node-id": "2179:30530",
+    "data-name": "편지봉투_앞배경",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 50,
+    "nodeId": "2179:30531",
+    "tag": "div",
+    "className": "absolute h-[69.926px] left-[262px] top-[39.6px] w-[52.18px]",
+    "data-node-id": "2179:30531",
+    "data-name": "코인_우상단",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 55,
+    "nodeId": "2179:30532",
+    "tag": "div",
+    "className": "absolute flex h-[86.635px] items-center justify-center left-[-35.93px] top-[107.65px] w-[39.892px]",
+    "data-node-id": "2179:30532",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 64,
+    "nodeId": "2179:30533",
+    "tag": "div",
+    "className": "absolute flex h-[62.017px] items-center justify-center left-[245.8px] top-[198.33px] w-[78.081px]",
+    "data-node-id": "2179:30533",
+    "text": ""
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 75,
+    "nodeId": "2179:30551",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full",
+    "data-node-id": "2179:30551",
+    "text": "사업자라면 무료로 확인할 수 있습니다. 환급액 조회하기"
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 76,
+    "nodeId": "2179:30534",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal leading-[1.5] relative shrink-0 text-[15px] text-[color:var(--text\\/secondary-mobile,#5d6877)] text-center w-full",
+    "data-node-id": "2179:30534",
+    "text": "사업자라면 무료로 확인할 수 있습니다."
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 79,
+    "nodeId": "2179:30545",
+    "tag": "button",
+    "className": "bg-[#0074ca] content-stretch cursor-pointer drop-shadow-[0px_0px_6.124px_rgba(0,116,202,0.5)] flex gap-[7.699px] h-[53.893px] items-center justify-center px-[30.796px] py-[11.549px] relative rounded-[157.143px] shrink-0 w-full",
+    "data-node-id": "2179:30545",
+    "data-name": "환급액_btn",
+    "text": "환급액 조회하기"
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 80,
+    "nodeId": "I2179:30545;319:1789",
+    "tag": "div",
+    "className": "[word-break:break-word] flex flex-col font-['Pretendard:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[19.25px] text-[color:var(--text\\/inverse,white)] text-left whitespace-nowrap",
+    "data-node-id": "I2179:30545;319:1789",
+    "text": "환급액 조회하기"
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 83,
+    "nodeId": "I2179:30545;319:1795",
+    "tag": "div",
+    "className": "flex items-center justify-center relative shrink-0 size-[21.172px]",
+    "data-node-id": "I2179:30545;319:1795",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 11,
+    "nodeId": "{is ? \"node-331_510\" : \"node-331_506\"}",
+    "tag": "div",
+    "className": "{className || `content-stretch flex h-[51px] items-center justify-center relative rounded-[8px] w-[416px] ${is ? \"bg-[#bfbfbf] opacity-60\" : \"bg-[#0074ca]\"}`}",
+    "id": "{is ? \"node-331_510\" : \"node-331_506\"}",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 12,
+    "nodeId": "331:507",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[normal] relative shrink-0 text-[16px] text-[color:var(--text\\/inverse,white)] whitespace-nowrap",
+    "data-node-id": "331:507",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 31,
+    "nodeId": "{is ? \"node-326_499\" : \"node-326_511\"}",
+    "tag": "div",
+    "className": "{className || \"content-stretch flex flex-col gap-[8px] items-start relative w-[416px]\"}",
+    "id": "{is ? \"node-326_499\" : \"node-326_511\"}",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 32,
+    "nodeId": "326:512",
+    "tag": "p",
+    "className": "font-['Noto_Sans_KR:Bold'] font-bold relative shrink-0 text-[15px] text-[color:var(--text\\/primary-web,#333)] w-full",
+    "data-node-id": "326:512",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 35,
+    "nodeId": "{is ? \"node-326_501\" : \"node-326_513\"}",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] border border-[#d9d9d9] border-solid content-stretch flex font-['Noto_Sans_KR:Regular'] font-normal h-[47px] items-center justify-between overflow-clip px-[16px] py-[12px] relative rounded-[8px] shrink-0 text-[16px] w-full",
+    "id": "{is ? \"node-326_501\" : \"node-326_513\"}",
+    "data-name": "입력 상자",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 37,
+    "nodeId": "326:514",
+    "tag": "p",
+    "className": "flex-[1_0_0] min-w-px relative text-[#212121]",
+    "data-node-id": "326:514",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 42,
+    "nodeId": "353:531",
+    "tag": "p",
+    "className": "relative shrink-0 text-[color:var(--text\\/secondary-mid,#808080)] whitespace-nowrap",
+    "data-node-id": "353:531",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 47,
+    "nodeId": "326:502",
+    "tag": "p",
+    "className": "flex-[1_0_0] min-w-px relative text-[#b3b3b3]",
+    "data-node-id": "326:502",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 52,
+    "nodeId": "353:534",
+    "tag": "p",
+    "className": "relative shrink-0 text-[color:var(--text\\/secondary-mid,#808080)] whitespace-nowrap",
+    "data-node-id": "353:534",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 63,
+    "nodeId": "324:500",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col items-start justify-between overflow-clip p-[32px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full",
+    "data-node-id": "324:500",
+    "data-name": "contact-info-popup",
+    "text": "담당자 정보 입력 연락처 - 없이 입력해주세요"
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 64,
+    "nodeId": "324:501",
+    "tag": "div",
+    "className": "content-stretch flex items-center justify-between relative shrink-0 w-full",
+    "data-node-id": "324:501",
+    "data-name": "modal-header",
+    "text": "담당자 정보 입력"
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 65,
+    "nodeId": "324:502",
+    "tag": "div",
+    "className": "relative shrink-0 size-[24px]",
+    "data-node-id": "324:502",
+    "data-name": "spacer-left",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 66,
+    "nodeId": "324:503",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[normal] relative shrink-0 text-[#111118] text-[22px] text-center whitespace-nowrap",
+    "data-node-id": "324:503",
+    "text": "담당자 정보 입력"
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 69,
+    "nodeId": "324:504",
+    "tag": "button",
+    "className": "content-stretch cursor-pointer flex flex-col items-center justify-center relative shrink-0 size-[24px]",
+    "data-node-id": "324:504",
+    "data-name": "close-button-wrapper",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 70,
+    "nodeId": "324:522",
+    "tag": "div",
+    "className": "relative shrink-0 size-[20px]",
+    "data-node-id": "324:522",
+    "data-name": "x-circle",
+    "text": ""
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 75,
+    "nodeId": "324:506",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full",
+    "data-node-id": "324:506",
+    "data-name": "modal-body-fields",
+    "text": "연락처 - 없이 입력해주세요"
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 78,
+    "nodeId": "326:532",
+    "tag": "div",
+    "className": "content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full",
+    "data-node-id": "326:532",
+    "data-name": "입력 필드",
+    "text": "연락처 - 없이 입력해주세요"
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 79,
+    "nodeId": "I326:532;326:500",
+    "tag": "p",
+    "className": "[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[normal] relative shrink-0 text-[15px] text-[color:var(--text\\/primary-web,#333)] w-full",
+    "data-node-id": "I326:532;326:500",
+    "text": "연락처"
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 82,
+    "nodeId": "I326:532;326:501",
+    "tag": "div",
+    "className": "bg-[var(--surface\\/default,white)] border border-[#d9d9d9] border-solid content-stretch flex h-[47px] items-center justify-between overflow-clip px-[16px] py-[12px] relative rounded-[8px] shrink-0 w-full",
+    "data-node-id": "I326:532;326:501",
+    "data-name": "입력 상자",
+    "text": "- 없이 입력해주세요"
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 83,
+    "nodeId": "I326:532;326:502",
+    "tag": "p",
+    "className": "[word-break:break-word] flex-[1_0_0] font-['Noto_Sans_KR:Regular'] font-normal leading-[normal] min-w-px relative text-[#999] text-[16px]",
+    "data-node-id": "I326:532;326:502",
+    "text": "- 없이 입력해주세요"
+  }
+]

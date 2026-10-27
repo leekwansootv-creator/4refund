@@ -1,0 +1,3 @@
+# Tracked Figma references are excluded from Tailwind source discovery.
+*
+!.gitignore

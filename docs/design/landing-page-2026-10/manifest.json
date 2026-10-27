@@ -1,0 +1,605 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-10-27",
+  "timeZone": "Asia/Seoul",
+  "repository": "leekwansootv-creator/4refund",
+  "baselineCommit": "ac39eda43b519681262919caae822e4d65d8cea0",
+  "figmaFileKey": "ijPZL5WxrjvxbHjBp0DoQa",
+  "rootNodeId": "2163:4123",
+  "rootSize": {
+    "width": 1920,
+    "height": 8324.2841796875
+  },
+  "screenshots": [
+    {
+      "file": "screenshots/full-page.png",
+      "nodeId": "2163:4123",
+      "label": "전체 페이지",
+      "width": 237,
+      "height": 1024
+    },
+    {
+      "file": "screenshots/header.png",
+      "nodeId": "2163:4388",
+      "label": "헤더",
+      "width": 1024,
+      "height": 42
+    },
+    {
+      "file": "screenshots/hero.png",
+      "nodeId": "2163:4124",
+      "label": "환급액 조회 Hero",
+      "width": 1024,
+      "height": 476
+    },
+    {
+      "file": "screenshots/center.png",
+      "nodeId": "2163:4150",
+      "label": "센터 소개",
+      "width": 1024,
+      "height": 843
+    },
+    {
+      "file": "screenshots/benefits.png",
+      "nodeId": "2163:4227",
+      "label": "서비스와 혜택",
+      "width": 1024,
+      "height": 422
+    },
+    {
+      "file": "screenshots/expert-intro.png",
+      "nodeId": "2163:4237",
+      "label": "전문가 강점 도입",
+      "width": 1024,
+      "height": 402
+    },
+    {
+      "file": "screenshots/remote-consultation.png",
+      "nodeId": "2163:4273",
+      "label": "비대면 전국 상담",
+      "width": 1024,
+      "height": 393
+    },
+    {
+      "file": "screenshots/rpa-ai.png",
+      "nodeId": "2163:4283",
+      "label": "RPA와 AI 분석",
+      "width": 1024,
+      "height": 393
+    },
+    {
+      "file": "screenshots/security.png",
+      "nodeId": "2163:4293",
+      "label": "보안 솔루션",
+      "width": 1024,
+      "height": 393
+    },
+    {
+      "file": "screenshots/process.png",
+      "nodeId": "2163:4303",
+      "label": "환급 절차",
+      "width": 1024,
+      "height": 457
+    },
+    {
+      "file": "screenshots/news.png",
+      "nodeId": "2163:4347",
+      "label": "뉴스와 인사이트",
+      "width": 1024,
+      "height": 342
+    },
+    {
+      "file": "screenshots/contact.png",
+      "nodeId": "2163:4358",
+      "label": "하단 문의",
+      "width": 1024,
+      "height": 160
+    },
+    {
+      "file": "screenshots/footer.png",
+      "nodeId": "2163:4368",
+      "label": "Footer",
+      "width": 1024,
+      "height": 123
+    },
+    {
+      "file": "screenshots/envelope-popup.png",
+      "nodeId": "2179:30520",
+      "label": "별도 봉투 팝업 용도 미정",
+      "width": 544,
+      "height": 618
+    },
+    {
+      "file": "screenshots/legacy-contact-popup.png",
+      "nodeId": "324:500",
+      "label": "과거 담당자 입력 팝업 비교 전용",
+      "width": 544,
+      "height": 584
+    },
+    {
+      "file": "screenshots/center-roster.png",
+      "nodeId": "2163:4155",
+      "label": "센터 구성원 확대",
+      "width": 1024,
+      "height": 283
+    },
+    {
+      "file": "screenshots/director.png",
+      "nodeId": "2179:30812",
+      "label": "센터장 확대",
+      "width": 1024,
+      "height": 315
+    },
+    {
+      "file": "screenshots/deputy-director.png",
+      "nodeId": "2179:30841",
+      "label": "부센터장 확대",
+      "width": 1024,
+      "height": 315
+    },
+    {
+      "file": "screenshots/news-card-image.png",
+      "nodeId": "994:281",
+      "label": "이미지 있는 뉴스 카드",
+      "width": 411,
+      "height": 298
+    },
+    {
+      "file": "screenshots/news-card-fallback.png",
+      "nodeId": "994:282",
+      "label": "이미지 없는 뉴스 카드",
+      "width": 411,
+      "height": 298
+    }
+  ],
+  "counts": {
+    "screenshots": 20,
+    "assets": 47,
+    "nodeRecords": 456,
+    "imageSlots": 86,
+    "textEntries": 135
+  },
+  "validation": {
+    "localReferences": true,
+    "temporaryAssetUrls": 0,
+    "assetSourceHashesPreserved": true,
+    "galleryImages": 67,
+    "browserImagesLoaded": 67,
+    "browserMissingImages": 0,
+    "externalGalleryResources": 0,
+    "imageMetadataVerified": true
+  },
+  "notes": [
+    "manifest.json excludes itself from the file hash list",
+    "Screenshots are scaled by the Figma tool; use design geometry for CSS dimensions",
+    "Generated context files are non-executable reference material",
+    "Unresolved product decisions remain in the planning document"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 86,
+      "sha256": "72124879057932b25a58580b8417b5a5605485b5eb841471c484fca6d7ec618d"
+    },
+    {
+      "path": "assets.json",
+      "bytes": 44810,
+      "sha256": "7a823d6a9f6fe2742eb765d8521cd24b1672c05077154fab2bf7b3855c5c8943"
+    },
+    {
+      "path": "ASSETS.md",
+      "bytes": 16573,
+      "sha256": "19c0001ea3df88a5d036e3624244da206d6f14cbffc206e08c1afebb258de066"
+    },
+    {
+      "path": "assets/02d071667ad65d8ebd2e99f11f02700e80fe2df6.svg",
+      "bytes": 9201,
+      "sha256": "9f359059f1913985462d76b043cece02be6a7af71e85daf086efbfc08c0059c2"
+    },
+    {
+      "path": "assets/062f590a6d53f493ed6b01efbbd564c2817a9bc4.png",
+      "bytes": 745458,
+      "sha256": "0db1dcb04a3a161dc2e58d668f370e1d5985dd0caa6bcf9de08ac7ae94a7e88d"
+    },
+    {
+      "path": "assets/0bbb48f31619324d43f7dd925e505fd96034dffd.svg",
+      "bytes": 6585,
+      "sha256": "78230dca705717c4ff38c86d74f6c28595e4dcba69f3e900902cd0a1d8349c65"
+    },
+    {
+      "path": "assets/0f4c7d04e92c9567e6723e78bf45fbf89f8f1d35.svg",
+      "bytes": 241,
+      "sha256": "6ca6f9dcbdf82a17ad043afc07a14e91bb8cc3c760ad48fbd213a48f9443a8c8"
+    },
+    {
+      "path": "assets/185811df1c495c4033d77e5e01c38a8620b44037.svg",
+      "bytes": 737,
+      "sha256": "82521141083384af040325126a7b3f864f7ba898a15b51084e925013b9e5c893"
+    },
+    {
+      "path": "assets/1abaa9d5743e6ab1d60653b74d9e15a250326b2e.svg",
+      "bytes": 1370,
+      "sha256": "4585e6c7405f0e8b896af9caf4922e014a333c4539484eff15c1e2bd29fefc02"
+    },
+    {
+      "path": "assets/21005f631d7cbda36dd25284339e8e1c4b8800cf.png",
+      "bytes": 1517070,
+      "sha256": "445747339675962d16d27beb3992dff1ddfccefcd4c9c6d34f9917b509fa7949"
+    },
+    {
+      "path": "assets/224e8122d812bfb5e1cd5921454235c2acd67465.png",
+      "bytes": 410653,
+      "sha256": "d8b79117167693ad180417fe58c71288449a34cc70590b7fb289f74de49af818"
+    },
+    {
+      "path": "assets/27da7cea16464c4fc776f94634daf908fc3a0bef.png",
+      "bytes": 516011,
+      "sha256": "07bb9db085031927eb34b10a3cf774436be45cd7d9365b081db7dd8c31ab8556"
+    },
+    {
+      "path": "assets/2ea0ed460006805ea7b84c6d4c43d39324f01a88.svg",
+      "bytes": 756,
+      "sha256": "66a6660c9a7c9c8dc5be303b86bf0fb1a9a318e37dd98553af39ef83896f1c9c"
+    },
+    {
+      "path": "assets/3f0f6da0e0380ec2fb8102fbbb7f8cccddcd920a.svg",
+      "bytes": 228,
+      "sha256": "51c7c6e3949f5c8608e31429c9cae7639243d5b7deac5675f756384ee83321c4"
+    },
+    {
+      "path": "assets/441e838705fd57d5cd82034398e21d398c2eb25e.png",
+      "bytes": 608365,
+      "sha256": "c6edc1ca51441b08ec73f425732d2a0581048f4dfb6107503a612d003eb824d1"
+    },
+    {
+      "path": "assets/445a1453e28b17c04b42d1c28e096e7c51966909.svg",
+      "bytes": 1347,
+      "sha256": "e32692799bb313d1ffa5dffa3a19611940f7f54798b76f7ab27a146e65fc7823"
+    },
+    {
+      "path": "assets/44a8bd26480b24bf98ba0489f1df5fb5c02c28d6.svg",
+      "bytes": 9221,
+      "sha256": "5496caea768a6115e7486d0a4af4d05bd67b9b12dbab73b1a73b0266b1338b48"
+    },
+    {
+      "path": "assets/49e912f373088511d69b789c146112ef2179ac7e.svg",
+      "bytes": 1150,
+      "sha256": "b5d1443bc6c5d0720d801d12ebe5a73f165e096d26baff07d459e99092db2bc8"
+    },
+    {
+      "path": "assets/4d5f443c0ad75f0731a40f42668c559b50a08b6f.png",
+      "bytes": 1367057,
+      "sha256": "9c8be43f5d2cf673d447dbc7f9caf2e995eaba047c7e146df377d58f8e0ab1b4"
+    },
+    {
+      "path": "assets/52649c1dbee7e917764511d0796227e39c39ecf1.svg",
+      "bytes": 757,
+      "sha256": "9f510093ee18d1a2bcd45f002f249c76e555334a1e2a2abe72823d99dc8555f8"
+    },
+    {
+      "path": "assets/5748f083b04e0332dba52c275c2df87198c56706.png",
+      "bytes": 999338,
+      "sha256": "b6c84fda02134440d8fd470ecb3d61407c96c5950fe5814c09494f9da17ece03"
+    },
+    {
+      "path": "assets/5c7654797c3f78a3166f090638a856970fa8221b.png",
+      "bytes": 616125,
+      "sha256": "d1997e3a071e3f8410dba85172e9cc91ec1e6b9e820281b8b67309012cc7621f"
+    },
+    {
+      "path": "assets/5ecab1211095d28f6e94e307dfced1cfee3e8042.png",
+      "bytes": 978414,
+      "sha256": "613b8fed46ff8989847569f404adb58b8cd83aa3f37d4e39e4b7fe200eb397bb"
+    },
+    {
+      "path": "assets/67fac0ca56e7e7d2f56fe431f0e8ea6c013650de.svg",
+      "bytes": 912,
+      "sha256": "29537b53ae62941fe3e5e47e7a50e1c00cb721f65d8e993e0bbccd29ff7b744c"
+    },
+    {
+      "path": "assets/6b4042a55597a992feaeaa6425e5a79b0c0202c0.svg",
+      "bytes": 229,
+      "sha256": "a6f72dc8151a6830c6c305b82d30345fc1c15a43a50f5c35129d1d8c96b7b730"
+    },
+    {
+      "path": "assets/6c53dc810afdf741f5c97356c3bb2292e1306d65.svg",
+      "bytes": 1194,
+      "sha256": "00410aa32a1038910fa2de017d0d5dab38d8eaf67c0be58ed94484dd0a7de328"
+    },
+    {
+      "path": "assets/7a6ae40e5bf22b851c649cdd961d6f9bd177aed6.png",
+      "bytes": 146798,
+      "sha256": "06e92670f1ed0a9383c58ef48753dfd59f727e762584bada7e31408182b8e611"
+    },
+    {
+      "path": "assets/85659a71a9b5a2bb99e8a25f7ceefe01cdec61dc.svg",
+      "bytes": 258,
+      "sha256": "77bc5417204deb2e882602dfe2a1d97e80c5d5667be5d7fb524f46890cc951e0"
+    },
+    {
+      "path": "assets/8859a173acb489676731425c1dc0d4af872a75aa.png",
+      "bytes": 3250,
+      "sha256": "063ed57726e6178ffb6400540290f8bdd47c310393557c15aa04e25633da71fc"
+    },
+    {
+      "path": "assets/8a3ab74e8e99b0418cd07396b12cb66a622592cb.png",
+      "bytes": 916622,
+      "sha256": "0e297f892f1106e9b34f7c55c3d983451111236db45c59bf69fc625c6fe45bbb"
+    },
+    {
+      "path": "assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+      "bytes": 229,
+      "sha256": "f72aca4159905692549deb012ba1777732a29f1d45c545bc98e7ece4de9de1e5"
+    },
+    {
+      "path": "assets/985b1cc6e212c944978a8dd0e080b3529c7455b2.png",
+      "bytes": 393764,
+      "sha256": "d4dc445cc167d3d3b516a3cc51ef115b766e88da59d93e34ccf5ef2609a3a802"
+    },
+    {
+      "path": "assets/9c21b05a11dd37834c80dd92adfe690cb0fbce84.png",
+      "bytes": 329017,
+      "sha256": "5e9f0b013c7098b2f4203c13dab63d7fa1725357a96e2cb12d44895b45db56d8"
+    },
+    {
+      "path": "assets/a114eb87b969091f38ad1c85f470f65920634e8e.png",
+      "bytes": 858847,
+      "sha256": "bef56876f157802f038b6175babc1ca12651b8edd0132960db300b38928dba09"
+    },
+    {
+      "path": "assets/a1a1413037b4bfba4b60e480712cc0df2db3b2da.png",
+      "bytes": 520063,
+      "sha256": "26e4ebff056d6d2821f78f4efb86ceab138b23fc34c2a25cf62ad2a88921d7d9"
+    },
+    {
+      "path": "assets/a263230cdd939a07d34ecfc6130013f86d4c0665.svg",
+      "bytes": 785,
+      "sha256": "3fc926816fde3f4dc005a3102ef23e1ea8ec19c47c25f189d5f56fd231eb8bd0"
+    },
+    {
+      "path": "assets/a3f33fbedfa1c2bbc6db00acb3d51fee9a7a1439.svg",
+      "bytes": 994,
+      "sha256": "6b1c8afd0621c26ace1ef415fd2a4fce1d68ac54a47d7e17aec79d860f7a2728"
+    },
+    {
+      "path": "assets/aee28d831673c9214c19740705e197bf92d9b20d.svg",
+      "bytes": 8968,
+      "sha256": "4788ca6220a062f2aa2b920901c591a3513423c7a1a90ed041532177c2034656"
+    },
+    {
+      "path": "assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg",
+      "bytes": 6460,
+      "sha256": "f892710d880a5d1ddeed3b5f7923763bbf19056ad639dfaea4301ab6e14de95d"
+    },
+    {
+      "path": "assets/c43869abddb9a4b8f43d51f837f0e407e479ff5d.png",
+      "bytes": 366464,
+      "sha256": "4a5223b0be0af877367a73f0cf6a134ec8398af3d019178002aade2b5b82116a"
+    },
+    {
+      "path": "assets/c663a0c74a8eb25ea1dab33f90950c692f1c9351.svg",
+      "bytes": 2723,
+      "sha256": "ebe2ab468cfc45c8e6a4a2a058de72c3784d43aaff9d1a5ba9cd49cb3232b53e"
+    },
+    {
+      "path": "assets/d5f4b269bd83e25b327431576ab5b24599bde1d2.svg",
+      "bytes": 2258,
+      "sha256": "3b0a83d34153fc44aaf5b728573f51302f11052fd1c2eb94bad2f37441272da2"
+    },
+    {
+      "path": "assets/e07ff6f7061dd60f6c3be92c3585458af71ee84f.png",
+      "bytes": 557549,
+      "sha256": "1a7cd62fb7cf64da57718296aaffb19fbe8afe9c5e5f7226cb09ae2cbb12d677"
+    },
+    {
+      "path": "assets/e3620ffeb5307e128d49ed637a3d57b3587fa2a6.png",
+      "bytes": 110807,
+      "sha256": "46a89415249f34f55f0e0414ad51a3215303a90265ba759bfa7167af739f9b19"
+    },
+    {
+      "path": "assets/e4275b89f5e6ab10b509ee59766f8bc8556a992f.png",
+      "bytes": 1170873,
+      "sha256": "4d67f7f37dc65ce8c3d1e9afcd77416766b16d61c51e2bd865d4970bc4c0cd21"
+    },
+    {
+      "path": "assets/e7600959e0db4750e9346476a4a15f01e61cc1a9.svg",
+      "bytes": 2281,
+      "sha256": "90b59d1a8e9bdde55dc9ba7a19e8e655643f6f63e0381d5b0895d45e154fc82c"
+    },
+    {
+      "path": "assets/f01bca6bf9acb4551037e5e9cf0312b739b31c99.png",
+      "bytes": 1019089,
+      "sha256": "682df490f14b1fd85c99319e34712c050fe02c09d788fe15dc39c1da85809e8d"
+    },
+    {
+      "path": "assets/f106e93a0528358e1d0b2a3de0b5487fc43fe62c.svg",
+      "bytes": 1069,
+      "sha256": "301a33baf10fc9c5f32462f23a0f96ff259de0f9065243992079645b6e277b65"
+    },
+    {
+      "path": "assets/f8b47ea4f74c8f35ad0a3e85f9dade0e0b0a6fe2.svg",
+      "bytes": 1423,
+      "sha256": "816cf3307c2862ffe33b300f0d601927c0bc82f8185ea0f6d44e9043bdbc2229"
+    },
+    {
+      "path": "assets/fb9ef126037b16921d4dc8ce6779e91ff895ae9e.png",
+      "bytes": 952547,
+      "sha256": "5285f75ccd2943086927f677b187d80936a75d98f4b9af99c6b954d282e50be2"
+    },
+    {
+      "path": "CONTENT.md",
+      "bytes": 26129,
+      "sha256": "ab46d5be6f9a4aca98973a43b2012d04fffae990006603a72bd991ad03355c78"
+    },
+    {
+      "path": "IMPLEMENTATION-SPEC.md",
+      "bytes": 20720,
+      "sha256": "34e58a656e77c6a195ada6dc5e10cdf6a0709723f46eb2798ecd59e6d3efa08d"
+    },
+    {
+      "path": "index.html",
+      "bytes": 29069,
+      "sha256": "f227907077a5b730a1c9e8ab6ef34db552563f3186d840e50ffb61c1fadb2feb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9571,
+      "sha256": "b7226272e1c564bda6f0a4b3ad4623867f50b829950a25440b2ab43e5f028362"
+    },
+    {
+      "path": "reference/adjacent-design-context.txt",
+      "bytes": 106672,
+      "sha256": "d469c213d09e76cc34b4abd50c589f183b977cbce2b83ed3c06d2cdd8c611bdf"
+    },
+    {
+      "path": "reference/envelope-popup-context.txt",
+      "bytes": 7120,
+      "sha256": "73c6992013349761de279f93f50cb8b7f21dc7dd42f750ce84e57502ca45bab2"
+    },
+    {
+      "path": "reference/image-slots.json",
+      "bytes": 91679,
+      "sha256": "5cf940b6ef9690a94f6e3331bc1a7a24332c6e91ce929c36027c20f2892ed3cd"
+    },
+    {
+      "path": "reference/interactions.json",
+      "bytes": 2222,
+      "sha256": "c2936dcef5109b2385deefeb85f616c2f3744918f224ce1270055f484bda126b"
+    },
+    {
+      "path": "reference/landing-design-context.txt",
+      "bytes": 116876,
+      "sha256": "35e4fe37d6eafcda40def7eff39d6b601ad578f18fd290cc447ad843d82ae3ca"
+    },
+    {
+      "path": "reference/legacy-contact-popup-context.txt",
+      "bytes": 5775,
+      "sha256": "6b1433eafd1046a3ea3c9b2fcc2abd1fb9a1f15241e5c8b99f074da6fbce6b58"
+    },
+    {
+      "path": "reference/motion-context.txt",
+      "bytes": 9026,
+      "sha256": "72a884a38e92cd3cc65516b35e80265e41c7b80f86561168aa19dfa5cab4ac69"
+    },
+    {
+      "path": "reference/motion.json",
+      "bytes": 10083,
+      "sha256": "75263b176a08c05a9382d5fa7bda1964a9b8072e5261f93a4c47e7505009f427"
+    },
+    {
+      "path": "reference/nodes.json",
+      "bytes": 175249,
+      "sha256": "facc1fd24b9941c083e98f50be1f0c80eafba41bf7c15cd897f89787d10c7c97"
+    },
+    {
+      "path": "reference/section-metadata.json",
+      "bytes": 23659,
+      "sha256": "291edb94dfd7973f6c8d523de40af4b7ed5fa4cc5eb77235ce28f4ed7b2e19bb"
+    },
+    {
+      "path": "reference/variables.json",
+      "bytes": 618,
+      "sha256": "dc9bf466adc01bf62d1b2d071d7ec949993da0fdb8cf7c45da729cbf35369d26"
+    },
+    {
+      "path": "screenshots/benefits.png",
+      "bytes": 56568,
+      "sha256": "ea1318ffd8a50fd80aa8560a18abd4c0d34cec98adac6388daf538807cbeda4b"
+    },
+    {
+      "path": "screenshots/center-roster.png",
+      "bytes": 30806,
+      "sha256": "265c23bc0ba9e1fb61b2c4fc4c22ff3ef3f0905d4e373103f2364e2d862e21c9"
+    },
+    {
+      "path": "screenshots/center.png",
+      "bytes": 394400,
+      "sha256": "a6257a23050abd4ade8aa88a58bb78d88c122b438ec469bb4d5c8c41c8f9108e"
+    },
+    {
+      "path": "screenshots/contact.png",
+      "bytes": 15314,
+      "sha256": "34ea6cc8a6d3ba1607edbc5c71c083658d6ac2612608deb1d8a66c723034c4bb"
+    },
+    {
+      "path": "screenshots/deputy-director.png",
+      "bytes": 80925,
+      "sha256": "157a135341b1b00264c13234a0aa9ad2e92a69d8722af9b2931e1edbf28a90b2"
+    },
+    {
+      "path": "screenshots/director.png",
+      "bytes": 92699,
+      "sha256": "51316eac1fa0b5e67debf749e400ea4e7c5c487b7b247e6a0bcca78b98d3535d"
+    },
+    {
+      "path": "screenshots/envelope-popup.png",
+      "bytes": 151094,
+      "sha256": "6d3698c34541817c370c6a6a4dd5fd717e3943a19dc969c0f685366fc10b38be"
+    },
+    {
+      "path": "screenshots/expert-intro.png",
+      "bytes": 75234,
+      "sha256": "808b14f28df9de16566e9605d22e9c23f12af748ca830792030d7f22e6f3fbd2"
+    },
+    {
+      "path": "screenshots/footer.png",
+      "bytes": 16513,
+      "sha256": "9c673d8c0cad211e73cd7bd82188fb232b532e2df76f631b1178b4c75826f034"
+    },
+    {
+      "path": "screenshots/full-page.png",
+      "bytes": 127063,
+      "sha256": "fce3934056938c36a02e8c9a3542724e68d4aaddc6432f336e3e6029343b3647"
+    },
+    {
+      "path": "screenshots/header.png",
+      "bytes": 6646,
+      "sha256": "2583b7fbab4a0d1f87ec9ff012643dbc43ab2adfd6f9b9e32450c508a0c47a6e"
+    },
+    {
+      "path": "screenshots/hero.png",
+      "bytes": 181884,
+      "sha256": "b7ae6eddd25dfaacd3360bf53764f518786ecffcb661328c82dc3a0c8c02c7dd"
+    },
+    {
+      "path": "screenshots/legacy-contact-popup.png",
+      "bytes": 43177,
+      "sha256": "f96c44b9c20216e9836076ab47651a5654b75a8885429d8c18fabc16ce17bfd6"
+    },
+    {
+      "path": "screenshots/news-card-fallback.png",
+      "bytes": 10283,
+      "sha256": "5b1d7edce37593dd3ac9677cbb30a91c434a403de97c5ccea03a73a4471fb48f"
+    },
+    {
+      "path": "screenshots/news-card-image.png",
+      "bytes": 137615,
+      "sha256": "76258431922ab99449486f767d05f0ae4bd86aee5369dd93f80b12003c458dd0"
+    },
+    {
+      "path": "screenshots/news.png",
+      "bytes": 106445,
+      "sha256": "88ce5bc4cc5ab5a3724e87649da673fa5ac311ebe29bb66148dff34c861114ec"
+    },
+    {
+      "path": "screenshots/process.png",
+      "bytes": 244943,
+      "sha256": "9fb14dd418906b6413608e88e51258b242f857626e1e6134b1b709cd7e69ef2d"
+    },
+    {
+      "path": "screenshots/remote-consultation.png",
+      "bytes": 96535,
+      "sha256": "f7b1637f6b4d27a27fb3cea2fbbe5e3165fc6bcbd84c1990d541f5f5b2cd1df5"
+    },
+    {
+      "path": "screenshots/rpa-ai.png",
+      "bytes": 76569,
+      "sha256": "5aea798e86269bd977b77b90a72c0b2cbca98e6bad201e314d9583eec8caa473"
+    },
+    {
+      "path": "screenshots/security.png",
+      "bytes": 74479,
+      "sha256": "f91ff164f0343bf461142dff0e67768c9465dd98eee2557b18344f99c1e5fd30"
+    }
+  ]
+}

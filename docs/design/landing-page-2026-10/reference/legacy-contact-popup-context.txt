@@ -1,0 +1,92 @@
+const imgXCircle = "../assets/67fac0ca56e7e7d2f56fe431f0e8ea6c013650de.svg";
+type ComponentProps = {
+  className?: string;
+  propValue?: string;
+  propValue1?: "기본" | "비활성";
+};
+
+function Component({ className, propValue = "확인", propValue1 = "기본" }: ComponentProps) {
+  const is = propValue1 === "비활성";
+  return (
+    <div className={className || `content-stretch flex h-[51px] items-center justify-center relative rounded-[8px] w-[416px] ${is ? "bg-[#bfbfbf] opacity-60" : "bg-[#0074ca]"}`} id={is ? "node-331_510" : "node-331_506"}>
+      <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[normal] relative shrink-0 text-[16px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="331:507">
+        {propValue}
+      </p>
+    </div>
+  );
+}
+type Component1Props = {
+  className?: string;
+  propValue?: string;
+  propValue1?: string;
+  propValue2?: boolean;
+  propValue3?: string;
+  propValue4?: "기본" | "입력완료";
+};
+
+function Component1({ className, propValue = "라벨", propValue1 = "플레이스홀더", propValue2 = false, propValue3 = "명", propValue4 = "입력완료" }: Component1Props) {
+  const is = propValue4 === "기본";
+  const is1 = propValue4 === "입력완료";
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[8px] items-start relative w-[416px]"} id={is ? "node-326_499" : "node-326_511"}>
+      <p className="font-['Noto_Sans_KR:Bold'] font-bold relative shrink-0 text-[15px] text-[color:var(--text\/primary-web,#333)] w-full" data-node-id="326:512">
+        {propValue}
+      </p>
+      <div className="bg-[var(--surface\/default,white)] border border-[#d9d9d9] border-solid content-stretch flex font-['Noto_Sans_KR:Regular'] font-normal h-[47px] items-center justify-between overflow-clip px-[16px] py-[12px] relative rounded-[8px] shrink-0 text-[16px] w-full" id={is ? "node-326_501" : "node-326_513"} data-name="입력 상자">
+        {is1 && (
+          <p className="flex-[1_0_0] min-w-px relative text-[#212121]" data-node-id="326:514">
+            {propValue1}
+          </p>
+        )}
+        {is1 && propValue2 && (
+          <p className="relative shrink-0 text-[color:var(--text\/secondary-mid,#808080)] whitespace-nowrap" data-node-id="353:531">
+            {propValue3}
+          </p>
+        )}
+        {is && (
+          <p className="flex-[1_0_0] min-w-px relative text-[#b3b3b3]" data-node-id="326:502">
+            {propValue1}
+          </p>
+        )}
+        {is && propValue2 && (
+          <p className="relative shrink-0 text-[color:var(--text\/secondary-mid,#808080)] whitespace-nowrap" data-node-id="353:534">
+            {propValue3}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function ContactInfoPopup() {
+  return (
+    <div className="bg-[var(--surface\/default,white)] content-stretch flex flex-col items-start justify-between overflow-clip p-[32px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full" data-node-id="324:500" data-name="contact-info-popup">
+      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="324:501" data-name="modal-header">
+        <div className="relative shrink-0 size-[24px]" data-node-id="324:502" data-name="spacer-left" />
+        <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[normal] relative shrink-0 text-[#111118] text-[22px] text-center whitespace-nowrap" data-node-id="324:503">
+          담당자 정보 입력
+        </p>
+        <button className="content-stretch cursor-pointer flex flex-col items-center justify-center relative shrink-0 size-[24px]" data-node-id="324:504" data-name="close-button-wrapper">
+          <div className="relative shrink-0 size-[20px]" data-node-id="324:522" data-name="x-circle">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgXCircle} />
+          </div>
+        </button>
+      </div>
+      <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full" data-node-id="324:506" data-name="modal-body-fields">
+        <Component1 className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" propValue="이름" propValue1="이름을 입력해주세요." propValue4="기본" />
+        <Component1 className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" propValue="직함" propValue1="예) 팀장" propValue4="기본" />
+        <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" data-node-id="326:532" data-name="입력 필드">
+          <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[normal] relative shrink-0 text-[15px] text-[color:var(--text\/primary-web,#333)] w-full" data-node-id="I326:532;326:500">
+            연락처
+          </p>
+          <div className="bg-[var(--surface\/default,white)] border border-[#d9d9d9] border-solid content-stretch flex h-[47px] items-center justify-between overflow-clip px-[16px] py-[12px] relative rounded-[8px] shrink-0 w-full" data-node-id="I326:532;326:501" data-name="입력 상자">
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Noto_Sans_KR:Regular'] font-normal leading-[normal] min-w-px relative text-[#999] text-[16px]" data-node-id="I326:532;326:502">
+              - 없이 입력해주세요
+            </p>
+          </div>
+        </div>
+      </div>
+      <Component className="bg-[#bfbfbf] content-stretch cursor-pointer flex h-[51px] items-center justify-center opacity-60 relative rounded-[8px] shrink-0 w-[416px]" propValue="다음" propValue1="비활성" />
+    </div>
+  );
+}

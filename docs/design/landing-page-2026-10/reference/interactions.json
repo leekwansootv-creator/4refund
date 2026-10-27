@@ -1,0 +1,80 @@
+{
+  "snapshotDate": "2026-10-27",
+  "timeZone": "Asia/Seoul",
+  "sourceFileKey": "ijPZL5WxrjvxbHjBp0DoQa",
+  "rootNodeId": "2163:4123",
+  "observedPrototype": [
+    {
+      "nodeId": "2163:4136",
+      "trigger": "click",
+      "action": "open overlay",
+      "targetFrame": "324:499",
+      "targetContent": "324:500",
+      "targetLabel": "환급액 조회하기 클릭 후",
+      "transition": "instant",
+      "status": "legacy conflict: current result-first flow takes precedence"
+    },
+    {
+      "scope": "hero CTA",
+      "trigger": "hover",
+      "action": "change variant"
+    },
+    {
+      "scope": "benefits",
+      "trigger": "mouse enter / leave",
+      "action": "change variant"
+    },
+    {
+      "scope": "header menu / consultation CTA",
+      "trigger": "click",
+      "action": "scroll to section"
+    },
+    {
+      "scope": "header menu / actions",
+      "trigger": "hover",
+      "action": "change variant"
+    },
+    {
+      "scope": "contact cards",
+      "trigger": "hover",
+      "action": "change variant"
+    }
+  ],
+  "implementationBaseline": {
+    "sourceCommit": "ac39eda43b519681262919caae822e4d65d8cea0",
+    "estimateFlow": [
+      "industry and employee count",
+      "browser-only estimate",
+      "result",
+      "optional detailed consultation",
+      "contact and consent",
+      "final submit only",
+      "response"
+    ],
+    "benefitAutoplayMs": 1600,
+    "processLoopSeconds": 8,
+    "expertRevealOnReentry": true,
+    "reducedMotion": "preserve existing final static state and stop automatic motion"
+  },
+  "unresolved": [
+    {
+      "nodeId": "2179:30520",
+      "items": ["placement", "trigger", "repeat display policy", "close behavior", "next screen"]
+    },
+    {
+      "nodeId": "2163:4347",
+      "items": [
+        "link target window",
+        "hover and focus appearance",
+        "mobile layout",
+        "zero/fewer-than-three items",
+        "loading and error states"
+      ]
+    }
+  ],
+  "notes": [
+    "Prototype observations were read from Figma desktop Dev Mode in this session.",
+    "No prototype script was executed against production.",
+    "Observed legacy connections are evidence only, not approval to alter privacy or submission policy."
+  ]
+}

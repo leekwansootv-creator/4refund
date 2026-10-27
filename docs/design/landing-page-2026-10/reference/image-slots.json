@@ -1,0 +1,2780 @@
+[
+  {
+    "source": "landing-design-context.txt",
+    "line": 59,
+    "variable": "imgCardImage",
+    "asset": "../assets/7a6ae40e5bf22b851c649cdd961d6f9bd177aed6.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{imgCardImage}"
+    },
+    "ancestors": [
+      {
+        "id": "{is ? \"node-994_282\" : \"node-994_281\"}",
+        "name": null,
+        "className": "{className || \"bg-[#f9fbfe] border border-[#e8eff9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[16px] w-[410.667px]\"}"
+      },
+      {
+        "id": "994:274",
+        "name": "card-image",
+        "className": "h-[200px] relative shrink-0 w-full"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 72,
+    "variable": "imgFrame751",
+    "asset": "../assets/8859a173acb489676731425c1dc0d4af872a75aa.png",
+    "props": {
+      "alt": "",
+      "className": "absolute left-0 max-w-none size-full top-0",
+      "src": "{imgFrame751}"
+    },
+    "ancestors": [
+      {
+        "id": "{is ? \"node-994_282\" : \"node-994_281\"}",
+        "name": null,
+        "className": "{className || \"bg-[#f9fbfe] border border-[#e8eff9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[16px] w-[410.667px]\"}"
+      },
+      {
+        "id": "995:10261",
+        "name": "Frame 75 1",
+        "className": "h-[200px] relative shrink-0 w-[411px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 104,
+    "variable": "img3",
+    "asset": "../assets/062f590a6d53f493ed6b01efbbd564c2817a9bc4.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img3}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4129",
+        "name": "Main Image Container",
+        "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]"
+      },
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4131",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4132",
+        "name": "편지봉투_뒷배경 3",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[442.169px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 108,
+    "variable": "img2",
+    "asset": "../assets/9c21b05a11dd37834c80dd92adfe690cb0fbce84.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[140.27%] left-[-24.71%] max-w-none top-[-19.04%] w-[148.84%]",
+      "src": "{img2}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4129",
+        "name": "Main Image Container",
+        "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]"
+      },
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4131",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4133",
+        "name": "종이 2",
+        "className": "col-1 h-[317.802px] ml-[71.04px] mt-[59.4px] relative row-1 w-[299.517px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 112,
+    "variable": "img4",
+    "asset": "../assets/e3620ffeb5307e128d49ed637a3d57b3587fa2a6.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img4}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4129",
+        "name": "Main Image Container",
+        "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]"
+      },
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4131",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4134",
+        "name": "편지봉투_앞배경 그림자 3",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[442.169px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 115,
+    "variable": "img5",
+    "asset": "../assets/985b1cc6e212c944978a8dd0e080b3529c7455b2.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img5}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4129",
+        "name": "Main Image Container",
+        "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]"
+      },
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4131",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4135",
+        "name": "편지봉투_앞배경 복사 3",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[442.169px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 124,
+    "variable": "imgArrowIcon",
+    "asset": "../assets/2ea0ed460006805ea7b84c6d4c43d39324f01a88.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgArrowIcon}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4131",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4136",
+        "name": "환급액_btn",
+        "className": "bg-[#0074ca] col-1 content-stretch cursor-pointer drop-shadow-[0px_0px_6.124px_rgba(0,116,202,0.5)] flex gap-[7.699px] h-[53.893px] items-center justify-center ml-[74.1px] mt-[266px] px-[30.796px] py-[11.549px] relative rounded-[157.143px] row-1 w-[294.488px]"
+      },
+      {
+        "id": "I2163:4136;319:1795",
+        "name": null,
+        "className": "flex items-center justify-center relative shrink-0 size-[21.172px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 135,
+    "variable": "imgFireflyGptImage232",
+    "asset": "../assets/5c7654797c3f78a3166f090638a856970fa8221b.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[387.88%] left-[-570.56%] max-w-none top-[-14.77%] w-[779.7%]",
+      "src": "{imgFireflyGptImage232}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4129",
+        "name": "Main Image Container",
+        "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]"
+      },
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4138",
+        "name": "Firefly_gpt-image (23) 2",
+        "className": "absolute h-[104.887px] left-[393.79px] top-[59.4px] w-[78.268px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 142,
+    "variable": "imgFireflyGptImage232",
+    "asset": "../assets/5c7654797c3f78a3166f090638a856970fa8221b.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[384.96%] left-[-971.19%] max-w-none top-[-250.75%] w-[1301.69%]",
+      "src": "{imgFireflyGptImage232}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4129",
+        "name": "Main Image Container",
+        "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]"
+      },
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4139",
+        "name": null,
+        "className": "absolute flex h-[115.437px] items-center justify-center left-[-53.89px] top-[171.48px] w-[80.743px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 151,
+    "variable": "imgFireflyGptImage232",
+    "asset": "../assets/5c7654797c3f78a3166f090638a856970fa8221b.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[517.17%] left-[-427.78%] max-w-none top-[-195.96%] w-[609.52%]",
+      "src": "{imgFireflyGptImage232}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4129",
+        "name": "Main Image Container",
+        "className": "-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]"
+      },
+      {
+        "id": "2163:4130",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.124px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4140",
+        "name": null,
+        "className": "absolute flex h-[99.573px] items-center justify-center left-[368.68px] top-[292.72px] w-[111.235px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 160,
+    "variable": "img",
+    "asset": "../assets/5ecab1211095d28f6e94e307dfced1cfee3e8042.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4142",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 184,
+    "variable": "img1",
+    "asset": "../assets/fb9ef126037b16921d4dc8ce6779e91ff895ae9e.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img1}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4143",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 208,
+    "variable": "img6",
+    "asset": "../assets/8a3ab74e8e99b0418cd07396b12cb66a622592cb.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img6}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4144",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 232,
+    "variable": "img7",
+    "asset": "../assets/f01bca6bf9acb4551037e5e9cf0312b739b31c99.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img7}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4145",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 256,
+    "variable": "img",
+    "asset": "../assets/5ecab1211095d28f6e94e307dfced1cfee3e8042.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4146",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 280,
+    "variable": "img1",
+    "asset": "../assets/fb9ef126037b16921d4dc8ce6779e91ff895ae9e.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img1}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4147",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 304,
+    "variable": "img6",
+    "asset": "../assets/8a3ab74e8e99b0418cd07396b12cb66a622592cb.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img6}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4148",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 328,
+    "variable": "img7",
+    "asset": "../assets/f01bca6bf9acb4551037e5e9cf0312b739b31c99.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img7}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4124",
+        "name": "Hero Image",
+        "className": "bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4141",
+        "name": null,
+        "className": "absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]"
+      },
+      {
+        "id": "2163:4149",
+        "name": "왜섹션/포폴 섹션 아이템",
+        "className": "content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 357,
+    "variable": "imgHeroImage",
+    "asset": "../assets/5748f083b04e0332dba52c275c2df87198c56706.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[40.89%] left-0 max-w-none top-[-0.33%] w-full",
+      "src": "{imgHeroImage}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4150",
+        "name": "Hero Image",
+        "className": "content-stretch flex flex-col gap-[100px] items-center py-[100px] relative shrink-0 w-full"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 380,
+    "variable": "imgMaskGroup",
+    "asset": "../assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgMaskGroup}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4158",
+        "name": "Members",
+        "className": "content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4159",
+        "name": "Member",
+        "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]"
+      },
+      {
+        "id": "2163:4160",
+        "name": "Member Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4161",
+        "name": "Mask group",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 391,
+    "variable": "imgMaskGroup",
+    "asset": "../assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgMaskGroup}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4158",
+        "name": "Members",
+        "className": "content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4166",
+        "name": "Member",
+        "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]"
+      },
+      {
+        "id": "2163:4167",
+        "name": "Member Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4168",
+        "name": "Mask group",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 402,
+    "variable": "imgMaskGroup",
+    "asset": "../assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgMaskGroup}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4158",
+        "name": "Members",
+        "className": "content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:5282",
+        "name": "Member",
+        "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]"
+      },
+      {
+        "id": "2163:5283",
+        "name": "Member Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:5284",
+        "name": "Mask group",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 413,
+    "variable": "imgMaskGroup",
+    "asset": "../assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgMaskGroup}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4158",
+        "name": "Members",
+        "className": "content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4173",
+        "name": "Member",
+        "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]"
+      },
+      {
+        "id": "2163:4174",
+        "name": "Member Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4175",
+        "name": "Mask group",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 424,
+    "variable": "imgMaskGroup",
+    "asset": "../assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgMaskGroup}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4158",
+        "name": "Members",
+        "className": "content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4180",
+        "name": "Member",
+        "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]"
+      },
+      {
+        "id": "2163:4181",
+        "name": "Member Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4182",
+        "name": "Mask group",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 435,
+    "variable": "imgMaskGroup",
+    "asset": "../assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgMaskGroup}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4158",
+        "name": "Members",
+        "className": "content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4187",
+        "name": "Member",
+        "className": "content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]"
+      },
+      {
+        "id": "2163:4188",
+        "name": "Member Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4189",
+        "name": "Mask group",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[139px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 454,
+    "variable": "imgExpertImage",
+    "asset": "../assets/a1a1413037b4bfba4b60e480712cc0df2db3b2da.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[100.06%] left-[17.48%] max-w-none top-[-0.03%] w-[82.52%]",
+      "src": "{imgExpertImage}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4154",
+        "name": "Team Section",
+        "className": "content-stretch drop-shadow-[0px_0px_10px_rgba(163,189,210,0.25)] flex flex-col items-start max-w-[1280px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30811",
+        "name": null,
+        "className": "bg-[#f9fbfe] content-stretch flex flex-col gap-[12px] items-center justify-center relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-[1280px]"
+      },
+      {
+        "id": "2179:30812",
+        "name": "Expert Introduction",
+        "className": "content-stretch flex items-center justify-between pt-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30813",
+        "name": "Expert Image",
+        "className": "h-[348px] relative shrink-0 w-[515px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 466,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30816",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30817",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30818",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30819",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 472,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30816",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30817",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30821",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30822",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 478,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30816",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30817",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30824",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30825",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 484,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30816",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30817",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30827",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30828",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 492,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30816",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30830",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30831",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30832",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 498,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30816",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30830",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30834",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30835",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 504,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30816",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30830",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30837",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30838",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 516,
+    "variable": "imgLine5",
+    "asset": "../assets/3f0f6da0e0380ec2fb8102fbbb7f8cccddcd920a.svg",
+    "props": {
+      "alt": "",
+      "className": "block max-w-none size-full",
+      "src": "{imgLine5}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4150",
+        "name": "Hero Image",
+        "className": "content-stretch flex flex-col gap-[100px] items-center py-[100px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4154",
+        "name": "Team Section",
+        "className": "content-stretch drop-shadow-[0px_0px_10px_rgba(163,189,210,0.25)] flex flex-col items-start max-w-[1280px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30811",
+        "name": null,
+        "className": "bg-[#f9fbfe] content-stretch flex flex-col gap-[12px] items-center justify-center relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-[1280px]"
+      },
+      {
+        "id": "2179:30840",
+        "name": null,
+        "className": "h-0 relative shrink-0 w-[1280px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 529,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30844",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30845",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30846",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30847",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 537,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30844",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30845",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30849",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30850",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 545,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30844",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30845",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30852",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30853",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 553,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30844",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30845",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30855",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30856",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 563,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30844",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30858",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30859",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30860",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 571,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30844",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30858",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30862",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30863",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 579,
+    "variable": "imgEllipse4",
+    "asset": "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30844",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[32px] items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30858",
+        "name": "Expert Info Column",
+        "className": "content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]"
+      },
+      {
+        "id": "2179:30865",
+        "name": "Info Item",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30866",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 590,
+    "variable": "imgImage22",
+    "asset": "../assets/21005f631d7cbda36dd25284339e8e1c4b8800cf.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[288.21%] left-[-16.51%] max-w-none top-[-43.01%] w-[157.9%]",
+      "src": "{imgImage22}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4154",
+        "name": "Team Section",
+        "className": "content-stretch drop-shadow-[0px_0px_10px_rgba(163,189,210,0.25)] flex flex-col items-start max-w-[1280px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30811",
+        "name": null,
+        "className": "bg-[#f9fbfe] content-stretch flex flex-col gap-[12px] items-center justify-center relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-[1280px]"
+      },
+      {
+        "id": "2179:30841",
+        "name": "Expert Introduction",
+        "className": "content-stretch flex items-center justify-between pt-[45px] px-[155px] relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-full"
+      },
+      {
+        "id": "2179:30868",
+        "name": "image 22",
+        "className": "h-[348px] relative shrink-0 w-[423px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 623,
+    "variable": "img8",
+    "asset": "../assets/e07ff6f7061dd60f6c3be92c3585458af71ee84f.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[264.26%] left-[-40.43%] max-w-none top-[-19.12%] w-[298.82%]",
+      "src": "{img8}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4232",
+        "name": "Benefits Grid",
+        "className": "content-stretch flex gap-[16px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4233",
+        "name": "왜섹션",
+        "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.689px]"
+      },
+      {
+        "id": "I2163:4233;57:154",
+        "name": "왜섹션_이미지",
+        "className": "h-[150px] max-h-[150px] max-w-[198.90281677246094px] relative shrink-0 w-[198.903px]"
+      },
+      {
+        "id": "I2163:4233;57:154;52:58",
+        "name": "숨은 보험료 진단",
+        "className": "-translate-y-1/2 absolute aspect-[198/150] left-0 right-0 top-1/2"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 633,
+    "variable": "imgEllipse2",
+    "asset": "../assets/6b4042a55597a992feaeaa6425e5a79b0c0202c0.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEllipse2}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4233",
+        "name": "왜섹션",
+        "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.689px]"
+      },
+      {
+        "id": "I2163:4233;52:73",
+        "name": "Information Group",
+        "className": "content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4233;52:74",
+        "name": "Title Group",
+        "className": "content-stretch flex gap-[2px] items-end relative shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4233;52:76",
+        "name": null,
+        "className": "relative shrink-0 size-[8px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 646,
+    "variable": "img8",
+    "asset": "../assets/e07ff6f7061dd60f6c3be92c3585458af71ee84f.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[255.45%] left-[-172.96%] max-w-none top-[-18.48%] w-[322.45%]",
+      "src": "{img8}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4232",
+        "name": "Benefits Grid",
+        "className": "content-stretch flex gap-[16px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4234",
+        "name": "왜섹션",
+        "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.574px]"
+      },
+      {
+        "id": "I2163:4234;57:157",
+        "name": "왜섹션_이미지",
+        "className": "h-[100px] relative shrink-0 w-[132.602px]"
+      },
+      {
+        "id": "I2163:4234;57:157;52:59",
+        "name": "노무사 직접 검토",
+        "className": "-translate-y-1/2 absolute aspect-[178/150] left-0 right-0 top-1/2"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 662,
+    "variable": "img8",
+    "asset": "../assets/e07ff6f7061dd60f6c3be92c3585458af71ee84f.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[298.94%] left-[-53.78%] max-w-none top-[-160.64%] w-[381.87%]",
+      "src": "{img8}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4232",
+        "name": "Benefits Grid",
+        "className": "content-stretch flex gap-[16px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4235",
+        "name": "왜섹션",
+        "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.56px]"
+      },
+      {
+        "id": "I2163:4235;57:157",
+        "name": "왜섹션_이미지",
+        "className": "h-[100px] relative shrink-0 w-[132.602px]"
+      },
+      {
+        "id": "I2163:4235;57:157;52:60",
+        "name": "최대 환급 보장",
+        "className": "-translate-y-1/2 absolute aspect-[176/150] left-0 right-0 top-1/2"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 678,
+    "variable": "img8",
+    "asset": "../assets/e07ff6f7061dd60f6c3be92c3585458af71ee84f.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[296.83%] left-[-203.25%] max-w-none top-[-158.8%] w-[373.96%]",
+      "src": "{img8}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4232",
+        "name": "Benefits Grid",
+        "className": "content-stretch flex gap-[16px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4236",
+        "name": "왜섹션",
+        "className": "content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.574px]"
+      },
+      {
+        "id": "I2163:4236;57:157",
+        "name": "왜섹션_이미지",
+        "className": "h-[100px] relative shrink-0 w-[132.602px]"
+      },
+      {
+        "id": "I2163:4236;57:157;52:61",
+        "name": "철저한 사후관리",
+        "className": "-translate-y-1/2 absolute aspect-[179/150] left-0 right-0 top-1/2"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 710,
+    "variable": "imgIcons",
+    "asset": "../assets/e7600959e0db4750e9346476a4a15f01e61cc1a9.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgIcons}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4245",
+        "name": "Expert Info Item 1",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0"
+      },
+      {
+        "id": "2163:4246",
+        "name": null,
+        "className": "content-stretch flex gap-[13px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4247",
+        "name": null,
+        "className": "content-stretch flex flex-col items-center justify-center relative shrink-0 size-[24px]"
+      },
+      {
+        "id": "2163:4248",
+        "name": "Icons",
+        "className": "h-[21.972px] relative shrink-0 w-[21.986px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 725,
+    "variable": "imgIcons1",
+    "asset": "../assets/445a1453e28b17c04b42d1c28e096e7c51966909.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgIcons1}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4252",
+        "name": "Expert Info Item 4",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0"
+      },
+      {
+        "id": "2163:4253",
+        "name": null,
+        "className": "content-stretch flex gap-[4px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4254",
+        "name": null,
+        "className": "content-stretch flex flex-col items-center justify-center relative shrink-0 size-[24px]"
+      },
+      {
+        "id": "2163:4255",
+        "name": "Icons",
+        "className": "h-[22px] relative shrink-0 w-[14.219px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 739,
+    "variable": "imgFrame2",
+    "asset": "../assets/52649c1dbee7e917764511d0796227e39c39ecf1.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgFrame2}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4244",
+        "name": "Expert Info",
+        "className": "content-stretch flex gap-[12px] items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4259",
+        "name": "Expert Info Item 5",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0"
+      },
+      {
+        "id": "2163:4260",
+        "name": null,
+        "className": "content-stretch flex gap-[4px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4261",
+        "name": null,
+        "className": "relative shrink-0 size-[24px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 759,
+    "variable": "img9",
+    "asset": "../assets/a114eb87b969091f38ad1c85f470f65920634e8e.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[109.91%] left-[-36.94%] max-w-none top-[-5.42%] w-[175.8%]",
+      "src": "{img9}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4237",
+        "name": "Expert Section",
+        "className": "bg-[var(--background\\/default,#f3f7fe)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4238",
+        "name": "Expert Content",
+        "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4266",
+        "name": null,
+        "className": "content-stretch flex flex-col gap-[12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2175:30488",
+        "name": "블루 기어 전구 기술 인증 카드 1",
+        "className": "h-[413px] relative shadow-[-4px_-4px_30px_0px_var(--effect\\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[282px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 765,
+    "variable": "imgAward",
+    "asset": "../assets/0bbb48f31619324d43f7dd925e505fd96034dffd.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgAward}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4266",
+        "name": null,
+        "className": "content-stretch flex flex-col gap-[12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4268",
+        "name": "Expert Info Item 6",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0"
+      },
+      {
+        "id": "2163:4269",
+        "name": null,
+        "className": "content-stretch flex gap-[4px] items-center relative shrink-0"
+      },
+      {
+        "id": "2163:4270",
+        "name": "Award",
+        "className": "relative shrink-0 size-[24px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 779,
+    "variable": "img10",
+    "asset": "../assets/c43869abddb9a4b8f43d51f837f0e407e479ff5d.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[131.58%] left-[-5.5%] max-w-none top-[-17.54%] w-[112.51%]",
+      "src": "{img10}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4273",
+        "name": "Process Section",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center justify-center py-[140px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4274",
+        "name": "Process Content",
+        "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4275",
+        "name": "비대면 전국 상담",
+        "className": "h-[456px] relative shadow-[-4px_-4px_30px_0px_var(--effect\\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[662px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 789,
+    "variable": "imgLine4",
+    "asset": "../assets/85659a71a9b5a2bb99e8a25f7ceefe01cdec61dc.svg",
+    "props": {
+      "alt": "",
+      "className": "block max-w-none size-full",
+      "src": "{imgLine4}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4276",
+        "name": "Process Text",
+        "className": "content-stretch flex flex-col gap-[48px] items-end relative shrink-0 w-[506px]"
+      },
+      {
+        "id": "2163:4277",
+        "name": null,
+        "className": "content-stretch flex flex-col gap-[24px] items-end relative shrink-0"
+      },
+      {
+        "id": "2163:4278",
+        "name": "Step 1 Container",
+        "className": "content-stretch flex gap-[24px] items-center justify-end relative shrink-0"
+      },
+      {
+        "id": "2163:4279",
+        "name": null,
+        "className": "flex items-center justify-center relative shrink-0"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 821,
+    "variable": "imgLine4",
+    "asset": "../assets/85659a71a9b5a2bb99e8a25f7ceefe01cdec61dc.svg",
+    "props": {
+      "alt": "",
+      "className": "block max-w-none size-full",
+      "src": "{imgLine4}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4285",
+        "name": "Consultation Details",
+        "className": "content-stretch flex flex-col gap-[48px] items-start justify-center relative shrink-0 w-[506px]"
+      },
+      {
+        "id": "2163:4286",
+        "name": null,
+        "className": "content-stretch flex flex-col gap-[24px] items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4287",
+        "name": "Consultation Step 2",
+        "className": "content-stretch flex gap-[24px] items-center justify-end relative shrink-0"
+      },
+      {
+        "id": "2163:4289",
+        "name": null,
+        "className": "flex items-center justify-center relative shrink-0"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 838,
+    "variable": "img11",
+    "asset": "../assets/4d5f443c0ad75f0731a40f42668c559b50a08b6f.png",
+    "props": {
+      "alt": "",
+      "className": "absolute left-0 max-w-none size-full top-0",
+      "src": "{img11}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4283",
+        "name": "Consultation Section",
+        "className": "bg-[var(--background\\/default,#f3f7fe)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4284",
+        "name": "Consultation Container",
+        "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4292",
+        "name": "성공 보수형 수수료",
+        "className": "h-[456px] relative shrink-0 w-[526px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 847,
+    "variable": "img12",
+    "asset": "../assets/224e8122d812bfb5e1cd5921454235c2acd67465.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[116.15%] left-[-2.64%] max-w-none top-[-6.26%] w-[121.65%]",
+      "src": "{img12}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4293",
+        "name": "Security Section",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4294",
+        "name": "Security Content",
+        "className": "content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4295",
+        "name": "정보보안",
+        "className": "h-[456px] relative shadow-[-4px_-4px_30px_0px_var(--effect\\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[540px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 857,
+    "variable": "imgLine4",
+    "asset": "../assets/85659a71a9b5a2bb99e8a25f7ceefe01cdec61dc.svg",
+    "props": {
+      "alt": "",
+      "className": "block max-w-none size-full",
+      "src": "{imgLine4}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4296",
+        "name": "Security Details",
+        "className": "content-stretch flex flex-col gap-[48px] items-end relative shrink-0 w-[506px]"
+      },
+      {
+        "id": "2163:4297",
+        "name": null,
+        "className": "content-stretch flex flex-col gap-[24px] items-end relative shrink-0"
+      },
+      {
+        "id": "2163:4298",
+        "name": "Security Step 3",
+        "className": "content-stretch flex gap-[24px] items-center justify-end relative shrink-0"
+      },
+      {
+        "id": "2163:4299",
+        "name": null,
+        "className": "flex items-center justify-center relative shrink-0"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 880,
+    "variable": "imgStepsImage",
+    "asset": "../assets/e4275b89f5e6ab10b509ee59766f8bc8556a992f.png",
+    "props": {
+      "alt": "",
+      "className": "absolute max-w-none object-cover size-full",
+      "src": "{imgStepsImage}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4303",
+        "name": "Steps Image",
+        "className": "content-stretch flex flex-col items-center overflow-clip px-[45px] py-[140px] relative shrink-0 w-full"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 908,
+    "variable": "img13",
+    "asset": "../assets/27da7cea16464c4fc776f94634daf908fc3a0bef.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[262.43%] left-[-25.32%] max-w-none top-[-78.11%] w-[568.59%]",
+      "src": "{img13}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4309",
+        "name": "Steps Container",
+        "className": "content-stretch flex gap-[8px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4310",
+        "name": "Step 1 Details",
+        "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative"
+      },
+      {
+        "id": "2163:4314",
+        "name": "Step Details",
+        "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4316",
+        "name": "상담 및 접수",
+        "className": "h-[131.202px] relative shrink-0 w-[121.11px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 933,
+    "variable": "img13",
+    "asset": "../assets/27da7cea16464c4fc776f94634daf908fc3a0bef.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[262.43%] left-[-213.08%] max-w-none top-[-78.11%] w-[828.97%]",
+      "src": "{img13}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4309",
+        "name": "Steps Container",
+        "className": "content-stretch flex gap-[8px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4318",
+        "name": "Step 2 Details",
+        "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center justify-center min-w-px p-[26.302px] relative"
+      },
+      {
+        "id": "2163:4322",
+        "name": "Step Title",
+        "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4324",
+        "name": "진단 및 분석",
+        "className": "h-[131.315px] relative shrink-0 w-[83.14px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 956,
+    "variable": "img13",
+    "asset": "../assets/27da7cea16464c4fc776f94634daf908fc3a0bef.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[262.43%] left-[-304.45%] max-w-none top-[-78.11%] w-[718.22%]",
+      "src": "{img13}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4309",
+        "name": "Steps Container",
+        "className": "content-stretch flex gap-[8px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4326",
+        "name": "Step 3 Details",
+        "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative"
+      },
+      {
+        "id": "2163:4330",
+        "name": "Step Title",
+        "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4332",
+        "name": "서류 안내 및 진행",
+        "className": "h-[130.47px] relative shrink-0 w-[95.343px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 981,
+    "variable": "img13",
+    "asset": "../assets/27da7cea16464c4fc776f94634daf908fc3a0bef.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[262.43%] left-[-316.72%] max-w-none top-[-78.11%] w-[529.55%]",
+      "src": "{img13}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4309",
+        "name": "Steps Container",
+        "className": "content-stretch flex gap-[8px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4334",
+        "name": "Step 4 Details",
+        "className": "aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative"
+      },
+      {
+        "id": "2163:4338",
+        "name": "Step Title",
+        "className": "content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4340",
+        "name": "환급 완료",
+        "className": "h-[131.27px] relative shrink-0 w-[130.105px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1052,
+    "variable": "imgEmailIcon",
+    "asset": "../assets/6c53dc810afdf741f5c97356c3bb2292e1306d65.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEmailIcon}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4366",
+        "name": "문의버튼",
+        "className": "bg-[#181820] border border-[#3e3e4a] border-solid content-stretch flex flex-col items-start min-w-[300px] p-[24px] relative rounded-[16px] shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4366;67:331",
+        "name": "card-top",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4366;67:332",
+        "name": "card-icon",
+        "className": "bg-[#111118] border-[#515156] border-[1.5px] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[24px] shrink-0 size-[48px]"
+      },
+      {
+        "id": "I2163:4366;67:333",
+        "name": "Email Icon",
+        "className": "relative shrink-0 size-[28px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1069,
+    "variable": "imgEmailIcon1",
+    "asset": "../assets/1abaa9d5743e6ab1d60653b74d9e15a250326b2e.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEmailIcon1}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4367",
+        "name": "문의버튼",
+        "className": "bg-[#181820] border border-[#3e3e4a] border-solid content-stretch flex flex-col items-start min-w-[300px] p-[24px] relative rounded-[16px] shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4367;67:331",
+        "name": "card-top",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4367;67:332",
+        "name": "card-icon",
+        "className": "bg-[#111118] border-[#515156] border-[1.5px] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[24px] shrink-0 size-[48px]"
+      },
+      {
+        "id": "I2163:4367;67:333",
+        "name": "Email Icon",
+        "className": "relative shrink-0 size-[28px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1081,
+    "variable": "imgArrowIcon1",
+    "asset": "../assets/185811df1c495c4033d77e5e01c38a8620b44037.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgArrowIcon1}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4365",
+        "name": "CTA Contact",
+        "className": "content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-end justify-center max-w-[526px] min-w-px relative"
+      },
+      {
+        "id": "2163:4367",
+        "name": "문의버튼",
+        "className": "bg-[#181820] border border-[#3e3e4a] border-solid content-stretch flex flex-col items-start min-w-[300px] p-[24px] relative rounded-[16px] shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4367;67:331",
+        "name": "card-top",
+        "className": "content-stretch flex gap-[16px] items-center relative shrink-0 w-full"
+      },
+      {
+        "id": "I2163:4367;67:337",
+        "name": "Arrow Icon",
+        "className": "-translate-y-1/2 absolute right-0 size-[30px] top-[calc(50%-0.26px)]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1093,
+    "variable": "imgFooterLogoImage",
+    "asset": "../assets/aee28d831673c9214c19740705e197bf92d9b20d.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgFooterLogoImage}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4369",
+        "name": "Footer Container",
+        "className": "content-stretch flex items-end justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4370",
+        "name": "Footer Logo Container",
+        "className": "content-stretch flex flex-col gap-[20px] items-start relative shrink-0"
+      },
+      {
+        "id": "2163:4371",
+        "name": "Footer Logo",
+        "className": "content-stretch flex flex-col items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4372",
+        "name": "Footer Logo Image",
+        "className": "h-[40px] relative shrink-0 w-[136px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1111,
+    "variable": "imgEmailIcon2",
+    "asset": "../assets/a263230cdd939a07d34ecfc6130013f86d4c0665.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgEmailIcon2}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4375",
+        "name": "contact",
+        "className": "content-stretch flex flex-col gap-[16px] items-end relative shrink-0"
+      },
+      {
+        "id": "2163:4377",
+        "name": "info",
+        "className": "content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4378",
+        "name": "mail",
+        "className": "content-stretch flex gap-[12px] items-center justify-end relative shrink-0"
+      },
+      {
+        "id": "2163:4380",
+        "name": "Email Icon",
+        "className": "h-[10px] relative shrink-0 w-[13px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1120,
+    "variable": "imgCallIcon",
+    "asset": "../assets/d5f4b269bd83e25b327431576ab5b24599bde1d2.svg",
+    "props": {
+      "alt": "",
+      "className": "block max-w-none size-full",
+      "src": "{imgCallIcon}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4375",
+        "name": "contact",
+        "className": "content-stretch flex flex-col gap-[16px] items-end relative shrink-0"
+      },
+      {
+        "id": "2163:4377",
+        "name": "info",
+        "className": "content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4381",
+        "name": "call",
+        "className": "content-stretch flex gap-[12px] items-center justify-end relative shrink-0"
+      },
+      {
+        "id": "2163:4383",
+        "name": "Call Icon",
+        "className": "relative shrink-0 size-[13px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1129,
+    "variable": "imgPrint",
+    "asset": "../assets/c663a0c74a8eb25ea1dab33f90950c692f1c9351.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgPrint}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4375",
+        "name": "contact",
+        "className": "content-stretch flex flex-col gap-[16px] items-end relative shrink-0"
+      },
+      {
+        "id": "2163:4377",
+        "name": "info",
+        "className": "content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30878",
+        "name": "call",
+        "className": "content-stretch flex gap-[12px] items-center justify-end relative shrink-0"
+      },
+      {
+        "id": "2179:30891",
+        "name": "Print",
+        "className": "relative shrink-0 size-[13px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1137,
+    "variable": "imgLocationIcon",
+    "asset": "../assets/a3f33fbedfa1c2bbc6db00acb3d51fee9a7a1439.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgLocationIcon}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4375",
+        "name": "contact",
+        "className": "content-stretch flex flex-col gap-[16px] items-end relative shrink-0"
+      },
+      {
+        "id": "2163:4377",
+        "name": "info",
+        "className": "content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full"
+      },
+      {
+        "id": "2163:4384",
+        "name": "location",
+        "className": "content-stretch flex gap-[12px] items-start justify-end relative shrink-0"
+      },
+      {
+        "id": "2163:4386",
+        "name": "Location Icon",
+        "className": "h-[16px] relative shrink-0 w-[13px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1164,
+    "variable": "imgHeaderLogoImage",
+    "asset": "../assets/44a8bd26480b24bf98ba0489f1df5fb5c02c28d6.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgHeaderLogoImage}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4388",
+        "name": "헤더",
+        "className": "absolute bg-[var(--surface\\/default,white)] border border-[rgba(234,234,234,0.5)] border-solid content-stretch flex h-[76px] items-center justify-between left-0 pl-[32px] right-0 top-0"
+      },
+      {
+        "id": "2163:4389",
+        "name": "Header Logo Image",
+        "className": "h-[40px] relative shrink-0 w-[136px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1169,
+    "variable": "imgCall",
+    "asset": "../assets/49e912f373088511d69b789c146112ef2179ac7e.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgCall}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4388",
+        "name": "헤더",
+        "className": "absolute bg-[var(--surface\\/default,white)] border border-[rgba(234,234,234,0.5)] border-solid content-stretch flex h-[76px] items-center justify-between left-0 pl-[32px] right-0 top-0"
+      },
+      {
+        "id": "2163:4390",
+        "name": "Contact Container",
+        "className": "content-stretch flex items-center relative shrink-0 w-[261px]"
+      },
+      {
+        "id": "2163:4391",
+        "name": "헤더_btn",
+        "className": "bg-[#0074ca] content-stretch flex flex-col items-center justify-center px-[20px] py-[10px] relative shrink-0"
+      },
+      {
+        "id": "I2163:4391;33:440",
+        "name": "Balloon Icon",
+        "className": "relative shrink-0 size-[36px]"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1177,
+    "variable": "imgLine1",
+    "asset": "../assets/0f4c7d04e92c9567e6723e78bf45fbf89f8f1d35.svg",
+    "props": {
+      "alt": "",
+      "className": "block max-w-none size-full",
+      "src": "{imgLine1}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4123",
+        "name": "랜딩페이지_2026-10 변경안",
+        "className": "bg-[var(--background\\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full"
+      },
+      {
+        "id": "2163:4388",
+        "name": "헤더",
+        "className": "absolute bg-[var(--surface\\/default,white)] border border-[rgba(234,234,234,0.5)] border-solid content-stretch flex h-[76px] items-center justify-between left-0 pl-[32px] right-0 top-0"
+      },
+      {
+        "id": "2163:4390",
+        "name": "Contact Container",
+        "className": "content-stretch flex items-center relative shrink-0 w-[261px]"
+      },
+      {
+        "id": "2163:4392",
+        "name": null,
+        "className": "h-[76px] relative shrink-0 w-0"
+      }
+    ]
+  },
+  {
+    "source": "landing-design-context.txt",
+    "line": 1182,
+    "variable": "imgBalloonIcon",
+    "asset": "../assets/f106e93a0528358e1d0b2a3de0b5487fc43fe62c.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgBalloonIcon}"
+    },
+    "ancestors": [
+      {
+        "id": "2163:4388",
+        "name": "헤더",
+        "className": "absolute bg-[var(--surface\\/default,white)] border border-[rgba(234,234,234,0.5)] border-solid content-stretch flex h-[76px] items-center justify-between left-0 pl-[32px] right-0 top-0"
+      },
+      {
+        "id": "2163:4390",
+        "name": "Contact Container",
+        "className": "content-stretch flex items-center relative shrink-0 w-[261px]"
+      },
+      {
+        "id": "2163:4393",
+        "name": "헤더_btn",
+        "className": "bg-[#0074ca] content-stretch cursor-pointer flex flex-col items-center justify-center px-[20px] py-[10px] relative shrink-0"
+      },
+      {
+        "id": "I2163:4393;33:440",
+        "name": "Balloon Icon",
+        "className": "relative shrink-0 size-[36px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 13,
+    "variable": "imgLogo2",
+    "asset": "../assets/02d071667ad65d8ebd2e99f11f02700e80fe2df6.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgLogo2}"
+    },
+    "ancestors": [
+      {
+        "id": "290:363",
+        "name": "LOGO2",
+        "className": "{className || \"h-[66.169px] relative w-[225px]\"}"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 25,
+    "variable": "imgXCircle",
+    "asset": "../assets/67fac0ca56e7e7d2f56fe431f0e8ea6c013650de.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgXCircle}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30520",
+        "name": "contact-info-popup",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[28px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full"
+      },
+      {
+        "id": "2179:30521",
+        "name": "logo-row",
+        "className": "content-stretch flex items-center justify-between relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30557",
+        "name": "close-button-wrapper",
+        "className": "content-stretch cursor-pointer flex flex-col items-center justify-center relative shrink-0 size-[24px]"
+      },
+      {
+        "id": "2179:30558",
+        "name": "x-circle",
+        "className": "relative shrink-0 size-[20px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 36,
+    "variable": "img",
+    "asset": "../assets/062f590a6d53f493ed6b01efbbd564c2817a9bc4.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30524",
+        "name": "image-area",
+        "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30525",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30526",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30527",
+        "name": "편지봉투_뒷배경",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[295px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 40,
+    "variable": "img1",
+    "asset": "../assets/9c21b05a11dd37834c80dd92adfe690cb0fbce84.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[140.27%] left-[-24.71%] max-w-none top-[-19.03%] w-[148.83%]",
+      "src": "{img1}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30524",
+        "name": "image-area",
+        "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30525",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30526",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30528",
+        "name": "종이",
+        "className": "col-1 h-[211.859px] ml-[47.36px] mt-[39.6px] relative row-1 w-[199.67px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 44,
+    "variable": "img2",
+    "asset": "../assets/e3620ffeb5307e128d49ed637a3d57b3587fa2a6.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img2}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30524",
+        "name": "image-area",
+        "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30525",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30526",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30529",
+        "name": "편지봉투_앞배경_그림자",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[295px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 47,
+    "variable": "img3",
+    "asset": "../assets/985b1cc6e212c944978a8dd0e080b3529c7455b2.png",
+    "props": {
+      "alt": "",
+      "className": "absolute inset-0 max-w-none object-cover pointer-events-none size-full",
+      "src": "{img3}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30524",
+        "name": "image-area",
+        "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30525",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30526",
+        "name": "Main Image",
+        "className": "grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+      },
+      {
+        "id": "2179:30530",
+        "name": "편지봉투_앞배경",
+        "className": "col-1 ml-0 mt-0 relative row-1 size-[295px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 52,
+    "variable": "img4",
+    "asset": "../assets/5c7654797c3f78a3166f090638a856970fa8221b.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[387.9%] left-[-570.38%] max-w-none top-[-14.78%] w-[779.42%]",
+      "src": "{img4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30520",
+        "name": "contact-info-popup",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[28px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full"
+      },
+      {
+        "id": "2179:30524",
+        "name": "image-area",
+        "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30525",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30531",
+        "name": "코인_우상단",
+        "className": "absolute h-[69.926px] left-[262px] top-[39.6px] w-[52.18px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 59,
+    "variable": "img4",
+    "asset": "../assets/5c7654797c3f78a3166f090638a856970fa8221b.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[384.91%] left-[-971.48%] max-w-none top-[-250.73%] w-[1302.08%]",
+      "src": "{img4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30520",
+        "name": "contact-info-popup",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[28px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full"
+      },
+      {
+        "id": "2179:30524",
+        "name": "image-area",
+        "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30525",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30532",
+        "name": null,
+        "className": "absolute flex h-[86.635px] items-center justify-center left-[-35.93px] top-[107.65px] w-[39.892px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 68,
+    "variable": "img4",
+    "asset": "../assets/5c7654797c3f78a3166f090638a856970fa8221b.png",
+    "props": {
+      "alt": "",
+      "className": "absolute h-[517.06%] left-[-427.67%] max-w-none top-[-195.92%] w-[609.38%]",
+      "src": "{img4}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30520",
+        "name": "contact-info-popup",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[28px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full"
+      },
+      {
+        "id": "2179:30524",
+        "name": "image-area",
+        "className": "content-stretch flex flex-col h-[296.761px] items-center justify-center overflow-clip relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30525",
+        "name": "Image Group",
+        "className": "content-stretch flex gap-[6.12px] items-center relative shrink-0"
+      },
+      {
+        "id": "2179:30533",
+        "name": null,
+        "className": "absolute flex h-[62.017px] items-center justify-center left-[245.8px] top-[198.33px] w-[78.081px]"
+      }
+    ]
+  },
+  {
+    "source": "envelope-popup-context.txt",
+    "line": 86,
+    "variable": "imgArrowIcon",
+    "asset": "../assets/2ea0ed460006805ea7b84c6d4c43d39324f01a88.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgArrowIcon}"
+    },
+    "ancestors": [
+      {
+        "id": "2179:30520",
+        "name": "contact-info-popup",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[28px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full"
+      },
+      {
+        "id": "2179:30551",
+        "name": null,
+        "className": "content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full"
+      },
+      {
+        "id": "2179:30545",
+        "name": "환급액_btn",
+        "className": "bg-[#0074ca] content-stretch cursor-pointer drop-shadow-[0px_0px_6.124px_rgba(0,116,202,0.5)] flex gap-[7.699px] h-[53.893px] items-center justify-center px-[30.796px] py-[11.549px] relative rounded-[157.143px] shrink-0 w-full"
+      },
+      {
+        "id": "I2179:30545;319:1795",
+        "name": null,
+        "className": "flex items-center justify-center relative shrink-0 size-[21.172px]"
+      }
+    ]
+  },
+  {
+    "source": "legacy-contact-popup-context.txt",
+    "line": 71,
+    "variable": "imgXCircle",
+    "asset": "../assets/67fac0ca56e7e7d2f56fe431f0e8ea6c013650de.svg",
+    "props": {
+      "alt": "",
+      "className": "absolute block inset-0 max-w-none size-full",
+      "src": "{imgXCircle}"
+    },
+    "ancestors": [
+      {
+        "id": "324:500",
+        "name": "contact-info-popup",
+        "className": "bg-[var(--surface\\/default,white)] content-stretch flex flex-col items-start justify-between overflow-clip p-[32px] relative rounded-[24px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.08)] size-full"
+      },
+      {
+        "id": "324:501",
+        "name": "modal-header",
+        "className": "content-stretch flex items-center justify-between relative shrink-0 w-full"
+      },
+      {
+        "id": "324:504",
+        "name": "close-button-wrapper",
+        "className": "content-stretch cursor-pointer flex flex-col items-center justify-center relative shrink-0 size-[24px]"
+      },
+      {
+        "id": "324:522",
+        "name": "x-circle",
+        "className": "relative shrink-0 size-[20px]"
+      }
+    ]
+  }
+]

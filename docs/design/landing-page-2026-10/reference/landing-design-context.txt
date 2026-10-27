@@ -1,0 +1,1218 @@
+import { motion } from "motion/react";
+const imgCardImage = "../assets/7a6ae40e5bf22b851c649cdd961d6f9bd177aed6.png";
+const imgFrame751 = "../assets/8859a173acb489676731425c1dc0d4af872a75aa.png";
+const img3 = "../assets/062f590a6d53f493ed6b01efbbd564c2817a9bc4.png";
+const img2 = "../assets/9c21b05a11dd37834c80dd92adfe690cb0fbce84.png";
+const img4 = "../assets/e3620ffeb5307e128d49ed637a3d57b3587fa2a6.png";
+const img5 = "../assets/985b1cc6e212c944978a8dd0e080b3529c7455b2.png";
+const imgFireflyGptImage232 = "../assets/5c7654797c3f78a3166f090638a856970fa8221b.png";
+const img = "../assets/5ecab1211095d28f6e94e307dfced1cfee3e8042.png";
+const img1 = "../assets/fb9ef126037b16921d4dc8ce6779e91ff895ae9e.png";
+const img6 = "../assets/8a3ab74e8e99b0418cd07396b12cb66a622592cb.png";
+const img7 = "../assets/f01bca6bf9acb4551037e5e9cf0312b739b31c99.png";
+const imgHeroImage = "../assets/5748f083b04e0332dba52c275c2df87198c56706.png";
+const imgExpertImage = "../assets/a1a1413037b4bfba4b60e480712cc0df2db3b2da.png";
+const imgImage22 = "../assets/21005f631d7cbda36dd25284339e8e1c4b8800cf.png";
+const img8 = "../assets/e07ff6f7061dd60f6c3be92c3585458af71ee84f.png";
+const img9 = "../assets/a114eb87b969091f38ad1c85f470f65920634e8e.png";
+const img10 = "../assets/c43869abddb9a4b8f43d51f837f0e407e479ff5d.png";
+const img11 = "../assets/4d5f443c0ad75f0731a40f42668c559b50a08b6f.png";
+const img12 = "../assets/224e8122d812bfb5e1cd5921454235c2acd67465.png";
+const imgStepsImage = "../assets/e4275b89f5e6ab10b509ee59766f8bc8556a992f.png";
+const img13 = "../assets/27da7cea16464c4fc776f94634daf908fc3a0bef.png";
+const imgArrowIcon = "../assets/2ea0ed460006805ea7b84c6d4c43d39324f01a88.svg";
+const imgMaskGroup = "../assets/c4208a8322123c79a30bce2479e8aa2ede49ab26.svg";
+const imgEllipse4 = "../assets/980376d49801f0e4dfa09160be6820ee3a37d51a.svg";
+const imgLine5 = "../assets/3f0f6da0e0380ec2fb8102fbbb7f8cccddcd920a.svg";
+const imgEllipse2 = "../assets/6b4042a55597a992feaeaa6425e5a79b0c0202c0.svg";
+const imgIcons = "../assets/e7600959e0db4750e9346476a4a15f01e61cc1a9.svg";
+const imgIcons1 = "../assets/445a1453e28b17c04b42d1c28e096e7c51966909.svg";
+const imgFrame2 = "../assets/52649c1dbee7e917764511d0796227e39c39ecf1.svg";
+const imgAward = "../assets/0bbb48f31619324d43f7dd925e505fd96034dffd.svg";
+const imgLine4 = "../assets/85659a71a9b5a2bb99e8a25f7ceefe01cdec61dc.svg";
+const imgEmailIcon = "../assets/6c53dc810afdf741f5c97356c3bb2292e1306d65.svg";
+const imgEmailIcon1 = "../assets/1abaa9d5743e6ab1d60653b74d9e15a250326b2e.svg";
+const imgArrowIcon1 = "../assets/185811df1c495c4033d77e5e01c38a8620b44037.svg";
+const imgFooterLogoImage = "../assets/aee28d831673c9214c19740705e197bf92d9b20d.svg";
+const imgEmailIcon2 = "../assets/a263230cdd939a07d34ecfc6130013f86d4c0665.svg";
+const imgCallIcon = "../assets/d5f4b269bd83e25b327431576ab5b24599bde1d2.svg";
+const imgPrint = "../assets/c663a0c74a8eb25ea1dab33f90950c692f1c9351.svg";
+const imgLocationIcon = "../assets/a3f33fbedfa1c2bbc6db00acb3d51fee9a7a1439.svg";
+const imgHeaderLogoImage = "../assets/44a8bd26480b24bf98ba0489f1df5fb5c02c28d6.svg";
+const imgCall = "../assets/49e912f373088511d69b789c146112ef2179ac7e.svg";
+const imgLine1 = "../assets/0f4c7d04e92c9567e6723e78bf45fbf89f8f1d35.svg";
+const imgBalloonIcon = "../assets/f106e93a0528358e1d0b2a3de0b5487fc43fe62c.svg";
+type NewsCardProps = {
+  className?: string;
+  propValue?: "이미지가 있을 경우" | "이미지가 없을 경우";
+  title?: string;
+};
+
+function NewsCard({ className, propValue = "이미지가 있을 경우", title = "4대보험 경정청구 소멸시효 3년, 놓치면 못 받는 환급금 확인법" }: NewsCardProps) {
+  const is = propValue === "이미지가 없을 경우";
+  const is1 = propValue === "이미지가 있을 경우";
+  return (
+    <div className={className || "bg-[#f9fbfe] border border-[#e8eff9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[16px] w-[410.667px]"} id={is ? "node-994_282" : "node-994_281"}>
+      {is1 && (
+        <>
+          <div className="h-[200px] relative shrink-0 w-full" data-node-id="994:274" data-name="card-image">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgCardImage} />
+          </div>
+          <div className="content-stretch flex flex-col items-start p-[24px] relative shrink-0 w-full" data-node-id="994:275" data-name="card-padding-wrapper">
+            <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold h-[50px] leading-[1.4] overflow-hidden relative shrink-0 text-[#10294c] text-[18px] text-ellipsis w-full" data-node-id="994:276">
+              {title}
+            </p>
+          </div>
+        </>
+      )}
+      {is && (
+        <>
+          <div className="h-[200px] relative shrink-0 w-[411px]" data-node-id="995:10261" data-name="Frame 75 1">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgFrame751} />
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col items-start p-[24px] relative shrink-0 w-full" data-node-id="994:279" data-name="card-padding-wrapper">
+            <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold h-[50px] leading-[1.4] overflow-hidden relative shrink-0 text-[#10294c] text-[18px] text-ellipsis w-full" data-node-id="994:280">
+              {title}
+            </p>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+export default function Component() {
+  return (
+    <div className="bg-[var(--background\/canvas,white)] content-stretch flex flex-col items-center pt-[76px] relative size-full" data-node-id="2163:4123" data-name="랜딩페이지_2026-10 변경안">
+      <div className="bg-white content-stretch flex flex-col gap-[32px] h-[891px] items-center overflow-clip py-[100px] relative shrink-0 w-full" data-node-id="2163:4124" data-name="Hero Image">
+        <div className="content-stretch flex flex-col items-start max-w-[1280px] px-[45px] relative shrink-0 w-full" data-node-id="2163:4125" data-name="Main Content">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[12px] items-center leading-[1.2] relative shrink-0 text-black w-full whitespace-nowrap" data-node-id="2163:4126" data-name="Banner Container">
+            <p className="font-['Noto_Sans_KR:Bold'] font-bold relative shrink-0 text-[48px]" data-node-id="2163:4127">
+              기업의 4대보험 환급을 함께합니다.
+            </p>
+            <p className="font-['Pretendard:Regular'] not-italic relative shrink-0 text-[20px]" data-node-id="2163:4128">
+              국내 다양한 업종의 기업과 함께 4대보험 경정청구를 진행하며, 숨은 환급금을 찾아드리고 있습니다.
+            </p>
+          </div>
+        </div>
+        <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex flex-col items-center left-[calc(50%-29.05px)] max-w-[783.900634765625px] top-[calc(50%+1.58px)] w-[783.901px]" data-node-id="2163:4129" data-name="Main Image Container">
+          <div className="content-stretch flex gap-[6.124px] items-center relative shrink-0" data-node-id="2163:4130" data-name="Image Group">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="2163:4131" data-name="Main Image">
+              <div className="col-1 ml-0 mt-0 relative row-1 size-[442.169px]" data-node-id="2163:4132" data-name="편지봉투_뒷배경 3">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img3} />
+              </div>
+              <motion.div className="col-1 h-[317.802px] ml-[71.04px] mt-[59.4px] relative row-1 w-[299.517px]" data-node-id="2163:4133" data-name="종이 2">
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <img alt="" className="absolute h-[140.27%] left-[-24.71%] max-w-none top-[-19.04%] w-[148.84%]" src={img2} />
+                </div>
+              </motion.div>
+              <div className="col-1 ml-0 mt-0 relative row-1 size-[442.169px]" data-node-id="2163:4134" data-name="편지봉투_앞배경 그림자 3">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img4} />
+              </div>
+              <div className="col-1 ml-0 mt-0 relative row-1 size-[442.169px]" data-node-id="2163:4135" data-name="편지봉투_앞배경 복사 3">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img5} />
+              </div>
+              <button className="bg-[#0074ca] col-1 content-stretch cursor-pointer drop-shadow-[0px_0px_6.124px_rgba(0,116,202,0.5)] flex gap-[7.699px] h-[53.893px] items-center justify-center ml-[74.1px] mt-[266px] px-[30.796px] py-[11.549px] relative rounded-[157.143px] row-1 w-[294.488px]" data-node-id="2163:4136" data-name="환급액_btn">
+                <div className="[word-break:break-word] flex flex-col font-['Pretendard:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[19.25px] text-[color:var(--text\/inverse,white)] text-left whitespace-nowrap" data-node-id="I2163:4136;319:1789">
+                  <p className="leading-[19.248px]">환급액 조회하기</p>
+                </div>
+                <div className="flex items-center justify-center relative shrink-0 size-[21.172px]" data-node-id="I2163:4136;319:1795">
+                  <div className="flex-none rotate-45">
+                    <div className="relative size-[14.971px]" data-name="Arrow Icon">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowIcon} />
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <p className="[word-break:break-word] col-1 font-['Noto_Sans_KR:Bold'] font-bold leading-[1.3] ml-[96.13px] mt-[221px] relative row-1 text-[#10294c] text-[24px] text-shadow-[0px_0px_10px_white] whitespace-nowrap" data-node-id="2163:4137">
+                우리 회사 예상 환급액은?
+              </p>
+            </div>
+            <motion.div className="absolute h-[104.887px] left-[393.79px] top-[59.4px] w-[78.268px]" data-node-id="2163:4138" data-name="Firefly_gpt-image (23) 2">
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <img alt="" className="absolute h-[387.88%] left-[-570.56%] max-w-none top-[-14.77%] w-[779.7%]" src={imgFireflyGptImage232} />
+              </div>
+            </motion.div>
+            <motion.div className="absolute flex h-[115.437px] items-center justify-center left-[-53.89px] top-[171.48px] w-[80.743px]" data-node-id="2163:4139" data-motion-keys="y" data-motion-wrapper-for="2163:4139">
+              <div className="flex-none rotate-[-20.35deg]">
+                <div className="h-[105.725px] relative w-[46.901px]" data-name="Firefly_gpt-image (23) 4">
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img alt="" className="absolute h-[384.96%] left-[-971.19%] max-w-none top-[-250.75%] w-[1301.69%]" src={imgFireflyGptImage232} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div className="absolute flex h-[99.573px] items-center justify-center left-[368.68px] top-[292.72px] w-[111.235px]" data-node-id="2163:4140" data-motion-keys="y" data-motion-wrapper-for="2163:4140">
+              <div className="flex-none rotate-[-20.25deg]">
+                <div className="h-[72.222px] relative w-[91.919px]" data-name="Firefly_gpt-image (23) 3">
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img alt="" className="absolute h-[517.17%] left-[-427.78%] max-w-none top-[-195.96%] w-[609.52%]" src={imgFireflyGptImage232} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        <motion.div className="absolute content-stretch flex gap-[17.028px] items-center left-[18px] top-[571px]" data-node-id="2163:4141">
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4142" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4142;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4142;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4142;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4142;130:483">
+                  제조업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4142;130:484">
+                  (주)삼**
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4142;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4142;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4142;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4142;130:486">
+                  ₩127,663,492
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4143" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img1} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4143;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4143;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4143;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4143;130:483">
+                  건설업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4143;130:484">
+                  (주)케**
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4143;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4143;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4143;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4143;130:486">
+                  ₩75,410,246
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4144" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img6} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4144;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4144;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4144;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4144;130:483">
+                  서비스업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4144;130:484">
+                  하**
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4144;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4144;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4144;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4144;130:486">
+                  ₩62,768,010
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4145" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img7} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4145;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4145;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4145;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4145;130:483">
+                  제조업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4145;130:484">
+                  (주)태**
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4145;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4145;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4145;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4145;130:486">
+                  ₩329,644,006
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4146" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4146;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4146;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4146;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4146;130:483">
+                  제조업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4146;130:484">
+                  **제약
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4146;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4146;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4146;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4146;130:486">
+                  ₩85,925,244
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4147" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img1} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4147;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4147;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4147;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4147;130:483">
+                  서비스업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4147;130:484">
+                  코***
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4147;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4147;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4147;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4147;130:486">
+                  ₩135,418,733
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4148" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img6} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4148;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4148;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4148;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4148;130:483">
+                  도소매업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4148;130:484">
+                  (주)민**
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4148;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4148;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4148;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4148;130:486">
+                  ₩45,285,402
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12.771px] h-[184.475px] items-center justify-center overflow-clip relative rounded-[24px] shrink-0 w-[458.35px]" data-node-id="2163:4149" data-name="왜섹션/포폴 섹션 아이템">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img7} />
+            <div className="absolute bg-[rgba(0,0,0,0.2)] inset-0" data-node-id="I2163:4149;135:167" data-name="오버레이" />
+            <div className="content-stretch flex flex-col gap-[12.771px] items-center relative shrink-0" data-node-id="I2163:4149;130:481" data-name="Container">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[2.838px] items-center leading-[1.2] not-italic relative shrink-0 text-[color:var(--text\/inverse,white)]" data-node-id="I2163:4149;130:482" data-name="Company Info">
+                <p className="font-['Pretendard:Bold'] relative shrink-0 text-[22.7px] whitespace-nowrap" data-node-id="I2163:4149;130:483">
+                  아웃소싱업
+                </p>
+                <p className="font-['Pretendard:Regular'] relative shrink-0 text-[17.03px] w-[80.176px]" data-node-id="I2163:4149;130:484">
+                  (주)우*
+                </p>
+              </div>
+              <div className="backdrop-blur-[18.52px] border-[0.71px] border-[rgba(255,255,255,0.5)] border-solid content-stretch flex gap-[8.514px] items-center justify-center px-[17.028px] py-[10.643px] relative rounded-[100px] shrink-0" data-node-id="I2163:4149;130:485" style={{ backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }} data-name="Refund Info">
+                <div className="bg-[rgba(0,0,0,0.4)] content-stretch flex items-center justify-center px-[14.19px] py-[7.095px] relative rounded-[130.508px] shrink-0" data-node-id="I2163:4149;130:487" data-name="Refund Label">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[14.19px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4149;130:488">
+                    환급 총액
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[19.87px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="I2163:4149;130:486">
+                  ₩363,490,402
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+      <div className="content-stretch flex flex-col gap-[100px] items-center py-[100px] relative shrink-0 w-full" data-node-id="2163:4150" data-name="Hero Image">
+        <div aria-hidden className="absolute inset-0 pointer-events-none">
+          <div className="absolute bg-[#f1f2f5] inset-0" />
+          <div className="absolute inset-0 overflow-hidden">
+            <img alt="" className="absolute h-[40.89%] left-0 max-w-none top-[-0.33%] w-full" src={imgHeroImage} />
+          </div>
+          <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(-90deg, rgba(243, 247, 254, 0) 37.578%, rgb(243, 247, 254) 65.668%), linear-gradient(180deg, rgba(243, 247, 254, 0) 22.354%, rgb(243, 247, 254) 38.928%)" }} />
+        </div>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-start max-w-[1280px] px-[45px] relative shrink-0 w-full whitespace-nowrap" data-node-id="2163:4151" data-name="Center Introduction">
+          <p className="font-['Noto_Sans_KR:Bold'] font-bold leading-[1.3] relative shrink-0 text-[#10294c] text-[64px]" data-node-id="2163:4152">
+            센터 소개
+          </p>
+          <p className="font-['Noto_Sans_KR:Regular'] font-normal leading-[1.2] relative shrink-0 text-[#486db2] text-[20px]" data-node-id="2163:4153">
+            4대보험 전문가들이 고객의 권리를 지키고 최상의 결과와 위해 함께합니다.
+          </p>
+        </div>
+        <div className="content-stretch drop-shadow-[0px_0px_10px_rgba(163,189,210,0.25)] flex flex-col items-start max-w-[1280px] relative shrink-0 w-full" data-node-id="2163:4154" data-name="Team Section">
+          <div className="bg-white content-stretch flex flex-col items-start p-[45px] relative rounded-tl-[24px] rounded-tr-[24px] shrink-0 w-full" data-node-id="2163:4155" data-name="Member Container">
+            <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full" data-node-id="2163:5293">
+              <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="2163:4156" data-name="Member Heading">
+                <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] relative shrink-0 text-[#0e163d] text-[24px] text-center whitespace-nowrap" data-node-id="2163:4157">
+                  센터 구성원
+                </p>
+                <div className="content-stretch flex items-center justify-between leading-[0] px-[45px] relative shrink-0 w-full" data-node-id="2163:4158" data-name="Members">
+                  <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]" data-node-id="2163:4159" data-name="Member">
+                    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="2163:4160" data-name="Member Image">
+                      <div className="col-1 ml-0 mt-0 relative row-1 size-[139px]" data-node-id="2163:4161" data-name="Mask group">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+                      </div>
+                    </div>
+                    <p className="[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]" data-node-id="2163:4165">
+                      <span className="font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2]">이관수</span>
+                      <span className="leading-[1.2]">{` 노무사`}</span>
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]" data-node-id="2163:4166" data-name="Member">
+                    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="2163:4167" data-name="Member Image">
+                      <div className="col-1 ml-0 mt-0 relative row-1 size-[139px]" data-node-id="2163:4168" data-name="Mask group">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+                      </div>
+                    </div>
+                    <p className="[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]" data-node-id="2163:4172">
+                      <span className="font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2]">박진석</span>
+                      <span className="leading-[1.2]">{` 세무사`}</span>
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]" data-node-id="2163:5282" data-name="Member">
+                    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="2163:5283" data-name="Member Image">
+                      <div className="col-1 ml-0 mt-0 relative row-1 size-[139px]" data-node-id="2163:5284" data-name="Mask group">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+                      </div>
+                    </div>
+                    <p className="[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]" data-node-id="2163:5288">
+                      <span className="font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2]">김민한</span>
+                      <span className="leading-[1.2]">{` 노무사`}</span>
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]" data-node-id="2163:4173" data-name="Member">
+                    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="2163:4174" data-name="Member Image">
+                      <div className="col-1 ml-0 mt-0 relative row-1 size-[139px]" data-node-id="2163:4175" data-name="Mask group">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+                      </div>
+                    </div>
+                    <p className="[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]" data-node-id="2163:4179">
+                      <span className="font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2]">박설영</span>
+                      <span className="leading-[1.2]">{` 노무사`}</span>
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]" data-node-id="2163:4180" data-name="Member">
+                    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="2163:4181" data-name="Member Image">
+                      <div className="col-1 ml-0 mt-0 relative row-1 size-[139px]" data-node-id="2163:4182" data-name="Mask group">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+                      </div>
+                    </div>
+                    <p className="[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]" data-node-id="2163:4186">
+                      <span className="font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2]">김상재</span>
+                      <span className="leading-[1.2]">{` 노무사`}</span>
+                    </p>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-[139px]" data-node-id="2163:4187" data-name="Member">
+                    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="2163:4188" data-name="Member Image">
+                      <div className="col-1 ml-0 mt-0 relative row-1 size-[139px]" data-node-id="2163:4189" data-name="Mask group">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+                      </div>
+                    </div>
+                    <p className="[word-break:break-word] font-['Noto_Sans_KR:Regular'] font-normal min-w-full relative shrink-0 text-[#101010] text-[20px] text-center w-[min-content]" data-node-id="2163:4193">
+                      <span className="font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2]">이정계</span>
+                      <span className="leading-[1.2]">{` 행정사`}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[1.2] relative shrink-0 text-[16px] text-[rgba(16,16,16,0.38)] text-right w-full" data-node-id="2163:5291">
+                외 다수
+              </p>
+            </div>
+          </div>
+          <div className="bg-[#f9fbfe] content-stretch flex flex-col gap-[12px] items-center justify-center relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-[1280px]" data-node-id="2179:30811">
+            <div className="content-stretch flex items-center justify-between pt-[45px] relative shrink-0 w-full" data-node-id="2179:30812" data-name="Expert Introduction">
+              <div className="h-[348px] relative shrink-0 w-[515px]" data-node-id="2179:30813" data-name="Expert Image">
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <img alt="" className="absolute h-[100.06%] left-[17.48%] max-w-none top-[-0.03%] w-[82.52%]" src={imgExpertImage} />
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[24px] items-start pb-[40px] relative shrink-0" data-node-id="2179:30814" data-name="Expert Details">
+                <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[0] relative shrink-0 text-[#101010] text-[36px] text-center whitespace-nowrap" data-node-id="2179:30815">
+                  <span className="leading-[1.2]">{`이관수 `}</span>
+                  <span className="font-['Noto_Sans_KR:Regular'] font-normal leading-[1.2]">노무사</span>
+                </p>
+                <div className="content-stretch flex gap-[32px] items-start relative shrink-0" data-node-id="2179:30816" data-name="Expert Info">
+                  <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]" data-node-id="2179:30817" data-name="Expert Info Column">
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30818" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30819">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30820">{`성균관대 법학박사 `}</p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full" data-node-id="2179:30821" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30822">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30823">{`제15회 공인노무사 최연소합격(20년차) `}</p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30824" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30825">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30826">{`근로복지공단 지문위원 `}</p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30827" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30828">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30829">{`한국공인노무사회 이사 `}</p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]" data-node-id="2179:30830" data-name="Expert Info Column">
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30831" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30832">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30833">{`한국사회보장법학회 이사 `}</p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full" data-node-id="2179:30834" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30835">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30836">{`서경대 연구교수 `}</p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30837" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30838">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30839">
+                        노무법인 권리 대표 공인노무사
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="h-0 relative shrink-0 w-[1280px]" data-node-id="2179:30840">
+              <div className="absolute inset-[-1px_0_0_0]">
+                <img alt="" className="block max-w-none size-full" src={imgLine5} />
+              </div>
+            </div>
+            <div className="content-stretch flex items-center justify-between pt-[45px] px-[155px] relative rounded-bl-[24px] rounded-br-[24px] shrink-0 w-full" data-node-id="2179:30841" data-name="Expert Introduction">
+              <div className="content-stretch flex flex-col gap-[24px] items-start mr-[-197px] pb-[40px] relative shrink-0" data-node-id="2179:30842" data-name="Expert Details">
+                <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[0] relative shrink-0 text-[#101010] text-[36px] text-center whitespace-nowrap" data-node-id="2179:30843">
+                  <span className="leading-[1.2]">{`박진석 `}</span>
+                  <span className="font-['Noto_Sans_KR:Regular'] font-normal leading-[1.2]">세무사</span>
+                </p>
+                <div className="content-stretch flex gap-[32px] items-start relative shrink-0" data-node-id="2179:30844" data-name="Expert Info">
+                  <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]" data-node-id="2179:30845" data-name="Expert Info Column">
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30846" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30847">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30848">
+                        세무회계 제이에스피(JSP) 대표세무사
+                      </p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full" data-node-id="2179:30849" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30850">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30851">
+                        한국세무사회 법제위원회 위원
+                      </p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30852" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30853">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30854">
+                        한국세무사회 마을세무사회 위원
+                      </p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30855" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30856">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30857">
+                        서울지방세무사회 국제협력위원
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[356px]" data-node-id="2179:30858" data-name="Expert Info Column">
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30859" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30860">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30861">
+                        관할세무서 국세심사위원
+                      </p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full" data-node-id="2179:30862" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30863">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30864">
+                        선경 세무법인 총괄 세무사
+                      </p>
+                    </div>
+                    <div className="content-stretch flex gap-[16px] items-center relative shrink-0" data-node-id="2179:30865" data-name="Info Item">
+                      <div className="relative shrink-0 size-[8px]" data-node-id="2179:30866">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse4} />
+                      </div>
+                      <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[2] relative shrink-0 text-[#101010] text-[20px] whitespace-nowrap" data-node-id="2179:30867">
+                        세무그룹 정율 근무 세무사
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="h-[348px] relative shrink-0 w-[423px]" data-node-id="2179:30868" data-name="image 22">
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <img alt="" className="absolute h-[288.21%] left-[-16.51%] max-w-none top-[-43.01%] w-[157.9%]" src={imgImage22} />
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] absolute font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] left-[45px] text-[#0e163d] text-[24px] top-[423px] whitespace-nowrap" data-node-id="2179:30869">
+              부센터장
+            </p>
+            <p className="[word-break:break-word] absolute font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] left-[45px] text-[#0e163d] text-[24px] top-[20px] whitespace-nowrap" data-node-id="2179:30870">
+              센터장
+            </p>
+          </div>
+        </div>
+      </div>
+      <motion.div className="content-stretch flex flex-col h-[791px] items-center py-[140px] relative shrink-0 w-full" data-node-id="2163:4227" data-name="Benefits Section">
+        <div className="content-stretch flex flex-col gap-[64px] items-center max-w-[1280px] px-[45px] relative shrink-0 w-full" data-node-id="2163:4228" data-name="Benefits Container">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-center justify-center not-italic relative shrink-0 w-[532px] whitespace-nowrap" data-node-id="2163:4229" data-name="Benefits Details">
+            <div className="font-['Pretendard:Bold'] leading-[0] relative shrink-0 text-[42px] text-black text-center" data-node-id="2163:4230">
+              <p className="mb-0">
+                <span className="leading-[1.3]">{`왜 `}</span>
+                <span className="[word-break:break-word] bg-clip-text bg-gradient-to-r font-['Pretendard:Black'] from-[#6460ea] leading-[1.3] not-italic text-[transparent] to-[#276bbc]">4대보험경정청구센터</span>
+                <span className="leading-[1.3]">에서</span>
+              </p>
+              <p className="leading-[1.3]">환급받아야 할까요?</p>
+            </div>
+            <p className="font-['Pretendard:Medium'] leading-[1.3] relative shrink-0 text-[#2b2b2b] text-[18px]" data-node-id="2163:4231">
+              사업주님의 소중한 권리, 전문 노무사의 체계적인 분석을 통해 돌려드립니다.
+            </p>
+          </div>
+          <div className="content-stretch flex gap-[16px] items-start relative shrink-0 w-full" data-node-id="2163:4232" data-name="Benefits Grid">
+            <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.689px]" data-node-id="2163:4233" data-name="왜섹션">
+              <div className="h-[150px] max-h-[150px] max-w-[198.90281677246094px] relative shrink-0 w-[198.903px]" data-node-id="I2163:4233;57:154" data-name="왜섹션_이미지">
+                <div className="-translate-y-1/2 absolute aspect-[198/150] left-0 right-0 top-1/2" data-node-id="I2163:4233;57:154;52:58" data-name="숨은 보험료 진단">
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img alt="" className="absolute h-[264.26%] left-[-40.43%] max-w-none top-[-19.12%] w-[298.82%]" src={img8} />
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full" data-node-id="I2163:4233;52:73" data-name="Information Group">
+                <div className="content-stretch flex gap-[2px] items-end relative shrink-0 w-full" data-node-id="I2163:4233;52:74" data-name="Title Group">
+                  <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#141719] text-[36px] whitespace-nowrap" data-node-id="I2163:4233;52:75">
+                    <p className="leading-none">숨은 보험료 진단</p>
+                  </div>
+                  <div className="relative shrink-0 size-[8px]" data-node-id="I2163:4233;52:76">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse2} />
+                  </div>
+                </div>
+                <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#141719] text-[20px] text-center whitespace-nowrap" data-node-id="I2163:4233;52:77">
+                  <p className="leading-[1.6] mb-0 whitespace-pre">{`인지하지 못했던 과오납 4대보험료를 `}</p>
+                  <p className="leading-[1.6] whitespace-pre">법률적 근거에 기반하여 정확하게 진단합니다.</p>
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.574px]" data-node-id="2163:4234" data-name="왜섹션">
+              <div className="h-[100px] relative shrink-0 w-[132.602px]" data-node-id="I2163:4234;57:157" data-name="왜섹션_이미지">
+                <div className="-translate-y-1/2 absolute aspect-[178/150] left-0 right-0 top-1/2" data-node-id="I2163:4234;57:157;52:59" data-name="노무사 직접 검토">
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img alt="" className="absolute h-[255.45%] left-[-172.96%] max-w-none top-[-18.48%] w-[322.45%]" src={img8} />
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="I2163:4234;52:93" data-name="Information Group">
+                <div className="content-stretch flex gap-[2px] items-end relative shrink-0 w-full" data-node-id="I2163:4234;52:94" data-name="Title Group">
+                  <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#878787] text-[36px] whitespace-nowrap" data-node-id="I2163:4234;52:95">
+                    <p className="leading-none">노무사 직접 검토</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.56px]" data-node-id="2163:4235" data-name="왜섹션">
+              <div className="h-[100px] relative shrink-0 w-[132.602px]" data-node-id="I2163:4235;57:157" data-name="왜섹션_이미지">
+                <div className="-translate-y-1/2 absolute aspect-[176/150] left-0 right-0 top-1/2" data-node-id="I2163:4235;57:157;52:60" data-name="최대 환급 보장">
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img alt="" className="absolute h-[298.94%] left-[-53.78%] max-w-none top-[-160.64%] w-[381.87%]" src={img8} />
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="I2163:4235;52:93" data-name="Information Group">
+                <div className="content-stretch flex gap-[2px] items-end relative shrink-0 w-full" data-node-id="I2163:4235;52:94" data-name="Title Group">
+                  <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#878787] text-[36px] whitespace-nowrap" data-node-id="I2163:4235;52:95">
+                    <p className="leading-none">최대 환급 보장</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[285.574px]" data-node-id="2163:4236" data-name="왜섹션">
+              <div className="h-[100px] relative shrink-0 w-[132.602px]" data-node-id="I2163:4236;57:157" data-name="왜섹션_이미지">
+                <div className="-translate-y-1/2 absolute aspect-[179/150] left-0 right-0 top-1/2" data-node-id="I2163:4236;57:157;52:61" data-name="철저한 사후관리">
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <img alt="" className="absolute h-[296.83%] left-[-203.25%] max-w-none top-[-158.8%] w-[373.96%]" src={img8} />
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="I2163:4236;52:93" data-name="Information Group">
+                <div className="content-stretch flex gap-[2px] items-end relative shrink-0 w-full" data-node-id="I2163:4236;52:94" data-name="Title Group">
+                  <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#878787] text-[36px] whitespace-nowrap" data-node-id="I2163:4236;52:95">
+                    <p className="leading-none">철저한 사후관리</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      <div className="bg-[var(--background\/default,#f3f7fe)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full" data-node-id="2163:4237" data-name="Expert Section">
+        <div className="content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full" data-node-id="2163:4238" data-name="Expert Content">
+          <motion.div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0" data-node-id="2163:4239" data-name="Expert Details Container">
+            <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0" data-node-id="2163:4240">
+              <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start leading-[0] relative shrink-0" data-node-id="2163:4241" data-name="Expert Details Header">
+                <div className="flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center min-w-full relative shrink-0 text-[#486db2] text-[28px] w-[min-content]" data-node-id="2163:4242">
+                  <p className="leading-none">복잡한 4대보험 환급,</p>
+                </div>
+                <div className="flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center not-italic relative shrink-0 text-[#10294c] text-[64px] whitespace-nowrap" data-node-id="2163:4243">
+                  <p className="leading-none">전문가는 다릅니다!</p>
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[12px] items-start relative shrink-0" data-node-id="2163:4244" data-name="Expert Info">
+                <div className="bg-[var(--surface\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0" data-node-id="2163:4245" data-name="Expert Info Item 1">
+                  <div className="content-stretch flex gap-[13px] items-center relative shrink-0" data-node-id="2163:4246">
+                    <div className="content-stretch flex flex-col items-center justify-center relative shrink-0 size-[24px]" data-node-id="2163:4247">
+                      <div className="h-[21.972px] relative shrink-0 w-[21.986px]" data-node-id="2163:4248" data-name="Icons">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcons} />
+                      </div>
+                    </div>
+                    <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap" data-node-id="2163:4250">
+                      <p className="leading-none">비대면 전국 상담</p>
+                    </div>
+                  </div>
+                  <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[14px] whitespace-nowrap" data-node-id="2163:4251">
+                    <p className="leading-[1.6]">지역 제한 없이 간편한 상담과 서류 접수</p>
+                  </div>
+                </div>
+                <div className="bg-[var(--surface\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0" data-node-id="2163:4252" data-name="Expert Info Item 4">
+                  <div className="content-stretch flex gap-[4px] items-center relative shrink-0" data-node-id="2163:4253">
+                    <div className="content-stretch flex flex-col items-center justify-center relative shrink-0 size-[24px]" data-node-id="2163:4254">
+                      <div className="h-[22px] relative shrink-0 w-[14.219px]" data-node-id="2163:4255" data-name="Icons">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcons1} />
+                      </div>
+                    </div>
+                    <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap" data-node-id="2163:4257">
+                      <p className="leading-none">RPA 자동화 + AI 분석</p>
+                    </div>
+                  </div>
+                  <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[14px] whitespace-nowrap" data-node-id="2163:4258">
+                    <p className="leading-[1.6]">환급 가능 항목을 신속하고 정확하게 분석</p>
+                  </div>
+                </div>
+                <div className="bg-[var(--surface\/default,white)] content-stretch flex flex-col gap-[4px] items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0" data-node-id="2163:4259" data-name="Expert Info Item 5">
+                  <div className="content-stretch flex gap-[4px] items-center relative shrink-0" data-node-id="2163:4260">
+                    <div className="relative shrink-0 size-[24px]" data-node-id="2163:4261">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+                    </div>
+                    <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap" data-node-id="2163:4263">
+                      <p className="leading-none">검증된 보안 솔루션</p>
+                    </div>
+                  </div>
+                  <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[14px] w-[222px]" data-node-id="2163:4264">
+                    <p className="leading-[1.6]">고객 정보를 안전하게 관리</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#1b264e] text-[24px] w-[609px] whitespace-pre-wrap" data-node-id="2163:4265">
+              <p className="leading-[1.6] mb-0">{`비대면 전국 상담부터 RPA·AI 기반 환급 분석, `}</p>
+              <p className="leading-[1.6]">검증된 보안 솔루션까지 체계적으로 제공합니다.</p>
+            </div>
+          </motion.div>
+          <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0" data-node-id="2163:4266">
+            <div className="h-[413px] relative shadow-[-4px_-4px_30px_0px_var(--effect\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[282px]" data-node-id="2175:30488" data-name="블루 기어 전구 기술 인증 카드 1">
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <img alt="" className="absolute h-[109.91%] left-[-36.94%] max-w-none top-[-5.42%] w-[175.8%]" src={img9} />
+              </div>
+            </div>
+            <div className="bg-[var(--surface\/default,white)] content-stretch flex flex-col items-start justify-center px-[16px] py-[12px] relative rounded-[8px] shrink-0" data-node-id="2163:4268" data-name="Expert Info Item 6">
+              <div className="content-stretch flex gap-[4px] items-center relative shrink-0" data-node-id="2163:4269">
+                <div className="relative shrink-0 size-[24px]" data-node-id="2163:4270" data-name="Award">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgAward} />
+                </div>
+                <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#101010] text-[18px] whitespace-nowrap" data-node-id="2163:4272">
+                  <p className="leading-none">특허 출원 중</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--background\/canvas,white)] content-stretch flex flex-col items-center justify-center py-[140px] relative shrink-0 w-full" data-node-id="2163:4273" data-name="Process Section">
+        <div className="content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full" data-node-id="2163:4274" data-name="Process Content">
+          <motion.div className="h-[456px] relative shadow-[-4px_-4px_30px_0px_var(--effect\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[662px]" data-node-id="2163:4275" data-name="비대면 전국 상담">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" className="absolute h-[131.58%] left-[-5.5%] max-w-none top-[-17.54%] w-[112.51%]" src={img10} />
+            </div>
+          </motion.div>
+          <motion.div className="content-stretch flex flex-col gap-[48px] items-end relative shrink-0 w-[506px]" data-node-id="2163:4276" data-name="Process Text">
+            <div className="content-stretch flex flex-col gap-[24px] items-end relative shrink-0" data-node-id="2163:4277">
+              <div className="content-stretch flex gap-[24px] items-center justify-end relative shrink-0" data-node-id="2163:4278" data-name="Step 1 Container">
+                <div className="flex items-center justify-center relative shrink-0" data-node-id="2163:4279">
+                  <div className="flex-none rotate-180">
+                    <div className="h-0 relative w-[50px]">
+                      <div className="absolute inset-[-2px_0_0_0]">
+                        <img alt="" className="block max-w-none size-full" src={imgLine4} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#75a7f3] text-[48px] whitespace-nowrap" data-node-id="2163:4280">
+                  <p className="leading-none">01</p>
+                </div>
+              </div>
+              <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center leading-[0] not-italic relative shrink-0 text-[#10294c] text-[32px] whitespace-nowrap" data-node-id="2163:4281">
+                <p className="leading-none">비대면 전국 상담</p>
+              </div>
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] min-w-full relative shrink-0 text-[#878787] text-[24px] text-right w-[min-content] whitespace-pre-wrap" data-node-id="2163:4282">
+              <p className="leading-[1.6] mb-0">{`전국 어디서나 지역 제한 없이 간편하게 `}</p>
+              <p className="leading-[1.6]">비대면으로 상담 및 서류 접수가 가능합니다.</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      <div className="bg-[var(--background\/default,#f3f7fe)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full" data-node-id="2163:4283" data-name="Consultation Section">
+        <div className="content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full" data-node-id="2163:4284" data-name="Consultation Container">
+          <motion.div className="content-stretch flex flex-col gap-[48px] items-start justify-center relative shrink-0 w-[506px]" data-node-id="2163:4285" data-name="Consultation Details">
+            <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0" data-node-id="2163:4286">
+              <div className="content-stretch flex gap-[24px] items-center justify-end relative shrink-0" data-node-id="2163:4287" data-name="Consultation Step 2">
+                <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#75a7f3] text-[48px] whitespace-nowrap" data-node-id="2163:4288">
+                  <p className="leading-none">02</p>
+                </div>
+                <div className="flex items-center justify-center relative shrink-0" data-node-id="2163:4289">
+                  <div className="flex-none rotate-180">
+                    <div className="h-0 relative w-[50px]">
+                      <div className="absolute inset-[-2px_0_0_0]">
+                        <img alt="" className="block max-w-none size-full" src={imgLine4} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center leading-[0] not-italic relative shrink-0 text-[#10294c] text-[32px] whitespace-nowrap" data-node-id="2163:4290">
+                <p className="leading-none">국내 최초 자동화 인공지능 프로그램 구축</p>
+              </div>
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] min-w-full relative shrink-0 text-[#878787] text-[24px] w-[min-content]" data-node-id="2163:4291">
+              <p className="leading-[1.6] mb-0">RPA 자동화와 AI 분석을 통해 환급 가능 항목을</p>
+              <p className="leading-[1.6]">신속하고 정확하게 확인합니다.</p>
+            </div>
+          </motion.div>
+          <motion.div className="h-[456px] relative shrink-0 w-[526px]" data-node-id="2163:4292" data-name="성공 보수형 수수료">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" className="absolute left-0 max-w-none size-full top-0" src={img11} />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      <div className="bg-[var(--background\/canvas,white)] content-stretch flex flex-col items-center py-[140px] relative shrink-0 w-full" data-node-id="2163:4293" data-name="Security Section">
+        <div className="content-stretch flex items-center justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full" data-node-id="2163:4294" data-name="Security Content">
+          <motion.div className="h-[456px] relative shadow-[-4px_-4px_30px_0px_var(--effect\/shadow-brand,rgba(126,161,255,0.3))] shrink-0 w-[540px]" data-node-id="2163:4295" data-name="정보보안">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" className="absolute h-[116.15%] left-[-2.64%] max-w-none top-[-6.26%] w-[121.65%]" src={img12} />
+            </div>
+          </motion.div>
+          <motion.div className="content-stretch flex flex-col gap-[48px] items-end relative shrink-0 w-[506px]" data-node-id="2163:4296" data-name="Security Details">
+            <div className="content-stretch flex flex-col gap-[24px] items-end relative shrink-0" data-node-id="2163:4297">
+              <div className="content-stretch flex gap-[24px] items-center justify-end relative shrink-0" data-node-id="2163:4298" data-name="Security Step 3">
+                <div className="flex items-center justify-center relative shrink-0" data-node-id="2163:4299">
+                  <div className="flex-none rotate-180">
+                    <div className="h-0 relative w-[50px]">
+                      <div className="absolute inset-[-2px_0_0_0]">
+                        <img alt="" className="block max-w-none size-full" src={imgLine4} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#75a7f3] text-[48px] whitespace-nowrap" data-node-id="2163:4300">
+                  <p className="leading-none">03</p>
+                </div>
+              </div>
+              <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:ExtraBold'] justify-center leading-[0] not-italic relative shrink-0 text-[#10294c] text-[32px] whitespace-nowrap" data-node-id="2163:4301">
+                <p className="leading-none">검증된 보안 솔루션 적용</p>
+              </div>
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Medium'] font-medium justify-center leading-[0] min-w-full relative shrink-0 text-[#878787] text-[24px] text-right w-[min-content]" data-node-id="2163:4302">
+              <p className="leading-[1.6] mb-0">SentinelOne의 Singularity AI SIEM을</p>
+              <p className="leading-[1.6] mb-0">적용하여 고객 정보와 업무 데이터를</p>
+              <p className="leading-[1.6]">안전하게 관리합니다.</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col items-center overflow-clip px-[45px] py-[140px] relative shrink-0 w-full" data-node-id="2163:4303" data-name="Steps Image">
+        <div aria-hidden className="absolute inset-0 pointer-events-none">
+          <img alt="" className="absolute max-w-none object-cover size-full" src={imgStepsImage} />
+          <div className="absolute bg-[rgba(19,21,31,0.7)] inset-0" />
+        </div>
+        <div className="content-stretch flex flex-col gap-[64px] items-center max-w-[1280px] relative shrink-0 w-full" data-node-id="2163:4304" data-name="Process Overview">
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[8px] items-center justify-center leading-[1.3] not-italic relative shrink-0 w-[532px] whitespace-nowrap" data-node-id="2163:4305" data-name="Process Intro">
+            <p className="font-['Pretendard:Bold'] relative shrink-0 text-[42px] text-white" data-node-id="2163:4306">
+              이렇게 진행합니다!
+            </p>
+            <p className="font-['Pretendard:Medium'] relative shrink-0 text-[#eaeaea] text-[18px]" data-node-id="2163:4307">
+              신속하고 정확하게, 사업주님의 부담을 최소화하는 프로세스입니다.
+            </p>
+          </div>
+          <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full" data-node-id="2163:4308" data-name="Process Steps">
+            <div className="content-stretch flex gap-[8px] items-start relative shrink-0 w-full" data-node-id="2163:4309" data-name="Steps Container">
+              <motion.div className="aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative" data-node-id="2163:4310" data-name="Step 1 Details">
+                <div className="-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0" data-node-id="2163:4311" data-name="Step 1 Icon">
+                  <div className="absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]" data-node-id="2163:4312" data-name="Step 1 Content">
+                    <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap" data-node-id="2163:4313">
+                      1
+                    </p>
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full" data-node-id="2163:4314" data-name="Step Details">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]" data-node-id="2163:4315">
+                    상담 및 접수
+                  </p>
+                  <div className="h-[131.202px] relative shrink-0 w-[121.11px]" data-node-id="2163:4316" data-name="상담 및 접수">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      <img alt="" className="absolute h-[262.43%] left-[-25.32%] max-w-none top-[-78.11%] w-[568.59%]" src={img13} />
+                    </div>
+                  </div>
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-center text-white w-[min-content]" data-node-id="2163:4317">
+                    <span className="leading-[1.2] text-[#89c6ff] text-[20.086px]">전화</span>
+                    <span className="leading-[1.2] text-[20.086px]">{` 또는 `}</span>
+                    <span className="leading-[1.2] text-[#89c6ff] text-[20.086px]">이메일</span>
+                    <span className="leading-[1.2] text-[20.086px]">로 문의 접수</span>
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div className="aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-center justify-center min-w-px p-[26.302px] relative" data-node-id="2163:4318" data-name="Step 2 Details">
+                <div className="-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0" data-node-id="2163:4319" data-name="Step 2 Icon">
+                  <div className="absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]" data-node-id="2163:4320" data-name="Step 2 Content">
+                    <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap" data-node-id="2163:4321">
+                      2
+                    </p>
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full" data-node-id="2163:4322" data-name="Step Title">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]" data-node-id="2163:4323">
+                    진단 및 분석
+                  </p>
+                  <div className="h-[131.315px] relative shrink-0 w-[83.14px]" data-node-id="2163:4324" data-name="진단 및 분석">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      <img alt="" className="absolute h-[262.43%] left-[-213.08%] max-w-none top-[-78.11%] w-[828.97%]" src={img13} />
+                    </div>
+                  </div>
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-center text-white w-[min-content]" data-node-id="2163:4325">
+                    <span className="leading-[1.2] text-[20.086px]">{`분석하여 환급 가능 `}</span>
+                    <span className="leading-[1.2] text-[#89c6ff] text-[20.086px]">금액 진단</span>
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div className="aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative" data-node-id="2163:4326" data-name="Step 3 Details">
+                <div className="-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0" data-node-id="2163:4327" data-name="Step 3 Icon">
+                  <div className="absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]" data-node-id="2163:4328" data-name="Step 3 Content">
+                    <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap" data-node-id="2163:4329">
+                      3
+                    </p>
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full" data-node-id="2163:4330" data-name="Step Title">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]" data-node-id="2163:4331">
+                    서류 안내 및 진행
+                  </p>
+                  <div className="h-[130.47px] relative shrink-0 w-[95.343px]" data-node-id="2163:4332" data-name="서류 안내 및 진행">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      <img alt="" className="absolute h-[262.43%] left-[-304.45%] max-w-none top-[-78.11%] w-[718.22%]" src={img13} />
+                    </div>
+                  </div>
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[0] not-italic relative shrink-0 text-[0px] text-center text-white whitespace-nowrap" data-node-id="2163:4333">
+                    <span className="leading-[1.2] text-[#89c6ff] text-[20.086px]">{`필요 서류 `}</span>
+                    <span className="leading-[1.2] text-[20.086px]">{`안내 및 `}</span>
+                    <span className="leading-[1.2] text-[#89c6ff] text-[20.086px]">환급 신청</span>
+                    <span className="leading-[1.2] text-[20.086px]">{` 대행`}</span>
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div className="aspect-[313.97430419921875/353.4265441894531] content-stretch flex flex-[1_0_0] flex-col gap-[8.219px] items-center justify-center min-w-px p-[26.302px] relative" data-node-id="2163:4334" data-name="Step 4 Details">
+                <div className="-translate-x-1/2 absolute aspect-[313.97430419921875/353.4265441894531] bg-[rgba(31,32,42,0.8)] bottom-[0.01%] content-stretch flex items-start left-[calc(50%-0.01px)] pb-[303.289px] pl-[13.151px] pr-[263.837px] pt-[13.151px] rounded-[13.151px] top-0" data-node-id="2163:4335" data-name="Step 4 Icon">
+                  <div className="absolute bg-[#191922] content-stretch flex flex-col items-center justify-center left-[16.07px] rounded-[36.576px] size-[36.986px] top-[16.07px]" data-node-id="2163:4336" data-name="Step 4 Content">
+                    <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.726px] text-white whitespace-nowrap" data-node-id="2163:4337">
+                      4
+                    </p>
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col h-[253.152px] items-center justify-between relative shrink-0 w-full" data-node-id="2163:4338" data-name="Step Title">
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] min-w-full not-italic relative shrink-0 text-[20.086px] text-center text-white w-[min-content]" data-node-id="2163:4339">
+                    환급 완료
+                  </p>
+                  <div className="h-[131.27px] relative shrink-0 w-[130.105px]" data-node-id="2163:4340" data-name="환급 완료">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      <img alt="" className="absolute h-[262.43%] left-[-316.72%] max-w-none top-[-78.11%] w-[529.55%]" src={img13} />
+                    </div>
+                  </div>
+                  <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-center text-white w-[min-content]" data-node-id="2163:4341">
+                    <span className="leading-[1.2] text-[20.086px]">{`심사 후 `}</span>
+                    <span className="leading-[1.2] text-[#89c6ff] text-[20.086px]">환급금 입금</span>
+                    <span className="leading-[1.2] text-[20.086px]">{` 및 `}</span>
+                    <span className="leading-[1.2] text-[#89c6ff] text-[20.086px]">결과 안내</span>
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+            <div className="content-stretch drop-shadow-[0px_0px_15px_rgba(0,0,0,0.5)] flex gap-[8.184px] items-center justify-center p-[14px] relative rounded-[13.095px] shrink-0 w-full" data-node-id="2163:4342" data-name="Aftercare Consultation">
+              <div className="bg-[#191922] content-stretch flex flex-col items-center justify-center relative rounded-[36.419px] shrink-0 size-[36.829px]" data-node-id="2163:4343" data-name="Plus Icon">
+                <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.3] not-italic relative shrink-0 text-[19.642px] text-white whitespace-nowrap" data-node-id="2163:4344">
+                  +
+                </p>
+              </div>
+              <p className="[word-break:break-word] font-['Pretendard:Bold'] leading-[1.2] not-italic relative shrink-0 text-[#89c6ff] text-[20px] text-center whitespace-nowrap" data-node-id="2163:4345">
+                사후관리 컨설팅
+              </p>
+              <p className="[word-break:break-word] font-['Pretendard:Medium'] leading-[1.2] not-italic relative shrink-0 text-[20px] text-center text-white whitespace-nowrap" data-node-id="2163:4346">
+                환급 완료 후 재발 방지 대책 수립 및 맞춤형 절세 방안을 제안합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--background\/canvas,white)] content-stretch flex flex-col items-center justify-center min-h-[640px] p-[80px] relative shrink-0 w-full" data-node-id="2163:4347" data-name="news-section-card-grid">
+        <div className="content-stretch flex flex-col gap-[48px] items-start max-w-[1280px] relative shrink-0 w-full" data-node-id="2163:4348">
+          <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-node-id="2163:4349" data-name="section-header-center">
+            <p className="[word-break:break-word] font-['Noto_Sans_KR:Bold'] font-bold leading-[1.2] relative shrink-0 text-[#10294c] text-[36px] whitespace-nowrap" data-node-id="2163:4350">
+              포리펀 뉴스와 인사이트
+            </p>
+          </div>
+          <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="2163:4351">
+            <div className="content-start flex flex-wrap gap-[24px] items-start relative shrink-0 w-full" data-node-id="2163:4352" data-name="cards-grid">
+              <NewsCard className="bg-[#f9fbfe] border border-[#e8eff9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[16px] shrink-0 w-[410.667px]" />
+              <NewsCard className="bg-[#f9fbfe] border border-[#e8eff9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[16px] shrink-0 w-[410.667px]" />
+              <NewsCard className="bg-[#f9fbfe] border border-[#e8eff9] border-solid content-stretch flex flex-col items-start overflow-clip relative rounded-[16px] shrink-0 w-[410.667px]" propValue="이미지가 없을 경우" />
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-['Noto_Sans_KR:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[14px] text-[rgba(27,38,78,0.5)] whitespace-nowrap" data-node-id="2163:4356">
+              <p className="leading-[1.6]">최근 보도자료 3건만 노출합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="-translate-y-1/2 [word-break:break-word] absolute flex flex-col font-[family-name:var(--font-family\/font-1,'Noto_Sans_KR:Regular')] font-[var(--font-weight\/400,400)] h-[28px] justify-center leading-[0] left-[1415px] text-[color:var(--text\/primary-black,black)] text-[length:var(--font-size\/18,18px)] top-[1292px] w-0" data-node-id="2163:4357">
+        <p className="leading-[var(--line-height\/28,28px)] whitespace-pre-wrap">{`      `}</p>
+      </div>
+      <div className="bg-[#111118] content-stretch flex items-center justify-center min-h-[300px] overflow-clip py-[48px] relative shrink-0 w-full" data-node-id="2163:4358" data-name="cta-banner-section">
+        <div className="content-stretch flex flex-[1_0_0] items-center justify-between max-w-[1280px] min-w-px px-[45px] relative" data-node-id="2163:4359" data-name="CTA Banner">
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] items-start min-w-px relative" data-node-id="2163:4360" data-name="left-content">
+            <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/inverse,white)] w-full" data-node-id="2163:4361">
+              소멸시효 3년 경과 전 빠른 신청 필수!
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Extra_Bold'] font-extrabold leading-[normal] not-italic relative shrink-0 text-[32px] text-[color:var(--text\/inverse,white)] w-full" data-node-id="2163:4362">
+              지금 바로 무료 진단을 신청하세요!
+            </p>
+            <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="2163:4363" data-name="description-group">
+              <div className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[0] not-italic relative shrink-0 text-[#94a3b8] text-[15px] w-full" data-node-id="2163:4364">
+                <p className="leading-[1.6] mb-0">환급 가능 여부는 무료로 확인해 드립니다.</p>
+                <p className="leading-[1.6]">지금이 환급을 받을 수 있는 가장 빠른 기회입니다.</p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-end justify-center max-w-[526px] min-w-px relative" data-node-id="2163:4365" data-name="CTA Contact">
+            <div className="bg-[#181820] border border-[#3e3e4a] border-solid content-stretch flex flex-col items-start min-w-[300px] p-[24px] relative rounded-[16px] shrink-0 w-full" data-node-id="2163:4366" data-name="문의버튼">
+              <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full" data-node-id="I2163:4366;67:331" data-name="card-top">
+                <div className="bg-[#111118] border-[#515156] border-[1.5px] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[24px] shrink-0 size-[48px]" data-node-id="I2163:4366;67:332" data-name="card-icon">
+                  <div className="relative shrink-0 size-[28px]" data-node-id="I2163:4366;67:333" data-name="Email Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEmailIcon} />
+                  </div>
+                </div>
+                <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start leading-[normal] min-w-px not-italic relative" data-node-id="I2163:4366;67:334" data-name="card-content">
+                  <p className="font-['Inter:Bold'] font-bold relative shrink-0 text-[#c0c0c0] text-[13px] w-full" data-node-id="I2163:4366;67:335">
+                    빠른 전화 상담
+                  </p>
+                  <p className="font-['Inter:Extra_Bold'] font-extrabold relative shrink-0 text-[20px] text-[color:var(--text\/inverse,white)] w-full" data-node-id="I2163:4366;67:336">
+                    010-2225-0005
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-[#181820] border border-[#3e3e4a] border-solid content-stretch flex flex-col items-start min-w-[300px] p-[24px] relative rounded-[16px] shrink-0 w-full" data-node-id="2163:4367" data-name="문의버튼">
+              <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full" data-node-id="I2163:4367;67:331" data-name="card-top">
+                <div className="bg-[#111118] border-[#515156] border-[1.5px] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[24px] shrink-0 size-[48px]" data-node-id="I2163:4367;67:332" data-name="card-icon">
+                  <div className="relative shrink-0 size-[28px]" data-node-id="I2163:4367;67:333" data-name="Email Icon">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEmailIcon1} />
+                  </div>
+                </div>
+                <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-start leading-[normal] min-w-px not-italic relative" data-node-id="I2163:4367;67:334" data-name="card-content">
+                  <p className="font-['Inter:Bold'] font-bold relative shrink-0 text-[#c0c0c0] text-[13px] w-full" data-node-id="I2163:4367;67:335">
+                    이메일 서류 접수 및 문의
+                  </p>
+                  <p className="font-['Inter:Extra_Bold'] font-extrabold relative shrink-0 text-[20px] text-[color:var(--text\/inverse,white)] w-full" data-node-id="I2163:4367;67:336">
+                    iwillceo@naver.com
+                  </p>
+                </div>
+                <div className="-translate-y-1/2 absolute right-0 size-[30px] top-[calc(50%-0.26px)]" data-node-id="I2163:4367;67:337" data-name="Arrow Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowIcon1} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[#f5f6f8] content-stretch flex flex-col items-center justify-center overflow-clip py-[32px] relative shrink-0 w-full" data-node-id="2163:4368" data-name="Footer Section">
+        <div className="content-stretch flex items-end justify-between max-w-[1280px] px-[45px] relative shrink-0 w-full" data-node-id="2163:4369" data-name="Footer Container">
+          <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0" data-node-id="2163:4370" data-name="Footer Logo Container">
+            <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="2163:4371" data-name="Footer Logo">
+              <div className="h-[40px] relative shrink-0 w-[136px]" data-node-id="2163:4372" data-name="Footer Logo Image">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFooterLogoImage} />
+              </div>
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-[family-name:var(--font-family\/font-1,'Noto_Sans_KR:Regular')] font-[var(--font-weight\/400,400)] justify-center leading-[0] relative shrink-0 text-[#101010] text-[length:var(--item-spacing\/12,12px)] whitespace-nowrap" data-node-id="2163:4373">
+              <p className="leading-[var(--item-spacing\/s,16px)]">본 서비스는 공인노무사가 직접 검토하고 진행하는 전문 법률 서비스입니다.</p>
+            </div>
+            <div className="[word-break:break-word] font-['Pretendard:Regular'] leading-[0] min-w-full not-italic relative shrink-0 text-[#6a6f73] text-[16px] w-[min-content]" data-node-id="2163:4374">
+              <p className="leading-[normal] mb-0">© 2026 포리펀. All Rights Reserved.</p>
+              <p className="leading-[normal]">Powered by MINING5000</p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[16px] items-end relative shrink-0" data-node-id="2163:4375" data-name="contact">
+            <div className="content-stretch flex flex-col gap-[8px] items-end justify-center relative shrink-0 w-full" data-node-id="2163:4377" data-name="info">
+              <div className="content-stretch flex gap-[12px] items-center justify-end relative shrink-0" data-node-id="2163:4378" data-name="mail">
+                <a className="[word-break:break-word] block font-['Pretendard:Medium'] leading-[0] not-italic relative shrink-0 text-[#9ea7af] text-[14px] whitespace-nowrap" href="mailto:iwillceo@naver.com" data-node-id="2163:4379" target="_blank">
+                  <p className="cursor-pointer leading-[normal]">iwillceo@naver.com</p>
+                </a>
+                <div className="h-[10px] relative shrink-0 w-[13px]" data-node-id="2163:4380" data-name="Email Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEmailIcon2} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[12px] items-center justify-end relative shrink-0" data-node-id="2163:4381" data-name="call">
+                <a className="[word-break:break-word] block font-['Pretendard:Medium'] leading-[0] not-italic relative shrink-0 text-[#9ea7af] text-[14px] whitespace-nowrap" href="tel:0234635119" data-node-id="2163:4382" target="_blank">
+                  <p className="cursor-pointer leading-[normal]">02-3463-5119</p>
+                </a>
+                <div className="relative shrink-0 size-[13px]" data-node-id="2163:4383" data-name="Call Icon">
+                  <div className="absolute inset-[0_-5.68%_0_0]">
+                    <img alt="" className="block max-w-none size-full" src={imgCallIcon} />
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[12px] items-center justify-end relative shrink-0" data-node-id="2179:30878" data-name="call">
+                <a className="[word-break:break-word] block font-['Pretendard:Medium'] leading-[0] not-italic relative shrink-0 text-[#9ea7af] text-[14px] whitespace-nowrap" href="tel:0234635119" data-node-id="2179:30879" target="_blank">
+                  <p className="cursor-pointer leading-[normal]">02-3463-5119</p>
+                </a>
+                <div className="relative shrink-0 size-[13px]" data-node-id="2179:30891" data-name="Print">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPrint} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[12px] items-start justify-end relative shrink-0" data-node-id="2163:4384" data-name="location">
+                <p className="[word-break:break-word] font-['Noto_Sans_KR:Medium'] font-medium leading-[normal] relative shrink-0 text-[#9ea7af] text-[14px] tracking-[0.28px] whitespace-nowrap" data-node-id="2163:4385">
+                  서울특별시 강남구 역삼로 67길 15 케희빌딩 2층 (대치동 900-16)
+                </p>
+                <div className="h-[16px] relative shrink-0 w-[13px]" data-node-id="2163:4386" data-name="Location Icon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLocationIcon} />
+                </div>
+              </div>
+            </div>
+            <div className="[word-break:break-word] font-['Pretendard:Regular'] leading-[0] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary-warm,#6a6f73)] text-right whitespace-nowrap" data-node-id="2163:4387">
+              <p className="mb-0 text-[#6a6f73]">
+                <span className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic">{`상호명 `}</span>
+                <span className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic">
+                  4대보험경정청구센터
+                  <br aria-hidden />
+                </span>
+                <span className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic">대표자</span>
+                <span className="leading-[normal]">{` 이관수 `}</span>
+                <span className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic">{`| `}</span>
+                <span className="[word-break:break-word] font-['Pretendard:Bold'] leading-[normal] not-italic">정보보호책임자</span>
+                <span className="[word-break:break-word] font-['Pretendard:Medium'] leading-[normal] not-italic">{` 이관수`}</span>
+              </p>
+              <p className="text-[#6a6f73]">
+                <span className="font-['Pretendard:Bold'] leading-[normal]">{`사업자등록번호 `}</span>
+                <span className="font-['Pretendard:Medium'] leading-[normal]">249-81-03649</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute bg-[var(--surface\/default,white)] border border-[rgba(234,234,234,0.5)] border-solid content-stretch flex h-[76px] items-center justify-between left-0 pl-[32px] right-0 top-0" data-node-id="2163:4388" data-name="헤더">
+        <div className="h-[40px] relative shrink-0 w-[136px]" data-node-id="2163:4389" data-name="Header Logo Image">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgHeaderLogoImage} />
+        </div>
+        <div className="content-stretch flex items-center relative shrink-0 w-[261px]" data-node-id="2163:4390" data-name="Contact Container">
+          <div className="bg-[#0074ca] content-stretch flex flex-col items-center justify-center px-[20px] py-[10px] relative shrink-0" data-node-id="2163:4391" data-name="헤더_btn">
+            <div className="relative shrink-0 size-[36px]" data-node-id="I2163:4391;33:440" data-name="Balloon Icon">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCall} />
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-['Pretendard:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] tracking-[-0.42px] whitespace-nowrap" data-node-id="I2163:4391;33:441">
+              <p className="leading-[20px]">010-2225-0555</p>
+            </div>
+          </div>
+          <div className="h-[76px] relative shrink-0 w-0" data-node-id="2163:4392">
+            <div className="absolute inset-[0_-0.5px]">
+              <img alt="" className="block max-w-none size-full" src={imgLine1} />
+            </div>
+          </div>
+          <button className="bg-[#0074ca] content-stretch cursor-pointer flex flex-col items-center justify-center px-[20px] py-[10px] relative shrink-0" data-node-id="2163:4393" data-name="헤더_btn">
+            <div className="relative shrink-0 size-[36px]" data-node-id="I2163:4393;33:440" data-name="Balloon Icon">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBalloonIcon} />
+            </div>
+            <div className="[word-break:break-word] flex flex-col font-['Pretendard:Bold'] justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] text-left whitespace-nowrap" data-node-id="I2163:4393;33:441">
+              <p className="leading-[20px]">무료 진단 신청</p>
+            </div>
+          </button>
+        </div>
+        <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch cursor-pointer flex items-center justify-between left-1/2 top-1/2 w-[434px]" data-node-id="2163:4394" data-name="메뉴">
+          <button className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2163:4395" data-name="메인메뉴">
+            <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap" data-node-id="I2163:4395;37:500">
+              <p className="leading-none">센터 소개</p>
+            </div>
+          </button>
+          <button className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2163:4396" data-name="아이템">
+            <div className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2163:4397" data-name="메인메뉴">
+              <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap" data-node-id="I2163:4397;37:500">
+                <p className="leading-none">주요 서비스</p>
+              </div>
+            </div>
+          </button>
+          <button className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2163:4398" data-name="아이템">
+            <div className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2163:4399" data-name="메인메뉴">
+              <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap" data-node-id="I2163:4399;37:500">
+                <p className="leading-none">전문가 강점</p>
+              </div>
+            </div>
+          </button>
+          <button className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2163:4400" data-name="메인메뉴">
+            <div className="[word-break:break-word] flex flex-col font-['Pretendard:Medium'] justify-center leading-[0] not-italic relative shrink-0 text-[#475569] text-[16px] text-left whitespace-nowrap" data-node-id="I2163:4400;37:500">
+              <p className="leading-none">환급 절차</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

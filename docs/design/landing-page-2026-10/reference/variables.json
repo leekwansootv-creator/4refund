@@ -1,0 +1,17 @@
+{
+  "Text/Inverse": "#ffffff",
+  "Surface/Default": "#ffffff",
+  "Effect/Shadow Brand": "#7ea1ff4d",
+  "Background/Default": "#f3f7fe",
+  "Background/Canvas": "#ffffff",
+  "Text/Primary Black": "#000000",
+  "font size/18": "18",
+  "font family/Font 1": "Noto Sans KR",
+  "line height/28": "28",
+  "font weight/400": "400",
+  "Noto Sans KR/Regular": "Font(family: \"font family/Font 1\", style: Regular, size: item spacing/12, weight: font weight/400, lineHeight: item spacing/s, letterSpacing: 0)",
+  "item spacing/12": "12",
+  "item spacing/s": "16",
+  "Text/Secondary Warm": "#6a6f73",
+  "Icon/Inverse": "#ffffff"
+}

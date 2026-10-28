@@ -1,5 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures";
 import type { QuickEstimateSubmissionPayload } from "../src/features/quick-estimate";
 
 const SUCCESS = { ok: true, leadId: "4d95c6c8-0217-44c7-9d84-e81842721767", duplicate: false };
@@ -43,7 +43,7 @@ for (const width of [1440, 375]) {
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
     await page.route("**/*", async (route) => {
-      if (route.request().method() !== "POST") return route.continue();
+      if (route.request().method() !== "POST") return route.fallback();
       requests.push(
         JSON.parse(
           new URLSearchParams(route.request().postData() ?? "").get("payload") ?? "null",
@@ -84,7 +84,7 @@ test("조회와 재조회 뒤 닫기는 POST를 생성하지 않는다", async (
     if (route.request().method() === "POST") {
       posts++;
       await route.abort();
-    } else await route.continue();
+    } else await route.fallback();
   });
   await openResult(page);
   await page.getByRole("button", { name: "다시 조회하기" }).click();
@@ -98,7 +98,7 @@ test("조회와 재조회 뒤 닫기는 POST를 생성하지 않는다", async (
 test("판독 불가 응답은 경고·동일 payload 재시도 뒤 중복 성공으로 완료한다", async ({ page }) => {
   const bodies: string[] = [];
   await page.route("**/*", async (route) => {
-    if (route.request().method() !== "POST") return route.continue();
+    if (route.request().method() !== "POST") return route.fallback();
     bodies.push(route.request().postData() ?? "");
     await route.fulfill(
       bodies.length === 1
@@ -141,7 +141,7 @@ for (const scenario of [
       if (route.request().method() === "POST") {
         posts++;
         await route.abort();
-      } else await route.continue();
+      } else await route.fallback();
     });
     await page.goto("/");
     const action = page.getByRole("button", { name: "환급액 조회하기" });
@@ -194,7 +194,7 @@ test("실제 모달은 접수 응답 전 Escape와 닫기를 차단하고 성공
   });
   let posts = 0;
   await page.route("**/*", async (route) => {
-    if (route.request().method() !== "POST") return route.continue();
+    if (route.request().method() !== "POST") return route.fallback();
     posts++;
     await pending;
     await route.fulfill({ json: SUCCESS });

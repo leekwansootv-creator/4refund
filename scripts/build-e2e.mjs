@@ -16,6 +16,8 @@ const result = spawnSync(process.execPath, ["node_modules/next/dist/bin/next", "
             "https://partner-a.example,https://partner-b.example,http://127.0.0.1:3100",
           NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL:
             "https://script.google.com/macros/s/E2E-INTERCEPT-ONLY/exec",
+          NEXT_PUBLIC_NEWS_API_URL:
+            "https://script.google.com/macros/s/NEWS-E2E-INTERCEPT-ONLY/exec?view=news",
         }),
   },
 });

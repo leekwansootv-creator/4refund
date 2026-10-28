@@ -1,4 +1,4 @@
-import { expect, test, type Page, type FrameLocator } from "@playwright/test";
+import { expect, test, type Page, type FrameLocator } from "./fixtures";
 import AxeBuilder from "@axe-core/playwright";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -67,7 +67,7 @@ for (const [origin, width] of [
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
     await page.route("**/*", async (route) => {
-      if (route.request().method() !== "POST") return route.continue();
+      if (route.request().method() !== "POST") return route.fallback();
       requests.push(route.request().postData() ?? "");
       await route.fulfill(
         requests.length === 1
@@ -134,7 +134,7 @@ test("조회·재조회·닫기와 잘못된 메시지는 저장을 발생시키
       posts++;
       return route.abort();
     }
-    return route.continue();
+    return route.fallback();
   });
   await host(page);
   await open(page);
@@ -227,7 +227,7 @@ test("iframe-only·standalone은 작은 프레임에서 내부 스크롤로 조�
       posts++;
       return route.abort();
     }
-    return route.continue();
+    return route.fallback();
   });
   await page.setViewportSize({ width: 320, height: 600 });
   await page.goto("/embed/quick-estimate.html?mode=standalone&diagnostic=1");
@@ -287,7 +287,7 @@ for (const failure of ["network", "timeout", "RATE_LIMITED", "STORAGE_UNAVAILABL
     test.setTimeout(45000);
     const bodies: string[] = [];
     await page.route("**/*", async (route) => {
-      if (route.request().method() !== "POST") return route.continue();
+      if (route.request().method() !== "POST") return route.fallback();
       bodies.push(route.request().postData() ?? "");
       if (bodies.length > 1) return route.fulfill({ json: success });
       if (failure === "network") return route.abort();
@@ -324,7 +324,7 @@ test("조회 전용 데모는 endpoint가 빌드돼 있어도 접수를 열지 �
       posts++;
       return route.abort();
     }
-    return route.continue();
+    return route.fallback();
   });
   await page.goto("/embed/demo.html");
   const demo = page.frameLocator('iframe[title="조회 전용 예시"]');
@@ -336,7 +336,7 @@ test("조회 전용 데모는 endpoint가 빌드돼 있어도 접수를 열지 �
 
 test("리뷰: 준비된 진입 iframe이 다시 로드되면 복구 링크를 표시한다", async ({ page }) => {
   await page.route("**/*", (route) =>
-    route.request().method() === "POST" ? route.abort() : route.continue(),
+    route.request().method() === "POST" ? route.abort() : route.fallback(),
   );
   await host(page);
   const entry = page.frames().find((frame) => frame.url().includes("mode=entry"));
@@ -350,7 +350,7 @@ test("리뷰: 준비된 진입 iframe이 다시 로드되면 복구 링크를 �
 
 test("리뷰: standalone 닫기는 편지의 조회 버튼으로 포커스를 돌려준다", async ({ page }) => {
   await page.route("**/*", (route) =>
-    route.request().method() === "POST" ? route.abort() : route.continue(),
+    route.request().method() === "POST" ? route.abort() : route.fallback(),
   );
   await page.goto("/embed/quick-estimate.html?mode=standalone");
   await page.getByRole("button", { name: "환급액 조회하기" }).click();
@@ -364,7 +364,7 @@ test("리뷰: 미확인 신청 뒤 iframe 재로드는 경고를 거쳐 닫고 �
 }) => {
   let posts = 0;
   await page.route("**/*", (route) => {
-    if (route.request().method() !== "POST") return route.continue();
+    if (route.request().method() !== "POST") return route.fallback();
     posts++;
     return route.fulfill({ contentType: "text/plain", body: "unreadable" });
   });

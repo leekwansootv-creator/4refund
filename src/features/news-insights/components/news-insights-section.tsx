@@ -9,7 +9,7 @@ type NewsInsightsSectionProps = {
 
 /**
  * 이미 검토된 공개 카드와 조회 상태만 표시한다. 원문 추출·인증·게시 정렬은 공급자 책임이다.
- * 관리 시스템이 정해질 때까지 홈페이지에서는 unconfigured를 사용하며 예시 기사를 게시하지 않는다.
+ * 공급 주소가 미설정이면 숨기고, 개발 예시를 운영 기사로 대체하지 않는다.
  */
 export function NewsInsightsSection({ state, onRetry }: NewsInsightsSectionProps) {
   if (state.status === "unconfigured" || (state.status === "ready" && !state.articles.length)) {

@@ -42,6 +42,17 @@ integrations/
 
 아직 필요하지 않은 디렉터리는 미리 만들지 않는다.
 
+`services/news-extractor/`는 Python으로 실행하는 독립 기사 수집 경계다. Next.js 정적 export와
+CMS runtime에 의존하지 않으며 별도 `pyproject.toml`/`uv.lock`/테스트를 소유한다. Google Sheet에
+접근하지 않고 인증된 URL 요청을 제한된 메타데이터 후보로 바꾼다. `src` 레이어가 Python 구현을
+import하지 않는다. 아키텍처 검사는 승인된 서비스 폴더와 src의 직접 참조 금지를 검사하고,
+Python 구현은 별도 lint·포맷·HTTP 계약 테스트로 검증한다. Python 소스 이름은 snake_case를 사용한다.
+
+뉴스 integration은 `news-insights` 관리 프로젝트와 `news-public` 공개 읽기 프로젝트로 분리한다.
+공개 프로젝트는 관리 프로젝트의 순수 모델만 공유하고 고급 Sheets API v4로 고정 뉴스 범위만 읽는다.
+`spreadsheets.readonly` 권한을 유지하며 생성물 검사로 SpreadsheetApp·쓰기·관리 RPC·수집·메일·트리거
+코드가 공개 artifact에 포함되지 않는지 확인한다.
+
 ## 레이어 책임
 
 ### `src/app`

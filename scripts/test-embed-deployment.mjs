@@ -15,6 +15,15 @@ if (previousDirectory) {
 const base = manifest.publicBaseUrl;
 const origin = new URL(base).origin;
 const parent = "https://partner-embed.example";
+const newsEndpoint = process.env.EMBED_BROWSER_NEWS_API_URL ?? "";
+const newsFixture = {
+  articles: Array.from({ length: 3 }, (_, index) => ({
+    id: `00000000-0000-4000-8000-${String(index + 1).padStart(12, "0")}`,
+    title: `배포 검사 전용 기사 ${index + 1}`,
+    url: `https://news.example.org/${index + 1}`,
+    imageUrl: null,
+  })),
+};
 const mime = {
   ".js": "text/javascript",
   ".css": "text/css",
@@ -33,6 +42,7 @@ const browser = await chromium.launch();
 const missing = [];
 const errors = [];
 let posts = 0;
+let mockedNewsRequests = 0;
 const results = [];
 try {
   for (const width of [1440, 375]) {
@@ -47,6 +57,14 @@ try {
       if (request.method() === "POST") {
         posts++;
         return route.abort();
+      }
+      // 실제 배포본의 지정된 피드만 모의 처리하며 Google 요청이나 다른 외부 URL은 허용하지 않습니다.
+      if (newsEndpoint && request.method() === "GET" && url.href === newsEndpoint) {
+        mockedNewsRequests++;
+        return route.fulfill({
+          contentType: "application/json",
+          body: JSON.stringify(newsFixture),
+        });
       }
       if (url.origin === parent) {
         const version = url.searchParams.get("release");
@@ -105,6 +123,13 @@ try {
     for (const suffix of previousDirectory ? ["", "?staleHomepage=1"] : [""]) {
       await page.goto(`${base}/${suffix}`);
       await expect(page).toHaveTitle("4대보험경정청구센터");
+      if (await page.locator("#news").count()) {
+        await expect(page.locator("#news li")).toHaveCount(3);
+        await expect(page.locator("#news").getByRole("link").first()).toHaveAttribute(
+          "href",
+          newsFixture.articles[0].url,
+        );
+      }
       await page.getByRole("button", { name: "환급액 조회하기", exact: true }).click();
       await lookup(page);
       await page.getByRole("button", { name: "간단 견적 닫기" }).click();
@@ -148,6 +173,7 @@ try {
         staleHomepage: previousDirectory ? "passed" : "not requested",
         lookupOnlyDemo: "passed",
         posts,
+        mockedNewsRequests,
         missingAssets: missing.length,
         browserErrors: errors.length,
       },

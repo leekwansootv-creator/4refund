@@ -1,7 +1,7 @@
 /** 운영 Spreadsheet ID를 저장하는 Apps Script Property 이름입니다. */
 export const SPREADSHEET_ID_PROPERTY = "QUICK_ESTIMATE_SPREADSHEET_ID";
 
-/** 신규 상담과 운영 점검 메일 수신자를 저장하는 Script Property 이름입니다. */
+/** 신규 상담과 운영 점검 메일 수신자 최대 두 주소를 쉼표로 저장하는 Script Property입니다. */
 export const NOTIFICATION_RECIPIENT_PROPERTY = "QUICK_ESTIMATE_NOTIFICATION_RECIPIENT";
 
 /** 신규 상담의 기본 담당자이며 비어 있으면 자동 배정하지 않습니다. */

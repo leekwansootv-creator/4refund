@@ -7,7 +7,7 @@ import {
   NOTIFICATION_FAILURE_PROPERTY,
   NOTIFICATION_RECIPIENT_PROPERTY,
 } from "./apps-script-config";
-import { isNotificationRecipient } from "./operator-settings";
+import { parseNotificationRecipients } from "./operator-settings";
 
 const OPERATIONS_CHECK_HANDLER_FUNCTION_NAME = "runQuickEstimateOperationsCheck";
 const OPERATIONS_CHECK_INTERVAL_MINUTES = 30;
@@ -61,13 +61,15 @@ export function createAppsScriptConsultationNotifier(
 ) {
   return {
     send: (message: ConsultationNotificationMessage): void => {
-      const recipient = dependencies.getProperty(NOTIFICATION_RECIPIENT_PROPERTY)?.trim() ?? "";
+      const recipients = parseNotificationRecipients(
+        dependencies.getProperty(NOTIFICATION_RECIPIENT_PROPERTY) ?? "",
+      );
 
-      if (!isNotificationRecipient(recipient)) {
+      if (recipients === null) {
         throw new Error("notification_recipient_not_configured");
       }
 
-      dependencies.sendEmail(recipient, message);
+      dependencies.sendEmail(recipients.join(","), message);
     },
     recordFailure: (failure: { code: string; occurredAt: string }): void => {
       const current = parseFailureState(dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY));

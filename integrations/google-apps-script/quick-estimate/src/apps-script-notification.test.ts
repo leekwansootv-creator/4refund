@@ -39,20 +39,46 @@ describe("Apps Script 상담 알림 어댑터", () => {
     expect(sendEmail).toHaveBeenCalledWith("owner@example.com", message);
   });
 
-  it.each([null, "", "wrong", "a@example.com,b@example.com", "a@example.com;b@example.com"])(
-    "수신자 %s가 없거나 올바른 한 주소가 아니면 발송하지 않는다",
-    (recipient) => {
-      const sendEmail = vi.fn();
-      const notifier = createAppsScriptConsultationNotifier(
-        createDependencies({ getProperty: () => recipient, sendEmail }),
-      );
+  it("두 수신자를 하나의 메일 요청에 전달해 수신자별 부분 재시도를 만들지 않는다", () => {
+    const sendEmail = vi.fn();
+    const notifier = createAppsScriptConsultationNotifier(
+      createDependencies({ getProperty: () => " a@example.com, b@example.com ", sendEmail }),
+    );
+    const message = { subject: "상담 알림", body: "개인정보 없는 본문" };
+    notifier.send(message);
+    expect(sendEmail).toHaveBeenCalledExactlyOnceWith("a@example.com,b@example.com", message);
+  });
 
-      expect(() => notifier.send({ subject: "상담 알림", body: "본문" })).toThrow(
-        "notification_recipient_not_configured",
-      );
-      expect(sendEmail).not.toHaveBeenCalled();
-    },
-  );
+  it("대소문자와 공백만 다른 중복 주소에는 한 번만 발송한다", () => {
+    const sendEmail = vi.fn();
+    const notifier = createAppsScriptConsultationNotifier(
+      createDependencies({ getProperty: () => "Owner@example.com, owner@example.com", sendEmail }),
+    );
+    const message = { subject: "상담 알림", body: "본문" };
+    notifier.send(message);
+    expect(sendEmail).toHaveBeenCalledExactlyOnceWith("Owner@example.com", message);
+  });
+
+  it.each([
+    null,
+    "",
+    "wrong",
+    "a@example.com;b@example.com",
+    "a@example.com,invalid",
+    "a@example.com,",
+    "a@example.com,\nb@example.com",
+    "a@example.com,b@example.com,c@example.com",
+  ])("수신자 %s가 없거나 하나라도 잘못되면 부분 발송하지 않는다", (recipient) => {
+    const sendEmail = vi.fn();
+    const notifier = createAppsScriptConsultationNotifier(
+      createDependencies({ getProperty: () => recipient, sendEmail }),
+    );
+
+    expect(() => notifier.send({ subject: "상담 알림", body: "본문" })).toThrow(
+      "notification_recipient_not_configured",
+    );
+    expect(sendEmail).not.toHaveBeenCalled();
+  });
 
   it("개인정보 없는 실패 상태를 누적하고 성공 후 제거한다", () => {
     const properties = new Map<string, string>();

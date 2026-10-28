@@ -29,14 +29,29 @@ describe("운영자 설정", () => {
   });
 
   it.each([
-    "a@example.com,b@example.com",
     "a@example.com;b@example.com",
     "A <a@example.com>",
     "a@b",
-  ])("수신자 %s는 한 주소 형식이 아니므로 준비를 거절한다", (recipient) => {
+    "a@example.com,",
+    "a@example.com,invalid",
+    "a@example.com,\nb@example.com",
+    "a@example.com,b@example.com,c@example.com",
+  ])("수신자 목록 %s가 잘못되면 전체 준비를 거절한다", (recipient) => {
     expect(
       inspectOperatorSettings((key) => (key === DEFAULT_ASSIGNEE_PROPERTY ? "담당자" : recipient)),
     ).toMatchObject({ ready: false, notificationRecipient: "invalid" });
+  });
+
+  it("승인된 두 수신자 설정을 검사하되 주소 원문을 반환하지 않는다", () => {
+    const result = inspectOperatorSettings((key) =>
+      key === DEFAULT_ASSIGNEE_PROPERTY ? "담당자" : "a@example.com, b@example.com",
+    );
+    expect(result).toEqual({
+      ready: true,
+      defaultAssignee: "configured",
+      notificationRecipient: "configured",
+    });
+    expect(JSON.stringify(result)).not.toContain("example.com");
   });
 
   it("수식 형태의 이름과 입력 전 활성화를 거절하고 Google 부수효과를 호출하지 않는다", () => {

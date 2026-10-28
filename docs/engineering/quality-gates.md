@@ -35,6 +35,11 @@ GitHub Quality와 수동 Embed release의 검증 단계 모두 같은 uv 버전�
 기존 전체 요청 handler는 `route.fallback()`으로 넘겨 모의 피드를 건너뛰지 않는다.
 실제 기사·Google 게시·CORS 검증과 모의 응답의 카드 상태 검증을 구분한다.
 
+실제 설정으로 조립한 전체 release의 `test:embed-release`에는 `EMBED_BROWSER_NEWS_API_URL`로
+빌드에 사용한 공개 뉴스 URL을 전달한다. 정확히 일치하는 GET만 기사 3건의 모의 응답으로 처리하며
+카드 수·원문 링크도 확인한다. 모든 POST와 다른 외부 요청은 계속 차단한다. 이 검사는 실제
+Google 피드 조회를 대신하지 않으며 빈 피드나 수집 서비스의 운영 성공을 추정하지 않는다.
+
 일반 검사 빌드는 `scripts/build-e2e.mjs`가 `NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL`을 테스트 전용 식별자의 `https://script.google.com/macros/s/E2E-INTERCEPT-ONLY/exec`로 주입한다. 따라서 로컬 운영 설정 유무와 관계없이 일반 E2E가 모든 POST를 가로채 조회/신청 경계를 검증한다. `QUICK_ESTIMATE_LIVE_E2E=1`로 명시한 별도 실제 저장 검사만 승인된 환경 설정을 사용한다. `npm run build`와 운영 배포의 endpoint 필수·형식 검사는 유지한다.
 
 ## 개발 명령

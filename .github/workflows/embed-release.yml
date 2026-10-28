@@ -119,6 +119,7 @@ jobs:
         env:
           EMBED_ARTIFACT_DIRECTORY: .embed-artifacts/candidate
           EMBED_BROWSER_PREVIOUS_ARTIFACT: ${{ inputs.previous_run_id != 'first' && '.embed-artifacts/previous' || '' }}
+          EMBED_BROWSER_NEWS_API_URL: ${{ vars.NEWS_PUBLIC_API_URL }}
         run: npm run test:embed-release
       - name: Retain complete archive for next release and rollback
         uses: actions/upload-artifact@v7

@@ -97,16 +97,18 @@ export function ExpertStrengthsSection() {
           >
             <div
               data-landing-reveal-followup-target="true"
-              className={`${motionStyles.strengthFigure} relative h-[413px] w-full overflow-hidden`}
+              className={`${motionStyles.strengthFigure} ${styles.artworkShadow} relative h-[413px] w-full`}
             >
-              <Image
-                src={LANDING_ASSETS.images.expertStrengths.introduction}
-                alt=""
-                width={1312}
-                height={1199}
-                unoptimized
-                className={styles.introductionArtwork}
-              />
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  src={LANDING_ASSETS.images.expertStrengths.introduction}
+                  alt=""
+                  width={1312}
+                  height={1199}
+                  unoptimized
+                  className={styles.introductionArtwork}
+                />
+              </div>
             </div>
             <figcaption className="flex items-center gap-2 rounded-lg bg-white px-4 py-3 text-lg leading-none font-medium">
               <Image src={LANDING_ASSETS.icons.patentAward} alt="" width={24} height={24} />
@@ -178,16 +180,20 @@ export function ExpertStrengthsSection() {
                 >
                   <div
                     data-landing-reveal-followup-target="true"
-                    className={`${motionStyles.strengthFigure} relative size-full overflow-hidden`}
+                    className={`${motionStyles.strengthFigure} ${
+                      strength.assetKey === "rpaAi" ? "" : styles.artworkShadow
+                    } relative size-full`}
                   >
-                    <Image
-                      src={LANDING_ASSETS.images.expertStrengths[strength.assetKey]}
-                      alt=""
-                      width={strength.assetKey === "rpaAi" ? 1337 : 1152}
-                      height={strength.assetKey === "rpaAi" ? 1176 : 928}
-                      unoptimized
-                      className={strengthImageClasses[strength.assetKey]}
-                    />
+                    <div className="absolute inset-0 overflow-hidden">
+                      <Image
+                        src={LANDING_ASSETS.images.expertStrengths[strength.assetKey]}
+                        alt=""
+                        width={strength.assetKey === "rpaAi" ? 1337 : 1152}
+                        height={strength.assetKey === "rpaAi" ? 1176 : 928}
+                        unoptimized
+                        className={strengthImageClasses[strength.assetKey]}
+                      />
+                    </div>
                   </div>
                 </figure>
               </article>

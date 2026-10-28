@@ -22,6 +22,8 @@ var NewsInsights = (() => {
   // integrations/google-apps-script/news-insights/src/entrypoint.ts
   var entrypoint_exports = {};
   __export(entrypoint_exports, {
+    doPostNewsWorker: () => doPostNewsWorker,
+    newsCollectionStatus: () => newsCollectionStatus,
     newsList: () => newsList,
     newsMutate: () => newsMutate,
     onOpenNews: () => onOpenNews,
@@ -400,6 +402,210 @@ var NewsInsights = (() => {
     return unique(rows("뉴스 게시본", SNAPSHOT_HEADERS, MAX_SNAPSHOTS).map(snapshotFromRow));
   }
 
+  // integrations/google-apps-script/news-insights/src/collection.ts
+  var pending = (job) => job.status === "queued" || job.status === "running";
+  function newsCollection(news, store2) {
+    function view(record) {
+      const job = store2.jobs().find((entry) => entry.articleId === record.id);
+      return {
+        ...record,
+        etag: news.etag(record),
+        collection: job ? { status: job.status, queuedAt: job.queuedAt } : null
+      };
+    }
+    return {
+      view,
+      hasPending: () => store2.jobs().some(pending),
+      status(id) {
+        news.authorize();
+        return news.lock(() => {
+          const job = store2.jobs().find((entry) => entry.articleId === id);
+          if (!job) return { status: "none" };
+          if (pending(job) && store2.now() - job.queuedAt < 36e5) return { status: job.status };
+          const status = pending(job) ? "failed" : job.status;
+          if (pending(job)) store2.put({ ...job, status });
+          const record = news.records().find((entry) => entry.id === id);
+          if (!record) throw new Error("INVALID_JOB");
+          return { status, record: view(record) };
+        });
+      },
+      enqueue(command) {
+        news.authorize();
+        return news.lock(() => {
+          var _a;
+          const record = news.records().find((entry) => entry.id === command.id);
+          if (!record || news.etag(record) !== command.etag)
+            throw new Error("다른 편집이 반영됐습니다. 목록을 새로 불러온 뒤 다시 시도해 주세요.");
+          const old = store2.jobs().find((job) => job.articleId === record.id);
+          if (old && pending(old) && store2.now() - old.queuedAt < 36e5) return view(record);
+          store2.put({
+            id: news.uuid(),
+            articleId: record.id,
+            etag: news.etag(record),
+            url: normalizeNewsUrl((_a = command.url) != null ? _a : record.url),
+            imageOnly: command.url !== void 0,
+            status: "queued",
+            queuedAt: store2.now(),
+            lease: "",
+            leaseUntil: 0,
+            attempts: 0
+          });
+          return view(record);
+        });
+      },
+      claim() {
+        return news.lock(() => {
+          const now = store2.now();
+          const jobs = store2.jobs().filter(pending).sort((a, b) => a.queuedAt - b.queuedAt);
+          for (const job of jobs) {
+            if (job.status === "running" && job.leaseUntil > now) continue;
+            if (job.attempts >= 2 || now - job.queuedAt >= 36e5) {
+              store2.put({ ...job, status: "failed" });
+              continue;
+            }
+            const next = {
+              ...job,
+              status: "running",
+              lease: news.uuid(),
+              leaseUntil: now + 18e4,
+              attempts: job.attempts + 1
+            };
+            store2.put(next);
+            return { jobId: next.id, lease: next.lease, url: next.url, imageOnly: next.imageOnly };
+          }
+          return null;
+        });
+      },
+      complete(input) {
+        return news.lock(() => {
+          const job = store2.jobs().find((entry) => entry.id === input.jobId);
+          if (!job || job.lease !== input.lease || !job.lease) throw new Error("INVALID_JOB");
+          if (!pending(job)) return { accepted: true, duplicate: true };
+          if (job.status !== "running" || job.leaseUntil <= store2.now())
+            throw new Error("EXPIRED_JOB");
+          if (input.failed) {
+            store2.put({ ...job, status: "failed" });
+            return { accepted: true };
+          }
+          const records = news.records();
+          const record = records.find((entry) => entry.id === job.articleId);
+          if (!record || news.etag(record) !== job.etag) {
+            store2.put({ ...job, status: "conflict" });
+            return { accepted: true };
+          }
+          try {
+            const next = applyCandidate(record, input.candidate, news.now(), job.imageOnly);
+            if (!job.imageOnly) assertUnique(records, next.resolvedUrl, record.id);
+            news.write(next);
+            store2.put({ ...job, status: "succeeded" });
+          } catch {
+            store2.put({ ...job, status: "failed" });
+            return { accepted: true };
+          }
+          return { accepted: true };
+        });
+      }
+    };
+  }
+
+  // integrations/google-apps-script/news-insights/src/worker-auth.ts
+  function rememberWorkerNonce(raw, nonce, now) {
+    const entries = JSON.parse(raw);
+    if (!Array.isArray(entries) || entries.some(
+      (entry) => !entry || typeof entry.nonce !== "string" || !Number.isSafeInteger(entry.at)
+    ))
+      throw new Error("INVALID_NONCES");
+    const recent = entries.filter((entry) => now - entry.at <= 6e5);
+    if (recent.length >= 60 || recent.some((entry) => entry.nonce === nonce))
+      throw new Error("REPLAY");
+    return JSON.stringify([...recent, { nonce, at: now }]);
+  }
+  function authenticateWorker(raw, port) {
+    if (raw.length > 12e4) throw new Error("INVALID_REQUEST");
+    const envelope = JSON.parse(raw);
+    if (!envelope || typeof envelope !== "object" || Array.isArray(envelope))
+      throw new Error("INVALID_REQUEST");
+    const value = envelope;
+    if (Object.keys(value).sort().join() !== "payload,signature" || typeof value.payload !== "string" || typeof value.signature !== "string" || !/^[a-f0-9]{64}$/u.test(value.signature))
+      throw new Error("INVALID_REQUEST");
+    const expected = port.hmac(value.payload);
+    let different = expected.length ^ value.signature.length;
+    for (let index = 0; index < 64; index++)
+      different |= expected.charCodeAt(index) ^ value.signature.charCodeAt(index);
+    if (different) throw new Error("UNAUTHORIZED");
+    const message = JSON.parse(value.payload);
+    if (!message || typeof message !== "object" || Array.isArray(message))
+      throw new Error("INVALID_REQUEST");
+    const input = message;
+    const now = port.now();
+    if (Object.keys(input).sort().join() !== "action,body,nonce,timestamp,version" || input.version !== 1 || !["probe", "claim", "complete"].includes(String(input.action)) || typeof input.nonce !== "string" || !/^[0-9a-f-]{36}$/u.test(input.nonce) || typeof input.timestamp !== "number" || !Number.isSafeInteger(input.timestamp) || Math.abs(now - input.timestamp) > 3e5 || !input.body || typeof input.body !== "object" || Array.isArray(input.body))
+      throw new Error("INVALID_REQUEST");
+    const body = input.body;
+    if (input.action !== "complete" && Object.keys(body).length) throw new Error("INVALID_REQUEST");
+    if (input.action === "complete" && (typeof body.jobId !== "string" || typeof body.lease !== "string" || Object.keys(body).sort().join() !== (body.failed === true ? "failed,jobId,lease" : "candidate,jobId,lease")))
+      throw new Error("INVALID_REQUEST");
+    port.consumeNonce(input.nonce, now);
+    return { action: input.action, body };
+  }
+
+  // integrations/google-apps-script/news-insights/src/google-collection.ts
+  var PREFIX = "NEWS_COLLECTION_JOB_";
+  function isQueuedCollection() {
+    return PropertiesService.getScriptProperties().getProperty("NEWS_COLLECTION_MODE") === "github-actions";
+  }
+  function store() {
+    const properties = PropertiesService.getScriptProperties();
+    return {
+      jobs: () => Object.entries(properties.getProperties()).filter(([key]) => key.startsWith(PREFIX)).map(([, raw]) => JSON.parse(raw)),
+      put: (job) => {
+        if (!/^[0-9a-f-]{36}$/u.test(job.articleId)) throw new Error("INVALID_JOB");
+        const serialized = JSON.stringify(job);
+        if (serialized.length > 5e3) throw new Error("INVALID_JOB");
+        properties.setProperty(PREFIX + job.articleId, serialized);
+      },
+      now: () => Date.now()
+    };
+  }
+  function googleNewsCollection() {
+    return newsCollection(googleNewsPort(), store());
+  }
+  function handleNewsWorker(raw) {
+    var _a;
+    try {
+      const properties = PropertiesService.getScriptProperties();
+      const token = (_a = properties.getProperty("NEWS_WORKER_TOKEN")) != null ? _a : "";
+      if (!isQueuedCollection() || !/^[a-f0-9]{64}$/u.test(token)) throw new Error("UNAVAILABLE");
+      const input = authenticateWorker(raw, {
+        now: () => Date.now(),
+        hmac: (payload) => Utilities.computeHmacSha256Signature(payload, token, Utilities.Charset.UTF_8).map((byte) => (byte & 255).toString(16).padStart(2, "0")).join(""),
+        consumeNonce: (nonce, now) => {
+          var _a2;
+          const lock = LockService.getScriptLock();
+          if (!lock.tryLock(5e3)) throw new Error("BUSY");
+          try {
+            properties.setProperty(
+              "NEWS_WORKER_NONCES",
+              rememberWorkerNonce((_a2 = properties.getProperty("NEWS_WORKER_NONCES")) != null ? _a2 : "[]", nonce, now)
+            );
+          } finally {
+            lock.releaseLock();
+          }
+        }
+      });
+      const collection = googleNewsCollection();
+      return {
+        ok: true,
+        data: input.action === "probe" ? { pending: collection.hasPending() } : input.action === "claim" ? collection.claim() : collection.complete({
+          jobId: input.body.jobId,
+          lease: input.body.lease,
+          ...input.body.failed === true ? { failed: true } : { candidate: input.body.candidate }
+        })
+      };
+    } catch {
+      return { ok: false, error: "NEWS_WORKER_UNAVAILABLE" };
+    }
+  }
+
   // integrations/google-apps-script/news-insights/src/service.ts
   function newsService(port) {
     function current(command) {
@@ -484,7 +690,7 @@ button:disabled{opacity:.55;cursor:wait}:focus-visible{outline:3px solid #2966ef
 <button id="create">초안 만들기·가져오기</button>
 <label for="articles">등록한 기사</label><select id="articles"><option value="">기사를 선택하세요</option></select>
 <button id="reload">목록 새로고침</button>
-<section id="editor" hidden><h2>편집</h2><p id="recordStatus" class="note"></p><a id="source" target="_blank" rel="noopener noreferrer">기사 원문 열기</a>
+<section id="editor" hidden><h2>편집</h2><p id="recordStatus" class="note"></p><p id="collectionStatus" role="status" aria-live="polite" class="note"></p><a id="source" target="_blank" rel="noopener noreferrer">기사 원문 열기</a>
 <button id="fetch">원문 다시 가져오기</button>
 <label for="title">편집 제목 (최대 300자)</label><textarea id="title" maxlength="600"></textarea>
 <h2>가져온 후보</h2><p id="warning" class="note"></p><p id="candidateTitle"></p><button id="useTitle">후보 제목 적용</button><img id="candidateImage" alt="가져온 이미지 후보" hidden>
@@ -495,25 +701,29 @@ button:disabled{opacity:.55;cursor:wait}:focus-visible{outline:3px solid #2966ef
 <p class="note">편집본 저장과 다시 가져오기는 공개된 카드를 바꾸지 않습니다. 게시 버튼에서만 반영됩니다.</p></section>
 <script>
 const byId = id => document.getElementById(id);
-let records = [], selected = null, busy = false, dirty = false;
+let records = [], selected = null, busy = false, dirty = false, pollTimer = null, revision = 0;
+const collectionText={queued:'수집 대기 중입니다. 정기 수집은 수분이 걸릴 수 있으며 창을 닫아도 계속됩니다.',running:'제목·이미지를 수집하고 있습니다.',succeeded:'수집이 완료됐습니다. 후보를 검토하고 적용해 주세요.',failed:'수집하지 못했습니다. 다시 가져오거나 제목·이미지를 직접 보정해 주세요.',conflict:'수집 중 편집 내용이 바뀌어 후보를 반영하지 않았습니다. 필요하면 다시 가져오세요.'};
+const isPending=()=>['queued','running'].includes(selected?.collection?.status);
 const warningText = {TITLE_MISSING:'제목을 찾지 못했습니다. 직접 입력해 주세요.',IMAGE_MISSING:'대표 이미지가 없습니다. 다른 이미지 URL을 입력하거나 이미지 없이 게시하세요.',IMAGE_UNAVAILABLE:'이미지를 가져오지 못했습니다. 다른 이미지 URL을 입력할 수 있습니다.',SOURCE_CHANGED:'이전 수집 이후 원문 후보가 달라졌습니다. 기존 편집값은 유지했습니다.'};
 function message(text){byId('status').textContent=text;}
-function rpc(method, value){return new Promise((resolve,reject)=>{const runner=google.script.run.withSuccessHandler(result=>result.ok?resolve(result.data):reject(new Error(result.message))).withFailureHandler(()=>reject(new Error('연결하지 못했습니다. 목록을 새로고침하고 저장 여부를 확인해 주세요.')));if(method==='list')runner.newsList();else runner.newsMutate(value);});}
+function rpc(method, value){return new Promise((resolve,reject)=>{const runner=google.script.run.withSuccessHandler(result=>result.ok?resolve(result.data):reject(new Error(result.message))).withFailureHandler(()=>reject(new Error('연결하지 못했습니다. 목록을 새로고침하고 저장 여부를 확인해 주세요.')));if(method==='list')runner.newsList();else if(method==='collection')runner.newsCollectionStatus(value);else runner.newsMutate(value);});}
 function preview(){byId('previewTitle').textContent=byId('title').value||'제목을 입력해 주세요';const choice=byId('imageChoice').value;const image=choice==='candidate'?selected.candidateImage:choice==='remove'?'':selected.image;byId('previewImage').hidden=!image;byId('noImage').hidden=!!image;if(image)byId('previewImage').src='data:image/jpeg;base64,'+image;else byId('previewImage').removeAttribute('src');}
-function render(){byId('articles').replaceChildren(new Option('기사를 선택하세요',''));records.forEach(record=>byId('articles').add(new Option('['+record.status+'] '+(record.title||record.url),record.id)));byId('articles').value=selected?.id||'';byId('editor').hidden=!selected;if(!selected)return;byId('title').value=selected.title;byId('source').href=selected.url;byId('recordStatus').textContent=selected.status+(selected.firstPublishedAt?' · 최초 게시 '+selected.firstPublishedAt.slice(0,10):'');byId('candidateTitle').textContent=selected.candidateTitle||'제목 후보가 없습니다.';byId('warning').textContent=warningText[selected.warning]||'가져온 후보를 검토한 뒤 적용해 주세요.';byId('candidateImage').hidden=!selected.candidateImage;if(selected.candidateImage)byId('candidateImage').src='data:image/jpeg;base64,'+selected.candidateImage;else byId('candidateImage').removeAttribute('src');byId('imageChoice').value='keep';dirty=false;preview();}
-async function act(work){if(busy)return;busy=true;document.querySelectorAll('button,input,textarea,select').forEach(el=>el.disabled=true);byId('editor').setAttribute('aria-busy','true');message('작업 중입니다…');try{await work();}catch(error){message(error.message);}finally{busy=false;document.querySelectorAll('button,input,textarea,select').forEach(el=>el.disabled=false);byId('editor').setAttribute('aria-busy','false');}}
+function schedulePoll(){clearTimeout(pollTimer);if(isPending())pollTimer=setTimeout(pollCollection,15000);}
+function render(){revision++;clearTimeout(pollTimer);byId('articles').replaceChildren(new Option('기사를 선택하세요',''));records.forEach(record=>byId('articles').add(new Option('['+record.status+'] '+(record.title||record.url),record.id)));byId('articles').value=selected?.id||'';byId('editor').hidden=!selected;if(!selected)return;byId('title').value=selected.title;byId('source').href=selected.url;byId('recordStatus').textContent=selected.status+(selected.firstPublishedAt?' · 최초 게시 '+selected.firstPublishedAt.slice(0,10):'');byId('collectionStatus').textContent=collectionText[selected.collection?.status]||'';byId('candidateTitle').textContent=selected.candidateTitle||'제목 후보가 없습니다.';byId('warning').textContent=warningText[selected.warning]||'가져온 후보를 검토한 뒤 적용해 주세요.';byId('candidateImage').hidden=!selected.candidateImage;if(selected.candidateImage)byId('candidateImage').src='data:image/jpeg;base64,'+selected.candidateImage;else byId('candidateImage').removeAttribute('src');byId('imageChoice').value='keep';dirty=false;preview();schedulePoll();}
+async function pollCollection(){if(!isPending())return;if(busy){schedulePoll();return;}const id=selected.id, requestedRevision=revision;try{const result=await rpc('collection',id);if(selected?.id!==id||revision!==requestedRevision||busy)return;if(result.record){const draft={title:byId('title').value,image:byId('imageChoice').value,candidate:selected.candidateImage,dirty};records=records.filter(record=>record.id!==id).concat(result.record);selected=result.record;render();if(draft.dirty){byId('title').value=draft.title;const changed=draft.image==='candidate'&&draft.candidate!==selected.candidateImage;byId('imageChoice').value=changed?'keep':draft.image;dirty=true;preview();if(changed)message('이미지 후보가 바뀌었습니다. 새 후보를 확인하고 다시 적용해 주세요.');}}else{selected.collection={...selected.collection,status:result.status};byId('collectionStatus').textContent=collectionText[result.status]||'목록을 새로고침해 수집 상태를 확인해 주세요.';schedulePoll();}}catch{if(selected?.id===id&&revision===requestedRevision)byId('collectionStatus').textContent='수집 상태를 확인하지 못했습니다. 목록 새로고침으로 다시 확인해 주세요.';}}
+async function act(work){if(busy)return;revision++;clearTimeout(pollTimer);busy=true;document.querySelectorAll('button,input,textarea,select').forEach(el=>el.disabled=true);byId('editor').setAttribute('aria-busy','true');message('작업 중입니다…');try{await work();}catch(error){message(error.message);}finally{busy=false;document.querySelectorAll('button,input,textarea,select').forEach(el=>el.disabled=false);byId('editor').setAttribute('aria-busy','false');schedulePoll();}}
 async function mutate(action, extra={}){const result=await rpc('mutate',{action,...(selected?{id:selected.id,etag:selected.etag}:{}),...extra});records=records.filter(record=>record.id!==result.id).concat(result);selected=result;render();return result;}
 async function save(){await mutate('save',{title:byId('title').value,imageChoice:byId('imageChoice').value});}
 function mayDiscard(){return !dirty||confirm('저장하지 않은 편집 내용이 있습니다. 버리고 계속할까요?');}
-byId('create').onclick=()=>{if(!mayDiscard())return;act(async()=>{await mutate('create',{url:byId('newUrl').value.trim()});message('초안을 만들었습니다. 제목·이미지를 가져오는 중입니다…');await mutate('fetch');message('후보를 가져왔습니다. 제목·이미지를 검토하고 적용해 주세요.');});};
+byId('create').onclick=()=>{if(!mayDiscard())return;act(async()=>{await mutate('create',{url:byId('newUrl').value.trim()});message('초안을 만들었습니다. 제목·이미지를 가져오는 중입니다…');await mutate('fetch');message(isPending()?'수집을 요청했습니다. 완료되면 후보가 표시됩니다.':'후보를 가져왔습니다. 제목·이미지를 검토하고 적용해 주세요.');});};
 byId('reload').onclick=()=>{if(!mayDiscard())return;act(async()=>{const id=selected?.id;records=await rpc('list');selected=records.find(record=>record.id===id)||null;render();message('목록을 새로 불러왔습니다.');});};
 byId('articles').onchange=()=>{if(!mayDiscard()){byId('articles').value=selected?.id||'';return;}selected=records.find(record=>record.id===byId('articles').value)||null;render();message('');};
-byId('fetch').onclick=()=>act(async()=>{if(dirty)await save();await mutate('fetch');message('후보를 갱신했습니다. 편집값과 게시본은 유지됩니다.');});
-byId('fetchImage').onclick=()=>act(async()=>{const url=byId('imageUrl').value.trim();if(!url)throw new Error('이미지 URL을 입력해 주세요.');if(dirty)await save();await mutate('fetch',{url});message('이미지 후보를 가져왔습니다. 적용할 이미지를 선택해 주세요.');});
+byId('fetch').onclick=()=>act(async()=>{if(dirty)await save();await mutate('fetch');message(isPending()?'수집을 요청했습니다. 편집값과 게시본은 유지됩니다.':'후보를 갱신했습니다. 편집값과 게시본은 유지됩니다.');});
+byId('fetchImage').onclick=()=>act(async()=>{const url=byId('imageUrl').value.trim();if(!url)throw new Error('이미지 URL을 입력해 주세요.');if(dirty)await save();await mutate('fetch',{url});message(isPending()?'이미지 수집을 요청했습니다. 완료 후 후보를 적용해 주세요.':'이미지 후보를 가져왔습니다. 적용할 이미지를 선택해 주세요.');});
 byId('useTitle').onclick=()=>{if(!selected.candidateTitle){message('제목 후보가 없습니다. 직접 입력해 주세요.');return;}byId('title').value=selected.candidateTitle;dirty=true;preview();};
 byId('title').oninput=byId('imageChoice').onchange=()=>{dirty=true;preview();};
 byId('save').onclick=()=>act(async()=>{await save();message('편집본을 저장했습니다. 홈페이지 게시본은 유지됩니다.');});
-byId('publish').onclick=()=>act(async()=>{await save();await mutate('publish');message('게시했습니다. 홈페이지 연결 후 최신 3건에 표시됩니다.');});
+byId('publish').onclick=()=>act(async()=>{await save();await mutate('publish');message('게시했습니다. 홈페이지의 최신 3건에 반영됩니다.');});
 byId('hide').onclick=()=>act(async()=>{if(dirty)await save();await mutate('hide');message('홈페이지 공개 목록에서 숨겼습니다.');});
 byId('previewImage').onerror=()=>{byId('previewImage').hidden=true;byId('noImage').hidden=false;};
 act(async()=>{records=await rpc('list');render();message(records.length?'기사를 선택해 주세요.':'등록된 기사가 없습니다. URL로 초안을 만들어 주세요.');});
@@ -544,7 +754,18 @@ act(async()=>{records=await rpc('list');render();message(records.length?'기사�
     );
   }
   function newsList() {
-    return result(() => newsService(googleNewsPort()).list());
+    return result(() => {
+      const records = newsService(googleNewsPort()).list();
+      return isQueuedCollection() ? records.map(googleNewsCollection().view) : records;
+    });
+  }
+  function newsCollectionStatus(id) {
+    return result(() => {
+      authorizeNewsEditor();
+      if (typeof id !== "string" || !/^[0-9a-f-]{36}$/u.test(id) || !isQueuedCollection())
+        throw new Error("잘못된 요청");
+      return googleNewsCollection().status(id);
+    });
   }
   function newsMutate(value) {
     return result(() => {
@@ -556,8 +777,18 @@ act(async()=>{records=await rpc('list');render();message(records.length?'기사�
         (key) => !["action", "id", "etag", "url", "title", "imageChoice"].includes(key)
       ) || Object.values(input).some((entry) => typeof entry !== "string"))
         throw new Error("잘못된 요청");
-      return newsService(googleNewsPort()).execute(input);
+      if (isQueuedCollection() && input.action === "fetch")
+        return googleNewsCollection().enqueue(input);
+      const record = newsService(googleNewsPort()).execute(input);
+      return isQueuedCollection() ? googleNewsCollection().view(record) : record;
     });
+  }
+  function doPostNewsWorker(event) {
+    var _a, _b;
+    const raw = ((_b = (_a = event == null ? void 0 : event.postData) == null ? void 0 : _a.type) == null ? void 0 : _b.split(";")[0]) === "application/json" ? event.postData.contents : "";
+    return ContentService.createTextOutput(JSON.stringify(handleNewsWorker(raw))).setMimeType(
+      ContentService.MimeType.JSON
+    );
   }
   return __toCommonJS(entrypoint_exports);
 })();
@@ -565,4 +796,6 @@ function onOpenNews(value) { return NewsInsights.onOpenNews(value); }
 function showNewsSidebar(value) { return NewsInsights.showNewsSidebar(value); }
 function newsList(value) { return NewsInsights.newsList(value); }
 function newsMutate(value) { return NewsInsights.newsMutate(value); }
+function newsCollectionStatus(value) { return NewsInsights.newsCollectionStatus(value); }
 function onOpen(e) { return NewsInsights.onOpenNews(e); }
+function doPost(e) { return NewsInsights.doPostNewsWorker(e); }

@@ -1,6 +1,48 @@
 import { expect, test } from "./fixtures";
 import AxeBuilder from "@axe-core/playwright";
 
+test("전문가 이미지의 그림자가 크롭 프레임 위에서도 이어진다", async ({ page }) => {
+  await page.setViewportSize({ width: 1920, height: 1000 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/#strengths");
+
+  for (const asset of ["technology", "remote-consultation", "security"]) {
+    const image = page.locator(`#strengths img[src$="expert-${asset}.png"]`);
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate((element) => (element as HTMLImageElement).decode());
+    const frame = await image.evaluate((element) => {
+      const bounds = element
+        .closest("[data-landing-reveal-followup-target]")!
+        .getBoundingClientRect();
+      return { x: bounds.x, y: bounds.y, width: bounds.width };
+    });
+    // 클래스 이름 대신 프레임 바깥의 실제 픽셀을 확인해 부모 clip 회귀도 잡는다.
+    const strip = await page.screenshot({
+      clip: { x: frame.x + frame.width / 4, y: frame.y - 8, width: frame.width / 2, height: 6 },
+    });
+    const strongestBlue = await page.evaluate(async (base64) => {
+      const screenshot = new Image();
+      screenshot.src = `data:image/png;base64,${base64}`;
+      await screenshot.decode();
+      const canvas = document.createElement("canvas");
+      canvas.width = screenshot.width;
+      canvas.height = screenshot.height;
+      const context = canvas.getContext("2d")!;
+      context.drawImage(screenshot, 0, 0);
+      const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+      let difference = 0;
+      for (let index = 0; index < pixels.length; index += 4) {
+        difference = Math.max(difference, pixels[index + 2]! - pixels[index]!);
+      }
+      return difference;
+    }, strip.toString("base64"));
+    // 도입부 배경은 B-R=11, 나머지 흰 배경은 0이다. 그림자가 잘리면 이 값만 남는다.
+    expect(strongestBlue, `${asset}: 프레임 밖에 파란 그림자가 보여야 한다`).toBeGreaterThan(
+      asset === "technology" ? 14 : 3,
+    );
+  }
+});
+
 for (const width of [375, 768, 1280, 1920]) {
   test(`${width}px 개편 영역은 문구·이미지·조회 계약을 보존한다`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });

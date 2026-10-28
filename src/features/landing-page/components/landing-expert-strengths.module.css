@@ -2,6 +2,11 @@
   font-family: var(--font-noto-sans-kr), "Noto Sans KR", sans-serif;
 }
 
+/* 이미지 크롭 뒤 합성된 윤곽에 그림자를 적용해 프레임 밖 음영도 보존한다. */
+.artworkShadow {
+  filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
+}
+
 .introductionArtwork {
   position: absolute;
   top: -5.42%;
@@ -9,7 +14,6 @@
   width: 175.8%;
   max-width: none;
   height: 109.91%;
-  filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
 }
 
 .remoteConsultationArtwork {
@@ -19,7 +23,6 @@
   width: 112.51%;
   max-width: none;
   height: 131.58%;
-  filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
 }
 
 .automationArtwork {
@@ -28,7 +31,6 @@
   width: 100%;
   max-width: none;
   height: 100%;
-  filter: drop-shadow(4px 4px 30px rgb(126 161 255 / 30%));
 }
 
 .securityArtwork {
@@ -38,5 +40,4 @@
   width: 121.65%;
   max-width: none;
   height: 116.15%;
-  filter: drop-shadow(-4px -4px 30px rgb(126 161 255 / 30%));
 }

@@ -1,4 +1,5 @@
 import { authorizeNewsEditor, googleNewsPort } from "./google";
+import { googleNewsCollection, handleNewsWorker, isQueuedCollection } from "./google-collection";
 import { newsService, type NewsCommand } from "./service";
 import { SIDEBAR_HTML } from "./sidebar";
 
@@ -37,7 +38,19 @@ export function showNewsSidebar() {
 }
 /** 관리 목록은 매 호출마다 현재 문서와 명시 허용 계정을 검증한다. */
 export function newsList() {
-  return result(() => newsService(googleNewsPort()).list());
+  return result(() => {
+    const records = newsService(googleNewsPort()).list();
+    return isQueuedCollection() ? records.map(googleNewsCollection().view) : records;
+  });
+}
+/** 대기 중에는 이미지·관리 목록을 반복 전송하지 않고 선택한 기사의 작업 상태만 확인한다. */
+export function newsCollectionStatus(id: unknown) {
+  return result(() => {
+    authorizeNewsEditor();
+    if (typeof id !== "string" || !/^[0-9a-f-]{36}$/u.test(id) || !isQueuedCollection())
+      throw new Error("잘못된 요청");
+    return googleNewsCollection().status(id);
+  });
 }
 /** 클라이언트가 임의 메서드·셀 주소·게시 상태를 직접 기록할 수 없는 제한된 RPC다. */
 export function newsMutate(value: unknown) {
@@ -58,6 +71,18 @@ export function newsMutate(value: unknown) {
       Object.values(input).some((entry) => typeof entry !== "string")
     )
       throw new Error("잘못된 요청");
-    return newsService(googleNewsPort()).execute(input as NewsCommand);
+    if (isQueuedCollection() && input.action === "fetch")
+      return googleNewsCollection().enqueue(input as NewsCommand);
+    const record = newsService(googleNewsPort()).execute(input as NewsCommand);
+    return isQueuedCollection() ? googleNewsCollection().view(record) : record;
   });
+}
+
+/** 익명 배포에서도 HMAC 검증을 통과한 수집 작업만 허용한다. 관리·게시·임의 셀 쓰기는 없다. */
+export function doPostNewsWorker(event: GoogleAppsScript.Events.DoPost) {
+  const raw =
+    event?.postData?.type?.split(";")[0] === "application/json" ? event.postData.contents : "";
+  return ContentService.createTextOutput(JSON.stringify(handleNewsWorker(raw))).setMimeType(
+    ContentService.MimeType.JSON,
+  );
 }

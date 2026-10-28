@@ -1,7 +1,25 @@
 # 독립 뉴스 수집기
 
 기사 URL에서 제목·이미지를 가져오는 서버 간 경계다. CMS·Google 자격 증명을 사용하지 않는다.
-현재 로컬 구현·테스트 상태이며 호스팅·HTTPS·운영 계정·배포를 설정하지 않았다.
+상시 호스팅 없이 GitHub Actions의 일회성 작업자로 실행할 수 있다. 실제 운영 활성화 여부는
+[뉴스 운영 기록](../../docs/engineering/news-google-sheets.md)을 확인한다.
+
+## GitHub Actions 작업자
+
+`news-collection.yml`은 main에서만 예약/수동 실행하며 NEWS_COLLECTION_ENABLED가 true일 때만 호출한다.
+NEWS_WORKER_URL과 NEWS_WORKER_TOKEN은 Actions secrets로 주입한다. Google OAuth·Sheet 자격 증명은 없다.
+서명된 probe로 대기 여부만 확인한 뒤 작업이 있을 때만 고정 uv와 잠긴 의존성을 설치한다.
+probe/claim/complete만 허용하며 제목·이미지 후보를 반환하고 게시하지 않는다. 로그에는 원문·후보·비밀을 남기지 않는다.
+
+```powershell
+# 승인된 운영 연결에서만 실행한다. 기본 검사는 외부 요청을 하지 않는다.
+uv run python -m news_extractor.queue_worker
+```
+
+작업자 HTTP 응답은 8 KiB·25초, 고정 script.google.com HTTPS endpoint만 허용한다.
+Google 출력용 script.googleusercontent.com으로의 302/303은 본문·서명을 버리고 GET으로 읽는다.
+한 실행은 최대 3건이고 5분에 종료한다. 실제 기사 수집에는 아래의 동일한 DNS·시간·크기·이미지 검증을 적용한다.
+GitHub 예약은 지연/비활성화될 수 있으므로 즉시 결과가 필요한 서비스의 SLA로 사용하지 않는다.
 
 ## 실행
 

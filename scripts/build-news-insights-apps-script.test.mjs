@@ -7,13 +7,14 @@ import {
   buildNewsPublicBundle,
 } from "./build-news-insights-apps-script.mjs";
 
-test("뉴스 관리 artifact는 메뉴만 자동 연결하고 공개 GET·POST를 제공하지 않는다", async () => {
+test("뉴스 관리는 메뉴와 서명 작업자 POST만 연결하고 공개 GET·onEdit을 제공하지 않는다", async () => {
   const bundle = await buildNewsInsightsBundle();
   const context = vm.createContext({});
   vm.runInContext(bundle, context);
   for (const name of ["onOpenNews", "showNewsSidebar", "newsList", "newsMutate", "onOpen"])
     assert.equal(typeof context[name], "function");
-  for (const name of ["doPost", "doGet", "onEdit"]) assert.equal(context[name], undefined);
+  assert.equal(typeof context.doPost, "function");
+  for (const name of ["doGet", "onEdit"]) assert.equal(context[name], undefined);
   assert.doesNotMatch(bundle, /__require\(|require\(/u);
 });
 

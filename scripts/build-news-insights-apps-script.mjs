@@ -29,14 +29,15 @@ async function bundle(entry, globalName, wrappers) {
   return output;
 }
 
-/** 시트 관리 전용 artifact. 공개 웹 앱 진입점을 포함하지 않는다. */
+/** 시트 관리와 서명된 후보 수집 작업만 제공한다. 공개 뉴스 읽기는 별도 artifact다. */
 export function buildNewsInsightsBundle() {
   return bundle(
     resolve(root, "src/entrypoint.ts"),
     "NewsInsights",
-    ["onOpenNews", "showNewsSidebar", "newsList", "newsMutate"]
+    ["onOpenNews", "showNewsSidebar", "newsList", "newsMutate", "newsCollectionStatus"]
       .map((name) => `function ${name}(value) { return NewsInsights.${name}(value); }`)
-      .join("\n") + "\nfunction onOpen(e) { return NewsInsights.onOpenNews(e); }",
+      .join("\n") +
+      "\nfunction onOpen(e) { return NewsInsights.onOpenNews(e); }\nfunction doPost(e) { return NewsInsights.doPostNewsWorker(e); }",
   );
 }
 

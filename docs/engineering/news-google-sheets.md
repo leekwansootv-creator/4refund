@@ -60,12 +60,35 @@ A2:Q4에 세 기사와 검증된 JPEG를 초안으로 저장하고 51개 셀을 
 ```mermaid
 flowchart LR
   A[지정 Google 계정 / 시트 사이드바] --> B[뉴스 관리 초안]
-  A -->|인증된 서버 간 요청| C[독립 수집기]
+  A -->|인증된 수집 요청| Q[비공개 작업 대기열]
+  Q -->|HMAC claim| C[GitHub Actions / 독립 수집기]
   C -->|제목과 JPEG 후보| B
   B -->|명시적 게시| D[불변 뉴스 게시본]
   D -->|관리 행의 참조 전환| E[공개 4필드 / 최대 3건]
   E --> F[GitHub Pages 정적 홈페이지]
 ```
+
+### 2026-10-28 자동 수집 후속 구현
+
+별도 수집 호스팅을 마련할 수 없다는 사용자 답변 이후, 기존 저장소의 GitHub Actions가 Apps Script
+비공개 대기열을 읽는 방식으로 구현했다. 새 서비스 가입·상시 서버·유료 리소스는 만들지 않는다.
+이 절은 코드 계약이며, 실제 활성화·시트 동작 검증은 별도 운영 기록으로 구분한다.
+
+- 관리자의 URL 초안 생성/다시 가져오기가 큐에 등록된다. 방문자의 홈페이지 조회는 큐를 만들지 않는다.
+- 서명된 작업자는 최소 작업 정보(URL·imageOnly·작업 ID·임대 키)를 받고 결과 후보만 반환한다.
+- 후보 수집은 편집값·게시본·최초 게시일을 바꾸지 않는다. 수집 중 서버 편집이 바뀌면 etag 충돌로 후보를 버린다.
+- 사이드바는 대기·수집 중·완료·실패·편집 충돌을 표시한다. 조회 중 입력한 미저장 제목을 보존하고,
+  이미지 후보가 교체되면 다시 검토하도록 선택을 해제한다. 늦은 조회 응답은 이후 저장 결과를 덮지 않는다.
+- 작업 임대는 3분, 최대 2회이며 큐는 1시간 후 실패 처리한다. 자동 게시·무한 재시도는 하지 않는다.
+- HMAC SHA-256, ±5분 시각 창, 10분 nonce 보존으로 서명 재사용을 막는다. 인증 실패 응답은 고정 오류다.
+- 예약은 5분 간격이지만 지연 가능성이 있고, 저장소 60일 무활동 시 비활성화될 수 있다.
+  [GitHub 예약 정책](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)에 따라
+  수동 Run workflow와 실패 후 다시 가져오기 경로를 운영 안내에 포함한다.
+
+수집·관리 앱의 새 HTTP 연결과 공유 secret은 기존 읽기 전용 공개 앱과 별개다. 승인 후 관리 앱 웹 배포와
+GitHub Actions secrets/활성화 변수를 설정한다. 롤백은 활성화 변수 false와 작업자 배포 중지이며
+기존 공개 피드·게시본·스키마를 변경하거나 지우지 않는다. 상세 설정은
+[관리 앱 README](../../integrations/google-apps-script/news-insights/README.md#대기열-연결-순서)를 따른다.
 
 URL로 초안을 만든 뒤 제목·이미지 후보를 가져온다. 실패해도 초안은 남고 재시도할 수 있다.
 후보 제목 채택, 직접 제목 입력, 다른 대표 이미지 URL 수집, 이미지 제거, 카드 미리보기를 지원한다.
@@ -95,8 +118,8 @@ ScriptLock과 행 전체 SHA-256 etag로 동시 편집을 검사한다. 외부 �
 
 ## 수집 경계
 
-[독립 수집기](../../services/news-extractor/README.md)는 Sheet/CMS 자격 증명 없이 인증된
-POST /extract만 처리한다. 공개 HTTP(S) 기본 포트, 모든 DNS 응답의 공개 주소 여부, IP 소켓 고정,
+[독립 수집기](../../services/news-extractor/README.md)는 Sheet/CMS 자격 증명 없이 실행한다.
+기존 개발용 POST /extract와 일회성 큐 작업자가 같은 수집 함수를 사용한다. 공개 HTTP(S) 기본 포트, 모든 DNS 응답의 공개 주소 여부, IP 소켓 고정,
 원래 호스트의 TLS 인증, 매 리다이렉트 재검증을 적용한다. 사설·로컬·메타데이터·IPv4 매핑/전환 주소를
 차단한다. 환경 프록시와 외부 인증은 전달하지 않는다.
 
@@ -107,7 +130,8 @@ JPEG/PNG/WebP 단일 프레임, 1,200만 화소 이하만 디코드하고 최대
 
 [UrlFetchApp](https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app)은 DNS에
 소켓을 고정하거나 스트리밍 크기를 제한하는 API가 없다. 따라서 임의 기사 URL을 직접 요청하지 않고,
-운영자가 설정한 고정 HTTPS 수집 엔드포인트만 호출한다. 이 호출도 리다이렉트를 따라가지 않는다.
+기존 직접 수집 모드에서만 운영자가 설정한 고정 HTTPS 수집 엔드포인트를 호출한다. 이 호출도 리다이렉트를 따라가지 않는다.
+대기열 모드에서는 Apps Script가 기사 서버를 호출하지 않고 GitHub 작업자가 수집한다.
 수집 엔드포인트의 신뢰성과 HTTPS는 운영 설정 조건이다.
 
 ## 권한과 공개 공급
@@ -125,15 +149,15 @@ Google 호스트·JSON·384 KiB 응답·8초 제한·필드 allowlist를 검사�
 
 ## 운영 유지와 남은 검증
 
-1. 수집기를 실행할 기존 호스트·HTTPS 주소·운영 담당자를 정한다. 로컬 127.0.0.1 서비스는 Google에서
-   접근할 수 없다. 이번에 외부 호스팅을 만들지 않는다.
+1. 대기열 모드의 관리 앱 웹 배포와 GitHub Actions secret 연결을 검증한다. 로컬 127.0.0.1 서비스는 Google에서
+   접근할 수 없다. 상시 호스팅을 만들지 않는다.
 2. 신규 뉴스 전용 bound 프로젝트는 관리 bundle의 onOpen wrapper로 메뉴를 연다. 기존 bound script가
    있는 다른 환경에 설치할 때는 먼저 충돌을 확인한다. 기존 신청 파일·manifest·배포를 덮어쓰지 않는다.
 3. 공개 읽기는 별도의 `news-public` bundle과 고급 Sheets API를 유지한다. 기존 신청 doPost는 복사하지 않고
    NEWS_SPREADSHEET_ID만 설정한다. OAuth는 spreadsheets.readonly이며 관리 계정·수집 토큰·쓰기 코드를 넣지 않는다.
    ScriptLock은 프로젝트별이지만 게시본이 불변이고 참조가 마지막에 바뀌므로 미완료 게시본은 선택하지 않는다.
-4. 이후 OAuth 확장과 익명 공개 범위 변경도 실행 시 확인한다. 관리 앱은 웹 앱으로 배포하지 않는다.
-   공개 앱만 소유자 실행·익명 GET을 사용한다. GitHub Actions의 NEWS_PUBLIC_API_URL 변수를
+4. 이후 OAuth 확장과 익명 공개 범위 변경도 실행 시 확인한다. 관리 앱의 익명 POST는 HMAC 후보 큐만 제공하며
+   관리 RPC에는 기존 계정 인증을 유지한다. 별도 공개 앱은 소유자 실행·익명 GET을 사용한다. GitHub Actions의 NEWS_PUBLIC_API_URL 변수를
    홈페이지 빌드의 NEXT_PUBLIC_NEWS_API_URL로 전달하며 실제 URL은 Git에 기록하지 않는다.
 5. 지정 계정의 실제 사이드바 수정·숨김·재게시와 운영 수집 호출은 추가 검증한다. 셀 문자열 저장,
    공개 GET·CORS·이미지는 위 범위만 확인했으며 Google 쿼터·운영 수집 서비스는 검증되지 않았다.

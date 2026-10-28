@@ -1111,12 +1111,24 @@ var QuickEstimateWebApp = (() => {
   function isNotificationRecipient(value) {
     return value.length <= 254 && /^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/u.test(value);
   }
+  function parseNotificationRecipients(value) {
+    if (value.length > 1024 || /[\r\n]/u.test(value)) return null;
+    const recipients = value.split(",").map((recipient) => recipient.trim());
+    if (recipients.length > 2 || !recipients.every(isNotificationRecipient)) return null;
+    const seen = /* @__PURE__ */ new Set();
+    return recipients.filter((recipient) => {
+      const key = recipient.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
   function inspectOperatorSettings(getProperty) {
-    var _a, _b, _c, _d;
+    var _a, _b, _c;
     const assignee = (_b = (_a = getProperty(DEFAULT_ASSIGNEE_PROPERTY)) == null ? void 0 : _a.trim()) != null ? _b : "";
-    const recipient = (_d = (_c = getProperty(NOTIFICATION_RECIPIENT_PROPERTY)) == null ? void 0 : _c.trim()) != null ? _d : "";
+    const recipient = (_c = getProperty(NOTIFICATION_RECIPIENT_PROPERTY)) != null ? _c : "";
     const defaultAssignee = !assignee ? "missing" : validateConsultationAssignee(assignee).ok ? "configured" : "invalid";
-    const notificationRecipient = !recipient ? "missing" : isNotificationRecipient(recipient) ? "configured" : "invalid";
+    const notificationRecipient = !recipient.trim() ? "missing" : parseNotificationRecipients(recipient) ? "configured" : "invalid";
     return {
       ready: defaultAssignee === "configured" && notificationRecipient === "configured",
       defaultAssignee,
@@ -1154,12 +1166,14 @@ var QuickEstimateWebApp = (() => {
   function createAppsScriptConsultationNotifier(dependencies) {
     return {
       send: (message) => {
-        var _a, _b;
-        const recipient = (_b = (_a = dependencies.getProperty(NOTIFICATION_RECIPIENT_PROPERTY)) == null ? void 0 : _a.trim()) != null ? _b : "";
-        if (!isNotificationRecipient(recipient)) {
+        var _a;
+        const recipients = parseNotificationRecipients(
+          (_a = dependencies.getProperty(NOTIFICATION_RECIPIENT_PROPERTY)) != null ? _a : ""
+        );
+        if (recipients === null) {
           throw new Error("notification_recipient_not_configured");
         }
-        dependencies.sendEmail(recipient, message);
+        dependencies.sendEmail(recipients.join(","), message);
       },
       recordFailure: (failure2) => {
         const current = parseFailureState(dependencies.getProperty(NOTIFICATION_FAILURE_PROPERTY));

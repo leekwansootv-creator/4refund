@@ -62,7 +62,7 @@ npm run check:apps-script
 2. Project Settings에서 `Show "appsscript.json" manifest file in editor`를 켠다.
 3. 저장소의 `appsscript.json` 내용으로 편집기의 manifest를 교체한다.
 4. 저장소의 생성된 `Code.gs` 내용으로 편집기의 스크립트 파일을 교체한다.
-5. Project Settings의 Script Properties에 `QUICK_ESTIMATE_DEFAULT_ASSIGNEE`(담당자 이름)와 `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`(알림 이메일 한 주소)를 입력한다. `checkQuickEstimateOperatorSettings`로 형식 검사를 확인한다. 두 값은 나중에 입력할 수 있으며 미입력 상태에서 setup은 쓰기·트리거 설치 전에 중단한다. [나중에 입력하는 방법](../../../docs/operations/quick-estimate-activation.md)을 따른다.
+5. Project Settings의 Script Properties에 `QUICK_ESTIMATE_DEFAULT_ASSIGNEE`(담당자 이름)와 `QUICK_ESTIMATE_NOTIFICATION_RECIPIENT`(쉼표로 구분한 알림 이메일 최대 두 주소)를 입력한다. `checkQuickEstimateOperatorSettings`로 형식 검사를 확인한다. 두 값은 나중에 입력할 수 있으며 미입력 상태에서 setup은 쓰기·트리거 설치 전에 중단한다. [나중에 입력하는 방법](../../../docs/operations/quick-estimate-activation.md)을 따른다.
 6. 함수 목록에서 `setupQuickEstimateStorage`를 선택해 한 번 실행하고 Sheet, 메일 발송과 설치형 trigger 권한을 승인한다.
 7. 반환값에서 `consultationEditTriggerCreated`, `consultationOperationsCheckTriggerCreated`를 확인하고 반환된 URL로 Sheet를 연다. 기존 설정을 갱신한 경우 `created`는 `false`가 정상이다. 반환된 ID와 URL은 저장소나 PR에 남기지 않는다.
 8. Sheet가 첫 번째 `상담 목록`, `leads`, `codebook` 세 탭을 가지는지 확인한다.

@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test("루트 첫 section은 간단 견적 hero와 한 벌의 환급 사례를 조합한다", async ({ page }) => {
   await page.goto("/");

@@ -1,5 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 test("랜딩 페이지에는 WCAG A/AA 자동 검사 위반이 없다", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });

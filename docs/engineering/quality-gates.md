@@ -10,19 +10,30 @@ npm run check
 
 실행 순서는 다음과 같다.
 
-| 순서 | 명령                         | 실패 조건                                               |
-| ---- | ---------------------------- | ------------------------------------------------------- |
-| 1    | `npm run format:check`       | Prettier 결과와 파일이 다름                             |
-| 2    | `npm run lint`               | Next.js, React, TypeScript, 주석 lint 오류 또는 warning |
-| 3    | `npm run typecheck`          | route type 생성 또는 TypeScript 오류                    |
-| 4    | `npm run check:architecture` | 폴더, 이름, 의존성, 실행 환경 경계 위반                 |
-| 5    | `npm run check:comments`     | 추적되지 않는 TODO/FIXME/XXX                            |
-| 6    | `npm run check:apps-script`  | Apps Script 원본과 배포 artifact가 다름                 |
-| 7    | `npm test`                   | 검사 도구와 UI 단위·컴포넌트 회귀 테스트 실패           |
-| 8    | `npm run build:e2e`          | Next.js 프로덕션 빌드 실패                              |
-| 9    | `npm run test:e2e:run`       | 브라우저 사용자 흐름 또는 자동 접근성 검사 실패         |
+| 순서 | 명령                           | 실패 조건                                               |
+| ---- | ------------------------------ | ------------------------------------------------------- |
+| 1    | `npm run format:check`         | Prettier 결과와 파일이 다름                             |
+| 2    | `npm run lint`                 | Next.js, React, TypeScript, 주석 lint 오류 또는 warning |
+| 3    | `npm run typecheck`            | route type 생성 또는 TypeScript 오류                    |
+| 4    | `npm run check:architecture`   | 폴더, 이름, 의존성, 실행 환경 경계 위반                 |
+| 5    | `npm run check:comments`       | 추적되지 않는 TODO/FIXME/XXX                            |
+| 6    | `npm run check:apps-script`    | Apps Script 원본과 배포 artifact가 다름                 |
+| 7    | `npm run check:news-extractor` | 독립 Python 수집기의 lint·포맷·보안/HTTP 테스트 실패    |
+| 8    | `npm test`                     | 검사 도구와 UI 단위·컴포넌트 회귀 테스트 실패           |
+| 9    | `npm run build:e2e`            | Next.js 프로덕션 빌드 실패                              |
+| 10   | `npm run test:e2e:run`         | 브라우저 사용자 흐름 또는 자동 접근성 검사 실패         |
 
 검사 순서를 건너뛰기 위해 `next.config.ts`에서 TypeScript 또는 ESLint 오류를 무시하지 않는다.
+
+뉴스 수집기는 Python 3.13.16과 uv 0.13.4를 사용한다. 로컬 PATH에 uv를 준비하며
+`check:news-extractor`는 `services/news-extractor/uv.lock`을 `--locked`로 동기화하고 Ruff·pytest를
+실행한다. Python 테스트도 전체 `npm run check`에 포함하며 누락된 runtime을 조용히 건너뛰지 않는다.
+GitHub Quality와 수동 Embed release의 검증 단계 모두 같은 uv 버전을 설치한다.
+이번 작업에서는 workflow 파일만 수정했고 원격 workflow·배포는 실행하지 않았다.
+
+일반 뉴스 E2E는 `NEWS-E2E-INTERCEPT-ONLY`의 모의 피드를 사용한다. 공용 fixture가 GET을 가로채며
+기존 전체 요청 handler는 `route.fallback()`으로 넘겨 모의 피드를 건너뛰지 않는다.
+실제 기사·Google 게시·CORS 검증과 모의 응답의 카드 상태 검증을 구분한다.
 
 일반 검사 빌드는 `scripts/build-e2e.mjs`가 `NEXT_PUBLIC_QUICK_ESTIMATE_APPS_SCRIPT_URL`을 테스트 전용 식별자의 `https://script.google.com/macros/s/E2E-INTERCEPT-ONLY/exec`로 주입한다. 따라서 로컬 운영 설정 유무와 관계없이 일반 E2E가 모든 POST를 가로채 조회/신청 경계를 검증한다. `QUICK_ESTIMATE_LIVE_E2E=1`로 명시한 별도 실제 저장 검사만 승인된 환경 설정을 사용한다. `npm run build`와 운영 배포의 endpoint 필수·형식 검사는 유지한다.
 
@@ -37,6 +48,7 @@ npm run check:architecture
 npm run check:comments
 npm run build:apps-script
 npm run check:apps-script
+npm run check:news-extractor
 npm test
 npm run test:unit
 npm run test:e2e

@@ -99,3 +99,20 @@ test("다른 feature의 내부 경로 대신 공개 진입점만 허용한다", 
     assert.ok(errors.some((error) => error.includes("공개 진입점")));
   });
 });
+
+test("독립 뉴스 수집기의 구조를 허용하고 src에서 runtime 직접 참조를 거절한다", () => {
+  withFixture((root) => {
+    writeFixture(root, "services/news-extractor/pyproject.toml", "");
+    writeFixture(root, "services/news-extractor/news_extractor/server.py", "");
+    assert.deepEqual(checkArchitecture(root), []);
+    writeFixture(root, "services/unapproved/server.py", "");
+    writeFixture(
+      root,
+      "src/shared/lib/extractor.ts",
+      'import "../../../services/news-extractor/news_extractor/server.py";',
+    );
+    const errors = checkArchitecture(root);
+    assert.ok(errors.some((error) => error.includes("승인된 독립 서비스")));
+    assert.ok(errors.some((error) => error.includes("별도 services runtime")));
+  });
+});

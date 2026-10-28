@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 import AxeBuilder from "@axe-core/playwright";
 
 for (const width of [375, 768, 1280, 1920]) {
@@ -13,7 +13,7 @@ for (const width of [375, 768, 1280, 1920]) {
         posts.push(route.request().url());
         return route.abort();
       }
-      return route.continue();
+      return route.fallback();
     });
     await page.goto("/");
     await page.evaluate(() => document.fonts.ready);
@@ -53,7 +53,7 @@ for (const width of [375, 768, 1280, 1920]) {
     ).toBeVisible();
     await expect(page.getByText("특허 출원 중", { exact: true })).toBeVisible();
     await expect(page.locator("footer")).toContainText("© 2026 포리펀.");
-    // 공개 공급자가 연결되기 전에는 시안의 예시 기사를 게시하지 않는다.
+    // 공개 피드 0건이면 시안의 예시 기사나 빈 영역을 게시하지 않는다.
     await expect(page.locator("#news")).toHaveCount(0);
     await expect(page.getByText("성공 보수형 수수료", { exact: true })).toHaveCount(0);
     for (const image of await page.locator("#about img, #strengths img").all()) {

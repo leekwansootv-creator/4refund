@@ -6,3 +6,8 @@ public
 package-lock.json
 next-env.d.ts
 integrations/google-apps-script/quick-estimate/Code.gs
+integrations/google-apps-script/news-insights/Code.gs
+integrations/google-apps-script/news-public/Code.gs
+services/news-extractor/.venv
+services/news-extractor/.pytest_cache
+services/news-extractor/.ruff_cache

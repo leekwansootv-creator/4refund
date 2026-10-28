@@ -287,6 +287,13 @@ function checkImportBoundaries(sourceRoot, errors) {
 
       const targetRelativePath = relative(sourceRoot, targetPath);
 
+      if (toPosixPath(relative(dirname(sourceRoot), targetPath)).startsWith("services/")) {
+        errors.push(
+          `${toPosixPath(sourceRelativePath)}: src는 별도 services runtime을 import할 수 없습니다.`,
+        );
+        continue;
+      }
+
       if (targetRelativePath.startsWith("..") || targetRelativePath === "") {
         continue;
       }
@@ -448,8 +455,44 @@ export function checkArchitecture(
   checkImportBoundaries(sourceRoot, errors);
   checkRuntimeBoundaries(sourceRoot, errors);
   checkIntegrationDirectory(projectRoot, sourceRoot, errors);
+  checkServiceDirectory(projectRoot, errors);
 
   return errors;
+}
+
+/** 승인된 독립 Python 서비스 구조만 허용하고 로컬 가상환경·캐시는 순회하지 않는다. */
+function checkServiceDirectory(projectRoot, errors) {
+  const root = join(projectRoot, "services");
+  if (!existsSync(root)) return;
+  const files = new Set([
+    "README.md",
+    "pyproject.toml",
+    "uv.lock",
+    ".python-version",
+    ".gitignore",
+  ]);
+  const directories = new Set([
+    "news_extractor",
+    "tests",
+    ".venv",
+    ".pytest_cache",
+    ".ruff_cache",
+    "__pycache__",
+  ]);
+  for (const entry of readdirSync(root, { withFileTypes: true })) {
+    if (!entry.isDirectory() || entry.name !== "news-extractor") {
+      errors.push(`services/${entry.name}: 승인된 독립 서비스는 news-extractor뿐입니다.`);
+      continue;
+    }
+    for (const child of readdirSync(join(root, entry.name), { withFileTypes: true })) {
+      if (
+        child.isDirectory()
+          ? !directories.has(child.name)
+          : !files.has(child.name) && !child.name.startsWith(".env")
+      )
+        errors.push(`services/news-extractor/${child.name}: 합의되지 않은 서비스 구조입니다.`);
+    }
+  }
 }
 
 const currentFile = fileURLToPath(import.meta.url);

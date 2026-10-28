@@ -43,5 +43,10 @@ jobs:
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
 
+      - name: Install pinned Python dependency runner
+        run: python3 -m pip install uv==0.13.4
+
       - name: Run quality gate
+        env:
+          QUICK_ESTIMATE_LIVE_E2E: "0"
         run: npm run check
